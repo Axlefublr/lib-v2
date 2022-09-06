@@ -25,7 +25,7 @@ Class Paths {
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
-   static AhkPlusPlusExtension := this.VsCodeExtensions "\thqby.vscode-autohotkey2-lsp-1.5.9"
+   static AhkPlusPlusExtension := this.VsCodeExtensions "\thqby.vscode-autohotkey2-lsp-1.6.0"
 
    static Ptf := Map(
       "Main", this.Main "\Backups\main.code-workspace",

@@ -1,5 +1,5 @@
-#Include <Win> ;https://github.com/Axlefublr/main/blob/main/Lib/Win.ahk
-#Include <Gui> ;https://github.com/Axlefublr/main/blob/main/Lib/Gui.ahk
+#Include <Win>
+#Include <Gui>
 
 ;Another alternative to outputdebug
 Info(text, disappear := true) {
