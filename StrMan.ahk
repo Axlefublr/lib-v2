@@ -8,7 +8,9 @@ str_FormatTableToArray() {
    return '"' formatted '"' ;adding the missing "" at the first and last index
 }
 
-str_RemoveComments := ClipSend.Bind(RegexReplace(str_GetSelection(), 'm)(\s;.*)|(^;.*)', ""), "")
+str_RemoveLineComments() {
+   return RegexReplace(str_GetSelection(), 'm)(\s;.*)|(^;.*)')
+}
 
 str_GetSelection_Length() => str_GetSelection().Length
 
