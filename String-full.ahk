@@ -34,8 +34,7 @@ str_FormatSelection(formatting) {
    ClipSend(selection, "")
 }
 
-str_ConvertToJson(IndentDepth := 10, TabLength := 3) {
-   text := str_GetSelection()
+str_ConvertToJsonSnippet(text, IndentDepth := 10, TabLength := 3) {
    text := RegexReplace(text, '(["\\])', "\$1")
    text := RegexReplace(text, "(\r?\n)", '",$1')
 
