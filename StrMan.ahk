@@ -5,7 +5,7 @@
 ;Takes multiline text and turns every line into a key in an array
 str_FormatTableToArray() {
    formatted := StrReplace(str_GetSelection(), "`r`n", '", "')	;replacing every newline with ", "
-   ClipSend('"' formatted '"', "")	;adding the missing "" at the first and last index
+   return '"' formatted '"' ;adding the missing "" at the first and last index
 }
 
 str_RemoveComments := ClipSend.Bind(RegexReplace(str_GetSelection(), 'm)(\s;.*)|(^;.*)', ""), "")
