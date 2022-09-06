@@ -54,26 +54,25 @@ str_ConvertToJson(IndentDepth := 10, TabLength := 3) {
 }
 
 str_RemoveExtraJsonIndentation(toParse) {
-   Text := {}
-   Text.Full := toParse
-   Text.Lines := StrSplit(Text.Full, "`n")
-   for key, value in Text.Lines {
+   text_full := toParse
+   text_lines := StrSplit(text_full, "`n")
+   for key, value in text_lines {
       RegexMatch(value, '^[\t ]*"((\\t)+)', &MatchedTabs)
 
       if key = 1 {
          try {
-            Text.ExtraTabs := StrReplace(MatchedTabs[1], "\t", "\\t")
+            text_extraTabs := StrReplace(MatchedTabs[1], "\t", "\\t")
          } catch
-            return Text.Full
+            return text_full
       }
 
-      Text.Lines[key] := RegexReplace(value, '^(\s*")' . Text.ExtraTabs, "$1")
+      text_lines[key] := RegexReplace(value, '^(\s*")' text_extraTabs, "$1")
    }
 
-   Text.Full := ""
-   for key, value in Text.Lines {
-      Text.Full .= value "`n"
+   text_full := ""
+   for key, value in text_lines {
+      text_full .= value "`n"
    }
 
-   return Text.Full
+   return text_full
 }
