@@ -8,7 +8,7 @@
 #Include <Win>
 #Include <Eval>
 #Include <Json>
-#Include <StrMan>
+#Include <String-full>
 #Include <Tools>
 #Include <App>
 #Include <Other>
