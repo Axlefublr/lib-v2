@@ -3,6 +3,10 @@
 Linker(linkName) {
    static Links := Map(
 
+      ;Saved
+      "github client", "https://github.com/cli/cli",
+      "gh repo create", "https://cli.github.com/manual/gh_repo_create",
+
       ;Social
       "reddit", "https://www.reddit.com/notifications",
       "twitch", "https://www.twitch.tv/directory/following",
