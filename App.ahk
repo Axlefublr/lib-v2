@@ -251,15 +251,13 @@ vscode_RunCurrentFile := Send.Bind("+!o")
 
 vscode_KillTerminal := Send.Bind("^!o")
 
-vscode_Debug := Send.Bind("^+9")
+vscode_Debug := Send.Bind("+!9")
 
 vscode_CloseAllTabs := Send.Bind("+!w")
 
 vscode_DeleteLine := Send.Bind("+{Delete}")
 
 vscode_Reload := Send.Bind("+!y")
-
-vscode_FoldCodeBlock := Send.Bind("{Click}^l")
 
 vscode_CloseTab := Send.Bind("!w")
 
@@ -301,40 +299,6 @@ vscode_WorkSpace(wkspName) {
    vscode_CloseAllTabs()
    win_Close("ahk_exe Code.exe")
    Run(Paths.Ptf[wkspName], , "Max")
-}
-
-vscode_toCommitMessage(changeNotes_rawFile) {
-   if !changeNotes_rawFile
-      return ""
-
-   /*
-      Making it easy to work with regex
-      Why I'm not using ^ and $ and instead am using workarounds: I get the text as a string, and even though it has newlines and the like, it's still considered to only have one start of the line
-      I know going step by step is inefficient, but this improves mantainability and stability, since if I take care of things one at a time, I won't be able to miss anything. It's so fast that I can't notice anyway. I'd rather be able to change things more easily
-    */
-
-   changeNotes := StrReplace(changeNotes_rawFile, "`t", " ")	;Replacing tabs with spaces
-   changeNotes := StrReplace(changeNotes, "`r`n", "`n")	;Removing the annoying \r (returns), to not have to care about them in the regex
-   changeNotes := RegexReplace(changeNotes, " *\n", "`n")	;Removing all trailing whitespace
-   changeNotes := RegexReplace(changeNotes, " {2,}", " ")	;Only one space instead of potentially many (inline)
-   changeNotes := RegexReplace(changeNotes, "\n{3,}", "`n`n")	;Only two newlines instead of potentially many
-
-   changeNotes := RegexReplace(changeNotes, "\n#+ ", "`n")	;I can use the # character as normal, unless it's at the start and with a space, meaning is a md label
-   changeNotes := RegexReplace(changeNotes, "\n>+ ", "`n")
-   changeNotes := RegexReplace(changeNotes, "^#+ ")	;The first label won"t have a newline before it and it is also the beginning of the text, so that's why we can use ^
-   changeNotes := RegexReplace(changeNotes, "^>+ ")
-
-   changeNotes := RegexReplace(changeNotes, ":\n+\* ", ": ")	;When a line ends with :, it"s a marker for a list
-   changeNotes := StrReplace(changeNotes, "`n* ", ", ")	;All the following items in the list will have commas between them, even if I forget a :, there will just be commas between all of them
-
-   changeNotes := RegexReplace(changeNotes, "(?<![.:!?])\n\n", ". ")	;Double newlines are connected by a dot
-   changeNotes := StrReplace(changeNotes, "`n`n", " ")	;If I added the dot myself, we just replace those two newlines with a space
-   changeNotes := StrReplace(changeNotes, "`n", " ")	;On the off-chance I missed something, or something broke
-
-   changeNotes := StrReplace(changeNotes, '"', "'")	;double quotes are not allowed in cmd, or rather they will cause trouble
-   changeNotes := StrReplace(changeNotes, "\\", "\")
-
-   return changeNotes
 }
 
 vscode_CleanText() {
@@ -399,32 +363,12 @@ term_DeleteWord := Send.Bind("^w")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-git_CommitRepo(changeNote_file, repo_path, andPush := true) {
-
-   commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
-
-   program := [
-      'cd "" repo_path ""',
-      "git add .",
-      'git commit -m "" commitMessage ""',
-   ]
-
-   if andPush {
-      program.Push("pause")
-      program.Push("git push")
-   }
-
-   RunSpec(program, , andPush)
-   WriteFile(changeNote_file)
-   Out(commitMessage)
-}
-
 /**
  * Specify a file path and get the github link for it
  * @param path {str} Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
  * @returns {str} the github link
  */
- git_Link(path) {
+git_Link(path) {
    static github := Linker("ghm") ;Specify you github link (https://github.com/yourNickname/)
    static fileBlob := "/blob/main/" ;The part between the name of the repo and the other file path is different depending on whether it's a file or a folder
    static folderBlob := "/tree/main/"
