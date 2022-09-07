@@ -79,8 +79,6 @@ spotify_GetCurrSong() {
    return currSong
 }
 
-spotify_GetCurrSong_ToClip() => A_Clipboard := spotify_GetCurrSong()
-
 spotify_NewDiscovery() {
    currSong := spotify_GetCurrSong()
    if !currSong {
@@ -516,14 +514,14 @@ git_CommitRepo(changeNote_file, repo_path, andPush := true) {
 }
 
 git_InstallAhkLibrary(link) {
-   static standardLibLocation := Paths.Lib "\"
+   static libFolder := Paths.Lib "\"
    link := StrReplace(link, "https://github.com/")
    link := StrReplace(link, "blob/",,,, 1)
    file_html := GetHtml("https://raw.githubusercontent.com/" link)
    RegExMatch(link, "\/([^.\/]+\.\w+)$", &match)
    newFile := match[1]
-   WriteFile(standardLibLocation newFile, file_html)
-   Info(newFile " library installed in: " standardLibLocation)
+   WriteFile(libFolder newFile, file_html)
+   Info(newFile " library installed in: " libFolder)
 }
 
 ;SHOW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

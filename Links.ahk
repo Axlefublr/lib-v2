@@ -79,8 +79,8 @@ Linker(linkName) {
       "ghm", "https://github.com/Axlefublr/",
 
       "lib v2 extension", "https://github.com/thqby/vscode-autohotkey2-lsp",
+      "lib string methods", "https://github.com/Cerberus-tm/Auxilium/blob/main/SyntaxSugar.ahk",
       "libf import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
-
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       ;My tutorials

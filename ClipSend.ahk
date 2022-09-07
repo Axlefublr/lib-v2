@@ -1,7 +1,7 @@
 ;No dependencies
 
 ;A faster send. Sending stuff can take too long, but if you copy and paste it, it's much faster. Retains your clipboard as well
-ClipSend(toSend, endChar := " ", isClipReverted := true, untilRevert := 100) {
+ClipSend(toSend, endChar := "", isClipReverted := true, untilRevert := 100) {
    /*
       Because there's no way to know whether an application has received the input we sent it with ^v
       We revert the clipboard after a certain time (untilRevert)
