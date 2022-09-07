@@ -81,18 +81,6 @@ Linker(linkName) {
       "lib v2 extension", "https://github.com/thqby/vscode-autohotkey2-lsp",
       "libf import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
 
-      "fold lib", "https://github.com/Axlefublr/Main/tree/main/Lib",
-
-      "file scr runner", "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Runner.ahk",
-      "file scr mouse",  "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Mouse.ahk",
-      "file scr keys",   "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Keys.ahk",
-      "file scr app",    "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20App.ahk",
-      "file scr win",    "https://github.com/Axlefublr/Main/blob/main/Main/Scr%20Win.ahk",
-
-      "file global", "https://github.com/Axlefublr/Main/blob/main/Lib/Global.ahk",
-      "file tools",  "https://github.com/Axlefublr/Main/blob/main/Lib/Tools.ahk",
-      "file app",    "https://github.com/Axlefublr/Main/blob/main/Lib/App.ahk",
-
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
       ;My tutorials
