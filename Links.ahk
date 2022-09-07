@@ -75,6 +75,7 @@ Linker(linkName) {
       "yaneda",    "https://eda.yandex.ru/krasnoyarsk?shippingType=delivery",
       "mvideo",    "https://www.mvideo.ru/",
       "zakazaka",  "https://zaka-zaka.com/",
+      "ggsel",     "https://ggsel.com/",
       "barber",    "https://b73723.yclients.com/company/89170/",
 
       ;Github

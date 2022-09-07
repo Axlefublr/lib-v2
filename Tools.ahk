@@ -29,7 +29,6 @@ tool_KeyCodeGetter() {
       Hotkey("Escape", "Off")
       Hotkey("Enter", "Off")
       values_hwnd := false
-      g_values.Destroy()
 
       if !used
          return
@@ -50,28 +49,28 @@ tool_KeyCodeGetter() {
       g_values_input.value := ""
 
       key_name := GetKeyName(input)
-      key_SC := GetKeySC(input)
-      key_VK := GetKeyVK(input)
+      key_SC   := GetKeySC(input)
+      key_VK   := GetKeyVK(input)
 
       key_SC := "sc" Format("{:x}", key_SC) ;getkey sc/vk returns a base 10 value, when both of those are actually base 16. This makes absolutely no fucking sense. So, we use format to format a base 10 integer into a base 16 int for both of them
       key_VK := "vk" Format("{:x}", key_VK)
 
       g_values_name.Text := key_name
-      g_values_SC.Text := key_SC
-      g_values_VK.Text := key_VK
+      g_values_SC.Text   := key_SC
+      g_values_VK.Text   := key_VK
 
       HotIfWinActive("ahk_id " values_hwnd) ;If a hotkey to call this function is under a #HotIf, the hotkeys created in this functions will be affected by that. So, we have to specify that they should have no condition.
       Hotkey("1", toClip.Bind(g_values_name.text), "On")
-      Hotkey("2", toClip.Bind(g_values_SC.text), "On")
-      Hotkey("3", toClip.Bind(g_values_VK.text), "On")
+      Hotkey("2", toClip.Bind(g_values_SC.text  ), "On")
+      Hotkey("3", toClip.Bind(g_values_VK.text  ), "On")
 
       g_values_name.OnEvent("Click", toClip.Bind(g_values_name.text))
-      g_values_SC.OnEvent("Click", toClip.Bind(g_values_SC.text))
-      g_values_VK.OnEvent("Click", toClip.Bind(g_values_VK.text))
+      g_values_SC.OnEvent("Click",   toClip.Bind(g_values_SC.text))
+      g_values_VK.OnEvent("Click",   toClip.Bind(g_values_VK.text))
    }
 
    HotIfWinActive("ahk_id " values_hwnd)
-   Hotkey("Enter", Submit, "On")
+   Hotkey("Enter" , Submit     , "On")
    Hotkey("Escape", Destruction, "On")
    g_values.OnEvent("Close", Destruction)
 
