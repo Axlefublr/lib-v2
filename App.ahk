@@ -399,69 +399,6 @@ term_DeleteWord := Send.Bind("^w")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-wksp_FoldersInWorkSpace() {
-   workspace_folders := JSON.parse(ReadFile(Paths.Ptf["Main"]))
-   inWksp := []
-   for key, value in workspace_folders["folders"] {
-      inWksp.Push(StrReplace(workspace_folders["folders"][key]["path"], Paths.Prog "\"))
-   }
-   return inWksp
-}
-
-wksp_FoldersInWorkSpace_Show() {
-   inWksp := wksp_FoldersInWorkSpace()
-   for key, value in inWksp {
-      Infos(value)
-   }
-}
-
-wksp_FoldersInProg() {
-   inWskp := wksp_FoldersInWorkSpace()
-   loop files Paths.Prog "\*", "D" {
-      if A_LoopFileName = ".pytest_cache"
-         continue
-      for key, value in inWskp {
-         if A_LoopFileName = value
-            continue 2
-      }
-      Infos(StrReplace(A_LoopFileFullPath, Paths.Prog "\"))
-   }
-}
-
-wksp_AddFolderToWorkspace(newFolder) {
-   newFolderValue := Paths.Prog "\" newFolder
-   if !DirExist(newFolderValue) {
-      DirCreate(newFolderValue)
-   }
-   inWksp := wksp_FoldersInWorkSpace()
-   for key, value in inWksp {
-      if newFolder = value {
-         Info("Folder is already in the workspace")
-         return
-      }
-   }
-   workspace_folders := JSON.parse(ReadFile(Paths.Ptf["Main"]))
-   workspace_folders["folders"].Push({path: newFolderValue})
-   WriteFile(Paths.Ptf["Main"], JSON.stringify(workspace_folders))
-   Info(newFolder " added to workspace")
-}
-
-wksp_RemoveFolderFromWorkSpace(index) {
-   workspace_folders := JSON.parse(ReadFile(Paths.Ptf["Main"]))
-   try workspace_folders["folders"].RemoveAt(index)
-   catch Any {
-      Info("No such index")
-      return
-   }
-   WriteFile(Paths.Ptf["Main"], JSON.stringify(workspace_folders))
-   wksp_FoldersInWorkSpace_Show()
-}
-
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 git_CommitRepo(changeNote_file, repo_path, andPush := true) {
 
    commitMessage := vscode_toCommitMessage(ReadFile(changeNote_file))
