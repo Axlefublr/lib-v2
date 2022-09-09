@@ -1,10 +1,12 @@
-﻿Googler(searchRequest) {
+﻿#Include <Win>
+
+Googler(searchRequest) {
    searchRequest := StrReplace(searchRequest, "+", "%2B")
    searchRequest := StrReplace(searchRequest, " ", "+")
    RunLink("https://www.google.com/search?q=" searchRequest)
 }
 
-CloseButForSure() {
+CloseButActually() {
    Switch {
       Case WinActive("ahk_exe Spotify.exe"): spotify_Close()
       Case WinActive("ahk_exe steam.exe"):

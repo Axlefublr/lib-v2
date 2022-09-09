@@ -83,6 +83,7 @@ Class Paths {
 
       "Shell Menu View",   A_ProgramFiles "\Shell Menu View\shmnview.exe",
       "Terminal",          A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe",
+      "DS4 Windows",       A_ProgramFiles "\DS4Windows\DS4Windows.exe",
 
       "Google Chrome",     A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
       "Monkeytype",        A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",

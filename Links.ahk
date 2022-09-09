@@ -84,7 +84,12 @@ Linker(linkName) {
       "ghm", "https://github.com/Axlefublr/",
 
       "lib v2 extension", "https://github.com/thqby/vscode-autohotkey2-lsp",
-      "lib string methods", "https://github.com/Cerberus-tm/Auxilium/blob/main/SyntaxSugar.ahk",
+      "pull v2 extension", "https://github.com/Axlefublr/vscode-autohotkey2-lsp",
+
+      "lib descolada", "https://github.com/Descolada/AHK-v2-libraries",
+      "libf descolada", "https://github.com/Descolada/AHK-v2-libraries/blob/main/Lib/String.ahk",
+      "pull descolada", "https://github.com/Axlefublr/AHK-v2-libraries",
+
       "libf import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
       ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

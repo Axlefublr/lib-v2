@@ -13,7 +13,7 @@ str_GetSelection(keepClip := true, shouldCutInstead := false) {
    if keepClip
       prevClip := ClipboardAll()
    A_Clipboard := ""
-   Send("^" shouldCutInstead ? "x" : "c")
+   Send("^" (shouldCutInstead ? "x" : "c"))
    ClipWait(3, 1)
    selection := A_Clipboard
    if keepClip
