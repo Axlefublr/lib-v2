@@ -41,6 +41,7 @@ Class Paths {
       "youtube logo",       this.Main "\Files\Images\youtube logo.png",
       "diary",              this.Main "\Files\Images\diary.png",
       "selected diary",     this.Main "\Files\Images\selected diary.png",
+      "github",             this.Main "\Files\Images\github.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
       "Shows",     this.Main "\Files\Innit\Shows.jsonc",

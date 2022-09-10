@@ -336,6 +336,10 @@ vscode_CleanText() {
       The video script:
    )' "`n`n" clean_compact
 
+   while description.Length >= 5000 {
+      description := description.Delete(-1, 10)
+   }
+
    WriteFile(Paths.Ptf["Clean"], clean)
    WriteFile(Paths.Ptf["Description"], description)
    Info("Text cleaned")
@@ -405,6 +409,16 @@ git_InstallAhkLibrary(link) {
    newFile := match[1]
    WriteFile(libFolder newFile, file_html)
    Info(newFile " library installed in: " libFolder)
+}
+
+;GITHUB~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+github_Profile() {
+   ControlClick("x1825 y134")
+   WaitClick(Paths.Ptf["github"])
 }
 
 ;SHOW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -542,3 +556,6 @@ screenshot_Window := ClickThenGoBack.Bind("959 6")
 screenshot_Fullscreen := ClickThenGoBack.Bind("1019 6")
 
 explorer_Rename := Send.Bind("{F2}")
+
+
+#Include <Global>
