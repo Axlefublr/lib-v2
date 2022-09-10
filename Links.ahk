@@ -95,6 +95,8 @@ Linker(linkName) {
 
       ;My tutorials
       "my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
+      "my second channel",   "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
+
       "startup",             "https://youtu.be/vjQIbagvkcs",
       "arrow",               "https://youtu.be/nSTL3KND25c",
       "v2 setup",            "https://youtu.be/TSvp6ktqo1Q",
