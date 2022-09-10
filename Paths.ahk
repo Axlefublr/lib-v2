@@ -75,6 +75,7 @@ Class Paths {
 
    static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
    static System32 := "C:\Windows\System32"
+   static OBSFolder := A_ProgramFiles "\obs-studio\bin\64bit"
 
    static Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
@@ -84,6 +85,7 @@ Class Paths {
       "Shell Menu View",   A_ProgramFiles "\Shell Menu View\shmnview.exe",
       "Terminal",          A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe",
       "DS4 Windows",       A_ProgramFiles "\DS4Windows\DS4Windows.exe",
+      "OBS",               A_ProgramFiles "\obs-studio\bin\64bit\obs64.exe",
 
       "Google Chrome",     A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
       "Monkeytype",        A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",

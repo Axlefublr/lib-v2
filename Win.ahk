@@ -29,10 +29,10 @@ win_MinMax(winTitle) {
    return true
 }
 
-win_Run(winTitle, exePath, runOpt?, winTitleAdditional?) {
+win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?) {
    if WinExist(winTitle)
       return false
-   Run(exePath, , runOpt ?? "Max")
+   Run(exePath, startIn ?? "", runOpt ?? "Max")
    WinWait(winTitle, , 120)
    if winTitleAdditional ?? false {
       WinWait(winTitleAdditional, , 120)
@@ -41,7 +41,7 @@ win_Run(winTitle, exePath, runOpt?, winTitleAdditional?) {
    return true
 }
 
-win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?) {
-   win_Run(winTitle, exePath, runOpt?, winTitleAdditional?)
+win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?) {
+   win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?)
    win_Activate(winTitle)
 }
