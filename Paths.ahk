@@ -62,6 +62,7 @@ Class Paths {
 
       "FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
       "Thumbnail preset", this.Pictures "\Editing\Tools\Thumbnail preset.xcf",
+      "Thumbnail preset down", this.Pictures "\Editing\Tools\Thumbnail preset down.xcf",
 
       "VsCode\settings",     A_AppData "\Code\User\settings.json",
       "VsCode\ahk snippets", A_AppData "\Code\User\snippets\ahk.json",
@@ -70,7 +71,6 @@ Class Paths {
       "Ahk++\package",       this.AhkPlusPlusExtension "\package.json",
       "Ahk++\configuration", this.AhkPlusPlusExtension "\ahk2.configuration.json",
       "Ahk++\tmlanguage",    this.AhkPlusPlusExtension "\syntaxes\ahk2.tmLanguage.json",
-
    )
 
    static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"

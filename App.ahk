@@ -322,6 +322,8 @@ vscode_CleanText() {
 
    description := description_manual "`n`n" '
    (
+      My second channel: https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw
+
       Learn about autohotkey v2 in the documentation: https://lexikos.github.io/v2/docs/AutoHotkey.htm
       IDE used in the video: https://code.visualstudio.com/
 
