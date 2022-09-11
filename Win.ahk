@@ -16,7 +16,7 @@ win_Minimize(winTitle := "A") {
    try PostMessage("0x112", "0xF020", , , winTitle)
 }
 
-win_Activate(winTitle) => (WinActivate(winTitle), WinWaitActive(winTitle))
+win_Activate(winTitle, exception?) => (WinActivate(winTitle,, exception ?? ""), WinWaitActive(winTitle,, exception ?? ""))
 
 win_MinMax(winTitle) {
    if !WinExist(winTitle)
@@ -29,11 +29,11 @@ win_MinMax(winTitle) {
    return true
 }
 
-win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?) {
+win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
    if WinExist(winTitle)
       return false
    Run(exePath, startIn ?? "", runOpt ?? "Max")
-   WinWait(winTitle, , 120)
+   WinWait(winTitle, , 120, exception ?? "")
    if winTitleAdditional ?? false {
       WinWait(winTitleAdditional, , 120)
       win_Close(winTitleAdditional)
@@ -41,7 +41,7 @@ win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?) {
    return true
 }
 
-win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?) {
-   win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?)
-   win_Activate(winTitle)
+win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
+   win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?)
+   win_Activate(winTitle, exception?)
 }

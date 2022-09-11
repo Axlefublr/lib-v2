@@ -79,9 +79,9 @@ GetDayFromWeekDay(weekDay) {
 }
 
 MainApps() {
-   win_Run("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
-   win_Run("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
-   win_Run("ahk_group Terminal", Paths.Apps["Terminal"])
-   win_Run("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
-   win_Run("Discord ahk_exe Discord.exe", Paths.Apps["Discord"])
+   win_RunAct("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
+   win_RunAct("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
+   win_RunAct("ahk_group Terminal", Paths.Apps["Terminal"])
+   win_RunAct("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
+   win_RunAct("Discord ahk_exe Discord.exe", Paths.Apps["Discord"],,,, "Updater")
 }
