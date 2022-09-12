@@ -227,7 +227,7 @@ discord_Emoji := Send.Bind("^e")
 
 discord_Gif := Send.Bind("^g")
 
-discord_Reply := CtrlClick
+discord_Reply() => CtrlClick()
 
 discord_React() {
    ImageSearch(&reactX, &reactY, 1730, 88, 1820, 995, Paths.Ptf["react"])

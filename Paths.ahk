@@ -3,7 +3,7 @@
 Class Paths {
 
    static Prog := "C:\Programming"
-   static Main := "C:\Programming\Main"
+   static Main := "C:\Programming\main"
    static Lib  := "C:\Programming\lib-v2"
 
    static Backups   := this.Main "\Backups"
@@ -36,19 +36,14 @@ Class Paths {
       "Artists",       this.Main "\Docs\Music\Artists.md",
 
       "react",              this.Main "\Files\Images\react.png",
-      "Kristi",             this.Main "\Files\Images\Kristi.png",
       "switch account ytt", this.Main "\Files\Images\switch account ytt.png",
       "youtube logo",       this.Main "\Files\Images\youtube logo.png",
-      "diary",              this.Main "\Files\Images\diary.png",
-      "selected diary",     this.Main "\Files\Images\selected diary.png",
       "github",             this.Main "\Files\Images\github.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
       "Shows",     this.Main "\Files\Innit\Shows.jsonc",
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
-
-      "Change notes", this.Main "\Notes\Change notes.md",
 
       "Raw",         this.Main "\Notes temp\Raw.md",
       "Clean",       this.Main "\Notes temp\Clean.md",
@@ -59,15 +54,10 @@ Class Paths {
       "AhkTest",  this.Main "\Test\AhkTest.ahk",
 
       "Timer.ahk",       this.Main "\Tools\Timer.ahk",
-      "Symlink creator", this.Main "\Tools\Symlink creator.ahk",
 
       "FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
       "Thumbnail preset", this.Pictures "\Editing\Tools\Thumbnail preset.xcf",
       "Thumbnail preset down", this.Pictures "\Editing\Tools\Thumbnail preset down.xcf",
-
-      "VsCode\settings",     A_AppData "\Code\User\settings.json",
-      "VsCode\ahk snippets", A_AppData "\Code\User\snippets\ahk.json",
-      "VsCode\keybindings",  A_AppData "\Code\User\keybindings.json",
 
       "Ahk++\package",       this.AhkPlusPlusExtension "\package.json",
       "Ahk++\configuration", this.AhkPlusPlusExtension "\ahk2.configuration.json",
@@ -101,7 +91,6 @@ Class Paths {
       "FL",                "C:\Programs\FL Studio 20\FL64.exe",
       "Steam",             "C:\Programs\Steam\steam.exe",
 
-      "Viber",             this.LocalAppData "\Viber\Viber.exe",
       "VS Code",           this.LocalAppData "\Programs\Microsoft VS Code\Code.exe",
       "WPS",               this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
       "Discord",           this.LocalAppData "\Discord\app-1.0.9006\Discord.exe",
