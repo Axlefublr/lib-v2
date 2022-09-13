@@ -162,9 +162,9 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    return true
 }
 
-SystemReboot := Shutdown.Bind(2)
+SystemReboot() => Shutdown(2)
 
-SystemPowerDown := Shutdown.Bind(1)
+SystemPowerDown() => Shutdown(1)
 
 GetDateAndTime() => FormatTime(, "yy.MM.dd HH:mm")
 

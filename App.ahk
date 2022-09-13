@@ -22,24 +22,24 @@ chrome_CopyLink() => (
    Copy()
 )
 
-chrome_CloseAllTabs := Send.Bind("+!w")
+chrome_CloseAllTabs() => Send("+!w")
 
 ;SPOTIFY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-spotify_Like := Send.Bind("+!b")
+spotify_Like() => Send("+!b")
 
-spotify_Shuffle := Send.Bind("^s")
+spotify_Shuffle() => Send("^s")
 
-spotify_SkipNext := Send.Bind("^{Right}")
+spotify_SkipNext() => Send("^{Right}")
 
-spotify_SkipPrev := Send.Bind("^{Left}")
+spotify_SkipPrev() => Send("^{Left}")
 
-spotify_LikedPlaylist := Send.Bind("+!s")
+spotify_LikedPlaylist() => Send("+!s")
 
-spotify_Close := Send.Bind("^+q")
+spotify_Close() => Send("^+q")
 
 spotify_Discovery() {
    static isStarted := false
@@ -146,9 +146,9 @@ spotify_FavRapper_Manual(artistName) {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-youtube_SkipNext := Send.Bind("+n")
+youtube_SkipNext() => Send("+n")
 
-youtube_SkipPrev := Send.Bind("+p")
+youtube_SkipPrev() => Send("+p")
 
 youtube_Seek(direction) {
    Switch direction {
@@ -161,7 +161,7 @@ youtube_Fullscreen() => (LanguageEng(), Send("f"))
 
 youtube_Miniscreen() => (LanguageEng(), Send("i"))
 
-youtube_MiniscreenClose := ControlClick.Bind("X1858 Y665")
+youtube_MiniscreenClose() => ControlClick("X1858 Y665")
 
 youtube_ChannelSwitch() => (
    ControlClick("X1823 Y133"),
@@ -188,20 +188,20 @@ youtube_isNotWatchingVid() => WinActive("Watch later ahk_exe chrome.exe")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-vk_Notifications := ControlClick.Bind("X788 Y126")
+vk_Notifications() => ControlClick("X788 Y126")
 
-vk_Voice := ControlClick.Bind("X1757 Y1014")
+vk_Voice() => ControlClick("X1757 Y1014")
 
-vk_Scroll := ControlClick.Bind("X1750 Y903")
+vk_Scroll() => ControlClick("X1750 Y903")
 
 ;TELEGRAM~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-telegram_Voice := ClickThenGoBack_Event.Bind("1452 1052")
+telegram_Voice() => ClickThenGoBack_Event("1452 1052")
 
-telegram_Scroll := ControlClick.Bind("X1434 Y964")
+telegram_Scroll() => ControlClick("X1434 Y964")
 
 telegram_Channel(channelToFind) => (
    ControlClick("X456 Y74"),
@@ -223,9 +223,9 @@ telegram_Diary() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-discord_Emoji := Send.Bind("^e")
+discord_Emoji() => Send("^e")
 
-discord_Gif := Send.Bind("^g")
+discord_Gif() => Send("^g")
 
 discord_Reply() => CtrlClick()
 
@@ -234,36 +234,36 @@ discord_React() {
    try ControlClick("X" reactX " Y" reactY, "ahk_exe Discord.exe")
 }
 
-discord_DeleteMessage := Send.Bind("{Delete Down}{Click}{Delete Up}")
+discord_DeleteMessage() => Send("{Delete Down}{Click}{Delete Up}")
 
 ;VSCODE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-vscode_IndentRight := Send.Bind("^!{Right}")
+vscode_IndentRight() => Send("^!{Right}")
 
-vscode_IndentLeft := Send.Bind("^!{Left}")
+vscode_IndentLeft() => Send("^!{Left}")
 
-vscode_Comment := Send.Bind("#{End}")
+vscode_Comment() => Send("#{End}")
 
-vscode_RunCurrentFile := Send.Bind("+!o")
+vscode_RunCurrentFile() => Send("+!o")
 
-vscode_KillTerminal := Send.Bind("^!o")
+vscode_KillTerminal() => Send("^!o")
 
-vscode_Debug := Send.Bind("+!9")
+vscode_Debug() => Send("+!9")
 
-vscode_CloseAllTabs := Send.Bind("+!w")
+vscode_CloseAllTabs() => Send("+!w")
 
-vscode_DeleteLine := Send.Bind("+{Delete}")
+vscode_DeleteLine() => Send("+{Delete}")
 
-vscode_Reload := Send.Bind("+!y")
+vscode_Reload() => Send("+!y")
 
-vscode_CloseTab := Send.Bind("!w")
+vscode_CloseTab() => Send("!w")
 
-vscode_CursorBack := Send.Bind("!{PgUp}")
+vscode_CursorBack() => Send("!{PgUp}")
 
-vscode_CursorForward := Send.Bind("!{PgDn}")
+vscode_CursorForward() => Send("!{PgDn}")
 
 vscode_GetCurrentFileFullPath(keepClip := true) {
    if keepClip
@@ -362,7 +362,7 @@ vscode_VideoUp() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-term_DeleteWord := Send.Bind("^w")
+term_DeleteWord() => Send("^w")
 
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -549,10 +549,10 @@ davinci_Insert() {
    Send("{Enter}")
 }
 
-screenshot_Rectangle := ClickThenGoBack.Bind("839 6")
+screenshot_Rectangle() => ClickThenGoBack("839 6")
 
-screenshot_Window := ClickThenGoBack.Bind("959 6")
+screenshot_Window() => ClickThenGoBack("959 6")
 
-screenshot_Fullscreen := ClickThenGoBack.Bind("1019 6")
+screenshot_Fullscreen() => ClickThenGoBack("1019 6")
 
-explorer_Rename := Send.Bind("{F2}")
+explorer_Rename() => Send("{F2}")
