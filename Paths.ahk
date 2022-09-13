@@ -4,7 +4,7 @@ Class Paths {
 
    static Prog := "C:\Programming"
    static Main := "C:\Programming\main"
-   static Lib  := "C:\Programming\lib-v2"
+   static Lib  := A_MyDocuments "\AutoHotkey\Lib"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
