@@ -1,5 +1,11 @@
 ﻿#Include C:\Programming\lib-v2\
 #Include Win.ahk
+#Include Global.ahk
+#Include App.ahk
+#Include Char.ahk
+#Include Eval.ahk
+#Include Info.ahk
+#Include Paths.ahk
 
 Googler(searchRequest) {
    searchRequest := StrReplace(searchRequest, "+", "%2B")

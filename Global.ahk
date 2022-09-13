@@ -1,4 +1,6 @@
-﻿ClickThenGoBack(coordinates) {
+﻿;No dependencies
+
+ClickThenGoBack(coordinates) {
    MouseGetPos(&initX, &initY)
    Click(coordinates)
    MouseMove(initX, initY)

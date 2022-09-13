@@ -372,11 +372,11 @@ tool_CoordGetter() {
 tool_WindowGetter() {
 
    ;Getting the current window's info
-   winTitle := WinGetTitle("A")
+   winTitle   := WinGetTitle("A")
    winExePath := WinGetProcessPath("A")
-   winExe := WinGetProcessName("A")
-   winID := WinGetID("A")
-   winPID := WinGetPID("A")
+   winExe     := WinGetProcessName("A")
+   winID      := WinGetID("A")
+   winPID     := WinGetPID("A")
 
    ;Gui creation
    g_WinGet := Gui(, "WindowGetter")

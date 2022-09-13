@@ -1,3 +1,5 @@
+;No dependencies
+
 CreateSymlink(source, destination, isDir := false) => (
    isDir := isDir ? "/D" : "",
    RunSpec('mklink ' isDir ' "' destination '" "' source '"', true)
