@@ -1,24 +1,40 @@
 ﻿;No dependencies
 
+/**
+ * Clicks with "Click", then moves the mouse to its initial position
+ * @param coordinates "123 123" format
+ */
 ClickThenGoBack(coordinates) {
    MouseGetPos(&initX, &initY)
    Click(coordinates)
    MouseMove(initX, initY)
 }
 
-;Clicks as an event for extra fucky things
+/**
+ * Clicks by SendEventing the click, then moves the mouse to its initial position
+ * @param coordinates "123 123" format
+ */
 ClickThenGoBack_Event(coordinates) {
    MouseGetPos(&initX, &initY)
    SendEvent("{Click " coordinates "}")
    MouseMove(initX, initY)
 }
 
+/**
+ * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
+ */
 RunLink(link) => (
    Run(link),
    WinWait("Google Chrome ahk_exe chrome.exe"),
    WinActivate("Google Chrome ahk_exe chrome.exe")
 )
 
+/**
+ * Keeps searching for an image until it finds it
+ * @param imageFile The path to the image
+ * @param coordObj An optional object with x1,y1,x2,y2 properties to search for the image in
+ * @returns an array with found X and Y coordinates
+ */
 WaitUntilImage(imageFile, coordObj?) {
    var := 0
    if !IsSet(coordObj) {
@@ -35,11 +51,18 @@ WaitUntilImage(imageFile, coordObj?) {
    return [imgX, imgY]
 }
 
+/**
+ * Searches for an image until it finds it, and then controlclicks on it
+ */
 WaitClick(imageFile) => (
    coords := WaitUntilImage(imageFile),
    ControlClick("X" coords[1] " Y" coords[2], "A")
 )
 
+/**
+ * Change the transparency of the current window
+ * @param whatCrement Specify a negative integer to increase transparency (lower number => lower visibility)
+ */
 TransAndProud(whatCrement) {
    howTrans := WinGetTransparent("A")
 
@@ -56,52 +79,11 @@ TransAndProud(whatCrement) {
    try WinSetTransparent(etgServer, "A")
 }
 
+/**
+ * Make the current window completely untransparent
+ */
 Cis() {
    try WinSetTransparent(255, "A")
-}
-
-GetTooltipIndex() {
-   static tooltipIndex := 0
-   tooltipIndex++
-   if tooltipIndex >= 20
-      tooltipIndex := 1
-   return tooltipIndex
-}
-
-ToolPeek(text, timeout := 1, x := "", y := "") {
-   tooltipIndex := GetTooltipIndex()
-   if !x && !y
-      MouseGetPos(&x, &y)
-   ToolTip(text, x, y, tooltipIndex)
-   SetTimer(ToolTip.Bind(, , , tooltipIndex), -timeout * 1000)
-}
-
-ToolStay(text, winTitle?, x := 0, y := 0) {
-   static tooltipsAtOneTime := 0
-   tooltipIndex := GetTooltipIndex()
-   winTitle := winTitle ?? WinGetID("A")
-
-   if !x && !y {
-      y := tooltipsAtOneTime * 25
-   }
-
-   ToolTip(text, x, y, tooltipIndex)
-
-   tooltipsAtOneTime++
-
-   _winTitle_NotActive() {
-      if WinActive(winTitle)
-         return
-
-      ToolTip(, , , tooltipIndex)
-      SetTimer(, 0)
-      tooltipsAtOneTime--
-   }
-
-   SetTimer(_winTitle_NotActive, 100)
-   /*
-      We can't use WinWaitNotActive here because it occupies the thread, blocking the next toolstay that might come while still using the first one. If we check the winTitle activity with a settimer, we can use as many ToolStays as we want and they will all disappear once the window is inactive.
-    */
 }
 
 WriteFile(whichFile, text := "") => (
