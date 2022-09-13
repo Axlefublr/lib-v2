@@ -207,7 +207,7 @@ GetHtml(link) {
 }
 
 GetWeather() {
-   if !weather_html := GetHtml(Linker("weather"))
+   if !weather_html := GetHtml(Links["weather"])
       return "null"
 
    RegExMatch(weather_html, "Текущая температура (-?\d+.)", &temp_match)

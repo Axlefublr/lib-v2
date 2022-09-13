@@ -375,7 +375,7 @@ term_DeleteWord := Send.Bind("^w")
  * @returns {str} the github link
  */
 git_Link(path) {
-   static github := Linker("ghm") ;Specify you github link (https://github.com/yourNickname/)
+   static github := Links["ghm"] ;Specify you github link (https://github.com/yourNickname/)
    static fileBlob := "/blob/main/" ;The part between the name of the repo and the other file path is different depending on whether it's a file or a folder
    static folderBlob := "/tree/main/"
 
