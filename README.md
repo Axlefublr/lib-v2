@@ -13,7 +13,7 @@ Not because I'm a fiend for stealing, but because it's simply easier for me to m
 The libraries will generally list all of their dependencies at the top by
 
 ```
-#Include <this-library>
+#Include this-library.ahk
 ```
 
 All the libraries I use will be in this repository, so you can *technically* use any / all of my / not my libraries

@@ -1,4 +1,5 @@
-﻿#Include <Win>
+﻿#Include C:\Programming\lib-v2\
+#Include Win.ahk
 
 Googler(searchRequest) {
    searchRequest := StrReplace(searchRequest, "+", "%2B")

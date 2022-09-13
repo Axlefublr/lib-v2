@@ -1,5 +1,6 @@
-﻿#Include <ClipSend>
-#Include <Info>
+﻿#Include C:\Programming\lib-v2\
+#Include ClipSend.ahk
+#Include Info.ahk
 
 ;Takes multiline text and turns every line into a key in an array
 str_FormatTableToArray() {

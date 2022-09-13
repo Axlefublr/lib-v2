@@ -1,4 +1,18 @@
-﻿;CHROME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+﻿#Include C:\Programming\lib-v2\
+#Include Press.ahk
+#Include Base.ahk
+#Include Global.ahk
+#Include Win.ahk
+#Include Win-full.ahk
+#Include ClipSend.ahk
+#Include Paths.ahk
+#Include String.ahk
+#Include String-full.ahk
+#Include Info.ahk
+#Include Json.ahk
+#Include Sort.ahk
+
+;CHROME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -556,6 +570,3 @@ screenshot_Window := ClickThenGoBack.Bind("959 6")
 screenshot_Fullscreen := ClickThenGoBack.Bind("1019 6")
 
 explorer_Rename := Send.Bind("{F2}")
-
-
-#Include <Global>

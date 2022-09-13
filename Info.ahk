@@ -1,5 +1,6 @@
-#Include <Win>
-#Include <Gui>
+#Include C:\Programming\lib-v2\
+#Include Win.ahk
+#Include Gui.ahk
 
 ;Another alternative to outputdebug
 Info(text, disappear := true) {
