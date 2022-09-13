@@ -115,19 +115,6 @@ spotify_NewRapper(name) {
    TrayTip(name " yet to be discovered! 📃")
 }
 
-spotify_SendTrackToKristi() {
-   currSong := spotify_GetCurrSong()
-   if !currSong {
-      TrayTip("No track is playing")
-      return
-   }
-   win_RunAct("Telegram", Paths.Apps["Telegram"])
-   telegram_Channel("кристина")
-   WaitUntilImage(Paths.Ptf["Kristi"])
-   ClipSend(currSong)
-   Send("{Enter}")
-}
-
 spotify_Context() => (
    ControlClick("X22 Y1015", "ahk_exe Spotify.exe", , "R"),
    Send("{Up 2}")
