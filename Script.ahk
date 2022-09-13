@@ -1,7 +1,6 @@
-﻿#Include C:\Programming\lib-v2\
-#Include Global.ahk
-#Include Paths.ahk
-#Include Info.ahk
+﻿#Include <Global>
+#Include <Paths>
+#Include <Info>
 
 ;Reloads the script
 scr_Reload() => Run(A_ScriptFullPath)

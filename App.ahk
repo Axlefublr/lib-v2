@@ -1,16 +1,15 @@
-﻿#Include C:\Programming\lib-v2\
-#Include Press.ahk
-#Include Base.ahk
-#Include Global.ahk
-#Include Win.ahk
-#Include Win-full.ahk
-#Include ClipSend.ahk
-#Include Paths.ahk
-#Include String.ahk
-#Include String-full.ahk
-#Include Info.ahk
-#Include Json.ahk
-#Include Sort.ahk
+﻿#Include <Press>
+#Include <Base>
+#Include <Global>
+#Include <Win>
+#Include <Win-full>
+#Include <ClipSend>
+#Include <Paths>
+#Include <String>
+#Include <String-full>
+#Include <Info>
+#Include <Json>
+#Include <Sort>
 
 ;CHROME~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

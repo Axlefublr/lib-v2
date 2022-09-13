@@ -1,5 +1,4 @@
-#Include C:\Programming\lib-v2\
-#Include Json.ahk
+#Include <Json>
 print(i) {
     switch (o := '', Type(i)) {
     case 'Map', 'Array', 'Object':

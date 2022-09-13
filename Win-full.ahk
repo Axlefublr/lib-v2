@@ -1,5 +1,4 @@
-﻿#Include C:\Programming\lib-v2\
-#Include Win.ahk
+﻿#Include <Win>
 
 win_RunAct_Folders(folderPath, runOpt?) {
    winTitle := folderPath " ahk_exe explorer.exe"

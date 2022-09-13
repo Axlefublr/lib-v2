@@ -1,8 +1,7 @@
-﻿#Include C:\Programming\lib-v2\
-#Include Global.ahk
-#Include Win.ahk
-#Include Gui.ahk
-#Include Info.ahk
+﻿#Include <Global>
+#Include <Win>
+#Include <Gui>
+#Include <Info>
 
 tool_KeyCodeGetter() {
 
