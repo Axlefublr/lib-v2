@@ -233,3 +233,22 @@ GetWeather() {
 
    return temp " " wind " " wetness " " atmosphere
 }
+
+/**
+ * Converts a decimal integer into its hex / unicode / 16-base counterpart
+ * @param num
+ * @returns int
+ */
+TransfToHex(num) => Format("0x{:x}", num)
+
+/**
+ * In decimals, the unicode characters for numbers are 48-57, 65-90 for uppercase characters and 97-122 for lowercase characters.
+ * @returns an integer that fits at least one of those ranges
+ */
+GetWordDigitInt() {
+   num := 0
+   loop {
+      num := Random(48, 122)
+   } until (num >= 48 && num <= 57) || (num >= 65 && num <= 90) || (num >= 97 && num <= 122)
+   return num
+}
