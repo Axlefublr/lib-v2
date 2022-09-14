@@ -2,13 +2,13 @@
 
 Class Paths {
 
-   static Prog := "C:\Programming"
-   static Main := "C:\Programming\main"
-   static Lib  := A_MyDocuments "\AutoHotkey\Lib"
+   static Prog  := "C:\Programming"
+   static Main  := "C:\Programming\main"
+   static Lib   := A_MyDocuments "\AutoHotkey\Lib"
+   static Music := "C:\Programming\music"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
-   static Music     := this.Main "\Docs\Music"
    static Files     := this.Main "\Files"
    static Images    := this.Main "\Files\Images"
    static Sounds    := this.Main "\Files\Sounds"
@@ -30,11 +30,6 @@ Class Paths {
    static Ptf := Map(
       "Main", this.Main "\Backups\main.code-workspace",
 
-      "Discovery log", this.Main "\Docs\Music\Discovery log.txt",
-      "Unfinished",    this.Main "\Docs\Music\Unfinished.txt",
-      "Rappers",       this.Main "\Docs\Music\Rappers.txt",
-      "Artists",       this.Main "\Docs\Music\Artists.md",
-
       "react",              this.Main "\Files\Images\react.png",
       "switch account ytt", this.Main "\Files\Images\switch account ytt.png",
       "youtube logo",       this.Main "\Files\Images\youtube logo.png",
@@ -54,6 +49,13 @@ Class Paths {
       "AhkTest",  this.Main "\Test\AhkTest.ahk",
 
       "Timer.ahk",       this.Main "\Tools\Timer.ahk",
+
+
+      "Discovery log", this.Music "\Discovery log.txt",
+      "Unfinished",    this.Music "\Unfinished.txt",
+      "Rappers",       this.Music "\Rappers.txt",
+      "Artists",       this.Music "\Artists.md",
+
 
       "FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
       "Thumbnail preset", this.Pictures "\Editing\Tools\Thumbnail preset.xcf",
