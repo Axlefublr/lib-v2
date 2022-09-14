@@ -6,6 +6,7 @@ Class Paths {
    static Main  := "C:\Programming\main"
    static Lib   := A_MyDocuments "\AutoHotkey\Lib"
    static Music := "C:\Programming\music"
+   static Shows := "C:\Programming\shows"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
@@ -36,7 +37,6 @@ Class Paths {
       "github",             this.Main "\Files\Images\github.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
-      "Shows",     this.Main "\Files\Innit\Shows.jsonc",
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
@@ -48,13 +48,16 @@ Class Paths {
 
       "AhkTest",  this.Main "\Test\AhkTest.ahk",
 
-      "Timer.ahk",       this.Main "\Tools\Timer.ahk",
+      "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
 
       "Discovery log", this.Music "\Discovery log.txt",
       "Unfinished",    this.Music "\Unfinished.txt",
       "Rappers",       this.Music "\Rappers.txt",
       "Artists",       this.Music "\Artists.md",
+
+
+      "Shows", this.Shows "\Shows.jsonc",
 
 
       "FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
