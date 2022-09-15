@@ -426,6 +426,7 @@ Show_Run(show) {
 Show_DeleteShow(show) {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    shows.Delete(show)
+   AppendFile(Paths.Ptf["Finished"], "`n1. " show.ToTitle())
    WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
 }
 
