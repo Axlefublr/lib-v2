@@ -94,7 +94,6 @@ Class Paths {
       "Spotify",           A_AppData "\Spotify\Spotify.exe",
       "Telegram",          A_AppData "\Telegram Desktop\Telegram.exe",
 
-      "Gimp",              "C:\Programs\GIMP 2\bin\gimp-2.10.exe",
       "Davinci Resolve",   "C:\Programs\Davinci Resolve\Resolve.exe",
       "FL",                "C:\Programs\FL Studio 20\FL64.exe",
       "Steam",             "C:\Programs\Steam\steam.exe",
@@ -103,6 +102,7 @@ Class Paths {
       "WPS",               this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
       "Discord",           this.LocalAppData "\Discord\app-1.0.9006\Discord.exe",
       "Slack",             this.LocalAppData "\slack\app-4.28.171\slack.exe",
+      "Gimp",              this.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe",
 
       "Sound mixer",       this.System32 "\SndVol.exe",
 
