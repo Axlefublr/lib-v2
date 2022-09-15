@@ -7,7 +7,7 @@ CreateSymlink(source, destination, isDir := false) => (
 
 RunWith(with, runFile) => Run(with ' "' runFile '"')
 
-RunSpec(commands, AsAdmin := false, seeCmd := false) {
+RunSpec(commands, AsAdmin := false, seeCmd := false, startingDir?) {
 
    commands_converted := IsObject(commands) ? "" : commands
    AsAdmin := AsAdmin ? "*RunAs " : ""
@@ -25,5 +25,5 @@ RunSpec(commands, AsAdmin := false, seeCmd := false) {
       }
    }
 
-   RunWait(AsAdmin A_ComSpec " /c " commands_converted, , seeCmd)
+   RunWait(AsAdmin A_ComSpec " /c " commands_converted, startingDir ?? "", seeCmd)
 }
