@@ -152,4 +152,5 @@ Links := Map(
    "nice",                     "https://www.youtube.com/watch?v=IOBQD41r4Wk&ab_channel=NotVixiosXD",
    "i hate the floor",         "https://www.youtube.com/watch?v=u1ri5HEN_j8&ab_channel=FunnyOriginalMeme",
    "stripper magician",        "https://www.youtube.com/watch?v=lDRjqI-fBVI&ab_channel=CarolineKonstnar-Archive",
+   "making piss",              "https://youtube.com/shorts/HKVoN-SjZ-Q",
 )
