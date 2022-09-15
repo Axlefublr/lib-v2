@@ -56,7 +56,7 @@ Class Paths {
 
 
       "Shows", this.Shows "\Shows.jsonc",
-      "Finished", this.Shows "\Finished.md",
+      "Consumed", this.Shows "\Consumed.md",
 
 
       "Raw",         this.YtDev "\Dev\Raw.md",
