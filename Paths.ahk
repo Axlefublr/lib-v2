@@ -7,6 +7,7 @@ Class Paths {
    static Lib   := A_MyDocuments "\AutoHotkey\Lib"
    static Music := "C:\Programming\music"
    static Shows := "C:\Programming\shows"
+   static YtDev := "C:\Programming\yt-dev"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
@@ -29,7 +30,7 @@ Class Paths {
    static AhkPlusPlusExtension := this.VsCodeExtensions "\thqby.vscode-autohotkey2-lsp-1.6.2"
 
    static Ptf := Map(
-      "Main", this.Main "\Backups\main.code-workspace",
+      "Main", this.Main "\.vscode\main.code-workspace",
 
       "react",              this.Main "\Files\Images\react.png",
       "switch account ytt", this.Main "\Files\Images\switch account ytt.png",
@@ -40,9 +41,6 @@ Class Paths {
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
-      "Raw",         this.Main "\Notes temp\Raw.md",
-      "Clean",       this.Main "\Notes temp\Clean.md",
-      "Description", this.Main "\Notes temp\Description.txt",
       "Diary",       this.Main "\Notes temp\Diary.md",
       "Output",      this.Main "\Notes temp\Output.txt",
 
@@ -58,6 +56,11 @@ Class Paths {
 
 
       "Shows", this.Shows "\Shows.jsonc",
+
+
+      "Raw",         this.YtDev "\Dev\Raw.md",
+      "Clean",       this.YtDev "\Dev\Clean.md",
+      "Description", this.YtDev "\Dev\Description.txt",
 
 
       "FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
