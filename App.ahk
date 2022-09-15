@@ -305,43 +305,10 @@ vscode_CleanText() {
    clean := ReadFile(Paths.Ptf["Raw"])
    clean := StrReplace(clean, "`r`n", "`n")	;making it easy for regex to work its magic by removing returns
    clean := RegexReplace(clean, "m)^\* .*\n(\n)?")	;removing bullets and their additional newlines
-
-   RegexMatch(clean, "s)---\n(.*)", &description_regexed)	;Getting the description that's manually written
-
-   clean := RegexReplace(clean, "s)---\n.*")	;deleting the description part of the script
    clean := RegexReplace(clean, "\n{3,}")	;removing spammed newlines
-   clean := RegexReplace(clean, "m) *$")	;removing leading spaces
-   clean := RegexReplace(clean, "(?<!\.)\n{2}(?=[^A-Z])", " ")	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it"s ignored
-
-   clean_compact := StrReplace(clean, "`n`n", "`n")
-
-   if !description_regexed
-      description_manual := ""
-   else
-      description_manual := description_regexed[1]
-
-   description := description_manual "`n`n" '
-   (
-      My second channel: https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw
-
-      Learn about autohotkey v2 in the documentation: https://lexikos.github.io/v2/docs/AutoHotkey.htm
-      IDE used in the video: https://code.visualstudio.com/
-
-      My github:
-      https://github.com/Axlefublr/
-
-      Catch me on the ahk discord server as Axlefublr:
-      https://discord.com/invite/Aat7KHmG7v
-
-      The video script:
-   )' "`n`n" clean_compact
-
-   while description.Length >= 5000 {
-      description := description.Delete(-1, 10)
-   }
+   clean := RegexReplace(clean, "(?<!\.)\n{2}(?=[^A-Z])", " ")	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
 
    WriteFile(Paths.Ptf["Clean"], clean)
-   WriteFile(Paths.Ptf["Description"], description)
    Info("Text cleaned")
 }
 
