@@ -170,6 +170,11 @@ youtube_ToYouTube() => (
    WaitClick(Paths.Ptf["youtube logo"])
 )
 
+youtube_isNotWatchingVid() => WinActive("Watch later ahk_exe chrome.exe")
+   || WinActive("Subscriptions ahk_exe chrome.exe")
+   || (WinActive("YouTube ahk_exe chrome.exe")
+      && !WinActive(" - YouTube"))
+
 ;VK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
