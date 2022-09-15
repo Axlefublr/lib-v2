@@ -157,10 +157,6 @@ youtube_Seek(direction) {
    }
 }
 
-youtube_Fullscreen() => (LanguageEng(), Send("f"))
-
-youtube_Miniscreen() => (LanguageEng(), Send("i"))
-
 youtube_MiniscreenClose() => ControlClick("X1858 Y665")
 
 youtube_ChannelSwitch() => (
@@ -173,15 +169,6 @@ youtube_ToYouTube() => (
    ControlClick("X1865 Y130"),
    WaitClick(Paths.Ptf["youtube logo"])
 )
-
-youtube_isWatchingVid() => WinActive(" - YouTube ahk_exe chrome.exe")
-   && !WinActive("Watch later ahk_exe chrome.exe")
-   && !WinActive("Subscriptions ahk_exe chrome.exe")
-
-youtube_isNotWatchingVid() => WinActive("Watch later ahk_exe chrome.exe")
-   || WinActive("Subscriptions ahk_exe chrome.exe")
-   || (WinActive("YouTube ahk_exe chrome.exe")
-      && !WinActive(" - YouTube"))
 
 ;VK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
