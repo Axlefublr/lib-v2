@@ -1,9 +1,6 @@
 ﻿#Include <Win>
 #Include <Global>
 #Include <App>
-#Include <Char>
-#Include <Eval>
-#Include <Info>
 #Include <Paths>
 
 Googler(searchRequest) {
@@ -14,7 +11,7 @@ Googler(searchRequest) {
 
 CloseButActually() {
    Switch {
-      Case WinActive("ahk_exe Spotify.exe"): spotify_Close()
+      Case WinActive("ahk_exe Spotify.exe"):spotify_Close()
       Case WinActive("ahk_exe steam.exe"):
          win_Close()
          ProcessClose("steam.exe")
@@ -36,30 +33,14 @@ CloseButActually() {
          telegram_pid := WinGetPID("Telegram ahk_exe Telegram.exe")
          win_Close()
          ProcessClose(telegram_pid)
-      Default: win_Close()
+      Default:win_Close()
    }
 }
-
-RadNum() => Random(1000000, 9999999)
-
-GetRandomCommitMessage() {
-   five_random_words := " "
-   Loop 5 {
-      five_random_words .= GetRandomWord("english") " "
-   }
-
-   return A_Now five_random_words
-}
-
-Skipper(time) => (
-   time := Round(Eval(time) / 5),
-   Send("{Right " time "}")
-)
 
 MainApps() {
    win_RunAct("Visual Studio Code ahk_exe Code.exe", Paths.Apps["VS Code"])
-   win_RunAct("Google Chrome ahk_exe chrome.exe", Paths.Apps["Google Chrome"])
-   win_RunAct("ahk_group Terminal", Paths.Apps["Terminal"])
-   win_RunAct("ahk_exe Spotify.exe", Paths.Apps["Spotify"])
-   win_RunAct("Discord ahk_exe Discord.exe", Paths.Apps["Discord"],,,, "Updater")
+   win_RunAct("Google Chrome ahk_exe chrome.exe",    Paths.Apps["Google Chrome"])
+   win_RunAct("ahk_group Terminal",                  Paths.Apps["Terminal"])
+   win_RunAct("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"])
+   win_RunAct("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,,, "Updater")
 }

@@ -85,3 +85,5 @@ GetDayFromWeekDay(weekDay) {
    }
    return FormatTime(date, "d")
 }
+
+RadNum() => Random(1000000, 9999999)
