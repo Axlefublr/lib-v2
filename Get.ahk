@@ -42,13 +42,13 @@ GetWeather() {
 /**
 * Converts a decimal integer into its hex / unicode / 16-base counterpart
 * @param num
-* @returns integer
+* @returns {int}
 */
 TransfToHex(num) => Format("0x{:x}", num)
 
 /**
  * Returns a random character. Number / lowercase english character / uppercase english character
- * @returns string
+ * @returns {str}
  */
 GetRandomCharacter() {
    picker := Random(1, 3)
@@ -65,8 +65,8 @@ GetRandomCharacter() {
 
 /**
  * Get a string of random characters: numbers, lowercase and uppercase english characters
- * @param chars The length of the string you want
- * @returns string
+ * @param chars {int} The length of the string you want
+ * @returns {str}
  */
 GetStringOfRandChars(chars) {
    randString := ""

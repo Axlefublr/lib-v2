@@ -33,7 +33,7 @@ RunLink(link) => (
  * Keeps searching for an image until it finds it
  * @param imageFile The path to the image
  * @param coordObj An optional object with x1,y1,x2,y2 properties to search for the image in
- * @returns an array with found X and Y coordinates
+ * @returns {arr} with found X and Y coordinates
  */
 WaitUntilImage(imageFile, coordObj?) {
    var := 0
