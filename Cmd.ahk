@@ -15,11 +15,11 @@ RunSpec(commands, AsAdmin := false, seeCmd := false, startingDir?) {
 
    if IsObject(commands) {
 
-      commands_concoct := " & "	;to run multiple lines using Run, you concoct them together using &
+      commands_concoct := " & " ;to run multiple lines using Run, you concoct them together using &
       for key, value in commands {
 
-         if key = commands.Length	;if it's the last command
-            commands_concoct := ""	;we don't need to append the commands together anymore
+         if key = commands.Length ;if it's the last command
+            commands_concoct := "" ;we don't need to append the commands together anymore
 
          commands_converted .= value commands_concoct
       }
