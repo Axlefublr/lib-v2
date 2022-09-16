@@ -63,6 +63,19 @@ GetRandomCharacter() {
    return Chr(TransfToHex(ProperCharNum)) ;Chr() expects a 16 base number, so we're converting a decimal to hex
 }
 
+/**
+ * Get a string of random characters: numbers, lowercase and uppercase english characters
+ * @param chars The length of the string you want
+ * @returns string
+ */
+GetStringOfRandChars(chars) {
+   randString := ""
+   Loop chars {
+      randString .= GetRandomCharacter()
+   }
+   return randString
+}
+
 GetWeekDay(day) {
    static ONE_MONTH := 100000000
    if StrLen(day) = 1
