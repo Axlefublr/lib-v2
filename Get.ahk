@@ -1,3 +1,5 @@
+#Include <Info>
+
 GetDateAndTime() => FormatTime(, "yy.MM.dd HH:mm")
 
 GetTimeAndSec() => FormatTime(, "HH:mm:ss")
