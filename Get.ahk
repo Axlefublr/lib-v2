@@ -42,20 +42,25 @@ GetWeather() {
 /**
 * Converts a decimal integer into its hex / unicode / 16-base counterpart
 * @param num
-* @returns int
+* @returns integer
 */
 TransfToHex(num) => Format("0x{:x}", num)
 
 /**
- * In decimals, the unicode characters for numbers are 48-57, 65-90 for uppercase characters and 97-122 for lowercase characters.
- * @returns an integer that fits at least one of those ranges
+ * Returns a random character. Number / lowercase english character / uppercase english character
+ * @returns string
  */
-GetWordDigitInt() {
-   num := 0
-   loop {
-      num := Random(48, 122)
-   } until (num >= 48 && num <= 57) || (num >= 65 && num <= 90) || (num >= 97 && num <= 122)
-   return num
+GetRandomCharacter() {
+   picker := Random(1, 3)
+   static CharClasses := [
+      Random.Bind(48, 57), ;Decimal range for numbers
+      Random.Bind(65, 90), ;Decimal range for lowercase characters
+      Random.Bind(97, 122) ;Decimal range for uppercase characters
+   ]
+
+   ProperCharNum := CharClasses[picker].Call()
+
+   return Chr(TransfToHex(ProperCharNum)) ;Chr() expects a 16 base number, so we're converting a decimal to hex
 }
 
 GetWeekDay(day) {

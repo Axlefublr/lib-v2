@@ -20,3 +20,4 @@
 #Include <Info>
 #Include <ClipSend>
 #Include <Cmd>
+#Include <Get>
