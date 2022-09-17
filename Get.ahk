@@ -107,3 +107,11 @@ GetDayFromWeekDay(weekDay) {
 }
 
 RadNum() => Random(1000000, 9999999)
+
+ConvertToRegex(input) {
+   scawySymbows := ["\", ".", "(", ")", "{", "}", "[", "]", "/", "?", "+", "*"]
+   for key, value in scawySymbows {
+      input := StrReplace(input, value, "\" value)
+   }
+   return input
+}
