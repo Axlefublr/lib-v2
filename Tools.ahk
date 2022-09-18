@@ -373,7 +373,9 @@ tool_WindowGetter() {
 
    ;Getting the current window's info
    winTitle   := WinGetTitle("A")
+   winTitle_regex := ConvertToRegex(winTitle)
    winExePath := WinGetProcessPath("A")
+   winExePath_regex := ConvertToRegex(winExePath)
    winExe     := WinGetProcessName("A")
    winID      := WinGetID("A")
    winPID     := WinGetPID("A")
@@ -386,11 +388,13 @@ tool_WindowGetter() {
    WinGet_hwnd := g_WinGet.hwnd
 
    ;Show the window's info
-   g_WinGet_WinTitle := g_WinGet.Add("Text", "Center", winTitle)
-   g_WinGet_WinExePath := g_WinGet.Add("Text", "Center", winExePath)
-   g_WinGet_WinExe := g_WinGet.Add("Text", "Center", winExe)
-   g_WinGet_WinID := g_WinGet.Add("Text", "Center", "id: " winID)
-   g_WinGet_WinPID := g_WinGet.Add("Text", "Center", "pid: " winPID)
+   g_WinGet_WinTitle         := g_WinGet.Add("Text", "Center", winTitle)
+   g_WinGet_WinTitle_regex   := g_WinGet.Add("Text", "Center", winTitle_regex)
+   g_WinGet_WinExePath       := g_WinGet.Add("Text", "Center", winExePath)
+   g_WinGet_WinExePath_regex := g_WinGet.Add("Text", "Center", winExePath_regex)
+   g_WinGet_WinExe           := g_WinGet.Add("Text", "Center", winExe)
+   g_WinGet_WinID            := g_WinGet.Add("Text", "Center", "id: " winID)
+   g_WinGet_WinPID           := g_WinGet.Add("Text", "Center", "pid: " winPID)
 
    ;Destroys the gui as well as every previously created hotkeys
    FlushHotkeys := (*) => (
@@ -400,6 +404,8 @@ tool_WindowGetter() {
       Hotkey("3", "Off"),
       Hotkey("4", "Off"),
       Hotkey("5", "Off"),
+      Hotkey("6", "Off"),
+      Hotkey("7", "Off"),
       Hotkey("Escape", "Off"),
       g_WinGet.Destroy()
    )
@@ -411,30 +417,36 @@ tool_WindowGetter() {
    )
 
    ;Making the func objects to later call in two separate instances
-   ToClip_Title := ToClip.Bind(winTitle) ;We pass the params of winSmth
-   ToClip_Path  := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
-   ToClip_Exe   := ToClip.Bind(winExe)
-   ToClip_ID    := ToClip.Bind(winID)
-   ToClip_PID   := ToClip.Bind(winPID)
+   ToClip_Title       := ToClip.Bind(winTitle) ;We pass the params of winSmth
+   ToClip_Title_regex := ToClip.Bind(winTitle_regex)
+   ToClip_Path        := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
+   ToClip_Path_regex  := ToClip.Bind(winExePath_regex)
+   ToClip_Exe         := ToClip.Bind(winExe)
+   ToClip_ID          := ToClip.Bind(winID)
+   ToClip_PID         := ToClip.Bind(winPID)
 
    HotIfWinActive("ahk_id " WinGet_hwnd)
    Hotkey("1", ToClip_Title, "On")
-   Hotkey("2", ToClip_path, "On")
+   Hotkey("2", ToClip_Path, "On")
    Hotkey("3", ToClip_Exe, "On")
    Hotkey("4", ToClip_ID, "On")
    Hotkey("5", ToClip_PID, "On")
+   Hotkey("6", ToClip_Title_regex, "On")
+   Hotkey("7", ToClip_Path_regex, "On")
 
    Hotkey("Escape", FlushHotkeys, "On")
 
-   g_WinGet_WinTitle.OnEvent("Click", ToClip_Title)
-   g_WinGet_WinExePath.OnEvent("Click", ToClip_Path)
-   g_WinGet_WinExe.OnEvent("Click", ToClip_Exe)
-   g_WinGet_WinID.OnEvent("Click", ToClip_ID)
-   g_WinGet_WinPID.OnEvent("Click", ToClip_PID)
+   g_WinGet_WinTitle.OnEvent("Click",         ToClip_Title)
+   g_WinGet_WinTitle_regex.OnEvent("Click",   ToClip_Title_regex)
+   g_WinGet_WinExePath.OnEvent("Click",       ToClip_Path)
+   g_WinGet_WinExePath_regex.OnEvent("Click", ToClip_Path_regex)
+   g_WinGet_WinExe.OnEvent("Click",           ToClip_Exe)
+   g_WinGet_WinID.OnEvent("Click",            ToClip_ID)
+   g_WinGet_WinPID.OnEvent("Click",           ToClip_PID)
 
    g_WinGet.OnEvent("Close", FlushHotkeys) ;Destroys the gui when you close the X button on it
 
-   g_WinGet.Show("Center H300 W1000 y0")
+   g_WinGet.Show("AutoSize y0")
 }
 
 tool_Timer(minutes, shouldExit := false) {

@@ -33,6 +33,13 @@ CloseButActually() {
          telegram_pid := WinGetPID("Telegram ahk_exe Telegram.exe")
          win_Close()
          ProcessClose(telegram_pid)
+      Case WinActive("ahk_exe FL64.exe"):
+         win_Close()
+         closeWindow := "Confirm ahk_exe FL64.exe"
+         if !WinWait(closeWindow, , 60)
+            return
+         win_Activate(closeWindow)
+         Send("{Right}{Enter}")
       Default:win_Close()
    }
 }
