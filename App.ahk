@@ -498,6 +498,15 @@ video_DuplicateScreenshot() {
    win_RunAct_Folders(Paths.Materials)
 }
 
+video_PasteClean() {
+   cleanText := ReadFile(Paths.Ptf["Clean"])
+   cleanText_compressed := "`n`n" StrReplace(cleanText, "`n`n", "`n")
+   while cleanText_compressed.Length > 4300 {
+      cleanText_compressed := cleanText_compressed.Delete(-100, 100)
+   }
+   ClipSend(cleanText_compressed)
+}
+
 ;DAVINCI~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
