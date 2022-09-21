@@ -40,6 +40,8 @@ Links := Map(
    "svg export",      "https://chrome.google.com/webstore/detail/svg-export/naeaaedieihlkmdajjefioajbbdbdjgp",
    "1secmail",        "https://www.1secmail.com/",
    "pairwise",        "https://pairwise.teremokgames.com/",
+   "sheets",          "https://docs.google.com/spreadsheets/u/0/",
+   "drive",           "https://drive.google.com/drive/my-drive",
 
    ;Databases
    "sounds",      "https://www.myinstants.com/index/ru/",
@@ -90,24 +92,28 @@ Links := Map(
    "libf import v1 lib", "https://github.com/thqby/ahk2_lib/blob/master/import_v1lib.ahk",
    ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   ;My tutorials
+   ;Channels
    "my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
    "my second channel",   "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
 
+   ;Tutorials
    "startup",             "https://youtu.be/vjQIbagvkcs",
    "arrow",               "https://youtu.be/nSTL3KND25c",
-   "v2 setup",            "https://youtu.be/TSvp6ktqo1Q",
-   "syntax highlighting", "https://youtu.be/kYtKBncvEAA",
    "ternary is readable", "https://youtu.be/RsH6A2Cuo-c",
    "getters",             "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
    "clock",               "https://youtu.be/A9gBET8WHig",
    "function objects",    "https://youtu.be/5X2OddjH96A",
-   "snippets",            "https://youtu.be/gHQNoOMRHBc",
    "install ahk",         "https://youtu.be/X4elEmKFep4",
    "configure docs",      "https://youtu.be/8OymPoyUN70",
    "static",              "https://youtu.be/HOvItTvVTZA",
    "clipsend",            "https://youtu.be/dnp1KTu-R2k",
    "objects",             "https://youtu.be/6W9Ruu5jHaM",
+   "vscode setup",        "https://youtu.be/u66dw-hIj3g",
+
+   ;Unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
+   "v2 setup",            "https://youtu.be/TSvp6ktqo1Q",
+   "syntax highlighting", "https://youtu.be/kYtKBncvEAA",
+   "snippets",            "https://youtu.be/gHQNoOMRHBc",
 
    ;Memes
    "i made it the fuck up",       "https://www.youtube.com/watch?v=r7l0Rq9E8MY",
