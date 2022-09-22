@@ -2,11 +2,12 @@
 #Include <Global>
 #Include <App>
 #Include <Paths>
+#Include <String>
 
 Googler(searchRequest) {
-   searchRequest := StrReplace(searchRequest, "+", "%2B")
-   searchRequest := StrReplace(searchRequest, "#", "%23")
-   searchRequest := StrReplace(searchRequest, " ", "+")
+   searchRequest := searchRequest.Replace("+", "%2B")
+   searchRequest := searchRequest.Replace("#", "%23")
+   searchRequest := searchRequest.Replace(" ", "+")
    RunLink("https://www.google.com/search?q=" searchRequest)
 }
 

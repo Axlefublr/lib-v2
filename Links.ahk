@@ -48,6 +48,7 @@ Links := Map(
    "ascii codes", "https://theasciicode.com.ar/",
    "glossary",    "https://glossary.istqb.org/en/search/",
    "emoji unicodes", "https://unicode.org/emoji/charts-14.0/full-emoji-list.html",
+   "windows64",   "https://windows64.net/",
 
    ;Docs
    "ahk wiki",    "https://autohotkey.wiki/",
@@ -58,6 +59,7 @@ Links := Map(
    ;Potentially useful
    "vpn gate",     "https://www.vpngate.net/en/download.aspx",
    "fl studio 20", "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
+   "microsoft office 2016 crack", "https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
 
    ;Potentially info
    "discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
