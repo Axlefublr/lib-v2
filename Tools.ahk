@@ -494,7 +494,7 @@ tool_SomeLockHint(whatLock) {
 
    newState := !GetKeyState(whatLock, "T")
 
-   newState_Word := newState ? "On" : "Off"
+   newState_Word := newState ? "Off" : "On"
    whatLock := StrTitle(whatLock)
 
    Set%whatLock%State(newState)

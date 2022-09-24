@@ -55,6 +55,7 @@ Links := Map(
    "dll calls",   "https://docs.microsoft.com/en-us/windows/win32/api/",
    "ahk v1 docs", "https://www.autohotkey.com/docs/Tutorial.htm",
    "gh docs",     "https://cli.github.com/manual/",
+   "vim",         "https://vim.rtorr.com/",
 
    ;Potentially useful
    "vpn gate",     "https://www.vpngate.net/en/download.aspx",

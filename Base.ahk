@@ -1,20 +1,20 @@
 ﻿;No dependencies
 
 Copy() => (
-      A_Clipboard := "",
-      Send("^c"),
-      ClipWait(3, 1)
-   )
+   A_Clipboard := "",
+   Send("^c"),
+   ClipWait(3, 1)
+)
 
-Paste() => Send("^v")
+Paste() => Send("+{Insert}")
 
 WinPaste() => Send("#v")
 
 Cut() => (
-      A_Clipboard := "",
-      Send("^x"),
-      ClipWait(3, 1)
-   )
+   A_Clipboard := "",
+   Send("^x"),
+   ClipWait(3, 1)
+)
 
 SelectAll() => Send("^a")
 
