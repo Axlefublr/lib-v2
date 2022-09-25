@@ -7,6 +7,7 @@
 tool_KeyCodeGetter() {
 
    static values_hwnd := false
+   static used := false
 
    if values_hwnd {
       win_MinMax(values_hwnd)
@@ -22,14 +23,15 @@ tool_KeyCodeGetter() {
    g_values_input := g_values.Add("Edit", "background171717")
 
    g_values_name := g_values.Add("Text", "w400", "Key name")
-   g_values_SC := g_values.Add("Text", , "SC code")
-   g_values_VK := g_values.Add("Text", "x+100", "VK code")
+   g_values_SC   := g_values.Add("Text",, "SC code")
+   g_values_VK   := g_values.Add("Text", "x+100", "VK code")
 
    Destruction(*) {
       HotIfWinActive("ahk_id " values_hwnd)
       Hotkey("Escape", "Off")
       Hotkey("Enter", "Off")
       values_hwnd := false
+      g_values.Destroy()
 
       if !used
          return
@@ -42,7 +44,6 @@ tool_KeyCodeGetter() {
 
    toClip := (what, *) => A_Clipboard := what
 
-   static used := false
    Submit(*) {
       used := true
 
@@ -71,8 +72,8 @@ tool_KeyCodeGetter() {
    }
 
    HotIfWinActive("ahk_id " values_hwnd)
-   Hotkey("Enter" , Submit     , "On")
-   Hotkey("Escape", Destruction, "On")
+      Hotkey("Enter" , Submit     , "On")
+      Hotkey("Escape", Destruction, "On")
    g_values.OnEvent("Close", Destruction)
 
    g_values.Show("AutoSize y0 x" A_ScreenWidth / 20 * 12.95)

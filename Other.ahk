@@ -20,14 +20,14 @@ CloseButActually() {
       Case WinActive("ahk_exe gimp-2.10.exe"):
          win_Close()
          closeWindow := "Quit GIMP ahk_exe gimp-2.10.exe"
-         if !WinWait(closeWindow, , 60)
+         if !WinWait(closeWindow,, 60)
             return
          win_Activate(closeWindow)
          Send("{Left}{Enter}")
       Case WinActive("DaVinci Resolve ahk_exe Resolve.exe"):
          win_Close()
          closeWindow := "Message ahk_exe Resolve.exe"
-         if !WinWait(closeWindow, , 60)
+         if !WinWait(closeWindow,, 60)
             return
          win_Activate(closeWindow)
          Send("{Left 2}{Enter}")
@@ -38,7 +38,7 @@ CloseButActually() {
       Case WinActive("ahk_exe FL64.exe"):
          win_Close()
          closeWindow := "Confirm ahk_exe FL64.exe"
-         if !WinWait(closeWindow, , 60)
+         if !WinWait(closeWindow,, 60)
             return
          win_Activate(closeWindow)
          Send("{Right}{Enter}")
