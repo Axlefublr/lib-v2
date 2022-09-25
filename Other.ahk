@@ -53,3 +53,38 @@ MainApps() {
    win_RunAct("ahk_exe Spotify.exe",                 Paths.Apps["Spotify"])
    win_RunAct("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,,, "Updater")
 }
+
+tool_SomeLockHint(whatLock) {
+
+   newState := !GetKeyState(whatLock, "T")
+
+   newState_Word := newState ? "Off" : "On"
+   whatLock := StrTitle(whatLock)
+
+   Set%whatLock%State(newState)
+
+   g_SomeLock := ToggleInfo(whatLock " " newState_Word)
+
+   SetTimer(() => g_SomeLock.Destroy(), -1000)
+
+   g_SomeLock.Show("W225 NA x1595 y640")
+}
+
+ToggleModifier(modifierName) {
+
+   static ctrlState  := false
+   static shiftState := false
+   static altState   := false
+   static winState   := false
+
+   _Toggle(key) {
+      %key%State := !%key%State
+      Send("{" key (%key%State ? "Down" : "Up") "}")
+      ToggleObj := ToggleInfo(key " " (%key%State ? "On" : "Off"))
+      return ToggleObj
+   }
+
+   ToggleObj := _Toggle(modifierName)
+
+   SetTimer(() => ToggleObj.Destroy(), -1000)
+}

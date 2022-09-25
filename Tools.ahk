@@ -491,25 +491,6 @@ tool_StartupRun() {
    FileCreateShortcut(selectedFile, A_StartMenu "\Programs\Startup\" fileName ".lnk")
 }
 
-tool_SomeLockHint(whatLock) {
-
-   newState := !GetKeyState(whatLock, "T")
-
-   newState_Word := newState ? "Off" : "On"
-   whatLock := StrTitle(whatLock)
-
-   Set%whatLock%State(newState)
-
-   g_SomeLock := Gui("AlwaysOnTop -caption")
-   g_SomeLock.BackColor := "171717"
-   g_SomeLock.SetFont("s20 cC5C5C5", "Consolas")
-   g_SomeLock.Add("Text", , whatLock " " newState_Word)
-
-   SetTimer(() => g_SomeLock.Destroy(), -1000)
-
-   g_SomeLock.Show("W225 NA x1595 y640")
-}
-
 Snake(SquareSide, delay, timeout) {
 
    static isSlithering := false
