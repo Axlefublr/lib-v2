@@ -54,11 +54,11 @@ MainApps() {
    win_RunAct("Discord ahk_exe Discord.exe",         Paths.Apps["Discord"],,,, "Updater")
 }
 
-tool_SomeLockHint(whatLock) {
+SomeLockHint(whatLock) {
 
    newState := !GetKeyState(whatLock, "T")
 
-   newState_Word := newState ? "Off" : "On"
+   newState_Word := newState ? "On" : "Off"
    whatLock := StrTitle(whatLock)
 
    Set%whatLock%State(newState)

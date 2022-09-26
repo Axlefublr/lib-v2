@@ -16,7 +16,7 @@ ClipSend(toSend, endChar := "", isClipReverted := true, untilRevert := 100) {
    A_Clipboard := ""	;We free the clipboard...
    A_Clipboard := toSend endChar	;Now the clipboard is what we want to send + and ending character. I often need a space after so I add a space by default, you can change what it is in the second parameter
    ClipWait(1)	;...so we can make sure we filled the clipboard with what we want before we send it
-   Send("{Insert down}{Shift}{Insert up}")	;We send it. Not ^v because this variant is more consistent
+   Send("+{Insert}")	;We send it. Not ^v because this variant is more consistent
 
    if isClipReverted
       SetTimer(() => A_Clipboard := prevClip, -untilRevert)	;We revert the clipboard in 50ms. This doesn't occupy the thread, so the clipsend itself doesn't take 50ms, only the revert of the clipboard does.
