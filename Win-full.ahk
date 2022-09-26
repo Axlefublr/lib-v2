@@ -52,3 +52,8 @@ win_RestoreLeftRight(direction, winTitle := "A") {
    SetTimer(_WinMoveWhenMin, 20)
 
 }
+
+win_ActiveRegex(winTitle?, winText?, excludeTitle?, excludeText?) {
+   SetTitleMatchMode("RegEx")
+   return WinActive(winTitle?, winText?, excludeTitle?, excludeText?)
+}

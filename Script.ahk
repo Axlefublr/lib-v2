@@ -21,10 +21,10 @@ scr_HardReload() {
 scr_Suspend() {
    if A_IsSuspended {
       Suspend(false)
-      Info("Script unsuspended")
+      ToggleInfo("Script On")
    } else {
       Suspend(true)
-      Info("Script suspended")
+      ToggleInfo("Script Off")
    }
 }
 

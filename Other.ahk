@@ -65,8 +65,6 @@ SomeLockHint(whatLock) {
 
    g_SomeLock := ToggleInfo(whatLock " " newState_Word)
 
-   SetTimer(() => g_SomeLock.Destroy(), -1000)
-
    g_SomeLock.Show("W225 NA x1595 y640")
 }
 
@@ -86,7 +84,6 @@ ToggleModifier(modifierName) {
 
    ToggleObj := _Toggle(modifierName)
 
-   SetTimer(() => ToggleObj.Destroy(), -1000)
 }
 
 WeatherClock() {
