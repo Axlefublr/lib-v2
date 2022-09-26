@@ -16,7 +16,12 @@ win_Minimize(winTitle := "A") {
    try PostMessage("0x112", "0xF020", , , winTitle)
 }
 
-win_Activate(winTitle, exception?) => (WinActivate(winTitle,, exception ?? ""), WinWaitActive(winTitle,, exception ?? ""))
+win_Activate(winTitle, exception?) {
+   try {
+      WinActivate(winTitle,, exception ?? "")
+      WinWaitActive(winTitle,, exception ?? "")
+   }
+}
 
 win_MinMax(winTitle) {
    if !WinExist(winTitle)

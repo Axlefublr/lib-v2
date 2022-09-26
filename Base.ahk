@@ -6,7 +6,7 @@ Copy() => (
    ClipWait(3, 1)
 )
 
-Paste() => Send("+{Insert}")
+Paste() => Send("^v")
 
 WinPaste() => Send("#v")
 

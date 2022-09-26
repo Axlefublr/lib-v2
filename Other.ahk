@@ -88,3 +88,27 @@ ToggleModifier(modifierName) {
 
    SetTimer(() => ToggleObj.Destroy(), -1000)
 }
+
+WeatherClock() {
+
+   static weather_hwnd := false
+   static windowsClockWindow := "Date and Time Information ahk_exe ShellExperienceHost.exe"
+
+   if WinExist(weather_hwnd) {
+      return
+   }
+
+   g_weather := Gui("AlwaysOnTop -Caption")
+   g_weather.BackColor := 0x353637
+   g_weather.SetFont("c0xFFFFFF s20", "Segoe UI")
+   g_weather.AddText(, GetWeather())
+   g_weather.Show("NA w448 x" A_ScreenWidth / 20 * 15.35 "y" A_ScreenHeight / 20 * 9.12)
+   weather_hwnd := g_weather.Hwnd
+
+   Send("#!d")
+   WinWaitActive(windowsClockWindow)
+
+   WinWaitNotActive(windowsClockWindow)
+   g_weather.Destroy()
+   weather_hwnd := false
+}
