@@ -2,11 +2,11 @@
 
 Copy() => (
    A_Clipboard := "",
-   Send("^c"),
+   Send("^{Insert}"),
    ClipWait(3, 1)
 )
 
-Paste() => Send("^v")
+Paste() => Send("+{Insert}")
 
 WinPaste() => Send("#v")
 
