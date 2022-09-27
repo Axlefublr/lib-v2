@@ -38,6 +38,13 @@ scr_RunAsAdmin() {
 
 scr_Test() => Run(Paths.Ptf["AhkTest"])
 
+scr_ExitTest(fullPath := Paths.Ptf["AhkTest"]) {
+   DetectHiddenWindows(true)
+   SplitPath(fullPath, &testFileName)
+   if WinExist(testFileName " ahk_class AutoHotkey")
+      PostMessage(0x5555, 11, 22)
+}
+
 ;Alternative to outputdebug
 Out(put := "", endChar := "`n", overwrite := false) {
    filePath := Paths.Ptf["Output"]

@@ -44,7 +44,7 @@ Class Paths {
       "Diary",       this.Main "\Notes temp\Diary.md",
       "Output",      this.Main "\Notes temp\Output.txt",
 
-      "AhkTest",  this.Main "\Test\AhkTest.ahk",
+      "AhkTest", this.Main "\Test\AhkTest.ahk",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
