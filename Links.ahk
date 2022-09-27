@@ -5,7 +5,6 @@ Links := Map(
    ;Social
    "reddit", "https://www.reddit.com/notifications",
    "twitch", "https://www.twitch.tv/directory/following",
-   "mal",    "https://myanimelist.net/profile/Axlefublr",
 
    ;Watch
    "movies",    "https://watchmovieshd.ru/",
@@ -15,16 +14,10 @@ Links := Map(
    "gmail",    "https://mail.google.com/mail/u/0/#inbox",
    "calendar", "https://calendar.google.com/calendar/u/0/r",
    "weather",  "https://yandex.ru/pogoda/",
-   "npm",      "https://www.npmjs.com/",
 
    ;Courses
    "metta",         "https://mettalife.ru/pl/my?gcmes=5779290672&gcmlg=-4",
-   "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+QAP-3.0+2021/course/",
-
-   ;Learning
-   "simplilearn",         "https://www.simplilearn.com/tutorials/data-structure-tutorial",
-   "leetcode",            "https://leetcode.com/problems/two-sum/",
-   "learn git branching", "https://learngitbranching.js.org/",
+   "skill factory", "https://lms.skillfactory.ru/courses/",
 
    ;Tools
    "share files",     "https://files.fm/",
@@ -36,17 +29,13 @@ Links := Map(
    "color generator 2", "https://color.adobe.com/create/color-wheel",
    "docsify",         "https://docsify.js.org/#/",
    "regex one",       "https://regexone.com/",
-   "color picker",    "https://docs.microsoft.com/en-us/windows/powertoys/color-picker",
-   "svg export",      "https://chrome.google.com/webstore/detail/svg-export/naeaaedieihlkmdajjefioajbbdbdjgp",
    "1secmail",        "https://www.1secmail.com/",
-   "pairwise",        "https://pairwise.teremokgames.com/",
    "sheets",          "https://docs.google.com/spreadsheets/u/0/",
    "drive",           "https://drive.google.com/drive/my-drive",
 
    ;Databases
    "sounds",      "https://www.myinstants.com/index/ru/",
    "ascii codes", "https://theasciicode.com.ar/",
-   "glossary",    "https://glossary.istqb.org/en/search/",
    "emoji unicodes", "https://unicode.org/emoji/charts-14.0/full-emoji-list.html",
    "windows64",   "https://windows64.net/",
 
@@ -56,20 +45,6 @@ Links := Map(
    "ahk v1 docs", "https://www.autohotkey.com/docs/Tutorial.htm",
    "gh docs",     "https://cli.github.com/manual/",
    "vim",         "https://vim.rtorr.com/",
-
-   ;Potentially useful
-   "vpn gate",     "https://www.vpngate.net/en/download.aspx",
-   "fl studio 20", "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
-   "microsoft office 2016 crack", "https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
-
-   ;Potentially info
-   "discord highlighting", "https://gist.github.com/kkrypt0nn/a02506f3712ff2d1c8ca7c9e0aed7c06",
-   "trading",              "https://minecraft.fandom.com/wiki/Trading",
-   "image search tips",    "https://github.com/nuj123/AutoHotKey/blob/master/ImageSearchFAQ.md",
-
-   ;Potentially cool
-   "pointer pointer", "https://pointerpointer.com/",
-   "guess this code", "https://guessthiscode.com/",
 
    ;Shops
    "перцы",     "https://krasnoyarsk.pizzapertsy.ru/",
