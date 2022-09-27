@@ -4,14 +4,6 @@
 #Include <Paths>
 #Include <String>
 
-Googler(searchRequest) {
-   searchRequest := searchRequest.Replace("+", "%2B")
-   searchRequest := searchRequest.Replace("#", "%23")
-   searchRequest := searchRequest.Replace(" ", "+")
-   searchRequest := searchRequest.Replace("&", "%26")
-   RunLink("https://www.google.com/search?q=" searchRequest)
-}
-
 CloseButActually() {
    Switch {
       Case WinActive("ahk_exe Spotify.exe"):spotify_Close()
