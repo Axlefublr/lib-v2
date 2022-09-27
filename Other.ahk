@@ -8,6 +8,7 @@ Googler(searchRequest) {
    searchRequest := searchRequest.Replace("+", "%2B")
    searchRequest := searchRequest.Replace("#", "%23")
    searchRequest := searchRequest.Replace(" ", "+")
+   searchRequest := searchRequest.Replace("&", "%26")
    RunLink("https://www.google.com/search?q=" searchRequest)
 }
 

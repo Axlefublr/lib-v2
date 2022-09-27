@@ -53,7 +53,7 @@ GenerateShuffledArray(indexes) {
 
 FisherYatesShuffle(arrayObj) {
    shufflerIndex := 0
-   While --shufflerIndex > -arrayObj.Length {
+   while --shufflerIndex > -arrayObj.Length {
       randomIndex := Random(-arrayObj.Length, shufflerIndex)
       if arrayObj[randomIndex] = arrayObj[shufflerIndex]
          continue
