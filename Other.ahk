@@ -73,8 +73,7 @@ ToggleModifier(modifierName) {
       return ToggleObj
    }
 
-   ToggleObj := _Toggle(modifierName)
-
+   _Toggle(modifierName)
 }
 
 WeatherClock() {
