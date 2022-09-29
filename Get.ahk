@@ -48,6 +48,8 @@ GetWeather() {
 */
 TransfToHex(num) => Format("0x{:x}", num)
 
+TransfToDecimal(num) => Format("{:u}", num)
+
 /**
  * Returns a random character. Number / lowercase english character / uppercase english character
  * @returns {str}
