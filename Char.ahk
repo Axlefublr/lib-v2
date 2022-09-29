@@ -1,5 +1,10 @@
 ﻿;No dependencies
 
+/**
+ * Get the hex value of a unicode character using its predefined name
+ * @param name {str} The predefined name of the unicode character
+ * @returns {Integer}
+ */
 GetUnicode(name) {
 
    static Unicodes := Map(
@@ -34,6 +39,11 @@ GetUnicode(name) {
    return Unicodes[name]
 }
 
+/**
+ * Sends a unicode character using the Send function by using the character's predefined name
+ * @param name {str} The predefined name of the character
+ * @param endingChar {str} The string to append to the character. For example, a space or a newline
+ */
 Symbol(name, endingChar?) {
    if IsObject(name) {
       symbols := ""
@@ -45,6 +55,11 @@ Symbol(name, endingChar?) {
    Send(symbols (endingChar ?? ""))
 }
 
+/**
+ * Returns a random word out of the 1000 most used words out of two languages: English and Russian
+ * @param language {str}
+ * @returns {String}
+ */
 GetRandomWord(language) {
 
    static English := [
@@ -58,6 +73,11 @@ GetRandomWord(language) {
    return %language%[Random(1, %language%.Length)]
 }
 
+/**
+ * Converts a string into what it is in morse code
+ * @param toMorse {str}
+ * @returns {String}
+ */
 MorseCode(toMorse) {
 
    static Morse := Map(
