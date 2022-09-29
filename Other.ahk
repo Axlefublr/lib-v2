@@ -56,7 +56,7 @@ SomeLockHint(whatLock) {
 
    Set%whatLock%State(newState)
 
-   g_SomeLock := ToggleInfo(whatLock " " newState_Word)
+   ToggleInfo(whatLock " " newState_Word)
 }
 
 ToggleModifier(modifierName) {
