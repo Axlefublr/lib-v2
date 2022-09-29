@@ -57,8 +57,6 @@ SomeLockHint(whatLock) {
    Set%whatLock%State(newState)
 
    g_SomeLock := ToggleInfo(whatLock " " newState_Word)
-
-   g_SomeLock.Show("W225 NA x1595 y640")
 }
 
 ToggleModifier(modifierName) {
