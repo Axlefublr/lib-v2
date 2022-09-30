@@ -107,7 +107,7 @@ spotify_NewRapper(name) {
 }
 
 spotify_Context() => (
-   ControlClick("X22 Y1015", "ahk_exe Spotify.exe", , "R"),
+   ControlClick("x32 y1014", "ahk_exe Spotify.exe", , "R"),
    Send("{Up 2}")
 )
 
@@ -285,8 +285,8 @@ term_DeleteWord() => Send("^w")
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /**
  * Specify a file path and get the github link for it
- * @param path {str} Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
- * @returns {str} the github link
+ * @param path *String* Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
+ * @returns {String} the github link
  */
 git_Link(path) {
    static github := Links["ghm"] ;Specify you github link (https://github.com/yourNickname/)

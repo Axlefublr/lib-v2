@@ -2,7 +2,7 @@
 
 /**
  * Clicks with "Click", then moves the mouse to its initial position
- * @param coordinates "123 123" format
+ * @param coordinates *String* "123 123" format
  */
 ClickThenGoBack(coordinates) {
    MouseGetPos(&initX, &initY)
@@ -12,7 +12,7 @@ ClickThenGoBack(coordinates) {
 
 /**
  * Clicks by SendEventing the click, then moves the mouse to its initial position
- * @param coordinates "123 123" format
+ * @param coordinates *String* "123 123" format
  */
 ClickThenGoBack_Event(coordinates) {
    MouseGetPos(&initX, &initY)
@@ -22,6 +22,7 @@ ClickThenGoBack_Event(coordinates) {
 
 /**
  * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
+ * @param link *String*
  */
 RunLink(link) => (
    Run(link),
@@ -31,9 +32,9 @@ RunLink(link) => (
 
 /**
  * Keeps searching for an image until it finds it
- * @param imageFile The path to the image
- * @param coordObj An optional object with x1,y1,x2,y2 properties to search for the image in
- * @returns {arr} with found X and Y coordinates
+ * @param imageFile *String* The path to the image
+ * @param coordObj *Object* An optional object with x1,y1,x2,y2 properties to search for the image in
+ * @returns {Array} with found X and Y coordinates
  */
 WaitUntilImage(imageFile, coordObj?) {
    var := 0
@@ -53,6 +54,7 @@ WaitUntilImage(imageFile, coordObj?) {
 
 /**
  * Searches for an image until it finds it, and then controlclicks on it
+ * @param imageFile *String* The path to the image file
  */
 WaitClick(imageFile) => (
    coords := WaitUntilImage(imageFile),
@@ -61,7 +63,7 @@ WaitClick(imageFile) => (
 
 /**
  * Change the transparency of the current window
- * @param whatCrement Specify a negative integer to increase transparency (lower number => lower visibility)
+ * @param whatCrement *Integer* Specify a negative integer to increase transparency (lower number => lower visibility)
  */
 TransAndProud(whatCrement) {
    howTrans := WinGetTransparent("A")
@@ -86,12 +88,22 @@ Cis() {
    try WinSetTransparent(255, "A")
 }
 
+/**
+ * Syntax sugar. Write text to a file
+ * @param whichFile *String* The path to the file
+ * @param text *String* The text to write
+ */
 WriteFile(whichFile, text := "") => (
    fileObj := FileOpen(whichFile, "w"),
    fileObj.Write(text),
    fileObj.Close()
 )
 
+/**
+ * Syntax sugar. Append text to a file, or write it if the file doesn't exist yet
+ * @param whichFile *String* The path to the file
+ * @param text *String* The text to write
+ */
 AppendFile(whichFile, text) {
    if FileExist(whichFile)
       fileObj := FileOpen(whichFile, "a")
@@ -102,6 +114,11 @@ AppendFile(whichFile, text) {
    fileObj.Close()
 }
 
+/**
+ * Syntax sugar. Reads a file and returns the text in it
+ * @param whichFile *String* The path to the file to read
+ * @returns {String}
+ */
 ReadFile(whichFile) {
    fileObj := FileOpen(whichFile, "r")
    fileObj.Seek(0, 0)
@@ -110,11 +127,22 @@ ReadFile(whichFile) {
    return text
 }
 
+/**
+ * Controlclicks in the current mouse position, on the active window
+ * @param winTitle *String* Specify a winTitle if you don't want to use the active window
+ * @param whichButton *String* L for left mouse button, R for right mouse button
+ */
 ControlClick_Here(winTitle := "A", whichButton := "L") => (
    MouseGetPos(&locX, &locY),
    ControlClick("X" locX " Y" locY, winTitle, , whichButton)
 )
 
+/**
+ * Occupies the thread until a pixel relative to your mouse position changes color
+ * @param r_RelPos *Array* Specify an array of *String* relative coordinates to check for. Format: "-5 200" or "30, -55" (so either with, or without a comma in between the x and y coordinates, depending on what you like more)
+ * @param timeout *Integer* The amount of seconds until the function times out and returns false
+ * @returns {Boolean} returns true if the function successfully caught the pixel color change, false in all the other situations the function might fail
+ */
 WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    MouseGetPos(&locX, &locY)
    initPix := []

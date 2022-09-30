@@ -2,10 +2,10 @@
 
 /**
  * A faster send. Sending stuff can take too long, but if you copy and paste it, it's much faster. Retains your clipboard as well
- * @param toSend {str} The text you want to send
- * @param endChar {str} The ending character you want after the text you send
- * @param isClipReverted {bool} Set to false if you want the text sent to become your current clipboard
- * @param untilRevert {int} The time it takes for your clipboard to get reverted to what it was before calling the function
+ * @param toSend *String* The text you want to send
+ * @param endChar *String* The ending character you want after the text you send
+ * @param isClipReverted *Boolean* Set to false if you want the text sent to become your current clipboard
+ * @param untilRevert *Integer* The time it takes for your clipboard to get reverted to what it was before calling the function
  */
 ClipSend(toSend, endChar := "", isClipReverted := true, untilRevert := 100) {
    /*

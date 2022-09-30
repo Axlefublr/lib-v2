@@ -2,7 +2,7 @@
 
 /**
  * Get the hex value of a unicode character using its predefined name
- * @param name {str} The predefined name of the unicode character
+ * @param name *String* The predefined name of the unicode character
  * @returns {Integer}
  */
 GetUnicode(name) {
@@ -41,8 +41,8 @@ GetUnicode(name) {
 
 /**
  * Sends a unicode character using the Send function by using the character's predefined name
- * @param name {str} The predefined name of the character
- * @param endingChar {str} The string to append to the character. For example, a space or a newline
+ * @param name *String* The predefined name of the character
+ * @param endingChar *String* The string to append to the character. For example, a space or a newline
  */
 Symbol(name, endingChar?) {
    if IsObject(name) {
@@ -57,7 +57,7 @@ Symbol(name, endingChar?) {
 
 /**
  * Returns a random word out of the 1000 most used words out of two languages: English and Russian
- * @param language {str}
+ * @param language *String*
  * @returns {String}
  */
 GetRandomWord(language) {
@@ -75,7 +75,7 @@ GetRandomWord(language) {
 
 /**
  * Converts a string into what it is in morse code
- * @param toMorse {str}
+ * @param toMorse *String*
  * @returns {String}
  */
 MorseCode(toMorse) {

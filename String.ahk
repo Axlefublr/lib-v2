@@ -110,7 +110,7 @@ Class String2 {
 	 * output: +++++aaa
 	 * @param padding Text you want to add
 	 * @param count How many times do you want to repeat adding to the left side.
-	 * @returns string
+	 * @returns {String}
 	 */
 	static LPad(padding, count:=1) {
 		str := this.string
@@ -127,7 +127,7 @@ Class String2 {
 	 * output: aaa+++++
 	 * @param padding Text you want to add
 	 * @param count How many times do you want to repeat adding to the left side.
-	 * @returns string
+	 * @returns {String}
 	 */
 	static RPad(padding, count:=1) {
 		str := this.string
@@ -144,7 +144,7 @@ Class String2 {
 	 * output: 2
 	 * @param needle Text to search for
 	 * @param caseSensitive
-	 * @returns integer
+	 * @returns {Integer}
 	 */
 	static Count(needle, caseSensitive:=False) {
 		StrReplace(this.string, needle,, caseSensitive, &count)
@@ -155,8 +155,8 @@ Class String2 {
 	 * Duplicate the string 'count' times.
 	 * input: "abc".Repeat(3)
 	 * output: "abcabcabc"
-	 * @param count {int}
-	 * @returns string
+	 * @param count *Integer*
+	 * @returns {String}
 	 */
 	static Repeat(count) => StrReplace(Format("{:" count "}",""), " ", this.string)
 
@@ -174,7 +174,7 @@ Class String2 {
 	 * input: "abc".Insert("d", 2)
 	 * output: "adbc"
 	 * @param insert The text to insert
-	 * @param pos {int}
+	 * @param pos *Integer*
 	 */
 	static Insert(insert, pos:=1) {
 		Length := StrLen(this.string)
@@ -204,7 +204,7 @@ Class String2 {
 	 * output: "aaazzzccc"
 	 * @param overwrite Text to insert.
 	 * @param pos The position where to begin overwriting. 0 may be used to overwrite at the very end, -1 will offset 1 from the end, and so on.
-	 * @return string
+	 * @return {String}
 	 */
 	static Overwrite(overwrite, pos:=1) {
 	if (Abs(pos) > StrLen(this.string))
@@ -240,7 +240,7 @@ Class String2 {
 	 *          ---ruit, usually red."
 	 * @param column Specify a maximum length per line
 	 * @param indentChar Choose a character to indent the following lines with
-	 * @return string
+	 * @return {String}
 	 */
 	static LineWrap(column:=56, indentChar:="") {
 		string := this.string
@@ -295,7 +295,7 @@ Class String2 {
 	 *          ---red."
 	 * @param column Specify a maximum length per line
 	 * @param indentChar Choose a character to indent the following lines with
-	 * @return string
+	 * @return {String}
 	 */
 	static WordWrap(column:=56, indentChar:="") {
 		if !IsInteger(column)
@@ -332,7 +332,7 @@ Class String2 {
 	* @param line What line number to insert at. Use a 0 or negative to start inserting from the end.
 	* @param delim The string which defines a "line".
 	* @param exclude The text you want to ignore when defining a line.
-	* @return string
+	* @return {String}
 	 */
 	static InsertLine(insert, line, delim:="`n", exclude:="`r") {
 		into := this.string, new := ""
@@ -370,7 +370,7 @@ Class String2 {
 	 * @param line What line to delete. You may use -1 for the last line and a negative an offset from the last. -2 would be the second to the last.
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
-	 * @return string
+	 * @return {String}
 	 */
 	static DeleteLine(line, delim:="`n", exclude:="`r") {
 		string := this.string, new := ""
@@ -404,7 +404,7 @@ Class String2 {
 	 * @param line What line to read*. "L" = The last line. "R" = A random line. Otherwise specify a number to get that line. You may specify a negative number to get the line starting from the end. -1 is the same as "L", the last. -2 would be the second to the last, and so on.
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
-	 * @return string
+	 * @return {String}
 	 */
 	static ReadLine(line, delim:="`n", exclude:="`r") {
 		string := this.string, out := ""
@@ -462,7 +462,7 @@ Class String2 {
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
 	 * @param width Can be specified to add extra padding to the sides
-	 * @return string
+	 * @return {String}
 	 */
 	static Center(fill:=" ", symFill:=0, delim:="`n", exclude:="`r", width?) {
 		fill:=SubStr(fill,1,1)
@@ -490,7 +490,7 @@ Class String2 {
 	 * @param fill A single character to use as to push the text to the right.
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
-	 * @return string
+	 * @return {String}
 	 */
 	static Right(fill:=" ", delim:="`n", exclude:="`r") {
 		fill:=SubStr(fill,1,1), longest := 0
@@ -511,7 +511,7 @@ Class String2 {
 	 * input: "|".Concat("111", "222", "333", "abc")
 	 * output: "111|222|333|abc"
 	 * @param words A list of strings separated by a comma.
-	 * @return string
+	 * @return {String}
 	 */
 	static Concat(words*) {
 		delim := this.string, s := ""
