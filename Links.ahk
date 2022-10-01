@@ -14,6 +14,7 @@ Links := Map(
    "gmail",    "https://mail.google.com/mail/u/0/#inbox",
    "calendar", "https://calendar.google.com/calendar/u/0/r",
    "weather",  "https://yandex.ru/pogoda/",
+   "2gis",     "https://2gis.ru/krasnoyarsk",
 
    ;Courses
    "metta",         "https://mettalife.ru/pl/my?gcmes=5779290672&gcmlg=-4",
