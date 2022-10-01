@@ -2,9 +2,14 @@
 #Include <Gui>
 
 /**
- * Shows a gui displaying text passed. Click on the text to destroy the gui, or escape to destroy the oldest one. The Infos() gui will appear in the first available space on the left, starting from the top of the screen.
+ * Shows a gui displaying text passed.
+ * Click on the text to destroy the gui, or escape to destroy the oldest one.
+ * The Infos() gui will appear in the first available space on the left,
+ * starting from the top of the screen.
  * @param text *String*
- * @param autoCloseTimeout *Integer* Specify the amount of milliseconds after which the Info is automatically destroyed. No timeout by default (see the Info syntax sugar function below)
+ * @param autoCloseTimeout *Integer* Specify the amount of milliseconds after which
+ * the Info is automatically destroyed.
+ * No timeout by default (see the Info syntax sugar function below)
  */
 Infos(text, autoCloseTimeout := 0) {
    static fontSize ; := 15
@@ -88,7 +93,9 @@ Infos(text, autoCloseTimeout := 0) {
 }
 
 /**
- * Syntax sugar for Infos(). Instead of having to specify a timeout every time you want an autoclosing Info, just use this function to make an Infos() that times out in 2 seconds
+ * Syntax sugar for Infos().
+ * Instead of having to specify a timeout every time you want an autoclosing Info,
+ * just use this function to make an Infos() that times out in 2 seconds
  * @param text *String*
  * @param timeout *Integer*
  */
