@@ -10,6 +10,8 @@
  * @param autoCloseTimeout *Integer* Specify the amount of milliseconds after which
  * the Info is automatically destroyed.
  * No timeout by default (see the Info syntax sugar function below)
+ * @returns {Integer} The hwnd of the Info gui window (its id). Is 0 if the Info wasn't created
+ * (all spots are taken)
  */
 Infos(text, autoCloseTimeout := 0) {
    static fontSize ; := 15
@@ -54,7 +56,7 @@ Infos(text, autoCloseTimeout := 0) {
 
    if !IsSet(currYCoord) { ;If all values were true, we never set currYCoord, so it's unset...
       g_Info.Destroy()
-      return ;...Since there are no spaces available, we return out of the function and do nothing after
+      return 0 ;...Since there are no spaces available, we return out of the function and do nothing after
    }
 
    Destruction(gui_hwnd_passed, currYCoord_passed, *) {
@@ -90,6 +92,7 @@ Infos(text, autoCloseTimeout := 0) {
     * That way you can use all the space you have without spaces in between
     */
    g_Info.Show("AutoSize NA x0 y" currYCoord)
+   return g_Info.Hwnd
 }
 
 /**
@@ -97,7 +100,11 @@ Infos(text, autoCloseTimeout := 0) {
  * Instead of having to specify a timeout every time you want an autoclosing Info,
  * just use this function to make an Infos() that times out in 2 seconds
  * @param text *String*
- * @param timeout *Integer*
+ * @param timeout *Integer* Specify time in milliseconds if you want a different timeout from
+ * 2 seconds. Essentially making this the same thing as just calling Infos, still recommended for
+ * consistency
+ * @returns {Integer} The hwnd of the Info gui window (its id). Is 0 if the gui wasn't created
+ * (all spots are taken)
  */
 Info(text, timeout?) => Infos(text, timeout ?? 2000)
 
