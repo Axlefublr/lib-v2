@@ -1,10 +1,12 @@
+;Made by @thqby (https://github.com/thqby), rewritten slightly into my style
 #Include <Json>
-print(i) {
-    switch (o := '', Type(i)) {
-    case 'Map', 'Array', 'Object':
-        o := JSON.stringify(i)
-    default:
-        try o := String(i)
-    }
-	try FileAppend(o, '*', 'utf-8')
+Print(toPrint) {
+   toPrint_string := ""
+   switch Type(toPrint) {
+      case "Map", "Array", "Object":
+         toPrint_string := JSON.stringify(toPrint)
+      default:
+         try toPrint_string := String(toPrint)
+   }
+   try FileAppend(toPrint_string, "*", "utf-8")
 }
