@@ -220,7 +220,7 @@ vscode_GetCurrentFileFullPath(keepClip := true) {
    if keepClip
       prevClip := ClipboardAll()
    A_Clipboard := ""
-   Send("^+k")
+   Send("{ctrl down};f{ctrl up}")
    ClipWait(3, 1)
    fileFullPath := A_Clipboard
    if keepClip
