@@ -1,5 +1,7 @@
 #Include <Info>
 
+GetDate() => FormatTime(, "yy.MM.dd")
+
 GetDateAndTime() => FormatTime(, "yy.MM.dd HH:mm")
 
 GetTimeAndSec() => FormatTime(, "HH:mm:ss")

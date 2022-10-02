@@ -7,7 +7,7 @@
  * @param isClipReverted *Boolean* Set to false if you want the text sent to become your current clipboard
  * @param untilRevert *Integer* The time it takes for your clipboard to get reverted to what it was before calling the function
  */
-ClipSend(toSend, endChar := "", isClipReverted := true, untilRevert := 100) {
+ClipSend(toSend, endChar := "", isClipReverted := true, untilRevert := 200) {
    /*
       Because there's no way to know whether an application has received the input we sent it with ^v
       We revert the clipboard after a certain time (untilRevert)
