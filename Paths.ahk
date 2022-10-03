@@ -20,8 +20,7 @@ Class Paths {
    static Tools     := this.Main "\Tools"
 
    static Pictures  := "C:\Files\Pictures"
-   static Editing   := this.Pictures "\Editing"
-   static Materials := this.Pictures "\Editing\Materials"
+   static Materials := this.Pictures "\Materials"
    static Content   := this.Pictures "\Content"
 
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
@@ -63,9 +62,9 @@ Class Paths {
       "Description", this.YtDev "\Dev\Description.txt",
 
 
-      "FL preset",        this.Pictures "\Editing\Tools\FL preset.flp",
-      "Thumbnail preset", this.Pictures "\Editing\Tools\Thumbnail preset.xcf",
-      "Thumbnail preset down", this.Pictures "\Editing\Tools\Thumbnail preset down.xcf",
+      "FL preset",        this.Pictures "\Tools\FL preset.flp",
+      "Thumbnail preset", this.Pictures "\Tools\Thumbnail preset.xcf",
+      "Thumbnail preset down", this.Pictures "\Tools\Thumbnail preset down.xcf",
 
    )
 

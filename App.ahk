@@ -428,7 +428,7 @@ Show_SetDownloaded(show_and_downloaded) {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    try shows[show]
    catch Any {
-      shows.Set(show, {episode: downloaded, link: "", downloaded: downloaded})
+      shows.Set(show, {episode: 0, link: "", downloaded: downloaded})
    }
    else shows[show]["downloaded"] := downloaded
 
