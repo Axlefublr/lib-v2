@@ -388,7 +388,7 @@ Show_SetLink(show_and_link) {
 
    try shows[show]
    catch Any {
-      shows.Set(show, {episode: 0, link: link})
+      shows.Set(show, {episode: 0, link: link, downloaded: 0})
    }
    else shows[show]["link"] := link
 
@@ -406,12 +406,34 @@ Show_SetEpisode(show_and_episode) {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    try shows[show]
    catch Any {
-      shows.Set(show, {episode: episode, link: ""})
+      shows.Set(show, {episode: episode, link: "", downloaded: episode})
    }
    else shows[show]["episode"] := episode
 
+   if episode > shows[show]["downloaded"] {
+      shows[show]["downloaded"] := episode
+   }
+
    WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
    Info(show ": " episode)
+}
+
+Show_SetDownloaded(show_and_downloaded) {
+   show_and_downloaded := RegExReplace(show_and_downloaded, " {2,}", " ")
+   RegExMatch(show_and_downloaded, "(.+) (\d+)", &show_and_downloaded_match)
+
+   show := show_and_downloaded_match[1]
+   downloaded := show_and_downloaded_match[2]
+
+   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
+   try shows[show]
+   catch Any {
+      shows.Set(show, {episode: downloaded, link: "", downloaded: downloaded})
+   }
+   else shows[show]["downloaded"] := downloaded
+
+   WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
+   Info(show ": " downloaded)
 }
 ;VIDEO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

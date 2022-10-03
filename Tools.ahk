@@ -573,8 +573,5 @@ Counter(startingNum?) {
       Send(num++)
       return
    }
-   if startingNum {
-      num := startingNum
-      return
-   }
+   num := startingNum
 }
