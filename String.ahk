@@ -1,6 +1,6 @@
 ﻿/*
 	Name: String.ahk
-	Version 0.1 (27.08.22)
+	Version 0.11 (09.09.22)
 	Created: 27.08.22
 	Author: Descolada
 	Credit:
@@ -12,7 +12,7 @@
 	A compilation of useful string methods. Also lets strings be treated as objects.
 
 	These methods cannot be used as stand-alone. To do that, you must add another argument
-	'string' to the function and replace all occurrences of 'this.string' with 'string'.
+	'string' to the function and replace all occurrences of 'this' with 'string'.
 	.-==========================================================================-.
 	| Methods                                                                    |
 	|============================================================================|
@@ -61,19 +61,13 @@ ObjDefineProp := Object.Prototype.DefineProp
 for f in String2.OwnProps() {
 	if !(f ~= "__Init|__Item|Prototype|BindString|Length") {
 		if HasMethod(String2, f)
-			ObjDefineProp(String.Prototype, f, {call:String2.BindString.Bind(String2, f)})
+			ObjDefineProp(String.Prototype, f, {call:String2.%f%})
 	}
 }
 ObjDefineProp(String.Prototype, "__Item", {get:(args*)=>String2.__Item[args*]})
 ObjDefineProp(String.Prototype, "Length", {get:(arg)=>String2.Length(arg)})
 
 Class String2 {
-	; Necessary for correct autosuggestions in IDE
-	static BindString(f, str, args*) {
-		this.string := str
-		return this.%f%(args*)
-	}
-
 	static __Item[args*] {
 		get {
 			if args.length = 2
@@ -92,17 +86,17 @@ Class String2 {
 	}
 	; Native functions implemented as methods for the String object
 	static Length(str)    => StrLen(str)
-	static ToUpper()      => StrUpper(this.string)
-	static ToLower()      => StrLower(this.string)
-	static ToTitle()      => StrTitle(this.string)
-	static Split(args*)   => StrSplit(this.string, args*)
-	static Replace(args*) => StrReplace(this.string, args*)
-	static Trim(args*)    => Trim(this.string, args*)
-	static LTrim(args*)   => LTrim(this.string, args*)
-	static RTrim(args*)   => RTrim(this.string, args*)
-	static Compare(args*) => StrCompare(this.string, args*)
-	static Sort(args*)    => Sort(this.string, args*)
-	static Find(args*)    => InStr(this.string, args*)
+	static ToUpper()      => StrUpper(this)
+	static ToLower()      => StrLower(this)
+	static ToTitle()      => StrTitle(this)
+	static Split(args*)   => StrSplit(this, args*)
+	static Replace(args*) => StrReplace(this, args*)
+	static Trim(args*)    => Trim(this, args*)
+	static LTrim(args*)   => LTrim(this, args*)
+	static RTrim(args*)   => RTrim(this, args*)
+	static Compare(args*) => StrCompare(this, args*)
+	static Sort(args*)    => Sort(this, args*)
+	static Find(args*)    => InStr(this, args*)
 
 	/**
 	 * Add character(s) to left side of the input string.
@@ -113,7 +107,7 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static LPad(padding, count:=1) {
-		str := this.string
+		str := this
 		if (count>0) {
 			Loop count
 				str := padding str
@@ -130,7 +124,7 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static RPad(padding, count:=1) {
-		str := this.string
+		str := this
 		if (count>0) {
 			Loop count
 				str := str padding
@@ -147,7 +141,7 @@ Class String2 {
 	 * @returns {Integer}
 	 */
 	static Count(needle, caseSensitive:=False) {
-		StrReplace(this.string, needle,, caseSensitive, &count)
+		StrReplace(this, needle,, caseSensitive, &count)
 		return count+1
 	}
 
@@ -158,14 +152,14 @@ Class String2 {
 	 * @param count *Integer*
 	 * @returns {String}
 	 */
-	static Repeat(count) => StrReplace(Format("{:" count "}",""), " ", this.string)
+	static Repeat(count) => StrReplace(Format("{:" count "}",""), " ", this)
 
 	/**
 	 * Reverse the string.
-	 * @returns string
+	 * @returns {String}
 	 */
 	static Reverse() {
-		DllCall("msvcrt\_wcsrev", "str", str := this.string, "CDecl str")
+		DllCall("msvcrt\_wcsrev", "str", str := this, "CDecl str")
 		return str
 	}
 
@@ -175,24 +169,25 @@ Class String2 {
 	 * output: "adbc"
 	 * @param insert The text to insert
 	 * @param pos *Integer*
+	 * @returns {String}
 	 */
 	static Insert(insert, pos:=1) {
-		Length := StrLen(this.string)
-		((pos > 0) ;Comment about the formatting: ternaries go expression by expression, `pos2 := StrLen(this.string), Length := 0` are two expressions, so they should be in (), `pos2 := pos - 1` though, is already a single expression, so it doesn't need to be in () - Axlefublr
+		Length := StrLen(this)
+		((pos > 0) ;Comment about the formatting: ternaries go expression by expression, `pos2 := StrLen(this), Length := 0` are two expressions, so they should be in (), `pos2 := pos - 1` though, is already a single expression, so it doesn't need to be in () - Axlefublr
 			? pos2 := pos - 1
 			: (pos = 0
-				? (pos2 := StrLen(this.string), Length := 0)
+				? (pos2 := StrLen(this), Length := 0)
 				: pos2 := pos
 				)
 		)
-		output := SubStr(this.string, 1, pos2) . insert . SubStr(this.string, pos, Length)
-		if (StrLen(output) > StrLen(this.string) + StrLen(insert)) ;No {} around the if needed, because the ternary is considered a single expression, and by extension, a single line - Axlefublr
-			((Abs(pos) <= StrLen(this.string)/2)
+		output := SubStr(this, 1, pos2) . insert . SubStr(this, pos, Length)
+		if (StrLen(output) > StrLen(this) + StrLen(insert)) ;No {} around the if needed, because the ternary is considered a single expression, and by extension, a single line - Axlefublr
+			((Abs(pos) <= StrLen(this)/2)
 				? (output := SubStr(output, 1, pos2 - 1)
-					. SubStr(output, pos + 1, StrLen(this.string))
+					. SubStr(output, pos + 1, StrLen(this))
 				)
 				: (output := SubStr(output, 1, pos2 - StrLen(insert) - 2)
-					. SubStr(output, pos - StrLen(insert), StrLen(this.string))
+					. SubStr(output, pos - StrLen(insert), StrLen(this))
 				)
 			)
 		return output
@@ -204,17 +199,17 @@ Class String2 {
 	 * output: "aaazzzccc"
 	 * @param overwrite Text to insert.
 	 * @param pos The position where to begin overwriting. 0 may be used to overwrite at the very end, -1 will offset 1 from the end, and so on.
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static Overwrite(overwrite, pos:=1) {
-	if (Abs(pos) > StrLen(this.string))
+	if (Abs(pos) > StrLen(this))
 		return "" ;We're expecting a string, we should get a string - Axlefublr
 	else if (pos>0)
-		return SubStr(this.string, 1, pos-1) . overwrite . SubStr(this.string, pos+StrLen(overwrite))
+		return SubStr(this, 1, pos-1) . overwrite . SubStr(this, pos+StrLen(overwrite))
 	else if (pos<0)
-		return SubStr(this.string, 1, pos) . overwrite . SubStr(this.string " ",(Abs(pos) > StrLen(overwrite) ? pos+StrLen(overwrite) : 0), Abs(pos+StrLen(overwrite)))
+		return SubStr(this, 1, pos) . overwrite . SubStr(this " ",(Abs(pos) > StrLen(overwrite) ? pos+StrLen(overwrite) : 0), Abs(pos+StrLen(overwrite)))
 	else if (pos=0)
-		return this.string . overwrite
+		return this . overwrite
 	}
 
 	/**
@@ -223,14 +218,15 @@ Class String2 {
 	 * output: "aaaccc"
 	 * @param start The position where to start deleting.
 	 * @param length How many characters to delete.
+	 * @returns {String}
 	 */
 	static Delete(start:=1, length:=1) {
-		if (Abs(start+length) > StrLen(this.string))
+		if (Abs(start+length) > StrLen(this))
 			return ""
 		if (start>0)
-			return SubStr(this.string, 1, start-1) . SubStr(this.string, start + length)
+			return SubStr(this, 1, start-1) . SubStr(this, start + length)
 		else if (start<=0)
-			return SubStr(this.string " ", 1, start-length-1) SubStr(this.string " ", ((start<0) ? start : 0), -1)
+			return SubStr(this " ", 1, start-length-1) SubStr(this " ", ((start<0) ? start : 0), -1)
 	}
 
 	/**
@@ -240,18 +236,17 @@ Class String2 {
 	 *          ---ruit, usually red."
 	 * @param column Specify a maximum length per line
 	 * @param indentChar Choose a character to indent the following lines with
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static LineWrap(column:=56, indentChar:="") {
-		string := this.string
-		, CharLength := StrLen(indentChar)
+		CharLength := StrLen(indentChar)
 		, columnSpan := column - CharLength
 		, Ptr := A_PtrSize ? "Ptr" : "UInt"
 		, UnicodeModifier := 2
-		, VarSetStrCapacity(&out, (StrLen(string) + (Ceil(StrLen(string) / columnSpan) * (column + CharLength + 1)))+2)
+		, VarSetStrCapacity(&out, (StrLen(this) + (Ceil(StrLen(this) / columnSpan) * (column + CharLength + 1)))+2)
 		, A := StrPtr(out)
 
-		Loop parse, string, "`n", "`r" {
+		Loop parse, this, "`n", "`r" {
 			if ((FieldLength := StrLen(ALoopField := A_LoopField)) > column) {
 				DllCall("RtlMoveMemory", "Ptr", A, "ptr", StrPtr(ALoopField), "UInt", column * UnicodeModifier)
 				, A += column * UnicodeModifier
@@ -295,7 +290,7 @@ Class String2 {
 	 *          ---red."
 	 * @param column Specify a maximum length per line
 	 * @param indentChar Choose a character to indent the following lines with
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static WordWrap(column:=56, indentChar:="") {
 		if !IsInteger(column)
@@ -303,7 +298,7 @@ Class String2 {
 		out := ""
 		indentLength := StrLen(indentChar)
 
-		Loop parse, this.string, "`n", "`r" {
+		Loop parse, this, "`n", "`r" {
 			if (StrLen(A_LoopField) > column) {
 				pos := 1
 				Loop parse, A_LoopField, " "
@@ -332,10 +327,10 @@ Class String2 {
 	* @param line What line number to insert at. Use a 0 or negative to start inserting from the end.
 	* @param delim The string which defines a "line".
 	* @param exclude The text you want to ignore when defining a line.
-	* @return {String}
+	* @returns {String}
 	 */
 	static InsertLine(insert, line, delim:="`n", exclude:="`r") {
-		into := this.string, new := ""
+		into := this, new := ""
 		count := into.Count(delim)
 
 		; Create any lines that don't exist yet, if the Line is less than the total line count.
@@ -370,12 +365,12 @@ Class String2 {
 	 * @param line What line to delete. You may use -1 for the last line and a negative an offset from the last. -2 would be the second to the last.
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static DeleteLine(line, delim:="`n", exclude:="`r") {
-		string := this.string, new := ""
+		new := ""
 		; checks to see if we are trying to delete a non-existing line.
-		count:=string.Count(delim)
+		count:=this.Count(delim)
 		if (abs(line)>Count)
 			throw Error("DeleteLine: the line number cannot be greater than the number of lines", -2)
 		if (line<0)
@@ -383,7 +378,7 @@ Class String2 {
 		else if (line=0)
 			throw Error("DeleteLine: line number cannot be 0", -2)
 
-		Loop parse, string, delim, exclude {
+		Loop parse, this, delim, exclude {
 			if (a_index==line) {
 				if A_Index == count
 					new .= delim
@@ -404,11 +399,10 @@ Class String2 {
 	 * @param line What line to read*. "L" = The last line. "R" = A random line. Otherwise specify a number to get that line. You may specify a negative number to get the line starting from the end. -1 is the same as "L", the last. -2 would be the second to the last, and so on.
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static ReadLine(line, delim:="`n", exclude:="`r") {
-		string := this.string, out := ""
-		count:=String.Count(delim)
+		out := "", count:=String.Count(delim)
 
 		if (line="R")
 			line := Random(1, count)
@@ -421,7 +415,7 @@ Class String2 {
 		else if (line=0)
 			throw Error("ReadLine: line number cannot be 0", -2)
 
-		Loop parse, String, delim, exclude {
+		Loop parse, this, delim, exclude {
 			if A_Index = line
 				return A_LoopField
 		}
@@ -432,20 +426,20 @@ Class String2 {
 	 * Replace all consecutive occurrences of 'delim' with only one occurrence.
 	 * input: "aaa|bbb|||ccc||ddd".RemoveDuplicates("|")
 	 * output: "aaa|bbb|ccc|ddd"
-	 * @param delim
+	 * @param delim *String*
 	 */
-	static RemoveDuplicates(delim:="`n") => RegExReplace(this.string, "(" RegExReplace(delim, "([\\.*?+\[\{|\()^$])", "\$1") ")+", "$1")
+	static RemoveDuplicates(delim:="`n") => RegExReplace(this, "(" RegExReplace(delim, "([\\.*?+\[\{|\()^$])", "\$1") ")+", "$1")
 
 	/**
 	 * Checks whether the string contains any of the needles provided.
 	 * input: "aaa|bbb|ccc|ddd".Contains("eee", "aaa")
 	 * output: 1 (although the string doesn't contain "eee", it DOES contain "aaa")
 	 * @param needles
-	 * @return
+	 * @returns {Boolean}
 	 */
 	static Contains(needles*) {
 		for needle in needles
-			if InStr(this.string, needle)
+			if InStr(this, needle)
 				return 1
 		return 0
 	}
@@ -462,16 +456,16 @@ Class String2 {
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
 	 * @param width Can be specified to add extra padding to the sides
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static Center(fill:=" ", symFill:=0, delim:="`n", exclude:="`r", width?) {
 		fill:=SubStr(fill,1,1)
-		Loop parse, this.string, delim, exclude
+		Loop parse, this, delim, exclude
 			if (StrLen(A_LoopField)>longest)
 				longest:=StrLen(A_LoopField)
 		if !IsSet(width)
 			longest := Max(longest, width)
-		Loop parse, this.string, %delim%, %exclude%
+		Loop parse, this, %delim%, %exclude%
 		{
 			filled:=""
 			Loop (longest-StrLen(A_LoopField))//2
@@ -490,14 +484,14 @@ Class String2 {
 	 * @param fill A single character to use as to push the text to the right.
 	 * @param delim The string which defines a "line".
 	 * @param exclude The text you want to ignore when defining a line.
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static Right(fill:=" ", delim:="`n", exclude:="`r") {
 		fill:=SubStr(fill,1,1), longest := 0
-		Loop parse, this.string, delim, exclude
+		Loop parse, this, delim, exclude
 			if (StrLen(A_LoopField)>longest)
 				longest:=StrLen(A_LoopField)
-		Loop parse, this.string, delim, exclude {
+		Loop parse, this, delim, exclude {
 			filled:=""
 			Loop Abs(longest-StrLen(A_LoopField))
 				filled.=fill
@@ -511,12 +505,12 @@ Class String2 {
 	 * input: "|".Concat("111", "222", "333", "abc")
 	 * output: "111|222|333|abc"
 	 * @param words A list of strings separated by a comma.
-	 * @return {String}
+	 * @returns {String}
 	 */
 	static Concat(words*) {
-		delim := this.string, s := ""
+		delim := this, s := ""
 		for v in words
 			s .= v . delim
-		return SubStr(s,1,-StrLen(this.string))
+		return SubStr(s,1,-StrLen(this))
 	}
 }

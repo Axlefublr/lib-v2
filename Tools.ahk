@@ -567,19 +567,14 @@ Snake(SquareSide, delay, timeout) {
 
 }
 
-Counter(startingNum, singleKey := "Tab") {
-
-   _SendNum(*) {
-      static num := startingNum
+Counter(startingNum?) {
+   static num := 0
+   if !IsSet(startingNum) {
       Send(num++)
+      return
    }
-
-   _DeleteBothHotkeys := (*) => (
-      Hotkey(singleKey, "Off"),
-      Hotkey("+" singleKey, "Off"),
-      Info("Counter disabled")
-   )
-
-   Hotkey(singleKey, _SendNum, "On")
-   Hotkey("+" singleKey, _DeleteBothHotkeys, "On")
+   if startingNum {
+      num := startingNum
+      return
+   }
 }

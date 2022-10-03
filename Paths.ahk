@@ -27,7 +27,6 @@ Class Paths {
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
-   static AhkPlusPlusExtension := this.VsCodeExtensions "\thqby.vscode-autohotkey2-lsp-1.6.2"
 
    static Ptf := Map(
       "Main", this.Main "\.vscode\main.code-workspace",
@@ -68,9 +67,6 @@ Class Paths {
       "Thumbnail preset", this.Pictures "\Editing\Tools\Thumbnail preset.xcf",
       "Thumbnail preset down", this.Pictures "\Editing\Tools\Thumbnail preset down.xcf",
 
-      "Ahk++\package",       this.AhkPlusPlusExtension "\package.json",
-      "Ahk++\configuration", this.AhkPlusPlusExtension "\ahk2.configuration.json",
-      "Ahk++\tmlanguage",    this.AhkPlusPlusExtension "\syntaxes\ahk2.tmLanguage.json",
    )
 
    static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
@@ -79,7 +75,7 @@ Class Paths {
 
    static Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
-      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2.0-beta.7\AutoHotkey.chm",
+      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2.0-beta.10\AutoHotkey.chm",
       "Ahk compiler",      A_ProgramFiles "\AutoHotkey\Compiler\Ahk2Exe.exe",
 
       "Shell Menu View",   A_ProgramFiles "\Shell Menu View\shmnview.exe",
