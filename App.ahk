@@ -336,7 +336,7 @@ github_Profile() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Show_GetLink(show) {
+Show_GetLink(show, progressType := "episode") {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    try shows[show]
    catch Any {
@@ -347,7 +347,7 @@ Show_GetLink(show) {
       Info("No link!🔗")
       return "" ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
    }
-   return shows[show]["link"] shows[show]["episode"] + 1
+   return shows[show]["link"] shows[show][progressType] + 1
 }
 
 Show_GetShows() {
@@ -357,8 +357,8 @@ Show_GetShows() {
    }
 }
 
-Show_Run(show) {
-   try Run(Show_GetLink(show))
+Show_Run(show, progressType?) {
+   try Run(Show_GetLink(show, progressType?))
    catch any {
       Info("Fucked up link :(")
       return
