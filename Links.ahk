@@ -17,7 +17,6 @@ Links := Map(
    "2gis",     "https://2gis.ru/krasnoyarsk",
 
    ;Courses
-   "metta",         "https://mettalife.ru/pl/my?gcmes=5779290672&gcmlg=-4",
    "skill factory", "https://lms.skillfactory.ru/courses/",
 
    ;Tools
