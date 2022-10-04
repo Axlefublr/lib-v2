@@ -144,7 +144,7 @@ youtube_MiniscreenClose() => ControlClick("X1858 Y665")
 youtube_ChannelSwitch() => (
    ControlClick("X1823 Y133"),
    WaitUntilImage(Paths.Ptf["switch account ytt"]),
-   ControlClick("X1524 Y400")
+   ControlClick("x1509 y427")
 )
 
 youtube_ToYouTube() => (
@@ -196,24 +196,15 @@ discord_React() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-vscode_IndentRight() => Send("^!{Right}")
-
-vscode_IndentLeft() => Send("^!{Left}")
-
-vscode_Comment() => Send("#{End}")
-
-vscode_Debug() => Send("+!9")
-
-vscode_CloseAllTabs() => Send("+!w")
-
-vscode_DeleteLine() => Send("+{Delete}")
-
-vscode_Reload() => Send("+!y")
-
-vscode_CloseTab() => Send("!w")
-
-vscode_CursorBack() => Send("!{PgUp}")
-
+vscode_IndentRight()   => Send("^!{Right}")
+vscode_IndentLeft()    => Send("^!{Left}")
+vscode_Comment()       => Send("#{End}")
+vscode_Debug()         => Send("+!9")
+vscode_CloseAllTabs()  => Send("+!w")
+vscode_DeleteLine()    => Send("+{Delete}")
+vscode_Reload()        => Send("+!y")
+vscode_CloseTab()      => Send("!w")
+vscode_CursorBack()    => Send("!{PgUp}")
 vscode_CursorForward() => Send("!{PgDn}")
 
 vscode_GetCurrentFileFullPath(keepClip := true) {

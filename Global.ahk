@@ -46,8 +46,12 @@ WaitUntilImage(imageFile, coordObj?) {
          y2: A_ScreenHeight,
       }
    }
+   SetTimer(() => var := "timed out", -5000)
    While !var {
       var := ImageSearch(&imgX, &imgY, coordObj.x1, coordObj.y1, coordObj.x2, coordObj.y2, imageFile)
+   }
+   if var = "timed out" {
+      return false
    }
    return [imgX, imgY]
 }
@@ -56,10 +60,12 @@ WaitUntilImage(imageFile, coordObj?) {
  * Searches for an image until it finds it, and then controlclicks on it
  * @param imageFile *String* The path to the image file
  */
-WaitClick(imageFile) => (
-   coords := WaitUntilImage(imageFile),
+WaitClick(imageFile) {
+   coords := WaitUntilImage(imageFile)
+   if !coords
+      return false
    ControlClick("X" coords[1] " Y" coords[2], "A")
-)
+}
 
 /**
  * Change the transparency of the current window

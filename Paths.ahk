@@ -19,7 +19,7 @@ Class Paths {
    static Test      := this.Main "\Test"
    static Tools     := this.Main "\Tools"
 
-   static Pictures  := "C:\Files\Pictures"
+   static Pictures  := "C:\Pictures"
    static Materials := this.Pictures "\Materials"
    static Content   := this.Pictures "\Content"
 
