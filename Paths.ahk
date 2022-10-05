@@ -34,6 +34,8 @@ Class Paths {
       "switch account ytt", this.Main "\Files\Images\switch account ytt.png",
       "youtube logo",       this.Main "\Files\Images\youtube logo.png",
       "github",             this.Main "\Files\Images\github.png",
+      "edit",               this.Main "\Files\Images\edit.png",
+      "reply",              this.Main "\Files\Images\reply.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
 

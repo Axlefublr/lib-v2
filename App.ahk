@@ -188,10 +188,9 @@ discord_Emoji() => Send("^e")
 
 discord_Gif() => Send("^g")
 
-discord_React() {
-   ImageSearch(&reactX, &reactY, 1730, 88, 1820, 995, Paths.Ptf["react"])
-   try ControlClick("X" reactX " Y" reactY, "ahk_exe Discord.exe")
-}
+discord_React() => WaitClick(Paths.Ptf["react"])
+discord_Edit() => WaitClick(Paths.Ptf["edit"])
+discord_Reply() => WaitClick(Paths.Ptf["reply"])
 ;VSCODE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
