@@ -128,7 +128,7 @@ spotify_FavRapper_Manual(artistName) {
       TrayTip(artistName " is already added 😨")
       return
    }
-   AppendFile(Paths.Ptf["Artists"], "1. " artistName "`n")
+   AppendFile(Paths.Ptf["Artists"], "1. " GetDate() " - " artistName "`n")
    TrayTip(artistName " is now your favorite! 🥰")
 }
 ;YOUTUBE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
