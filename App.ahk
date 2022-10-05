@@ -91,7 +91,7 @@ spotify_NewDiscovery() {
    }
    artistName := RegexReplace(currSong, " - .*", "")
    AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
-   TrayTip(artistName " just discovered! 🌎")
+   Info(artistName " just discovered! 🌎")
 }
 
 spotify_NewRapper(name) {
@@ -99,11 +99,11 @@ spotify_NewRapper(name) {
    isTouched .= ReadFile(Paths.Ptf["Rappers"])
    isTouched := RegexReplace(isTouched, " - .*", "")
    if Instr(isTouched, name) {
-      TrayTip("You've already started listening to this rapper")
+      Info("You've already started listening to this rapper")
       return
    }
    AppendFile(Paths.Ptf["Rappers"], name "`n")
-   TrayTip(name " yet to be discovered! 📃")
+   Info(name " yet to be discovered! 📃")
 }
 
 spotify_Context() => (
@@ -125,11 +125,11 @@ spotify_FavRapper_Manual(artistName) {
    artists := ReadFile(Paths.Ptf["Artists"])
    artists := RegexReplace(artists, "1\. ")
    if InStr(artists, artistName) {
-      TrayTip(artistName " is already added 😨")
+      Info(artistName " is already added 😨")
       return
    }
    AppendFile(Paths.Ptf["Artists"], "1. " GetDate() " - " artistName "`n")
-   TrayTip(artistName " is now your favorite! 🥰")
+   Info(artistName " is now your favorite! 🥰")
 }
 ;YOUTUBE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
