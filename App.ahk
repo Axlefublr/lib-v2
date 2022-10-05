@@ -189,7 +189,7 @@ discord_Emoji() => Send("^e")
 discord_Gif() => Send("^g")
 
 discord_React() => WaitClick(Paths.Ptf["react"])
-discord_Edit() => WaitClick(Paths.Ptf["edit"])
+discord_Edit()  => WaitClick(Paths.Ptf["edit"])
 discord_Reply() => WaitClick(Paths.Ptf["reply"])
 ;VSCODE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

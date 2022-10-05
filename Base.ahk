@@ -75,3 +75,5 @@ DeleteInDirection(direction) {
 ScreenSnip() => Send("#+s")
 
 Find() => Send("^f")
+
+WindowsClock() => Send("#!d")
