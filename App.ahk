@@ -32,6 +32,8 @@ spotify_LikedPlaylist() => Send("+!s")
 
 spotify_Close() => Send("^+q")
 
+spotify_RemoveAfterArtist(input) => RegExReplace(input, " +[-=] .*")
+
 spotify_Context() => (
    ControlClick("x32 y1014", "ahk_exe Spotify.exe", , "R"),
    Send("{Up 2}")
@@ -51,7 +53,7 @@ spotify_NewDiscovery() {
    if !currSong {
       return
    }
-   artistName := RegexReplace(currSong, " - .*", "")
+   artistName := spotify_RemoveAfterArtist(artistName)
    AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
    Info(artistName " just discovered! 🌎")
 }
@@ -61,7 +63,7 @@ spotify_IsRapperTouched(name) {
    isTouched .= ReadFile(Paths.Ptf["Rappers"])
    isTouched .= ReadFile(Paths.Ptf["Artists"])
    isTouched := RemoveDateAndTime(isTouched)
-   isTouched := RegexReplace(isTouched, " +- .*")
+   isTouched := spotify_RemoveAfterArtist(isTouched)
    if Instr(isTouched, name) {
       Info("You've already started listening to this rapper")
       return true
@@ -81,13 +83,12 @@ spotify_FavRapper_Auto() {
    if !currSong {
       return
    }
-   currArtist := RegexReplace(currSong, " +- .*")
+   currArtist := spotify_RemoveAfterArtist(currSong)
    spotify_FavRapper_Manual(currArtist)
 }
 
 spotify_FavRapper_Manual(artistName) {
-   artists := ReadFile(Paths.Ptf["Artists"])
-   artists := RegexReplace(artists, "1\. ")
+   artists := RemoveDateAndTime(ReadFile(Paths.Ptf["Artists"]))
    if InStr(artists, artistName) {
       Info(artistName " is already added 😨")
       return
