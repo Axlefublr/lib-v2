@@ -41,8 +41,8 @@ Class Paths {
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
-      "Diary",       this.Main "\Notes temp\Diary.md",
-      "Output",      this.Main "\Notes temp\Output.txt",
+      "Diary",       this.Main "\Notes-temp\Diary.md",
+      "Output",      this.Main "\Notes-temp\Output.txt",
 
       "AhkTest", this.Main "\Test\AhkTest.ahk",
 

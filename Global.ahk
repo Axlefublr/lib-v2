@@ -182,29 +182,4 @@ SystemReboot() => Shutdown(2)
 
 SystemPowerDown() => Shutdown(1)
 
-RegexInFile(filePath, regex) {
-   fileText := ReadFile(filePath)
-   if !IsObject(regex) {
-      if !RegexMatch(fileText, regex, &match) {
-         TrayTip(regex " not found in " filePath)
-         return false
-      }
-      return match
-   }
-   Matches := {}
-   for key, value in regex {
-      if !RegexMatch(fileText, value, &match) {
-         TrayTip(value " not found in " filePath)
-         continue
-      }
-      Matches.%key% := match
-   }
-   return Matches
-}
-
-RegexToFile(filePath_From, filePath_To, regex) => (
-   match := RegexInFile(filePath_From, regex),
-   WriteFile(filePath_To, match[0])
-)
-
 async(funcObj) => SetTimer(funcObj, -1)

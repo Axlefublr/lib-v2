@@ -1,10 +1,10 @@
 #Include <Info>
 
 GetDate() => FormatTime(, "yy.MM.dd")
+GetTime() => FormatTime(, "HH:mm")
+GetDateAndTime() => GetDate() " " GetTime()
 
-GetDateAndTime() => FormatTime(, "yy.MM.dd HH:mm")
-
-GetTimeAndSec() => FormatTime(, "HH:mm:ss")
+RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?\d\d\.\d\d\.\d\d( \d\d:\d\d)?( +- +)?")
 
 GetHtml(link) {
    HTTP := ComObject("WinHttp.WinHttpRequest.5.1")

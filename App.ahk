@@ -32,6 +32,70 @@ spotify_LikedPlaylist() => Send("+!s")
 
 spotify_Close() => Send("^+q")
 
+spotify_Context() => (
+   ControlClick("x32 y1014", "ahk_exe Spotify.exe", , "R"),
+   Send("{Up 2}")
+)
+
+spotify_GetCurrSong() {
+   currSong := WinGetTitle("ahk_exe Spotify.exe")
+   if currSong ~= "Spotify (Free)|(Premium)" {
+      Info("No song is currently playing")
+      return false
+   }
+   return currSong
+}
+
+spotify_NewDiscovery() {
+   currSong := spotify_GetCurrSong()
+   if !currSong {
+      return
+   }
+   artistName := RegexReplace(currSong, " - .*", "")
+   AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
+   Info(artistName " just discovered! 🌎")
+}
+
+spotify_IsRapperTouched(name) {
+   isTouched := ReadFile(Paths.Ptf["Unfinished"])
+   isTouched .= ReadFile(Paths.Ptf["Rappers"])
+   isTouched .= ReadFile(Paths.Ptf["Artists"])
+   isTouched := RemoveDateAndTime(isTouched)
+   isTouched := RegexReplace(isTouched, " +- .*")
+   if Instr(isTouched, name) {
+      Info("You've already started listening to this rapper")
+      return true
+   }
+   return false
+}
+
+spotify_NewRapper(name) {
+   if spotify_IsRapperTouched(name)
+      return
+   AppendFile(Paths.Ptf["Rappers"], GetDateAndTime() " - " name "`n")
+   Info(name " yet to be discovered! 📃")
+}
+
+spotify_FavRapper_Auto() {
+   currSong := spotify_GetCurrSong()
+   if !currSong {
+      return
+   }
+   currArtist := RegexReplace(currSong, " +- .*")
+   spotify_FavRapper_Manual(currArtist)
+}
+
+spotify_FavRapper_Manual(artistName) {
+   artists := ReadFile(Paths.Ptf["Artists"])
+   artists := RegexReplace(artists, "1\. ")
+   if InStr(artists, artistName) {
+      Info(artistName " is already added 😨")
+      return
+   }
+   AppendFile(Paths.Ptf["Artists"], "1. " GetDate() " - " artistName "`n")
+   Info(artistName " is now your favorite! 🥰")
+}
+
 spotify_Discovery() {
    static isStarted := false
    static var := 0
@@ -74,62 +138,6 @@ spotify_Discovery() {
    g_added_text.OnEvent("DoubleClick", Destruction.Bind())
 
    isStarted := true
-}
-
-spotify_GetCurrSong() {
-   currSong := WinGetTitle("ahk_exe Spotify.exe")
-   if currSong = "Spotify Free"
-      return false
-   return currSong
-}
-
-spotify_NewDiscovery() {
-   currSong := spotify_GetCurrSong()
-   if !currSong {
-      Traytip("No track is playing")
-      return
-   }
-   artistName := RegexReplace(currSong, " - .*", "")
-   AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
-   Info(artistName " just discovered! 🌎")
-}
-
-spotify_NewRapper(name) {
-   isTouched := ReadFile(Paths.Ptf["Unfinished"])
-   isTouched .= ReadFile(Paths.Ptf["Rappers"])
-   isTouched := RegexReplace(isTouched, " - .*", "")
-   if Instr(isTouched, name) {
-      Info("You've already started listening to this rapper")
-      return
-   }
-   AppendFile(Paths.Ptf["Rappers"], name "`n")
-   Info(name " yet to be discovered! 📃")
-}
-
-spotify_Context() => (
-   ControlClick("x32 y1014", "ahk_exe Spotify.exe", , "R"),
-   Send("{Up 2}")
-)
-
-spotify_FavRapper_Auto() {
-   currSong := spotify_GetCurrSong()
-   if !currSong {
-      Traytip("No track is playing")
-      return
-   }
-   currArtist := RegexReplace(currSong, " -.*")
-   spotify_FavRapper_Manual(currArtist)
-}
-
-spotify_FavRapper_Manual(artistName) {
-   artists := ReadFile(Paths.Ptf["Artists"])
-   artists := RegexReplace(artists, "1\. ")
-   if InStr(artists, artistName) {
-      Info(artistName " is already added 😨")
-      return
-   }
-   AppendFile(Paths.Ptf["Artists"], "1. " GetDate() " - " artistName "`n")
-   Info(artistName " is now your favorite! 🥰")
 }
 ;YOUTUBE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -205,36 +213,6 @@ vscode_Reload()        => Send("+!y")
 vscode_CloseTab()      => Send("!w")
 vscode_CursorBack()    => Send("!{PgUp}")
 vscode_CursorForward() => Send("!{PgDn}")
-
-vscode_GetCurrentFileFullPath(keepClip := true) {
-   if keepClip
-      prevClip := ClipboardAll()
-   A_Clipboard := ""
-   Send("{ctrl down};f{ctrl up}")
-   ClipWait(3, 1)
-   fileFullPath := A_Clipboard
-   if keepClip
-      A_Clipboard := prevClip
-   return fileFullPath
-}
-
-vscode_ToEndOfCurrFile() {
-   selection := str_GetSelection()
-   file_Path := vscode_GetCurrentFileFullPath()
-   file_Text := ReadFile(file_Path)
-   file_Text := StrReplace(file_Text, selection, "")
-   file_Text .= selection
-   WriteFile(file_Path, file_Text)
-}
-
-vscode_ToEndOfOthrFile(otherFilePath) {
-   selection := str_GetSelection()
-   file_Path := vscode_GetCurrentFileFullPath()
-   file_Text := ReadFile(file_Path)
-   file_Text := StrReplace(file_Text, selection, "")
-   WriteFile(file_Path, file_Text)
-   AppendFile(otherFilePath, selection)
-}
 
 vscode_WorkSpace(wkspName) {
    vscode_CloseAllTabs()
