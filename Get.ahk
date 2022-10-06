@@ -4,7 +4,7 @@ GetDate() => FormatTime(, "yy.MM.dd")
 GetTime() => FormatTime(, "HH:mm")
 GetDateAndTime() => GetDate() " " GetTime()
 
-RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?\d\d\.\d\d\.\d\d( \d\d:\d\d)?( +- +)?")
+RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?(- +)?(\d\d\.\d\d\.\d\d)?( \d\d:\d\d)?( +- +)?")
 
 GetHtml(link) {
    HTTP := ComObject("WinHttp.WinHttpRequest.5.1")
