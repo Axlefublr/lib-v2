@@ -1,6 +1,9 @@
 ﻿;No dependencies
 
 Class Paths {
+   
+   static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
+   static System32 := "C:\Windows\System32"
 
    static Prog  := "C:\Programming"
    static Main  := "C:\Programming\main"
@@ -26,6 +29,8 @@ Class Paths {
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
+   static SavedScreenshots := this.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
+   static OBSFolder := A_ProgramFiles "\obs-studio\bin\64bit"
 
    static Ptf := Map(
       "Main", this.Main "\.vscode\main.code-workspace",
@@ -69,10 +74,6 @@ Class Paths {
       "Thumbnail preset down", this.Pictures "\Tools\Thumbnail preset down.xcf",
 
    )
-
-   static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
-   static System32 := "C:\Windows\System32"
-   static OBSFolder := A_ProgramFiles "\obs-studio\bin\64bit"
 
    static Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
