@@ -75,3 +75,7 @@ ToggleModifier(modifierName) {
 
    _Toggle(modifierName)
 }
+
+EatingLogger() {
+   AppendFile(Paths.Ptf["EatingLog"], GetDateAndTime())
+}

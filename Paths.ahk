@@ -11,6 +11,7 @@ Class Paths {
    static Music := "C:\Programming\music"
    static Shows := "C:\Programming\shows"
    static YtDev := "C:\Programming\yt-dev"
+   static Info  := "C:\Programming\info"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
@@ -46,31 +47,29 @@ Class Paths {
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
-      "Diary",       this.Main "\Notes-temp\Diary.md",
-      "Output",      this.Main "\Notes-temp\Output.txt",
+      "Diary",  this.Main "\Notes-temp\Diary.md",
+      "Output", this.Main "\Notes-temp\Output.txt",
 
       "AhkTest", this.Main "\Test\AhkTest.ahk",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
-
 
       "Discovery log", this.Music "\Discovery log.txt",
       "Unfinished",    this.Music "\Unfinished.txt",
       "Rappers",       this.Music "\Rappers.txt",
       "Artists",       this.Music "\Artists.md",
 
-
-      "Shows", this.Shows "\Shows.jsonc",
+      "Shows",    this.Shows "\Shows.jsonc",
       "Consumed", this.Shows "\Consumed.md",
 
+      "EatingLog", this.Info "\EatingLog.txt",
 
       "Raw",         this.YtDev "\Dev\Raw.md",
       "Clean",       this.YtDev "\Dev\Clean.md",
       "Description", this.YtDev "\Dev\Description.txt",
 
-
-      "FL preset",        this.Pictures "\Tools\FL preset.flp",
-      "Thumbnail preset", this.Pictures "\Tools\Thumbnail preset.xcf",
+      "FL preset",             this.Pictures "\Tools\FL preset.flp",
+      "Thumbnail preset",      this.Pictures "\Tools\Thumbnail preset.xcf",
       "Thumbnail preset down", this.Pictures "\Tools\Thumbnail preset down.xcf",
 
    )
