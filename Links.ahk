@@ -17,27 +17,27 @@ Links := Map(
    "2gis",     "https://2gis.ru/krasnoyarsk",
 
    ;Courses
-   "skill factory", "https://lms.skillfactory.ru/courses/",
+   "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
 
    ;Tools
-   "share files",     "https://files.fm/",
-   "regex",           "https://regex101.com/",
-   "ytdownload",      "https://ssyoutube.com/en8/",
-   "regex generator", "https://ibnuhx.com/regex-generator/",
-   "img",             "https://imgur.com/upload",
-   "color generator", "https://coolors.co/generate",
+   "share files",       "https://files.fm/",
+   "regex",             "https://regex101.com/",
+   "ytdownload",        "https://ssyoutube.com/en8/",
+   "regex generator",   "https://ibnuhx.com/regex-generator/",
+   "img",               "https://imgur.com/upload",
+   "color generator",   "https://coolors.co/generate",
    "color generator 2", "https://color.adobe.com/create/color-wheel",
-   "docsify",         "https://docsify.js.org/#/",
-   "regex one",       "https://regexone.com/",
-   "1secmail",        "https://www.1secmail.com/",
-   "sheets",          "https://docs.google.com/spreadsheets/u/0/",
-   "drive",           "https://drive.google.com/drive/my-drive",
+   "docsify",           "https://docsify.js.org/#/",
+   "regex one",         "https://regexone.com/",
+   "1secmail",          "https://www.1secmail.com/",
+   "sheets",            "https://docs.google.com/spreadsheets/u/0/",
+   "drive",             "https://drive.google.com/drive/my-drive",
 
    ;Databases
-   "sounds",      "https://www.myinstants.com/index/ru/",
-   "ascii codes", "https://theasciicode.com.ar/",
+   "sounds",         "https://www.myinstants.com/index/ru/",
+   "ascii codes",    "https://theasciicode.com.ar/",
    "emoji unicodes", "https://unicode.org/emoji/charts-14.0/full-emoji-list.html",
-   "windows64",   "https://windows64.net/",
+   "windows64",      "https://windows64.net/",
 
    ;Docs
    "ahk wiki",    "https://autohotkey.wiki/",
