@@ -53,7 +53,7 @@ spotify_NewDiscovery() {
    if !currSong {
       return
    }
-   artistName := spotify_RemoveAfterArtist(artistName)
+   artistName := spotify_RemoveAfterArtist(currSong)
    AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
    Info(artistName " just discovered! 🌎")
 }
