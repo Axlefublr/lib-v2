@@ -360,11 +360,11 @@ tool_WindowGetter() {
 
    HotIfWinActive("ahk_id " WinGet_hwnd)
    Hotkey("1", ToClip_Title, "On")
-   Hotkey("2", ToClip_Path, "On")
-   Hotkey("3", ToClip_Exe, "On")
-   Hotkey("4", ToClip_ID, "On")
-   Hotkey("5", ToClip_PID, "On")
-   Hotkey("6", ToClip_Title_regex, "On")
+   Hotkey("2", ToClip_Title_regex, "On")
+   Hotkey("3", ToClip_Path, "On")
+   Hotkey("4", ToClip_Exe, "On")
+   Hotkey("5", ToClip_ID, "On")
+   Hotkey("6", ToClip_PID, "On")
 
    Hotkey("Escape", FlushHotkeys, "On")
 
