@@ -8,5 +8,5 @@ Print(toPrint) {
       default:
          try toPrint_string := String(toPrint)
    }
-   try FileAppend(toPrint_string, "*", "utf-8")
+   try FileAppend(toPrint_string "`n", "*", "utf-8")
 }
