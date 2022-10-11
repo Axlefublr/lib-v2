@@ -338,9 +338,11 @@ Show_Run(show, progressType?) {
 
 Show_DeleteShow(show) {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-   shows.Delete(show)
+   try {
+      shows.Delete(show)
+      WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
+   }
    AppendFile(Paths.Ptf["Consumed"], "`n1. " GetDate() " - " show.ToTitle())
-   WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
 }
 
 Show_SetLink(show_and_link) {
