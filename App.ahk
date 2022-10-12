@@ -336,13 +336,13 @@ Show_Run(show, progressType?) {
    win_Activate("Google Chrome ahk_exe chrome.exe")
 }
 
-Show_DeleteShow(show) {
+Show_DeleteShow(show, isDropped := false) {
    shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    try {
       shows.Delete(show)
       WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
    }
-   AppendFile(Paths.Ptf["Consumed"], "`n1. " GetDate() " - " show.ToTitle())
+   AppendFile(Paths.Ptf["Consumed"], "`n1. " GetDate() " - " show.ToTitle() (isDropped ? " - dropped" : ""))
 }
 
 Show_SetLink(show_and_link) {
