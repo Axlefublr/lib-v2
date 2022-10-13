@@ -1,6 +1,6 @@
 ﻿/*
 	Name: String.ahk
-	Version 0.11 (09.09.22)
+	Version 0.12 (12.09.22)
 	Created: 27.08.22
 	Author: Descolada
 	Credit:
@@ -28,6 +28,8 @@
 	|       .Compare(comparison [, CaseSense])                                   |
 	|       .Sort([, Options, Function])                                         |
 	|       .Find(Needle [, CaseSense, StartingPos, Occurrence])                 |
+	|       .RegExMatch(needleRegex, &match?, startingPos?)                      |
+	|       .RegExReplace(needle, replacement?, &count?, limit?, startingPos?)   |
 	|                                                                            |
 	| String[n] => gets nth character                                            |
 	| String[i,j] => substring from i to j                                       |
@@ -57,15 +59,16 @@
 */
 
 ; Add String2 methods and properties into String object
-ObjDefineProp := Object.Prototype.DefineProp
-for f in String2.OwnProps() {
-	if !(f ~= "__Init|__Item|Prototype|Length") {
-		if HasMethod(String2, f)
-			ObjDefineProp(String.Prototype, f, {call:String2.%f%})
+__ObjDefineProp := Object.Prototype.DefineProp
+for __String2_Prop in String2.OwnProps() {
+	if !(__String2_Prop ~= "__Init|__Item|Prototype|Length") {
+		if HasMethod(String2, __String2_Prop)
+			__ObjDefineProp(String.Prototype, __String2_Prop, {call:String2.%__String2_Prop%})
 	}
 }
-ObjDefineProp(String.Prototype, "__Item", {get:(args*)=>String2.__Item[args*]})
-ObjDefineProp(String.Prototype, "Length", {get:(arg)=>String2.Length(arg)})
+__ObjDefineProp(String.Prototype, "__Item", {get:(args*)=>String2.__Item[args*]})
+__ObjDefineProp(String.Prototype, "Length", {get:(arg)=>String2.Length(arg)})
+__ObjDefineProp(String.Prototype, "WLength", {get:(arg)=>String2.WLength(arg)})
 
 Class String2 {
 	static __Item[args*] {
@@ -73,19 +76,21 @@ Class String2 {
 			if args.length = 2
 				return SubStr(args[1], args[2], 1)
 			else {
+				len := StrLen(args[1])
+				if args[2] < 0
+					args[2] := len+args[2]+1
 				if args[3] < 0
-					return SubStr(args[1], args[2], StrLen(args[1])-args[2]+args[3]+1)
-				else if args[3] = 0
-					return SubStr(args[1], args[2])
-				else if args[3] < args[2]
-					return SubStr(args[1], args[3], args[2]).Reverse()
-				else
+					args[3] := len+args[3]+1
+				if args[3] >= args[2]
 					return SubStr(args[1], args[2], args[3]-args[2]+1)
+				else
+					return SubStr(args[1], args[3], args[2]-args[3]+1).Reverse()
 			}
 		}
 	}
 	; Native functions implemented as methods for the String object
 	static Length(str)    => StrLen(str)
+	static WLength(str)   => (RegExReplace(str, "s).", "", &i), i)
 	static ToUpper()      => StrUpper(this)
 	static ToLower()      => StrLower(this)
 	static ToTitle()      => StrTitle(this)
@@ -97,33 +102,23 @@ Class String2 {
 	static Compare(args*) => StrCompare(this, args*)
 	static Sort(args*)    => Sort(this, args*)
 	static Find(args*)    => InStr(this, args*)
-
 	/**
 	 * Returns the match object
-	 * @param needleRegex *String*
-	 * @param startingPos *Integer*
+	 * @param needleRegex *String* What pattern to match
+	 * @param startingPos *Integer* Specify a number to start matching at. By default, starts matching at the beginning of the string
 	 * @returns {Object}
 	 */
-	static RegExMatch(needleRegex, startingPos?) {
-		str := this
-		RegExMatch(str, needleRegex, &match, startingPos?)
-		return match
-	}
-
-	/**
-	 * Uses regex to perform a replacement, returns the changed string
-	 * @param needleRegex *String* What pattern to match
-	 * @param replacement *String* What to replace that match into
-	 * @param outputVarCount *Varref* Specify a variable with a `&` before it to assign it to the amount of replacements that have occured
-	 * @param limit *Integer* The maximum amount of replacements that can happen. Unlimited by default
-	 * @param startingPos *Integer* Specify a number to start matching at. By default, starts matching at the beginning of the string
-	 * @returns {String} The changed string
-	 */
-	static RegExReplace(needleRegex, replacement?, &outputVarCount?, limit?, startingPos?) {
-		str := this
-		str := RegExReplace(str, needleRegex, replacement?, &outputVarCount?, limit?, startingPos?)
-		return str
-	}	
+	static RegExMatch(needleRegex, &match?, startingPos?) => (RegExMatch(this, needleRegex, &match, startingPos?), match)
+	 /**
+	  * Uses regex to perform a replacement, returns the changed string
+	  * @param needleRegex *String* What pattern to match
+	  * @param replacement *String* What to replace that match into
+	  * @param outputVarCount *Varref* Specify a variable with a `&` before it to assign it to the amount of replacements that have occured
+	  * @param limit *Integer* The maximum amount of replacements that can happen. Unlimited by default
+	  * @param startingPos *Integer* Specify a number to start matching at. By default, starts matching at the beginning of the string
+	  * @returns {String} The changed string
+	  */
+	static RegExReplace(needleRegex, replacement?, &outputVarCount?, limit?, startingPos?) => RegExReplace(this, needleRegex, replacement?, &outputVarCount?, limit?, startingPos?)
 
 	/**
 	 * Add character(s) to left side of the input string.
@@ -169,7 +164,7 @@ Class String2 {
 	 */
 	static Count(needle, caseSensitive:=False) {
 		StrReplace(this, needle,, caseSensitive, &count)
-		return count+1
+		return count
 	}
 
 	/**
@@ -189,6 +184,12 @@ Class String2 {
 		DllCall("msvcrt\_wcsrev", "str", str := this, "CDecl str")
 		return str
 	}
+	static WReverse() {
+		str := this, out := "", m := ""
+		While RegexMatch(str, "s).", &m) && out := m[] out
+			str := RegExReplace(str, "s).",,,1)
+		return out
+	}
 
 	/**
 	 * Insert the string inside 'insert' into position 'pos'
@@ -200,7 +201,7 @@ Class String2 {
 	 */
 	static Insert(insert, pos:=1) {
 		Length := StrLen(this)
-		((pos > 0) ;Comment about the formatting: ternaries go expression by expression, `pos2 := StrLen(this), Length := 0` are two expressions, so they should be in (), `pos2 := pos - 1` though, is already a single expression, so it doesn't need to be in () - Axlefublr
+		((pos > 0)
 			? pos2 := pos - 1
 			: (pos = 0
 				? (pos2 := StrLen(this), Length := 0)
@@ -208,7 +209,7 @@ Class String2 {
 				)
 		)
 		output := SubStr(this, 1, pos2) . insert . SubStr(this, pos, Length)
-		if (StrLen(output) > StrLen(this) + StrLen(insert)) ;No {} around the if needed, because the ternary is considered a single expression, and by extension, a single line - Axlefublr
+		if (StrLen(output) > StrLen(this) + StrLen(insert))
 			((Abs(pos) <= StrLen(this)/2)
 				? (output := SubStr(output, 1, pos2 - 1)
 					. SubStr(output, pos + 1, StrLen(this))
@@ -229,14 +230,14 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static Overwrite(overwrite, pos:=1) {
-	if (Abs(pos) > StrLen(this))
-		return "" ;We're expecting a string, we should get a string - Axlefublr
-	else if (pos>0)
-		return SubStr(this, 1, pos-1) . overwrite . SubStr(this, pos+StrLen(overwrite))
-	else if (pos<0)
-		return SubStr(this, 1, pos) . overwrite . SubStr(this " ",(Abs(pos) > StrLen(overwrite) ? pos+StrLen(overwrite) : 0), Abs(pos+StrLen(overwrite)))
-	else if (pos=0)
-		return this . overwrite
+		if (Abs(pos) > StrLen(this))
+			return ""
+		else if (pos>0)
+			return SubStr(this, 1, pos-1) . overwrite . SubStr(this, pos+StrLen(overwrite))
+		else if (pos<0)
+			return SubStr(this, 1, pos) . overwrite . SubStr(this " ",(Abs(pos) > StrLen(overwrite) ? pos+StrLen(overwrite) : 0), Abs(pos+StrLen(overwrite)))
+		else if (pos=0)
+			return this . overwrite
 	}
 
 	/**
@@ -248,19 +249,19 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static Delete(start:=1, length:=1) {
-		if (Abs(start+length) > StrLen(this))
+		if (Abs(start) > StrLen(this))
 			return ""
 		if (start>0)
 			return SubStr(this, 1, start-1) . SubStr(this, start + length)
 		else if (start<=0)
-			return SubStr(this " ", 1, start-length-1) SubStr(this " ", ((start<0) ? start : 0), -1)
+			return SubStr(this " ", 1, start-1) SubStr(this " ", ((start<0) ? start-1+length : 0), -1)
 	}
 
 	/**
 	 * Wrap the string so each line is never more than a specified length.
-	 * input: "Apples are a round fruit, usually red.".LineWrap(20, "---")
+	 * input: "Apples are a round fruit, usually red".LineWrap(20, "---")
 	 * output: "Apples are a round f
-	 *          ---ruit, usually red."
+	 *          ---ruit, usually red"
 	 * @param column Specify a maximum length per line
 	 * @param indentChar Choose a character to indent the following lines with
 	 * @returns {String}
@@ -270,7 +271,7 @@ Class String2 {
 		, columnSpan := column - CharLength
 		, Ptr := A_PtrSize ? "Ptr" : "UInt"
 		, UnicodeModifier := 2
-		, VarSetStrCapacity(&out, (StrLen(this) + (Ceil(StrLen(this) / columnSpan) * (column + CharLength + 1)))+2)
+		, VarSetStrCapacity(&out, (finalLength := (StrLen(this) + (Ceil(StrLen(this) / columnSpan) * (column + CharLength + 1))))*2)
 		, A := StrPtr(out)
 
 		Loop parse, this, "`n", "`r" {
@@ -304,6 +305,7 @@ Class String2 {
 				, NumPut("UShort", 10, A)
 				, A += UnicodeModifier
 		}
+		NumPut("UShort", 0, A)
 		VarSetStrCapacity(&out, -1)
 		return SubStr(out,1, -1)
 	}
@@ -321,7 +323,7 @@ Class String2 {
 	 */
 	static WordWrap(column:=56, indentChar:="") {
 		if !IsInteger(column)
-			throw TypeError("WordWrap: argument 'column' must be an integer", -2)
+			throw TypeError("WordWrap: argument 'column' must be an integer", -1)
 		out := ""
 		indentLength := StrLen(indentChar)
 
@@ -358,7 +360,7 @@ Class String2 {
 	 */
 	static InsertLine(insert, line, delim:="`n", exclude:="`r") {
 		into := this, new := ""
-		count := into.Count(delim)
+		count := into.Count(delim)+1
 
 		; Create any lines that don't exist yet, if the Line is less than the total line count.
 		if (line<0 && Abs(line)>count) {
@@ -397,18 +399,16 @@ Class String2 {
 	static DeleteLine(line, delim:="`n", exclude:="`r") {
 		new := ""
 		; checks to see if we are trying to delete a non-existing line.
-		count:=this.Count(delim)
+		count:=this.Count(delim)+1
 		if (abs(line)>Count)
-			throw Error("DeleteLine: the line number cannot be greater than the number of lines", -2)
+			throw ValueError("DeleteLine: the line number cannot be greater than the number of lines", -1)
 		if (line<0)
 			line:=count+line+1
 		else if (line=0)
-			throw Error("DeleteLine: line number cannot be 0", -2)
+			throw ValueError("DeleteLine: line number cannot be 0", -1)
 
 		Loop parse, this, delim, exclude {
 			if (a_index==line) {
-				if A_Index == count
-					new .= delim
 				Continue
 			} else
 				(new .= A_LoopField . delim)
@@ -429,24 +429,24 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static ReadLine(line, delim:="`n", exclude:="`r") {
-		out := "", count:=String.Count(delim)
+		out := "", count:=this.Count(delim)+1
 
 		if (line="R")
 			line := Random(1, count)
 		else if (line="L")
 			line := count
 		else if abs(line)>Count
-			throw Error("ReadLine: the line number cannot be greater than the number of lines", -2)
+			throw ValueError("ReadLine: the line number cannot be greater than the number of lines", -1)
 		else if (line<0)
 			line:=count+line+1
 		else if (line=0)
-			throw Error("ReadLine: line number cannot be 0", -2)
+			throw ValueError("ReadLine: line number cannot be 0", -1)
 
 		Loop parse, this, delim, exclude {
 			if A_Index = line
 				return A_LoopField
 		}
-		throw Error("ReadLine: something went wrong, the line was not found", -2)
+		throw Error("ReadLine: something went wrong, the line was not found", -1)
 	}
 
 	/**
@@ -455,7 +455,7 @@ Class String2 {
 	 * output: "aaa|bbb|ccc|ddd"
 	 * @param delim *String*
 	 */
-	static RemoveDuplicates(delim:="`n") => RegExReplace(this, "(" RegExReplace(delim, "([\\.*?+\[\{|\()^$])", "\$1") ")+", "$1")
+	static RemoveDuplicates(delim:="`n") => RegExReplace(this, "(\Q" delim "\E)+", "$1")
 
 	/**
 	 * Checks whether the string contains any of the needles provided.
@@ -486,20 +486,20 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static Center(fill:=" ", symFill:=0, delim:="`n", exclude:="`r", width?) {
-		fill:=SubStr(fill,1,1)
+		fill:=SubStr(fill,1,1), longest := 0, new := ""
 		Loop parse, this, delim, exclude
 			if (StrLen(A_LoopField)>longest)
-				longest:=StrLen(A_LoopField)
-		if !IsSet(width)
+				longest := StrLen(A_LoopField)
+		if IsSet(width)
 			longest := Max(longest, width)
-		Loop parse, this, %delim%, %exclude%
+		Loop parse this, delim, exclude
 		{
-			filled:=""
-			Loop (longest-StrLen(A_LoopField))//2
+			filled:="", len := StrLen(A_LoopField)
+			Loop (longest-len)//2
 				filled.=fill
-			new.= filled A_LoopField ((symFill=1) ? filled : "") "`n"
+			new .= filled A_LoopField ((symFill=1) ? filled (2*StrLen(filled)+len = longest ? "" : fill) : "") "`n"
 		}
-		return rtrim(new,"`r`n")
+		return RTrim(new,"`r`n")
 	}
 
 	/**
@@ -514,7 +514,7 @@ Class String2 {
 	 * @returns {String}
 	 */
 	static Right(fill:=" ", delim:="`n", exclude:="`r") {
-		fill:=SubStr(fill,1,1), longest := 0
+		fill:=SubStr(fill,1,1), longest := 0, new := ""
 		Loop parse, this, delim, exclude
 			if (StrLen(A_LoopField)>longest)
 				longest:=StrLen(A_LoopField)
