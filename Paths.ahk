@@ -1,7 +1,7 @@
 ﻿;No dependencies
 
 Class Paths {
-   
+
    static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
    static System32 := "C:\Windows\System32"
 
@@ -47,7 +47,6 @@ Class Paths {
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
-      "Diary",  this.Main "\Notes-temp\Diary.md",
       "Output", this.Main "\Notes-temp\Output.txt",
 
       "AhkTest", this.Main "\Test\AhkTest.ahk",
@@ -63,6 +62,7 @@ Class Paths {
       "Consumed", this.Shows "\Consumed.md",
 
       "EatingLog", this.Info "\EatingLog.txt",
+      "Diary",     this.Info "\Diary.md",
 
       "Raw",         this.YtDev "\Dev\Raw.md",
       "Clean",       this.YtDev "\Dev\Clean.md",
@@ -83,7 +83,6 @@ Class Paths {
       "Terminal",          A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe",
       "DS4 Windows",       A_ProgramFiles "\DS4Windows\DS4Windows.exe",
       "OBS",               A_ProgramFiles "\obs-studio\bin\64bit\obs64.exe",
-      "Visual Studio",     A_ProgramFiles "\Microsoft Visual Studio\2022\Community\Common7\IDE\devenv.exe",
 
       "Google Chrome",     A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
       "Monkeytype",        A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",

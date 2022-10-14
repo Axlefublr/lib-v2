@@ -54,6 +54,10 @@ spotify_NewDiscovery() {
       return
    }
    artistName := spotify_RemoveAfterArtist(currSong)
+   spotify_NewDiscovery_Manual(artistName)
+}
+
+spotify_NewDiscovery_Manual(artistName) {
    AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
    Info(artistName " just discovered! 🌎")
 }
