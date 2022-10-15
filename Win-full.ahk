@@ -48,7 +48,7 @@ win_RestoreLeftRight(direction, winTitle := "A") {
       return
    }
 
-   win_RestoreDown(winTitle)	;Unmaximize it
+   win_RestoreDown(winTitle) ;Unmaximize it
    SetTimer(_WinMoveWhenMin, 20)
 
 }

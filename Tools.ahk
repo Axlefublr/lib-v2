@@ -574,4 +574,4 @@ Counter(startingNum?) {
       return
    }
    num := startingNum
-}
+} 

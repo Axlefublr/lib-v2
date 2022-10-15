@@ -76,7 +76,7 @@ Class Paths {
 
    static Apps := Map(
       "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
-      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2.0-beta.10\AutoHotkey.chm",
+      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2.0-beta.11\AutoHotkey.chm",
       "Ahk compiler",      A_ProgramFiles "\AutoHotkey\Compiler\Ahk2Exe.exe",
 
       "Shell Menu View",   A_ProgramFiles "\Shell Menu View\shmnview.exe",

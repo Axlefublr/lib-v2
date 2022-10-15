@@ -34,6 +34,8 @@ spotify_Close() => Send("^+q")
 
 spotify_RemoveAfterArtist(input) => RegExReplace(input, " +[-=] .*")
 
+spotify_RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?(- +)?(\d\d\.\d\d\.\d\d)?( \d\d:\d\d)?( +- +)?")
+
 spotify_Context() => (
    ControlClick("x32 y1014", "ahk_exe Spotify.exe", , "R"),
    Send("{Up 2}")
@@ -66,7 +68,7 @@ spotify_IsRapperTouched(name) {
    isTouched := ReadFile(Paths.Ptf["Unfinished"])
    isTouched .= ReadFile(Paths.Ptf["Rappers"])
    isTouched .= ReadFile(Paths.Ptf["Artists"])
-   isTouched := RemoveDateAndTime(isTouched)
+   isTouched := spotify_RemoveDateAndTime(isTouched)
    isTouched := spotify_RemoveAfterArtist(isTouched)
    if Instr(isTouched, name) {
       Info("You've already started listening to this rapper")
@@ -92,7 +94,7 @@ spotify_FavRapper_Auto() {
 }
 
 spotify_FavRapper_Manual(artistName) {
-   artists := RemoveDateAndTime(ReadFile(Paths.Ptf["Artists"]))
+   artists := spotify_RemoveDateAndTime(ReadFile(Paths.Ptf["Artists"]))
    if InStr(artists, artistName) {
       Info(artistName " is already added 😨")
       return
