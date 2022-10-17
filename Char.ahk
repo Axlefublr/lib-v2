@@ -34,6 +34,9 @@ GetUnicode(name) {
       "long dash",                0x2014,
       "sun",                      0x2600,
       "cloud",                    0x2601,
+      "nerd",                     0x1F913,
+      "handshake",                0x1F91D,
+      "shrug",                    0x1F937,
    )
 
    return Unicodes[name]
@@ -47,8 +50,14 @@ GetUnicode(name) {
 Symbol(name, endingChar?) {
    if IsObject(name) {
       symbols := ""
-      for key, value in name
-         symbols .= Chr(GetUnicode(value))
+      for key, value in name {
+         if Type(value) = "Array" {
+            for key2, value2 in value
+               symbols .= Chr(GetUnicode(value))
+         }
+         else 
+            symbols .= Chr(GetUnicode(value))
+      }
    } else
       symbols := Chr(GetUnicode(name))
 

@@ -445,7 +445,7 @@ Snake(SquareSide, delay, timeout) {
    timeout := timeout * 1000
 
    static colors := [
-      "D12229",	;Red
+      "D12229",	;red
       "F68A1E",	;Orange
       "FDE01A",	;Yellow
       "007940",	;Green

@@ -57,6 +57,7 @@ Links := Map(
    "wb",        "https://www.wildberries.ru/lk/myorders/delivery",
 
    ;Github
+   "so",  "https://stackoverflow.com/",
    "gh",  "https://github.com/",
    "ghm", "https://github.com/Axlefublr/",
 
@@ -65,18 +66,18 @@ Links := Map(
    "my second channel",   "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
 
    ;Tutorials
-   "startup",             "https://youtu.be/vjQIbagvkcs",
-   "arrow",               "https://youtu.be/nSTL3KND25c",
-   "ternary is readable", "https://youtu.be/RsH6A2Cuo-c",
-   "getters",             "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
-   "clock",               "https://youtu.be/A9gBET8WHig",
-   "function objects",    "https://youtu.be/5X2OddjH96A",
-   "install ahk",         "https://youtu.be/X4elEmKFep4",
-   "configure docs",      "https://youtu.be/8OymPoyUN70",
-   "static",              "https://youtu.be/HOvItTvVTZA",
-   "clipsend",            "https://youtu.be/dnp1KTu-R2k",
-   "objects",             "https://youtu.be/6W9Ruu5jHaM",
-   "vscode setup",        "https://youtu.be/u66dw-hIj3g",
+   "startup",          "https://youtu.be/vjQIbagvkcs",
+   "arrow",            "https://youtu.be/nSTL3KND25c",
+   "ternary",          "https://youtu.be/RsH6A2Cuo-c",
+   "getters",          "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
+   "clock",            "https://youtu.be/A9gBET8WHig",
+   "function objects", "https://youtu.be/5X2OddjH96A",
+   "install ahk",      "https://youtu.be/X4elEmKFep4",
+   "configure docs",   "https://youtu.be/8OymPoyUN70",
+   "static",           "https://youtu.be/HOvItTvVTZA",
+   "clipsend",         "https://youtu.be/dnp1KTu-R2k",
+   "objects",          "https://youtu.be/6W9Ruu5jHaM",
+   "vscode setup",     "https://youtu.be/u66dw-hIj3g",
 
    ;Unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
    "v2 setup",            "https://youtu.be/TSvp6ktqo1Q",
