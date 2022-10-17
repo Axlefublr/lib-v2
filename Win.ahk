@@ -20,6 +20,9 @@ win_Activate(winTitle, exception?) {
    try {
       WinActivate(winTitle,, exception ?? "")
       WinWaitActive(winTitle,, exception ?? "")
+      return true
+   } catch Any {
+      return false
    }
 }
 
