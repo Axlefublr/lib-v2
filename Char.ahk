@@ -48,16 +48,10 @@ GetUnicode(name) {
  * @param endingChar *String* The string to append to the character. For example, a space or a newline
  */
 Symbol(name, endingChar?) {
-   if IsObject(name) {
+   if Type(name) = "Array" {
       symbols := ""
-      for key, value in name {
-         if Type(value) = "Array" {
-            for key2, value2 in value
-               symbols .= Chr(GetUnicode(value))
-         }
-         else 
-            symbols .= Chr(GetUnicode(value))
-      }
+      for key, value in name 
+         symbols .= Chr(GetUnicode(value))
    } else
       symbols := Chr(GetUnicode(name))
 
