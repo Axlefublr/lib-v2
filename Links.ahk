@@ -78,6 +78,7 @@ Links := Map(
    "clipsend",         "https://youtu.be/dnp1KTu-R2k",
    "objects",          "https://youtu.be/6W9Ruu5jHaM",
    "vscode setup",     "https://youtu.be/u66dw-hIj3g",
+   "settimers",        "https://youtu.be/bUxm_Gwd58Q",
 
    ;Unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
    "v2 setup",            "https://youtu.be/TSvp6ktqo1Q",

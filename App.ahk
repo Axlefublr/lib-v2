@@ -459,8 +459,10 @@ video_PasteClean() {
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 davinci_Insert() {
-   if !win_Activate("DaVinci Resolve ahk_exe Resolve.exe")
+   if !win_Activate("DaVinci Resolve ahk_exe Resolve.exe") {
+      Info("Window could not be activated")
       return
+   }
    ControlClick("X79 Y151", "DaVinci Resolve ahk_exe Resolve.exe", , "R")
    Send("{Down 2}{Enter}")
    if !WinWaitActive("New Timeline Properties",, 3)
@@ -469,12 +471,15 @@ davinci_Insert() {
 }
 
 davinci_Setup() {
-   if !win_Activate("DaVinci Resolve ahk_exe Resolve.exe")
+   if !win_Activate("DaVinci Resolve ahk_exe Resolve.exe") {
+      Info("No Davinci Resolve window!")
       return 
+   }
    win_RestoreDown("DaVinci Resolve ahk_exe Resolve.exe")
    WinMove(-8, 0, 1492, A_ScreenHeight, "DaVinci Resolve ahk_exe Resolve.exe")
    win_RunAct_Folders(Paths.Pictures)
    WinMove(1466, 0, 463, A_ScreenHeight)
+   win_Activate("DaVinci Resolve ahk_exe Resolve.exe")
 }
 
 screenshot_Rectangle() => ClickThenGoBack("839 6")

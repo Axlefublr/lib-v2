@@ -18,10 +18,11 @@ win_Minimize(winTitle := "A") {
 
 win_Activate(winTitle, exception?) {
    try {
-      WinActivate(winTitle,, exception ?? "")
-      WinWaitActive(winTitle,, exception ?? "")
+      WinActivate(winTitle,,, exception ?? "")
+      WinWaitActive(winTitle,,, exception ?? "")
       return true
-   } catch Any {
+   } 
+   catch Any {
       return false
    }
 }
