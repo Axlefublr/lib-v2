@@ -75,34 +75,34 @@ Class Paths {
    )
 
    static Apps := Map(
-      "Ahk v1 docs",       A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
-      "Ahk v2 docs",       A_ProgramFiles "\AutoHotkey\v2.0-beta.11\AutoHotkey.chm",
-      "Ahk compiler",      A_ProgramFiles "\AutoHotkey\Compiler\Ahk2Exe.exe",
+      "Ahk v1 docs",     A_ProgramFiles "\AutoHotkey\AutoHotkey.chm",
+      "Ahk v2 docs",     A_ProgramFiles "\AutoHotkey\v2.0-beta.12\AutoHotkey.chm",
+      "Ahk compiler",    A_ProgramFiles "\AutoHotkey\Compiler\Ahk2Exe.exe",
 
-      "Shell Menu View",   A_ProgramFiles "\Shell Menu View\shmnview.exe",
-      "Terminal",          A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe",
-      "DS4 Windows",       A_ProgramFiles "\DS4Windows\DS4Windows.exe",
-      "OBS",               A_ProgramFiles "\obs-studio\bin\64bit\obs64.exe",
+      "Shell Menu View", A_ProgramFiles "\Shell Menu View\shmnview.exe",
+      "Terminal",        A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe",
+      "DS4 Windows",     A_ProgramFiles "\DS4Windows\DS4Windows.exe",
+      "OBS",             A_ProgramFiles "\obs-studio\bin\64bit\obs64.exe",
 
-      "Google Chrome",     A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
-      "Monkeytype",        A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",
+      "Google Chrome",   A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
+      "Monkeytype",      A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",
 
-      "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
+      "VPN",             "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
 
-      "Spotify",           A_AppData "\Spotify\Spotify.exe",
-      "Telegram",          A_AppData "\Telegram Desktop\Telegram.exe",
+      "Spotify",         A_AppData "\Spotify\Spotify.exe",
+      "Telegram",        A_AppData "\Telegram Desktop\Telegram.exe",
 
-      "Davinci Resolve",   "C:\Programs\Davinci Resolve\Resolve.exe",
-      "FL",                "C:\Programs\FL Studio 20\FL64.exe",
-      "Steam",             "C:\Programs\Steam\steam.exe",
+      "Davinci Resolve", "C:\Programs\Davinci Resolve\Resolve.exe",
+      "FL",              "C:\Programs\FL Studio 20\FL64.exe",
+      "Steam",           "C:\Programs\Steam\steam.exe",
 
-      "VS Code",           this.LocalAppData "\Programs\Microsoft VS Code\Code.exe",
-      "WPS",               this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
-      "Discord",           this.LocalAppData "\Discord\app-1.0.9006\Discord.exe",
-      "Slack",             this.LocalAppData "\slack\app-4.28.171\slack.exe",
-      "Gimp",              this.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe",
+      "VS Code",         this.LocalAppData "\Programs\Microsoft VS Code\Code.exe",
+      "WPS",             this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
+      "Discord",         this.LocalAppData "\Discord\app-1.0.9006\Discord.exe",
+      "Slack",           this.LocalAppData "\slack\app-4.28.171\slack.exe",
+      "Gimp",            this.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe",
 
-      "Sound mixer",       this.System32 "\SndVol.exe",
+      "Sound mixer",     this.System32 "\SndVol.exe",
 
    )
 }
