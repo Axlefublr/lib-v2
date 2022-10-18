@@ -255,8 +255,10 @@ vscode_GetLinuxPath() {
    vscodeTitle := WinGetTitle("Visual Studio Code ahk_exe Code.exe")
    path := vscodeTitle.RegexReplace(" -.*")
    noLowercaseCPath := path.RegexReplace("^C:")
+   forwardPath := noLowercaseCPath.Replace("\", "/")
    
-   linuxPath := "/mnt/c/"
+   linuxPath := "/mnt/c" forwardPath
+   return linuxPath
 }
 ;TERMINAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
