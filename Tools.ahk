@@ -575,3 +575,37 @@ Counter(startingNum?) {
    }
    num := startingNum
 } 
+
+HoverScreenshot() {
+   static first  := "x" Round(A_ScreenWidth / 1920 * 100) " y" Round(A_ScreenHeight / 1080 * 300)
+   static second := "x" Round(A_ScreenWidth / 1920 * 1200) " y" Round(A_ScreenHeight / 1080 * 200)
+   static third  := "x" Round(A_ScreenWidth / 1920 * 1200) " y" Round(A_ScreenHeight / 1080 * 700)
+   static Coord  := [first, second, third]
+
+   previousTimeStamp := 0
+   image1            := ""
+   image2            := ""
+   loop files Paths.SavedScreenshots "\*.png" {
+      if A_LoopFileTimeCreated > previousTimeStamp {
+         previousTimeStamp := A_LoopFileTimeCreated
+         image3 := image2
+         image2 := image1
+         image1 := A_LoopFileFullPath
+      }
+   }
+   guis := []
+   for key, value in [image1, image2, image3] {
+      guiObj := Gui("AlwaysOnTop")
+      pictureObj := guiObj.AddPicture(, value)
+      guiObj.Show("AutoSize " Coord[key])
+      guiHwnd := guiObj.Hwnd
+      guis.Push(guiHwnd)
+      pictureObj.OnEvent("Click", DestroyOthers.Bind(,, guiHwnd))
+   }
+   DestroyOthers(a, b, guiHwnd_passed) {
+      for key, value in guis {
+         if value != guiHwnd_passed
+            WinClose(value)
+      }
+   }
+}

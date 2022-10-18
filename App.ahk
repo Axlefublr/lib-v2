@@ -156,11 +156,12 @@ youtube_SkipPrev() => Send("+p")
 
 youtube_MiniscreenClose() => ControlClick("X1858 Y665")
 
-youtube_ChannelSwitch() => (
-   ControlClick("X1823 Y133"),
-   WaitUntilImage(Paths.Ptf["switch account ytt"]),
+youtube_ChannelSwitch() {
+   ControlClick("X1823 Y133")
+   if !WaitUntilImage(Paths.Ptf["switch account ytt"])
+      return
    ControlClick("x1531 y407")
-)
+}
 
 youtube_ToYouTube() => (
    ControlClick("X1865 Y130"),
