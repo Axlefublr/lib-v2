@@ -44,6 +44,7 @@ Class Paths {
       "reply",              this.Main "\Files\Images\reply.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
+      "TempImage", this.Main "\Files\Innit\TempImage.jpg",
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 

@@ -21,3 +21,4 @@
 #Include <ClipSend>
 #Include <Cmd>
 #Include <Get>
+#Include <CGdip>
