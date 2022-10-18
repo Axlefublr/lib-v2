@@ -159,7 +159,7 @@ youtube_MiniscreenClose() => ControlClick("X1858 Y665")
 youtube_ChannelSwitch() => (
    ControlClick("X1823 Y133"),
    WaitUntilImage(Paths.Ptf["switch account ytt"]),
-   ControlClick("x1509 y427")
+   ControlClick("x1531 y407")
 )
 
 youtube_ToYouTube() => (
@@ -249,6 +249,14 @@ vscode_VideoUp() {
       WriteFile(value)
    }
    FileDelete(Paths.Materials "\*.*")
+}
+
+vscode_GetLinuxPath() {
+   vscodeTitle := WinGetTitle("Visual Studio Code ahk_exe Code.exe")
+   path := vscodeTitle.RegexReplace(" -.*")
+   noLowercaseCPath := path.RegexReplace("^C:")
+   
+   linuxPath := "/mnt/c/"
 }
 ;TERMINAL~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
