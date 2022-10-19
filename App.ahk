@@ -497,7 +497,9 @@ screenshot_Rectangle() => ClickThenGoBack("839 6")
 
 screenshot_Window() => ClickThenGoBack("959 6")
 
-screenshot_Fullscreen() {
+screenshot_Fullscreen() => ClickThenGoBack("1018 31")
+
+screenshot_Fullscreen_Edit() {
    Send("#w")
    WinWait("Windows Ink Workspace ahk_exe ShellExperienceHost.exe")
    ClickThenGoBack("1756 1052")

@@ -454,7 +454,7 @@ Snake(SquareSide, delay, timeout) {
    ]
 
    static Columns := A_ScreenWidth // SquareSide
-   static Rows := A_ScreenHeight // SquareSide
+   static Rows    := A_ScreenHeight // SquareSide
 
    ;The gui's client + the place around it it still needs
    static MarginX := A_ScreenWidth // Columns
@@ -577,35 +577,15 @@ Counter(startingNum?) {
 } 
 
 HoverScreenshot() {
-   static first  := "x" Round(A_ScreenWidth / 1920 * 100) " y" Round(A_ScreenHeight / 1080 * 300)
-   static second := "x" Round(A_ScreenWidth / 1920 * 1200) " y" Round(A_ScreenHeight / 1080 * 200)
-   static third  := "x" Round(A_ScreenWidth / 1920 * 1200) " y" Round(A_ScreenHeight / 1080 * 700)
-   static Coord  := [first, second, third]
-
-   previousTimeStamp := 0
-   image1            := ""
-   image2            := ""
-   loop files Paths.SavedScreenshots "\*.png" {
-      if A_LoopFileTimeCreated > previousTimeStamp {
-         previousTimeStamp := A_LoopFileTimeCreated
-         image3 := image2
-         image2 := image1
-         image1 := A_LoopFileFullPath
-      }
+   if !picture := FileSelect(, Paths.SavedScreenshots,, "*.png") {
+      return false
    }
-   guis := []
-   for key, value in [image1, image2, image3] {
-      guiObj := Gui("AlwaysOnTop")
-      pictureObj := guiObj.AddPicture(, value)
-      guiObj.Show("AutoSize " Coord[key])
-      guiHwnd := guiObj.Hwnd
-      guis.Push(guiHwnd)
-      pictureObj.OnEvent("Click", DestroyOthers.Bind(,, guiHwnd))
-   }
-   DestroyOthers(a, b, guiHwnd_passed) {
-      for key, value in guis {
-         if value != guiHwnd_passed
-            WinClose(value)
-      }
-   }
+   g_hover := Gui("AlwaysOnTop +ToolWindow -Caption", "HoverScreenshot")
+   g_hover_picture := g_hover.AddPicture(, picture)
+   g_hover.Show("AutoSize")
+   
+   g_hover_picture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
+   g_hover.OnEvent("Escape",              (guiObj)        => guiObj.Destroy())
+   g_hover_picture.OnEvent("Click",       (guiCtrlObj, *) => PostMessage(0xA1, 2,,, guiCtrlObj.Gui.Hwnd))
+   return true
 }
