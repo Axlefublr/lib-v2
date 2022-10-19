@@ -23,9 +23,10 @@ Infos(text, autoCloseTimeout := 0) {
     * Tested with font sizes: 5, 10, 15, 20, 25, 50, 100 - so you can feel free to pick any font size
     * and it should work
     */
-   g_Info := Gui("AlwaysOnTop -caption").DarkMode(fontSize?)
-   g_Info_text := g_Info.AddText(, text)
-   static guiWidth := g_Info.MarginY * 5
+   gInfo      := Gui("AlwaysOnTop -caption").DarkMode(fontSize?)
+   gcText := gInfo.AddText(, text)
+
+   static guiWidth     := gInfo.MarginY * 5
    static maximumInfos := Floor(A_ScreenHeight / guiWidth)
 
    static AvailablePlaces := Map()
@@ -55,24 +56,24 @@ Infos(text, autoCloseTimeout := 0) {
    }
 
    if !IsSet(currYCoord) { ;If all values were true, we never set currYCoord, so it's unset...
-      g_Info.Destroy()
+      gInfo.Destroy()
       return 0 ;...Since there are no spaces available, we return out of the function and do nothing after
    }
 
-   Destruction(gui_hwnd_passed, currYCoord_passed, *) {
+   Destruction(pguiObj, pcurrYCoord, *) {
       /**
        * Passing the first two parameters might not be necessary, since they are just local variables
        * But with hotkeys and onevents for function that run many times, I've seen stuff work less
        * reliably when it's not actually binded and passed into the function, so this is a potentially
        * unnecessary but safe way to do what I want
        */
-      HotIfWinExist("ahk_id " gui_hwnd_passed)
+      HotIfWinExist("ahk_id " pguiObj.Hwnd)
       Hotkey("Escape", "Off")
-      win_Close(gui_hwnd_passed) ;Should be faster than WinClose, at least was in my previous version of Infos()
-      AvailablePlaces[currYCoord_passed] := false ;The spot is no longer taken and can be used by the next Infos()
+      pguiObj.Destroy() ;Should be faster than WinClose, at least was in my previous version of Infos()
+      AvailablePlaces[pcurrYCoord] := false ;The spot is no longer taken and can be used by the next Infos()
    }
 
-   HotIfWinExist("ahk_id " g_Info.Hwnd)
+   HotIfWinExist("ahk_id " gInfo.Hwnd)
    /**
     * Thanks to context specificity, escape held continuously keeps closing Infos from the oldest one
     * to the newest one
@@ -81,18 +82,18 @@ Infos(text, autoCloseTimeout := 0) {
     * since once the info gui doesn't exist, the escape hotkey won't be used by the function
     * Still, better to disable it, for I think performance 🤔
     */
-   Hotkey("Escape", Destruction.Bind(g_Info.Hwnd, currYCoord), "On")
-   g_Info_text.OnEvent("Click", Destruction.Bind(g_Info.Hwnd, currYCoord))
+   Hotkey("Escape", Destruction.Bind(gInfo, currYCoord), "On")
+   gcText.OnEvent("Click", Destruction.Bind(gInfo, currYCoord))
    if autoCloseTimeout {
-      SetTimer(Destruction.Bind(g_Info.Hwnd, currYCoord), -autoCloseTimeout)
+      SetTimer(Destruction.Bind(gInfo, currYCoord), -autoCloseTimeout)
    }
    /**
     * This is the cream of the function and what I rewrote it for
     * I click on an info I no longer need, and that space becomes available for the next Info called
     * That way you can use all the space you have without spaces in between
     */
-   g_Info.Show("AutoSize NA x0 y" currYCoord)
-   return g_Info.Hwnd
+   gInfo.Show("AutoSize NA x0 y" currYCoord)
+   return gInfo
 }
 
 /**

@@ -580,12 +580,14 @@ HoverScreenshot() {
    if !picture := FileSelect(, Paths.SavedScreenshots,, "*.png") {
       return false
    }
-   g_hover := Gui("AlwaysOnTop +ToolWindow -Caption", "HoverScreenshot")
-   g_hover_picture := g_hover.AddPicture(, picture)
-   g_hover.Show("AutoSize")
+   gHover := Gui("AlwaysOnTop +ToolWindow -Caption", "HoverScreenshot")
+   gcPicture := gHover.AddPicture(, picture)
+   WinSetTransColor(0xF0F0F0, gHover.Hwnd)
+
+   gHover.Show("AutoSize NA")
    
-   g_hover_picture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
-   g_hover.OnEvent("Escape",              (guiObj)        => guiObj.Destroy())
-   g_hover_picture.OnEvent("Click",       (guiCtrlObj, *) => PostMessage(0xA1, 2,,, guiCtrlObj.Gui.Hwnd))
+   gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
+   gHover.OnEvent("Escape",         (guiObj)        => guiObj.Destroy())
+   gcPicture.OnEvent("Click",       (guiCtrlObj, *) => PostMessage(0xA1, 2,,, guiCtrlObj.Gui.Hwnd))
    return true
 }
