@@ -178,16 +178,23 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    return true
 }
 
-WaitUntilPixChange(coords := [], pixelColor?) {
+/**
+ * Waits for a change in color, on a place of the screen you specify
+ * @param coords *Array* The first value is x, the second value is y. Both absolute (not window / client)
+ * @param timeout *Integer* Amount of milliseconds, after which the function returns false 
+ * @returns {Boolean} True if succeeded, False if timed out
+ */
+WaitUntilPixChange(coords := [], timeout := 5000) {
    if !coords.Length {
       throw UnsetError("You specified an empty array.`nExpected: an array with the x and y coordinates (in that order)")
    }
-   if !pixelColor {
-      CoordMode("Pixel", "Screen")
-      pixelColor := PixelGetColor(coords[1], coords[2])
-   }
+   CoordMode("Pixel", "Screen")
+   pixelColor := PixelGetColor(coords[1], coords[2])
+   time := A_TickCount
    Loop {
       differentPixel := PixelGetColor(coords[1], coords[2])
+      if A_TickCount - time = timeout
+         return false
    } Until differentPixel != pixelColor
    return true
 }
