@@ -186,7 +186,7 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
  */
 WaitUntilPixChange(coords := [], timeout := 5000) {
    if !coords.Length {
-      throw UnsetError("You specified an empty array.`nExpected: an array with the x and y coordinates (in that order)")
+      throw UnsetError("You specified an empty array.`nExpected: An array with the x and y coordinates", -1, "coords - first parameter")
    }
    CoordMode("Pixel", "Screen")
    pixelColor := PixelGetColor(coords[1], coords[2])
