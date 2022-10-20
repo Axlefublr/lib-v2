@@ -615,8 +615,8 @@ Hider(pickedColor?) {
       return
    }
    
-   static widthCorrecter  := 0.81
-   static heightCorrecter := 0.81
+   static widthCorrecter  := 0.80
+   static heightCorrecter := 0.805
    MouseGetPos(&secondX, &secondY) 
 
    width    := Round(Abs(secondX - firstX) * widthCorrecter)
