@@ -43,6 +43,7 @@ Class Paths {
       "edit",               this.Main "\Files\Images\edit.png",
       "reply",              this.Main "\Files\Images\reply.png",
       "vk reply",           this.Main "\Files\Images\vk reply.png",
+      "BlankPic",           this.Main "\Files\Images\BlankPic.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
       "TempImage", this.Main "\Files\Innit\TempImage.jpg",

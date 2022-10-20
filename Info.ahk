@@ -23,7 +23,7 @@ Infos(text, autoCloseTimeout := 0) {
     * Tested with font sizes: 5, 10, 15, 20, 25, 50, 100 - so you can feel free to pick any font size
     * and it should work
     */
-   gInfo      := Gui("AlwaysOnTop -caption").DarkMode(fontSize?)
+   gInfo  := Gui("AlwaysOnTop -caption").DarkMode(fontSize?)
    gcText := gInfo.AddText(, text)
 
    static guiWidth     := gInfo.MarginY * 5

@@ -6,3 +6,8 @@ DarkMode(guiObj, fontSize?) {
    return guiObj
 }
 Gui.Prototype.DefineProp("DarkMode", {Call: DarkMode})
+
+PressTitleBar(guiObj) {
+   PostMessage(0xA1, 2,,, guiObj.Hwnd)
+}
+Gui.Prototype.DefineProp("PressTitleBar", {Call: PressTitleBar})
