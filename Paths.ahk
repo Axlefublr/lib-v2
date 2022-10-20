@@ -42,6 +42,7 @@ Class Paths {
       "github",             this.Main "\Files\Images\github.png",
       "edit",               this.Main "\Files\Images\edit.png",
       "reply",              this.Main "\Files\Images\reply.png",
+      "vk reply",           this.Main "\Files\Images\vk reply.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
       "TempImage", this.Main "\Files\Innit\TempImage.jpg",
