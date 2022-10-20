@@ -178,6 +178,20 @@ WaitUntilPixChange_Relative(r_RelPos, timeout := 5) {
    return true
 }
 
+WaitUntilPixChange(coords := [], pixelColor?) {
+   if !coords.Length {
+      throw UnsetError("You specified an empty array.`nExpected: an array with the x and y coordinates (in that order)")
+   }
+   if !pixelColor {
+      CoordMode("Pixel", "Screen")
+      pixelColor := PixelGetColor(coords[1], coords[2])
+   }
+   Loop {
+      differentPixel := PixelGetColor(coords[1], coords[2])
+   } Until differentPixel != pixelColor
+   return true
+}
+
 SystemReboot() => Shutdown(2)
 
 SystemPowerDown() => Shutdown(1)

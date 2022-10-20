@@ -155,7 +155,7 @@ youtube_MiniscreenClose() => ControlClick("X1858 Y665")
 
 youtube_ChannelSwitch() {
    ControlClick("X1823 Y133")
-   if !WaitUntilImage(Paths.Ptf["switch account ytt"])
+   if !WaitUntilPixChange([1324, 116], 0x313131)
       return
    ControlClick("x1531 y407")
 }
