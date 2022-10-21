@@ -54,6 +54,9 @@ Class Paths {
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
+      "Channel", this.Lib "\Channel.ahk",
+      "Memes", this.Lib "\Memes.ahk",
+      
       "Discovery log", this.Music "\Discovery log.txt",
       "Unfinished",    this.Music "\Unfinished.txt",
       "Rappers",       this.Music "\Rappers.txt",

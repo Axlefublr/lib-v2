@@ -22,3 +22,4 @@
 #Include <Cmd>
 #Include <Get>
 #Include <Channel>
+#Include <Image>
