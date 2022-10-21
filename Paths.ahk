@@ -54,9 +54,6 @@ Class Paths {
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
-      "Channel", this.Lib "\Channel.ahk",
-      "Memes", this.Lib "\Memes.ahk",
-      
       "Discovery log", this.Music "\Discovery log.txt",
       "Unfinished",    this.Music "\Unfinished.txt",
       "Rappers",       this.Music "\Rappers.txt",
@@ -65,8 +62,8 @@ Class Paths {
       "Shows",    this.Shows "\Shows.jsonc",
       "Consumed", this.Shows "\Consumed.md",
 
-      "EatingLog", this.Info "\EatingLog.txt",
-      "Diary",     this.Info "\Diary.md",
+      "EatingLog",    this.Info "\EatingLog.txt",
+      "Diary",        this.Info "\Diary.md",
 
       "Clean",       this.YtDev "\Clean.md",
       "Description", this.YtDev "\Description.txt",
