@@ -1,4 +1,4 @@
-﻿;No dependencies
+﻿#Include <Channel>
 
 Links := Map(
 
@@ -62,3 +62,5 @@ Links := Map(
    "gst", "https://gist.github.com/Axlefublr",
 
 )
+
+Links.Set(Channel*)

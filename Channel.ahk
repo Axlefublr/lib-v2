@@ -1,4 +1,4 @@
-Channel := Map(
+Channel := [
 
    ;Channels
    "my channel",        "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
@@ -45,4 +45,4 @@ Channel := Map(
    ;Second channel unlisted videos (not necessarily deprecated, but not worth watching imo for whatever reason. wanna keep em somewhere still)
    "screenshot hover unfinished", "https://youtu.be/4jiXHYuo7D8",
 
-)
+]
