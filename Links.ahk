@@ -1,4 +1,5 @@
 ﻿#Include <Channel>
+#Include <Memes>
 
 Links := Map(
 
@@ -64,3 +65,4 @@ Links := Map(
 )
 
 Links.Set(Channel*)
+Links.Set(Memes*)

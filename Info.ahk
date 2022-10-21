@@ -67,7 +67,13 @@ Infos(text, autoCloseTimeout := 0) {
        * reliably when it's not actually binded and passed into the function, so this is a potentially
        * unnecessary but safe way to do what I want
        */
-      HotIfWinExist("ahk_id " pguiObj.Hwnd)
+      try HotIfWinExist("ahk_id " pguiObj.Hwnd) 
+      /**
+       * This clumsy try statement is here only because if we try to close an info which object doesn't exist, that means we already did everything here
+       */
+      catch Any {
+         return false
+      }
       Hotkey("Escape", "Off")
       pguiObj.Destroy() ;Should be faster than WinClose, at least was in my previous version of Infos()
       AvailablePlaces[pcurrYCoord] := false ;The spot is no longer taken and can be used by the next Infos()
