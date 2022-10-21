@@ -310,7 +310,7 @@ tool_WindowGetter() {
 
    ;Getting the current window's info
    winTitle   := WinGetTitle("A")
-   winTitle_regex := ConvertToRegex(winTitle)
+   winTitle_regex := ConvertToRegex(winTitle) ;Dependency from https://github.com/Axlefublr/lib-v2/Get.ahk
    winExePath := WinGetProcessPath("A")
    winExe     := WinGetProcessName("A")
    winID      := WinGetID("A")
@@ -580,7 +580,7 @@ HoverScreenshot() {
    if !picture := FileSelect(, Paths.SavedScreenshots,, "*.png") {
       return false
    }
-   gHover := Gui("AlwaysOnTop +ToolWindow -Caption", "HoverScreenshot")
+   gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
    gcPicture := gHover.AddPicture(, picture)
    WinSetTransColor(0xF0F0F0, gHover.Hwnd)
 

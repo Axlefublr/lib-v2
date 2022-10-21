@@ -12,7 +12,6 @@ Links := Map(
 
    ;Services
    "gmail",    "https://mail.google.com/mail/u/0/#inbox",
-   "calendar", "https://calendar.google.com/calendar/u/0/r",
    "weather",  "https://yandex.ru/pogoda/",
    "2gis",     "https://2gis.ru/krasnoyarsk",
 
@@ -60,6 +59,7 @@ Links := Map(
    "so",  "https://stackoverflow.com/",
    "gh",  "https://github.com/",
    "ghm", "https://github.com/Axlefublr/",
+   "gst", "https://gist.github.com/Axlefublr",
 
    ;Channels
    "my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
