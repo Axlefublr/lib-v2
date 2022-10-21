@@ -61,28 +61,4 @@ Links := Map(
    "ghm", "https://github.com/Axlefublr/",
    "gst", "https://gist.github.com/Axlefublr",
 
-   ;Channels
-   "my channel",          "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
-   "my second channel",   "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
-
-   ;Tutorials
-   "startup",          "https://youtu.be/vjQIbagvkcs",
-   "arrow",            "https://youtu.be/nSTL3KND25c",
-   "ternary",          "https://youtu.be/RsH6A2Cuo-c",
-   "getters",          "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
-   "clock",            "https://youtu.be/A9gBET8WHig",
-   "function objects", "https://youtu.be/5X2OddjH96A",
-   "install ahk",      "https://youtu.be/X4elEmKFep4",
-   "configure docs",   "https://youtu.be/8OymPoyUN70",
-   "static",           "https://youtu.be/HOvItTvVTZA",
-   "clipsend",         "https://youtu.be/dnp1KTu-R2k",
-   "objects",          "https://youtu.be/6W9Ruu5jHaM",
-   "vscode setup",     "https://youtu.be/u66dw-hIj3g",
-   "settimers",        "https://youtu.be/bUxm_Gwd58Q",
-
-   ;Unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
-   "v2 setup",            "https://youtu.be/TSvp6ktqo1Q",
-   "syntax highlighting", "https://youtu.be/kYtKBncvEAA",
-   "snippets",            "https://youtu.be/gHQNoOMRHBc",
-
 )

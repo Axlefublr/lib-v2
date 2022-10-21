@@ -588,7 +588,7 @@ HoverScreenshot() {
    
    gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
    gHover.OnEvent("Escape",         (guiObj)        => guiObj.Destroy())
-   gcPicture.OnEvent("Click",       (guiCtrlObj, *) => PostMessage(0xA1, 2,,, guiCtrlObj.Gui.Hwnd))
+   gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
    return true
 }
 

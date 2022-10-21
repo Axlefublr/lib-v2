@@ -46,12 +46,10 @@ Class Paths {
       "BlankPic",           this.Main "\Files\Images\BlankPic.png",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
-      "TempImage", this.Main "\Files\Innit\TempImage.jpg",
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
-      "Output", this.Main "\Notes-temp\Output.txt",
-
+      "Output",  this.Main "\Test\Output.txt",
       "AhkTest", this.Main "\Test\AhkTest.ahk",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
