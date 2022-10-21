@@ -223,13 +223,12 @@ vscode_WorkSpace(wkspName) {
    Run(Paths.Ptf[wkspName], , "Max")
 }
 
-vscode_CleanText() {
-   clean := ReadFile(Paths.Ptf["Raw"])
-   clean := StrReplace(clean, "`r`n", "`n")	;making it easy for regex to work its magic by removing returns
+vscode_CleanText(input) {
+   clean := StrReplace(input, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
    clean := clean.RegexReplace("[ \t]{2,}", " ")
-   clean := RegexReplace(clean, "m)^\* .*\n(\n)?")	;removing bullets and their additional newlines
-   clean := RegexReplace(clean, "\n{3,}")	;removing spammed newlines
-   clean := RegexReplace(clean, "(?<!\.)\n{2}(?=[^A-Z])", " ")	;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
+   clean := clean.RegexReplace("(\n)?\n[!*].*", "`n")
+   ; clean := clean.RegexReplace("\n{3,}")	;removing spammed newlines
+   clean := clean.RegexReplace("(?<!\.)\n{2}(?=[^A-Z])", " ") ;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
 
    WriteFile(Paths.Ptf["Clean"], clean)
    Info("Text cleaned")

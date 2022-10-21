@@ -99,11 +99,11 @@ Cis() {
  * @param whichFile *String* The path to the file
  * @param text *String* The text to write
  */
-WriteFile(whichFile, text := "") => (
-   fileObj := FileOpen(whichFile, "w"),
-   fileObj.Write(text),
+WriteFile(whichFile, text := "") {
+   fileObj := FileOpen(whichFile, "w")
+   fileObj.Write(text)
    fileObj.Close()
-)
+}
 
 /**
  * Syntax sugar. Append text to a file, or write it if the file doesn't exist yet

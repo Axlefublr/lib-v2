@@ -67,9 +67,8 @@ Class Paths {
       "EatingLog", this.Info "\EatingLog.txt",
       "Diary",     this.Info "\Diary.md",
 
-      "Raw",         this.YtDev "\Dev\Raw.md",
-      "Clean",       this.YtDev "\Dev\Clean.md",
-      "Description", this.YtDev "\Dev\Description.txt",
+      "Clean",       this.YtDev "\Clean.md",
+      "Description", this.YtDev "\Description.txt",
 
       "FL preset",             this.Pictures "\Tools\FL preset.flp",
       "Thumbnail preset",      this.Pictures "\Tools\Thumbnail preset.xcf",
