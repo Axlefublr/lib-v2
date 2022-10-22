@@ -8,6 +8,7 @@
 GetUnicode(name) {
 
    static Unicodes := Map(
+
       "pleading",                 0x1F97A,
       "yum",                      0x1F60B,
       "exploding head",           0x1F92F,
@@ -37,6 +38,8 @@ GetUnicode(name) {
       "nerd",                     0x1F913,
       "handshake",                0x1F91D,
       "shrug",                    0x1F937,
+      "clap",                     0x1F44F,
+
    )
 
    return Unicodes[name]
