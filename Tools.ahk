@@ -300,7 +300,7 @@ tool_CoordGetter() {
    Hotkey("2", toClip.Bind(WinX " " WinY), "On")
    Hotkey("3", toClip.Bind(CliX " " CliY), "On")
    Hotkey("4", toClip.Bind(pixel), "On")
-   Hotkey("5", toClip.Bind("'x" CliX " y" CliY "'"), "On")
+   Hotkey("5", toClip.Bind('"x' CliX " y" CliY '"'), "On")
    g_CrdGet.OnEvent("Close", Destruction)
 
    g_CrdGet.Show("AutoSize y0 x" A_ScreenWidth / 20 * 13.5)
