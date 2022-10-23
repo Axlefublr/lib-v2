@@ -1,7 +1,7 @@
 ;No dependencies
 
 win_Close(winTitle := "A") {
-   try PostMessage("0x0010", , , , winTitle)
+   try PostMessage("0x0010",,,, winTitle)
 }
 
 win_RestoreDown(winTitle := "A") {
@@ -18,7 +18,7 @@ win_Minimize(winTitle := "A") {
 
 win_Activate(winTitle, exception?) {
    try {
-      WinActivate(winTitle,,, exception ?? "")
+      WinActivate(winTitle,,,   exception ?? "")
       WinWaitActive(winTitle,,, exception ?? "")
       return true
    } 

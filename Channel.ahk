@@ -105,8 +105,13 @@ Channel := [
    "screenshot hover",
    "https://youtu.be/2JVI4v9rQT4",
 
-   ;Second channel unlisted videos (not necessarily deprecated, but not worth watching imo for whatever reason. wanna keep em somewhere still)
+   ;Second channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
 
+   "v2iB",
+   "https://youtu.be/8Jtm-cx4k6Y",
+
+   "making codesnap work with neovim",
+   "https://youtu.be/z0wvpBEjEeQ",
 ]

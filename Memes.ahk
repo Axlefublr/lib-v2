@@ -100,7 +100,7 @@ Memes := [
       
    "aye you still got the stick in there",
    "https://www.youtube.com/watch?v=QhgPSs9Scrw",
-      
+     
    "pyro shlatt",
    "https://youtu.be/hKVbiiP8wDI?t=4",
       
@@ -134,4 +134,6 @@ Memes := [
    "you me gas station",
    "https://www.youtube.com/watch?v=npiLJLEpPhE&ab_channel=Rasu",
       
+   "the interview but vertical", 
+   "https://www.youtube.com/shorts/bqyCunElT_Y",
 ]
