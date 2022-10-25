@@ -136,4 +136,7 @@ Memes := [
       
    "the interview but vertical", 
    "https://www.youtube.com/shorts/bqyCunElT_Y",
+   
+   "how it feels to chew five gum",
+   "https://www.youtube.com/watch?v=oGjk4XZU06k",
 ]

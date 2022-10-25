@@ -32,7 +32,7 @@ Class Paths {
 
    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
    static SavedScreenshots := this.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
-   static OBSFolder := A_ProgramFiles "\obs-studio\bin\64bit"
+   static OBSFolder        := A_ProgramFiles "\obs-studio\bin\64bit"
 
    static Ptf := Map(
       "Main", this.Main "\.vscode\main.code-workspace",
@@ -63,8 +63,8 @@ Class Paths {
       "Shows",    this.Shows "\Shows.jsonc",
       "Consumed", this.Shows "\Consumed.md",
 
-      "EatingLog",    this.Info "\EatingLog.txt",
-      "Diary",        this.Info "\Diary.md",
+      "EatingLog", this.Info "\EatingLog.txt",
+      "Diary",     this.Info "\Diary.md",
 
       "Clean",       this.YtDev "\Clean.md",
       "Description", this.YtDev "\Description.txt",
@@ -99,7 +99,7 @@ Class Paths {
 
       "VS Code", this.LocalAppData "\Programs\Microsoft VS Code\Code.exe",
       "WPS",     this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
-      "Discord", this.LocalAppData "\Discord\app-1.0.9006\Discord.exe",
+      "Discord", this.LocalAppData "\Discord\app-1.0.9007\Discord.exe",
       "Slack",   this.LocalAppData "\slack\app-4.28.171\slack.exe",
       "Gimp",    this.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe",
 
