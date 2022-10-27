@@ -13,7 +13,8 @@
 #Include <Get>
 
 Class Spotify {
-   winTitle := "ahk_exe Spotify.exe"
+
+   static winTitle := "ahk_exe Spotify.exe"
    
    static Like() => Send("+!b")
 

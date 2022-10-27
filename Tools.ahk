@@ -574,7 +574,7 @@ Counter(startingNum?) {
       return
    }
    num := startingNum
-} 
+}
 
 HoverScreenshot() {
    if !picture := FileSelect(, Paths.SavedScreenshots,, "*.png") {
@@ -585,7 +585,7 @@ HoverScreenshot() {
    WinSetTransColor(0xF0F0F0, gHover.Hwnd)
 
    gHover.Show("AutoSize NA")
-   
+
    gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
    gHover.OnEvent("Escape",         (guiObj)        => guiObj.Destroy())
    gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
@@ -595,7 +595,7 @@ HoverScreenshot() {
 Hider(pickedColor?) {
    CoordMode("Mouse", "Screen")
    CoordMode("Pixel", "Screen")
-   static color 
+   static color
    if IsSet(pickedColor) {
       if !pickedColor {
          MouseGetPos(&colorX, &colorY)
@@ -614,10 +614,10 @@ Hider(pickedColor?) {
       firstCall := false
       return
    }
-   
+
    static widthCorrecter  := 0.80
    static heightCorrecter := 0.805
-   MouseGetPos(&secondX, &secondY) 
+   MouseGetPos(&secondX, &secondY)
 
    width    := Round(Abs(secondX - firstX) * widthCorrecter)
    height   := Round(Abs(secondY - firstY) * heightCorrecter)
@@ -631,7 +631,85 @@ Hider(pickedColor?) {
    gcPicture.OnEvent("Click", (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
    gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
    WinSetTransparent(1, gcPicture.Hwnd)
-   
+
    gHider.Show("x" topLeftX " y" topLeftY " w" width " h" height " NA")
    firstCall := true
+}
+
+Class Search {
+
+   static ConvertToLink(query) {
+      static URLencoding := Map(
+         '$', '24',
+         '&', '26',
+         '+', '2B',
+         ',', '2C',
+         '/', '2F',
+         ':', '3A',
+         ';', '3B',
+         '=', '3D',
+         '?', '3F',
+         '@', '40',
+         ' ', '20',
+         '"', '22',
+         '<', '3C',
+         '>', '3E',
+         '#', '23',
+         '{', '7B',
+         '}', '7D',
+         '|', '7C',
+         '\', '5C',
+         '^', '5E',
+         '~', '7E',
+         '[', '5B',
+         ']', '5D',
+         '``', '60'
+      )
+      query.Replace("%", "%25") 
+      /**
+       * Reason why this isn't in the map too is because *apparently* the keys in the for loop
+       * aren't going to be in the same order as you set them in the map (how have I never known 
+       * that??)
+       * So, we make sure to escape the %'s first, because they themselves are an escape character
+       * and could be caught in the replacing otherwise
+       * (Had a situation in smoke testing this where every space ended up being %2520, this is
+       * because space and some other characters went before the %)
+       */
+      for key, value in URLencoding {
+         query := query.Replace(key, "%" value)
+      }
+      return query
+   }
+   
+   static SearchEngines := Map(
+      "Google", "https://www.google.com/search?q=",
+   )
+
+   static Engine(searchEngine) {
+      gInputBox := Gui("AlwaysOnTop +ToolWindow -Caption").DarkMode(30)
+
+      static width    := Round(A_ScreenWidth / 1920 * 1200)
+      static yCoord   := Round(A_ScreenHeight / 1080 * 200)
+      static guiColor := 171717
+
+      gcInput := gInputBox.AddEdit("x0 center -E0x200 background" guiColor " w" width)
+      gInputBox.Show("y" yCoord " w" width)
+      
+      _Destruction(guiObj) {
+         HotIfWinactive("ahk_id " guiObj.Hwnd)
+         Hotkey("Enter", "Off")
+         guiObj.Destroy()
+      }
+      
+      _StartSearching(thisHotkey, guiCtrlObj) {
+         guiCtrlObj.Gui.Minimize()
+         restOfLink := this.ConvertToLink(guiCtrlObj.Text)
+         _Destruction(guiCtrlObj.Gui)
+         RunLink(this.SearchEngines[searchEngine] restOfLink)
+      }
+      
+      HotIfWinactive("ahk_id " gInputBox.Hwnd)
+      Hotkey("Enter", _StartSearching.Bind(, gcInput), "On")
+      gInputBox.OnEvent("Escape", _Destruction)
+   }
 }

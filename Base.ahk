@@ -44,7 +44,7 @@ ShiftClick() => Send("+{Click}")
 
 CtrlClick() => Send("^{Click}")
 
-Search() => Send("^f")
+Find() => Send("^f")
 
 AltTab() => Send("^!{Tab}")
 
@@ -73,7 +73,5 @@ DeleteInDirection(direction) {
 }
 
 ScreenSnip() => Send("#+s")
-
-Find() => Send("^f")
 
 WindowsClock() => Send("#!d")
