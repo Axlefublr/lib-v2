@@ -6,7 +6,7 @@
 
 CloseButActually() {
    Switch {
-      Case WinActive("ahk_exe Spotify.exe"):spotify_Close()
+      Case WinActive("ahk_exe Spotify.exe"):Spotify.Close()
       Case WinActive("ahk_exe steam.exe"):
          win_Close()
          ProcessClose("steam.exe")

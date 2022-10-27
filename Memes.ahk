@@ -139,4 +139,7 @@ Memes := [
    
    "how it feels to chew five gum",
    "https://www.youtube.com/watch?v=oGjk4XZU06k",
+   
+   "doof insanity",
+   "https://youtu.be/Syr3ohZY05g",
 ]
