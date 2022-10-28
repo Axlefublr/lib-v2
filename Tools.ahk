@@ -637,8 +637,14 @@ Hider(pickedColor?) {
 }
 
 Class Search {
+   
+   CurrentSearchEngine := unset
+   
+   __New(searchEngine) {
+      this.CurrentSearchEngine := this.SearchEngines[searchEngine]
+   }
 
-   static ConvertToLink(query) {
+   ConvertToLink(query) {
       static URLencoding := Map(
          '$', '24',
          '&', '26',
@@ -681,11 +687,11 @@ Class Search {
       return query
    }
    
-   static SearchEngines := Map(
+   SearchEngines := Map(
       "Google", "https://www.google.com/search?q=",
    )
 
-   static Gui(searchEngine) {
+   Gui() {
       gInputBox := Gui("AlwaysOnTop -Caption").DarkMode(30)
 
       static width    := Round(A_ScreenWidth / 1920 * 1200)
@@ -703,8 +709,8 @@ Class Search {
       
       _StartSearching(thisHotkey, guiCtrlObj) {
          guiCtrlObj.Gui.Minimize()
+         this.Engine(guiCtrlObj.Text)
          _Destruction(guiCtrlObj.Gui)
-         this.Engine(searchEngine, guiCtrlObj.Text)
       }
       
       HotIfWinactive("ahk_id " gInputBox.Hwnd)
@@ -712,8 +718,8 @@ Class Search {
       gInputBox.OnEvent("Escape", _Destruction)
    }
    
-   Engine(searchEngine, input) {
+   Engine(input) {
       restOfLink := this.ConvertToLink(input)
-      RunLink(this.SearchEngines[searchEngine] restOfLink)
+      RunLink(this.CurrentSearchEngine restOfLink)
    }
 }
