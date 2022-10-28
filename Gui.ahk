@@ -1,11 +1,16 @@
 ;No dependencies
 
-DarkMode(guiObj, fontSize?) {
+DarkMode(guiObj) {
    guiObj.BackColor := "171717"
-   guiObj.SetFont("s" (fontSize ?? 20) " cC5C5C5", "Consolas")
    return guiObj
 }
 Gui.Prototype.DefineProp("DarkMode", {Call: DarkMode})
+
+MakeFontNicer(guiObj, fontSize := 20) {
+   guiObj.SetFont("s" fontSize " cC5C5C5", "Consolas")   
+   return guiObj
+}
+Gui.Prototype.DefineProp("MakeFontNicer", {Call: MakeFontNicer})
 
 PressTitleBar(winTitle) {
    if Type(winTitle) = "Gui" {

@@ -23,7 +23,7 @@ Infos(text, autoCloseTimeout := 0) {
     * Tested with font sizes: 5, 10, 15, 20, 25, 50, 100 - so you can feel free to pick any font size
     * and it should work
     */
-   gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode(fontSize?)
+   gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(fontSize?)
    gcText := gInfo.AddText(, text)
 
    static guiWidth     := gInfo.MarginY * 5
@@ -116,7 +116,7 @@ Infos(text, autoCloseTimeout := 0) {
 Info(text, timeout?) => Infos(text, timeout ?? 2000)
 
 ToggleInfo(text) {
-   g_ToggleInfo := Gui("AlwaysOnTop -caption").DarkMode()
+   g_ToggleInfo := Gui("AlwaysOnTop -caption").DarkMode().MakeFontNicer()
    g_ToggleInfo.Add("Text",, text)
    g_ToggleInfo.Show("W225 NA x1595 y640")
    SetTimer(() => g_ToggleInfo.Destroy(), -1000)

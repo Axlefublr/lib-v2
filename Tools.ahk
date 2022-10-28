@@ -636,90 +636,57 @@ Hider(pickedColor?) {
    firstCall := true
 }
 
-Class Search {
+Class Search extends Gui {
    
-   CurrentSearchEngine := unset
-   
+   width     := Round(A_ScreenWidth / 1920 * 1200)
+   topMargin := Round(A_ScreenHeight / 1080 * 200)
+
    __New(searchEngine) {
-      this.CurrentSearchEngine := this.SearchEngines[searchEngine]
+      super.__New("AlwaysOnTop -Caption")
+      this.DarkMode().MakeFontNicer(30)
+      this.MarginX := 0
+
+      this.SelectedSearchEngine := this.AvailableSearchEngines[searchEngine]
+      
+      this.InputField := this.AddEdit("x0 Center -E0x200 Background" this.BackColor " w" this.width)
+      
+      this.RegisterHotkeys()
+   }
+   
+   ShowVisual() => this.Show("y" this.topMargin " w" this.width)
+   
+   FeedQuery(input) {
+      restOfLink := this.SanitizeQuery(input)
+      RunLink(this.SelectedSearchEngine restOfLink)
    }
 
-   ConvertToLink(query) {
-      static URLencoding := Map(
-         '$', '24',
-         '&', '26',
-         '+', '2B',
-         ',', '2C',
-         '/', '2F',
-         ':', '3A',
-         ';', '3B',
-         '=', '3D',
-         '?', '3F',
-         '@', '40',
-         ' ', '20',
-         '"', '22',
-         '<', '3C',
-         '>', '3E',
-         '#', '23',
-         '{', '7B',
-         '}', '7D',
-         '|', '7C',
-         '\', '5C',
-         '^', '5E',
-         '~', '7E',
-         '[', '5B',
-         ']', '5D',
-         '``', '60'
-      )
-      query.Replace("%", "%25") 
-      /**
-       * Reason why this isn't in the map too is because *apparently* the keys in the for loop
-       * aren't going to be in the same order as you set them in the map (how have I never known 
-       * that??)
-       * So, we make sure to escape the %'s first, because they themselves are an escape character
-       * and could be caught in the replacing otherwise
-       * (Had a situation in smoke testing this where every space ended up being %2520, this is
-       * because space and some other characters went before the %)
-       */
-      for key, value in URLencoding {
-         query := query.Replace(key, "%" value)
+   TriggerSearch() {
+      this.Minimize()
+      this.FeedQuery(this.InputField.Text)
+      this.DeRegisterHotkeys()
+   }
+   
+   AvailableSearchEngines := Map(
+      "Google", "https://www.google.com/search?q=",
+   )
+
+   SanitizeQuery(query) { ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
+      SpecialCharacters := '%$&+,/:;=?@ "<>#{}|\^~[]``'.Split()
+      for key, value in SpecialCharacters {
+         query := query.Replace(key, "%" Ord(value))
       }
       return query
    }
    
-   SearchEngines := Map(
-      "Google", "https://www.google.com/search?q=",
-   )
-
-   Gui() {
-      gInputBox := Gui("AlwaysOnTop -Caption").DarkMode(30)
-
-      static width    := Round(A_ScreenWidth / 1920 * 1200)
-      static yCoord   := Round(A_ScreenHeight / 1080 * 200)
-      static guiColor := 171717
-
-      gcInput := gInputBox.AddEdit("x0 Center -E0x200 Background" guiColor " w" width)
-      gInputBox.Show("y" yCoord " w" width)
-      
-      _Destruction(guiObj) {
-         HotIfWinactive("ahk_id " guiObj.Hwnd)
-         Hotkey("Enter", "Off")
-         guiObj.Destroy()
-      }
-      
-      _StartSearching(thisHotkey, guiCtrlObj) {
-         guiCtrlObj.Gui.Minimize()
-         this.Engine(guiCtrlObj.Text)
-         _Destruction(guiCtrlObj.Gui)
-      }
-      
-      HotIfWinactive("ahk_id " gInputBox.Hwnd)
-      Hotkey("Enter", _StartSearching.Bind(, gcInput), "On")
-      gInputBox.OnEvent("Escape", _Destruction)
+   RegisterHotkeys() {
+      HotIfWinactive("ahk_id " this.Hwnd)
+      Hotkey("Enter", (*) => this.TriggerSearch(), "On")
+      this.OnEvent("Escape", this.DeRegisterHotkeys)
    }
    
-   Engine(input) {
-      restOfLink := this.ConvertToLink(input)
-      RunLink(this.CurrentSearchEngine restOfLink)
+   DeRegisterHotkeys(*) {
+      HotIfWinactive("ahk_id " this.Hwnd)
+      Hotkey("Enter", "Off")
+      this.Destroy()
    }
 }
