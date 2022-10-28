@@ -685,14 +685,14 @@ Class Search {
       "Google", "https://www.google.com/search?q=",
    )
 
-   static Engine(searchEngine) {
-      gInputBox := Gui("AlwaysOnTop +ToolWindow -Caption").DarkMode(30)
+   static Gui(searchEngine) {
+      gInputBox := Gui("AlwaysOnTop -Caption").DarkMode(30)
 
       static width    := Round(A_ScreenWidth / 1920 * 1200)
       static yCoord   := Round(A_ScreenHeight / 1080 * 200)
       static guiColor := 171717
 
-      gcInput := gInputBox.AddEdit("x0 center -E0x200 background" guiColor " w" width)
+      gcInput := gInputBox.AddEdit("x0 Center -E0x200 Background" guiColor " w" width)
       gInputBox.Show("y" yCoord " w" width)
       
       _Destruction(guiObj) {
@@ -703,13 +703,17 @@ Class Search {
       
       _StartSearching(thisHotkey, guiCtrlObj) {
          guiCtrlObj.Gui.Minimize()
-         restOfLink := this.ConvertToLink(guiCtrlObj.Text)
          _Destruction(guiCtrlObj.Gui)
-         RunLink(this.SearchEngines[searchEngine] restOfLink)
+         this.Engine(searchEngine, guiCtrlObj.Text)
       }
       
       HotIfWinactive("ahk_id " gInputBox.Hwnd)
       Hotkey("Enter", _StartSearching.Bind(, gcInput), "On")
       gInputBox.OnEvent("Escape", _Destruction)
+   }
+   
+   Engine(searchEngine, input) {
+      restOfLink := this.ConvertToLink(input)
+      RunLink(this.SearchEngines[searchEngine] restOfLink)
    }
 }

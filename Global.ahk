@@ -24,10 +24,10 @@ ClickThenGoBack_Event(coordinates) {
  * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
  * @param link *String*
  */
-RunLink(link) => (
+RunLink(link, browserWinTitle := "Google Chrome ahk_exe chrome.exe") => (
    Run(link),
-   WinWait("Google Chrome ahk_exe chrome.exe"),
-   WinActivate("Google Chrome ahk_exe chrome.exe")
+   WinWait(browserWinTitle),
+   WinActivate(browserWinTitle)
 )
 
 /**
