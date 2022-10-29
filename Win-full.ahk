@@ -5,10 +5,10 @@ win_RunAct_Folders(folderPath, runOpt?) {
    win_RunAct(winTitle, folderPath, runOpt ?? "Min")
 }
 
-win_App(winTitle, exePath, runOpt?, winTitleAdditional?, exception?) {
+win_App(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
    if win_MinMax(winTitle)
       return
-   win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?,, exception?)
+   win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?)
 }
 
 win_App_Folders(folderPath, runOpt?) {
