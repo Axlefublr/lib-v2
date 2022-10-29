@@ -659,16 +659,35 @@ Class Search extends Gui {
       restOfLink := this.SanitizeQuery(input)
       RunLink(this.SelectedSearchEngine restOfLink)
    }
+   
+   DynamicallyReselectEngine(input) {
+      for key, value in this.SearchEngineNicknames {
+         if input.RegExMatch("^" key " ") {
+            this.SelectedSearchEngine := value
+            input := input[3, -1]
+            break
+         }
+      }
+      return input
+   }
 
    TriggerSearch() {
       this.Minimize()
-      this.FeedQuery(this.InputField.Text)
+      query := this.DynamicallyReselectEngine(this.InputField.Text)
+      this.FeedQuery(query)
       this.DeRegisterHotkeys()
    }
    
    AvailableSearchEngines := Map(
       "Google", "https://www.google.com/search?q=",
       "Youtube", "https://www.youtube.com/results?search_query=",
+      "Emoji", "https://emojipedia.org/search/?q=",
+   )
+   
+   SearchEngineNicknames := Map(
+      "g", this.AvailableSearchEngines["Google"],
+      "y", this.AvailableSearchEngines["Youtube"],
+      "e", this.AvailableSearchEngines["Emoji"],
    )
 
    SanitizeQuery(query) { ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()

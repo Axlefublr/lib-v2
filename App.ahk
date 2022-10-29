@@ -291,13 +291,18 @@ git_Link(path) {
    return github_link
 }
 
-git_InstallAhkLibrary(link) {
+git_InstallAhkLibrary(link, fileName?) {
    static libFolder := Paths.Lib "\"
    link := StrReplace(link, "https://github.com/")
    link := StrReplace(link, "blob/",,,, 1)
    file_html := GetHtml("https://raw.githubusercontent.com/" link)
-   RegExMatch(link, "\/([^.\/]+\.\w+)$", &match)
-   newFile := match[1]
+   if !IsSet(fileName) {
+      RegExMatch(link, "\/([^.\/]+\.\w+)$", &match)
+      newFile := match[1]
+   }
+   else {
+      newFile := fileName
+   }
    WriteFile(libFolder newFile, file_html)
    Info(newFile " library installed in: " libFolder)
 }
@@ -307,6 +312,11 @@ git_InstallAhkLibrary(link) {
 github_Profile() {
    ControlClick("x1825 y134")
    WaitClick(Paths.Ptf["github"])
+}
+
+github_UpdateAhkLibraries() {
+   git_InstallAhkLibrary("https://github.com/Descolada/AHK-v2-libraries/blob/main/Lib/String.ahk")
+   git_InstallAhkLibrary("https://github.com/TheArkive/eval_ahk2/blob/master/_eval.ahk", "Eval.ahk")
 }
 ;;SHOW
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
