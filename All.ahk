@@ -6,16 +6,12 @@
 #Include <Press>
 #Include <Sort>
 #Include <Win>
-#Include <Eval>
-#Include <Json>
 #Include <String-full>
 #Include <Tools>
 #Include <App>
 #Include <Other>
 #Include <Script>
 #Include <Gui>
-#Include <String>
-#Include <print>
 #Include <Win-full>
 #Include <Info>
 #Include <ClipSend>
@@ -24,3 +20,9 @@
 #Include <Channel>
 #Include <Image>
 #Include <Memes>
+
+;External
+#Include <Eval>
+#Include <Json>
+#Include <String>
+#Include <print>

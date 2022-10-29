@@ -142,4 +142,7 @@ Memes := [
    
    "doof insanity",
    "https://youtu.be/Syr3ohZY05g",
+   
+   "I sell clocks bitch",
+   "https://youtube.com/shorts/9Rk8FdSlQq8",
 ]
