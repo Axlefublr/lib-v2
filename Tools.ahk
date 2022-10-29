@@ -668,6 +668,7 @@ Class Search extends Gui {
    
    AvailableSearchEngines := Map(
       "Google", "https://www.google.com/search?q=",
+      "Youtube", "https://www.youtube.com/results?search_query=",
    )
 
    SanitizeQuery(query) { ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
