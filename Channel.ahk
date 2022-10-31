@@ -120,6 +120,9 @@ Channel := [
    "classes and googler",
    "https://youtu.be/RuUOSEwtLy0",
 
+   "fixing that annoying gui issue",
+   "https://youtu.be/v_ja54uA7UE",
+   
    ;Second channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
