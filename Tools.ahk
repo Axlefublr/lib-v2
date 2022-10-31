@@ -658,7 +658,6 @@ Class Search extends Gui {
    
    FeedQuery(input) {
       restOfLink := this.SanitizeQuery(input)
-      Out("rest of link: " restOfLink)
       RunLink(this.SelectedSearchEngine restOfLink)
    }
    
@@ -676,7 +675,6 @@ Class Search extends Gui {
    TriggerSearch() {
       this.Minimize()
       query := this.DynamicallyReselectEngine(this.InputField.Text)
-      Out("Query after dynamically reselecting: " query)
       this.FeedQuery(query)
       this.DeRegisterHotkeys()
    }
@@ -697,9 +695,7 @@ Class Search extends Gui {
       SpecialCharacters := '%$&+,/:;=?@ "<>#{}|\^~[]``'.Split()
       for key, value in SpecialCharacters {
          query := query.Replace(value, "%" TransfToHex(Ord(value), false))
-         Out(query) ;Out() just prints a string into a file for testing
       }
-      Out("Final query: " query)
       return query
    }
    

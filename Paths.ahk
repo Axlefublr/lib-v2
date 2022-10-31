@@ -70,8 +70,8 @@ Class Paths {
       "Description", this.YtDev "\Description.txt",
 
       "FL preset",             this.Pictures "\Tools\FL preset.flp",
-      "Thumbnail preset",      this.Pictures "\Tools\Thumbnail preset.xcf",
-      "Thumbnail preset down", this.Pictures "\Tools\Thumbnail preset down.xcf",
+      "Thumbnail preset",      this.Pictures "\Tools\main ahk channel.xcf",
+      "Thumbnail preset down", this.Pictures "\Tools\coding channel.xcf",
 
    )
 
