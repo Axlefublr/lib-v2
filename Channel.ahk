@@ -111,6 +111,15 @@ Channel := [
    "classes",
    "https://youtu.be/4KoDu6yp3dw",
 
+   "showing off cool libraries", 
+   "https://youtu.be/Ea2LwsDTK1s",
+   
+   "autoupdate your libraries",
+   "https://youtu.be/jADuLp4-JAI",
+
+   "classes and googler",
+   "https://youtu.be/RuUOSEwtLy0",
+
    ;Second channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",

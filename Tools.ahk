@@ -683,12 +683,14 @@ Class Search extends Gui {
       "Google",  "https://www.google.com/search?q=",
       "Youtube", "https://www.youtube.com/results?search_query=",
       "Emoji",   "https://emojipedia.org/search/?q=",
+      "Yandex",  "https://yandex.ru/search/?text=",
    )
    
    SearchEngineNicknames := Map(
-      "g", this.AvailableSearchEngines["Google"],
-      "y", this.AvailableSearchEngines["Youtube"],
-      "e", this.AvailableSearchEngines["Emoji"],
+      "g",  this.AvailableSearchEngines["Google"],
+      "y",  this.AvailableSearchEngines["Youtube"],
+      "e",  this.AvailableSearchEngines["Emoji"],
+      "ya", this.AvailableSearchEngines["Yandex"],
    )
 
    SanitizeQuery(query) { ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
