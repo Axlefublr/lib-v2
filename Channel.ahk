@@ -1,12 +1,12 @@
 Channel := [
-   ;Channels
+   ;;Channels
    "my channel",
    "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
    
    "my second channel",
    "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
 
-   ;Main channel tutorials
+   ;;Main channel tutorials
    "startup",
    "https://youtu.be/vjQIbagvkcs",
 
@@ -46,7 +46,7 @@ Channel := [
    "settimers",
    "https://youtu.be/bUxm_Gwd58Q",
 
-   ;Main channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
+   ;;Main channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
    "v2 setup",
    "https://youtu.be/TSvp6ktqo1Q",
 
@@ -56,7 +56,7 @@ Channel := [
    "snippets",
    "https://youtu.be/gHQNoOMRHBc",
 
-   ;Second channel videos
+   ;;Second channel videos
    "github profile hotkey",
    "https://youtu.be/IfQ-sl04xu8",
 
@@ -122,8 +122,8 @@ Channel := [
 
    "fixing that annoying gui issue",
    "https://youtu.be/v_ja54uA7UE",
-   
-   ;Second channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
+
+   ;;Second channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
 
