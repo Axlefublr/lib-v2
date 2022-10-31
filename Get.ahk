@@ -46,7 +46,7 @@ GetWeather() {
 * @param num
 * @returns {Integer}
 */
-TransfToHex(num) => Format("0x{:x}", num)
+TransfToHex(num, hexPrefix := true) => Format((hexPrefix ? "0x" : "") "{:x}", num)
 
 TransfToDecimal(num) => Format("{:u}", num)
 
