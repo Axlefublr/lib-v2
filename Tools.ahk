@@ -673,10 +673,10 @@ Class Search extends Gui {
    }
 
    TriggerSearch() {
-      this.Minimize()
       query := this.DynamicallyReselectEngine(this.InputField.Text)
       this.FeedQuery(query)
       this.DeRegisterHotkeys()
+      this.DestroyGui()
    }
    
    AvailableSearchEngines := Map(
@@ -704,12 +704,16 @@ Class Search extends Gui {
    RegisterHotkeys() {
       HotIfWinactive("ahk_id " this.Hwnd)
       Hotkey("Enter", (*) => this.TriggerSearch(), "On")
-      this.OnEvent("Escape", this.DeRegisterHotkeys)
+      this.OnEvent("Escape", (*) => (this.DeRegisterHotkeys(), this.DestroyGui()))
    }
    
-   DeRegisterHotkeys(*) {
+   DeRegisterHotkeys() {
       HotIfWinactive("ahk_id " this.Hwnd)
       Hotkey("Enter", "Off")
+   }
+   
+   DestroyGui() {
+      this.Minimize()
       this.Destroy()
    }
 }
