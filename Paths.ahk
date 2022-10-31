@@ -71,7 +71,8 @@ Class Paths {
 
       "FL preset",             this.Pictures "\Tools\FL preset.flp",
       "Thumbnail preset",      this.Pictures "\Tools\main ahk channel.xcf",
-      "Thumbnail preset down", this.Pictures "\Tools\coding channel.xcf",
+      "Thumbnail preset down", this.Pictures "\Tools\ahk.xcf",
+      "Nvim preset",           this.Pictures "\Tools\nvim.xcf",
 
    )
 
