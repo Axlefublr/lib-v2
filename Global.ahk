@@ -100,7 +100,7 @@ Cis() {
  * @param text *String* The text to write
  */
 WriteFile(whichFile, text := "") {
-   fileObj := FileOpen(whichFile, "w")
+   fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
    fileObj.Write(text)
    fileObj.Close()
 }

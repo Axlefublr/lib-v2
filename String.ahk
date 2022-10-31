@@ -1,4 +1,4 @@
-/*
+﻿/*
 	Name: String.ahk
 	Version 0.13 (15.10.22)
 	Created: 27.08.22
@@ -91,7 +91,6 @@ Class String2 {
 			}
 		}
 	}
-
 	; Native functions implemented as methods for the String object
 	static Length(str)    => StrLen(str)
 	static WLength(str)   => (RegExReplace(str, "s).", "", &i), i)
@@ -106,8 +105,7 @@ Class String2 {
 	static Compare(args*) => StrCompare(this, args*)
 	static Sort(args*)    => Sort(this, args*)
 	static Find(args*)    => InStr(this, args*)
-	static SplitPath()    => (SplitPath(this, &a1, &a2, &a3, &a4, &a5), {FileName: a1, Dir: a2, Ext: a3, NameNoExt: a4, Drive: a5})
-
+	static SplitPath() => (SplitPath(this, &a1, &a2, &a3, &a4, &a5), {FileName: a1, Dir: a2, Ext: a3, NameNoExt: a4, Drive: a5})
 	/**
 	 * Returns the match object
 	 * @param needleRegex *String* What pattern to match

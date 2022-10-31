@@ -69,7 +69,8 @@ Infos(text, autoCloseTimeout := 0) {
        */
       try HotIfWinExist("ahk_id " pguiObj.Hwnd) 
       /**
-       * This clumsy try statement is here only because if we try to close an info which object doesn't exist, that means we already did everything here
+       * This clumsy try statement is here only because if we try to close an info which object
+       * doesn't exist, that means we already did everything here
        */
       catch Any {
          return false

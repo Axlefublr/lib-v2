@@ -3,6 +3,7 @@
 #Include <Gui>
 #Include <Info>
 #Include <Get>
+#Include <String>
 
 tool_KeyCodeGetter() {
 
@@ -657,6 +658,7 @@ Class Search extends Gui {
    
    FeedQuery(input) {
       restOfLink := this.SanitizeQuery(input)
+      Out("rest of link: " restOfLink)
       RunLink(this.SelectedSearchEngine restOfLink)
    }
    
@@ -674,14 +676,15 @@ Class Search extends Gui {
    TriggerSearch() {
       this.Minimize()
       query := this.DynamicallyReselectEngine(this.InputField.Text)
+      Out("Query after dynamically reselecting: " query)
       this.FeedQuery(query)
       this.DeRegisterHotkeys()
    }
    
    AvailableSearchEngines := Map(
-      "Google", "https://www.google.com/search?q=",
+      "Google",  "https://www.google.com/search?q=",
       "Youtube", "https://www.youtube.com/results?search_query=",
-      "Emoji", "https://emojipedia.org/search/?q=",
+      "Emoji",   "https://emojipedia.org/search/?q=",
    )
    
    SearchEngineNicknames := Map(
@@ -691,9 +694,44 @@ Class Search extends Gui {
    )
 
    SanitizeQuery(query) { ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
-      SpecialCharacters := '%$&+,/:;=?@ "<>#{}|\^~[]``'.Split()
-      for key, value in SpecialCharacters {
-         query := query.Replace(key, "%" Ord(value))
+    static URLencoding := Map(
+         '$', '24',
+         '&', '26',
+         '+', '2B',
+         ',', '2C',
+         '/', '2F',
+         ':', '3A',
+         ';', '3B',
+         '=', '3D',
+         '?', '3F',
+         '@', '40',
+         ' ', '20',
+         '"', '22',
+         '<', '3C',
+         '>', '3E',
+         '#', '23',
+         '{', '7B',
+         '}', '7D',
+         '|', '7C',
+         '\', '5C',
+         '^', '5E',
+         '~', '7E',
+         '[', '5B',
+         ']', '5D',
+         '``', '60'
+      )
+      query.Replace("%", "%25") 
+      /**
+       * Reason why this isn't in the map too is because *apparently* the keys in the for loop
+       * aren't going to be in the same order as you set them in the map (how have I never known 
+       * that??)
+       * So, we make sure to escape the %'s first, because they themselves are an escape character
+       * and could be caught in the replacing otherwise
+       * (Had a situation in smoke testing this where every space ended up being %2520, this is
+       * because space and some other characters went before the %)
+       */
+      for key, value in URLencoding {
+         query := query.Replace(key, "%" value)
       }
       return query
    }
