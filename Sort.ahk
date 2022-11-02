@@ -89,7 +89,7 @@ BubbleSort(arrayObj) {
       }
       if !swaps
          break
-      finishedIndex -= 1
+      finishedIndex--
    }
    return arrayObj
 }

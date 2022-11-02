@@ -1,7 +1,7 @@
 Channel := [
    ;;Channels
    "my channel",
-   "https://www.youtube.com/channel/UCN99M5Qu920IJX2pbrk9qPA",
+   "https://www.youtube.com/@AhkAllTheWay",
    
    "my second channel",
    "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
