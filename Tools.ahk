@@ -649,7 +649,9 @@ Class Search extends Gui {
 
       this.SelectedSearchEngine := this.AvailableSearchEngines[searchEngine]
       
-      this.InputField := this.AddEdit("x0 Center -E0x200 Background" this.BackColor " w" this.width)
+      this.InputField := this.AddEdit(
+         "x0 Center -E0x200 Background" this.BackColor " w" this.width
+      )
       
       this.RegisterHotkeys()
    }

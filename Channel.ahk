@@ -4,7 +4,7 @@ Channel := [
    "https://www.youtube.com/@AhkAllTheWay",
    
    "my second channel",
-   "https://www.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw",
+   "https://www.youtube.com/@Axlefublr",
 
    ;;Main channel tutorials
    "startup",
