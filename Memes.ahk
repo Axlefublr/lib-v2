@@ -145,4 +145,10 @@ Memes := [
    
    "I sell clocks bitch",
    "https://youtube.com/shorts/9Rk8FdSlQq8",
+   
+   "vscode formatter but bad apple",
+   "https://youtu.be/cmpg-qiPYa8",
+   
+   "bad apple but everywhere",
+   "https://youtu.be/UbTACUhcVg4",
 ]
