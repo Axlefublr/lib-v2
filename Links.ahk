@@ -55,6 +55,7 @@ Links := Map(
    "ggsel",     "https://ggsel.com/",
    "barber",    "https://b73723.yclients.com/company/89170/",
    "wb",        "https://www.wildberries.ru/lk/myorders/delivery",
+   "ali",       "https://trade.aliexpress.ru/orderList.htm",
 
    ;Github
    "so",  "https://stackoverflow.com/",
