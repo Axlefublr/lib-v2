@@ -22,7 +22,7 @@ Class Spotify {
 
    static SkipNext() => Send("^{Right}")
 
-   static SkipPretv() => Send("^{Left}")
+   static SkipPrev() => Send("^{Left}")
 
    static LikedPlaylist() => Send("+!s")
 
@@ -143,26 +143,29 @@ Class Spotify {
       isStarted := true
    }
 }
-;;YOUTUBE
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-youtube_SkipNext() => Send("+n")
 
-youtube_SkipPrev() => Send("+p")
+Class Youtube {
 
-youtube_MiniscreenClose() => ControlClick("X1858 Y665")
+   static winTitle := "YouTube ahk_exe chrome.exe"
+   
+   static SkipNext() => Send("+n")
 
-youtube_ChannelSwitch() {
-   ControlClick("X1823 Y133")
-   if !WaitUntilPixChange([1324, 116], 0x313131)
-      return
-   ControlClick("x1531 y407")
+   static SkipPrev() => Send("+p")
+
+   static MiniscreenClose() => ControlClick("X1858 Y665")
+
+   static ChannelSwitch() {
+      ControlClick("X1823 Y133")
+      if !WaitUntilPixChange([1324, 116], 0x313131)
+         return
+      ControlClick("x1531 y407")
+   }
+
+   static ToYouTube() => (
+      ControlClick("X1865 Y130"),
+      WaitClick(Paths.Ptf["youtube logo"])
+   )
 }
-
-youtube_ToYouTube() => (
-   ControlClick("X1865 Y130"),
-   WaitClick(Paths.Ptf["youtube logo"])
-)
 ;;VK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
