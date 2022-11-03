@@ -148,6 +148,10 @@ Class Youtube {
 
    static winTitle := "YouTube ahk_exe chrome.exe"
    
+   static Studio := "YouTube Studio ahk_exe chrome.exe"
+   
+   static NotWatchingVideo := "(?<! - )Watch later|Subscriptions|Youtube ahk_exe chrome\.exe"
+   
    static SkipNext() => Send("+n")
 
    static SkipPrev() => Send("+p")
