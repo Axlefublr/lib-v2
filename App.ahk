@@ -11,6 +11,7 @@
 #Include <Json>
 #Include <Sort>
 #Include <Get>
+#Include <Text>
 
 Class Spotify {
 
@@ -170,6 +171,10 @@ Class Youtube {
       WaitClick(Paths.Ptf["youtube logo"])
    )
 }
+
+Class Chrome {
+   static winTitle := "Google Chrome ahk_exe chrome.exe"
+}
 ;;VK
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -325,109 +330,137 @@ github_UpdateAhkLibraries() {
    git_InstallAhkLibrary("https://github.com/Descolada/AHK-v2-libraries/blob/main/Lib/String.ahk")
    git_InstallAhkLibrary("https://github.com/TheArkive/eval_ahk2/blob/master/_eval.ahk", "Eval.ahk")
 }
-;;SHOW
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Show_GetLink(show, progressType := "episode") {
-   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-   try shows[show]
-   catch Any {
-      Info("No " show "!🎬")
-      return "" ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
-   }
-   if !shows[show]["link"] {
-      Info("No link!🔗")
-      return "" ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
-   }
-   return shows[show]["link"] shows[show][progressType] + 1
-}
 
-Show_GetShows() {
-   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-   for key, value in shows {
-      Infos(key)
+Class Shows {
+   __New() {
+      this.shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    }
-}
+   
+   ApplyJson() => WriteFile(Paths.Ptf["Shows"], JSON.stringify(this.shows))
 
-Show_Run(show, progressType?) {
-   try Run(Show_GetLink(show, progressType?))
-   catch any {
-      Info("Fucked up link :(")
-      return
+   CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", GetDateAndTime()))
+   
+   ValidateShow(show) {
+      try this.shows[show]
+      catch Any {
+         return false ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
+      }
+      return true
    }
-   win_Activate("Google Chrome ahk_exe chrome.exe")
-}
-
-Show_DeleteShow(show, isDropped := false) {
-   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-   try {
-      shows.Delete(show)
-      WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
+   
+   ValidateShowLink(show) {
+      if !this.ValidateShow(show) {
+         return false
+      }
+      if !this.shows[show]["link"] {
+         Info("No link!🔗")
+         return false ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
+      }
+      return true
    }
-   AppendFile(Paths.Ptf["Consumed"], "`n1. " GetDate() " - " show.ToTitle() (isDropped ? " - dropped" : ""))
-}
-
-Show_SetLink(show_and_link) {
-   show_and_link := RegexReplace(show_and_link, " {2,}", " ")
-   RegexMatch(show_and_link, "(.+) (https:\/\/[^ ]+)", &show_and_link_match)
-   if !show_and_link_match {
-      Info("No show / link")
-      return
+   
+   GetLink(show, progressType := "episode") {
+      if !this.ValidateShowLink(show) {
+         return ""
+      }
+      return this.shows[show]["link"] this.shows[show][progressType] + 1
+   }
+   
+   GetList() {
+      for key, value in this.shows {
+         Infos(key)
+      }
    }
 
-   show := show_and_link_match[1]
-   link := show_and_link_match[2]
-
-   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-
-   try shows[show]
-   catch Any {
-      shows.Set(show, {episode: 0, link: link, downloaded: 0})
+   Run(show, progressType?) {
+      try Run(this.GetLink(show, progressType?))
+      catch Any {
+         Info("Fucked up link :(")
+         return
+      }
+      win_Activate(Chrome.winTitle)
    }
-   else shows[show]["link"] := link
-
-   WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
-   Info(show ": link set")
-}
-
-Show_SetEpisode(show_and_episode) {
-   show_and_episode := RegexReplace(show_and_episode, " {2,}", " ")
-   RegexMatch(show_and_episode, "(.+) (\d+)", &show_and_episode_match)
-
-   show := show_and_episode_match[1]
-   episode := show_and_episode_match[2]
-
-   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-   try shows[show]
-   catch Any {
-      shows.Set(show, {episode: episode, link: "", downloaded: episode})
+      
+   DeleteShow(show, isDropped := false) {
+      try {
+         this.shows.Delete(show)
+         this.ApplyJson()
+      }
+      this.UpdateConsumed(show, isDropped)
    }
-   else shows[show]["episode"] := episode
+   
+   UpdateConsumed(show, isDropped) => (
+      date := "`n1. " GetDate() " - ",
+      isDropped_string := isDropped ? " - dropped" : "",
+      AppendFile(Paths.Ptf["Consumed"], date show.ToTitle() isDropped_string)
+   )
 
-   if episode > shows[show]["downloaded"] {
-      shows[show]["downloaded"] := episode
+   ValidateSetInput(input, regex) {
+      input := CompressSpaces(input)
+      
+      RegexMatch(input, regex, &match)
+      if !match {
+         Info("Wrong!")
+         return false
+      }
+      return match
    }
 
-   WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
-   Info(show ": " episode)
-}
+   SetLink(show_and_link) {
+      if !show_and_link := this.ValidateSetInput(show_and_link, "(.+) (https:\/\/[^ ]+)") {
+         return false
+      }
+      
+      show := show_and_link[1]
+      link := show_and_link[2]
 
-Show_SetDownloaded(show_and_downloaded) {
-   show_and_downloaded := RegExReplace(show_and_downloaded, " {2,}", " ")
-   RegExMatch(show_and_downloaded, "(.+) (\d+)", &show_and_downloaded_match)
+      if !this.ValidateShow(show) {
+         this.CreateBlankShow(show)
+      }
+      this.shows[show]["link"] := link
 
-   show := show_and_downloaded_match[1]
-   downloaded := show_and_downloaded_match[2]
-
-   shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-   try shows[show]
-   catch Any {
-      shows.Set(show, {episode: 0, link: "", downloaded: downloaded})
+      this.ApplyJson()
+      Info(show ": link set")
    }
-   else shows[show]["downloaded"] := downloaded
 
-   WriteFile(Paths.Ptf["Shows"], JSON.stringify(shows))
-   Info(show ": " downloaded)
+   SetEpisode(show_and_episode) {
+      if !show_and_episode := this.ValidateSetInput(show_and_episode, "(.+) (\d+)") {
+         return false
+      }
+      
+      show    := show_and_episode[1]
+      episode := show_and_episode[2]
+
+      if !this.ValidateShow(show) {
+         this.CreateBlankShow(show)
+      }
+      this.shows[show]["episode"] := episode
+      this.shows[show]["timestamp"] := GetDateAndTime()
+
+      if episode > this.shows[show]["downloaded"] {
+         this.shows[show]["downloaded"] := episode
+      }
+
+      this.ApplyJson()
+      Info(show ": " episode)
+   }
+   
+   SetDownloaded(show_and_downloaded) {
+      if !match := this.ValidateSetInput(show_and_downloaded, "(.+) (\d+)") {
+         return false
+      }
+
+      show       := match[1]
+      downloaded := match[2]
+
+      if !this.ValidateShow(show) {
+         this.CreateBlankShow(show)
+      }
+      this.shows[show]["downloaded"] := downloaded
+
+      this.ApplyJson()
+      Info(show ": " downloaded)
+   }
 }
 ;;VIDEO
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

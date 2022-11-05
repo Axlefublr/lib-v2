@@ -1,0 +1,1 @@
+CompressSpaces(text) => RegexReplace(text, " {2,}", " ")

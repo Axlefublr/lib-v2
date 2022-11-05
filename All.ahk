@@ -20,6 +20,7 @@
 #Include <Channel>
 #Include <Image>
 #Include <Memes>
+#Include <Text>
 
 ;External
 #Include <Eval>
