@@ -166,10 +166,11 @@ Class Youtube {
       ControlClick("x1531 y407")
    }
 
-   static ToYouTube() => (
-      ControlClick("X1865 Y130"),
-      WaitClick(Paths.Ptf["youtube logo"])
-   )
+   static ToYouTube() {
+      ControlClick("x1860 y134")
+      if WaitUntilPixChange([1612, 349])
+         ControlClick("x1634 y350")
+   }
 }
 
 Class Chrome {

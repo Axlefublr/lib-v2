@@ -292,6 +292,7 @@ tool_CoordGetter() {
       Hotkey("3", "Off"),
       Hotkey("4", "Off"),
       Hotkey("5", "Off"),
+      g_CrdGet.Minimize()
       g_CrdGet.Destroy()
    )
 
