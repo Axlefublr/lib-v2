@@ -850,39 +850,49 @@ Class CleanInputBox extends Gui {
    Width     := Round(A_ScreenWidth / 1920 * 1200)
    TopMargin := Round(A_ScreenHeight / 1080 * 200)
 
+   /**
+    * Get a gui to type into.
+    * Close it by pressing Escape. (This exits the entire thread)
+    * Accept your input by pressing Enter.
+    * Call WaitForInput() after creating the class instance.
+    */
    __New() {
       super.__New("AlwaysOnTop -Caption")
       this.DarkMode().MakeFontNicer(30)
       this.MarginX := 0
 
       this.InputField := this.AddEdit(
-         "x0 Center -E0x200 Background" this.BackColor " w" this.Width
+         "x0 Center -E0x200 Background" 
+         this.BackColor " w" this.Width
       )
       
       this.Input := ""
-      this.Waiting := true
       this.RegisterHotkeys()
+      this.Show()
    }
    
-   Wait() {
-      while this.Waiting {
+   Show() => super.Show("y" this.TopMargin " w" this.Width)
+   
+   /**
+    * Occupy the thread until you type in your input and press Enter, returns this input
+    * @returns {String}
+    */
+   WaitForInput() {
+      while !this.Input {
       }
       return this.Input
    }
    
    SetInput() {
       this.Input := this.InputField.Text
-      this.Waiting := false
       this.Finish()
    }
    
    SetCancel() {
-     this.Waiting := false 
-     this.Finish()
+      this.Finish()
+      Exit()
    } 
 
-   Show() => (super.Show("y" this.TopMargin " w" this.Width), this)
-   
    RegisterHotkeys() {
       HotIfWinactive("ahk_id " this.Hwnd)
       Hotkey("Enter", (*) => this.SetInput(), "On")
