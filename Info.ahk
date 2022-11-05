@@ -91,6 +91,7 @@ Infos(text, autoCloseTimeout := 0) {
     */
    Hotkey("Escape", Destruction.Bind(gInfo, currYCoord), "On")
    gcText.OnEvent("Click", Destruction.Bind(gInfo, currYCoord))
+   gInfo.OnEvent("Close", Destruction.Bind(gInfo, currYCoord))
    if autoCloseTimeout {
       SetTimer(Destruction.Bind(gInfo, currYCoord), -autoCloseTimeout)
    }

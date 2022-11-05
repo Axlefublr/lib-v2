@@ -720,3 +720,179 @@ Class Search extends Gui {
       this.Destroy()
    }
 }
+
+Class FindFile extends Gui {
+
+   Width  := 750
+   Height := 350
+
+   __New(searchWhere?, caseSense := "Off") {
+      super.__New("AlwaysOnTop +Resize", "These files match your search:")
+
+      this.MakeFontNicer(14)
+      this.DarkMode()
+
+      this.List := this.AddText(, "
+      (
+         Right click on a result to copy its full path. 
+         Double click to open it in explorer.
+      )")
+
+      this.WidthOffset := 35
+      this.HeightOffset := 80
+
+      this.List := this.AddListView(
+         "W"  this.Width  - this.WidthOffset 
+         " H" this.Height - this.HeightOffset 
+         " Count50 Background" this.BackColor, 
+         /**
+          * Count50 — we're not losing much by allocating more memory than needed, 
+          * and on the other hand we improve the performance by a lot by doing so
+          */
+         ["File", "Folder", "Directory"]
+      ) 
+
+      this.caseSense := caseSense
+
+      if !IsSet(searchWhere) {
+         this.ValidatePath()
+      } else {
+         this.path := searchWhere
+      }
+      
+      this.SetOnEvents()
+   }
+
+   ValidatePath() {
+      SetTitleMatchMode("RegEx")
+      try this.path := WinGetTitle("^[A-Z]: ahk_exe explorer\.exe")
+      catch Any {
+         Info("Open an explorer window first!")
+         Exit()
+      }
+   }
+   
+   StartSearch(input) {
+      this.List.Opt("-Redraw") ;improves performance rather than keeping on adding rows and redrawing for each one of them
+
+      gInfo := Infos("The search is in progress") ;to remove the worry of "did I really start the search?"
+
+      loop files this.path "\*.*", "FDR" {
+         if !A_LoopFileName.Find(input, this.caseSense) {
+            continue
+         }
+         if A_LoopFileAttrib.Find("D")
+            this.List.Add(, , A_LoopFileName, A_LoopFileDir)
+         else if A_LoopFileExt
+            this.List.Add(, A_LoopFileName, , A_LoopFileDir)
+      }
+      
+      WinClose(gInfo.Hwnd)
+      
+      this.List.Opt("+Redraw")
+      this.List.ModifyCol() ;it makes the columns fit the data — @rbstrachan
+      
+      this.Show("w" this.Width " h" this.Height)
+   }
+   
+   DestroyResultListGui() {
+      this.Minimize()
+      this.Destroy()
+   }
+   
+   SetOnEvents() {
+      this.List.OnEvent("DoubleClick", (guiCtrlObj, selectedRow) => this.ShowResultInFolder(guiCtrlObj, selectedRow))
+      this.List.OnEvent("ContextMenu", (guiCtrlObj, rowNumber, isRightClick, X, Y) => this.CopyPathToClip(guiCtrlObj, rowNumber, isRightClick, X, Y)) 
+      this.OnEvent("Size", (guiObj, minMax, width, height) => this.FixResizing(guiObj, minMax, width, height))
+      this.OnEvent("Escape", (guiObj) => this.DestroyResultListGui())
+   }
+   
+   FixResizing(guiObj, minMax, width, height) {
+      this.List.Move(,, width - this.WidthOffset, height - this.HeightOffset)
+      /**
+       * When you resize the main gui, the listview also gets resize to have the same borders as usual.
+       * So, on resize, the onevent passes *what* you resized and the width and height that's now the current one.
+       * Then you can use that width and height to also resize the listview in relation to the gui
+       */
+   }
+
+   ShowResultInFolder(guiCtrlObj, selectedRow) {
+      try Run("explorer.exe /select," this.GetPathFromList(selectedRow)) 
+      /**
+       * By passing select, we achieve the cool highlighting thing when the file / folder 
+       * gets opened. (You can pass command line parameters into the run function)
+       */
+   }
+   
+   CopyPathToClip(guiCtrlObj, rowNumber, isRightClick, X, Y) {
+      A_Clipboard := this.GetPathFromList(rowNumber)
+      Info("Path copied to clipboard!")
+   }
+   
+   GetPathFromList(rowNumber) {
+      /*
+         The OnEvent passes which row we interacted with automatically
+         So we read the text that's on the row
+         And concoct it to become the full path
+         This is much better performance-wise than adding all the full paths to an array while adding the listviews (in the loop) and accessing it here.
+         Arguably more readable too
+      */
+
+      file := this.List.GetText(rowNumber, 1)
+      dir  := this.List.GetText(rowNumber, 2)
+      path := this.List.GetText(rowNumber, 3)
+
+      return path "\" file dir ;no explanation required, it's just logic — @rbstrachan
+   }
+}
+
+Class CleanInputBox extends Gui {
+   Width     := Round(A_ScreenWidth / 1920 * 1200)
+   TopMargin := Round(A_ScreenHeight / 1080 * 200)
+
+   __New() {
+      super.__New("AlwaysOnTop -Caption")
+      this.DarkMode().MakeFontNicer(30)
+      this.MarginX := 0
+
+      this.InputField := this.AddEdit(
+         "x0 Center -E0x200 Background" this.BackColor " w" this.Width
+      )
+      
+      this.Input := ""
+      this.Waiting := true
+      this.RegisterHotkeys()
+   }
+   
+   Wait() {
+      while this.Waiting {
+      }
+      return this.Input
+   }
+   
+   SetInput() {
+      this.Input := this.InputField.Text
+      this.Waiting := false
+      this.Finish()
+   }
+   
+   SetCancel() {
+     this.Waiting := false 
+     this.Finish()
+   } 
+
+   Show() => (super.Show("y" this.TopMargin " w" this.Width), this)
+   
+   RegisterHotkeys() {
+      HotIfWinactive("ahk_id " this.Hwnd)
+      Hotkey("Enter", (*) => this.SetInput(), "On")
+      this.OnEvent("Escape", (*) => this.Finish())
+   }
+   
+   Finish() {
+      HotIfWinactive("ahk_id " this.Hwnd)
+      Hotkey("Enter", "Off")
+      this.Minimize()
+      super.Destroy()
+   }
+}
