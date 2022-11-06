@@ -726,6 +726,15 @@ Class FindFile extends Gui {
    Width  := 750
    Height := 350
 
+   /**
+    * Find all the matches of your search request within the currently opened folder in the explorer.
+    * The searcher recurses into all the subfolders.
+    * Will search for both files and folders.
+    * After the search is completed, will show all the matches in a list.
+    * Call StartSearch() after creating the class instance if you can pass the input yourself.
+    * Call GetInput() after creating the class instance if you want to have an input box to type in
+    * your search into.
+    */
    __New(searchWhere?, caseSense := "Off") {
       super.__New("AlwaysOnTop +Resize", "These files match your search:")
 
@@ -763,6 +772,12 @@ Class FindFile extends Gui {
       this.SetOnEvents()
    }
 
+   /**
+    * Get an input box to type in your search request into.
+    * Get a list of all the matches that you can open in explorer.
+    */
+   GetInput() => this.StartSearch(CleanInputBox().WaitForInput())
+
    ValidatePath() {
       SetTitleMatchMode("RegEx")
       try this.path := WinGetTitle("^[A-Z]: ahk_exe explorer\.exe")
@@ -772,6 +787,11 @@ Class FindFile extends Gui {
       }
    }
    
+   /**
+    * Get a list of all the matches of *input*.
+    * You can either open them in explorer or copy their path.
+    * @param input *String* 
+    */
    StartSearch(input) {
       this.List.Opt("-Redraw") ;improves performance rather than keeping on adding rows and redrawing for each one of them
 
