@@ -21,6 +21,8 @@
 #Include <Image>
 #Include <Memes>
 #Include <Text>
+#Include <CleanInputBox>
+#Include <FileSystemSearch>
 
 ;External
 #Include <Eval>
