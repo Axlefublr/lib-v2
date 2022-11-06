@@ -698,7 +698,8 @@ Class FileSystemSearch extends Gui {
    Height := 350
 
    /**
-    * Find all the matches of your search request within the currently opened folder in the explorer.
+    * Find all the matches of your search request within the currently opened folder in the 
+    * explorer.
     * The searcher recurses into all the subfolders.
     * Will search for both files and folders.
     * After the search is completed, will show all the matches in a list.
@@ -769,7 +770,8 @@ Class FileSystemSearch extends Gui {
     * @param input *String* 
     */
    StartSearch(input) {
-      this.List.Opt("-Redraw") ;improves performance rather than keeping on adding rows and redrawing for each one of them
+      ;Improves performance rather than keeping on adding rows and redrawing for each one of them
+      this.List.Opt("-Redraw") 
 
       ;To remove the worry of "did I really start the search?"
       gInfo := Infos("The search is in progress") 
@@ -798,22 +800,30 @@ Class FileSystemSearch extends Gui {
    }
    
    SetOnEvents() {
-      this.List.OnEvent("DoubleClick", (guiCtrlObj, selectedRow) => this.ShowResultInFolder(guiCtrlObj, selectedRow))
-      this.List.OnEvent("ContextMenu", (guiCtrlObj, rowNumber, isRightClick, X, Y) => this.CopyPathToClip(guiCtrlObj, rowNumber, isRightClick, X, Y)) 
-      this.OnEvent("Size", (guiObj, minMax, width, height) => this.FixResizing(guiObj, minMax, width, height))
+      this.List.OnEvent("DoubleClick", 
+         (guiCtrlObj, selectedRow) => this.ShowResultInFolder(selectedRow)
+      )
+      this.List.OnEvent("ContextMenu", 
+         (guiCtrlObj, rowNumber, isRightClick, X, Y) => this.CopyPathToClip(rowNumber)
+      ) 
+      this.OnEvent("Size", 
+         (guiObj, minMax, width, height) => this.FixResizing(width, height)
+      )
       this.OnEvent("Escape", (guiObj) => this.DestroyResultListGui())
    }
    
-   FixResizing(guiObj, minMax, width, height) {
+   FixResizing(width, height) {
       this.List.Move(,, width - this.WidthOffset, height - this.HeightOffset)
       /**
-       * When you resize the main gui, the listview also gets resize to have the same borders as usual.
-       * So, on resize, the onevent passes *what* you resized and the width and height that's now the current one.
+       * When you resize the main gui, the listview also gets resize to have the same borders 
+       * as usual.
+       * So, on resize, the onevent passes *what* you resized and the width and height that's 
+       * now the current one.
        * Then you can use that width and height to also resize the listview in relation to the gui
        */
    }
 
-   ShowResultInFolder(guiCtrlObj, selectedRow) {
+   ShowResultInFolder(selectedRow) {
       try Run("explorer.exe /select," this.GetPathFromList(selectedRow)) 
       /**
        * By passing select, we achieve the cool highlighting thing when the file / folder 
@@ -821,19 +831,20 @@ Class FileSystemSearch extends Gui {
        */
    }
    
-   CopyPathToClip(guiCtrlObj, rowNumber, isRightClick, X, Y) {
+   CopyPathToClip(rowNumber) {
       A_Clipboard := this.GetPathFromList(rowNumber)
       Info("Path copied to clipboard!")
    }
    
    GetPathFromList(rowNumber) {
-      /*
-         The OnEvent passes which row we interacted with automatically
-         So we read the text that's on the row
-         And concoct it to become the full path
-         This is much better performance-wise than adding all the full paths to an array while adding the listviews (in the loop) and accessing it here.
-         Arguably more readable too
-      */
+      /**
+       * The OnEvent passes which row we interacted with automatically
+       * So we read the text that's on the row
+       * And concoct it to become the full path
+       * This is much better performance-wise than adding all the full paths to an array 
+       * while adding the listviews (in the loop) and accessing it here.
+       * Arguably more readable too
+       */
 
       file := this.List.GetText(rowNumber, 1)
       dir  := this.List.GetText(rowNumber, 2)
@@ -872,7 +883,8 @@ Class CleanInputBox extends Gui {
    Show() => super.Show("y" this.TopMargin " w" this.Width)
    
    /**
-    * Occupy the thread until you type in your input and press Enter, returns this input
+    * Occupy the thread until you type in your input and press 
+    * Enter, returns this input
     * @returns {String}
     */
    WaitForInput() {
