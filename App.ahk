@@ -12,6 +12,8 @@
 #Include <Sort>
 #Include <Get>
 #Include <Text>
+#Include <Image>
+#Include <Cmd>
 
 Class Spotify {
 

@@ -752,7 +752,7 @@ Class FileSystemSearch extends Gui {
       if !input := CleanInputBox().WaitForInput() {
          return false
       }
-      this.StartSearch()
+      this.StartSearch(input)
    }
 
    ValidatePath() {
