@@ -80,7 +80,7 @@ Class Paths {
 
    static Apps := Map(
       "Ahk v1 docs",  this.AutoHotkey "\AutoHotkey.chm",
-      "Ahk v2 docs",  this.AutoHotkey "\v2.0-beta.12\AutoHotkey.chm",
+      "Ahk v2 docs",  this.AutoHotkey "\v2.0-beta.13\AutoHotkey.chm",
       "Ahk compiler", this.AutoHotkey "\Compiler\Ahk2Exe.exe",
 
       "Shell Menu View", A_ProgramFiles "\Shell Menu View\shmnview.exe",

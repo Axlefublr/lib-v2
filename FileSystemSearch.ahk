@@ -5,9 +5,6 @@
 
 Class FileSystemSearch extends Gui {
 
-   Width  := 750
-   Height := 350
-
    /**
     * Find all the matches of your search request within the currently opened folder in the 
     * explorer.
@@ -19,7 +16,7 @@ Class FileSystemSearch extends Gui {
     * your search into.
     */
    __New(searchWhere?, caseSense := "Off") {
-      super.__New("AlwaysOnTop +Resize", "These files match your search:")
+      super.__New("+Resize", "These files match your search:")
 
       this.MakeFontNicer(14)
       this.DarkMode()
@@ -30,13 +27,11 @@ Class FileSystemSearch extends Gui {
          Double click to open it in explorer.
       )")
 
-      this.WidthOffset := 35
+      this.WidthOffset  := 35
       this.HeightOffset := 80
 
       this.List := this.AddListView(
-         "W"  this.Width  - this.WidthOffset 
-         " H" this.Height - this.HeightOffset 
-         " Count50 Background" this.BackColor, 
+         "Count50 Background" this.BackColor, 
          /**
           * Count50 — we're not losing much by allocating more memory than needed, 
           * and on the other hand we improve the performance by a lot by doing so
@@ -86,6 +81,10 @@ Class FileSystemSearch extends Gui {
 
       ;To remove the worry of "did I really start the search?"
       gInfo := Infos("The search is in progress") 
+      
+      if this.path ~= "^[A-Z]:\\$" {
+         this.path := this.path[1, -2]
+      }
 
       loop files this.path "\*.*", "FDR" {
          if !A_LoopFileName.Find(input, this.caseSense) {
@@ -97,12 +96,12 @@ Class FileSystemSearch extends Gui {
             this.List.Add(, A_LoopFileName, , A_LoopFileDir)
       }
       
-      WinClose(gInfo.Hwnd)
+      try WinClose(gInfo.Hwnd)
       
       this.List.Opt("+Redraw")
       this.List.ModifyCol() ;It makes the columns fit the data — @rbstrachan
       
-      this.Show("w" this.Width " h" this.Height)
+      this.Show("AutoSize")
    }
    
    DestroyResultListGui() {

@@ -134,6 +134,9 @@ Channel := [
    
    "refactoring shows 3",
    "https://youtu.be/_jUbkfWLfkA",
+   
+   "filesearch",
+   "https://youtu.be/lay80oB7w1s",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
