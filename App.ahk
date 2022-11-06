@@ -505,7 +505,7 @@ video_PasteClean() {
 }
 
 Class Explorer {
-   winTitleRegex := "^[A-Z]: ahk_exe explorer\.exe"
+   static winTitleRegex := "^[A-Z]: ahk_exe explorer\.exe"
 }
 ;;DAVINCI
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

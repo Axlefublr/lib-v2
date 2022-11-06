@@ -662,7 +662,10 @@ Class InternetSearch extends CleanInputBox {
    }
 
    TriggerSearch() {
-      query := this.DynamicallyReselectEngine(super.WaitForInput())
+      if !input := super.WaitForInput() {
+         return false
+      }
+      query := this.DynamicallyReselectEngine(input)
       this.FeedQuery(query)
    }
    
@@ -744,7 +747,12 @@ Class FileSystemSearch extends Gui {
     * Get an input box to type in your search request into.
     * Get a list of all the matches that you can open in explorer.
     */
-   GetInput() => this.StartSearch(CleanInputBox().WaitForInput())
+   GetInput() {
+      if !input := CleanInputBox().WaitForInput() {
+         return false
+      }
+      this.StartSearch()
+   }
 
    ValidatePath() {
       SetTitleMatchMode("RegEx")
@@ -856,6 +864,7 @@ Class CleanInputBox extends Gui {
       )
       
       this.Input := ""
+      this.isWaiting := true
       this.RegisterHotkeys()
       this.Show()
    }
@@ -867,31 +876,32 @@ Class CleanInputBox extends Gui {
     * @returns {String}
     */
    WaitForInput() {
-      while !this.Input {
+      while this.isWaiting {
       }
       return this.Input
    }
    
    SetInput() {
       this.Input := this.InputField.Text
+      this.isWaiting := false
       this.Finish()
    }
    
    SetCancel() {
+      this.isWaiting := false
       this.Finish()
-      Exit()
    } 
 
    RegisterHotkeys() {
       HotIfWinactive("ahk_id " this.Hwnd)
       Hotkey("Enter", (*) => this.SetInput(), "On")
-      this.OnEvent("Escape", (*) => this.Finish())
+      this.OnEvent("Escape", (*) => this.SetCancel())
    }
    
    Finish() {
       HotIfWinactive("ahk_id " this.Hwnd)
       Hotkey("Enter", "Off")
       this.Minimize()
-      super.Destroy()
+      this.Destroy()
    }
 }

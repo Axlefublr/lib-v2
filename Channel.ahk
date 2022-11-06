@@ -120,14 +120,17 @@ Channel := [
    "classes and googler",
    "https://youtu.be/RuUOSEwtLy0",
 
-   "fixing that annoying gui issue",
-   "https://youtu.be/v_ja54uA7UE",
-   
    "refactoring shows", 
    "https://youtu.be/_jUbkfWLfkA",
 
+   "fixing that annoying gui issue",
+   "https://youtu.be/v_ja54uA7UE",
+   
    "refactoring shows 2",
    "https://youtu.be/c8srPXwRMW0",
+   
+   "inputbox but better",
+   "https://youtu.be/qTnhY8ivZLk",
    
    "refactoring shows 3",
    "https://youtu.be/_jUbkfWLfkA",
