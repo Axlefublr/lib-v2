@@ -638,26 +638,12 @@ Hider(pickedColor?) {
    firstCall := true
 }
 
-Class Search extends Gui {
+Class InternetSearch extends CleanInputBox {
    
-   width     := Round(A_ScreenWidth / 1920 * 1200)
-   topMargin := Round(A_ScreenHeight / 1080 * 200)
-
    __New(searchEngine) {
-      super.__New("AlwaysOnTop -Caption")
-      this.DarkMode().MakeFontNicer(30)
-      this.MarginX := 0
-
+      super.__New()
       this.SelectedSearchEngine := this.AvailableSearchEngines[searchEngine]
-      
-      this.InputField := this.AddEdit(
-         "x0 Center -E0x200 Background" this.BackColor " w" this.width
-      )
-      
-      this.RegisterHotkeys()
    }
-   
-   ShowVisual() => this.Show("y" this.topMargin " w" this.width)
    
    FeedQuery(input) {
       restOfLink := this.SanitizeQuery(input)
@@ -676,10 +662,8 @@ Class Search extends Gui {
    }
 
    TriggerSearch() {
-      query := this.DynamicallyReselectEngine(this.InputField.Text)
+      query := this.DynamicallyReselectEngine(super.WaitForInput())
       this.FeedQuery(query)
-      this.DeRegisterHotkeys()
-      this.DestroyGui()
    }
    
    AvailableSearchEngines := Map(
@@ -703,25 +687,9 @@ Class Search extends Gui {
       }
       return query
    }
-   
-   RegisterHotkeys() {
-      HotIfWinactive("ahk_id " this.Hwnd)
-      Hotkey("Enter", (*) => this.TriggerSearch(), "On")
-      this.OnEvent("Escape", (*) => (this.DeRegisterHotkeys(), this.DestroyGui()))
-   }
-   
-   DeRegisterHotkeys() {
-      HotIfWinactive("ahk_id " this.Hwnd)
-      Hotkey("Enter", "Off")
-   }
-   
-   DestroyGui() {
-      this.Minimize()
-      this.Destroy()
-   }
 }
 
-Class FindFile extends Gui {
+Class FileSystemSearch extends Gui {
 
    Width  := 750
    Height := 350
@@ -780,7 +748,7 @@ Class FindFile extends Gui {
 
    ValidatePath() {
       SetTitleMatchMode("RegEx")
-      try this.path := WinGetTitle("^[A-Z]: ahk_exe explorer\.exe")
+      try this.path := WinGetTitle(Explorer.winTitleRegex)
       catch Any {
          Info("Open an explorer window first!")
          Exit()
@@ -795,7 +763,8 @@ Class FindFile extends Gui {
    StartSearch(input) {
       this.List.Opt("-Redraw") ;improves performance rather than keeping on adding rows and redrawing for each one of them
 
-      gInfo := Infos("The search is in progress") ;to remove the worry of "did I really start the search?"
+      ;To remove the worry of "did I really start the search?"
+      gInfo := Infos("The search is in progress") 
 
       loop files this.path "\*.*", "FDR" {
          if !A_LoopFileName.Find(input, this.caseSense) {
@@ -810,7 +779,7 @@ Class FindFile extends Gui {
       WinClose(gInfo.Hwnd)
       
       this.List.Opt("+Redraw")
-      this.List.ModifyCol() ;it makes the columns fit the data — @rbstrachan
+      this.List.ModifyCol() ;It makes the columns fit the data — @rbstrachan
       
       this.Show("w" this.Width " h" this.Height)
    }
@@ -862,7 +831,7 @@ Class FindFile extends Gui {
       dir  := this.List.GetText(rowNumber, 2)
       path := this.List.GetText(rowNumber, 3)
 
-      return path "\" file dir ;no explanation required, it's just logic — @rbstrachan
+      return path "\" file dir ;No explanation required, it's just logic — @rbstrachan
    }
 }
 
