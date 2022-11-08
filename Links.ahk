@@ -14,7 +14,7 @@ Links := Map(
    ;Services
    "gmail",    "https://mail.google.com/mail/u/0/#inbox",
    "weather",  "https://yandex.ru/pogoda/",
-   "2gis",     "https://2gis.ru/krasnoyarsk",
+   "2gis",     "https://2gis.ru/",
 
    ;Courses
    "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",

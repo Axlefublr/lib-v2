@@ -4,6 +4,7 @@
 #Include <Info>
 #Include <Get>
 #Include <String>
+#Include <CleanInputBox>
 
 tool_KeyCodeGetter() {
 
@@ -143,101 +144,6 @@ tool_RelativeCoordGetter() {
 
    g_relative.Show("AutoSize y0 x" topRightCorner)
 
-}
-
-tool_FileSearch(caseSense := "Off") { ;Case sense is off by default, but may need to be changed to locale if you intend to search for files named not in English.
-
-   search := InputBox("What file do you want to search for?:", "File Search")
-   search_value := search.Value ;Just a rename so the InStr in the loop doesn't have to access a property and instead just checks a variable's value
-   if search.Result = "Cancel" || !search_value ;code doesn't continue to run if you cancel the inputbox or don't type in anything
-      return
-
-   folder := DirSelect("C:", 6, "What folder do you want to search?:") ;"6" makes it so you can type in / paste in the path to the folder you want to choose
-   if !folder {
-      MsgBox("You didn't select a valid folder") ;if you fucked up the pasting of the folder (or just pressed cancel or picked nothing)
-      return
-   }
-
-   if folder = "C:\"
-      folder := "C:"
-
-   if search_value ~= "[а-яА-Я]" && caseSense != "Locale" ;If your search request you just did contains russian, caseSense for the search in InStr() is automatically made to Locale, so it actually *is* case insensitive. Likely the same case for other languages with different writing systems and doesn't matter for stuff like spanish and french (just a baseless hunch)
-      caseSense := "Locale"
-
-   guiWidth := 750
-   guiHeight := 350
-
-   g_found := Gui("AlwaysOnTop +Resize", "These files match your search:")
-   g_found.SetFont("s10", "Consolas")
-   g_found.Add("Text", , "Right click on a result to copy its full path. Double click to open it in explorer.")
-   g_found_list := g_found.Add("ListView", "W" guiWidth - 25 " H" guiHeight - 45 " Count50", ["File", "Folder", "Directory"]) ;Count50 -- we're not losing much by allocating more memory than needed, and on the other hand we improve the performance by a lot by doing so
-
-   g_found_list.Opt("-Redraw") ;improves performance rather than keeping on adding rows and redrawing for each one of them
-
-   ToolTip("Search in progress", 0, 0) ;to remove the worry of "did I really start the search?"
-
-   Loop Files folder . "\*.*", "FDR" {
-      /*
-         "But ternary is faster!" -- No, suprisingly enough, it's not. An if with no else is faster than ternary with : "" (which you *have to* have in v2) ((better to cum in the sink than to sink in the cum))
-
-         Because of how compiling logic works, if the first condition on the left of the && is false, everything to the right will not even be evaluated (looked at), so instead of nesting two ifs we can use the AND statement without losing any speed.
-         The trend continues with the later || -- the slowest to check file will be a *file* with no extension, then a folder, then a file, then something that didn't match
-      */
-      if InStr(A_LoopFileName, search_value, caseSense) {
-         if InStr(A_LoopFileAttrib, "D")
-            g_found_list.Add(, , A_LoopFileName, A_LoopFileDir)
-         else if A_LoopFileExt
-            g_found_list.Add(, A_LoopFileName, , A_LoopFileDir)
-      }
-   }
-
-   ToolTip()
-
-   g_found_list.Opt("+Redraw")
-   g_found_list.ModifyCol() ;it makes the columns fit the data -- @rbstrachan
-
-   g_found_list.OnEvent("DoubleClick", ShowInFolder)
-   g_found_list.OnEvent("ContextMenu", CopyFull_path.Bind(0)) ;Funniest shit I've ever seen: all the other parameters of CopyFull_path are automatically passed into the function and the *only* parameter you have to set yourself is Y. Seriously, you don't need to specify X and Y, *just* Y. *Y* does it work like that???
-
-   g_found.Show("W" guiWidth " H" guiHeight)
-   g_found.OnEvent("Size", AutoResize) ;When you resize the gui window, the new size gets passed into AutoResize, that takes care of the list that's inside the gui
-   g_found.OnEvent("Close", (*) => g_found.Destroy()) ;You can pass an asterisk instead of the parameters that are expected to be here, regardless of whether you use them
-
-   AutoResize(g_found, minMax, width, height) { ;The parameters listed here are automatically passed by the OnEvent and you have to list them regardless of whether you're gonna use them
-      g_found_list.Move(, , width - 25, height - 45)
-      /*
-         When you resize the main gui, the listview also gets resize to have the same borders as usual.
-         So, on resize, the onevent passes *what* you resized and the width and height that's now the current one.
-         Then you can use that width and height to also resize the listview in relation to the gui
-      */
-   }
-
-   CopyFull_path(g_found, g_found_list, Item, IsRightClick, X, Y) { ;Same goes for these parameters. The only one you have to pass is Y, for whatever reason
-      if !(Item && IsRightClick) ;If you didn't right click on the row with the mouse, don't continue running the function
-         return
-
-      A_Clipboard := GetFull_path(Item)
-   } ;i.e. => when you right click on a row, the full path gets copied to your clipboard
-
-   ShowInFolder(g_found_list, RowNumber) {
-      try Run("explorer.exe /select," GetFull_path(RowNumber)) ;By passing select, we achieve the cool highlighting thing when the file / folder gets opened. (You can pass command line parameters into the run function)
-   }
-
-   GetFull_path(rowInfo) {
-      /*
-         The OnEvent passes which row we interacted with automatically
-         So we read the text that's on the row
-         And concoct it to become the full path
-         This is much better performance-wise than adding all the full paths to an array while adding the listviews (in the loop) and accessing it here.
-         Arguably more readable too
-      */
-
-      file := g_found_list.GetText(rowInfo, 1)
-      dir := g_found_list.GetText(rowInfo, 2)
-      path := g_found_list.GetText(rowInfo, 3)
-
-      return path "\" file dir ;no explanation required, it's just logic -- @rbstrachan
-   }
 }
 
 tool_CoordGetter() {
