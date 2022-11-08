@@ -16,10 +16,10 @@ win_Minimize(winTitle := "A") {
    try PostMessage("0x112", "0xF020", , , winTitle)
 }
 
-win_Activate(winTitle, exception?) {
+win_Activate(winTitle, exception := "") {
    try {
-      WinActivate(winTitle,,,   exception ?? "")
-      WinWaitActive(winTitle,,, exception ?? "")
+      WinActivate(WinGetList(winTitle,, exception)[-1],, exception)
+      WinWaitActive(winTitle,,, exception)
       return true
    } 
    catch Any {
