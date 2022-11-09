@@ -542,15 +542,15 @@ davinci_Setup() {
 Class Screenshot {
    static winTitle := "Screen Snipping ahk_exe ScreenClippingHost.exe"
    
+   static Start() => Send("#+s")
+
    static FullScreenOut() {
-      ScreenSnip()
+      this.Start()
       WinWaitActive(this.winTitle)
-      screenshot_Fullscreen()
+      this.Fullscreen()
    }
+
+   static Rectangle()  => ClickThenGoBack("839 6")
+   static Window()     => ClickThenGoBack("959 6")
+   static Fullscreen() => ClickThenGoBack("1018 31")
 }
-
-screenshot_Rectangle() => ClickThenGoBack("839 6")
-
-screenshot_Window() => ClickThenGoBack("959 6")
-
-screenshot_Fullscreen() => ClickThenGoBack("1018 31")

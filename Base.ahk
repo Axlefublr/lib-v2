@@ -72,6 +72,4 @@ DeleteInDirection(direction) {
    Send("+" direction "{Delete}")
 }
 
-ScreenSnip() => Send("#+s")
-
 WindowsClock() => Send("#!d")
