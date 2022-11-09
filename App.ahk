@@ -240,9 +240,12 @@ vscode_WorkSpace(wkspName) {
 vscode_CleanText(input) {
    clean := StrReplace(input, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
    clean := clean.RegexReplace("[ \t]{2,}", " ")
-   clean := clean.RegexReplace("(\n)?\n[!*].*", "`n")
+   clean := clean.RegexReplace("^[!*].*\n(\n)?")
+   clean := clean.RegexReplace("(\n)?\n\* .*", "`n`n")
+   clean := clean.RegexReplace("(\n)?\n!\[.*", "`n`n")
    ; clean := clean.RegexReplace("\n{3,}")	;removing spammed newlines
    clean := clean.RegexReplace("(?<!\.)\n{2}(?=[^A-Z])", " ") ;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
+   clean := clean.RegexReplace("[ \t]{2,}", " ")
 
    WriteFile(Paths.Ptf["Clean"], clean)
    Info("Text cleaned")
@@ -536,14 +539,18 @@ davinci_Setup() {
    win_Activate("DaVinci Resolve ahk_exe Resolve.exe")
 }
 
+Class Screenshot {
+   static winTitle := "Screen Snipping ahk_exe ScreenClippingHost.exe"
+   
+   static FullScreenOut() {
+      ScreenSnip()
+      WinWaitActive(this.winTitle)
+      screenshot_Fullscreen()
+   }
+}
+
 screenshot_Rectangle() => ClickThenGoBack("839 6")
 
 screenshot_Window() => ClickThenGoBack("959 6")
 
 screenshot_Fullscreen() => ClickThenGoBack("1018 31")
-
-screenshot_Fullscreen_Edit() {
-   Send("#w")
-   WinWait("Windows Ink Workspace ahk_exe ShellExperienceHost.exe")
-   ClickThenGoBack("1756 1052")
-}

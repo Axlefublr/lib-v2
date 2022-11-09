@@ -45,6 +45,9 @@ Channel := [
 
    "settimers",
    "https://youtu.be/bUxm_Gwd58Q",
+   
+   "arrays repo",
+   "https://github.com/Axlefublr/arrays",
 
    ;;Ahk channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
    "v2 setup",
@@ -120,7 +123,7 @@ Channel := [
    "classes and googler",
    "https://youtu.be/RuUOSEwtLy0",
 
-   "refactoring shows", 
+   "refactoring shows 1", 
    "https://youtu.be/_jUbkfWLfkA",
 
    "fixing that annoying gui issue",
@@ -137,6 +140,9 @@ Channel := [
    
    "filesearch",
    "https://youtu.be/lay80oB7w1s",
+   
+   "how should I use vim",
+   "https://youtu.be/JJLJ9hm8AZ8",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
