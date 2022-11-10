@@ -24,6 +24,7 @@
 #Include <CleanInputBox>
 #Include <FileSystemSearch>
 #Include <InternetSearch>
+#Include <Timer>
 
 ;External
 #Include <Eval>

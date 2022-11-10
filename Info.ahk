@@ -1,4 +1,3 @@
-#Include <Win>
 #Include <Gui>
 
 /**

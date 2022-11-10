@@ -288,46 +288,6 @@ tool_WindowGetter() {
    g_WinGet.Show("AutoSize y0")
 }
 
-tool_Timer(minutes, shouldExit := false) {
-   endTime := Round(A_TickCount + minutes * 60000)
-
-   _isItTime() {
-      if A_TickCount < endTime
-         return
-
-      SetTimer(_isItTime, 0)
-
-      timeUp := Gui("AlwaysOnTop")
-      timeUp.BackColor := "171717"
-      timeUp.SetFont("s20 cC5C5C5", "Consolas")
-      timeUp.Add("Text", , "Time's up!`n" minutes " minutes have passed")
-
-      guiHwnd := timeUp.hwnd
-
-      timeUp.Show("AutoSize")
-
-      timeUp.OnEvent("Close", (*) => timeUp.Destroy())
-      HotIfWinActive("ahk_id " guiHwnd)
-      Hotkey("Escape", (*) => timeUp.Destroy(), "On")
-
-      _Timer() {
-         SoundBeep(800, 200)
-         if WinExist(guiHwnd)
-            return
-         Settimer(_Timer, 0)
-         HotIfWinActive("ahk_id " guiHwnd)
-         Hotkey("Escape", "Off")
-         if shouldExit
-            ExitApp()
-      }
-
-      Settimer(_Timer, 1000)
-   }
-
-   SetTimer(_isItTime, 500)
-   Info("Timer set for " minutes " minutes!")
-}
-
 ;Select a file to run on startup
 tool_StartupRun() {
    selectedFile := FileSelect("S", A_WorkingDir)
