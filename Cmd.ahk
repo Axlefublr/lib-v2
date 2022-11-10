@@ -2,7 +2,8 @@
 
 /**
  * Creates a symlink of a file / folder
- * @param source *String* The path of what the symlink should be *of* (the path to the original file / folder)
+ * @param source *String* The path of what the symlink should be *of* 
+ * (the path to the original file / folder)
  * @param destination *String* The path to where the symlink should be located at
  * @param isDir *Boolean* Specify as true of your source is a directory, instead of a file
  */

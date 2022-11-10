@@ -48,7 +48,8 @@ Class InternetSearch extends CleanInputBox {
       "ya", this.AvailableSearchEngines["Yandex"],
    )
 
-   SanitizeQuery(query) { ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
+   ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
+   SanitizeQuery(query) { 
       SpecialCharacters := '%$&+,/:;=?@ "<>#{}|\^~[]``'.Split()
       for key, value in SpecialCharacters {
          query := query.Replace(value, "%" TransfToHex(Ord(value), false))
