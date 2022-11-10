@@ -79,3 +79,11 @@ ToggleModifier(modifierName) {
 EatingLogger() {
    AppendFile(Paths.Ptf["EatingLog"], GetDateAndTime() "`n")
 }
+
+Calculator(expression) {
+   result := eval(expression)
+   if Round(result) = result {
+      result := Round(result)
+   }
+   Infos(result)
+}
