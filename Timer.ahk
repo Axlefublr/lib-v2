@@ -7,6 +7,8 @@ Class Timer {
       this.timeWord := time " " (isInMinutes ? "minutes" : "seconds")
       this.endTime := Round(A_TickCount + time * (isInMinutes ? 60000 : 1000))
       
+      this.shouldExitapp := shouldExitapp
+      
       this.Start()
    }
    
@@ -29,10 +31,13 @@ Class Timer {
    }
    
    Alarm() {
-      infoHwnd := Info("Your timer for " this.timeWord " is up!").Hwnd
+      infoHwnd := Infos("Your timer for " this.timeWord " is up!").Hwnd
       while WinExist(infoHwnd) {
          SoundBeep()
          Sleep(200)
+      }
+      if this.shouldExitapp {
+         ExitApp()
       }
    }
 }
