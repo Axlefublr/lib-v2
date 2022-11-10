@@ -23,6 +23,7 @@
 #Include <Text>
 #Include <CleanInputBox>
 #Include <FileSystemSearch>
+#Include <InternetSearch>
 
 ;External
 #Include <Eval>

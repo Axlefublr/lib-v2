@@ -6,13 +6,16 @@
 Class FileSystemSearch extends Gui {
 
    /**
-    * Find all the matches of your search request within the currently opened folder in the 
+    * Find all the matches of your search request within the currently 
+    * opened folder in the 
     * explorer.
     * The searcher recurses into all the subfolders.
     * Will search for both files and folders.
     * After the search is completed, will show all the matches in a list.
-    * Call StartSearch() after creating the class instance if you can pass the input yourself.
-    * Call GetInput() after creating the class instance if you want to have an input box to type in
+    * Call StartSearch() after creating the class instance if you can pass 
+    * the input yourself.
+    * Call GetInput() after creating the class instance if you want to have 
+    * an input box to type in
     * your search into.
     */
    __New(searchWhere?, caseSense := "Off") {
@@ -33,8 +36,10 @@ Class FileSystemSearch extends Gui {
       this.List := this.AddListView(
          "Count50 Background" this.BackColor, 
          /**
-          * Count50 — we're not losing much by allocating more memory than needed, 
-          * and on the other hand we improve the performance by a lot by doing so
+          * Count50 — we're not losing much by allocating more memory 
+          * than needed, 
+          * and on the other hand we improve the performance by a lot 
+          * by doing so
           */
          ["File", "Folder", "Directory"]
       ) 
@@ -76,7 +81,10 @@ Class FileSystemSearch extends Gui {
     * @param input *String* 
     */
    StartSearch(input) {
-      ;Improves performance rather than keeping on adding rows and redrawing for each one of them
+      /**
+       * Improves performance rather than keeping on adding rows 
+       * and redrawing for each one of them
+       */
       this.List.Opt("-Redraw") 
 
       ;To remove the worry of "did I really start the search?"
@@ -114,7 +122,7 @@ Class FileSystemSearch extends Gui {
          (guiCtrlObj, selectedRow) => this.ShowResultInFolder(selectedRow)
       )
       this.List.OnEvent("ContextMenu", 
-         (guiCtrlObj, rowNumber, isRightClick, X, Y) => this.CopyPathToClip(rowNumber)
+         (guiCtrlObj, rowNumber, *) => this.CopyPathToClip(rowNumber)
       ) 
       this.OnEvent("Size", 
          (guiObj, minMax, width, height) => this.FixResizing(width, height)
@@ -125,11 +133,12 @@ Class FileSystemSearch extends Gui {
    FixResizing(width, height) {
       this.List.Move(,, width - this.WidthOffset, height - this.HeightOffset)
       /**
-       * When you resize the main gui, the listview also gets resize to have the same borders 
-       * as usual.
-       * So, on resize, the onevent passes *what* you resized and the width and height that's 
-       * now the current one.
-       * Then you can use that width and height to also resize the listview in relation to the gui
+       * When you resize the main gui, the listview also gets resize to have the same 
+       * borders as usual.
+       * So, on resize, the onevent passes *what* you resized and the width and height 
+       * that's now the current one.
+       * Then you can use that width and height to also resize the listview in relation 
+       * to the gui
        */
    }
 

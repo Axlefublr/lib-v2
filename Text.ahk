@@ -12,7 +12,8 @@ WriteFile(whichFile, text := "") {
 }
 
 /**
- * Syntax sugar. Append text to a file, or write it if the file doesn't exist yet
+ * Syntax sugar. Append text to a file, or write it if the file 
+ * doesn't exist yet
  * @param whichFile *String* The path to the file
  * @param text *String* The text to write
  */
