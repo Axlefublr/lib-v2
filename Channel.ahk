@@ -143,6 +143,9 @@ Channel := [
    
    "how should I use vim",
    "https://youtu.be/JJLJ9hm8AZ8",
+   
+   "neovim api",
+   "https://youtu.be/VBr2DPm30h8",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
