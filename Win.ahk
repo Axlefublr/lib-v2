@@ -18,7 +18,7 @@ win_Minimize(winTitle := "A") {
 
 win_Activate(winTitle, exception := "") {
    try {
-      WinActivate(WinGetList(winTitle,, exception)[-1],, exception)
+      WinActivate(WinGetList(winTitle,, exception)[1],, exception)
       WinWaitActive(winTitle,,, exception)
       return true
    } 

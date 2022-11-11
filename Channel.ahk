@@ -81,7 +81,7 @@ Channel := [
    "better discord but worse",
    "https://youtu.be/mHs111Irw-w",
 
-   "the runner",
+   "runner",
    "https://youtu.be/Q3OSCYdVGX8",
 
    "food logger",
@@ -146,6 +146,9 @@ Channel := [
    
    "neovim api",
    "https://youtu.be/VBr2DPm30h8",
+   
+   "timer",
+   "https://youtu.be/C1-U3ErdGc0",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
