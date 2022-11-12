@@ -13,6 +13,10 @@
 #Include <Text>
 #Include <Image>
 #Include <Cmd>
+#Include <App\Browser>
+#Include <App\Spotify>
+#Include <App\VK>
+#Include <App\Youtube>
 
 ;;TELEGRAM
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
