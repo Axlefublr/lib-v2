@@ -26,10 +26,7 @@
 #Include <App\GitHub>
 #Include <App\Shows>
 #Include <App\Video>
-
-Class Explorer {
-   static winTitleRegex := "^[A-Z]: ahk_exe explorer\.exe"
-}
+#Include <App\Explorer>
 
 ;;DAVINCI
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
