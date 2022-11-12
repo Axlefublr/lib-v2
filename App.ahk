@@ -23,19 +23,7 @@
 #Include <App\VsCode>
 #Include <App\Terminal>
 #Include <App\Git>
-
-;;GITHUB
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-github_Profile() {
-   ControlClick("x1825 y134")
-   WaitClick(Paths.Ptf["github"])
-}
-
-github_UpdateAhkLibraries() {
-   Git.InstallAhkLibrary("https://github.com/Descolada/AHK-v2-libraries/blob/main/Lib/String.ahk")
-   Git.InstallAhkLibrary("https://github.com/TheArkive/eval_ahk2/blob/master/_eval.ahk", "Eval.ahk")
-}
+#Include <App\GitHub>
 
 Class Shows {
    __New() {
