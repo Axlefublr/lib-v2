@@ -12,7 +12,6 @@
 #Include <Other>
 #Include <Script>
 #Include <Gui>
-#Include <Win-full>
 #Include <Info>
 #Include <ClipSend>
 #Include <Cmd>

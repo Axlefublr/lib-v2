@@ -2,7 +2,6 @@
 #Include <Base>
 #Include <Global>
 #Include <Win>
-#Include <Win-full>
 #Include <ClipSend>
 #Include <Paths>
 #Include <String>
