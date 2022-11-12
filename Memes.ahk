@@ -154,4 +154,7 @@ Memes := [
    
    "she sells sea shells",
    "https://youtu.be/tuANbxzfax0"
+   
+   "goofy ahh sound",
+   "https://youtu.be/tiUb_Gwvt60",
 ]

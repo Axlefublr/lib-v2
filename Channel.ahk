@@ -162,4 +162,8 @@ Channel := [
 
    "making codesnap work with neovim",
    "https://youtu.be/z0wvpBEjEeQ",
+   
+   ;;Useful tutorials not by me
+   "regex tutorial",
+   "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
 ]
