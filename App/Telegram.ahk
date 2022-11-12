@@ -5,6 +5,9 @@
 #Include <ClipSend>
 
 Class Telegram {
+   
+   static winTitle := "Telegram ahk_exe Telegram.exe"
+   
    static Voice() => ClickThenGoBack_Event("1452 1052")
    
    static Scroll() => ControlClick("X1434 Y964")
