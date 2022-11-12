@@ -1,0 +1,60 @@
+#Include <Win>
+#Include <Paths>
+
+Class VsCode {
+   
+   static winTitle := "Visual Studio Code ahk_exe Code.exe"
+   
+   static IndentRight()   => Send("^!{Right}")
+   static IndentLeft()    => Send("^!{Left}")
+   static Comment()       => Send("#{End}")
+   static Debug()         => Send("+!9")
+   static CloseAllTabs()  => Send("+!w")
+   static DeleteLine()    => Send("+{Delete}")
+   static Reload()        => Send("+!y")
+   static CloseTab()      => Send("!w")
+   static CursorBack()    => Send("!{PgUp}")
+   static CursorForward() => Send("!{PgDn}")
+
+   static WorkSpace(wkspName) {
+      this.CloseAllTabs()
+      win_Close("ahk_exe Code.exe")
+      Run(Paths.Ptf[wkspName], , "Max")
+   }
+
+   static CleanText(input) {
+      clean := StrReplace(input, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
+      clean := clean.RegexReplace("[ \t]{2,}", " ")
+      clean := clean.RegexReplace("^[!*].*\n(\n)?")
+      clean := clean.RegexReplace("(\n)?\n\* .*", "`n`n")
+      clean := clean.RegexReplace("(\n)?\n!\[.*", "`n`n")
+      ; clean := clean.RegexReplace("\n{3,}")	;removing spammed newlines
+      clean := clean.RegexReplace("(?<!\.)\n{2}(?=[^A-Z])", " ") ;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
+      clean := clean.RegexReplace("[ \t]{2,}", " ")
+
+      WriteFile(Paths.Ptf["Clean"], clean)
+      Info("Text cleaned")
+   }
+
+   static VideoUp() {
+      files := [
+         Paths.Ptf["Clean"],
+         Paths.Ptf["Description"],
+      ]
+      for key, value in files {
+         WriteFile(value)
+      }
+      FileDelete(Paths.Materials "\*.*")
+   }
+
+   static GetLinuxPath() {
+      vscodeTitle := WinGetTitle("Visual Studio Code ahk_exe Code.exe")
+      path := vscodeTitle.RegexReplace(" -.*")
+      noLowercaseCPath := path.RegexReplace("^C:")
+      forwardPath := noLowercaseCPath.Replace("\", "/")
+      
+      linuxPath := "/mnt/c" forwardPath
+      return linuxPath
+   }
+
+}

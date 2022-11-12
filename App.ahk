@@ -20,61 +20,7 @@
 #Include <App\Youtube>
 #Include <App\Telegram>
 #Include <App\Discord>
-
-;;VSCODE
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-vscode_IndentRight()   => Send("^!{Right}")
-vscode_IndentLeft()    => Send("^!{Left}")
-vscode_Comment()       => Send("#{End}")
-vscode_Debug()         => Send("+!9")
-vscode_CloseAllTabs()  => Send("+!w")
-vscode_DeleteLine()    => Send("+{Delete}")
-vscode_Reload()        => Send("+!y")
-vscode_CloseTab()      => Send("!w")
-vscode_CursorBack()    => Send("!{PgUp}")
-vscode_CursorForward() => Send("!{PgDn}")
-
-vscode_WorkSpace(wkspName) {
-   vscode_CloseAllTabs()
-   win_Close("ahk_exe Code.exe")
-   Run(Paths.Ptf[wkspName], , "Max")
-}
-
-vscode_CleanText(input) {
-   clean := StrReplace(input, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
-   clean := clean.RegexReplace("[ \t]{2,}", " ")
-   clean := clean.RegexReplace("^[!*].*\n(\n)?")
-   clean := clean.RegexReplace("(\n)?\n\* .*", "`n`n")
-   clean := clean.RegexReplace("(\n)?\n!\[.*", "`n`n")
-   ; clean := clean.RegexReplace("\n{3,}")	;removing spammed newlines
-   clean := clean.RegexReplace("(?<!\.)\n{2}(?=[^A-Z])", " ") ;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
-   clean := clean.RegexReplace("[ \t]{2,}", " ")
-
-   WriteFile(Paths.Ptf["Clean"], clean)
-   Info("Text cleaned")
-}
-
-vscode_VideoUp() {
-   files := [
-      Paths.Ptf["Clean"],
-      Paths.Ptf["Description"],
-   ]
-   for key, value in files {
-      WriteFile(value)
-   }
-   FileDelete(Paths.Materials "\*.*")
-}
-
-vscode_GetLinuxPath() {
-   vscodeTitle := WinGetTitle("Visual Studio Code ahk_exe Code.exe")
-   path := vscodeTitle.RegexReplace(" -.*")
-   noLowercaseCPath := path.RegexReplace("^C:")
-   forwardPath := noLowercaseCPath.Replace("\", "/")
-   
-   linuxPath := "/mnt/c" forwardPath
-   return linuxPath
-}
+#Include <App\VsCode>
 
 ;;TERMINAL
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
