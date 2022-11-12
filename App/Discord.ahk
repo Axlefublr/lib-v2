@@ -2,6 +2,10 @@
 #Include <Image>
 
 Class Discord {
+   
+   winTitle  := "Discord ahk_exe Discord.exe"
+   exception := "Updater" ;Don't consider the window to be discord if it has this in its title
+   
    static Emoji() => Send("^e")
 
    static Gif() => Send("^g")
