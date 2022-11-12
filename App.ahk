@@ -25,47 +25,7 @@
 #Include <App\Git>
 #Include <App\GitHub>
 #Include <App\Shows>
-
-;;VIDEO
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-video_EditScreenshot() {
-   selectedFile := FileSelect("S", Paths.Materials, "Select a file to edit in gimp")
-   if !selectedFile
-      return
-
-   RunWith(Paths.Apps["Gimp"], selectedFile)
-}
-
-video_DuplicateScreenshot() {
-   file_path := FileSelect("s", Paths.Materials, "Choose a screenshot to duplicate")
-
-   SplitPath(file_path, &file_fullname)
-   file_name := RegexReplace(file_fullname, "\d+")
-
-   screenshot_numbers := []
-   Loop Files Paths.Materials "\*.png" {
-      RegexMatch(A_LoopFileName, "\d+", &currentFile_number)
-      screenshot_numbers.Push(currentFile_number[0])
-   }
-   screenshot_numbers := InsertionSort(screenshot_numbers)
-
-   nextNumber := screenshot_numbers[-1] + 1
-
-   newFile_path := Paths.Materials "\" nextNumber file_name
-
-   FileCopy(file_path, newFile_path, 1)
-   win_RunAct_Folders(Paths.Materials)
-}
-
-video_PasteClean() {
-   cleanText := ReadFile(Paths.Ptf["Clean"])
-   cleanText_compressed := "`n`n" StrReplace(cleanText, "`n`n", "`n")
-   while cleanText_compressed.Length > 4300 {
-      cleanText_compressed := cleanText_compressed.Delete(-100, 100)
-   }
-   ClipSend(cleanText_compressed)
-}
+#Include <App\Video>
 
 Class Explorer {
    static winTitleRegex := "^[A-Z]: ahk_exe explorer\.exe"
