@@ -1,10 +1,10 @@
 Class VK {
    
-   winTitle := "Messenger ahk_exe chrome.exe"
+   static winTitle := "Messenger ahk_exe chrome.exe"
    
-   Voice() => ControlClick("X1757 Y1014")
+   static Voice() => ControlClick("X1757 Y1014")
    
-   Scroll() => ControlClick("X1750 Y903")
+   static Scroll() => ControlClick("X1750 Y903")
    
-   Reply() => WaitClick(Paths.Ptf["vk reply"])
+   static Reply() => WaitClick(Paths.Ptf["vk reply"])
 }

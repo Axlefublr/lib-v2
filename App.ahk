@@ -13,32 +13,13 @@
 #Include <Text>
 #Include <Image>
 #Include <Cmd>
+
 #Include <App\Browser>
 #Include <App\Spotify>
 #Include <App\VK>
 #Include <App\Youtube>
+#Include <App\Telegram>
 
-;;TELEGRAM
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-telegram_Voice() => ClickThenGoBack_Event("1452 1052")
-
-telegram_Scroll() => ControlClick("X1434 Y964")
-
-telegram_Channel(channelToFind) => (
-   ControlClick("X456 Y74"),
-   Send(channelToFind),
-   Send("{Enter}")
-)
-
-telegram_Diary() {
-   diary := ReadFile(Paths.Ptf["Diary"])
-   WriteFile(Paths.Ptf["Diary"])
-   win_RunAct("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
-   telegram_Channel("Diary")
-   ClipSend(diary)
-   Send("{Enter}")
-}
 ;;DISCORD
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
