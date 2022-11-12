@@ -112,3 +112,13 @@ win_ActiveRegex(winTitle?, winText?, excludeTitle?, excludeText?) {
    SetTitleMatchMode("RegEx")
    return WinActive(winTitle?, winText?, excludeTitle?, excludeText?)
 }
+
+win_IsActive(winTitlesArr?) {
+   i := 0
+   for key, value in winTitlesArr {
+      if WinActive(value) {
+         i++
+      }
+   }
+   return i
+}

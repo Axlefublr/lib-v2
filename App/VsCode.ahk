@@ -1,4 +1,7 @@
 #Include <Win>
+#Include <Text>
+#Include <Info>
+#Include <String>
 #Include <Paths>
 
 Class VsCode {
@@ -46,15 +49,4 @@ Class VsCode {
       }
       FileDelete(Paths.Materials "\*.*")
    }
-
-   static GetLinuxPath() {
-      vscodeTitle := WinGetTitle("Visual Studio Code ahk_exe Code.exe")
-      path := vscodeTitle.RegexReplace(" -.*")
-      noLowercaseCPath := path.RegexReplace("^C:")
-      forwardPath := noLowercaseCPath.Replace("\", "/")
-      
-      linuxPath := "/mnt/c" forwardPath
-      return linuxPath
-   }
-
 }
