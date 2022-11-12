@@ -113,11 +113,21 @@ win_ActiveRegex(winTitle?, winText?, excludeTitle?, excludeText?) {
    return WinActive(winTitle?, winText?, excludeTitle?, excludeText?)
 }
 
-win_IsActive(winTitlesArr?) {
+/**
+ * Specify an array of winTitles, will return 1 if one of them is active
+ * Specify a map if you want to have a "excludeTitle" for one, some, or all of your winTitles
+ * @param winTitles *Array/Map*
+ * @returns {Integer}
+ */
+win_IsActive(winTitles?) {
    i := 0
-   for key, value in winTitlesArr {
-      if WinActive(value) {
-         i++
+   for key, value in winTitles {
+      if Type(winTitles) = "Map" {
+         if WinActive(key,, value)
+            i++
+      } else if Type(winTitles) = "Array" {
+         if WinActive(value) 
+            i++
       }
    }
    return i
