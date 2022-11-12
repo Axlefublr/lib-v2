@@ -1,4 +1,4 @@
 Class Browser {
-   static winTitle := "Google Chrome ahk_exe chrome.exe"
+   static exeTitle := "ahk_exe chrome.exe"
+   static winTitle := "Google Chrome " this.exeTitle
 }
-

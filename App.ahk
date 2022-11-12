@@ -13,3 +13,4 @@
 #Include <App\Explorer>
 #Include <App\Davinci>
 #Include <App\Screenshot>
+#Include <App\Player>
