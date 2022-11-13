@@ -1,6 +1,6 @@
 ﻿#Include <Global>
 #Include <Paths>
-#Include <Info>
+#Include <Tools\Info>
 
 ;Reloads the script
 scr_Reload() => Run(A_ScriptFullPath)

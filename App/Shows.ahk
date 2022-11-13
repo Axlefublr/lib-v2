@@ -2,7 +2,7 @@
 #Include <Text>
 #Include <Paths>
 #Include <Get>
-#Include <Info>
+#Include <Tools\Info>
 #Include <Win>
 #Include <App\Browser>
 #Include <String>

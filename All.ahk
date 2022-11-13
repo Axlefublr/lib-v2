@@ -11,7 +11,6 @@
 #Include <Other>
 #Include <Script>
 #Include <Gui>
-#Include <Info>
 #Include <ClipSend>
 #Include <Cmd>
 #Include <Get>
@@ -19,10 +18,6 @@
 #Include <Image>
 #Include <Memes>
 #Include <Text>
-#Include <CleanInputBox>
-#Include <FileSystemSearch>
-#Include <InternetSearch>
-#Include <Timer>
 
 ;External
 #Include <Eval>

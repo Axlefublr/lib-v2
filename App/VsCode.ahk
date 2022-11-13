@@ -1,6 +1,6 @@
 #Include <Win>
 #Include <Text>
-#Include <Info>
+#Include <Tools\Info>
 #Include <String>
 #Include <Paths>
 

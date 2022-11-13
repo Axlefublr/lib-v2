@@ -1,10 +1,16 @@
 ﻿#Include <Global>
 #Include <Win>
 #Include <Gui>
-#Include <Info>
 #Include <Get>
 #Include <String>
-#Include <CleanInputBox>
+
+#Include <Tools\Info>
+#Include <Tools\CleanInputBox>
+#Include <Tools\CoordGetter>
+#Include <Tools\FileSystemSearch>
+#Include <Tools\InternetSearch>
+#Include <Tools\Timer>
+#Include <Tools\WindowGetter>
 
 tool_KeyCodeGetter() {
 
@@ -144,148 +150,6 @@ tool_RelativeCoordGetter() {
 
    g_relative.Show("AutoSize y0 x" topRightCorner)
 
-}
-
-tool_CoordGetter() {
-   CoordMode("Mouse", "Screen")
-   MouseGetPos(&ScrX, &ScrY)
-
-   CoordMode("Mouse", "Window")
-   MouseGetPos(&WinX, &WinY)
-
-   CoordMode("Mouse", "Client")
-   MouseGetPos(&CliX, &CliY)
-
-   CoordMode("Pixel", "Screen")
-   pixel := PixelGetColor(ScrX, ScrY, "Alt Slow")
-
-   g_CrdGet := Gui(, "Coord Getter")
-   g_CrdGet.Backcolor := "171717"
-   g_CrdGet.SetFont("S30 cC5C5C5", "Consolas")
-
-   CrdGet_hwnd := g_CrdGet.hwnd
-
-   toClip := (text, *) => A_Clipboard := text
-
-   g_CrdGet.Add("Text", , "Screen: ")
-      .OnEvent("Click", toClip.Bind(ScrX " " ScrY))
-   g_CrdGet.Add("Text", "x+", "x" ScrX " ")
-      .OnEvent("Click", toClip.Bind(ScrX))
-   g_CrdGet.Add("Text", "x+", "y" ScrY " ")
-      .OnEvent("Click", toClip.Bind(ScrY))
-   g_CrdGet.Add("Text", "xm", "Window: ")
-      .OnEvent("Click", toClip.Bind(WinX " " WinY))
-   g_CrdGet.Add("Text", "x+", "x" WinX " ")
-      .OnEvent("Click", toClip.Bind(WinX))
-   g_CrdGet.Add("Text", "x+", "y" WinY " ")
-      .OnEvent("Click", toClip.Bind(WinY))
-   g_CrdGet.Add("Text", "xm", "Client: ")
-      .OnEvent("Click", toClip.Bind(CliX " " CliY))
-   g_CrdGet.Add("Text", "x+", "x" CliX " ")
-      .OnEvent("Click", toClip.Bind(CliX))
-   g_CrdGet.Add("Text", "x+", "y" CliY " ")
-      .OnEvent("Click", toClip.Bind(CliY))
-   g_CrdGet.Add("Text", "xm", "Pixel: " pixel)
-      .OnEvent("Click", toClip.Bind(pixel))
-   g_CrdGet.Add("Text", "xm", "CtrlClick Format")
-      .OnEvent("Click", toClip.Bind('"x' CliX " y" CliY '"'))
-
-   Destruction := (*) => (
-      HotIfWinActive("ahk_id " CrdGet_hwnd),
-      Hotkey("Escape", "Off"),
-      Hotkey("1", "Off"),
-      Hotkey("2", "Off"),
-      Hotkey("3", "Off"),
-      Hotkey("4", "Off"),
-      Hotkey("5", "Off"),
-      g_CrdGet.Minimize()
-      g_CrdGet.Destroy()
-   )
-
-   HotIfWinActive("ahk_id " CrdGet_hwnd)
-   Hotkey("Escape", Destruction, "On")
-   Hotkey("1", toClip.Bind(ScrX " " ScrY), "On")
-   Hotkey("2", toClip.Bind(WinX " " WinY), "On")
-   Hotkey("3", toClip.Bind(CliX " " CliY), "On")
-   Hotkey("4", toClip.Bind(pixel), "On")
-   Hotkey("5", toClip.Bind('"x' CliX " y" CliY '"'), "On")
-   g_CrdGet.OnEvent("Close", Destruction)
-
-   g_CrdGet.Show("AutoSize y0 x" A_ScreenWidth / 20 * 13.5)
-}
-
-tool_WindowGetter() {
-
-   ;Getting the current window's info
-   winTitle   := WinGetTitle("A")
-   winTitle_regex := ConvertToRegex(winTitle) ;Dependency from https://github.com/Axlefublr/lib-v2/Get.ahk
-   winExePath := WinGetProcessPath("A")
-   winExe     := WinGetProcessName("A")
-   winID      := WinGetID("A")
-   winPID     := WinGetPID("A")
-
-   ;Gui creation
-   g_WinGet := Gui(, "WindowGetter")
-   g_WinGet.Backcolor := "171717"
-   g_WinGet.SetFont("S20 cC5C5C5", "Consolas")
-
-   WinGet_hwnd := g_WinGet.hwnd
-
-   ;Show the window's info
-   g_WinGet_WinTitle         := g_WinGet.Add("Text", "Center", winTitle)
-   g_WinGet_WinTitle_regex   := g_WinGet.Add("Text", "Center", winTitle_regex)
-   g_WinGet_WinExePath       := g_WinGet.Add("Text", "Center", winExePath)
-   g_WinGet_WinExe           := g_WinGet.Add("Text", "Center", winExe)
-   g_WinGet_WinID            := g_WinGet.Add("Text", "Center", "id: " winID)
-   g_WinGet_WinPID           := g_WinGet.Add("Text", "Center", "pid: " winPID)
-
-   ;Destroys the gui as well as every previously created hotkeys
-   FlushHotkeys := (*) => (
-      HotIfWinActive("ahk_id " WinGet_hwnd),
-      Hotkey("1", "Off"),
-      Hotkey("2", "Off"),
-      Hotkey("3", "Off"),
-      Hotkey("4", "Off"),
-      Hotkey("5", "Off"),
-      Hotkey("6", "Off"),
-      Hotkey("Escape", "Off"),
-      g_WinGet.Destroy()
-   )
-
-   ;This function copies the text you clicked to your clipboard and destroys the gui right after
-   ToClip := (text, *) => (
-      A_Clipboard := text,
-      FlushHotkeys()
-   )
-
-   ;Making the func objects to later call in two separate instances
-   ToClip_Title       := ToClip.Bind(winTitle) ;We pass the params of winSmth
-   ToClip_Title_regex := ToClip.Bind(winTitle_regex)
-   ToClip_Path        := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
-   ToClip_Exe         := ToClip.Bind(winExe)
-   ToClip_ID          := ToClip.Bind(winID)
-   ToClip_PID         := ToClip.Bind(winPID)
-
-   HotIfWinActive("ahk_id " WinGet_hwnd)
-   Hotkey("1", ToClip_Title, "On")
-   Hotkey("2", ToClip_Title_regex, "On")
-   Hotkey("3", ToClip_Path, "On")
-   Hotkey("4", ToClip_Exe, "On")
-   Hotkey("5", ToClip_ID, "On")
-   Hotkey("6", ToClip_PID, "On")
-
-   Hotkey("Escape", FlushHotkeys, "On")
-
-   g_WinGet_WinTitle.OnEvent("Click",         ToClip_Title)
-   g_WinGet_WinTitle_regex.OnEvent("Click",   ToClip_Title_regex)
-   g_WinGet_WinExePath.OnEvent("Click",       ToClip_Path)
-   g_WinGet_WinExe.OnEvent("Click",           ToClip_Exe)
-   g_WinGet_WinID.OnEvent("Click",            ToClip_ID)
-   g_WinGet_WinPID.OnEvent("Click",           ToClip_PID)
-
-   g_WinGet.OnEvent("Close", FlushHotkeys) ;Destroys the gui when you close the X button on it
-
-   g_WinGet.Show("AutoSize y0")
 }
 
 ;Select a file to run on startup

@@ -1,5 +1,5 @@
 ﻿#Include <ClipSend>
-#Include <Info>
+#Include <Tools\Info>
 #Include <String>
 
 ;Takes multiline text and turns every line into a key in an array

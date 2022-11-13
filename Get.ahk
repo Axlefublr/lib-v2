@@ -1,4 +1,4 @@
-#Include <Info>
+#Include <Tools\Info>
 
 GetDate() => FormatTime(, "yy.MM.dd")
 GetTime() => FormatTime(, "HH:mm")
