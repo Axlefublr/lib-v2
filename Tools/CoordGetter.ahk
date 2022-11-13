@@ -1,6 +1,6 @@
 #Include <Gui>
 
-tool_CoordGetter() {
+CoordGetter() {
    CoordMode("Mouse", "Screen")
    MouseGetPos(&ScrX, &ScrY)
 
