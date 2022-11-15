@@ -152,6 +152,9 @@ Channel := [
    
    "include",
    "https://youtu.be/nFnMiVAjkv4",
+   
+   "fixing scrolling",
+   "https://youtu.be/6-MgEcZpNsg",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
