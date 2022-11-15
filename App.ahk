@@ -14,3 +14,4 @@
 #Include <App\Davinci>
 #Include <App\Screenshot>
 #Include <App\Player>
+#Include <App\Gimp>
