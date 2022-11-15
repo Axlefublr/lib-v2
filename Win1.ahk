@@ -2,9 +2,14 @@
 
 Class Win {
 
-   winTitle := "A"
-   stack := 1
+   winTitle  := "A"
+   stack     := 1
    exception := ""
+   exePath   := unset
+   startIn   := ""
+   runOpt    := "Max"
+   waitTime  := 120
+   toClose   := ""
    
    __New(paramsObject?) {
       if !IsSet(paramsObject) {
@@ -18,8 +23,14 @@ Class Win {
       }
    }
    
-   Close() {
-      try PostMessage("0x0010",,,, this.winTitle)
+   Class Testing {
+      static NoExePath() {
+         throw TargetError("Specify a file path", -1)
+      }
+   }
+   
+   Close(winTitle := this.winTitle) {
+      try PostMessage("0x0010",,,, winTitle)
    }
    
    RestoreDown() {
@@ -51,14 +62,17 @@ Class Win {
       return true
    }
 
-   win_Run(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
-      if WinExist(this.winTitle)
+   Run() {
+      if WinExist(this.winTitle,, this.exception)
          return false
-      Run(exePath, startIn ?? "", runOpt ?? "Max")
-      WinWait(this.winTitle, , 120, exception ?? "")
-      if winTitleAdditional ?? false {
-         WinWait(winTitleAdditional, , 120)
-         win_Close(winTitleAdditional)
+      if !this.exePath {
+         Win.Testing.NoExePath()
+      }
+      Run(this.exePath, this.startIn, this.runOpt)
+      WinWait(this.winTitle,, this.waitTime, this.exception)
+      if this.toClose {
+         WinWait(this.toClose,, this.waitTime)
+         win_Close(this.toClose)
       }
       return true
    }
