@@ -153,9 +153,6 @@ Channel := [
    "include",
    "https://youtu.be/nFnMiVAjkv4",
    
-   "fixing scrolling",
-   "https://youtu.be/6-MgEcZpNsg",
-
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
@@ -166,7 +163,13 @@ Channel := [
    "making codesnap work with neovim",
    "https://youtu.be/z0wvpBEjEeQ",
    
+   "fixing scrolling", ;The neovim extension devs fixed the issue before I could even publish the video
+   "https://youtu.be/6-MgEcZpNsg",
+
    ;;Useful tutorials not by me
    "regex tutorial",
    "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
+   
+   "static in classes",
+   "https://youtu.be/8xcIy9cV-6g",
 ]
