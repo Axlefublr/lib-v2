@@ -19,9 +19,9 @@ WriteFile(whichFile, text := "") {
  */
 AppendFile(whichFile, text) {
    if FileExist(whichFile)
-      fileObj := FileOpen(whichFile, "a")
+      fileObj := FileOpen(whichFile, "a", "UTF-8-RAW")
    else
-      fileObj := FileOpen(whichFile, "w")
+      fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
    fileObj.Seek(0, 2)
    fileObj.Write(text)
    fileObj.Close()
@@ -33,7 +33,7 @@ AppendFile(whichFile, text) {
  * @returns {String}
  */
 ReadFile(whichFile) {
-   fileObj := FileOpen(whichFile, "r")
+   fileObj := FileOpen(whichFile, "r", "UTF-8-RAW")
    fileObj.Seek(0, 0)
    text := fileObj.Read()
    fileObj.Close()
