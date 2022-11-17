@@ -152,6 +152,12 @@ Channel := [
 
    "include",
    "https://youtu.be/nFnMiVAjkv4",
+   
+   "code block text object",
+   "https://youtu.be/KQ5WbYcJswk",
+   
+   "autoclicker",
+   "https://youtu.be/jRXij-cJKpw",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
