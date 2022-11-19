@@ -85,5 +85,5 @@ Calculator(expression) {
    if Round(result) = result {
       result := Round(result)
    }
-   Infos(result)
+   return result
 }
