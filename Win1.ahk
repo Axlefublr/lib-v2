@@ -77,14 +77,17 @@ Class Win {
       return true
    }
 
-   win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
-      win_Run(this.winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?)
-      win_Activate(this.winTitle, exception?)
+   RunAct() {
+      this.Run()
+      this.Activate()
    }
 
-   win_RunAct_Folders(folderPath, runOpt?) {
-      winTitle := folderPath " ahk_exe explorer.exe"
-      win_RunAct(winTitle, folderPath, runOpt ?? "Min")
+   RunAct_Folders() {
+      if !this.runOpt {
+         this.runOpt := "Min"
+      }
+      this.winTitle := this.exePath " ahk_exe explorer.exe"
+      this.RunAct()
    }
 
    win_App(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
