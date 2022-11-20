@@ -29,6 +29,8 @@ Class Win {
       }
    }
    
+   GetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
+   
    Close(winTitle := this.winTitle) {
       try PostMessage("0x0010",,,, winTitle)
    }
@@ -86,30 +88,19 @@ Class Win {
       if !this.runOpt {
          this.runOpt := "Min"
       }
-      this.winTitle := this.exePath " ahk_exe explorer.exe"
+      this.GetExplorerWintitle()
       this.RunAct()
    }
 
-   win_App(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?) {
-      if win_MinMax(winTitle)
+   App() {
+      if this.MinMax()
          return
-      win_RunAct(winTitle, exePath, runOpt?, winTitleAdditional?, startIn?, exception?)
+      this.RunAct()
    }
 
-   win_App_Folders(folderPath, runOpt?) {
-      winTitle := folderPath " ahk_exe explorer.exe"
-      win_App(winTitle, folderPath, runOpt?)
-   }
-
-   win_CloseOnceInactive(winTitle, closedAfter := 5) {
-      WinWaitNotActive(winTitle)
-      SetTimer(() => win_Close(winTitle), -closedAfter * 1000)
-   }
-
-   win_AutoCloseFolder(folderPath) {
-      winTitle := folderPath " ahk_exe explorer.exe"
-      win_RunAct(winTitle, folderPath, "Min")
-      win_CloseOnceInactive(winTitle)
+   App_Folders() {
+      this.GetExplorerWintitle()
+      this.App()
    }
 
    win_RestoreLeftRight(direction, winTitle := "A") {

@@ -15,3 +15,4 @@
 #Include <App\Screenshot>
 #Include <App\Player>
 #Include <App\Gimp>
+#Include <App\LosslessCut>

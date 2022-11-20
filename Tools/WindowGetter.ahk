@@ -61,12 +61,12 @@ WindowGetter() {
 
    Hotkey("Escape", FlushHotkeys, "On")
 
-   g_WinGet_WinTitle.OnEvent("Click",         ToClip_Title)
-   g_WinGet_WinTitle_regex.OnEvent("Click",   ToClip_Title_regex)
-   g_WinGet_WinExePath.OnEvent("Click",       ToClip_Path)
-   g_WinGet_WinExe.OnEvent("Click",           ToClip_Exe)
-   g_WinGet_WinID.OnEvent("Click",            ToClip_ID)
-   g_WinGet_WinPID.OnEvent("Click",           ToClip_PID)
+   g_WinGet_WinTitle.OnEvent("Click",       ToClip_Title)
+   g_WinGet_WinTitle_regex.OnEvent("Click", ToClip_Title_regex)
+   g_WinGet_WinExePath.OnEvent("Click",     ToClip_Path)
+   g_WinGet_WinExe.OnEvent("Click",         ToClip_Exe)
+   g_WinGet_WinID.OnEvent("Click",          ToClip_ID)
+   g_WinGet_WinPID.OnEvent("Click",         ToClip_PID)
 
    g_WinGet.OnEvent("Close", FlushHotkeys) ;Destroys the gui when you close the X button on it
 
