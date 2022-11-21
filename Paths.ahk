@@ -60,7 +60,7 @@ Class Paths {
       "Discovery log", this.Music "\Discovery log.txt",
       "Unfinished",    this.Music "\Unfinished.txt",
       "Rappers",       this.Music "\Rappers.txt",
-      "Artists",       this.Music "\Artists.md",
+      "Artists",       this.Music "\Favorites.md",
 
       "Shows",    this.Shows "\Shows.jsonc",
       "Consumed", this.Shows "\Consumed.md",

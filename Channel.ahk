@@ -161,6 +161,9 @@ Channel := [
    
    "text objects",
    "https://youtu.be/nU4vRFMf4F8",
+   
+   "recolor code",
+   "https://youtu.be/uA9DiCq2-7c",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
