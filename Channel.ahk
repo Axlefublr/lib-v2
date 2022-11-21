@@ -164,6 +164,9 @@ Channel := [
    
    "recolor code",
    "https://youtu.be/uA9DiCq2-7c",
+   
+   "my vscode setup",
+   "https://youtu.be/1mHU3OfmLy4",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
