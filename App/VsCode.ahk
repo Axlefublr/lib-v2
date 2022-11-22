@@ -21,7 +21,7 @@ Class VsCode {
 
    static WorkSpace(wkspName) {
       this.CloseAllTabs()
-      win_Close("ahk_exe Code.exe")
+      Win({winTitle: this.winTitle}).Close()
       Run(Paths.Ptf[wkspName], , "Max")
    }
 

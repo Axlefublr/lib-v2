@@ -21,7 +21,7 @@ Class Terminal {
          AllWintitles.Push(value)
       }
       
-      return win_IsActive(AllWintitles)
+      return Win({winTitles: AllWintitles}).IsActive()
    }
    
    static DeleteWord() => Send("^w")

@@ -7,7 +7,7 @@ Class Davinci {
    static winTitle := "DaVinci Resolve ahk_exe Resolve.exe"
    
    static Insert() {
-      if !win_Activate(this.winTitle) {
+      if !Win({winTitle: this.winTitle}).Activate() {
          Info("Window could not be activated")
          return
       }
@@ -19,15 +19,15 @@ Class Davinci {
    }
 
    static Setup() {
-      if !win_Activate(this.winTitle) {
+      if !Win({winTitle: this.winTitle}).Activate() {
          Info("No Davinci Resolve window!")
          return 
       }
-      win_RestoreDown(this.winTitle)
+      Win({winTitle: this.winTitle}).RestoreDown()
       WinMove(-8, 0, 1492, A_ScreenHeight, this.winTitle)
-      win_RunAct_Folders(Paths.Pictures)
+      Win({winTitle: Paths.Pictures}).RunAct_Folders()
       WinMove(1466, 0, 463, A_ScreenHeight)
-      win_Activate(this.winTitle)
+      Win({winTitle: this.winTitle}).Activate()
    }
 
 }

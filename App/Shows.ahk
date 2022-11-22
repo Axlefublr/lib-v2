@@ -54,7 +54,7 @@ Class Shows {
          Info("Fucked up link :(")
          return
       }
-      win_Activate(Browser.winTitle)
+      Win({winTitle: Browser.winTitle}).Activate()
    }
       
    DeleteShow(show, isDropped := false) {

@@ -21,7 +21,7 @@ Class Telegram {
    static Diary() {
       diary := ReadFile(Paths.Ptf["Diary"])
       WriteFile(Paths.Ptf["Diary"])
-      win_RunAct("Telegram ahk_exe Telegram.exe", Paths.Apps["Telegram"])
+      Win({winTitle: this.winTitle, exePath: Paths.Apps["Telegram"]}).RunAct()
       this.Channel("Diary")
       ClipSend(diary)
       Send("{Enter}")

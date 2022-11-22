@@ -216,7 +216,7 @@ Snake(SquareSide, delay, timeout) {
       KillLastSnake := (*) => (
          SetTimer(KillLastSnake, 0),
          lastGui := aliveSnakes.RemoveAt(1),
-         win_Close(lastGui)
+         Win({winTitle: lastGui}).Close()
       )
       snake.OnEvent("Close", (*) => snake.Destroy())
       SetTimer(KillLastSnake, -timeout)

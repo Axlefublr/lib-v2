@@ -80,7 +80,7 @@ Class Win {
       WinWait(this.winTitle,, this.waitTime, this.exception)
       if this.toClose {
          WinWait(this.toClose,, this.waitTime)
-         win_Close(this.toClose)
+         this.Close(this.toClose)
       }
       return true
    }

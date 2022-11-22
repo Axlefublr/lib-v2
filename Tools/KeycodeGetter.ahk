@@ -7,7 +7,7 @@ KeyCodeGetter() {
    static used := false
 
    if values_hwnd {
-      win_MinMax(values_hwnd)
+      Win({winTitle: values_hwnd}).MinMax()
       return
    }
 
