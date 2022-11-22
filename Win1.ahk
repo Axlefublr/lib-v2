@@ -2,14 +2,20 @@
 
 Class Win {
 
-   winTitle  := "A"
-   stack     := 1
-   exception := ""
-   exePath   := unset
-   startIn   := ""
-   runOpt    := "Max"
-   waitTime  := 120
-   toClose   := ""
+   ;Defaults
+   winTitle     := "A"
+   winText      := ""
+   excludeTitle := ""
+   excludeText  := ""
+   winTitles    := []
+   stack        := 1
+   exception    := ""
+   exePath      := unset
+   startIn      := ""
+   runOpt       := "Max"
+   waitTime     := 120
+   toClose      := ""
+   direction    := "left"
    
    __New(paramsObject?) {
       if !IsSet(paramsObject) {
@@ -103,50 +109,50 @@ Class Win {
       this.App()
    }
 
-   win_RestoreLeftRight(direction, winTitle := "A") {
+   RestoreLeftRight() {
 
       _WinMove() {
-         Switch direction {
-            Case "right": direction := 960
-            Case "left": direction := 0
+         Switch this.direction {
+            Case "right": this.direction := 960
+            Case "left": this.direction := 0
          }
-         WinMove(direction, 0, 960, 1079, winTitle)
+         WinMove(this.direction, 0, 960, 1079, this.winTitle)
       }
 
       _WinMoveWhenMin() {
-         if WinGetMinMax(winTitle)
+         if WinGetMinMax(this.winTitle)
             return
          _WinMove(), SetTimer(, 0)
       }
 
-      if !WinGetMinMax(winTitle) {
+      if !WinGetMinMax(this.winTitle) {
          _WinMove()
          return
       }
 
-      win_RestoreDown(winTitle) ;Unmaximize it
+      this.RestoreDown() ;Unmaximize it
       SetTimer(_WinMoveWhenMin, 20)
 
    }
 
-   win_ActiveRegex(winTitle?, winText?, excludeTitle?, excludeText?) {
+   ActiveRegex() {
       SetTitleMatchMode("RegEx")
-      return WinActive(winTitle?, winText?, excludeTitle?, excludeText?)
+      return WinActive(this.winTitle, this.winText, this.excludeTitle, this.excludeText)
    }
-
+   
    /**
     * Specify an array of winTitles, will return 1 if one of them is active
     * Specify a map if you want to have a "excludeTitle" for one, some, or all of your winTitles
     * @param winTitles *Array/Map*
     * @returns {Integer}
     */
-   win_IsActive(winTitles?) {
+   AreActive() {
       i := 0
-      for key, value in winTitles {
-         if Type(winTitles) = "Map" {
+      for key, value in this.winTitles {
+         if Type(this.winTitles) = "Map" {
             if WinActive(key,, value)
                i++
-         } else if Type(winTitles) = "Array" {
+         } else if Type(this.winTitles) = "Array" {
             if WinActive(value) 
                i++
          }

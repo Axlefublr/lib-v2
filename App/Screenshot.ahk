@@ -4,7 +4,7 @@ Class Screenshot {
 
    static exeTitle  := "ahk_exe ScreenClippingHost.exe"
    static winTitle  := "Screen Snipping " this.exeTitle
-   static saveTitle := "Snip & Sketch " this.exeTitle
+   static saveTitle := "Snip & Sketch ahk_exe ApplicationFrameHost.exe" 
    
    static Start() => Send("#+s")
 
