@@ -3,6 +3,7 @@
 Class Gimp {
 
    static exeTitle  := "ahk_exe gimp-2.10.exe"
+   static path := Paths.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe"
    static exception := "Startup"
    static toClose   := "GIMP Startup"
    

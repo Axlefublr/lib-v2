@@ -5,7 +5,8 @@ Class Explorer {
    static winTitleRegex := "^[A-Z]: ahk_exe explorer\.exe"
    
    Class WinObj {
-      static Pictures  := Win({winTitle: Paths.Pictures})
-      static Materials := Win({winTitle: Paths.Materials})
+      static Pictures  := Win({exePath: Paths.Pictures, runOpt: "Min"})
+      static Materials := Win({exePath: Paths.Materials, runOpt: "Min"})
+      static Volume    := Win({exePath: "C:\", runOpt: "Min"})
    }
 }

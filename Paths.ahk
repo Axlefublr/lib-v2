@@ -4,7 +4,6 @@ Class Paths {
 
    static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
    static System32     := "C:\Windows\System32"
-   static AutoHotkey   := A_ProgramFiles "\AutoHotkey"
 
    static Prog  := "C:\Programming"
    static Main  := "C:\Programming\main"
@@ -75,23 +74,15 @@ Class Paths {
    )
 
    static Apps := Map(
-      "Ahk v1 docs",  this.AutoHotkey "\AutoHotkey.chm",
-      "Ahk v2 docs",  this.AutoHotkey "\v2.0-beta.15\AutoHotkey.chm",
-      "Ahk compiler", this.AutoHotkey "\Compiler\Ahk2Exe.exe",
-
       "Shell Menu View", A_ProgramFiles "\Shell Menu View\shmnview.exe",
       "DS4 Windows",     A_ProgramFiles "\DS4Windows\DS4Windows.exe",
-
-      "Monkeytype",    A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",
 
       "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
 
       "FL",              "C:\Programs\FL Studio 20\FL64.exe",
       "Steam",           "C:\Programs\Steam\steam.exe",
 
-      "WPS",     this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
       "Slack",   this.LocalAppData "\slack\app-4.28.171\slack.exe",
-      "Gimp",    this.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe",
 
       "Sound mixer", this.System32 "\SndVol.exe",
 
