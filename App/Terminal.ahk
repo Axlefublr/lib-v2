@@ -21,7 +21,7 @@ Class Terminal {
       exePath: this.path
    })
    
-   SetupGroup() {
+   static SetupGroup() {
       
       static ranAlready := false
       

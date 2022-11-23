@@ -17,3 +17,4 @@
 #Include <App\Gimp>
 #Include <App\LosslessCut>
 #Include <App\OBS>
+#Include <App\Autohotkey>

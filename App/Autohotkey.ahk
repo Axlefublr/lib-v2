@@ -9,7 +9,7 @@ Class Autohotkey {
 
       static currVersionPath := super.path "\v2.0-beta.15"
 
-      Class Docs extends Autohotkey {
+      Class Docs extends Autohotkey.v2 {
 
          static exeTitle := "ahk_exe hh.exe"
          static winTitle := "AutoHotkey v2 Help " this.exeTitle
