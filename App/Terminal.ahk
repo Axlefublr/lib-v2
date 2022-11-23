@@ -3,6 +3,8 @@
 Class Terminal {
 
    static exeTitle := "ahk_exe WindowsTerminal.exe"
+   static winTitle := "ahk_group Terminal " this.exeTitle
+   static path := A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe"
 
    static winTitles := Map(
 
@@ -13,6 +15,11 @@ Class Terminal {
       "Settings", "Settings " this.winTitle
 
    )
+   
+   static winObj := Win({
+      winTitle: this.winTitle,
+      exePath: this.path
+   })
    
    SetupGroup() {
       

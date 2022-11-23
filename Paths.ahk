@@ -32,7 +32,6 @@ Class Paths {
 
    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
    static SavedScreenshots := this.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
-   static OBSFolder        := A_ProgramFiles "\obs-studio\bin\64bit"
 
    static Ptf := Map(
       "Main", this.Main "\.vscode\main.code-workspace",
@@ -81,21 +80,16 @@ Class Paths {
       "Ahk compiler", this.AutoHotkey "\Compiler\Ahk2Exe.exe",
 
       "Shell Menu View", A_ProgramFiles "\Shell Menu View\shmnview.exe",
-      "Terminal",        A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe",
       "DS4 Windows",     A_ProgramFiles "\DS4Windows\DS4Windows.exe",
-      "OBS",             A_ProgramFiles "\obs-studio\bin\64bit\obs64.exe",
 
       "Monkeytype",    A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",
 
       "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
 
-      "Spotify",  A_AppData "\Spotify\Spotify.exe",
-
       "FL",              "C:\Programs\FL Studio 20\FL64.exe",
       "Steam",           "C:\Programs\Steam\steam.exe",
 
       "WPS",     this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
-      "Discord", this.LocalAppData "\Discord\app-1.0.9007\Discord.exe",
       "Slack",   this.LocalAppData "\slack\app-4.28.171\slack.exe",
       "Gimp",    this.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe",
 

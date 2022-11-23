@@ -16,3 +16,4 @@
 #Include <App\Player>
 #Include <App\Gimp>
 #Include <App\LosslessCut>
+#Include <App\OBS>

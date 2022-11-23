@@ -42,19 +42,9 @@ CloseButActually() {
 MainApps() {
    VsCode.winObj.RunAct()
    Browser.winObj.RunAct()
-   Win({
-      winTitle: "ahk_group Terminal",                  
-      exePath: Paths.Apps["Terminal"]
-   }).RunAct()
-   Win({
-      winTitle: Spotify.winTitle,                 
-      exePath: Paths.Apps["Spotify"]
-   }).RunAct()
-   Win({
-      winTitle: Discord.winTitle,         
-      exePath: Paths.Apps["Discord"],
-      exception: Discord.exception
-   }).RunAct()
+   Terminal.winObj.RunAct()
+   Spotify.winObj.RunAct()
+   Discord.winObj.RunAct()
 }
 
 SomeLockHint(whatLock) {

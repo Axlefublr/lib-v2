@@ -6,7 +6,13 @@
 
 Class Spotify {
 
-   static winTitle := "ahk_exe Spotify.exe"
+   static exeTitle := "ahk_exe Spotify.exe"
+   static path := A_AppData "\Spotify\Spotify.exe"
+   
+   static winObj := Win({
+      winTitle: this.exeTitle,                 
+      exePath: this.path
+   })
    
    static Like() => Send("+!b")
 
@@ -25,12 +31,12 @@ Class Spotify {
    static RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?(- +)?(\d\d\.\d\d\.\d\d)?( \d\d:\d\d)?( +- +)?")
 
    static Context() => (
-      ControlClick("x32 y1014", this.winTitle, , "R"),
+      ControlClick("x32 y1014", this.exeTitle, , "R"),
       Send("{Up 2}")
    )
 
    static GetCurrSong() {
-      currSong := WinGetTitle(this.winTitle)
+      currSong := WinGetTitle(this.exeTitle)
       if currSong ~= "Spotify (Free)|(Premium)" {
          Info("No song is currently playing")
          return false
@@ -101,7 +107,7 @@ Class Spotify {
       }
 
       onRightClick(*) {
-         ControlClick_Here(this.winTitle, "R")
+         ControlClick_Here(this.exeTitle, "R")
          var++
          g_added_text.Text := var
          if var >= 15 {
@@ -110,7 +116,7 @@ Class Spotify {
       }
 
       Destruction(*) {
-         HotIfWinActive(this.winTitle)
+         HotIfWinActive(this.exeTitle)
          Hotkey("RButton", "Off")
          Hotkey("Escape", "Off")
          g_added.Destroy()
@@ -125,7 +131,7 @@ Class Spotify {
       g_added_text := g_added.Add("Text", "W200 X0 Y60 Center", "0")
       g_added.Show("W200 H200 X0 Y0 NA")
 
-      HotIfWinActive(this.winTitle)
+      HotIfWinActive(this.exeTitle)
       Hotkey("RButton", onRightClick, "On")
       Hotkey("Escape", Destruction, "On")
       g_added.OnEvent("Close", Destruction.Bind())
