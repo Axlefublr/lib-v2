@@ -37,16 +37,28 @@ Class Win {
    
    GetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
    
-   Close(winTitle := this.winTitle) {
-      try PostMessage("0x0010",,,, winTitle)
+   Close() {
+      try PostMessage("0x0010",,,, this.winTitle)
+   }
+   
+   static Close(winTitle) {
+      Win({winTitle: winTitle}).Close()
    }
    
    RestoreDown() {
       try PostMessage("0x112", "0xF120",,, this.winTitle)
    }
+   
+   static RestoreDown(winTitle) {
+      Win({winTitle: winTitle}).RestoreDown()
+   }
 
    Maximize() {
       try PostMessage("0x112", "0xF030",,, this.winTitle)
+   }
+   
+   static Maximize(winTitle) {
+      Win({winTitle: winTitle}).Maximize()
    }
 
    Minimize() {
@@ -80,7 +92,7 @@ Class Win {
       WinWait(this.winTitle,, this.waitTime, this.exception)
       if this.toClose {
          WinWait(this.toClose,, this.waitTime)
-         this.Close(this.toClose)
+         Win.Close(this.toClose)
       }
       return true
    }
@@ -112,11 +124,12 @@ Class Win {
    RestoreLeftRight() {
 
       _WinMove() {
+         static halfScreen := A_ScreenWidth // 2
          Switch this.direction {
-            Case "right": this.direction := 960
+            Case "right": this.direction := halfScreen
             Case "left": this.direction := 0
          }
-         WinMove(this.direction, 0, 960, 1079, this.winTitle)
+         WinMove(this.direction, 0, halfScreen, A_ScreenHeight, this.winTitle)
       }
 
       _WinMoveWhenMin() {
@@ -153,7 +166,7 @@ Class Win {
             if WinActive(key,, value)
                i++
          } else if Type(this.winTitles) = "Array" {
-            if WinActive(value) 
+            if WinActive(value)
                i++
          }
       }
