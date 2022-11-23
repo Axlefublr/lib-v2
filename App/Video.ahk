@@ -31,6 +31,6 @@ Class Video {
       newFile_path := Paths.Materials "\" nextNumber file_name
 
       FileCopy(file_path, newFile_path, 1)
-      Win({winTitle: Paths.Materials}).RunAct_Folders()
+      Explorer.WinObj.Materials.RunAct_Folders()
    }
 }

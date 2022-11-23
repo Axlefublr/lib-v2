@@ -41,7 +41,7 @@ Class Win {
       try PostMessage("0x0010",,,, this.winTitle)
    }
    
-   static Close(winTitle) {
+   static Close(winTitle := "A") {
       Win({winTitle: winTitle}).Close()
    }
    
@@ -49,7 +49,7 @@ Class Win {
       try PostMessage("0x112", "0xF120",,, this.winTitle)
    }
    
-   static RestoreDown(winTitle) {
+   static RestoreDown(winTitle := "A") {
       Win({winTitle: winTitle}).RestoreDown()
    }
 
@@ -57,12 +57,16 @@ Class Win {
       try PostMessage("0x112", "0xF030",,, this.winTitle)
    }
    
-   static Maximize(winTitle) {
+   static Maximize(winTitle := "A") {
       Win({winTitle: winTitle}).Maximize()
    }
 
    Minimize() {
       try PostMessage("0x112", "0xF020",,, this.winTitle)
+   }
+   
+   static Minimize(winTitle := "A") {
+      Win({winTitle: winTitle}).Minimize()
    }
 
    Activate() {

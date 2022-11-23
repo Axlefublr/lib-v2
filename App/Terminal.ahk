@@ -2,7 +2,7 @@
 
 Class Terminal {
 
-   static winTitle := "ahk_exe WindowsTerminal.exe"
+   static exeTitle := "ahk_exe WindowsTerminal.exe"
 
    static winTitles := Map(
 
@@ -13,16 +13,21 @@ Class Terminal {
       "Settings", "Settings " this.winTitle
 
    )
-
-   static IsActive() {
+   
+   SetupGroup() {
       
-      AllWintitles := []
+      static ranAlready := false
+      
+      if ranAlready {
+         return
+      }
+
       for key, value in this.winTitles {
-         AllWintitles.Push(value)
+         GroupAdd("Terminal", value)
       }
       
-      return Win({winTitles: AllWintitles}).IsActive()
+      ranAlready := true
    }
-   
+
    static DeleteWord() => Send("^w")
 }

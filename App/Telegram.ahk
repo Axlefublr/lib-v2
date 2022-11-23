@@ -5,13 +5,20 @@
 #Include <ClipSend>
 
 Class Telegram {
-   
-   static winTitle := "Telegram ahk_exe Telegram.exe"
-   
+
+   static exeTitle := "ahk_exe Telegram.exe"
+   static winTitle := "Telegram " this.exeTitle
+   static path := A_AppData "\Telegram Desktop\Telegram.exe"
+
+   static winObj := Win({
+      winTitle: this.winTitle,
+      exePath: this.path
+   })
+
    static Voice() => ClickThenGoBack_Event("1452 1052")
-   
+
    static Scroll() => ControlClick("X1434 Y964")
-   
+
    static Channel(channelToFind) => (
       ControlClick("X456 Y74"),
       Send(channelToFind),
@@ -21,7 +28,7 @@ Class Telegram {
    static Diary() {
       diary := ReadFile(Paths.Ptf["Diary"])
       WriteFile(Paths.Ptf["Diary"])
-      Win({winTitle: this.winTitle, exePath: Paths.Apps["Telegram"]}).RunAct()
+      this.winObj.RunAct()
       this.Channel("Diary")
       ClipSend(diary)
       Send("{Enter}")

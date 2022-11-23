@@ -8,17 +8,17 @@ CloseButActually() {
    Switch {
       Case WinActive(Spotify.winTitle):Spotify.Close()
       Case WinActive("ahk_exe steam.exe"):
-         Win().Close()
+         Win.Close()
          ProcessClose("steam.exe")
       Case WinActive(Gimp.exeTitle):
-         Win().Close()
+         Win.Close()
          closeWindow := "Quit GIMP ahk_exe gimp-2.10.exe"
          if !WinWait(closeWindow,, 60)
             return
          Win({winTitle: closeWindow}).Activate()
          Send("{Left}{Enter}")
       Case WinActive("DaVinci Resolve ahk_exe Resolve.exe"):
-         Win().Close()
+         Win.Close()
          closeWindow := "Message ahk_exe Resolve.exe"
          if !WinWait(closeWindow,, 60)
             return
@@ -26,28 +26,22 @@ CloseButActually() {
          Send("{Left 2}{Enter}")
       Case WinActive("Telegram ahk_exe Telegram.exe"):
          telegram_pid := WinGetPID("Telegram ahk_exe Telegram.exe")
-         Win().Close()
+         Win.Close()
          ProcessClose(telegram_pid)
       Case WinActive("ahk_exe FL64.exe"):
-         Win().Close()
+         Win.Close()
          closeWindow := "Confirm ahk_exe FL64.exe"
          if !WinWait(closeWindow,, 60)
             return
          Win({winTitle: closeWindow}).Activate()
          Send("{Right}{Enter}")
-      Default:Win().Close()
+      Default:Win.Close()
    }
 }
 
 MainApps() {
-   Win({
-      winTitle: VsCode.winTitle, 
-      exePath: Paths.Apps["VS Code"]
-   }).RunAct()
-   Win({
-      winTitle: Browser.winTitle,    
-      exePath: Paths.Apps["Google Chrome"]
-   }).RunAct()
+   VsCode.winObj.RunAct()
+   Browser.winObj.RunAct()
    Win({
       winTitle: "ahk_group Terminal",                  
       exePath: Paths.Apps["Terminal"]

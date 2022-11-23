@@ -6,7 +6,14 @@
 
 Class VsCode {
    
-   static winTitle := "Visual Studio Code ahk_exe Code.exe"
+   static exeTitle := "ahk_exe Code.exe"
+   static winTitle := "Visual Studio Code " this.exeTitle
+   static path := Paths.LocalAppData "\Programs\Microsoft VS Code\Code.exe"
+
+   static winObj := Win({
+      winTitle: this.winTitle,
+      exePath: this.path,
+   })
    
    static IndentRight()   => Send("^!{Right}")
    static IndentLeft()    => Send("^!{Left}")
@@ -21,7 +28,7 @@ Class VsCode {
 
    static WorkSpace(wkspName) {
       this.CloseAllTabs()
-      Win({winTitle: this.winTitle}).Close()
+      this.winObj.Close()
       Run(Paths.Ptf[wkspName], , "Max")
    }
 

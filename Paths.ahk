@@ -85,19 +85,15 @@ Class Paths {
       "DS4 Windows",     A_ProgramFiles "\DS4Windows\DS4Windows.exe",
       "OBS",             A_ProgramFiles "\obs-studio\bin\64bit\obs64.exe",
 
-      "Google Chrome", A_ProgramFiles "\Google\Chrome\Application\chrome.exe",
       "Monkeytype",    A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna",
 
       "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
 
       "Spotify",  A_AppData "\Spotify\Spotify.exe",
-      "Telegram", A_AppData "\Telegram Desktop\Telegram.exe",
 
-      "Davinci Resolve", "C:\Programs\Davinci Resolve\Resolve.exe",
       "FL",              "C:\Programs\FL Studio 20\FL64.exe",
       "Steam",           "C:\Programs\Steam\steam.exe",
 
-      "VS Code", this.LocalAppData "\Programs\Microsoft VS Code\Code.exe",
       "WPS",     this.LocalAppData "\Kingsoft\WPS Office\ksolaunch.exe",
       "Discord", this.LocalAppData "\Discord\app-1.0.9007\Discord.exe",
       "Slack",   this.LocalAppData "\slack\app-4.28.171\slack.exe",

@@ -3,11 +3,17 @@
 #Include <Paths>
 
 Class Davinci {
+   static exeTitle := "ahk_exe Resolve.exe"
+   static winTitle := "DaVinci Resolve " this.exeTitle
+   static path := "C:\Programs\Davinci Resolve\Resolve.exe" 
 
-   static winTitle := "DaVinci Resolve ahk_exe Resolve.exe"
+   static winObj := Win({
+      winTitle: this.winTitle,
+      exePath: this.path
+   })
    
    static Insert() {
-      if !Win({winTitle: this.winTitle}).Activate() {
+      if !this.winObj.Activate() {
          Info("Window could not be activated")
          return
       }
@@ -19,15 +25,15 @@ Class Davinci {
    }
 
    static Setup() {
-      if !Win({winTitle: this.winTitle}).Activate() {
+      if !this.winObj.Activate() {
          Info("No Davinci Resolve window!")
          return 
       }
-      Win({winTitle: this.winTitle}).RestoreDown()
+      this.winObj.RestoreDown()
       WinMove(-8, 0, 1492, A_ScreenHeight, this.winTitle)
-      Win({winTitle: Paths.Pictures}).RunAct_Folders()
+      Explorer.WinObj.Pictures.RunAct_Folders()
       WinMove(1466, 0, 463, A_ScreenHeight)
-      Win({winTitle: this.winTitle}).Activate()
+      this.winObj.Activate()
    }
 
 }
