@@ -170,6 +170,9 @@ Channel := [
    
    "transandproud",
    "https://youtu.be/UBPaABITDaA",
+   
+   "how to make text objects",
+   "https://youtu.be/wj7U-DNALN0",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
