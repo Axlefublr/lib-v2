@@ -41,3 +41,5 @@ Class Autohotkey {
 
    }
 }
+
+Autohotkey.Docs.SetupGroup()
