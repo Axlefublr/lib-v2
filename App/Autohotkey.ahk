@@ -4,6 +4,7 @@ Class Autohotkey {
 
    static path := A_ProgramFiles "\AutoHotkey"
    static currVersion := this.path "\v2.0-beta.15"
+   static v1Version := this.path "\v1.1.34.04"
    
    Class Docs extends Autohotkey {
 
@@ -23,6 +24,12 @@ Class Autohotkey {
       Class v1 extends Autohotkey.Docs {
 
          static winTitle := "AutoHotkey Help " super.exeTitle
+         static path := super.v1Version "\AutoHotkey.chm"
+         
+         static winObj := Win({
+            winTitle: this.winTitle,
+            exePath:  this.path
+         })
       }
       
       static SetupGroup() {

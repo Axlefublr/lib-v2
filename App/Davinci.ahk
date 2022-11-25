@@ -5,6 +5,7 @@
 Class Davinci {
    static exeTitle := "ahk_exe Resolve.exe"
    static winTitle := "DaVinci Resolve " this.exeTitle
+   static projectTitle := "Project Manager " this.exeTitle
    static path := "C:\Programs\Davinci Resolve\Resolve.exe" 
 
    static winObj := Win({
@@ -12,6 +13,11 @@ Class Davinci {
       exePath: this.path
    })
    
+   static projectWinObj := Win({
+      winTitle: this.projectTitle,
+      exePath: this.path
+   })
+
    static Insert() {
       if !this.winObj.Activate() {
          Info("Window could not be activated")
