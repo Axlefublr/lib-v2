@@ -82,8 +82,6 @@ Class Paths {
       "FL",              "C:\Programs\FL Studio 20\FL64.exe",
       "Steam",           "C:\Programs\Steam\steam.exe",
 
-      "Slack",   this.LocalAppData "\slack\app-4.28.171\slack.exe",
-
       "Sound mixer", this.System32 "\SndVol.exe",
 
    )
