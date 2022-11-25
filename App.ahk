@@ -21,3 +21,4 @@
 #Include <App\Telegram>
 #Include <App\Steam>
 #Include <App\VPN>
+#Include <App\DS4>
