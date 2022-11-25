@@ -157,4 +157,7 @@ Memes := [
    
    "goofy ahh sound",
    "https://youtu.be/tiUb_Gwvt60",
+   
+   "faded than a hoe",
+   "https://youtu.be/2xpmKwpeSX4",
 ]
