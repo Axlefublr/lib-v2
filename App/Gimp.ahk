@@ -7,6 +7,7 @@ Class Gimp {
    static path      := Paths.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe"
    static exception := "Startup"
    static toClose   := "GIMP Startup"
+   static closeWindow := "Quit GIMP " this.exeTitle
    
    static Presets := Map(
       "ahk second channel", Paths.Pictures "\Tools\ahk second channel.xcf",
@@ -21,6 +22,14 @@ Class Gimp {
       toClose:   this.toClose,
       exception: this.exception
    })
+   
+   static Close() {
+      this.winObj.Close()
+      if !WinWait(this.closeWindow,, this.winObj.waitTime)
+         return
+      Win.Close(this.closeWindow)
+      Send("{Left}{Enter}")
+   }
    
    static ahk2Preset := Win({
       winTitle:  this.exeTitle,

@@ -7,16 +7,8 @@
 CloseButActually() {
    Switch {
       Case WinActive(Spotify.exeTitle):Spotify.Close()
-      Case WinActive("ahk_exe steam.exe"):
-         Win.Close()
-         ProcessClose("steam.exe")
-      Case WinActive(Gimp.exeTitle):
-         Win.Close()
-         closeWindow := "Quit GIMP ahk_exe gimp-2.10.exe"
-         if !WinWait(closeWindow,, 60)
-            return
-         Win({winTitle: closeWindow}).Activate()
-         Send("{Left}{Enter}")
+      Case WinActive(Steam.exeTitle):Steam.Close()
+      Case WinActive(Gimp.exeTitle):Gimp.Close()
       Case WinActive("DaVinci Resolve ahk_exe Resolve.exe"):
          Win.Close()
          closeWindow := "Message ahk_exe Resolve.exe"
