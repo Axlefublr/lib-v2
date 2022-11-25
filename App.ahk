@@ -18,3 +18,5 @@
 #Include <App\LosslessCut>
 #Include <App\OBS>
 #Include <App\Autohotkey>
+#Include <App\Telegram>
+#Include <App\Steam>

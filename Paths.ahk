@@ -79,8 +79,7 @@ Class Paths {
 
       "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
 
-      "FL",              "C:\Programs\FL Studio 20\FL64.exe",
-      "Steam",           "C:\Programs\Steam\steam.exe",
+      "FL", "C:\Programs\FL Studio 20\FL64.exe",
 
       "Sound mixer", this.System32 "\SndVol.exe",
 
