@@ -20,3 +20,4 @@
 #Include <App\Autohotkey>
 #Include <App\Telegram>
 #Include <App\Steam>
+#Include <App\VPN>

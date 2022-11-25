@@ -77,8 +77,6 @@ Class Paths {
       "Shell Menu View", A_ProgramFiles "\Shell Menu View\shmnview.exe",
       "DS4 Windows",     A_ProgramFiles "\DS4Windows\DS4Windows.exe",
 
-      "VPN", "C:\Program Files (x86)\Proton Technologies\ProtonVPN\ProtonVPN.exe",
-
       "FL", "C:\Programs\FL Studio 20\FL64.exe",
 
       "Sound mixer", this.System32 "\SndVol.exe",
