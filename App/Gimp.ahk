@@ -27,7 +27,7 @@ Class Gimp {
       this.winObj.Close()
       if !WinWait(this.closeWindow,, this.winObj.waitTime)
          return
-      Win.Close(this.closeWindow)
+      Win({winTitle: this.closeWindow}).Activate()
       Send("{Left}{Enter}")
    }
    

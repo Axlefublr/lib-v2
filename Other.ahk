@@ -6,28 +6,13 @@
 
 CloseButActually() {
    Switch {
-      Case WinActive(Spotify.exeTitle):Spotify.Close()
-      Case WinActive(Steam.exeTitle):Steam.Close()
-      Case WinActive(Gimp.exeTitle):Gimp.Close()
-      Case WinActive("DaVinci Resolve ahk_exe Resolve.exe"):
-         Win.Close()
-         closeWindow := "Message ahk_exe Resolve.exe"
-         if !WinWait(closeWindow,, 60)
-            return
-         Win({winTitle: closeWindow}).Activate()
-         Send("{Left 2}{Enter}")
-      Case WinActive("Telegram ahk_exe Telegram.exe"):
-         telegram_pid := WinGetPID("Telegram ahk_exe Telegram.exe")
-         Win.Close()
-         ProcessClose(telegram_pid)
-      Case WinActive("ahk_exe FL64.exe"):
-         Win.Close()
-         closeWindow := "Confirm ahk_exe FL64.exe"
-         if !WinWait(closeWindow,, 60)
-            return
-         Win({winTitle: closeWindow}).Activate()
-         Send("{Right}{Enter}")
-      Default:Win.Close()
+      Case WinActive(Spotify.exeTitle): Spotify.Close()
+      Case WinActive(Steam.exeTitle):   Steam.Close()
+      Case WinActive(Gimp.exeTitle):    Gimp.Close()
+      Case WinActive(Davinci.winTitle): Davinci.Close()
+      Case WinActive(Telegram.winTitle):Telegram.Close()
+      Case WinActive(FL.exeTitle):      FL.Close()
+      Default:                          Win.Close()
    }
 }
 

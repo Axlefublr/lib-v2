@@ -6,7 +6,8 @@
 
 Class Telegram {
 
-   static exeTitle := "ahk_exe Telegram.exe"
+   static processExe := "Telegram.exe"
+   static exeTitle := "ahk_exe " this.processExe
    static winTitle := "Telegram " this.exeTitle
    static path := A_AppData "\Telegram Desktop\Telegram.exe"
 
@@ -14,6 +15,11 @@ Class Telegram {
       winTitle: this.winTitle,
       exePath: this.path
    })
+   
+   static Close() {
+      this.winObj.Close()
+      ProcessClose(this.processExe)
+   }
 
    static Voice() => ClickThenGoBack_Event("1452 1052")
 

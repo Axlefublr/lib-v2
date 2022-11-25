@@ -7,6 +7,7 @@ Class Davinci {
    static winTitle := "DaVinci Resolve " this.exeTitle
    static projectTitle := "Project Manager " this.exeTitle
    static path := "C:\Programs\Davinci Resolve\Resolve.exe" 
+   static closeWindow := "Message " this.exeTitle
 
    static winObj := Win({
       winTitle: this.winTitle,
@@ -17,6 +18,14 @@ Class Davinci {
       winTitle: this.projectTitle,
       exePath: this.path
    })
+
+   static Close() {
+      this.winObj.Close()
+      if !WinWait(this.closeWindow,, this.winObj.waitTime)
+         return
+      Win({winTitle: this.closeWindow}).Activate()
+      Send("{Left 2}{Enter}")
+   }
 
    static Insert() {
       if !this.winObj.Activate() {
