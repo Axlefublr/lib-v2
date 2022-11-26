@@ -18,7 +18,7 @@ Class FL {
       this.winObj.Close()
       if !WinWait(this.closeWindow,, this.winObj.waitTime)
          return
-      Win({winTitle: closeWindow}).Activate()
+      Win({winTitle: this.closeWindow}).Activate()
       Send("{Right}{Enter}")
    }
 }

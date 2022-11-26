@@ -56,6 +56,7 @@ Links := Map(
    "barber",    "https://b73723.yclients.com/company/89170/",
    "wb",        "https://www.wildberries.ru/lk/myorders/delivery",
    "ali",       "https://trade.aliexpress.ru/orderList.htm",
+   "kaban",     "https://686768.ru/",
 
    ;Github
    "so",  "https://stackoverflow.com/",

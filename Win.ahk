@@ -71,8 +71,10 @@ Class Win {
 
    Activate() {
       winTitle := WinGetList(this.winTitle,, this.exception)[this.stack]
-      WinActivate(winTitle)
-      WinWaitActive(winTitle)
+      try {
+         WinActivate(winTitle)
+         WinWaitActive(winTitle)
+      }
    }
 
    MinMax() {

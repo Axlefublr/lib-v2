@@ -173,6 +173,9 @@ Channel := [
    
    "how to make text objects",
    "https://youtu.be/wj7U-DNALN0",
+   
+   "what does gM do",
+   "https://youtu.be/j-MBH-rVI6c",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
@@ -196,4 +199,7 @@ Channel := [
 
    "60 bash commands",
    "https://youtu.be/gd7BXuUQ91w",
+   
+   "how to use a debugger",
+   "https://youtu.be/7qZBwhSlfOo",
 ]
