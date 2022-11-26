@@ -51,6 +51,7 @@ Links := Map(
    "чебурекми", "https://cheburek.me/krasnoyarsk/",
    "yaneda",    "https://eda.yandex.ru/krasnoyarsk?shippingType=delivery",
    "mvideo",    "https://www.mvideo.ru/",
+   "dns",       "https://www.dns-shop.ru/",
    "zakazaka",  "https://zaka-zaka.com/",
    "ggsel",     "https://ggsel.com/",
    "barber",    "https://b73723.yclients.com/company/89170/",
