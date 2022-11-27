@@ -20,7 +20,7 @@ Class Gimp {
    static winObj := Win({
       winTitle:  this.exeTitle,
       exePath:   this.path,
-      toClose:   this.toClose,
+      ; toClose:   this.toClose,
       exception: this.exception
    })
    

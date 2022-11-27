@@ -33,6 +33,14 @@ Class Win {
       static NoExePath() {
          throw TargetError("Specify a file path", -1)
       }
+      
+      static WrongType_toClose() {
+         throw TypeError(
+            "Win.toClose has to either be an array or a string", 
+            -1, 
+            this.toClose " : " Type(this.toClose)
+         )
+      }
    }
    
    GetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
@@ -97,10 +105,42 @@ Class Win {
       Run(this.exePath, this.startIn, this.runOpt)
       WinWait(this.winTitle,, this.waitTime, this.exception)
       if this.toClose {
-         WinWait(this.toClose,, this.waitTime)
-         Win.Close(this.toClose)
+         this.CloseOnceExists()
       }
       return true
+   }
+   
+   CloseOnceExists() {
+      stopWaitingAt := A_TickCount + this.waitTime * 1000
+      if Type(this.toClose = "Array")
+         SetTimer(foTryCloseArray, 20)
+      else if Type(this.toClose = "String")
+         SetTimer(foTryClose, 20)
+      else if !this.toClose
+         Win.Testing.WrongType_toClose()
+      else 
+         Win.Testing.WrongType_toClose()
+      
+      foTryCloseArray() {
+         for key, value in this.toClose {
+            if WinExist(value) {
+               Win.Close(value)
+               SetTimer(, 0)
+            }
+         }
+         if A_TickCount >= stopWaitingAt {
+            SetTimer(, 0)
+         }
+      }
+      foTryClose() {
+         if WinExist(this.toClose) {
+            Win.Close(this.toClose)
+            SetTimer(, 0)
+         }
+         else if A_TickCount >= stopWaitingAt {
+            SetTimer(, 0)
+         }
+      }
    }
 
    RunAct() {
