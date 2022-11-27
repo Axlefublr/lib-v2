@@ -17,7 +17,7 @@ Class Terminal {
    )
    
    static winObj := Win({
-      winTitle: this.exeTitle,
+      winTitle: this.winTitle,
       exePath: this.path
    })
    

@@ -176,6 +176,9 @@ Channel := [
    
    "what does gM do",
    "https://youtu.be/j-MBH-rVI6c",
+   
+   "how to remap ctrl characters",
+   "https://youtu.be/yz3jptm414I",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",

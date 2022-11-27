@@ -50,7 +50,7 @@ Class CleanInputBox extends Gui {
       this.Finish()
    } 
 
-   RegisterHotkeys() {
+   RegisterHotkeys() { 
       HotIfWinactive("ahk_id " this.Hwnd)
       Hotkey("Enter", (*) => this.SetInput(), "On")
       this.OnEvent("Escape", (*) => this.SetCancel())
