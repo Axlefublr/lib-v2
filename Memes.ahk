@@ -160,4 +160,7 @@ Memes := [
    
    "faded than a hoe",
    "https://youtu.be/2xpmKwpeSX4",
+   
+   "racist captain america",
+   "https://youtu.be/4_4Eb4UJIBY",
 ]
