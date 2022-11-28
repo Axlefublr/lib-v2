@@ -141,7 +141,7 @@ Channel := [
    "filesearch",
    "https://youtu.be/lay80oB7w1s",
 
-   "how should I use vim",
+   "how to use vim",
    "https://youtu.be/JJLJ9hm8AZ8",
 
    "neovim api",
@@ -205,4 +205,8 @@ Channel := [
    
    "how to use a debugger",
    "https://youtu.be/7qZBwhSlfOo",
+   
+   ;;My gists
+   "gst regremap",
+   "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
 ]
