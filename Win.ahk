@@ -78,11 +78,13 @@ Class Win {
    }
 
    Activate() {
-      winTitle := WinGetList(this.winTitle,, this.exception)[this.stack]
-      try {
-         WinActivate(winTitle)
-         WinWaitActive(winTitle)
-      }
+      winTitles := WinGetList(this.winTitle,, this.exception)
+      if !winTitles
+         return false
+      winTitle := winTitles[this.stack]
+      WinActivate(winTitle)
+      WinWaitActive(winTitle)
+      return true
    }
 
    MinMax() {
@@ -112,9 +114,9 @@ Class Win {
    
    CloseOnceExists() {
       stopWaitingAt := A_TickCount + this.waitTime * 1000
-      if Type(this.toClose = "Array")
+      if Type(this.toClose) = "Array"
          SetTimer(foTryCloseArray, 20)
-      else if Type(this.toClose = "String")
+      else if Type(this.toClose) = "String"
          SetTimer(foTryClose, 20)
       else if !this.toClose
          Win.Testing.WrongType_toClose()

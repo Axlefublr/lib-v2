@@ -6,8 +6,8 @@ Class Gimp {
    static exeTitle  := "ahk_exe gimp-2.10.exe"
    static winTitle  := this.exeTitle
    static path      := Paths.LocalAppData "\Programs\GIMP 2\bin\gimp-2.10.exe"
-   static exception := "Startup"
-   static toClose   := "GIMP Startup"
+   static exception := "GIMP Startup"
+   static toClose   := ""
    static closeWindow := "Quit GIMP " this.exeTitle
    
    static Presets := Map(
@@ -15,12 +15,13 @@ Class Gimp {
       "ahk",                Paths.Pictures "\Tools\ahk.xcf",
       "nvim",               Paths.Pictures "\Tools\nvim.xcf",
       "vscode",             Paths.Pictures "\Tools\vscode.xcf",
+      "wind",               Paths.Pictures "\Tools\wind.xcf",
    )
    
    static winObj := Win({
-      winTitle:  this.exeTitle,
+      winTitle:  this.winTitle,
       exePath:   this.path,
-      ; toClose:   this.toClose,
+      toClose:   this.toClose,
       exception: this.exception
    })
    
@@ -33,30 +34,36 @@ Class Gimp {
    }
    
    static ahk2Preset := Win({
-      winTitle:  this.exeTitle,
+      winTitle:  this.winTitle,
       exePath:   this.Presets["ahk second channel"],
       toClose:   this.toClose,
       exception: this.exception
    })
    
    static ahkPreset := Win({
-      winTitle:  this.exeTitle,
+      winTitle:  this.winTitle,
       exePath:   this.Presets["ahk"],
       toClose:   this.toClose,
       exception: this.exception
    })
    
    static nvimPreset := Win({
-      winTitle:  this.exeTitle,
+      winTitle:  this.winTitle,
       exePath:   this.Presets["nvim"],
       toClose:   this.toClose,
       exception: this.exception
    })
    
    static vscodePreset := Win({
-      winTitle:  this.exeTitle,
+      winTitle:  this.winTitle,
       exePath:   this.Presets["vscode"],
       toClose:   this.toClose,
+      exception: this.exception
+   })
+   
+   static windPreset := Win({
+      winTitle:  this.winTitle,
+      exePath:   this.Presets["wind"],
       exception: this.exception
    })
 }

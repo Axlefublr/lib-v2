@@ -180,6 +180,11 @@ Channel := [
    "how to remap ctrl characters",
    "https://youtu.be/yz3jptm414I",
 
+   "regremap",
+   "https://youtu.be/AEnz3Bd-PV4",
+   "gst regremap",
+   "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
+
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
@@ -206,7 +211,4 @@ Channel := [
    "how to use a debugger",
    "https://youtu.be/7qZBwhSlfOo",
    
-   ;;My gists
-   "gst regremap",
-   "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
 ]
