@@ -25,17 +25,18 @@ Class Alarm {
          this.shouldExitApp := shouldExitApp
       }
       
-      endTime := DateAdd(startTime, hours, "Hours")
-      endTime := DateAdd(endTime, minutes, "Minutes")
+      this.endTime := DateAdd(startTime, hours, "Hours")
+      this.endTime := DateAdd(this.endTime, minutes, "Minutes")
       
       SetTimer(this.bfCheckTime, 30000)
+      Info("Alarm set to " this.hhmm)
    }
    
    Stop() => SetTimer(this.bfCheckTime, 0)
    
    bfCheckTime := this.CheckTime.Bind(this)
    CheckTime() {
-      if A_Now < endTime {
+      if A_Now < this.endTime {
          return
       }
       this.Ring()
