@@ -12,7 +12,6 @@
 #Include <Tools\Timer>
 #Include <Tools\WindowGetter>
 #Include <Tools\KeycodeGetter>
-#Include <Tools\Alarm>
 
 tool_RelativeCoordGetter() {
    static var := 0
