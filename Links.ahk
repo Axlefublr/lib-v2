@@ -17,7 +17,7 @@ Links := Map(
    "2gis",     "https://2gis.ru/",
 
    ;Courses
-   "skill factory", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
+   "sf", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
 
    ;Tools
    "share files",       "https://files.fm/",

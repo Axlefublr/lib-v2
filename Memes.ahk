@@ -163,4 +163,7 @@ Memes := [
    
    "racist captain america",
    "https://youtu.be/4_4Eb4UJIBY",
+   
+   "crash bandicoot drunk",
+   "https://youtu.be/AFcund-zfrI?list=PLlR-IeFoOZclB4GCGHu4Z4p4Mb9SpgneG",
 ]
