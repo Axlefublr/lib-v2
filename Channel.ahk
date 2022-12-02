@@ -187,6 +187,9 @@ Channel := [
    "https://youtu.be/AEnz3Bd-PV4",
    "gst regremap",
    "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
+
+   "win class 2",
+   "https://youtu.be/018oZlrRw7c",
    
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",

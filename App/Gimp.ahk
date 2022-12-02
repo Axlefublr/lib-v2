@@ -22,7 +22,8 @@ Class Gimp {
       winTitle:  this.winTitle,
       exePath:   this.path,
       toClose:   this.toClose,
-      exception: this.exception
+      exception: this.exception,
+      closeWindow: this.closeWindow
    })
    
    static Close() {
