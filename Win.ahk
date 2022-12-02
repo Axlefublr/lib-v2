@@ -43,7 +43,7 @@ Class Win {
       }
    }
    
-   GetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
+   SetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
    
    Close() {
       try PostMessage("0x0010",,,, this.winTitle)
@@ -154,7 +154,7 @@ Class Win {
       if !this.runOpt {
          this.runOpt := "Min"
       }
-      this.GetExplorerWintitle()
+      this.SetExplorerWintitle()
       this.RunAct()
    }
 
@@ -166,7 +166,7 @@ Class Win {
    }
 
    App_Folders() {
-      this.GetExplorerWintitle()
+      this.SetExplorerWintitle()
       this.App()
    }
 
