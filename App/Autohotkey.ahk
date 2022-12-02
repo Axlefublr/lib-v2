@@ -3,7 +3,7 @@
 Class Autohotkey {
 
    static path := A_ProgramFiles "\AutoHotkey"
-   static currVersion := this.path "\v2.0-beta.15"
+   static currVersion := this.path "\v" A_AhkVersion
    static v1Version := this.path "\v1.1.34.04"
    
    Class Docs extends Autohotkey {
