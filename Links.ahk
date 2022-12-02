@@ -36,7 +36,6 @@ Links := Map(
    ;Databases
    "sounds",         "https://www.myinstants.com/index/ru/",
    "ascii codes",    "https://theasciicode.com.ar/",
-   "emoji unicodes", "https://unicode.org/emoji/charts-14.0/full-emoji-list.html",
    "windows64",      "https://windows64.net/",
 
    ;Docs

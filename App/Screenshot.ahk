@@ -7,12 +7,13 @@ Class Screenshot {
    static saveTitle := "Snip & Sketch ahk_exe ApplicationFrameHost.exe" 
    
    static Start() => Send("#+s")
+   static FullscreenOut() => Send("!{Printscreen}")
 
-   static FullScreenOut() {
-      this.Start()
-      WinWaitActive(this.winTitle)
-      this.Fullscreen()
-   }
+   ; static FullScreenOut() {
+   ;    this.Start()
+   ;    WinWaitActive(this.winTitle)
+   ;    this.Fullscreen()
+   ; }
 
    static Rectangle()  => ClickThenGoBack("839 6")
    static Window()     => ClickThenGoBack("959 6")
