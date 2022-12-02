@@ -160,8 +160,9 @@ Class Win {
 
    App() {
       if this.MinMax()
-         return
+         return true
       this.RunAct()
+      return false
    }
 
    App_Folders() {

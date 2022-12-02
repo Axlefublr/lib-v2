@@ -166,4 +166,7 @@ Memes := [
    
    "crash bandicoot drunk",
    "https://youtu.be/AFcund-zfrI?list=PLlR-IeFoOZclB4GCGHu4Z4p4Mb9SpgneG",
+   
+   "I'm a fucking god of war",
+   "https://youtu.be/orMWArk6kMs",
 ]

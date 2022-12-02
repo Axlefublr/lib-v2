@@ -17,4 +17,14 @@ Class Browser {
          exePath: this.path
       })
    }
+   
+   Class Clock extends Browser {
+      static winTitle := "Reiwa's Clock - Axle's Clock " super.exeTitle
+      static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=jibnhljmnbkjahicgmpgapbkgfcihedl"
+      
+      static winObj := Win({
+         winTitle: this.winTitle,
+         exePath: this.path
+      })
+   }
 }
