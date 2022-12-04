@@ -191,6 +191,9 @@ Channel := [
    "win class 2",
    "https://youtu.be/018oZlrRw7c",
    
+   "access modifiers",
+   "https://youtu.be/fCySzFAk5JI",
+   
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
