@@ -63,8 +63,9 @@ Class Paths {
       "Shows",    this.Shows "\Shows.jsonc",
       "Consumed", this.Shows "\Consumed.md",
 
-      "EatingLog", this.Info "\EatingLog.txt",
       "Diary",     this.Info "\Diary.md",
+      "Events",    this.Info "\Events.jsonc",
+      "Birthdays", this.Info "\Birthdays.jsonc",
 
       "Clean",       this.YtDev "\Clean.md",
       "Description", this.YtDev "\Description.txt",

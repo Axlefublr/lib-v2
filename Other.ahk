@@ -80,3 +80,14 @@ Simpsons() {
    SoundBeep 350, 200
    SoundBeep 370, 600
 }
+
+RemindDate() {
+   static events    := JSON.parse(ReadFile(Paths.Ptf["Events"]))
+   static birthdays := JSON.parse(ReadFile(Paths.Ptf["Birthdays"]))
+   
+   today := FormatTime(, "yy.MM.dd")
+   try Infos(events[today])
+   
+   today := FormatTime(, "MM.dd")
+   try Infos(birthdays[today])
+}
