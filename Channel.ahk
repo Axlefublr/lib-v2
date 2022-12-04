@@ -217,4 +217,6 @@ Channel := [
    "how to use a debugger",
    "https://youtu.be/7qZBwhSlfOo",
    
+   "tim corey access modifiers",
+   "https://www.youtube.com/watch?v=jcn5uCZAk2w",
 ]

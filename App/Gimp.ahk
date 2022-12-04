@@ -16,6 +16,7 @@ Class Gimp {
       "nvim",               Paths.Pictures "\Tools\nvim.xcf",
       "vscode",             Paths.Pictures "\Tools\vscode.xcf",
       "wind",               Paths.Pictures "\Tools\wind.xcf",
+      "csharp",             Paths.Pictures "\Tools\csharp.xcf",
    )
    
    static winObj := Win({
@@ -64,6 +65,12 @@ Class Gimp {
    static windPreset := Win({
       winTitle:  this.winTitle,
       exePath:   this.Presets["wind"],
+      exception: this.exception
+   })
+   
+   static csharpPreset := Win({
+      winTitle: this.winTitle,
+      exePath: this.Presets["csharp"],
       exception: this.exception
    })
 }
