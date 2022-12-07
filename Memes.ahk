@@ -169,4 +169,16 @@ Memes := [
    
    "I'm a fucking god of war",
    "https://youtu.be/orMWArk6kMs",
+   
+   "rykard cutscene",
+   "https://youtu.be/RMgTDRMEoMA",
+   
+   "bing chilling",
+   "https://youtube.com/shorts/AWOyEIuVzzQ",
+   
+   "bing chilling vine boom",
+   "https://youtu.be/frrKHHarQZk",
+   
+   "it's time to kick gum",
+   "https://youtu.be/GAdVvfcZw04",
 ]
