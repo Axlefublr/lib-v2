@@ -12,7 +12,7 @@ Class VsCode {
 
    static winObj := Win({
       winTitle: this.winTitle,
-      exePath: this.path,
+      exePath:  this.path,
    })
    
    static IndentRight()   => Send("^!{Right}")

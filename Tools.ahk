@@ -12,6 +12,7 @@
 #Include <Tools\Timer>
 #Include <Tools\WindowGetter>
 #Include <Tools\KeycodeGetter>
+#Include <Tools\Counter>
 
 tool_RelativeCoordGetter() {
    static var := 0
@@ -102,12 +103,12 @@ Snake(SquareSide, delay, timeout) {
    timeout := timeout * 1000
 
    static colors := [
-      "D12229",	;red
-      "F68A1E",	;Orange
-      "FDE01A",	;Yellow
-      "007940",	;Green
-      "24408E",	;Blue
-      "732982"    ;Purple
+      "D12229", ;Red
+      "F68A1E", ;Orange
+      "FDE01A", ;Yellow
+      "007940", ;Green
+      "24408E", ;Blue
+      "732982"  ;Purple
    ]
 
    static Columns := A_ScreenWidth // SquareSide
@@ -131,9 +132,7 @@ Snake(SquareSide, delay, timeout) {
 
    stopped := false
 
-   ChangeDirection() {
-      direction := (direction = "down" ? "up" : "down")
-   }
+   ChangeDirection() => direction := (direction = "down" ? "up" : "down")
 
    Stop(*) => (
       startSnake.Destroy(),
@@ -222,15 +221,6 @@ Snake(SquareSide, delay, timeout) {
       SetTimer(KillLastSnake, -timeout)
    }
 
-}
-
-Counter(startingNum?) {
-   static num := 0
-   if !IsSet(startingNum) {
-      Send(num++)
-      return
-   }
-   num := startingNum
 }
 
 HoverScreenshot() {

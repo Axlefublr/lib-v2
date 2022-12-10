@@ -69,8 +69,8 @@ Class Gimp {
    })
    
    static csharpPreset := Win({
-      winTitle: this.winTitle,
-      exePath: this.Presets["csharp"],
+      winTitle:  this.winTitle,
+      exePath:   this.Presets["csharp"],
       exception: this.exception
    })
 }

@@ -86,8 +86,8 @@ RemindDate() {
    static birthdays := JSON.parse(ReadFile(Paths.Ptf["Birthdays"]))
    
    today := FormatTime(, "yy.MM.dd")
-   try Infos(events[today])
+   try Info(events[today])
    
    today := FormatTime(, "MM.dd")
-   try Infos(birthdays[today])
+   try Info(birthdays[today])
 }

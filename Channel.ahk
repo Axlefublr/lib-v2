@@ -228,4 +228,7 @@ Channel := [
    
    "tim corey access modifiers",
    "https://www.youtube.com/watch?v=jcn5uCZAk2w",
+   
+   "lua tutorial",
+   "https://youtu.be/iMacxZQMPXs",
 ]

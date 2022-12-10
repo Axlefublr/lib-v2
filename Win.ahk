@@ -8,7 +8,7 @@ Class Win {
    excludeTitle := ""
    excludeText  := ""
    winTitles    := []
-   stack        := 1
+   stack        := -1
    exception    := ""
    exePath      := unset
    startIn      := ""
