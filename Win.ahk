@@ -8,7 +8,6 @@ Class Win {
    excludeTitle := ""
    excludeText  := ""
    winTitles    := []
-   stack        := -1
    exception    := ""
    exePath      := unset
    startIn      := ""
@@ -78,12 +77,36 @@ Class Win {
    }
 
    Activate() {
-      winTitles := WinGetList(this.winTitle,, this.exception)
-      if !winTitles
+      try {
+         WinActivate(this.winTitle)
+         WinWaitActive(this.winTitle)
+         return true
+      } catch Any {
          return false
-      winTitle := winTitles[this.stack]
-      WinActivate(winTitle)
-      WinWaitActive(winTitle)
+      }
+   }
+   
+   /**
+    * What if there a multiple windows that match the same wintitle?
+    * This method is an option to activate the second one if the first one is active, and the other way around
+    * I don't know if this supports more than 2 same windows at once yet, since I haven't had the need for three of the same windows yet
+    * @returns {Boolean} False if there were less than 2 windows that matched (there could be zero); True if the operation completed successfully
+    */
+   ActivateAnother() {
+      windows := WinGetList(this.winTitle,, this.exception)
+      if (windows.Length < 2) {
+         return false
+      }
+      temp := this.winTitle
+      id   := WinGetID("A")
+      for key, value in windows {
+         if value != id {
+            this.winTitle := value
+            break
+         }
+      }
+      this.Activate()
+      this.winTitle := temp
       return true
    }
 
@@ -91,8 +114,10 @@ Class Win {
       if !WinExist(this.winTitle,, this.exception)
          return false
 
-      if WinActive(this.winTitle,, this.exception)
-         this.Minimize()
+      if WinActive(this.winTitle,, this.exception) {
+         if !this.ActivateAnother()
+            this.Minimize()
+      }
       else
          this.Activate()
       return true
