@@ -3,6 +3,7 @@
 #Include <App>
 #Include <Paths>
 #Include <String>
+#Include <Eval>
 
 CloseButActually() {
    Switch {

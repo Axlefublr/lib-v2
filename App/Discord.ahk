@@ -6,7 +6,7 @@ Class Discord {
    static exeTitle  := "ahk_exe Discord.exe"
    static winTitle  := "Discord " this.exeTitle
    static exception := "Updater" ;Don't consider the window to be discord if it has this in its title
-   static path := Paths.LocalAppData "\Discord\app-1.0.9007\Discord.exe" 
+   static path := Paths.LocalAppData "\Discord\app-1.0.9008\Discord.exe" 
    
    static winObj := Win({
       winTitle: this.winTitle,         

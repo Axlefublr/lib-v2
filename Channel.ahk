@@ -180,16 +180,22 @@ Channel := [
    "how to remap ctrl characters",
    "https://youtu.be/yz3jptm414I",
 
-   "win class 1",
-   "https://youtu.be/772suOr0yUQ",
-
    "regremap",
    "https://youtu.be/AEnz3Bd-PV4",
    "gst regremap",
    "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
 
+   "win class 1",
+   "https://youtu.be/772suOr0yUQ",
+
    "win class 2",
    "https://youtu.be/018oZlrRw7c",
+   
+   "win class 3",
+   "https://youtu.be/qO3uE64M7-0",
+   
+   "win class playlist",
+   "https://youtu.be/772suOr0yUQ",
    
    "access modifiers",
    "https://youtu.be/fCySzFAk5JI",

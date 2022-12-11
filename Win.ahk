@@ -151,9 +151,6 @@ Class Win {
    }
 
    RunAct_Folders() {
-      if !this.runOpt {
-         this.runOpt := "Min"
-      }
       this.SetExplorerWintitle()
       this.RunAct()
    }

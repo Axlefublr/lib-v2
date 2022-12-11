@@ -9,10 +9,12 @@ Class VsCode {
    static exeTitle := "ahk_exe Code.exe"
    static winTitle := "Visual Studio Code " this.exeTitle
    static path := Paths.LocalAppData "\Programs\Microsoft VS Code\Code.exe"
+   static stack := 1
 
    static winObj := Win({
       winTitle: this.winTitle,
       exePath:  this.path,
+      stack: this.stack
    })
    
    static IndentRight()   => Send("^!{Right}")
