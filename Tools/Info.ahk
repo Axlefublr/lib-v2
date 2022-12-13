@@ -1,5 +1,103 @@
 #Include <Gui>
 
+class Infos {
+   
+   autoCloseTimeout := 0
+   
+   static fontSize := 15
+   static ranOnce := false
+   static guiWidthModifier := 5 ; if you set this to 4, the infos will be closer together. I don't recommend setting any other number, but feel free to experiment
+   
+   ; These get set the first time you create an instance of this class
+   static guiWidth        := unset
+   static maximumInfos    := unset
+   static AvailablePlaces := unset
+   
+   /**
+    * To use Info, you just need to create an instance of it, no need to call any method after
+    * @param text *String* 
+    * @param autoCloseTimeout *Integer* in milliseconds. Doesn't close automatically
+    */
+   __New(text, autoCloseTimeout := 0) {
+      this.autoCloseTimeout := autoCloseTimeout
+      this.text := text
+      this.__CreateGui()
+      this.__DoOnce()
+      if !this.__GetAvailableSpace()
+         this.__StopDueToNoSpace()
+      this.__SetupHotkeysAndEvents()
+      this.__Show()
+   }
+   
+   __CreateGui() {
+      this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize)
+      this.gcText := this.gInfo.AddText(, this.text)
+   }
+   
+   __DoOnce() {
+      if Infos.ranOnce { 
+         return
+      }
+
+      Infos.guiWidth     := this.gInfo.MarginY * Infos.guiWidthModifier
+      Infos.maximumInfos := Floor(A_ScreenHeight / Infos.guiWidth)
+
+      Infos.AvailablePlaces := Map()
+      index := 0
+      loop Infos.maximumInfos {
+         index++
+         Infos.AvailablePlaces.Set(index * Infos.guiWidth - Infos.guiWidth, false)
+      }
+      Infos.ranOnce := true
+   }
+   
+   __GetAvailableSpace() {
+      for key, value in Infos.AvailablePlaces {
+         if value 
+            continue
+         this.currYCoord := key
+         Infos.AvailablePlaces[this.currYCoord] := true
+         break
+      }
+      if !IsSet(this.currYCoord) 
+         return false
+      return true
+   }
+   
+   __StopDueToNoSpace() => this.gInfo.Destroy()
+   
+   __SetupHotkeysAndEvents() {
+      HotIfWinExist("ahk_id " this.gInfo.Hwnd)
+      Hotkey("Escape", this.__bfDestroy, "On")
+      gcText.OnEvent("Click", this.__bfDestroy)
+      gInfo.OnEvent("Close", this.__bfDestroy)
+      if this.autoCloseTimeout {
+         SetTimer(this.__bfDestroy, -this.autoCloseTimeout)
+      }
+   }
+
+   __bfDestroy := this.Destroy.Bind(this)
+   Destroy(*) {
+      try HotIfWinExist("ahk_id " this.gInfo.Hwnd) 
+      catch Any {
+         return false
+      }
+      Hotkey("Escape", "Off")
+      this.gInfo.Destroy() 
+      Infos.AvailablePlaces[this.currYCoord] := false 
+      return true
+   }
+   
+   __Show() => this.gInfo.Show("AutoSize NA x0 y" currYCoord)
+
+}
+
+class Info extends Infos {
+
+   static autoCloseTimeout := 2000
+   
+   __New(text) => super.__New(text, Info.autoCloseTimeout)
+}
 
 ToggleInfo(text) {
    g_ToggleInfo := Gui("AlwaysOnTop -caption").DarkMode().MakeFontNicer()
