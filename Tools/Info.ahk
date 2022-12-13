@@ -4,14 +4,14 @@ class Infos {
    
    autoCloseTimeout := 0
    
-   static fontSize := 15
-   static ranOnce := false
+   static fontSize         := 20
+   static ranOnce          := false
    static guiWidthModifier := 5 ; if you set this to 4, the infos will be closer together. I don't recommend setting any other number, but feel free to experiment
    
    ; These get set the first time you create an instance of this class
    static guiWidth        := unset
    static maximumInfos    := unset
-   static AvailablePlaces := unset
+   static AvailablePlaces := unset ; Starts with a capital letter because it's an object, not a primitive
    
    /**
     * To use Info, you just need to create an instance of it, no need to call any method after
@@ -59,7 +59,8 @@ class Infos {
          Infos.AvailablePlaces[this.currYCoord] := true
          break
       }
-      if !IsSet(this.currYCoord) 
+      _ := this.currYCoord 
+      if !IsSet(_) ; Ahk limitation
          return false
       return true
    }
@@ -69,8 +70,8 @@ class Infos {
    __SetupHotkeysAndEvents() {
       HotIfWinExist("ahk_id " this.gInfo.Hwnd)
       Hotkey("Escape", this.__bfDestroy, "On")
-      gcText.OnEvent("Click", this.__bfDestroy)
-      gInfo.OnEvent("Close", this.__bfDestroy)
+      this.gcText.OnEvent("Click", this.__bfDestroy)
+      this.gInfo.OnEvent("Close", this.__bfDestroy)
       if this.autoCloseTimeout {
          SetTimer(this.__bfDestroy, -this.autoCloseTimeout)
       }
@@ -88,7 +89,7 @@ class Infos {
       return true
    }
    
-   __Show() => this.gInfo.Show("AutoSize NA x0 y" currYCoord)
+   __Show() => this.gInfo.Show("AutoSize NA x0 y" this.currYCoord)
 
 }
 
