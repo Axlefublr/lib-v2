@@ -89,7 +89,8 @@ Class Win {
    /**
     * What if there a multiple windows that match the same wintitle?
     * This method is an option to activate the second one if the first one is active, and the other way around
-    * I don't know if this supports more than 2 same windows at once yet, since I haven't had the need for three of the same windows yet
+    * Supports as many same windows as you want. The time complexity is O(n)
+    * If this concerns you, consider having less windows
     * @returns {Boolean} False if there were less than 2 windows that matched (there could be zero); True if the operation completed successfully
     */
    ActivateAnother() {
@@ -99,11 +100,14 @@ Class Win {
       }
       temp := this.winTitle
       id   := WinGetID("A")
-      for key, value in windows {
-         if value != id {
-            this.winTitle := value
+      i := -1
+      inverseLength := -windows.Length
+      while i > inverseLength {
+         if windows[i] != id {
+            this.winTitle := windows[i]
             break
          }
+         i--
       }
       this.Activate()
       this.winTitle := temp

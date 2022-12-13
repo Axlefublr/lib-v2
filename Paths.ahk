@@ -23,9 +23,10 @@ Class Paths {
    static Test      := this.Main "\Test"
    static Tools     := this.Main "\Tools"
 
-   static Pictures  := "C:\Pictures"
-   static Materials := this.Pictures "\Materials"
-   static Content   := this.Pictures "\Content"
+   static Pictures   := "C:\Pictures"
+   static Materials  := this.Pictures "\Materials"
+   static Content    := this.Pictures "\Content"
+   static VideoTools := this.Pictures "\Tools"
 
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 

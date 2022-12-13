@@ -206,6 +206,9 @@ Channel := [
    "convert to lua",
    "https://youtu.be/vvyJtqPiJwc",
    
+   "zsh hotkeys",
+   "https://youtu.be/viOPfywjnZg",
+   
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
@@ -219,6 +222,9 @@ Channel := [
    "fixing scrolling", ;The neovim extension devs fixed the issue before I could even publish the video
    "https://youtu.be/6-MgEcZpNsg",
 
+   "ctrl x mode demo",
+   "https://youtu.be/hdm6dVbzaAw",
+   
    ;;Useful tutorials not by me
    "regex tutorial",
    "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
