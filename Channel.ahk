@@ -219,7 +219,7 @@ Channel := [
    "making codesnap work with neovim",
    "https://youtu.be/z0wvpBEjEeQ",
 
-   "fixing scrolling", ;The neovim extension devs fixed the issue before I could even publish the video
+   "fixing scrolling", ;The neovim extension devs fixed the issue before I could even publish the video. Thanks for fixing it but also fuck you for fixing it /s.
    "https://youtu.be/6-MgEcZpNsg",
 
    "ctrl x mode demo",
@@ -243,4 +243,7 @@ Channel := [
    
    "lua tutorial",
    "https://youtu.be/iMacxZQMPXs",
+   
+   "vim talk",
+   "https://www.youtube.com/watch?v=XA2WjJbmmoM&list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs",
 ]
