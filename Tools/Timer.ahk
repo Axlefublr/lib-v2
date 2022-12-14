@@ -31,7 +31,7 @@ Class Timer {
    }
    
    Alarm() {
-      infoHwnd := Infos("Your timer for " this.timeWord " is up!").Hwnd
+      infoHwnd := Infos("Your timer for " this.timeWord " is up!").gInfo.Hwnd
       while WinExist(infoHwnd) {
          SoundBeep()
          Sleep(200)

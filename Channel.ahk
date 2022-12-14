@@ -152,31 +152,31 @@ Channel := [
 
    "include",
    "https://youtu.be/nFnMiVAjkv4",
-   
+
    "code block text object",
    "https://youtu.be/KQ5WbYcJswk",
-   
+
    "autoclicker",
    "https://youtu.be/jRXij-cJKpw",
-   
+
    "text objects",
    "https://youtu.be/nU4vRFMf4F8",
-   
+
    "recolor code",
    "https://youtu.be/uA9DiCq2-7c",
-   
+
    "my vscode setup",
    "https://youtu.be/1mHU3OfmLy4",
-   
+
    "transandproud",
    "https://youtu.be/UBPaABITDaA",
-   
+
    "how to make text objects",
    "https://youtu.be/wj7U-DNALN0",
-   
+
    "what does gM do",
    "https://youtu.be/j-MBH-rVI6c",
-   
+
    "how to remap ctrl characters",
    "https://youtu.be/yz3jptm414I",
 
@@ -190,24 +190,27 @@ Channel := [
 
    "win class 2",
    "https://youtu.be/018oZlrRw7c",
-   
+
    "win class 3",
    "https://youtu.be/qO3uE64M7-0",
-   
+
    "win class playlist",
    "https://youtu.be/772suOr0yUQ",
-   
+
    "access modifiers",
    "https://youtu.be/fCySzFAk5JI",
-   
+
    "reminddate",
    "https://youtu.be/y9LSw1K_AI4",
-   
+
    "convert to lua",
    "https://youtu.be/vvyJtqPiJwc",
-   
+
    "zsh hotkeys",
    "https://youtu.be/viOPfywjnZg",
+
+   "vertical movement",
+   "https://youtu.be/pStsi968ChE",
    
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
@@ -224,7 +227,7 @@ Channel := [
 
    "ctrl x mode demo",
    "https://youtu.be/hdm6dVbzaAw",
-   
+
    ;;Useful tutorials not by me
    "regex tutorial",
    "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
@@ -234,16 +237,16 @@ Channel := [
 
    "60 bash commands",
    "https://youtu.be/gd7BXuUQ91w",
-   
+
    "how to use a debugger",
    "https://youtu.be/7qZBwhSlfOo",
-   
+
    "tim corey access modifiers",
    "https://www.youtube.com/watch?v=jcn5uCZAk2w",
-   
+
    "lua tutorial",
    "https://youtu.be/iMacxZQMPXs",
-   
+
    "vim talk",
    "https://www.youtube.com/watch?v=XA2WjJbmmoM&list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs",
 ]
