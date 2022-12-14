@@ -26,7 +26,48 @@ class Infos {
       if !this.__GetAvailableSpace()
          this.__StopDueToNoSpace()
       this.__SetupHotkeysAndEvents()
+      this.__SetupAutoclose()
       this.__Show()
+   }
+   
+   __bfDestroy := this.Destroy.Bind(this)
+   Destroy(*) {
+      try HotIfWinExist("ahk_id " this.gInfo.Hwnd) 
+      catch Any {
+         return false
+      }
+      Hotkey("Escape", "Off")
+      this.gInfo.Destroy() 
+      Infos.AvailablePlaces[this.currYCoord] := false 
+      return true
+   }
+   
+   /**
+    * Will replace the text in the Info
+    * If the window is destoyed, just creates a new Info. Otherwise: 
+    * If the text is the same length, will just replace the text without recreating the gui.
+    * If the text is of different length, will recreate the gui in the same place 
+    * (once again, only if the window is not destroyed)
+    * @param newText *String*
+    * @returns {Infos} the class object
+    */
+   ReplaceText(newText) {
+
+      ; If the gui doesn't exist
+      try WinExist(this.gInfo) ; Not an if because we can't access the gui object once it's destroyed
+      catch 
+         return Infos(newText, this.autoCloseTimeout)
+
+      ; If the text provided is the same length as in the existing gui's window
+      if StrLen(newText) = StrLen(this.gcText.Text) {
+         this.gcText.Text := newText
+         this.__SetupAutoclose()
+         return this
+      }
+      
+      ; If the text length is different, but the window exists (it's a refresh)
+      Infos.AvailablePlaces[this.currYCoord] := false 
+      return Infos(newText, this.autoCloseTimeout)
    }
    
    __CreateGui() {
@@ -72,33 +113,19 @@ class Infos {
       Hotkey("Escape", this.__bfDestroy, "On")
       this.gcText.OnEvent("Click", this.__bfDestroy)
       this.gInfo.OnEvent("Close", this.__bfDestroy)
+   }
+   
+   __SetupAutoclose() {
       if this.autoCloseTimeout {
          SetTimer(this.__bfDestroy, -this.autoCloseTimeout)
       }
    }
 
-   __bfDestroy := this.Destroy.Bind(this)
-   Destroy(*) {
-      try HotIfWinExist("ahk_id " this.gInfo.Hwnd) 
-      catch Any {
-         return false
-      }
-      Hotkey("Escape", "Off")
-      this.gInfo.Destroy() 
-      Infos.AvailablePlaces[this.currYCoord] := false 
-      return true
-   }
-   
    __Show() => this.gInfo.Show("AutoSize NA x0 y" this.currYCoord)
 
 }
 
-class Info extends Infos {
-
-   static autoCloseTimeout := 2000
-   
-   __New(text) => super.__New(text, Info.autoCloseTimeout)
-}
+Info(text) => Infos(text, 2000)
 
 ToggleInfo(text) {
    g_ToggleInfo := Gui("AlwaysOnTop -caption").DarkMode().MakeFontNicer()

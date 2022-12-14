@@ -1,31 +1,15 @@
+#Include <Tools\Info>
+
 class Counter {
    static num := 0
-   static currInfo := 0
 
-   static CloseInfo() {
-      try {
-         Win.Close(this.currInfo)
-         WinWaitClose(this.currInfo)
-      }
+   static ShowNumber(newNum) {
+      static currInfo := Info(newNum)
+      currInfo := currInfo.ReplaceText(newNum)
    }
-   static Increment() {
-      this.CloseInfo()
-      this.currInfo := Info(++this.num)
-   }
-   static Decrement() {
-      this.CloseInfo()
-      this.currInfo := Info(--this.num)
-   }
-   static Reset() {
-      this.CloseInfo()
-      this.currInfo := Info(this.num := 0)
-   }
-   static Send() {
-      this.CloseInfo()
-      Send(this.num)
-   }
-   static Show() {
-      this.CloseInfo()
-      this.currInfo := Info(this.num)
-   }
+   static Increment() => this.ShowNumber(++this.num)
+   static Decrement() => this.ShowNumber(--this.num)
+   static Reset() => this.ShowNumber(this.num := 0)
+   static Send() => Send(this.num)
+   static Show() => this.ShowNumber(this.num)
 }
