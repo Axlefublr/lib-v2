@@ -125,7 +125,7 @@ Class Spotify {
       }
 
       static g_added
-      g_added := Gui("AlwaysOnTop -caption")
+      g_added := Gui("AlwaysOnTop -Caption")
       g_added.backColor := "171717"
       g_added.SetFont("s50 c0xC5C5C5", "Consolas")
       g_added_text := g_added.Add("Text", "W200 X0 Y60 Center", "0")

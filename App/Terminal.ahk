@@ -4,7 +4,7 @@ Class Terminal {
 
    static exeTitle := "ahk_exe WindowsTerminal.exe"
    static winTitle := "ahk_group Terminal"
-   static path := A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.14.2281.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe"
+   static path := A_ProgramFiles "\WindowsApps\Microsoft.WindowsTerminal_1.15.3465.0_x64__8wekyb3d8bbwe\WindowsTerminal.exe"
 
    static winTitles := Map(
 

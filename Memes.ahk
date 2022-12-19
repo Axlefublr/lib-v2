@@ -181,4 +181,7 @@ Memes := [
    
    "it's time to kick gum",
    "https://youtu.be/GAdVvfcZw04",
+   
+   "not the yaddas",
+   "https://youtube.com/shorts/JqAV53eDPcA",
 ]

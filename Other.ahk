@@ -19,6 +19,7 @@ CloseButActually() {
 
 MainApps() {
    VsCode.winObj.RunAct()
+   Terminal.winObj.RunAct()
    Browser.winObj.RunAct()
    Spotify.winObj.RunAct()
    Discord.winObj.RunAct()
