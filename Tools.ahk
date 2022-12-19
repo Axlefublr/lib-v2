@@ -13,6 +13,7 @@
 #Include <Tools\WindowGetter>
 #Include <Tools\KeycodeGetter>
 #Include <Tools\Counter>
+#Include <Tools\Stopwatch>
 
 tool_RelativeCoordGetter() {
    static var := 0

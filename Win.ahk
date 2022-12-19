@@ -135,7 +135,7 @@ Class Win {
          Win.Testing.NoExePath()
       }
       Run(this.exePath, this.startIn, this.runOpt)
-      WinWait(this.startupWintitle ?? this.winTitle,, this.waitTime, this.exception)
+      WinWait(this.startupWintitle ? this.startupWintitle : this.winTitle,, this.waitTime, this.exception)
       if this.toClose {
          this.CloseOnceExists()
       }

@@ -1,5 +1,6 @@
 #Include <Tools\Info>
 #Include <Links>
+#Include <String>
 
 GetDate() => FormatTime(, "yy.MM.dd")
 GetTime() => FormatTime(, "HH:mm")
@@ -89,4 +90,11 @@ ConvertToRegex(input) {
       input := StrReplace(input, value, "\" value)
    }
    return input
+}
+
+AddPaddingForDateNum(num) {
+   while StrLen(num) < 14 {
+      num := 0 num
+   }
+   return num
 }
