@@ -3,19 +3,20 @@
 Class Win {
 
    ;Defaults
-   winTitle     := "A"
-   winText      := ""
-   excludeTitle := ""
-   excludeText  := ""
-   winTitles    := []
-   exception    := ""
-   exePath      := unset
-   startIn      := ""
-   runOpt       := "Max"
-   waitTime     := 120
-   toClose      := ""
-   direction    := "left"
-   
+   winTitle        := "A"
+   winText         := ""
+   excludeTitle    := ""
+   excludeText     := ""
+   winTitles       := []
+   exception       := ""
+   exePath         := unset
+   startIn         := ""
+   runOpt          := "Max"
+   waitTime        := 120
+   toClose         := ""
+   direction       := "left"
+   startupWintitle := ""
+
    __New(paramsObject?) {
       if !IsSet(paramsObject) {
          return
@@ -27,35 +28,35 @@ Class Win {
          this.%key% := value
       }
    }
-   
+
    Class Testing {
       static NoExePath() {
          throw TargetError("Specify a file path", -1)
       }
-      
+
       static WrongType_toClose() {
          throw TypeError(
-            "Win.toClose has to either be an array or a string", 
-            -1, 
+            "Win.toClose has to either be an array or a string",
+            -1,
             this.toClose " : " Type(this.toClose)
          )
       }
    }
-   
+
    SetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
-   
+
    Close() {
       try PostMessage("0x0010",,,, this.winTitle)
    }
-   
+
    static Close(winTitle := "A") {
       Win({winTitle: winTitle}).Close()
    }
-   
+
    RestoreDown() {
       try PostMessage("0x112", "0xF120",,, this.winTitle)
    }
-   
+
    static RestoreDown(winTitle := "A") {
       Win({winTitle: winTitle}).RestoreDown()
    }
@@ -63,7 +64,7 @@ Class Win {
    Maximize() {
       try PostMessage("0x112", "0xF030",,, this.winTitle)
    }
-   
+
    static Maximize(winTitle := "A") {
       Win({winTitle: winTitle}).Maximize()
    }
@@ -71,7 +72,7 @@ Class Win {
    Minimize() {
       try PostMessage("0x112", "0xF020",,, this.winTitle)
    }
-   
+
    static Minimize(winTitle := "A") {
       Win({winTitle: winTitle}).Minimize()
    }
@@ -85,7 +86,7 @@ Class Win {
          return false
       }
    }
-   
+
    /**
     * What if there a multiple windows that match the same wintitle?
     * This method is an option to activate the second one if the first one is active, and the other way around
@@ -134,13 +135,13 @@ Class Win {
          Win.Testing.NoExePath()
       }
       Run(this.exePath, this.startIn, this.runOpt)
-      WinWait(this.winTitle,, this.waitTime, this.exception)
+      WinWait(this.startupWintitle ?? this.winTitle,, this.waitTime, this.exception)
       if this.toClose {
          this.CloseOnceExists()
       }
       return true
    }
-   
+
    CloseOnceExists() {
       stopWaitingAt := A_TickCount + this.waitTime * 1000
       if Type(this.toClose) = "Array"
@@ -149,9 +150,9 @@ Class Win {
          SetTimer(foTryClose, 20)
       else if !this.toClose
          Win.Testing.WrongType_toClose()
-      else 
+      else
          Win.Testing.WrongType_toClose()
-      
+
       foTryCloseArray() {
          for key, value in this.toClose {
             if WinExist(value) {
@@ -176,7 +177,14 @@ Class Win {
 
    RunAct() {
       this.Run()
+      if this.startupWintitle {
+         temp := this.winTitle
+         this.winTitle := this.startupWintitle
+      }
       this.Activate()
+      if this.startupWintitle {
+         this.winTitle := temp
+      }
    }
 
    RunAct_Folders() {
@@ -227,7 +235,7 @@ Class Win {
       SetTitleMatchMode("RegEx")
       return WinActive(this.winTitle, this.winText, this.excludeTitle, this.excludeText)
    }
-   
+
    /**
     * Specify an array of winTitles, will return 1 if one of them is active
     * Specify a map if you want to have a "excludeTitle" for one, some, or all of your winTitles
