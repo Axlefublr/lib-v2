@@ -15,7 +15,7 @@ class Brightness {
 
    static GetCurrBrightness() {
       for property in ComObjGet(this.__comObjPath).ExecQuery("SELECT * FROM WmiMonitorBrightness")
-         currentBrightness := property.CurrentBrightess
+         currentBrightness := property.CurrentBrightness
       return currentBrightness
    }
 }

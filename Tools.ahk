@@ -14,6 +14,7 @@
 #Include <Tools\KeycodeGetter>
 #Include <Tools\Counter>
 #Include <Tools\Stopwatch>
+#Include <Tools\Brightness>
 
 tool_RelativeCoordGetter() {
    static var := 0
