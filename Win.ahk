@@ -230,6 +230,10 @@ Class Win {
       SetTimer(_WinMoveWhenMin, 20)
 
    }
+   
+   static RestoreLeftRight(direction) {
+      Win({direction: direction}).RestoreLeftRight()
+   }
 
    ActiveRegex() {
       SetTitleMatchMode("RegEx")
