@@ -23,7 +23,6 @@ MainApps() {
    Browser.winObj.RunAct()
    Spotify.winObj.RunAct()
    Discord.winObj.RunAct()
-   Browser.Clock.winObj.RunAct()
 }
 
 SomeLockHint(whatLock) {
