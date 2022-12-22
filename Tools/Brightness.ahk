@@ -7,14 +7,16 @@ class Brightness {
          case brightness < 0:brightness := 0
          case brightness > 100:brightness := 100
       }
-      for property in ComObjGet(this.__comObjPath).ExecQuery("SELECT * FROM WmiMonitorBrightnessMethods")
+      static brightnessMethods := ComObjGet(this.__comObjPath).ExecQuery("SELECT * FROM WmiMonitorBrightnessMethods")
+      for property in brightnessMethods
          property.WmiSetBrightness(1, brightness)
    }
    
    static ChangeBrightnessRelative(difference) => this.ChangeBrightnessAbsolute(this.GetCurrBrightness() + difference)
 
    static GetCurrBrightness() {
-      for property in ComObjGet(this.__comObjPath).ExecQuery("SELECT * FROM WmiMonitorBrightness")
+      static brightnessProperties := ComObjGet(this.__comObjPath).ExecQuery("SELECT * FROM WmiMonitorBrightness")
+      for property in brightnessProperties
          currentBrightness := property.CurrentBrightness
       return currentBrightness
    }
