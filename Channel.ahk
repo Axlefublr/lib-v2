@@ -214,6 +214,9 @@ Channel := [
 
    "regex",
    "https://youtu.be/FwrtUiUpWkc",
+
+   "feedkeys",
+   "https://youtu.be/_a2WLClyIpg",
    
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
@@ -252,7 +255,7 @@ Channel := [
 
    "vim talk",
    "https://www.youtube.com/watch?v=XA2WjJbmmoM&list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs",
-   
+
    "zsh vim mode",
    "https://youtu.be/hIJh-KlQ7io",
 ]
