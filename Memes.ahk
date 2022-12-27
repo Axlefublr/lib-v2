@@ -184,4 +184,7 @@ Memes := [
    
    "not the yaddas",
    "https://youtube.com/shorts/JqAV53eDPcA",
+   
+   "flexing mid apology",
+   "https://www.youtube.com/shorts/1E3Otgd0MPQ",
 ]

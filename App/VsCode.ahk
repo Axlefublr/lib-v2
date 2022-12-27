@@ -22,10 +22,12 @@ Class VsCode {
    static Debug()         => Send("+!9")
    static CloseAllTabs()  => Send("+!w")
    static DeleteLine()    => Send("+{Delete}")
-   static Reload()        => Send("+!y")
+   static Reload()        => Send("+!y+!y")
    static CloseTab()      => Send("!w")
    static CursorBack()    => Send("!{PgUp}")
    static CursorForward() => Send("!{PgDn}")
+   static Undo()          => Send("#^{sc33}")
+   static Redo()          => Send("#^{sc34}")
 
    static WorkSpace(wkspName) {
       this.CloseAllTabs()

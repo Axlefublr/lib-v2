@@ -2,9 +2,12 @@
 #Include <Links>
 #Include <String>
 
-GetDate() => FormatTime(, "yy.MM.dd")
-GetTime() => FormatTime(, "HH:mm")
-GetDateAndTime() => GetDate() " " GetTime()
+GetCurrDate()     => FormatTime(, "yy.MM.dd")
+GetCurrTime()     => FormatTime(, "HH:mm")
+GetCurrWeekDay()  => FormatTime(, "dddd")
+GetDateTime()     => GetCurrDate() " " GetCurrTime()
+GetDateWeek()     => GetCurrDate() " " GetCurrWeekDay()
+GetDateWeekTime() => GetDateWeek() " " GetCurrTime()
 
 GetHtml(link) {
    HTTP := ComObject("WinHttp.WinHttpRequest.5.1")

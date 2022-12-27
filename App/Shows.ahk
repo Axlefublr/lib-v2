@@ -14,7 +14,7 @@ Class Shows {
    
    ApplyJson() => WriteFile(Paths.Ptf["Shows"], JSON.stringify(this.shows))
 
-   CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", GetDateAndTime()))
+   CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", GetDateTime()))
    
    ValidateShow(show) {
       try this.shows[show]
@@ -66,7 +66,7 @@ Class Shows {
    }
    
    UpdateConsumed(show, isDropped) => (
-      date := "`n1. " GetDate() " - ",
+      date := "`n1. " GetCurrDate() " - ",
       isDropped_string := isDropped ? " - dropped" : "",
       AppendFile(Paths.Ptf["Consumed"], date show.ToTitle() isDropped_string)
    )
@@ -111,7 +111,7 @@ Class Shows {
          this.CreateBlankShow(show)
       }
       this.shows[show]["episode"] := episode
-      this.shows[show]["timestamp"] := GetDateAndTime()
+      this.shows[show]["timestamp"] := GetDateTime()
 
       if episode > this.shows[show]["downloaded"] {
          this.shows[show]["downloaded"] := episode

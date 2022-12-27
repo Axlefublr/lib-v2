@@ -54,7 +54,7 @@ Class Spotify {
    }
 
    static NewDiscovery_Manual(artistName) {
-      AppendFile(Paths.Ptf["Discovery log"], GetDateAndTime() " - " artistName "`n")
+      AppendFile(Paths.Ptf["Discovery log"], GetDateTime() " - " artistName "`n")
       Info(artistName " just discovered! 🌎")
    }
 
@@ -74,7 +74,7 @@ Class Spotify {
    static NewRapper(name) {
       if this.IsRapperTouched(name)
          return
-      AppendFile(Paths.Ptf["Rappers"], GetDateAndTime() " - " name "`n")
+      AppendFile(Paths.Ptf["Rappers"], GetDateTime() " - " name "`n")
       Info(name " yet to be discovered! 📃")
    }
 
@@ -93,7 +93,7 @@ Class Spotify {
          Info(artistName " is already added 😨")
          return
       }
-      AppendFile(Paths.Ptf["Artists"], "1. " GetDate() " - " artistName "`n")
+      AppendFile(Paths.Ptf["Artists"], "1. " GetCurrDate() " - " artistName "`n")
       Info(artistName " is now your favorite! 🥰")
    }
 

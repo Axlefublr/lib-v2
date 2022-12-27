@@ -218,6 +218,9 @@ Channel := [
    "feedkeys",
    "https://youtu.be/_a2WLClyIpg",
    
+   "fixing scrolling",
+   "https://youtu.be/PH3CRgDa9tQ",
+   
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
@@ -228,7 +231,7 @@ Channel := [
    "making codesnap work with neovim",
    "https://youtu.be/z0wvpBEjEeQ",
 
-   "fixing scrolling", ;The neovim extension devs fixed the issue before I could even publish the video. Thanks for fixing it but also fuck you for fixing it /s.
+   "fixing scrolling deprecated", ;The neovim extension devs fixed the issue before I could even publish the video. Thanks for fixing it but also fuck you for fixing it /s.
    "https://youtu.be/6-MgEcZpNsg",
 
    "ctrl x mode demo",
