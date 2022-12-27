@@ -1,5 +1,8 @@
 #Include <Gui>
 
+/**
+ * Make a picture of your choosing appear on your screen
+ */
 class HoverScreenshot {
 
    /**
@@ -22,6 +25,17 @@ class HoverScreenshot {
     */
    gcPicture := unset
 
+   /**
+    * Make a picture of your choosing appear on your screen
+    * @example <caption>Hover the last screenshot you took using Win+Shift+S (unstable)</caption>
+    * HoverScreenshot().UseSecondToLast().Show()
+    * @example <caption>Choose a picture to hover and do so</caption>
+    * gHover := HoverScreenshot()
+    * if gHover := gHover.SelectPath()
+    *    gHover.Show()
+    * ; or this syntax:
+    * try gHover.SelectPath().Show()
+    */
    __New() {
       this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
    }
@@ -37,6 +51,7 @@ class HoverScreenshot {
     * This is not stable: sometimes the actual screenshot will not be second to last,
     * but it is usually.
     * Use "SelectPath()" instead if you treasure stability over comfortability
+    * @returns {HoverScreenshot} this, for you to be able to chain your methods
     */
    UseSecondToLast() {
       previousTimeStamp := 0
@@ -50,6 +65,7 @@ class HoverScreenshot {
          }
       }
       this.picturePath := image2
+      return this
    }
 
    /**
@@ -59,13 +75,13 @@ class HoverScreenshot {
     * filtering only pngs (since there are only pngs there).
     * You can still go and pick a picture from any other place, just make sure the format is
     * supported
-    * @returns {Boolean} True if you picked something, false if you didn't
+    * @returns {Boolean/HoverScreenshot} `this` if you picked something, false if you didn't
     */
    SelectPath() {
       picturePath := FileSelect(, Paths.SavedScreenshots,, "*.png")
       if picturePath {
          this.picturePath := picturePath
-         return true
+         return this
       }
       return false
    }
@@ -74,7 +90,7 @@ class HoverScreenshot {
     * Shows the gui with the picture you set
     * Before calling this method, make sure you set the picturePath property to the path of the
     * picture you want to show
-    * If you don't, this method will throw an error
+    * @throws {MethodError} If the picturePath property is not a path / not set
     */
    Show() {
       if !(this.picturePath ~= "^[A-Z]:\\") {
@@ -93,6 +109,7 @@ class HoverScreenshot {
       /**
        * Throw this if the picturePath property is not set / is not a path
        * @param picturePath pass the current picturePath to show in the error message
+       * @throws {MethodError}
        */
       static PicturePathWrong(picturePath) {
          throw MethodError("
