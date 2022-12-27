@@ -1,4 +1,4 @@
-; No dependencies
+#Include <Gui>
 
 class HoverScreenshot {
 
@@ -7,6 +7,20 @@ class HoverScreenshot {
     * @type {String}
     */
    picturePath := ""
+
+   /**
+    * The gui object
+    * Will be set in the constructor of the class
+    * @type {Gui}
+    */
+   gHover := unset
+
+   /**
+    * The guictrl object of the picture
+    * Will be set after Show() is called on the class instance
+    * @type {GuiCtrl}
+    */
+   gcPicture := unset
 
    __New() {
       this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
@@ -18,7 +32,7 @@ class HoverScreenshot {
     * your screenshots folder.
     * One is the actual screenshot you wanna show, the second being the picture that gets shown
     * in the notification after you take a screenshot.
-    * By getting the second to last (by creation time) picture, we will usually get the actual 
+    * By getting the second to last (by creation time) picture, we will usually get the actual
     * screenshot.
     * This is not stable: sometimes the actual screenshot will not be second to last,
     * but it is usually.
@@ -41,7 +55,7 @@ class HoverScreenshot {
    /**
     * Brings up an interactive menu where the user can pick the picture to show
     * (sets the picturePath property).
-    * Will always start in the folder where windows stores your Win+Shift+S screenshots, 
+    * Will always start in the folder where windows stores your Win+Shift+S screenshots,
     * filtering only pngs (since there are only pngs there).
     * You can still go and pick a picture from any other place, just make sure the format is
     * supported
@@ -69,12 +83,11 @@ class HoverScreenshot {
       this.gcPicture := this.gHover.AddPicture(, this.picturePath)
       WinSetTransColor(0xF0F0F0, this.gHover.Hwnd)
 
+      this.gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
+      this.gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
+
       this.gHover.Show("AutoSize NA")
    }
-
-   ; gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
-   ; gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
-   ; return true
 
    class Exceptions {
       /**
