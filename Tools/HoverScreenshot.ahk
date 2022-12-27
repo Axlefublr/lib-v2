@@ -32,7 +32,11 @@ class HoverScreenshot {
     * if gHover := gHover.SelectPath()
     *    gHover.Show()
     * ; or this syntax:
-    * try gHover.SelectPath().Show()
+    * try HoverScreenshot().SelectPath().Show()
+    * @example <caption>Always show the same picture, the path of which you already know</caption>
+    * gHover := HoverScreenshot()
+    * gHover.picturePath := "C:\Pictures\My favorite picture 257.png"
+    * gHover.Show()
     */
    __New() {
       this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")

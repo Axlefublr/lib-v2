@@ -11,10 +11,10 @@ Class Gimp {
    static closeWindow := "Quit GIMP " this.exeTitle
    
    static winObj := Win({
-      winTitle:  this.winTitle,
-      exePath:   this.path,
-      toClose:   this.toClose,
-      exception: this.exception,
+      winTitle:    this.winTitle,
+      exePath:     this.path,
+      toClose:     this.toClose,
+      exception:   this.exception,
       closeWindow: this.closeWindow
    })
    

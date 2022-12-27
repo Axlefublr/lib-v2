@@ -221,6 +221,9 @@ Channel := [
    "fixing scrolling",
    "https://youtu.be/PH3CRgDa9tQ",
    
+   "how to clean a keyboard",
+   "https://youtu.be/Dcx1g2oNuUY",
+   
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",

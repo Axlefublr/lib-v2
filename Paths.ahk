@@ -52,6 +52,7 @@ Class Paths {
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
       "Output",  this.Main "\Test\Output.txt",
+      "Input",   this.Main "\Test\Input.txt",
       "AhkTest", this.Main "\Test\AhkTest.ahk",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",

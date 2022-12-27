@@ -1,3 +1,4 @@
 Class Player {
-   static winTitle := "ahk_exe KMPlayer64.exe"
+   static exeTitle := "ahk_exe KMPlayer64.exe"
+   static winTitle := this.exeTitle
 }
