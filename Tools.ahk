@@ -15,6 +15,7 @@
 #Include <Tools\Counter>
 #Include <Tools\Stopwatch>
 #Include <Tools\Brightness>
+#Include <Tools\HoverScreenshot>
 
 tool_RelativeCoordGetter() {
    static var := 0
@@ -223,22 +224,6 @@ Snake(SquareSide, delay, timeout) {
       SetTimer(KillLastSnake, -timeout)
    }
 
-}
-
-HoverScreenshot() {
-   if !picture := FileSelect(, Paths.SavedScreenshots,, "*.png") {
-      return false
-   }
-   gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
-   gcPicture := gHover.AddPicture(, picture)
-   WinSetTransColor(0xF0F0F0, gHover.Hwnd)
-
-   gHover.Show("AutoSize NA")
-
-   gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
-   gHover.OnEvent("Escape",         (guiObj)        => guiObj.Destroy())
-   gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
-   return true
 }
 
 Hider(pickedColor?) {
