@@ -8,9 +8,22 @@ class HoverScreenshot {
       this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
    }
 
-   ; if !picturePath := FileSelect(, Paths.SavedScreenshots,, "*.png") {
+   ; if !picturePath :=  {
    ;    return false
    ; }
+
+   UseSecondToLast() {
+
+   }
+
+   SelectPath() {
+      picturePath := FileSelect(, Paths.SavedScreenshots,, "*.png")
+      if picturePath {
+         this.picturePath := picturePath
+         return true
+      }
+      return false
+   }
 
    Show() {
       if !(this.picturePath ~= "^[A-Z]:\\") {
