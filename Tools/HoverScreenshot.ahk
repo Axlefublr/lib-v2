@@ -27,8 +27,6 @@ class HoverScreenshot {
 
    /**
     * Make a picture of your choosing appear on your screen
-    * @example <caption>Hover the last screenshot you took using Win+Shift+S (unstable)</caption>
-    * HoverScreenshot().UseSecondToLast().Show()
     * @example <caption>Choose a picture to hover and do so</caption>
     * gHover := HoverScreenshot()
     * if gHover := gHover.SelectPath()
@@ -38,34 +36,6 @@ class HoverScreenshot {
     */
    __New() {
       this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
-   }
-
-   /**
-    * Sets the picturePath to the second to last screenshot you've taken.
-    * This will generally work because every time you take a screenshot, two pictures appear in
-    * your screenshots folder.
-    * One is the actual screenshot you wanna show, the second being the picture that gets shown
-    * in the notification after you take a screenshot.
-    * By getting the second to last (by creation time) picture, we will usually get the actual
-    * screenshot.
-    * This is not stable: sometimes the actual screenshot will not be second to last,
-    * but it is usually.
-    * Use "SelectPath()" instead if you treasure stability over comfortability
-    * @returns {HoverScreenshot} this, for you to be able to chain your methods
-    */
-   UseSecondToLast() {
-      previousTimeStamp := 0
-      image1            := ""
-      image2            := ""
-      loop files Paths.SavedScreenshots "\*.png" {
-         if A_LoopFileTimeCreated > previousTimeStamp {
-            previousTimeStamp := A_LoopFileTimeCreated
-            image2 := image1
-            image1 := A_LoopFileFullPath
-         }
-      }
-      this.picturePath := image2
-      return this
    }
 
    /**
@@ -115,7 +85,6 @@ class HoverScreenshot {
          throw MethodError("
             (
                You didn't set a picture path to show
-               Use the "UseSecondToLast()" method to pick the second to last screenshot automatically
                Use the "SelectPath()" method to let the user pick the picture to show in a menu interactively
                Set the "picturePath" property manually if you have your own way of getting the path
             )",
