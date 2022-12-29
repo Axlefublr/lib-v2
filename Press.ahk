@@ -65,3 +65,28 @@ ifTopLeftRight_Sugar(funcObj1, funcObj2, funcObj3, topLeftX := 250, topRightX :=
       Default: funcObj1()
    }
 }
+
+GetSections() {
+   MouseGetPos &sectionX, &sectionY
+   right         := (sectionX > 1368)
+   , left        := (sectionX < 568)
+   , down        := (sectionY > 747)
+   , up          := (sectionY < 347)
+   , topRight    := ((sectionX > 1707) && (sectionY < 233))
+   , topLeft     := ((sectionX < 252) && (sectionY < 229))
+   , bottomLeft  := ((sectionX < 263) && (sectionY > 849))
+   , bottomRight := ((sectionX > 1673) && (sectionY > 839))
+   , middle      := !right && !left && !down && !up
+   
+   return {
+      right:       right,
+      left:        left,
+      down:        down,
+      up:          up,
+      topRight:    topRight,
+      topLeft:     topLeft,
+      bottomLeft:  bottomLeft,
+      bottomRight: bottomRight,
+      middle:      middle
+   }
+}
