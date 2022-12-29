@@ -91,3 +91,11 @@ RemindDate() {
    today := FormatTime(, "MM.dd")
    try Info(birthdays[today])
 }
+
+CountLibraries() {
+   libraries := 0
+   loop files Paths.Lib "\*.ahk", "R" {
+      libraries++
+   }
+   return libraries
+}

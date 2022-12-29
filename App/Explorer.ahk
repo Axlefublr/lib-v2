@@ -2,7 +2,10 @@
 #Include <Win>
 
 Class Explorer {
-   static winTitleRegex := "^[A-Z]: ahk_exe explorer\.exe"
+   static exeTitle := "ahk_exe explorer.exe"
+   static winTitleRegex := "^[A-Z]:|Downloads|Documents|This PC|OneDrive|Network|Linux|Desktop|File Explorer ahk_exe explorer\.exe"
+   
+   static winObjRegex := Win({winTitle: this.winTitleRegex})
    
    Class WinObj {
       static Pictures         := Win({exePath: Paths.Pictures,   runOpt: "Min"})
