@@ -20,3 +20,4 @@
 
 #HotIf WinActive(Browser.winTitle,, VK.winTitle)
 !w::CloseTab()
+#HotIf
