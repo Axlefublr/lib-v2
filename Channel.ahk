@@ -60,170 +60,171 @@ Channel := [
    "https://youtu.be/gHQNoOMRHBc",
 
    ;;Main channel videos
-   "github profile hotkey",
-   "https://youtu.be/IfQ-sl04xu8",
 
-   "better windowgetter",
-   "https://youtu.be/dMnOM4BqGRc",
+   "explorer movement",
+   "https://youtu.be/XXr06HBccBs",
 
-   "making toggles for modifiers",
-   "https://youtu.be/7QCsOEOlAlI",
+   "how to clean a keyboard",
+   "https://youtu.be/Dcx1g2oNuUY",
+   
+   "fixing scrolling",
+   "https://youtu.be/PH3CRgDa9tQ",
+   
+   "feedkeys",
+   "https://youtu.be/_a2WLClyIpg",
+   
+   "regex",
+   "https://youtu.be/FwrtUiUpWkc",
 
-   "better weather clock",
-   "https://youtu.be/apez9vnJ2Bg",
+   "vertical movement",
+   "https://youtu.be/pStsi968ChE",
 
-   "communication between scripts",
-   "https://youtu.be/TO8Nnsu7pYU",
+   "zsh hotkeys",
+   "https://youtu.be/viOPfywjnZg",
 
-   "json shows",
-   "https://youtu.be/_LY6ReJsp_k",
+   "convert to lua",
+   "https://youtu.be/vvyJtqPiJwc",
 
-   "better discord but worse",
-   "https://youtu.be/mHs111Irw-w",
+   "reminddate",
+   "https://youtu.be/y9LSw1K_AI4",
 
-   "runner",
-   "https://youtu.be/Q3OSCYdVGX8",
+   "access modifiers",
+   "https://youtu.be/fCySzFAk5JI",
 
-   "food logger",
-   "https://youtu.be/lV6dUiNjgL4",
+   "win class playlist",
+   "https://youtu.be/772suOr0yUQ",
 
-   "spotify wintitles",
-   "https://youtu.be/yF3slRV1hFo",
+   "win class 3",
+   "https://youtu.be/qO3uE64M7-0",
 
-   "info",
-   "https://youtu.be/MNproAKcjow",
+   "win class 2",
+   "https://youtu.be/018oZlrRw7c",
 
-   "maybe maybe or operators",
-   "https://youtu.be/4B3oY8dSrXU",
-
-   "context sensitive hotkeys",
-   "https://youtu.be/XBLchI24ijQ",
-
-   "guard clauses",
-   "https://youtu.be/UChoYAdSG-U",
-
-   "hider",
-   "https://youtu.be/f9FYWsmALeI",
-
-   "screenshot hover",
-   "https://youtu.be/2JVI4v9rQT4",
-
-   "working with files",
-   "https://youtu.be/4KoDu6yp3dw",
-
-   "classes",
-   "https://youtu.be/Ey8x8d8W1W4",
-
-   "showing off cool libraries",
-   "https://youtu.be/Ea2LwsDTK1s",
-
-   "autoupdate your libraries",
-   "https://youtu.be/jADuLp4-JAI",
-
-   "classes and googler",
-   "https://youtu.be/RuUOSEwtLy0",
-
-   "refactoring shows 1",
-   "https://youtu.be/_jUbkfWLfkA",
-
-   "fixing that annoying gui issue",
-   "https://youtu.be/v_ja54uA7UE",
-
-   "refactoring shows 2",
-   "https://youtu.be/c8srPXwRMW0",
-
-   "inputbox but better",
-   "https://youtu.be/qTnhY8ivZLk",
-
-   "refactoring shows 3",
-   "https://youtu.be/_jUbkfWLfkA",
-
-   "filesearch",
-   "https://youtu.be/lay80oB7w1s",
-
-   "how to use vim",
-   "https://youtu.be/JJLJ9hm8AZ8",
-
-   "neovim api",
-   "https://youtu.be/VBr2DPm30h8",
-
-   "timer",
-   "https://youtu.be/C1-U3ErdGc0",
-
-   "include",
-   "https://youtu.be/nFnMiVAjkv4",
-
-   "code block text object",
-   "https://youtu.be/KQ5WbYcJswk",
-
-   "autoclicker",
-   "https://youtu.be/jRXij-cJKpw",
-
-   "text objects",
-   "https://youtu.be/nU4vRFMf4F8",
-
-   "recolor code",
-   "https://youtu.be/uA9DiCq2-7c",
-
-   "my vscode setup",
-   "https://youtu.be/1mHU3OfmLy4",
-
-   "transandproud",
-   "https://youtu.be/UBPaABITDaA",
-
-   "how to make text objects",
-   "https://youtu.be/wj7U-DNALN0",
-
-   "what does gM do",
-   "https://youtu.be/j-MBH-rVI6c",
-
-   "how to remap ctrl characters",
-   "https://youtu.be/yz3jptm414I",
+   "win class 1",
+   "https://youtu.be/772suOr0yUQ",
 
    "regremap",
    "https://youtu.be/AEnz3Bd-PV4",
    "gst regremap",
    "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
 
-   "win class 1",
-   "https://youtu.be/772suOr0yUQ",
+   "how to remap ctrl characters",
+   "https://youtu.be/yz3jptm414I",
 
-   "win class 2",
-   "https://youtu.be/018oZlrRw7c",
+   "how to make text objects",
+   "https://youtu.be/wj7U-DNALN0",
 
-   "win class 3",
-   "https://youtu.be/qO3uE64M7-0",
+   "transandproud",
+   "https://youtu.be/UBPaABITDaA",
 
-   "win class playlist",
-   "https://youtu.be/772suOr0yUQ",
+   "my vscode setup",
+   "https://youtu.be/1mHU3OfmLy4",
 
-   "access modifiers",
-   "https://youtu.be/fCySzFAk5JI",
+   "recolor code",
+   "https://youtu.be/uA9DiCq2-7c",
 
-   "reminddate",
-   "https://youtu.be/y9LSw1K_AI4",
+   "text objects",
+   "https://youtu.be/nU4vRFMf4F8",
 
-   "convert to lua",
-   "https://youtu.be/vvyJtqPiJwc",
+   "autoclicker",
+   "https://youtu.be/jRXij-cJKpw",
 
-   "zsh hotkeys",
-   "https://youtu.be/viOPfywjnZg",
+   "code block text object",
+   "https://youtu.be/KQ5WbYcJswk",
 
-   "vertical movement",
-   "https://youtu.be/pStsi968ChE",
+   "include",
+   "https://youtu.be/nFnMiVAjkv4",
 
-   "regex",
-   "https://youtu.be/FwrtUiUpWkc",
+   "timer",
+   "https://youtu.be/C1-U3ErdGc0",
 
-   "feedkeys",
-   "https://youtu.be/_a2WLClyIpg",
-   
-   "fixing scrolling",
-   "https://youtu.be/PH3CRgDa9tQ",
-   
-   "how to clean a keyboard",
-   "https://youtu.be/Dcx1g2oNuUY",
-   
+   "neovim api",
+   "https://youtu.be/VBr2DPm30h8",
+
+   "how to use vim",
+   "https://youtu.be/JJLJ9hm8AZ8",
+
+   "filesearch",
+   "https://youtu.be/lay80oB7w1s",
+
+   "refactoring shows 3",
+   "https://youtu.be/_jUbkfWLfkA",
+
+   "inputbox but better",
+   "https://youtu.be/qTnhY8ivZLk",
+
+   "refactoring shows 2",
+   "https://youtu.be/c8srPXwRMW0",
+
+   "fixing that annoying gui issue",
+   "https://youtu.be/v_ja54uA7UE",
+
+   "refactoring shows 1",
+   "https://youtu.be/_jUbkfWLfkA",
+
+   "classes and googler",
+   "https://youtu.be/RuUOSEwtLy0",
+
+   "autoupdate your libraries",
+   "https://youtu.be/jADuLp4-JAI",
+
+   "showing off cool libraries",
+   "https://youtu.be/Ea2LwsDTK1s",
+
+   "classes",
+   "https://youtu.be/Ey8x8d8W1W4",
+
+   "working with files",
+   "https://youtu.be/4KoDu6yp3dw",
+
+   "screenshot hover",
+   "https://youtu.be/2JVI4v9rQT4",
+
+   "hider",
+   "https://youtu.be/f9FYWsmALeI",
+
+   "guard clauses",
+   "https://youtu.be/UChoYAdSG-U",
+
+   "context sensitive hotkeys",
+   "https://youtu.be/XBLchI24ijQ",
+
+   "maybe maybe or operators",
+   "https://youtu.be/4B3oY8dSrXU",
+
+   "info",
+   "https://youtu.be/MNproAKcjow",
+
+   "spotify wintitles",
+   "https://youtu.be/yF3slRV1hFo",
+
+   "food logger",
+   "https://youtu.be/lV6dUiNjgL4",
+
+   "runner",
+   "https://youtu.be/Q3OSCYdVGX8",
+
+   "better discord but worse",
+   "https://youtu.be/mHs111Irw-w",
+
+   "json shows",
+   "https://youtu.be/_LY6ReJsp_k",
+
+   "communication between scripts",
+   "https://youtu.be/TO8Nnsu7pYU",
+
+   "better weather clock",
+   "https://youtu.be/apez9vnJ2Bg",
+
+   "making toggles for modifiers",
+   "https://youtu.be/7QCsOEOlAlI",
+
+   "better windowgetter",
+   "https://youtu.be/dMnOM4BqGRc",
+
+   "github profile hotkey",
+   "https://youtu.be/IfQ-sl04xu8",
+
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",

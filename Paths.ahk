@@ -69,11 +69,9 @@ Class Paths {
       "Events",    this.Info "\Events.jsonc",
       "Birthdays", this.Info "\Birthdays.jsonc",
 
-      "Clean",       this.YtDev "\Clean.md",
-      "Description", this.YtDev "\Description.txt",
-
       "FL preset", this.Pictures "\Tools\FL preset.flp",
-      
+
+      "Femboy", this.Pictures "\Other\femboy.png"
    )
 
    static Apps := Map(

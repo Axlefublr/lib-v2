@@ -45,7 +45,7 @@ Class VsCode {
       clean := clean.RegexReplace("(?<!\.)\n{2}(?=[^A-Z])", " ") ;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
       clean := clean.RegexReplace("[ \t]{2,}", " ")
 
-      WriteFile(Paths.Ptf["Clean"], clean)
+      Out(clean)
       Info("Text cleaned")
    }
 
