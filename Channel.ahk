@@ -1,5 +1,7 @@
 Channel := [
+
    ;;Channels
+
    "ahk channel",
    "https://www.youtube.com/@AhkAllTheWay",
 
@@ -13,13 +15,13 @@ Channel := [
 
    "how to clean a keyboard",
    "https://youtu.be/Dcx1g2oNuUY",
-   
+
    "fixing scrolling",
    "https://youtu.be/PH3CRgDa9tQ",
-   
+
    "feedkeys",
    "https://youtu.be/_a2WLClyIpg",
-   
+
    "regex",
    "https://youtu.be/FwrtUiUpWkc",
 
@@ -172,7 +174,8 @@ Channel := [
    "github profile hotkey",
    "https://youtu.be/IfQ-sl04xu8",
 
-   ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
+   ;;Main channel unlisted videos (either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends)
+
    "ctrl x mode demo",
    "https://youtu.be/hdm6dVbzaAw",
 
@@ -188,7 +191,8 @@ Channel := [
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
 
-   ;;Ahk channel tutorials
+   ;;Second channel tutorials
+
    "startup",
    "https://youtu.be/vjQIbagvkcs",
 
@@ -228,10 +232,8 @@ Channel := [
    "settimers",
    "https://youtu.be/bUxm_Gwd58Q",
 
-   "arrays repo",
-   "https://github.com/Axlefublr/arrays",
+   ;;Second channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
 
-   ;;Ahk channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
    "v2 setup",
    "https://youtu.be/TSvp6ktqo1Q",
 
@@ -242,6 +244,7 @@ Channel := [
    "https://youtu.be/gHQNoOMRHBc",
 
    ;;Useful tutorials not by me
+
    "regex tutorial",
    "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
 
