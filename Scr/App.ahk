@@ -7,3 +7,5 @@
 #Include <Scr\App\Player>
 #Include <Scr\App\Davinci>
 #Include <Scr\App\Autohotkey>
+#Include <Scr\App\Explorer>
+#Include <Scr\App\Terminal>
