@@ -6,3 +6,4 @@
 #Include <Scr\App\VsCode>
 #Include <Scr\App\Player>
 #Include <Scr\App\Davinci>
+#Include <Scr\App\Autohotkey>
