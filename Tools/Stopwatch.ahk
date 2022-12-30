@@ -1,5 +1,4 @@
-#Include <Get>
-#Include <Tools\Info>
+; No dependencies
 
 /**
  * A stopwatch, accurate to the seconds
