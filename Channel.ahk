@@ -6,59 +6,6 @@ Channel := [
    "main channel",
    "https://www.youtube.com/@Axlefublr",
 
-   ;;Ahk channel tutorials
-   "startup",
-   "https://youtu.be/vjQIbagvkcs",
-
-   "arrow",
-   "https://youtu.be/nSTL3KND25c",
-
-   "ternary",
-   "https://youtu.be/RsH6A2Cuo-c",
-
-   "getters",
-   "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
-
-   "clock",
-   "https://youtu.be/A9gBET8WHig",
-
-   "function objects",
-   "https://youtu.be/5X2OddjH96A",
-
-   "install ahk",
-   "https://youtu.be/X4elEmKFep4",
-
-   "configure docs",
-   "https://youtu.be/8OymPoyUN70",
-
-   "static",
-   "https://youtu.be/HOvItTvVTZA",
-
-   "clipsend",
-   "https://youtu.be/dnp1KTu-R2k",
-
-   "objects",
-   "https://youtu.be/6W9Ruu5jHaM",
-
-   "vscode setup",
-   "https://youtu.be/u66dw-hIj3g",
-
-   "settimers",
-   "https://youtu.be/bUxm_Gwd58Q",
-
-   "arrays repo",
-   "https://github.com/Axlefublr/arrays",
-
-   ;;Ahk channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
-   "v2 setup",
-   "https://youtu.be/TSvp6ktqo1Q",
-
-   "syntax highlighting",
-   "https://youtu.be/kYtKBncvEAA",
-
-   "snippets",
-   "https://youtu.be/gHQNoOMRHBc",
-
    ;;Main channel videos
 
    "explorer movement",
@@ -226,20 +173,73 @@ Channel := [
    "https://youtu.be/IfQ-sl04xu8",
 
    ;;Main channel unlisted videos (either unfinished, or for a different topic than ahk v2, essentially, a way for me to share videos more easily)
-   "screenshot hover unfinished",
-   "https://youtu.be/4jiXHYuo7D8",
-
-   "v2iB",
-   "https://youtu.be/8Jtm-cx4k6Y",
-
-   "making codesnap work with neovim",
-   "https://youtu.be/z0wvpBEjEeQ",
+   "ctrl x mode demo",
+   "https://youtu.be/hdm6dVbzaAw",
 
    "fixing scrolling deprecated", ;The neovim extension devs fixed the issue before I could even publish the video. Thanks for fixing it but also fuck you for fixing it /s.
    "https://youtu.be/6-MgEcZpNsg",
 
-   "ctrl x mode demo",
-   "https://youtu.be/hdm6dVbzaAw",
+   "making codesnap work with neovim",
+   "https://youtu.be/z0wvpBEjEeQ",
+
+   "v2iB",
+   "https://youtu.be/8Jtm-cx4k6Y",
+
+   "screenshot hover unfinished",
+   "https://youtu.be/4jiXHYuo7D8",
+
+   ;;Ahk channel tutorials
+   "startup",
+   "https://youtu.be/vjQIbagvkcs",
+
+   "arrow",
+   "https://youtu.be/nSTL3KND25c",
+
+   "ternary",
+   "https://youtu.be/RsH6A2Cuo-c",
+
+   "getters",
+   "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
+
+   "clock",
+   "https://youtu.be/A9gBET8WHig",
+
+   "function objects",
+   "https://youtu.be/5X2OddjH96A",
+
+   "install ahk",
+   "https://youtu.be/X4elEmKFep4",
+
+   "configure docs",
+   "https://youtu.be/8OymPoyUN70",
+
+   "static",
+   "https://youtu.be/HOvItTvVTZA",
+
+   "clipsend",
+   "https://youtu.be/dnp1KTu-R2k",
+
+   "objects",
+   "https://youtu.be/6W9Ruu5jHaM",
+
+   "vscode setup",
+   "https://youtu.be/u66dw-hIj3g",
+
+   "settimers",
+   "https://youtu.be/bUxm_Gwd58Q",
+
+   "arrays repo",
+   "https://github.com/Axlefublr/arrays",
+
+   ;;Ahk channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
+   "v2 setup",
+   "https://youtu.be/TSvp6ktqo1Q",
+
+   "syntax highlighting",
+   "https://youtu.be/kYtKBncvEAA",
+
+   "snippets",
+   "https://youtu.be/gHQNoOMRHBc",
 
    ;;Useful tutorials not by me
    "regex tutorial",
