@@ -4,3 +4,4 @@
 #Include <Scr\App\Browser>
 #Include <Scr\App\VK>
 #Include <Scr\App\VsCode>
+#Include <Scr\App\Player>
