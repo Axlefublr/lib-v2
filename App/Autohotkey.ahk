@@ -2,10 +2,12 @@
 
 Class Autohotkey {
 
-   static path := A_ProgramFiles "\AutoHotkey"
+   static path        := A_ProgramFiles "\AutoHotkey"
    ; static currVersion := this.path "\v" A_AhkVersion
    static currVersion := this.path "\v2"
-   static v1Version := this.path "\v1.1.34.04"
+   static v1Version   := this.path "\v1.1.34.04"
+   static processExe  := A_AhkPath
+   static exeTitle    := "ahk_exe " this.processExe
 
    Class Docs extends Autohotkey {
 
