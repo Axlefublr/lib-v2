@@ -26,7 +26,7 @@ class Stopwatch {
     * @type {String} time in format HH:mm:ss
     */
    CurrTime {
-      get => FormatTime(this.__AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
+      get => FormatTime(Stopwatch.__AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
    }
 
    /**
@@ -35,7 +35,7 @@ class Stopwatch {
     * @private
     * @returns {Integer} A valid YYYYMMDDHH24MISS number
     */
-   __AddPaddingForDateNum(num) {
+   static __AddPaddingForDateNum(num) {
       while StrLen(num) < 14 {
          num := 0 num
       }
