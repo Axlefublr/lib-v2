@@ -94,10 +94,3 @@ ConvertToRegex(input) {
    }
    return input
 }
-
-AddPaddingForDateNum(num) {
-   while StrLen(num) < 14 {
-      num := 0 num
-   }
-   return num
-}
