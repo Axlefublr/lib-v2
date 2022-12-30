@@ -5,6 +5,10 @@
  * A stopwatch, accurate to the seconds
  * Time calculation only happens once you get CurrTime,
  * so there's no Stop method
+ * There's also no need because you do a restart via using Start()
+ * There's also a static way to use this class, since you will
+ * most likely have hotkeys for the three different actions,
+ * and storing a class object can be annoying
  */
 class Stopwatch {
 
@@ -40,5 +44,26 @@ class Stopwatch {
          num := 0 num
       }
       return num
+   }
+
+   /**
+    * The time your stopwatch started at
+    * In YYYYMMDDHH24MISS format
+    * @type {Integer}
+    */
+   static startingTime := 0
+
+   /**
+    * Start the timer by setting the startingTime property
+    * @returns {Integer} The startingTime property
+    */
+   static Start() => this.startingTime := A_Now
+
+   /**
+    * The time passed after the start of the timer
+    * @type {String} time in format HH:mm:ss
+    */
+   static CurrTime {
+      get => FormatTime(this.__AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
    }
 }
