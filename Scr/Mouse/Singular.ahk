@@ -5,6 +5,8 @@
 #Include <Tools>
 #Include <Script>
 
+#MaxThreadsBuffer true
+
 U_VerticalScroll := true
 #c::global U_VerticalScroll := !U_VerticalScroll
 
@@ -44,3 +46,5 @@ Media_Stop & MButton::F5
 Media_Stop & LButton::Screenshot.Start()
 
 XButton2 & Media_Stop::scr_Reload()
+
+#MaxThreadsBuffer false

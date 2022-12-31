@@ -11,6 +11,8 @@
 #Include <Base>
 #Include <Script>
 
+#MaxThreadsBuffer true
+
 Media_Stop:: {
    sections := GetSections()
    Switch {
@@ -62,3 +64,5 @@ XButton1:: {
       Case WinActive(Discord.winTitle)  && sections.down:Send("{Esc}")
    }
 }
+
+#MaxThreadsBuffer false
