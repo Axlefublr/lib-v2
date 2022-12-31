@@ -6,7 +6,7 @@
 #Include <Sort>
 #Include <Win>
 #Include <String-full>
-#Include <Tools>
+#Include <Loaders\Tools>
 #Include <Loaders\App>
 #Include <Other>
 #Include <Script>
