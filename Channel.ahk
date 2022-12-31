@@ -9,6 +9,9 @@ Channel := [
    "https://www.youtube.com/@Axlefublr",
 
    ;;Main channel videos
+   
+   "arrays and for loops",
+   "https://youtu.be/dxf3hRhywvQ",
 
    "explorer movement",
    "https://youtu.be/XXr06HBccBs",
