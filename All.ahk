@@ -7,7 +7,7 @@
 #Include <Win>
 #Include <String-full>
 #Include <Tools>
-#Include <App>
+#Include <Loaders\App>
 #Include <Other>
 #Include <Script>
 #Include <Gui>
