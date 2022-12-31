@@ -1,3 +1,10 @@
+#Include <Base>
+#Include <Press>
+#Include <Image>
+#Include <App\Screenshot>
+#Include <Tools>
+#Include <Script>
+
 U_VerticalScroll := true
 #c::global U_VerticalScroll := !U_VerticalScroll
 
