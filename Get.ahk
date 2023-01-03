@@ -55,36 +55,6 @@ TransfToHex(num, hexPrefix := true) => Format((hexPrefix ? "0x" : "") "{:x}", nu
 
 TransfToDecimal(num) => Format("{:u}", num)
 
-/**
- * Returns a random character. Number / lowercase english character / uppercase english character
- * @returns {String}
- */
-GetRandomCharacter() {
-   picker := Random(1, 3)
-   static CharClasses := [
-      Random.Bind(48, 57), ;Decimal range for numbers
-      Random.Bind(65, 90), ;Decimal range for lowercase characters
-      Random.Bind(97, 122) ;Decimal range for uppercase characters
-   ]
-
-   ProperCharNum := CharClasses[picker].Call()
-
-   return Chr(TransfToHex(ProperCharNum)) ;Chr() expects a 16 base number, so we're converting a decimal to hex
-}
-
-/**
- * Get a string of random characters: numbers, lowercase and uppercase english characters
- * @param chars *Integer* The length of the string you want
- * @returns {String}
- */
-GetStringOfRandChars(chars) {
-   randString := ""
-   Loop chars {
-      randString .= GetRandomCharacter()
-   }
-   return randString
-}
-
 RadNum() => Random(1000000, 9999999)
 
 ConvertToRegex(input) {
