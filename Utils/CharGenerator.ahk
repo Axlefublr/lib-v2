@@ -1,3 +1,4 @@
+#Include <Get>
 
 class CharGenerator {
 
