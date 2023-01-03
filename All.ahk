@@ -19,6 +19,7 @@
 #Include <Image>
 #Include <Memes>
 #Include <Text>
+#Include <Loaders\Utils>
 
 ;External
 #Include <Eval>

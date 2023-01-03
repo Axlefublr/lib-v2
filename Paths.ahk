@@ -45,7 +45,7 @@ Class Paths {
       "vk reply",           this.Main "\Files\Images\vk reply.png",
       "BlankPic",           this.Main "\Files\Images\BlankPic.png",
       
-      "vine boom", this.Main "\Files\Sounds\vine boom.wav",
+      "vine boom", this.Main "\Files\Sounds\vine-boom.wav",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
 

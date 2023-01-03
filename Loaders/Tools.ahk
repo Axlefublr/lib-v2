@@ -16,6 +16,7 @@
 #Include <Tools\Stopwatch>
 #Include <Tools\Brightness>
 #Include <Tools\HoverScreenshot>
+#Include <Tools\SoundPlay>
 
 tool_RelativeCoordGetter() {
    static var := 0

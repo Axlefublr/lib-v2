@@ -12,7 +12,7 @@ Class Timer {
    __New(time, isInMinutes := true, shouldExitapp := false, shouldRing := true) {
 
       this.shouldRing := shouldRing
-      
+
       this.timeWord := time " " (isInMinutes ? "minutes" : "seconds")
       this.endTime := Round(A_TickCount + time * (isInMinutes ? 60000 : 1000))
 
@@ -53,11 +53,11 @@ Class Timer {
          return
       }
 
+      this.Stop()
       if this.shouldRing
          this.Alarm()
-      else 
+      else
          this.StopSound()
-      this.Stop()
    }
 
    /**
@@ -75,7 +75,7 @@ Class Timer {
          ExitApp()
       }
    }
-   
+
    /**
     * An alternative to the usual beeping ringer, that will instead just disable your music
     * You can get this behavior if you set the "shouldRing" parameter in the constructor to false
