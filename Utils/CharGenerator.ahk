@@ -2,8 +2,8 @@
 class CharGenerator {
 
    static NumberRange    := [48, 57]
-   static LowercaseRange := [65, 90]
-   static UppercaseRange := [97, 122]
+   static LowercaseRange := [97, 122]
+   static UppercaseRange := [65, 90]
 
    static Ranges := [
       this.LowercaseRange,
@@ -27,6 +27,10 @@ class CharGenerator {
     * 2 for uppercase also
     * 3 for numbers as well
     * @throws {IndexError} if you specify a complexity range that doesn't exist
+    * @example <caption>Generate a random character that could be a lowercase character, an uppercase character, or a number</caption>
+    * character := CharGenerator(3).GenerateCharacter()
+    * @example <caption>Generate a string of 20 random characters</caption>
+    * characters := CharGenerator(3).GenerateCharacters(20)
     */
    __New(complexity) {
       if complexity < 1 {
@@ -38,9 +42,34 @@ class CharGenerator {
       this.Complexity := complexity
    }
 
+   /**
+    * There's an equal chance for a lowercase character, an uppercase character and a number to show up
+    * @returns {String} a random character
+    */
    GenerateCharacter() {
-      if this.Complexity > 1
-      return
+      if this.Complexity > 1 {
+         picker := Random(1, this.Complexity)
+      }
+      picker := picker ?? 1
+
+      minCharNum := CharGenerator.Ranges[picker][1]
+      maxCharNum := CharGenerator.Ranges[picker][2]
+      charNumber := Random(minCharNum, maxCharNum)
+
+      return Chr(TransfToHex(charNumber))
+   }
+
+   /**
+    * Same as GenerateCharacter(), but multiple
+    * @param amount *Integer*
+    * @returns {String}
+    */
+   GenerateCharacters(amount) {
+      text := ""
+      loop amount {
+         text .= this.GenerateCharacter()
+      }
+      return text
    }
 
 }
