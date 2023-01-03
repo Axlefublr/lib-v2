@@ -10,6 +10,9 @@ Channel := [
 
    ;;Main channel videos
 
+   "how to ask gaming questions",
+   "https://youtu.be/zF0BKJsR91o",
+
    "arrays and for loops",
    "https://youtu.be/dxf3hRhywvQ",
 

@@ -5,7 +5,7 @@
 #Include <Paths>
 
 Class VsCode {
-   
+
    static exeTitle := "ahk_exe Code.exe"
    static winTitle := "Visual Studio Code " this.exeTitle
    static path := Paths.LocalAppData "\Programs\Microsoft VS Code\Code.exe"
@@ -15,7 +15,7 @@ Class VsCode {
       winTitle: this.winTitle,
       exePath:  this.path,
    })
-   
+
    static IndentRight()   => Send("^!{Right}")
    static IndentLeft()    => Send("^!{Left}")
    static Comment()       => Send("#{End}")
@@ -35,28 +35,4 @@ Class VsCode {
       Run(Paths.Ptf[wkspName], , "Max")
    }
 
-   static CleanText(input) {
-      clean := StrReplace(input, "`r`n", "`n") ;making it easy for regex to work its magic by removing returns
-      clean := clean.RegexReplace("[ \t]{2,}", " ")
-      clean := clean.RegexReplace("^[!*].*\n(\n)?")
-      clean := clean.RegexReplace("(\n)?\n\* .*", "`n`n")
-      clean := clean.RegexReplace("(\n)?\n!\[.*", "`n`n")
-      ; clean := clean.RegexReplace("\n{3,}")	;removing spammed newlines
-      clean := clean.RegexReplace("(?<!\.)\n{2}(?=[^A-Z])", " ") ;appending continuing lines that start with a lowercase letter. if the previous line ended in a period, it's ignored
-      clean := clean.RegexReplace("[ \t]{2,}", " ")
-
-      Out(clean)
-      Info("Text cleaned")
-   }
-
-   static VideoUp() {
-      files := [
-         Paths.Ptf["Clean"],
-         Paths.Ptf["Description"],
-      ]
-      for key, value in files {
-         WriteFile(value)
-      }
-      FileDelete(Paths.Materials "\*.*")
-   }
 }
