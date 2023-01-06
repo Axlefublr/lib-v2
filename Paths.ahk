@@ -18,15 +18,16 @@ Class Paths {
    static Docs      := this.Main "\Docs"
    static Files     := this.Main "\Files"
    static Images    := this.Main "\Files\Images"
-   static Sounds    := this.Main "\Files\Sounds"
    static Notes     := this.Main "\Notes"
    static NotesTemp := this.Main "\Notes temp"
    static Tools     := this.Main "\Tools"
-   
+
    static Pictures   := "C:\Pictures"
    static Materials  := this.Pictures "\Materials"
    static Content    := this.Pictures "\Content"
    static VideoTools := this.Pictures "\Tools"
+
+   static Sounds := "C:\Sounds"
 
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
@@ -45,8 +46,6 @@ Class Paths {
       "vk reply",           this.Main "\Files\Images\vk reply.png",
       "BlankPic",           this.Main "\Files\Images\BlankPic.png",
 
-      "vine boom", this.Main "\Files\Sounds\vine-boom.wav",
-
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
@@ -54,6 +53,9 @@ Class Paths {
       "Output",  this.Test "\Output.txt",
       "Input",   this.Test "\Input.txt",
       "AhkTest", this.Test "\AhkTest.ahk",
+
+      "vine boom",        this.Sounds "\vine-boom.wav",
+      "faded than a hoe", this.Sounds "\faded than a hoe.wav",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
