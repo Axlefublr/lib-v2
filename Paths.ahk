@@ -12,6 +12,7 @@ Class Paths {
    static Shows := "C:\Programming\shows"
    static YtDev := "C:\Programming\yt-dev"
    static Info  := "C:\Programming\info"
+   static Test  := "C:\Programming\test"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
@@ -20,9 +21,8 @@ Class Paths {
    static Sounds    := this.Main "\Files\Sounds"
    static Notes     := this.Main "\Notes"
    static NotesTemp := this.Main "\Notes temp"
-   static Test      := this.Main "\Test"
    static Tools     := this.Main "\Tools"
-
+   
    static Pictures   := "C:\Pictures"
    static Materials  := this.Pictures "\Materials"
    static Content    := this.Pictures "\Content"
@@ -44,16 +44,16 @@ Class Paths {
       "reply",              this.Main "\Files\Images\reply.png",
       "vk reply",           this.Main "\Files\Images\vk reply.png",
       "BlankPic",           this.Main "\Files\Images\BlankPic.png",
-      
+
       "vine boom", this.Main "\Files\Sounds\vine-boom.wav",
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
 
       "Keys", this.Main "\Main\Scr Keys.ahk",
 
-      "Output",  this.Main "\Test\Output.txt",
-      "Input",   this.Main "\Test\Input.txt",
-      "AhkTest", this.Main "\Test\AhkTest.ahk",
+      "Output",  this.Test "\Output.txt",
+      "Input",   this.Test "\Input.txt",
+      "AhkTest", this.Test "\AhkTest.ahk",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
