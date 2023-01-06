@@ -17,7 +17,7 @@ class Stopwatch {
     * In YYYYMMDDHH24MISS format
     * @type {Integer}
     */
-   startingTime := 0
+   startingTime := unset
 
    /**
     * Start the stopwatch
