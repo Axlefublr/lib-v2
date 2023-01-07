@@ -28,7 +28,7 @@ Channel := [
    "feedkeys",
    "https://youtu.be/_a2WLClyIpg",
 
-   "regex",
+   "how to use regex in ahk",
    "https://youtu.be/FwrtUiUpWkc",
 
    "vertical movement",
