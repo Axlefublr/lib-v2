@@ -1,5 +1,5 @@
 #Include <Tools\Info>
-#Include <Links>
+#Include <Loaders\All>
 #Include <String>
 
 GetCurrDate()     => FormatTime(, "yy.MM.dd")

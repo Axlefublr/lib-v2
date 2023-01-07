@@ -1,4 +1,4 @@
-﻿#Include <Links>
+﻿#Include <Loaders\Links>
 #Include <Char>
 #Include <Base>
 #Include <Global>
@@ -15,9 +15,7 @@
 #Include <ClipSend>
 #Include <Cmd>
 #Include <Get>
-#Include <Channel>
 #Include <Image>
-#Include <Memes>
 #Include <Text>
 #Include <Loaders\Utils>
 
