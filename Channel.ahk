@@ -8,7 +8,15 @@ Channel := [
    "main channel",
    "https://www.youtube.com/@Axlefublr",
 
+   ;;Main channel playlists
+
+   "ahk playlist",
+   "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
+   
    ;;Main channel videos
+   
+   "install ahk",
+   "https://youtu.be/fcwSR4LWdNo",
 
    "how to ask gaming questions",
    "https://youtu.be/zF0BKJsR91o",
@@ -180,7 +188,8 @@ Channel := [
    "github profile hotkey",
    "https://youtu.be/IfQ-sl04xu8",
 
-   ;;Main channel unlisted videos (either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends)
+   ;;Main channel unlisted videos 
+   ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
 
    "ctrl x mode demo",
    "https://youtu.be/hdm6dVbzaAw",
@@ -217,9 +226,6 @@ Channel := [
    "function objects",
    "https://youtu.be/5X2OddjH96A",
 
-   "install ahk",
-   "https://youtu.be/X4elEmKFep4",
-
    "configure docs",
    "https://youtu.be/8OymPoyUN70",
 
@@ -238,7 +244,11 @@ Channel := [
    "settimers",
    "https://youtu.be/bUxm_Gwd58Q",
 
-   ;;Second channel unlisted tutorials (go ahead, watch them if you want, but they are deprecated so don't listen to me!)
+   ;;Second channel unlisted tutorials 
+   ;Go ahead, watch them if you want, but they are deprecated so don't listen to me!
+
+   "install ahk deprecated",
+   "https://youtu.be/X4elEmKFep4",
 
    "v2 setup",
    "https://youtu.be/TSvp6ktqo1Q",
