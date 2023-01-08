@@ -1,5 +1,5 @@
 #Include <Tools\Info>
-#Include <Get>
+#Include <Converters\Get>
 #Include <Abstractions\Text>
 #Include <Paths>
 #Include <Abstractions\Global>
@@ -8,12 +8,12 @@ Class Spotify {
 
    static exeTitle := "ahk_exe Spotify.exe"
    static path := A_AppData "\Spotify\Spotify.exe"
-   
+
    static winObj := Win({
-      winTitle: this.exeTitle,                 
+      winTitle: this.exeTitle,
       exePath: this.path
    })
-   
+
    static Like() => Send("+!b")
 
    static Shuffle() => Send("^s")

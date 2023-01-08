@@ -1,4 +1,4 @@
-#Include <Tools\System\SoundPlayer>
+#Include <System\SoundPlayer>
 
 SoundPlayer.Sounds.Set(
 

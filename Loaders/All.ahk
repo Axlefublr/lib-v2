@@ -1,13 +1,10 @@
 ﻿#Include <Loaders\Links>
 #Include <Loaders\Abstractions>
 #Include <Loaders\Utils>
-#Include <Extensions\Sort>
 #Include <Loaders\Tools>
+#Include <Loaders\Extensions>
 #Include <Loaders\App>
+#Include <Loaders\System>
+#Include <Loaders\Converters>
 #Include <Other>
-
-#Include <Extensions\Gui>
-#Include <Get>
-#Include <Loaders\Utils>
-
-#Include <Loaders\External>
+#Include <Paths>

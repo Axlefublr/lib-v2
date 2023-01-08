@@ -1,5 +1,5 @@
 ;Made by @thqby (https://github.com/thqby), rewritten slightly into my style
-#Include <External\Json>
+#Include <Extensions\Json>
 Print(toPrint) {
    toPrint_string := ""
    switch Type(toPrint) {

@@ -1,6 +1,6 @@
 #Include <Tools\Info>
 #Include <Loaders\All>
-#Include <External\String>
+#Include <Extensions\String>
 
 GetCurrDate()     => FormatTime(, "yy.MM.dd")
 GetCurrTime()     => FormatTime(, "HH:mm")

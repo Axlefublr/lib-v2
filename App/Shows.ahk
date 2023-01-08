@@ -1,11 +1,11 @@
-#Include <External\Json>
+#Include <Extensions\Json>
 #Include <Abstractions\Text>
 #Include <Paths>
-#Include <Get>
+#Include <Converters\Get>
 #Include <Tools\Info>
 #Include <Utils\Win>
 #Include <App\Browser>
-#Include <External\String>
+#Include <Extensions\String>
 
 Class Shows {
    __New() {
