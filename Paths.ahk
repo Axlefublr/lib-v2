@@ -54,8 +54,8 @@ Class Paths {
       "Input",   this.Test "\Input.txt",
       "AhkTest", this.Test "\AhkTest.ahk",
 
-      "vine boom",        this.Sounds "\vine-boom.wav",
-      "faded than a hoe", this.Sounds "\faded-than-a-hoe.wav",
+      "vine boom",        this.Sounds "\vine boom.wav",
+      "faded than a hoe", this.Sounds "\faded than a hoe.wav",
       "heheheha",         this.Sounds "\heheheha.wav",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",

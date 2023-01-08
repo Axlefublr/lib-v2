@@ -1,6 +1,6 @@
 #Include <System\SoundPlayer>
 
-MySounds := Map(
+SoundPlayer.Storage.Set(
 
    "vine boom",        SoundPlayer(Paths.Ptf["vine boom"]),
    "heheheha",         SoundPlayer(Paths.Ptf["heheheha"]),
