@@ -14,9 +14,9 @@
 #Include <Tools\KeycodeGetter>
 #Include <Tools\Counter>
 #Include <Tools\Stopwatch>
-#Include <Tools\Brightness>
+#Include <Tools\System\Brightness>
 #Include <Tools\HoverScreenshot>
-#Include <Tools\SoundPlayer>
+#Include <Tools\System\SoundPlayer>
 
 tool_RelativeCoordGetter() {
    static var := 0
