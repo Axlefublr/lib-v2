@@ -1,4 +1,4 @@
-#Include <Gui>
+#Include <Extensions\Gui>
 
 CoordGetter() {
    CoordMode("Mouse", "Screen")

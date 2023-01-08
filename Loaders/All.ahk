@@ -3,7 +3,7 @@
 #Include <Base>
 #Include <Global>
 #Include <Press>
-#Include <Sort>
+#Include <Extensions\Sort>
 #Include <Win>
 #Include <String-full>
 #Include <Loaders\Tools>
@@ -11,7 +11,7 @@
 #Include <Other>
 #Include <Script>
 
-#Include <Gui>
+#Include <Extensions\Gui>
 #Include <ClipSend>
 #Include <Cmd>
 #Include <Get>

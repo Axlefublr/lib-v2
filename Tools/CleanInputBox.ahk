@@ -1,4 +1,4 @@
-#Include <Gui>
+#Include <Extensions\Gui>
 
 ; This is like a really long line that also wraps so I can show off the gj and gk. In case you didn't know I make videos about autohotkey v2 as well on this channel, subscribe if you're interested. Fun fact: the "Stay fresh, cheesebags!" at the end of my outtro comes from a meme.
 
