@@ -1,8 +1,8 @@
 #Include <App\Youtube>
-#Include <ClipSend>
-#Include <Text>
+#Include <Utils\ClipSend>
+#Include <Abstractions\Text>
 #Include <Paths>
-#Include <Win>
+#Include <Utils\Win>
 
 #HotIf WinActive(Youtube.Studio)
 :O:msc::My second channel!

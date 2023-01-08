@@ -1,6 +1,6 @@
 #Include <App\Browser>
 #Include <App\VK>
-#Include <Base>
+#Include <Abstractions\Base>
 
 #HotIf WinActive(Browser.winTitle)
 

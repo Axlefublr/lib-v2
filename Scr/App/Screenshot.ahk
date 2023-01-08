@@ -1,5 +1,5 @@
 #Include <App\Screenshot>
-#Include <Base>
+#Include <Abstractions\Base>
 
 #HotIf WinActive(Screenshot.saveTitle)
 XButton1 & LButton::Save()

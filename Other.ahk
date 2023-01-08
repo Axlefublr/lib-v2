@@ -1,5 +1,5 @@
-﻿#Include <Win>
-#Include <Global>
+﻿#Include <Utils\Win>
+#Include <Abstractions\Global>
 #Include <Loaders\App>
 #Include <Paths>
 #Include <External\String>

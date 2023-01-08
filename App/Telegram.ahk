@@ -1,8 +1,8 @@
-#Include <Global>
-#Include <Text>
+#Include <Abstractions\Global>
+#Include <Abstractions\Text>
 #Include <Paths>
-#Include <Win>
-#Include <ClipSend>
+#Include <Utils\Win>
+#Include <Utils\ClipSend>
 
 Class Telegram {
 

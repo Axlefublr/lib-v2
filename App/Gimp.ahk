@@ -1,5 +1,5 @@
 #Include <Paths>
-#Include <Win>
+#Include <Utils\Win>
 
 Class Gimp {
 

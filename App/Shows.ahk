@@ -1,9 +1,9 @@
 #Include <External\Json>
-#Include <Text>
+#Include <Abstractions\Text>
 #Include <Paths>
 #Include <Get>
 #Include <Tools\Info>
-#Include <Win>
+#Include <Utils\Win>
 #Include <App\Browser>
 #Include <External\String>
 

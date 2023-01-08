@@ -1,7 +1,7 @@
-#Include <Press>
-#Include <Win>
+#Include <Utils\Press>
+#Include <Utils\Win>
 #Include <Other>
-#Include <Base>
+#Include <Abstractions\Base>
 
 #MaxThreadsBuffer true
 

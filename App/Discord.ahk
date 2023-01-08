@@ -1,5 +1,5 @@
 #Include <Paths>
-#Include <Image>
+#Include <Utils\Image>
 
 Class Discord {
    

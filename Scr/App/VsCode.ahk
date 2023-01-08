@@ -1,7 +1,7 @@
 #Include <Paths>
 #Include <Get>
-#Include <Text>
-#Include <Base>
+#Include <Abstractions\Text>
+#Include <Abstractions\Base>
 #Include <App\Spotify>
 #Include <App\VsCode>
 

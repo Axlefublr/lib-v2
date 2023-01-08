@@ -1,5 +1,5 @@
 #Include <Tools\Info>
-#Include <Text>
+#Include <Abstractions\Text>
 #Include <Get>
 
 Class Git {

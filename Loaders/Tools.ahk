@@ -1,5 +1,5 @@
-﻿#Include <Global>
-#Include <Win>
+﻿#Include <Abstractions\Global>
+#Include <Utils\Win>
 #Include <Extensions\Gui>
 #Include <Get>
 #Include <External\String>

@@ -1,9 +1,9 @@
-#Include <Base>
-#Include <Press>
-#Include <Image>
+#Include <Abstractions\Base>
+#Include <Utils\Press>
+#Include <Utils\Image>
 #Include <App\Screenshot>
 #Include <Loaders\Tools>
-#Include <Script>
+#Include <Abstractions\Script>
 
 #MaxThreadsBuffer true
 

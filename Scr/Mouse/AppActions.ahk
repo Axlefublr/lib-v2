@@ -1,4 +1,4 @@
-#Include <Press>
+#Include <Utils\Press>
 #Include <App\Telegram>
 #Include <App\Discord>
 #Include <App\Terminal>
@@ -7,9 +7,9 @@
 #Include <App\Spotify>
 #Include <App\Browser>
 #Include <App\VK>
-#Include <Win>
-#Include <Base>
-#Include <Script>
+#Include <Utils\Win>
+#Include <Abstractions\Base>
+#Include <Abstractions\Script>
 
 #MaxThreadsBuffer true
 

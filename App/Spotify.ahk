@@ -1,8 +1,8 @@
 #Include <Tools\Info>
 #Include <Get>
-#Include <Text>
+#Include <Abstractions\Text>
 #Include <Paths>
-#Include <Global>
+#Include <Abstractions\Global>
 
 Class Spotify {
 

@@ -1,7 +1,7 @@
 #Include <Paths>
-#Include <Cmd>
+#Include <Utils\Cmd>
 #Include <Extensions\Sort>
-#Include <Win>
+#Include <Utils\Win>
 
 Class Video {
 

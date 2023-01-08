@@ -1,5 +1,5 @@
 #Include <Tools\CleanInputBox>
-#Include <Global>
+#Include <Abstractions\Global>
 #Include <External\String>
 #Include <Get>
 
