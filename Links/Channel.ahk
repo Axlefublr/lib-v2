@@ -284,4 +284,10 @@ Channel := [
 
    "zsh vim mode",
    "https://youtu.be/hIJh-KlQ7io",
+
+   "grep",
+   "https://youtu.be/Tc_jntovCM0",
+   
+   "find command",
+   "https://youtu.be/skTiK_6DdqU",
 ]
