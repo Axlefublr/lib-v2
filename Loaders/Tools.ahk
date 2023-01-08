@@ -2,7 +2,7 @@
 #Include <Win>
 #Include <Gui>
 #Include <Get>
-#Include <String>
+#Include <External\String>
 
 #Include <Tools\Info>
 #Include <Tools\CleanInputBox>

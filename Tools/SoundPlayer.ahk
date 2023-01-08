@@ -37,6 +37,9 @@ class SoundPlayer {
 
    Play() {
       DllCall("winmm\mciSendStringW", "Str", "play " this.__GetCurrAlias() " from 0", "Str", "", "UInt", 0, "Ptr", 0)
-      DllCall("winmm\mciSendStringW", "Str", "close " this.wavPath, "Str", "", "UInt", 0, "Ptr", 0)
+   }
+
+   __Delete() {
+      DllCall("winmm\mciSendStringW", "Str", "close all", "Str", "", "Str", "")
    }
 }

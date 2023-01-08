@@ -2,8 +2,8 @@
 #Include <Global>
 #Include <Loaders\App>
 #Include <Paths>
-#Include <String>
-#Include <Eval>
+#Include <External\String>
+#Include <External\Eval>
 
 CloseButActually() {
    Switch {

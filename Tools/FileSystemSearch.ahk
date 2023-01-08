@@ -1,7 +1,7 @@
 #Include <Gui>
 #Include <Tools\CleanInputBox>
 #Include <Tools\Info>
-#Include <String>
+#Include <External\String>
 
 Class FileSystemSearch extends Gui {
 

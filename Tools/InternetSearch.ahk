@@ -1,6 +1,6 @@
 #Include <Tools\CleanInputBox>
 #Include <Global>
-#Include <String>
+#Include <External\String>
 #Include <Get>
 
 Class InternetSearch extends CleanInputBox {

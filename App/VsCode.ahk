@@ -1,7 +1,7 @@
 #Include <Win>
 #Include <Text>
 #Include <Tools\Info>
-#Include <String>
+#Include <External\String>
 #Include <Paths>
 
 Class VsCode {
