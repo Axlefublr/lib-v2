@@ -57,6 +57,7 @@ Class Paths {
       "vine boom",        this.Sounds "\vine boom.wav",
       "faded than a hoe", this.Sounds "\faded than a hoe.wav",
       "heheheha",         this.Sounds "\heheheha.wav",
+      "shall we",         this.Sounds "\shall we.wav",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
