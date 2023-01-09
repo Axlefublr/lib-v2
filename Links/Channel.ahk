@@ -12,9 +12,12 @@ Channel := [
 
    "ahk playlist",
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
-   
+
    ;;Main channel videos
-   
+
+   "how to get faded than a hoe",
+   "https://youtu.be/UQIVv6nZZ1o",
+
    "install ahk",
    "https://youtu.be/fcwSR4LWdNo",
 
@@ -188,7 +191,7 @@ Channel := [
    "github profile hotkey",
    "https://youtu.be/IfQ-sl04xu8",
 
-   ;;Main channel unlisted videos 
+   ;;Main channel unlisted videos
    ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
 
    "ctrl x mode demo",
@@ -244,7 +247,7 @@ Channel := [
    "settimers",
    "https://youtu.be/bUxm_Gwd58Q",
 
-   ;;Second channel unlisted tutorials 
+   ;;Second channel unlisted tutorials
    ;Go ahead, watch them if you want, but they are deprecated so don't listen to me!
 
    "install ahk deprecated",
@@ -287,7 +290,7 @@ Channel := [
 
    "grep",
    "https://youtu.be/Tc_jntovCM0",
-   
+
    "find command",
    "https://youtu.be/skTiK_6DdqU",
 ]

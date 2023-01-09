@@ -4,6 +4,9 @@ class SoundPlayer {
 
    static Storage := Map()
 
+   /**
+    * 
+    */
    wavPath := unset
 
    __New(wavPath) {
