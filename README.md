@@ -6,8 +6,8 @@ Not because I'm a fiend for stealing, but because it's simply easier for me to m
 
 ## People to check out for cool libraries:
 
-* @thqby
-* @Descolada
+* [**@thqby**](https://github.com/thqby)
+* [**@Descolada**](https://github.com/Descolada)
 
 ## Dependencies
 
