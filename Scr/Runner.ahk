@@ -22,7 +22,6 @@
 
       "update",  () => GitHub.UpdateAhkLibraries(),
       "str len", () => Infos(A_Clipboard.Length),
-      "startup", () => tool_StartupRun(),
       "shows",   () => Shows().GetList(),
       "rel",     () => Reload(),
       "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
