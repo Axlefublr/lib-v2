@@ -6,4 +6,3 @@
 A_MaxHotkeysPerInterval := 1000
 SetWorkingDir A_ScriptDir
 SetControlDelay(-1)
-; KeyHistory(0)
