@@ -48,7 +48,7 @@ Class Paths {
 
       "Timer.txt", this.Main "\Files\Innit\Timer.txt",
 
-      "Keys", this.Main "\Main\Scr Keys.ahk",
+      "Hub", this.Main "\Hub.ahk",
 
       "Output",  this.Test "\Output.txt",
       "Input",   this.Test "\Input.txt",
