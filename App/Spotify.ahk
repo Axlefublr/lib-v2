@@ -1,5 +1,5 @@
 #Include <Tools\Info>
-#Include <Converters\Get>
+#Include <Converters\DateTime>
 #Include <Abstractions\Text>
 #Include <Paths>
 #Include <Abstractions\Global>
@@ -93,7 +93,7 @@ Class Spotify {
          Info(artistName " is already added 😨")
          return
       }
-      AppendFile(Paths.Ptf["Artists"], "1. " GetCurrDate() " - " artistName "`n")
+      AppendFile(Paths.Ptf["Artists"], "1. " DateTime.Date " - " artistName "`n")
       Info(artistName " is now your favorite! 🥰")
    }
 

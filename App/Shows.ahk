@@ -1,21 +1,21 @@
 #Include <Extensions\Json>
 #Include <Abstractions\Text>
 #Include <Paths>
-#Include <Converters\Get>
 #Include <Tools\Info>
 #Include <Utils\Win>
 #Include <App\Browser>
 #Include <Extensions\String>
+#Include <Converters\DateTime>
 
 Class Shows {
    __New() {
       this.shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
    }
-   
+
    ApplyJson() => WriteFile(Paths.Ptf["Shows"], JSON.stringify(this.shows))
 
    CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", GetDateTime()))
-   
+
    ValidateShow(show) {
       try this.shows[show]
       catch Any {
@@ -23,7 +23,7 @@ Class Shows {
       }
       return true
    }
-   
+
    ValidateShowLink(show) {
       if !this.ValidateShow(show) {
          return false
@@ -34,14 +34,14 @@ Class Shows {
       }
       return true
    }
-   
+
    GetLink(show, progressType := "episode") {
       if !this.ValidateShowLink(show) {
          return ""
       }
       return this.shows[show]["link"] this.shows[show][progressType] + 1
    }
-   
+
    GetList() {
       for key, value in this.shows {
          Infos(key)
@@ -56,7 +56,7 @@ Class Shows {
       }
       Browser.winObj.Activate()
    }
-      
+
    DeleteShow(show, isDropped := false) {
       try {
          this.shows.Delete(show)
@@ -64,16 +64,16 @@ Class Shows {
       }
       this.UpdateConsumed(show, isDropped)
    }
-   
+
    UpdateConsumed(show, isDropped) => (
-      date := "`n1. " GetCurrDate() " - ",
+      date := "`n1. " DateTime.Date " - ",
       isDropped_string := isDropped ? " - dropped" : "",
       AppendFile(Paths.Ptf["Consumed"], date show.ToTitle() isDropped_string)
    )
 
    ValidateSetInput(input, regex) {
       input := CompressSpaces(input)
-      
+
       RegexMatch(input, regex, &match)
       if !match {
          Info("Wrong!")
@@ -86,7 +86,7 @@ Class Shows {
       if !show_and_link := this.ValidateSetInput(show_and_link, "(.+) (https:\/\/[^ ]+)") {
          return false
       }
-      
+
       show := show_and_link[1]
       link := show_and_link[2]
 
@@ -103,7 +103,7 @@ Class Shows {
       if !show_and_episode := this.ValidateSetInput(show_and_episode, "(.+) (\d+)") {
          return false
       }
-      
+
       show    := show_and_episode[1]
       episode := show_and_episode[2]
 
@@ -120,7 +120,7 @@ Class Shows {
       this.ApplyJson()
       Info(show ": " episode)
    }
-   
+
    SetDownloaded(show_and_downloaded) {
       if !match := this.ValidateSetInput(show_and_downloaded, "(.+) (\d+)") {
          return false

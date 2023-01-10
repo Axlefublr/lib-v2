@@ -9,7 +9,7 @@
 #Include <Abstractions\Script>
 #Include <Abstractions\Global>
 #Include <Other>
-#Include <Converters\Get>
+#Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>
 #Include <App\Slack>
 
@@ -111,11 +111,11 @@
    static DynamicHotstrings := Map(
 
       "radnum",    () => RadNum(),
-      "date",      () => GetCurrDate(),
-      "datew",     () => GetDateWeek(),
-      "time",      () => GetCurrTime(),
-      "datetime",  () => GetDateTime(),
-      "datewtime", () => GetDateWeekTime(),
+      "date",      () => DateTime.Date,
+      "datew",     () => DateTime.WeekDay,
+      "time",      () => DateTime.Time,
+      "datetime",  () => DateTime.Date " " DateTime.Time,
+      "datewtime", () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
       "uclanr",    () => GetRandomWord("english") " ",
       "ilandh",    () => GetRandomWord("russian") " ",
       "chrs",      () => CharGenerator(2).GenerateCharacters(15),
