@@ -17,3 +17,23 @@ Media_Stop & MButton::VsCode.Reload()
 XButton1 & WheelUp::VsCode.Redo()
 XButton1 & WheelDown::VsCode.Undo()
 #HotIf
+
+#InputLevel 6
+
+#HotIf !WinActive(VsCode.winTitle)
+!Insert::Cut()
+^j::Find()
+
+^!h::Send("^{Left}")
+^!l::Send("^{Right}")
+
+!j::Send("{Down}")
+!k::Send("{Up}")
+!h::Send("{Left}")
+!l::Send("{Right}")
+
+#!sc33::Undo()
+#!sc34::Redo()
+#HotIf
+
+#InputLevel 5
