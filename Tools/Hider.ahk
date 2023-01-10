@@ -1,20 +1,4 @@
-﻿#Include <Abstractions\Global>
-#Include <Utils\Win>
-#Include <Extensions\Gui>
-#Include <Converters\Get>
-#Include <Extensions\String>
-
-#Include <Tools\Info>
-#Include <Tools\CleanInputBox>
-#Include <Tools\CoordGetter>
-#Include <Tools\FileSystemSearch>
-#Include <Tools\InternetSearch>
-#Include <Tools\Timer>
-#Include <Tools\WindowGetter>
-#Include <Tools\KeycodeGetter>
-#Include <Tools\Counter>
-#Include <Tools\Stopwatch>
-#Include <Tools\HoverScreenshot>
+; No dependencies
 
 Hider(pickedColor?) {
    CoordMode("Mouse", "Screen")

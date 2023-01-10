@@ -3,7 +3,6 @@
 #Include <Other>
 #Include <Utils\Win>
 #Include <App\Screenshot>
-#Include <Loaders\Tools>
 #Include <Tools\Counter>
 #Include <Tools\Stopwatch>
 #Include <Tools\CoordGetter>
@@ -36,7 +35,7 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 
 +!f::CoordGetter()
 +!g::WindowGetter()
-+!v::tool_RelativeCoordGetter()
++!v::RelativeCoordGetter()
 #f:: {
    gHover := HoverScreenshot()
    gHover.picturePath := Paths.Ptf["Femboy"]
