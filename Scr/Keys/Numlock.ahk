@@ -24,7 +24,7 @@
 *NumpadMult::F14
 *NumpadSub::OBS.winObj.App()
 *NumpadAdd::F15
-*NumpadEnter::F16
+*NumpadEnter::SomeLockHint("NumLock")
 
 NumLock::SomeLockHint("NumLock")
 

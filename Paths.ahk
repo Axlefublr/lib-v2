@@ -27,7 +27,7 @@ Class Paths {
    static Content    := this.Pictures "\Content"
    static VideoTools := this.Pictures "\Tools"
 
-   static Sounds := "C:\Sounds"
+   static Audio := "C:\Audio"
 
    static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
@@ -46,7 +46,8 @@ Class Paths {
       "vk reply",           this.Main "\Files\Images\vk reply.png",
       "BlankPic",           this.Main "\Files\Images\BlankPic.png",
 
-      "Timer.txt", this.Main "\Files\Innit\Timer.txt",
+      "Timer.txt",  this.Main "\Files\Innit\Timer.txt",
+      "Timer.json", this.Main "\Files\Innit\Timer.json",
 
       "Hub", this.Main "\Hub.ahk",
 
@@ -54,18 +55,18 @@ Class Paths {
       "Input",   this.Test "\Input.txt",
       "AhkTest", this.Test "\AhkTest.ahk",
 
-      "vine boom",         this.Sounds "\vine boom.wav",
-      "faded than a hoe",  this.Sounds "\faded than a hoe.wav",
-      "heheheha",          this.Sounds "\heheheha.wav",
-      "shall we",          this.Sounds "\shall we.wav",
-      "slip and crash",    this.Sounds "\slip and crash.wav",
-      "cartoon running",   this.Sounds "\cartoon running.wav",
-      "rizz",              this.Sounds "\rizz.wav",
-      "bruh sound effect", this.Sounds "\bruh sound effect.wav",
-      "cartoon",           this.Sounds "\cartoon.wav",
-      "hohoho",            this.Sounds "\hohoho.wav",
-      "bing chilling 1",   this.Sounds "\bing chilling 1.wav",
-      "bing chilling 2",   this.Sounds "\bing chilling 2.wav",
+      "vine boom",         this.Audio "\Sounds\vine boom.wav",
+      "faded than a hoe",  this.Audio "\Sounds\faded than a hoe.wav",
+      "heheheha",          this.Audio "\Sounds\heheheha.wav",
+      "shall we",          this.Audio "\Sounds\shall we.wav",
+      "slip and crash",    this.Audio "\Sounds\slip and crash.wav",
+      "cartoon running",   this.Audio "\Sounds\cartoon running.wav",
+      "rizz",              this.Audio "\Sounds\rizz.wav",
+      "bruh sound effect", this.Audio "\Sounds\bruh sound effect.wav",
+      "cartoon",           this.Audio "\Sounds\cartoon.wav",
+      "hohoho",            this.Audio "\Sounds\hohoho.wav",
+      "bing chilling 1",   this.Audio "\Sounds\bing chilling 1.wav",
+      "bing chilling 2",   this.Audio "\Sounds\bing chilling 2.wav",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
@@ -83,7 +84,7 @@ Class Paths {
 
       "FL preset", this.Pictures "\Tools\FL preset.flp",
 
-      "Femboy", this.Pictures "\Other\femboy.png"
+      "Femboy", this.Pictures "\Other\femboy.png",
    )
 
    static Apps := Map(

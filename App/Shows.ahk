@@ -14,7 +14,7 @@ Class Shows {
 
    ApplyJson() => WriteFile(Paths.Ptf["Shows"], JSON.stringify(this.shows))
 
-   CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", GetDateTime()))
+   CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", DateTime.Date " " DateTime.Time))
 
    ValidateShow(show) {
       try this.shows[show]
@@ -111,7 +111,7 @@ Class Shows {
          this.CreateBlankShow(show)
       }
       this.shows[show]["episode"] := episode
-      this.shows[show]["timestamp"] := GetDateTime()
+      this.shows[show]["timestamp"] := DateTime.Date " " DateTime.Time
 
       if episode > this.shows[show]["downloaded"] {
          this.shows[show]["downloaded"] := episode

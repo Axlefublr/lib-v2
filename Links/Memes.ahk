@@ -190,10 +190,13 @@ Memes := [
 
    "guy with an axe",
    "https://youtu.be/FOq2kCXuTyI",
-   
+
    "синий трактор",
    "https://www.youtube.com/watch?v=AN1J9K3WnO8&ab_channel=TheTallboy",
-   
+
    "великий и уникальный",
    "https://www.youtube.com/watch?v=FTu_ndnh-wc&ab_channel=%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%B2",
+
+   "room temperature room",
+   "https://youtu.be/VxxYqE4Gil8",
 ]

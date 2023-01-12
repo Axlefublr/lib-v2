@@ -30,6 +30,9 @@ Channel := [
    "explorer movement",
    "https://youtu.be/XXr06HBccBs",
 
+   "how to use vim in any app",
+   "https://www.youtube.com/watch?v=I1Z8z3r3Lt8",
+   
    "how to clean a keyboard",
    "https://youtu.be/Dcx1g2oNuUY",
 
@@ -263,6 +266,12 @@ Channel := [
    "https://youtu.be/gHQNoOMRHBc",
 
    ;;Useful tutorials not by me
+
+   "global vim command",
+   "https://youtu.be/JgZu5-FNeMk",
+   
+   "cute twink explains helix",
+   "https://youtu.be/tGYvUXYN-c0",
 
    "regex tutorial",
    "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",

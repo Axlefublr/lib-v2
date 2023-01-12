@@ -55,7 +55,7 @@ ToggleModifier(modifierName) {
 }
 
 EatingLogger() {
-   AppendFile(Paths.Ptf["EatingLog"], GetDateTime() "`n")
+   AppendFile(Paths.Ptf["EatingLog"], DateTime.Date " " DateTime.Time "`n")
 }
 
 Calculator(expression) {

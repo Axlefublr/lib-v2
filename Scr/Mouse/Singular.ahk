@@ -2,7 +2,7 @@
 #Include <Utils\Press>
 #Include <Utils\Image>
 #Include <App\Screenshot>
-#Include <Loaders\Tools>
+#Include <Tools\Hider>
 #Include <Abstractions\Script>
 
 #MaxThreadsBuffer true
