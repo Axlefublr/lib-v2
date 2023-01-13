@@ -39,7 +39,7 @@ class DateTime {
       timeStamp := this.AddPaddingForDateNum(timeStamp) ;if there are no leading zeros in the timestamp, "10000" would be considered "the year 1000" rather than "1 hour"
 
       timeStr := FormatTime(timeStamp, "yyyy MM dd HH mm ss")
-      timeArr := timeStr.Split(" ")
+      timeArr := StrSplit(timeStr, " ")
 
       years   := timeArr[1]
       months  := timeArr[2]
