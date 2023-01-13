@@ -1,3 +1,4 @@
+#Include <Scr\Keys\SuspendExempt>
 #Include <Scr\Keys\Symbols>
 #Include <Scr\Keys\Global>
 #Include <Scr\Keys\Remaps>

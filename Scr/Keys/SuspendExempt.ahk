@@ -1,3 +1,4 @@
+#InputLevel 6
 #SuspendExempt true
 #!y::scr_Suspend()
 #!u::scr_Reload()
@@ -6,3 +7,4 @@
 #ScrollLock::SystemReboot()
 #Pause::SystemPowerDown()
 #SuspendExempt false
+#InputLevel 5
