@@ -1,4 +1,4 @@
-; No dependencies
+#Include <Converters\DateTime>
 
 /**
  * A stopwatch, accurate to the seconds
@@ -30,20 +30,7 @@ class Stopwatch {
     * @type {String} time in format HH:mm:ss
     */
    CurrTime {
-      get => FormatTime(Stopwatch.__AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
-   }
-
-   /**
-    * FormatTime requires the YYYYMMDDHH24MISS format to format a number into a string
-    * It has to have the leading zeros as well, this function adds them
-    * @private
-    * @returns {Integer} A valid YYYYMMDDHH24MISS number
-    */
-   static __AddPaddingForDateNum(num) {
-      while StrLen(num) < 14 {
-         num := 0 num
-      }
-      return num
+      get => FormatTime(DateTime.AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
    }
 
    /**
@@ -64,6 +51,6 @@ class Stopwatch {
     * @type {String} time in format HH:mm:ss
     */
    static CurrTime {
-      get => FormatTime(this.__AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
+      get => FormatTime(DateTime.AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
    }
 }
