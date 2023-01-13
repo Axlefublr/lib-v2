@@ -1,6 +1,15 @@
+#Include <Paths>
+#Include <Converters\DateTime>
+#Include <Extensions\Json>
 #Include <Tools\Info>
 
 Class Timer {
+
+   /**
+    * The json file path that timer writes and reads from
+    * @type {String}
+    */
+   static jsonPath := Paths.Ptf["Timer.json"]
 
    /**
     * You start the timer when you create an object of the class

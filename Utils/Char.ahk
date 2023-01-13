@@ -39,6 +39,7 @@ GetUnicode(name) {
       "handshake",                0x1F91D,
       "shrug",                    0x1F937,
       "clap",                     0x1F44F,
+      "amogus",                   0x0D9E,
 
    )
 
@@ -50,7 +51,7 @@ GetUnicode(name) {
  * @param name *String* The predefined name of the character
  * @param endingChar *String* The string to append to the character. For example, a space or a newline
  */
-Symbol(name, endingChar?) {
+Symbol(name, endingChar := "") {
    if Type(name) = "Array" {
       symbols := ""
       for key, value in name 
@@ -58,7 +59,7 @@ Symbol(name, endingChar?) {
    } else
       symbols := Chr(GetUnicode(name))
 
-   Send(symbols (endingChar ?? ""))
+   Send(symbols endingChar)
 }
 
 /**

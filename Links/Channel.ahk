@@ -14,6 +14,9 @@ Channel := [
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
 
    ;;Main channel videos
+   
+   "ctrl x mode",
+   "https://youtu.be/ssF-pm0eFkw",
 
    "how to get faded than a hoe",
    "https://youtu.be/UQIVv6nZZ1o",
