@@ -38,15 +38,6 @@ GetWeather() {
    return temp " " wind " " wetness " " atmosphere
 }
 
-/**
-* Converts a decimal integer into its hex / unicode / 16-base counterpart
-* @param num
-* @returns {Integer}
-*/
-TransfToHex(num, hexPrefix := true) => Format((hexPrefix ? "0x" : "") "{:x}", num)
-
-TransfToDecimal(num) => Format("{:u}", num)
-
 RadNum() => Random(1000000, 9999999)
 
 ConvertToRegex(input) {

@@ -57,7 +57,7 @@ class CharGenerator {
       maxCharNum := CharGenerator.Ranges[picker][2]
       charNumber := Random(minCharNum, maxCharNum)
 
-      return Chr(TransfToHex(charNumber))
+      return Chr(NumberConverter.DecToHex(charNumber))
    }
 
    /**

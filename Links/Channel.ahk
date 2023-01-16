@@ -13,8 +13,11 @@ Channel := [
    "ahk playlist",
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
 
+   "ahk guis playlist",
+   "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
+
    ;;Main channel videos
-   
+
    "ctrl x mode",
    "https://youtu.be/ssF-pm0eFkw",
 
@@ -35,7 +38,7 @@ Channel := [
 
    "how to use vim in any app",
    "https://www.youtube.com/watch?v=I1Z8z3r3Lt8",
-   
+
    "how to clean a keyboard",
    "https://youtu.be/Dcx1g2oNuUY",
 
@@ -272,7 +275,7 @@ Channel := [
 
    "global vim command",
    "https://youtu.be/JgZu5-FNeMk",
-   
+
    "cute twink explains helix",
    "https://youtu.be/tGYvUXYN-c0",
 

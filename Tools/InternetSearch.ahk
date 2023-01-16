@@ -1,3 +1,4 @@
+#Include <Converters\Number>
 #Include <Tools\CleanInputBox>
 #Include <Abstractions\Global>
 #Include <Extensions\String>
@@ -52,7 +53,7 @@ Class InternetSearch extends CleanInputBox {
    SanitizeQuery(query) { 
       SpecialCharacters := '%$&+,/:;=?@ "<>#{}|\^~[]``'.Split()
       for key, value in SpecialCharacters {
-         query := query.Replace(value, "%" TransfToHex(Ord(value), false))
+         query := query.Replace(value, "%" NumberConverter.DecToHex(Ord(value), false))
       }
       return query
    }
