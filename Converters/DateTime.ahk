@@ -15,9 +15,10 @@ class DateTime {
    }
 
    /**
-    * FormatTime requires the YYYYMMDDHH24MISS format to format a number into a string
-    * It has to have the leading zeros as well, this function adds them
-    * @returns {Integer} A valid YYYYMMDDHH24MISS number
+    * FormatTime requires the YYYYMMDDHH24MISS format to have 14 characters in it.
+    * If it doesn't, your time / date will be calculated incorrectly.
+    * This method makes sure the format is correct.
+    * @returns {Integer} A YYYYMMDDHH24MISS number
     */
    static AddPaddingForDateNum(num) {
       while StrLen(num) < 14 {
@@ -73,6 +74,24 @@ class DateTime {
       minutesMs := timeObj.minutes * 60
 
       return daysMs + hoursMs + minutesMs + timeObj.seconds
+   }
+
+   /**
+    * Add a timestamp to a timestamp.
+    * Months and years are completely ignored on toAdd, so use base as the number you want to add to
+    * and toAdd as the date you're adding to it
+    * @param base *YYYYMMDDHH24MISS*
+    * @param toAdd *YYYYMMDDHH24MISS*
+    * @returns {YYYYMMDDHH24MISS}
+    */
+   static AddTimestamp(base, toAdd) {
+      base := this.AddPaddingForDateNum(base)
+      toAddObj := this.ParseTimestamp(toAdd)
+      base := DateAdd(base, toAddObj.seconds, "seconds")
+      base := DateAdd(base, toAddObj.minutes, "minutes")
+      base := DateAdd(base, toAddObj.hours, "hours")
+      base := DateAdd(base, toAddObj.days, "days")
+      return base
    }
 
 }
