@@ -91,4 +91,30 @@ class DateTime {
       return base
    }
 
+   static DateAddBig(dateTime, amount) {
+      timeObj := this.ParseTimestamp(dateTime)
+
+      years  := timeObj.years
+      months := timeObj.months
+      rest   := timeObj.days timeObj.hours timeObj.minutes timeObj.seconds
+
+      addYears  := StrLen(amount) > 2 ? SubStr(amount, 1, -2) : 0
+
+      addMonths := SubStr(amount, -2)
+
+      if months + addMonths > 12 {
+         addYears := addYears + (months + addMonths) // 12
+         months := Mod(months + addMonths, 12)
+      } else {
+         months := months + addMonths
+      }
+
+      if StrLen(months) < 2 {
+         months := 0 months
+      }
+
+      years := years + addYears
+
+      return years months rest
+   }
 }

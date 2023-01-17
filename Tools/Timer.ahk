@@ -18,6 +18,18 @@ Class Timer {
    duration := unset
    shouldRing := true
 
+   static RestartTimers() {
+      jsonObj := JSON.parse(ReadFile(this.jsonPath))
+      for key, value in jsonObj {
+         if value["end"] < A_Now {
+            jsonObj.Delete(key)
+            continue
+         }
+         
+         ; time := 
+      }
+   }
+   
    __New(time) {
 
       this.timestamp := time
@@ -29,7 +41,10 @@ Class Timer {
 
    Start() {
       jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
-      jsonObj.Set(this.startTime, this.endTime)
+      jsonObj.Set(this.startTime, Map(
+         "end",    this.endTime,
+         "duration", this.duration
+      ))
       WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
 
       if this.shouldRing {
