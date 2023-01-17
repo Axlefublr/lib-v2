@@ -5,8 +5,8 @@ class NumberConverter {
    * @param num
    * @returns {Integer}
    */
-   DecToHex(num, hexPrefix := true) => Format((hexPrefix ? "0x" : "") "{:x}", num)
+   static DecToHex(num, hexPrefix := true) => Format((hexPrefix ? "0x" : "") "{:x}", num)
 
-   HexToDec(num) => Format("{:u}", num)
+   static HexToDec(num) => Format("{:u}", num)
 
 }

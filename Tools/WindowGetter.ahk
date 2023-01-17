@@ -5,7 +5,7 @@ WindowGetter() {
 
    ;Getting the current window's info
    winTitle   := WinGetTitle("A")
-   winTitle_regex := ConvertToRegex(winTitle) ;Dependency from https://github.com/Axlefublr/lib-v2/Get.ahk
+   winTitle_regex := ConvertToRegex(winTitle) 
    winExePath := WinGetProcessPath("A")
    winExe     := WinGetProcessName("A")
    winID      := WinGetID("A")

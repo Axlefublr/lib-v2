@@ -39,15 +39,12 @@ class DateTime {
    static ParseTimestamp(timeStamp := A_Now) {
       timeStamp := this.AddPaddingForDateNum(timeStamp) ;if there are no leading zeros in the timestamp, "10000" would be considered "the year 1000" rather than "1 hour"
 
-      timeStr := FormatTime(timeStamp, "yyyy MM dd HH mm ss")
-      timeArr := StrSplit(timeStr, " ")
-
-      years   := timeArr[1]
-      months  := timeArr[2]
-      days    := timeArr[3]
-      hours   := timeArr[4]
-      minutes := timeArr[5]
-      seconds := timeArr[6]
+      years   := SubStr(timeStamp, 1, 4)
+      months  := SubStr(timeStamp, 5, 2)
+      days    := SubStr(timeStamp, 7, 2)
+      hours   := SubStr(timeStamp, 9, 2)
+      minutes := SubStr(timeStamp, 11, 2)
+      seconds := SubStr(timeStamp, 13, 2)
 
       return {
          years:   years,

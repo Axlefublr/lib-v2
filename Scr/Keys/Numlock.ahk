@@ -16,7 +16,7 @@
       SoundPlayer.Storage["bing chilling 2"].Play()
    }
 }
-*NumpadUp::return
+*NumpadUp::SoundPlayer.Storage["oh fr on god"].Play()
 *NumpadPgUp::SoundPlayer.Storage["rizz"].Play()
 *NumpadDel::return
 

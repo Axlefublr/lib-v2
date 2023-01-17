@@ -67,6 +67,7 @@ Class Paths {
       "hohoho",            this.Audio "\Sounds\hohoho.wav",
       "bing chilling 1",   this.Audio "\Sounds\bing chilling 1.wav",
       "bing chilling 2",   this.Audio "\Sounds\bing chilling 2.wav",
+      "oh fr on god",      this.Audio "\Sounds\oh fr on god.wav",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 

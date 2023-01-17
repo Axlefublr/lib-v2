@@ -69,9 +69,12 @@
          "cp",      (input) => A_Clipboard := input,
          "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
          "r",       (input) => Spotify.NewRapper(input),
-         "t",       (input) => (WriteFile(Paths.Ptf["Timer.txt"], input), Run(Paths.Ptf["Timer.ahk"])),
-         "tm",      (input) => Timer(input,,, false),
-         "ts",      (input) => Timer(input, false),
+         "t",       (input) => Timer(input).Start(),
+         "tm",      (input) => (
+            timerObj := Timer(input),
+            timerObj.shouldRing := false,
+            timerObj.Start()
+         ),
          "a",       (input) => Spotify.FavRapper_Manual(input),
          "ev",      (input) => Infos(Calculator(input)),
          "evp",     (input) => ClipSend(Calculator(input)),

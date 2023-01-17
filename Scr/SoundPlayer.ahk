@@ -14,5 +14,6 @@ SoundPlayer.Storage.Set(
    "hohoho",            SoundPlayer(Paths.Ptf["hohoho"]),
    "bing chilling 1",   SoundPlayer(Paths.Ptf["bing chilling 1"]),
    "bing chilling 2",   SoundPlayer(Paths.Ptf["bing chilling 2"]),
+   "oh fr on god",      SoundPlayer(Paths.Ptf["oh fr on god"]),
 
 )

@@ -6,7 +6,7 @@
  * @version 1.0.1
  ***********************************************************************/
 
- class JSON {
+class JSON {
 	static null := ComValue(1, 0), true := ComValue(0xB, 1), false := ComValue(0xB, 0)
 
 	/**
