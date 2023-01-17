@@ -30,7 +30,7 @@ class Stopwatch {
     * @type {String} time in format HH:mm:ss
     */
    CurrTime {
-      get => FormatTime(DateTime.AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
+      get => FormatTime(DateTime.CorrectTimestamp(A_Now - this.startingTime), "HH:mm:ss")
    }
 
    /**
@@ -51,6 +51,6 @@ class Stopwatch {
     * @type {String} time in format HH:mm:ss
     */
    static CurrTime {
-      get => FormatTime(DateTime.AddPaddingForDateNum(A_Now - this.startingTime), "HH:mm:ss")
+      get => FormatTime(DateTime.CorrectTimestamp(A_Now - this.startingTime), "HH:mm:ss")
    }
 }
