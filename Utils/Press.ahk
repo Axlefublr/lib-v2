@@ -33,6 +33,15 @@ class Press {
       }
    }
 
+   /**
+    * Do different actions depending on whether your mouse position is in a section of the screen, or not
+    * @param whichSection *String* The name of the section. The sections available are: left, right, up, down, topLeft, topRight, bottomLeft, bottomRight, middle.
+    * @param ifSection *Function object* The action to do if your mouse is in the specified section
+    * @param ifNotSection *Function object* The action to do if your mouse is not in the specified section
+    * @throws {ValueError} If whichSection is not a section name that exists
+    * @throws {TypeError} If either ifSection or ifNotSection are not function objects. Arrow function function objects, no parenthesis function objects, and bound functions are supported.
+    * @returns {Boolean} True if your mouse was inside of the specified section, false if not
+    */
    static ActOnSection(whichSection, ifSection, ifNotSection) {
       sections := this.GetSections()
 
@@ -67,8 +76,10 @@ class Press {
       
       if sections.%whichSection% {
          ifNotSection()
+         return false
       } else {
          ifSection()
+         return true
       }
    }
 
