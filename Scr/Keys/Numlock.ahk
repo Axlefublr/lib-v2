@@ -1,6 +1,6 @@
 #Include <Tools\Info>
 
-#InputLevel 6
+#InputLevel 5
 
 ;; Modeless keys
 *NumpadDiv::F13
@@ -10,20 +10,21 @@
 
 ;; Mode switching
 U_Numlock := 0
-*NumpadEnter::return
+*NumpadEnter::global U_Numlock := 11
 *NumpadAdd::Infos(U_Numlock, 500)
 
-NumpadEnter & NumpadIns::   global U_Numlock := 0
-NumpadEnter & NumpadEnd::   global U_Numlock := 1
-NumpadEnter & NumpadDown::  global U_Numlock := 2
-NumpadEnter & NumpadPgDn::  global U_Numlock := 3
-NumpadEnter & NumpadLeft::  global U_Numlock := 4
-NumpadEnter & NumpadClear:: global U_Numlock := 5
-NumpadEnter & NumpadRight:: global U_Numlock := 6
-NumpadEnter & NumpadHome::  global U_Numlock := 7
-NumpadEnter & NumpadUp::    global U_Numlock := 8
-NumpadEnter & NumpadPgUp::  global U_Numlock := 9
-NumpadEnter & NumpadDel::   global U_Numlock := 10
+#HotIf U_Numlock = 11
+NumpadIns::   global U_Numlock := 0
+NumpadEnd::   global U_Numlock := 1
+NumpadDown::  global U_Numlock := 2
+NumpadPgDn::  global U_Numlock := 3
+NumpadLeft::  global U_Numlock := 4
+NumpadClear:: global U_Numlock := 5
+NumpadRight:: global U_Numlock := 6
+NumpadHome::  global U_Numlock := 7
+NumpadUp::    global U_Numlock := 8
+NumpadPgUp::  global U_Numlock := 9
+NumpadDel::   global U_Numlock := 10
 
 ;; Mode 0
 #HotIf U_Numlock = 0
