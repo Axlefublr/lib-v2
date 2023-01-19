@@ -26,8 +26,8 @@ XButton1 & XButton2::Media_Play_Pause
 XButton1 & WheelUp::Redo()
 XButton1 & WheelDown::Undo()
 
-XButton2 & WheelUp::ifTopLeft_Sugar(Send.Bind("{Volume_Up}"), TransAndProud.Bind(20))
-XButton2 & WheelDown::ifTopLeft_Sugar(Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20))
+XButton2 & WheelUp::Press.ActOnSection("topLeft", Send.Bind("{Volume_Up}"), TransAndProud.Bind(20))
+XButton2 & WheelDown::Press.ActOnSection("topLeft", Send.Bind("{Volume_Down}"), TransAndProud.Bind(-20))
 
 XButton1 & LButton::Press.Hold_Sugar(Send.Bind("{BackSpace}"), SelectAll)
 XButton1 & RButton::Delete

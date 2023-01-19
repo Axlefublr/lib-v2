@@ -7,7 +7,7 @@ class Press {
     * @type {Float}
     */
    static LongHoldDuration := 0.20
-   
+
    static GetSections() {
       MouseGetPos &sectionX, &sectionY
       right         := (sectionX > 1368)
@@ -35,18 +35,41 @@ class Press {
 
    static ActOnSection(whichSection, ifSection, ifNotSection) {
       sections := this.GetSections()
+
       if !sections.HasProp(whichSection) {
-         throw 
+         throw ValueError(Format('There is no section "{1}"', whichSection), -1, Format('Press.ActOnSection("{1}", ...)', whichSection))
       }
-   }
-   
-   ifTopLeft_Sugar(funcObj1, funcObj2, topLeftX := 250, topLeftY := 230) {
-      MouseGetPos(&sectionX, &sectionY)
-      topLeft := ((sectionX < topLeftX) && (sectionY < topLeftY))
-      if topLeft
-         funcObj2()
-      else
-         funcObj1()
+
+      static errorMesage := "Both ifSection and ifNotSection have to be function objects / bound functions."
+
+      ifSectionType := Type(ifSection)
+      ifNotSectionType := Type(ifNotSection)
+
+      try ifSectionString := String(ifSection)
+      catch {
+         ifSectionString := ""
+      }
+      if !(ifSectionType ~= "Func|BoundFunc") {
+         throw TypeError(errorMesage "`nifSection is a " ifSectionType " instead", -1, Format(
+            'Press.ActOnSection(..., "{1}" , ...)', ifSectionString
+         ))
+      }
+
+      try ifNotSectionString := String(ifNotSection)
+      catch {
+         ifNotSectionString := ""
+      }
+      if !(ifNotSectionType ~= "Func|BoundFunc") {
+         throw TypeError(errorMesage "`nifSection is a " ifNotSectionType " instead", -1, Format( 
+            'Press.ActOnSection(..., ..., "{1}")', ifNotSectionString
+         ))
+      }
+      
+      if sections.%whichSection% {
+         ifNotSection()
+      } else {
+         ifSection()
+      }
    }
 
    /**
