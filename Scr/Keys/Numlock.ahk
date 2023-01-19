@@ -26,6 +26,20 @@ NumpadUp::    global U_Numlock := 8
 NumpadPgUp::  global U_Numlock := 9
 NumpadDel::   global U_Numlock := 10
 
+;; Mode 10 / Numbers
+#HotIf U_Numlock = 10
+NumpadIns::0
+NumpadEnd::1
+NumpadDown::2
+NumpadPgDn::3
+NumpadLeft::4
+NumpadClear::5
+NumpadRight::6
+NumpadHome::7
+NumpadUp::8
+NumpadPgUp::9
+NumpadDel::.
+
 ;; Mode 0
 #HotIf U_Numlock = 0
 *NumpadIns::SoundPlayer.Storage["vine boom"].Play()
