@@ -8,6 +8,12 @@ class Press {
     */
    static LongHoldDuration := 0.20
 
+   /**
+    * Figure out what section of the screen your mouse is or isn't
+    * @returns {Object} With properties: right, left, down, up, topRight, topLeft, bottomRight, bottomLeft, middle.
+    * All of them are booleans which are true if your mouse cursor is in that part of the screen, and false if it isn't
+    * Multiple properties can be true at once.
+    */
    static GetSections() {
       MouseGetPos &sectionX, &sectionY
       right         := (sectionX > 1368)
