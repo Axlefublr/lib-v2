@@ -12,6 +12,7 @@
    "gmail",   "https://mail.google.com/mail/u/0/#inbox",
    "weather", "https://yandex.ru/pogoda/",
    "2gis",    "https://2gis.ru/",
+   "gpt",     "https://chat.openai.com/chat",
 
    ;Courses
    "sf", "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
@@ -21,6 +22,7 @@
    "regex",       "https://regex101.com/",
    "img",         "https://imgur.com/upload",
    "1secmail",    "https://www.1secmail.com/",
+   "sms",         "https://sms-activate.org/",
 
    ;Docs
    "gh docs", "https://cli.github.com/manual/",

@@ -1,3 +1,5 @@
+#Include <Abstractions\Script>
+
 #InputLevel 6
 #SuspendExempt true
 #!y::scr_Suspend()
@@ -5,6 +7,6 @@
 #!i::scr_Test()
 #!o::scr_ExitTest()
 #ScrollLock::SystemReboot()
-#Pause::SystemPowerDown()
+#Pause::Run(Paths.Apps["Slide to shutdown"])
 #SuspendExempt false
 #InputLevel 5

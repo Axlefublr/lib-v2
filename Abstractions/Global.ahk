@@ -43,5 +43,3 @@ ControlClick_Here(winTitle := "A", whichButton := "L") => (
 SystemReboot() => Shutdown(2)
 
 SystemPowerDown() => Shutdown(1)
-
-async(funcObj) => SetTimer(funcObj, -1)

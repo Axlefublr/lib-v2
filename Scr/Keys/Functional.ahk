@@ -36,11 +36,7 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::RelativeCoordGetter()
-#f:: {
-   gHover := HoverScreenshot()
-   gHover.picturePath := Paths.Ptf["Femboy"]
-   gHover.Show()
-}
+#f::Run("C:\Pictures\Tree\Memes\writing fire.gif")
 #b::InternetSearch("Google").TriggerSearch()
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)

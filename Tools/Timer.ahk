@@ -12,37 +12,36 @@ Class Timer {
     */
    static jsonPath := Paths.Ptf["Timer.json"]
 
-   timestamp := unset
-   startTime := unset
-   endTime := unset
-   duration := unset
    shouldRing := true
 
    static RestartTimers() {
       jsonObj := JSON.parse(ReadFile(this.jsonPath))
       for key, value in jsonObj {
          if value["end"] < A_Now {
+            Info("Timer for " value["duration"] " ran out")
             jsonObj.Delete(key)
             continue
          }
-         
+
          ; time := 
       }
    }
-   
+
    __New(time) {
 
       this.timestamp := time
       this.startTime := A_Now
       this.endTime := DateTime.AddTimestamp(this.startTime, time)
       this.duration := DateTime.ConvertToSeconds(time)
+      this.hash := String(Random(1, 100000))
 
    }
 
    Start() {
       jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
-      jsonObj.Set(this.startTime, Map(
-         "end",    this.endTime,
+      jsonObj.Set(this.hash, Map(
+         "start",    this.startTime,
+         "end",      this.endTime,
          "duration", this.duration
       ))
       WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
@@ -59,7 +58,7 @@ Class Timer {
 
    __DeleteJson() {
       jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
-      jsonObj.Delete(this.startTime)
+      jsonObj.Delete(this.hash)
       WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
    }
 

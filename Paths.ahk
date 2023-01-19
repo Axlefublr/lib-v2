@@ -68,6 +68,8 @@ Class Paths {
       "bing chilling 1",   this.Audio "\Sounds\bing chilling 1.wav",
       "bing chilling 2",   this.Audio "\Sounds\bing chilling 2.wav",
       "oh fr on god",      this.Audio "\Sounds\oh fr on god.wav",
+      "sus",               this.Audio "\Sounds\sus.wav",
+      "i just farted",     this.Audio "\Sounds\i just farted.wav",
 
       "Timer.ahk", this.Main "\Tools\Timer.ahk",
 
@@ -89,8 +91,9 @@ Class Paths {
    )
 
    static Apps := Map(
-      "Shell Menu View", A_ProgramFiles "\Shell Menu View\shmnview.exe",
 
-      "Sound mixer", this.System32 "\SndVol.exe",
+      "Sound mixer",       "SndVol.exe",
+      "Slide to shutdown", "SlideToShutDown.exe",
+
    )
 }

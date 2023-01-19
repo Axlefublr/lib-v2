@@ -10,7 +10,7 @@
 #MaxThreadsBuffer true
 
 Media_Stop & XButton1:: {
-   sections := GetSections()
+   sections := Press.GetSections()
    Switch {
       Case sections.middle:Cut()
       Case WinActive(Youtube.winTitle):Youtube.StudioSwitch()
@@ -19,7 +19,7 @@ Media_Stop & XButton1:: {
 }
 
 Media_Stop & XButton2:: {
-   sections := GetSections()
+   sections := Press.GetSections()
    Switch {
       Case sections.middle:WinPaste()
       Case sections.up:Send("{Browser_Forward}")

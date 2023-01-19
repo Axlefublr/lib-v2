@@ -1,4 +1,5 @@
 #Include <Utils\Win>
+#Include '..\App\VPN.ahk'
 #Include <Abstractions\Global>
 #Include <Loaders\Links>
 #Include <Tools\Info>
@@ -28,8 +29,8 @@
 <!t::Telegram.winObj.App()
 <!r::Terminal.winObj.App()
 <!x::Autohotkey.Docs.v2.winObj.App()
-
 <!z::OBS.winObj.App()
+<!f::VPN.winObj.App()
 
 <!d::Explorer.WinObj.Volume.App_Folders()
 <!v::Explorer.WinObj.Pictures.App_Folders()

@@ -1,7 +1,8 @@
 #InputLevel 6
 
-Launch_Media::RAlt
+#h::return
 !Space::return
+Launch_Media::RAlt
 AppsKey::RCtrl
 
 ; Launch_Media::return     ; F1

@@ -15,6 +15,30 @@ class DateTime {
    }
 
    /**
+    * 365.24
+    * @type {Float}
+    */
+   static DaysInAYear := 365.24
+   
+   /**
+    * 30.43(6)
+    * @type {Float}
+    */
+   static DaysInAMonth := this.DaysInAYear / 12
+   
+   /**
+    * 86400
+    * @type {Integer}
+    */
+   static SecondsInADay := 86400
+   
+   /**
+    * 3600
+    * @type {Integer}
+    */
+   static SecondsInAnHour := 3600
+   
+   /**
     * YYYY - 4
     * MM - 2
     * DD - 2
@@ -25,7 +49,7 @@ class DateTime {
     * 14 characters total in the YYYYMMDDHH24MISS timestamp
     * @type {Integer}
     */
-   static CorrectTimestampLength := 14
+   static StandardTimestampLength := 14 ;naming suggestion by @DepthTrawler
 
    /**
     * If you use "1" as a timestamp, it will mean "1000 years".
@@ -35,7 +59,7 @@ class DateTime {
     * @returns {Integer} A correctly formatted YYYYMMDDHH24MISS timestamp
     */
    static CorrectTimestamp(timestamp) {
-      while StrLen(timestamp) < DateTime.CorrectTimestampLength {
+      while StrLen(timestamp) < DateTime.StandardTimestampLength {
          timestamp := 0 timestamp
       }
       return timestamp
@@ -53,13 +77,22 @@ class DateTime {
    static ParseTimestamp(timeStamp := A_Now) {
       timeStamp := this.CorrectTimestamp(timeStamp) ;if there are no leading zeros in the timestamp, "10000" would be considered "the year 1000" rather than "1 hour"
 
-      years   := SubStr(timeStamp, 1, 4)
-      months  := SubStr(timeStamp, 5, 2)
-      days    := SubStr(timeStamp, 7, 2)
-      hours   := SubStr(timeStamp, 9, 2)
+      years   := SubStr(timeStamp, 1,  4)
+      months  := SubStr(timeStamp, 5,  2)
+      days    := SubStr(timeStamp, 7,  2)
+      hours   := SubStr(timeStamp, 9,  2)
       minutes := SubStr(timeStamp, 11, 2)
       seconds := SubStr(timeStamp, 13, 2)
 
+      if timeStamp < 0 {
+         years   := -years
+         months  := -months
+         days    := -months
+         hours   := -hours
+         minutes := -minutes
+         seconds := -seconds
+      }
+      
       return {
          years:   years,
          months:  months,
@@ -80,17 +113,20 @@ class DateTime {
    static ConvertToSeconds(timeStamp) {
       timeObj := this.ParseTimestamp(timeStamp)
 
-      daysMs    := timeObj.days * 86400
-      hoursMs   := timeObj.hours * 3600
+      daysMs    := timeObj.days * DateTime.SecondsInADay
+      hoursMs   := timeObj.hours * DateTime.SecondsInAnHour
       minutesMs := timeObj.minutes * 60
 
       return daysMs + hoursMs + minutesMs + timeObj.seconds
    }
 
+   static ConvertSecondsToTimestamp(seconds) {
+      if seconds > DateTime.ThirtyDaysInSeconds
+         throw ValueError("I have not implemented ")
+   }
+   
    /**
     * Add a timestamp to a timestamp.
-    * Months and years are completely ignored on toAdd, so use base as the number you want to add to
-    * and toAdd as the date you're adding to it
     * @param base *YYYYMMDDHH24MISS*
     * @param toAdd *YYYYMMDDHH24MISS*
     * @returns {YYYYMMDDHH24MISS}
@@ -106,6 +142,16 @@ class DateTime {
       return base
    }
 
+   static DateAddMonth(dateTime, addMonths) {
+      dateTime := this.ParseTimestamp(dateTime)
+
+      years := dateTime.years
+      months := dateTime.months
+      rest := dateTime.days dateTime.hours dateTime.minutes dateTime.seconds
+      
+      months += addMonths
+   }
+   
    /**
     * DateAdd doesn't let you add months or days.
     * Do so using this method.

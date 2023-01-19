@@ -14,7 +14,7 @@
 #MaxThreadsBuffer true
 
 Media_Stop:: {
-   sections := GetSections()
+   sections := Press.GetSections()
    Switch {
       Case sections.topRight:    GroupDeactivate("Main")
       Case sections.bottomRight: Telegram.winObj.App()
@@ -31,7 +31,7 @@ Media_Stop:: {
 }
 
 XButton1:: {
-   sections := GetSections()
+   sections := Press.GetSections()
    Switch {
       Case sections.middle:Copy()
       Case WinActive(Browser.winTitle):

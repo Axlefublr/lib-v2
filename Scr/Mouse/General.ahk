@@ -6,7 +6,7 @@
 #MaxThreadsBuffer true
 
 XButton1 & Media_Stop:: {
-   sections := GetSections()
+   sections := Press.GetSections()
    Switch {
       case sections.up:   Win.Maximize()
       case sections.down: Win.RestoreDown()
@@ -14,7 +14,7 @@ XButton1 & Media_Stop:: {
 }
 
 XButton2:: {
-   sections := GetSections()
+   sections := Press.GetSections()
    Switch {
       Case sections.right: Send("{Media_Next}")
       Case sections.left: Send("{Media_Prev}")
