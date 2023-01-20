@@ -7,3 +7,4 @@
 #Include <Utils\Win>
 #Include <Utils\Print>
 #Include <Utils\Eval>
+#Include <Utils\KeyChorder>

@@ -273,6 +273,9 @@ Channel := [
 
    ;;Useful tutorials not by me
 
+   "vim tutorial",
+   "https://www.youtube.com/watch?v=RZ4p-saaQkc",
+   
    "global vim command",
    "https://youtu.be/JgZu5-FNeMk",
 

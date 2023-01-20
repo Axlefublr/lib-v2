@@ -39,6 +39,10 @@ NumpadHome::7
 NumpadUp::8
 NumpadPgUp::9
 NumpadDel::.
+*NumpadDiv::/
+*NumpadMult::*
+*NumpadSub::-
+*NumpadAdd::+
 
 ;; Mode 0
 #HotIf U_Numlock = 0
