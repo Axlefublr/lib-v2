@@ -17,10 +17,8 @@
 
 #MaxThreadsBuffer true
 
-#m::RunLink(Links["gmail"])
-#sc33::RunLink(Links["ghm"])
-
-#n::Browser.MonkeyType.winObj.App()
+<!Escape::GroupDeactivate("Main")
+<+Escape::Win.Minimize()
 
 <!s::Spotify.winObj.App()
 <!a::VsCode.winObj.App()
@@ -32,13 +30,23 @@
 <!z::OBS.winObj.App()
 <!f::VPN.winObj.App()
 
-<!d::Explorer.WinObj.Volume.App_Folders()
-<!v::Explorer.WinObj.Pictures.App_Folders()
+<!d:: {
+   key := KeyChorder()
+   static keyActions := Map(
 
-<!Escape::GroupDeactivate("Main")
-<+Escape:: {
-   SetTitleMatchMode("Regex")
-   Explorer.winObjRegex.MinMax()
+      "q", () => Explorer.WinObj.Volume.App_Folders(),
+      "v", () => Explorer.WinObj.Pictures.App_Folders(),
+      "t", () => Explorer.WinObj.VideoTools.App_Folders(),
+      "s", () => Explorer.WinObj.Memes.App_Folders(),
+      "e", () => Explorer.WinObj.Emoji.App_Folders(),
+      "a", () => Explorer.WinObj.Audio.App_Folders(),
+      "w", () => Explorer.WinObj.ScreenVideos.App_Folders(),
+      "d", () => (SetTitleMatchMode("RegEx"), Explorer.WinObj.PC.App()),
+
+   )
+
+   try keyActions[key].Call()
 }
+
 
 #MaxThreadsBuffer false

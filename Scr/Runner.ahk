@@ -106,7 +106,7 @@
 
 #Hotstring EndChars `t
 
-#sc35:: {
+#m:: {
    input := CleanInputBox().WaitForInput()
    if !input {
       return

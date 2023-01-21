@@ -22,10 +22,12 @@ Class Paths {
    static NotesTemp := this.Main "\Notes temp"
    static Tools     := this.Main "\Tools"
 
-   static Pictures   := "C:\Pictures"
-   static Materials  := this.Pictures "\Materials"
-   static Content    := this.Pictures "\Content"
-   static VideoTools := this.Pictures "\Tools"
+   static Pictures     := "C:\Pictures"
+   static Content      := this.Pictures "\Content"
+   static VideoTools   := this.Pictures "\Tools"
+   static ScreenVideos := this.Pictures "\Screenvideos"
+   static Memes        := this.Pictures "\Tree\Memes"
+   static Emoji        := this.Pictures "\Tree\Emojis"
 
    static Audio := "C:\Audio"
 
