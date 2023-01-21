@@ -42,6 +42,14 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 
+#sc35::key := KeyChorder(), WriteFile(Paths.GetRegPath(key))
+#sc28:: {
+   key := KeyChorder()
+   registerContents := ReadFile(Paths.GetRegPath(key))
+   registerContentsNoNewlines := registerContents.RegExReplace("\r?\n", "\n")
+   shorterRegisterContents := registerContentsNoNewlines[1, 100]
+   Infos(shorterRegisterContents)
+}
 #k::key := KeyChorder(), WriteFile(Paths.GetRegPath(key), A_Clipboard)
 #h::key := KeyChorder(), ClipSend(ReadFile(Paths.GetRegPath(key)))
 #j::key := KeyChorder(), Run(ReadFile(Paths.GetRegPath(key)))
