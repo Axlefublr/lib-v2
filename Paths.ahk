@@ -37,6 +37,8 @@ Class Paths {
    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
    static SavedScreenshots := this.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
 
+   static GetRegPath(key) => this.Reg "\reg_" key ".txt"
+
    static Ptf := Map(
       "Main", this.Main "\.vscode\main.code-workspace",
 

@@ -42,5 +42,6 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 
-#k::key := KeyChorder(), WriteFile(Paths.Reg "\reg_" key ".txt", A_Clipboard)
-#h::key := KeyChorder(), ClipSend(ReadFile(Paths.Reg "\reg_" key ".txt"))
+#k::key := KeyChorder(), WriteFile(Paths.GetRegPath(key), A_Clipboard)
+#h::key := KeyChorder(), ClipSend(ReadFile(Paths.GetRegPath(key)))
+#j::key := KeyChorder(), Run(ReadFile(Paths.GetRegPath(key)))
