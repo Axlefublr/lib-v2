@@ -14,6 +14,7 @@
 #Include <Abstractions\Text>
 #Include <Paths>
 #Include <Utils\ClipSend>
+#Include <Utils\KeyChorder>
 
 #Escape::Infos(GetWeather()), RemindDate()
 
@@ -36,8 +37,10 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::RelativeCoordGetter()
+
 #b::InternetSearch("Google").TriggerSearch()
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
-#!p::ClipSend(ReadFile(Paths.Ptf["Input"])), WriteFile(Paths.Ptf["Input"])
-#!m::WriteFile(Paths.Ptf["Input"], A_Clipboard)
+
+#k::key := KeyChorder(), WriteFile(Paths.Reg "\reg_" key ".txt", A_Clipboard)
+#h::key := KeyChorder(), ClipSend(ReadFile(Paths.Reg "\reg_" key ".txt"))

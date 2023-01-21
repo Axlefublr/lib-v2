@@ -42,13 +42,3 @@ scr_ExitTest() {
    DetectHiddenWindows(true)
    PostMessage(0x5555, 11, 22,, "ahk_class AutoHotkey")
 }
-
-;Alternative to outputdebug
-Out(put := "", endChar := "`n", overwrite := false) {
-   filePath := Paths.Ptf["Output"]
-   static wasRan := false
-   if !wasRan || overwrite
-      WriteFile(filePath, put endChar), wasRan := true
-   else
-      AppendFile(filePath, put endChar)
-}

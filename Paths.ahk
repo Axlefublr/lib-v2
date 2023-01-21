@@ -13,6 +13,7 @@ Class Paths {
    static YtDev := "C:\Programming\yt-dev"
    static Info  := "C:\Programming\info"
    static Test  := "C:\Programming\test"
+   static Reg   := "C:\Programming\registers"
 
    static Backups   := this.Main "\Backups"
    static Docs      := this.Main "\Docs"
@@ -53,8 +54,6 @@ Class Paths {
 
       "Hub", this.Main "\Hub.ahk",
 
-      "Output",  this.Test "\Output.txt",
-      "Input",   this.Test "\Input.txt",
       "AhkTest", this.Test "\AhkTest.ahk",
 
       "vine boom",         this.Audio "\Sounds\vine boom.wav",
