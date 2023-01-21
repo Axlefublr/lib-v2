@@ -1,37 +1,37 @@
 /*
 	Introduction & credits
-	This library implements Microsoft's UI Automation framework. 
+	This library implements Microsoft's UI Automation framework.
     Microsoft's official documentation:: https://docs.microsoft.com/en-us/windows/win32/winauto/entry-uiauto-win32
 	Author: Descolada
     Credits: thqby, neptercn (v1), jethrow (AHK v1 UIA library)
 
 	A lot of modifications have been added to the original UIA framework, such as custom methods for elements (eg element.Click())
- 
+
 	Usage:
 	All main UIA methods and properties can be accessed through the UIA variable.
         Eg UIA.GetRootElement()
-	Additionally some extra variables are initialized: 
+	Additionally some extra variables are initialized:
 		UIA.IUIAutomationVersion contains the version number of IUIAutomation interface
 		UIA.TrueCondition contains a TrueCondition
         UIA.TreeWalkerTrue contains a TreeWalker with the TrueCondition
-	UIA is initialized only once, on the first use of UIA. 
+	UIA is initialized only once, on the first use of UIA.
         The initalized IUIAutomation version depends on the system, but the most recent version is automatically used.
         If the version needs to be limited, then set the IUIAutomationMaxVersion global variable before the first use of UIA.
         On initialization, SPI_SETSCREENREADER is also called to notify the system of UIA use. This is needed for some programs (such as VSCode).
-	
+
 	UIAutomation constants and enumerations are also available in the UIA variable. Eg. UIA.Property.Name contains the UIA_NamePropertyId value.
 	Microsoft documentation for constants and enumerations:
 		UI Automation Constants: https://docs.microsoft.com/en-us/windows/win32/winauto/uiauto-entry-constants
 		UI Automation Enumerations: https://docs.microsoft.com/en-us/windows/win32/winauto/uiauto-entry-enumerations
 */
-/* 	
+/*
 	Questions:
-	- if method returns a SafeArray, should we return a Wrapped SafeArray, Raw SafeArray, or AHK Array. Currently we return wrapped AHK arrays for SafeArrays. Although SafeArrays are more convenient to loop over, this causes more confusion in users who are not familiar with SafeArrays (questions such as why are they 0-indexed not 1-indexed, why doesnt for k, v in SafeArray work properly etc). 
+	- if method returns a SafeArray, should we return a Wrapped SafeArray, Raw SafeArray, or AHK Array. Currently we return wrapped AHK arrays for SafeArrays. Although SafeArrays are more convenient to loop over, this causes more confusion in users who are not familiar with SafeArrays (questions such as why are they 0-indexed not 1-indexed, why doesnt for k, v in SafeArray work properly etc).
 	- on UIA Interface conversion methods, how should the data be returned? wrapped/extracted or raw? should raw data be a ByRef param?
 	- Cached Members?
 	- UIA Element existance - dependent on window being visible (non minimized), and also sometimes Elements are lazily generated (eg Microsoft Teams, when a meeting is started then the toolbar buttons (eg Mute, react) aren't visible to UIA, but hovering over them with the cursor or calling ElementFromPoint causes Teams to generate and make them visible to UIA.
 	- better way of supporting differing versions of IUIAutomation (version 2, 3, 4)
-	- Get methods vs property getter: currently we use properties when the item stores data, fetching the data is "cheap" and when it doesn't have side-effects, and in computationally expensive cases use Get...(). 
+	- Get methods vs property getter: currently we use properties when the item stores data, fetching the data is "cheap" and when it doesn't have side-effects, and in computationally expensive cases use Get...().
 	- should ElementFromHandle etc methods have activateChromiumAccessibility set to True or False? Currently is True, because Chromium apps are very common, and checking whether its on should be relatively fast.
 
     Design choices:
@@ -50,7 +50,7 @@ if !A_IsCompiled && A_LineFile = A_ScriptFullPath
 
 class UIA {
 /**
- * First use of UIA variable initiates UIA, UIA.IUIAutomationVersion, UIA.TrueCondition and 
+ * First use of UIA variable initiates UIA, UIA.IUIAutomationVersion, UIA.TrueCondition and
  * UIA.TreeWalkerTrue. Also enables screen reader with SPI_SETSCREENREADER.
  * Initialized IUIAutomation version can be altered with changing the global IUIAutomationMaxVersion
  * variable, which by default is set to the latest available UIA version.
@@ -93,14 +93,14 @@ class Enumeration {
             local k, v
             if !this.HasOwnProp("__CachedValues") {
                 this.__CachedValues := Map()
-                for k, v in this.OwnProps() 
+                for k, v in this.OwnProps()
                     this.__CachedValues[v] := k
             }
             if this.__CachedValues.Has(param)
                 return this.__CachedValues[param]
             throw UnsetItemError("Property item `"" param "`" not found!", -2)
         }
-    } 
+    }
 }
 
 ; Access properties with UIA.property.subproperty (UIA.Type.Button)
@@ -170,7 +170,7 @@ static CaretBidiMode := {LTR:0,RTL:1, base:UIA.Enumeration.Prototype}
 static CaretPosition := {Unknown:0,EndOfLine:1,BeginningOfLine:2, base:UIA.Enumeration.Prototype}
 ; enum DockPosition Contains values that specify the location of a docking window represented by the Dock control pattern.
 static DockPosition := {Top:0,Left:1,Bottom:2,Right:3,Fill:4,None:5, base:UIA.Enumeration.Prototype}
-; enum ExpandCollapseState Contains values that specify the state of a UI element that can be expanded and collapsed.	
+; enum ExpandCollapseState Contains values that specify the state of a UI element that can be expanded and collapsed.
 static ExpandCollapseState := {Collapsed:0,Expanded:1,PartiallyExpanded:2,LeafNode:3, base:UIA.Enumeration.Prototype}
 ; enum FillType Contains values for the FillType attribute.
 static FillType := {None:0,Color:1,Gradient:2,Picture:3,Pattern:4, base:UIA.Enumeration.Prototype}
@@ -180,7 +180,7 @@ static FlowDirection := {Default:0,RightToLeft:1,BottomToTop:2,Vertical:4, base:
 static LiveSetting := {Off:0,Polite:1,Assertive:2, base:UIA.Enumeration.Prototype}
 ; enum NavigateDirection Contains values used to specify the direction of navigation within the Microsoft UI Automation tree.
 static NavigateDirection := {Parent:0,NextSibling:1,PreviousSibling:2,FirstChild:3,LastChild:4, base:UIA.Enumeration.Prototype}
-; enum NotificationKind Defines values that indicate the type of a notification event, and a hint to the listener about the processing of the event. 
+; enum NotificationKind Defines values that indicate the type of a notification event, and a hint to the listener about the processing of the event.
 static NotificationKind := {ItemAdded:0,ItemRemoved:1,ActionCompleted:2,ActionAborted:3,Other:4, base:UIA.Enumeration.Prototype}
 ; enum NotificationProcessing Defines values that indicate how a notification should be processed.
 static NotificationProcessing := {ImportantAll:0,ImportantMostRecent:1,All:2,MostRecent:3,CurrentThenMostRecent:4, base:UIA.Enumeration.Prototype}
@@ -194,11 +194,11 @@ static ProviderOptions := {ClientSideProvider:1,ServerSideProvider:2,NonClientAr
 static RowOrColumnMajor := {RowMajor:0,ColumnMajor:1,Indeterminate:2, base:UIA.Enumeration.Prototype}
 ; enum SayAsInterpretAs Defines the values that indicate how a text-to-speech engine should interpret specific data.
 static SayAsInterpretAs := {None:0,Spell:1,Cardinal:2,Ordinal:3,Number:4,Date:5,Time:6,Telephone:7,Currency:8,Net:9,Url:10,Address:11,Name:13,Media:14,Date_MonthDayYear:15,Date_DayMonthYear:16,Date_YearMonthDay:17,Date_YearMonth:18,Date_MonthYear:19,Date_DayMonth:20,Date_MonthDay:21,Date_Year:22,Time_HoursMinutesSeconds12:23,Time_HoursMinutes12:24,Time_HoursMinutesSeconds24:25,Time_HoursMinutes24:26, base:UIA.Enumeration.Prototype}
-; enum ScrollAmount Contains values that specify the direction and distance to scroll.	
+; enum ScrollAmount Contains values that specify the direction and distance to scroll.
 static ScrollAmount := {LargeDecrement:0,SmallDecrement:1,NoAmount:2,LargeIncrement:3,SmallIncrement:4, base:UIA.Enumeration.Prototype}
 ; enum StructureChangeType Contains values that specify the type of change in the Microsoft UI Automation tree structure.
 static StructureChangeType := {ChildAdded:0,ChildRemoved:1,ChildrenInvalidated:2,ChildrenBulkAdded:3,ChildrenBulkRemoved:4,ChildrenReordered:5, base:UIA.Enumeration.Prototype}
-; enum SupportedTextSelection Contains values that specify the supported text selection attribute.	
+; enum SupportedTextSelection Contains values that specify the supported text selection attribute.
 static SupportedTextSelection := {None:0,Single:1,Multiple:2, base:UIA.Enumeration.Prototype}
 ; enum SynchronizedInputType Contains values that specify the type of synchronized input.
 static SynchronizedInputType := {KeyUp:1,KeyDown:2,LeftMouseUp:4,LeftMouseDown:8,RightMouseUp:10,RightMouseDown:20, base:UIA.Enumeration.Prototype}
@@ -311,7 +311,7 @@ static ContentViewCondition {
 
 ; ---------- IUIAutomation2 properties ----------
 
-; Specifies whether calls to UI Automation control pattern methods automatically set focus to the target element. Default is True. 
+; Specifies whether calls to UI Automation control pattern methods automatically set focus to the target element. Default is True.
 static AutoSetFocus {
     get {
         local out
@@ -324,7 +324,7 @@ static ConnectionTimeout {
     get {
         local out
         return (ComCall(60, this,  "int*", &out:=0), out)
-    } 
+    }
     set => ComCall(61, this,  "int", Value) ; Minimum seems to be 50 (ms?)
 }
 ; Specifies the length of time that UI Automation will wait for a provider to respond to a client request for information about an automation element. Default is 2000ms (2 seconds), minimum seems to be 50ms.
@@ -332,7 +332,7 @@ static TransactionTimeout {
     get {
         local out
         return (ComCall(62, this,  "int*", &out:=0), out)
-    } 
+    }
     set => ComCall(63, this,  "int", Value)
 }
 
@@ -343,15 +343,15 @@ ConnectionRecoveryBehavior {
     get {
         local out
         return (ComCall(73, this,  "int*", &out), out)
-    } 
-    set => ComCall(74, this,  "int", value) 
+    }
+    set => ComCall(74, this,  "int", value)
 }
 ; Gets or sets whether an accessible technology client receives all events, or a subset where duplicate events are detected and filtered.
 CoalesceEvents {
     get {
         local out
         return (ComCall(75, this,  "int*", &out:=0), out)
-    } 
+    }
     set => ComCall(76, this,  "int", value)
 }
 
@@ -390,7 +390,7 @@ static Filter(elementArray, function) {
 
 /**
  * Create a property condition from an AHK object
- * @param condition Object or Array that contains property conditions. 
+ * @param condition Object or Array that contains property conditions.
  *     Single property condition consists of an object where the key is the property name, and value is the property value:
  *         `{Name:"Test"}` => Creates a condition where the Name property must match "Test" exactly
  *     Everything inside {} is an "and" condition
@@ -398,11 +398,11 @@ static Filter(elementArray, function) {
  *     Everything inside [] is an "or" condition
  *         `[{Name:"Test"}, {Name:"Something"}]` Name must match "Test" OR Name must match "Something"
  *     Object key "not" creates a not condition
- * 
- *     matchmode key (short form: mm) can be one of UIA.MatchMode values (except StartsWith and RegEx) and defines the MatchMode 
+ *
+ *     matchmode key (short form: mm) can be one of UIA.MatchMode values (except StartsWith and RegEx) and defines the MatchMode
  *         2=can contain anywhere in string; 3=exact match
  *     casesense key (short form: cs) defines case sensitivity (default: case-sensitive/True): True=case sensitive; False=case insensitive
- * 
+ *
  * @param value If this is set then UIA.CreatePropertyCondition will be called instead, with "condition" being the Property name.
  * @param flags If `value` was set then this will be passed to UIA.CreatePropertyConditionEx
  *
@@ -411,7 +411,7 @@ static Filter(elementArray, function) {
  * `CreateCondition({Type:"Button", or:[Name:"Something", Name:"Else"]})` => Name must match "Something" OR "Else", AND Type must be Button
  * `CreateCondition({Name:"Test", cs:0, mm:2})` => Name must contain "Test" and is case-insensitive
  * `CreateCondition("Type", "Button")` => Type must be Button
- * 
+ *
  * @returns {UIA.IUIAutomationCondition}
  */
 static CreateCondition(condition, value?, flags?) {
@@ -446,7 +446,7 @@ static __ConditionBuilder(obj, &nonUIAMatchMode?) {
             if !IsInteger(mm)
                 mm := UIA.MatchMode.%mm%
             if !IsInteger(cs)
-                cs := UIA.CaseSense.%cs% 
+                cs := UIA.CaseSense.%cs%
             if IsSet(nonUIAMatchMode) {
                 if (mm = "RegEx" || mm = 1)
                     nonUIAMatchMode := True, sanitizeMM := True
@@ -506,7 +506,7 @@ static __ConditionBuilder(obj, &nonUIAMatchMode?) {
 }
 
 /**
- * If the element from ElementFromHandle doesn't contain the content of the window, and the window in 
+ * If the element from ElementFromHandle doesn't contain the content of the window, and the window in
  * question is a Chromium app (Window Spy shows "ahk_class Chrome_WidgetWin_1"), then this can be used
  * to get the element for the content (using Chrome_RenderWidgetHostHWND1 control).
  * @param winTitle A window title or other criteria identifying the target window. See AHK WinTitle.
@@ -526,10 +526,10 @@ static ElementFromChromium(winTitle:="", activateChromiumAccessibility:=True, ti
     return UIA.ElementFromHandle(cHwnd, False, cacheRequest)
 }
 /**
- * In some setups Chromium-based renderers don't react to UIA calls by enabling accessibility, 
- * so we need to send the WM_GETOBJECT message to the renderer control to enable accessibility. 
+ * In some setups Chromium-based renderers don't react to UIA calls by enabling accessibility,
+ * so we need to send the WM_GETOBJECT message to the renderer control to enable accessibility.
  * ActivateChromiumAccessibility does that (only once per window) and then returns the content element.
- * Explanation why this works: https://www.chromium.org/developers/design-documents/accessibility/#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology 
+ * Explanation why this works: https://www.chromium.org/developers/design-documents/accessibility/#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology
  * @param winTitle A window title or other criteria identifying the target window. See AHK WinTitle.
  * @param forceActivation By default a window is activated only once per run. If this is set to True
  *     then the window is activated unconditionally.
@@ -598,7 +598,7 @@ static ElementFromHandle(hwnd:="", cacheRequest:=0, activateChromiumAccessibilit
 static ElementFromWindow(WinTitle:="", cacheRequest:=0, activateChromiumAccessibility:=True) => UIA.ElementFromHandle(WinTitle, cacheRequest, activateChromiumAccessibility)
 /**
  * Retrieves the UI Automation element at the specified point on the desktop.
- * @param x x coordinate for the screen point. 
+ * @param x x coordinate for the screen point.
  * Omit both x and y to get the element from the current mouse position.
  * @param y y coordinate for the screen point.
  * @param cacheRequest Optional: a cache request object.
@@ -624,7 +624,7 @@ static SmallestElementFromPoint(x?, y?, element?, cacheRequest:=0) {
         cacheRequest := UIA.CreateCacheRequest()
         cacheRequest.TreeScope := 5
         cacheRequest.AutomationElementMode := UIA.AutomationElementMode.None
-    } 
+    }
     cacheRequest.AddProperty("BoundingRectangle")
     if !IsSet(element)
         element := UIA.ElementFromPoint(x?, y?, cacheRequest)
@@ -747,7 +747,7 @@ static CreatePropertyConditionEx(propertyId, value, flags := 0) {
     return newCondition?UIA.IUIAutomationPropertyCondition(newCondition):""
 }
 
-; The Create**Condition** method calls AddRef on each pointers. This means you can call Release on those pointers after the call to Create**Condition** returns without invalidating the pointer returned from Create**Condition**. 
+; The Create**Condition** method calls AddRef on each pointers. This means you can call Release on those pointers after the call to Create**Condition** returns without invalidating the pointer returned from Create**Condition**.
 ; When you call Release on the pointer returned from Create**Condition**, UI Automation calls Release on those pointers.
 
 ; Creates a condition that selects elements that match both of two conditions.
@@ -832,7 +832,7 @@ static AddPropertyChangedEventHandlerNativeArray(handler, element, propertyArray
 static AddPropertyChangedEventHandler(handler, element, propertyArray, scope:=0x4, cacheRequest:=0) {
     local i, SafeArray
     if !IsObject(propertyArray)
-        propertyArray := [propertyArray] 
+        propertyArray := [propertyArray]
     SafeArray:=ComObjArray(0x3,propertyArray.Length)
     for i, propertyId in propertyArray
         SafeArray[i-1]:=propertyId
@@ -1018,7 +1018,7 @@ static RemoveNotificationEventHandler(handler, element) => (ComCall(69, this,  "
 static CreateEventHandlerGroup() {
     local out
     return (ComCall(70, this,  "ptr*", &out:=0), UIA.IUIAutomationEventHandlerGroup(out))
-} 
+}
 ; Registers a collection of event handler methods specified with the IUIAutomation6 CreateEventHandlerGroup.
 static AddEventHandlerGroup(handlerGroup, element) => (ComCall(71, this,  "ptr", element, "ptr", handlerGroup))
 static RemoveEventHandlerGroup(handlerGroup, element) => (ComCall(72, this,  "ptr", element, "ptr", handlerGroup))
@@ -1069,7 +1069,7 @@ class Variant {
             if (Type(Value) == "ComVar") {
                 this.var := Value.var, this.ref := Value.ref, this.obj := Value, this.owner := False
                 return
-            } 
+            }
             if (IsObject(Value)) {
                 this.ref := ComValue(0x400C, this.var.ptr)
                 if Value is Array {
@@ -1118,9 +1118,9 @@ class ComVar {
      * @param vVal Values that need to be wrapped, supports String, Integer, Double, Array, ComValue, ComObjArray
      * ### example
      * `var1 := ComVar('string'), MsgBox(var1[])`
-     * 
+     *
      * `var2 := ComVar([1,2,3,4], , true)`
-     * 
+     *
      * `var3 := ComVar(ComValue(0xb, -1))`
      * @param vType Variant's type, VT_VARIANT(default)
      * @param convert Convert AHK's array to ComObjArray
@@ -1211,7 +1211,7 @@ class IUIAutomationBase {
             return this.%NewName%(Params*)
         throw Error("Method " Name " not found in " this.__Class " Class.",-2,Name)
     }
-}    
+}
 /*
 	Exposes methods and properties for a UI Automation element, which represents a UI item.
 	Microsoft documentation: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationelement
@@ -1220,8 +1220,8 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     cachedPatterns := Map() ; Used to cache patterns when they are called directly from an element
 
     /**
-     * Enables array-like use of UIA elements to access child elements. 
-     * If value is an integer then the nth corresponding child will be returned. 
+     * Enables array-like use of UIA elements to access child elements.
+     * If value is an integer then the nth corresponding child will be returned.
      * A negative integer return the nth last child
      *     Eg. Element[2] ==> returns second child of Element
      *         Element[-1] ==> returns the last child of Element
@@ -1247,7 +1247,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
                         el := arr.GetElement(param < 0 ? arr.Length+param : param-1)
                     }
                 } else if (Type(param) = "String") || (param < 0)
-                    el := el.FindByPath(param) 
+                    el := el.FindByPath(param)
                 else
                     TypeError("Invalid item type!", -1)
             }
@@ -1255,7 +1255,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
         }
     }
     /**
-     * Enables enumeration of UIA elements, usually in a for loop. 
+     * Enables enumeration of UIA elements, usually in a for loop.
      * Usage:
      * for [index, ] child in Element
      */
@@ -1277,7 +1277,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
         return (varCount = 1) ? EnumElements : EnumIndexAndElements
     }
     /**
-     * Getter for element properties and element supported pattern properties. 
+     * Getter for element properties and element supported pattern properties.
      * This allows for syntax such as:
      *     Element.Name == Element.CurrentName
      *     Element.ValuePattern == Element.GetPattern("Value")
@@ -1303,7 +1303,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
             throw Error("Property " Name " not found in " this.__Class " Class.",-1,Name)
         }
     }
-    ; Setter for UIA element and pattern properties. 
+    ; Setter for UIA element and pattern properties.
     __Set(Name, Params, Value) {
         local pVal, pName, NewName := StrReplace(Name, "Current",,,,1)
         if this.base.HasOwnProp(NewName)
@@ -1319,7 +1319,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
         this.DefineProp(Name, {Value:Value})
     }
     /**
-     * Meta-function for calling methods from supperted patterns. 
+     * Meta-function for calling methods from supperted patterns.
      * This allows for syntax such as:
      *     Element.Invoke() == Element.GetPattern("Value").Invoke()
      */
@@ -1367,7 +1367,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     CachedLocation => (br := this.CachedBoundingRectangle, {x: br.l, y: br.t, w: br.r-br.l, h: br.b-br.t})
 
 	; Gets or sets the current value of the element, if the ValuePattern is supported.
-	Value { 
+	Value {
 		get {
 			try return this.GetPropertyValue(UIA.Property.ValueValue)
 		}
@@ -1387,13 +1387,13 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     }
 
     ; Aliases for UIA.GetPattern(UIA.Pattern.PatternName)
-    InvokePattern => this.GetPattern(UIA.Pattern.Invoke) 
-    SelectionPattern => this.GetPattern(UIA.Pattern.Selection) 
-    ValuePattern => this.GetPattern(UIA.Pattern.Value) 
-    RangeValuePattern => this.GetPattern(UIA.Pattern.RangeValue) 
-    ScrollPattern => this.GetPattern(UIA.Pattern.Scroll) 
-    ExpandCollapsePattern => this.GetPattern(UIA.Pattern.ExpandCollapse) 
-    GridPattern => this.GetPattern(UIA.Pattern.Grid) 
+    InvokePattern => this.GetPattern(UIA.Pattern.Invoke)
+    SelectionPattern => this.GetPattern(UIA.Pattern.Selection)
+    ValuePattern => this.GetPattern(UIA.Pattern.Value)
+    RangeValuePattern => this.GetPattern(UIA.Pattern.RangeValue)
+    ScrollPattern => this.GetPattern(UIA.Pattern.Scroll)
+    ExpandCollapsePattern => this.GetPattern(UIA.Pattern.ExpandCollapse)
+    GridPattern => this.GetPattern(UIA.Pattern.Grid)
     GridItemPattern => this.GetPattern(UIA.Pattern.GridItem)
     MultipleViewPattern => this.GetPattern(UIA.Pattern.MultipleView)
     WindowPattern => this.GetPattern(UIA.Pattern.Window)
@@ -1401,32 +1401,32 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     DockPattern => this.GetPattern(UIA.Pattern.Dock)
     TablePattern => this.GetPattern(UIA.Pattern.Table)
     TableItemPattern => this.GetPattern(UIA.Pattern.TableItem)
-    TextPattern => this.GetPattern(UIA.Pattern.Text) 
-    TogglePattern => this.GetPattern(UIA.Pattern.Toggle) 
-    TransformPattern => this.GetPattern(UIA.Pattern.Transform) 
-    ScrollItemPattern => this.GetPattern(UIA.Pattern.ScrollItem) 
-    LegacyIAccessiblePattern => this.GetPattern(UIA.Pattern.LegacyIAccessible) 
-    ItemContainerPattern => this.GetPattern(UIA.Pattern.ItemContainer) 
-    VirtualizedItemPattern => this.GetPattern(UIA.Pattern.VirtualizedItem) 
-    SynchronizedInputPattern => this.GetPattern(UIA.Pattern.SynchronizedInput) 
-    ObjectModelPattern => this.GetPattern(UIA.Pattern.ObjectModel) 
-    AnnotationPattern => this.GetPattern(UIA.Pattern.Annotation) 
-    StylesPattern => this.GetPattern(UIA.Pattern.Styles) 
-    SpreadsheetPattern => this.GetPattern(UIA.Pattern.Spreadsheet) 
+    TextPattern => this.GetPattern(UIA.Pattern.Text)
+    TogglePattern => this.GetPattern(UIA.Pattern.Toggle)
+    TransformPattern => this.GetPattern(UIA.Pattern.Transform)
+    ScrollItemPattern => this.GetPattern(UIA.Pattern.ScrollItem)
+    LegacyIAccessiblePattern => this.GetPattern(UIA.Pattern.LegacyIAccessible)
+    ItemContainerPattern => this.GetPattern(UIA.Pattern.ItemContainer)
+    VirtualizedItemPattern => this.GetPattern(UIA.Pattern.VirtualizedItem)
+    SynchronizedInputPattern => this.GetPattern(UIA.Pattern.SynchronizedInput)
+    ObjectModelPattern => this.GetPattern(UIA.Pattern.ObjectModel)
+    AnnotationPattern => this.GetPattern(UIA.Pattern.Annotation)
+    StylesPattern => this.GetPattern(UIA.Pattern.Styles)
+    SpreadsheetPattern => this.GetPattern(UIA.Pattern.Spreadsheet)
     SpreadsheetItemPattern => this.GetPattern(UIA.Pattern.SpreadsheetItem)
-    TextChildPattern => this.GetPattern(UIA.Pattern.TextChild) 
-    DragPattern => this.GetPattern(UIA.Pattern.Drag) 
-    DropTargetPattern => this.GetPattern(UIA.Pattern.DropTarget) 
-    TextEditPattern => this.GetPattern(UIA.Pattern.TextEdit) 
+    TextChildPattern => this.GetPattern(UIA.Pattern.TextChild)
+    DragPattern => this.GetPattern(UIA.Pattern.Drag)
+    DropTargetPattern => this.GetPattern(UIA.Pattern.DropTarget)
+    TextEditPattern => this.GetPattern(UIA.Pattern.TextEdit)
     CustomNavigationPattern => this.GetPattern(UIA.Pattern.CustomNavigation)
     ; Aliases for UIA.GetCachedPattern(UIA.Pattern.PatternName)
-    CachedInvokePattern => this.GetCachedPattern(UIA.Pattern.Invoke) 
-    CachedSelectionPattern => this.GetCachedPattern(UIA.Pattern.Selection) 
-    CachedValuePattern => this.GetCachedPattern(UIA.Pattern.Value) 
-    CachedRangeValuePattern => this.GetCachedPattern(UIA.Pattern.RangeValue) 
-    CachedScrollPattern => this.GetCachedPattern(UIA.Pattern.Scroll) 
-    CachedExpandCollapsePattern => this.GetCachedPattern(UIA.Pattern.ExpandCollapse) 
-    CachedGridPattern => this.GetCachedPattern(UIA.Pattern.Grid) 
+    CachedInvokePattern => this.GetCachedPattern(UIA.Pattern.Invoke)
+    CachedSelectionPattern => this.GetCachedPattern(UIA.Pattern.Selection)
+    CachedValuePattern => this.GetCachedPattern(UIA.Pattern.Value)
+    CachedRangeValuePattern => this.GetCachedPattern(UIA.Pattern.RangeValue)
+    CachedScrollPattern => this.GetCachedPattern(UIA.Pattern.Scroll)
+    CachedExpandCollapsePattern => this.GetCachedPattern(UIA.Pattern.ExpandCollapse)
+    CachedGridPattern => this.GetCachedPattern(UIA.Pattern.Grid)
     CachedGridItemPattern => this.GetCachedPattern(UIA.Pattern.GridItem)
     CachedMultipleViewPattern => this.GetCachedPattern(UIA.Pattern.MultipleView)
     CachedWindowPattern => this.GetCachedPattern(UIA.Pattern.Window)
@@ -1434,23 +1434,23 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     CachedDockPattern => this.GetCachedPattern(UIA.Pattern.Dock)
     CachedTablePattern => this.GetCachedPattern(UIA.Pattern.Table)
     CachedTableItemPattern => this.GetCachedPattern(UIA.Pattern.TableItem)
-    CachedTextPattern => this.GetCachedPattern(UIA.Pattern.Text) 
-    CachedTogglePattern => this.GetCachedPattern(UIA.Pattern.Toggle) 
-    CachedTransformPattern => this.GetCachedPattern(UIA.Pattern.Transform) 
-    CachedScrollItemPattern => this.GetCachedPattern(UIA.Pattern.ScrollItem) 
-    CachedLegacyIAccessiblePattern => this.GetCachedPattern(UIA.Pattern.LegacyIAccessible) 
-    CachedItemContainerPattern => this.GetCachedPattern(UIA.Pattern.ItemContainer) 
-    CachedVirtualizedItemPattern => this.GetCachedPattern(UIA.Pattern.VirtualizedItem) 
-    CachedSynchronizedInputPattern => this.GetCachedPattern(UIA.Pattern.SynchronizedInput) 
-    CachedObjectModelPattern => this.GetCachedPattern(UIA.Pattern.ObjectModel) 
-    CachedAnnotationPattern => this.GetCachedPattern(UIA.Pattern.Annotation) 
-    CachedStylesPattern => this.GetCachedPattern(UIA.Pattern.Styles) 
-    CachedSpreadsheetPattern => this.GetCachedPattern(UIA.Pattern.Spreadsheet) 
+    CachedTextPattern => this.GetCachedPattern(UIA.Pattern.Text)
+    CachedTogglePattern => this.GetCachedPattern(UIA.Pattern.Toggle)
+    CachedTransformPattern => this.GetCachedPattern(UIA.Pattern.Transform)
+    CachedScrollItemPattern => this.GetCachedPattern(UIA.Pattern.ScrollItem)
+    CachedLegacyIAccessiblePattern => this.GetCachedPattern(UIA.Pattern.LegacyIAccessible)
+    CachedItemContainerPattern => this.GetCachedPattern(UIA.Pattern.ItemContainer)
+    CachedVirtualizedItemPattern => this.GetCachedPattern(UIA.Pattern.VirtualizedItem)
+    CachedSynchronizedInputPattern => this.GetCachedPattern(UIA.Pattern.SynchronizedInput)
+    CachedObjectModelPattern => this.GetCachedPattern(UIA.Pattern.ObjectModel)
+    CachedAnnotationPattern => this.GetCachedPattern(UIA.Pattern.Annotation)
+    CachedStylesPattern => this.GetCachedPattern(UIA.Pattern.Styles)
+    CachedSpreadsheetPattern => this.GetCachedPattern(UIA.Pattern.Spreadsheet)
     CachedSpreadsheetItemPattern => this.GetCachedPattern(UIA.Pattern.SpreadsheetItem)
-    CachedTextChildPattern => this.GetCachedPattern(UIA.Pattern.TextChild) 
-    CachedDragPattern => this.GetCachedPattern(UIA.Pattern.Drag) 
-    CachedDropTargetPattern => this.GetCachedPattern(UIA.Pattern.DropTarget) 
-    CachedTextEditPattern => this.GetCachedPattern(UIA.Pattern.TextEdit) 
+    CachedTextChildPattern => this.GetCachedPattern(UIA.Pattern.TextChild)
+    CachedDragPattern => this.GetCachedPattern(UIA.Pattern.Drag)
+    CachedDropTargetPattern => this.GetCachedPattern(UIA.Pattern.DropTarget)
+    CachedTextEditPattern => this.GetCachedPattern(UIA.Pattern.TextEdit)
     CachedCustomNavigationPattern => this.GetCachedPattern(UIA.Pattern.CustomNavigation)
 
 	/**
@@ -1462,7 +1462,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 	GetChildren(c?, scope:=0x2) => this.FindAll(c ?? UIA.TrueCondition, scope)
 
 	; Get all child elements using TreeWalker. This is only for debugging purposes.
-	TWGetChildren() { 
+	TWGetChildren() {
 		arr := []
 		if !IsObject(nextChild := UIA.TreeWalkerTrue.GetFirstChildElement(this))
 			return ""
@@ -1472,7 +1472,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 		return arr
 	}
 	/**
-     * Returns info about the element: Type, Name, Value, LocalizedType, AutomationId, AcceleratorKey. 
+     * Returns info about the element: Type, Name, Value, LocalizedType, AutomationId, AcceleratorKey.
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
      * @param delimiter Optional delimiter to separate the returned properties. Default is space.
      * @param maxDepth Optional maximal depth of tree levels traversal. Default is unlimited.
@@ -1485,7 +1485,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
         static cacheRequest := UIA.CreateCacheRequest(["Type", "LocalizedType", "AutomationId", "Name", "Value", "ClassName", "AcceleratorKey"],,5,0)
         ; Speed-testing has shown that DumpAll with Current properties is about 1,5 to 4x slower than with Cached properties.
         ; Cached Dump with TreeScope.Element or TreeScope.Children is a bit slower than Current Dump.
-        ; This means that we use Current properties if TreeScope is less than Descendants, 
+        ; This means that we use Current properties if TreeScope is less than Descendants,
         ; and Cached properties if dumping Descendants. This gives the maximum performance.
         if scope < 4 {
             if scope&1
@@ -1527,7 +1527,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     CurrentDump(delimiter:=" ") {
         local ctrlType, name, val, lct, aid, cm, ak
         return "Type: " (ctrlType := this.Type) " (" UIA.Type[ctrlType] ")" ((name := this.Name) == "" ? "" : delimiter "Name: `"" name "`"") ((val := this.Value) == "" ? "" : delimiter "Value: `"" val "`"") ((lct := this.LocalizedType) == "" ? "" : delimiter "LocalizedType: `"" lct "`"") ((aid := this.AutomationId) == "" ? "" : delimiter "AutomationId: `"" aid "`"") ((cm := this.ClassName) == "" ? "" : delimiter "ClassName: `"" cm "`"") ((ak := this.AcceleratorKey) == "" ? "" : delimiter "AcceleratorKey: `"" ak "`"")
-    } 
+    }
     ; Dumps with only "Cached" properties
     CachedDump(delimiter:=" ") {
         local ctrlType, name, val, lct, aid, cm, ak
@@ -1538,7 +1538,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
         return this.CachedDump()
     }
 	/**
-     * Returns info about the element and its descendants: Type, Name, Value, LocalizedType, AutomationId, AcceleratorKey. 
+     * Returns info about the element and its descendants: Type, Name, Value, LocalizedType, AutomationId, AcceleratorKey.
      * @param maxDepth Optional maximal depth of tree levels traversal. Default is unlimited.
      * @returns {String}
      */
@@ -1561,16 +1561,16 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
             DllCall("ScreenToClient", "Int", this.GetWinId(), "Ptr", pt)
             return {x:NumGet(pt,0,"int"), y:NumGet(pt,4,"int"), w:br.r-br.l, h:br.b-br.t}
         } else
-            throw Error(relativeTo "is not a valid CoordMode",-1)		
+            throw Error(relativeTo "is not a valid CoordMode",-1)
 	}
 
 	; Get the parent window hwnd from the element
-	GetWinId() { 
+	GetWinId() {
         static TW := UIA.CreateTreeWalker(UIA.CreateNotCondition(UIA.CreatePropertyCondition(UIA.Property.NativeWindowHandle, 0)))
         try return DllCall("GetAncestor", "UInt", TW.NormalizeElement(this).GetCurrentPropertyValue(UIA.Property.NativeWindowHandle), "UInt", 2) ; hwnd from point by SKAN
 	}
 	; Get the parent window hwnd from the element
-	GetControlId() { 
+	GetControlId() {
         static TW := UIA.CreateTreeWalker(UIA.CreateNotCondition(UIA.CreatePropertyCondition(UIA.Property.NativeWindowHandle, 0)))
         try return TW.NormalizeElement(this).GetCurrentPropertyValue(UIA.Property.NativeWindowHandle)
 	}
@@ -1579,8 +1579,8 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
      * Tries to click the element. The method depends on WhichButton variable: by default it is attempted
      * to use any "click"-like methods, such as InvokePattern Invoke(), TogglePattern Toggle(), SelectionItemPattern Select().
      * @param WhichButton If WhichButton is left empty (default), then any "click"-like pattern methods
-     *     will be used (Invoke(), Toggle(), Select() etc. If WhichButton is a number, then Sleep 
-     *     will be called afterwards with that number of milliseconds. 
+     *     will be used (Invoke(), Toggle(), Select() etc. If WhichButton is a number, then Sleep
+     *     will be called afterwards with that number of milliseconds.
      *     Eg. Element.Click(200) will sleep 200ms after "clicking".
      * If WhichButton is "left" or "right", then the native Click() will be used to move the cursor to
      *     the center of the element and perform a click.
@@ -1591,8 +1591,8 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
      * Eg. Element.Click("left", 1000) will sleep 1000ms after clicking.
      *     Element.Click("left", 2) will double-click the element
      *     Element.Click("left" "2 1000") will double-click the element and then sleep for 1000ms
-     * @param DownOrUp If AHK Click is used, then this will either press the mouse down, or release it.
-     * @param Relative If Relative is "Rel" or "Relative" then X and Y coordinates are treated as offsets from the current mouse position. 
+     * @param DownOrUp ***String*** If AHK Click is used, then this will either press the mouse down, or release it.
+     * @param Relative If Relative is "Rel" or "Relative" then X and Y coordinates are treated as offsets from the current mouse position.
      * Otherwise it expects offset values for both X and Y (eg "-5 10" would offset X by -5 and Y by +10 from the center of the element).
      * @param NoActivate If AHK Click is used, then this will determine whether the window is activated
      * before clicking if the clickable point isn't visible on the screen. Default is no activating.
@@ -1623,7 +1623,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 					Sleep sleepTime
 					return 1
 				}
-			} 
+			}
 			if (this.GetCurrentPropertyValue(UIA.Property.IsSelectionItemPatternAvailable)) {
 				selectionPattern := this.SelectionItemPattern, selectionState := selectionPattern.IsSelected
 				selectionPattern.Select()
@@ -1638,7 +1638,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 				return 1
 			}
 			return 0
-        }	
+        }
         rel := [0,0], pos := this.Location, cCount := 1, SleepTime := -1
         if (Relative && !InStr(Relative, "rel"))
             rel := StrSplit(Relative, " "), Relative := ""
@@ -1664,12 +1664,12 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     /**
      * Uses ControlClick to click the element.
      * @param WhichButton determines which button to use to click (left, right, middle).
-     * If WhichButton is a number, then a Sleep will be called afterwards. 
-     * Eg. ControlClick(200) will sleep 200ms after clicking. 
+     * If WhichButton is a number, then a Sleep will be called afterwards.
+     * Eg. ControlClick(200) will sleep 200ms after clicking.
      * @param ClickCount How many times to click. Default is 1.
      * @param Options Additional ControlClick Options (see AHK documentations).
      */
-    ControlClick(WhichButton:="left", ClickCount:=1, Options:="") { 
+    ControlClick(WhichButton:="left", ClickCount:=1, Options:="") {
         pos := this.GetPos("client")
         ControlClick("X" pos.x+pos.w//2 " Y" pos.y+pos.h//2, this.GetWinId(),, IsInteger(WhichButton) ? "left" : WhichButton, ClickCount, Options)
         if IsInteger(WhichButton)
@@ -1729,7 +1729,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
      * @param timeout Waiting time for element to disappear. Default: indefinite wait
      * @returns {Integer}
      */
-	WaitNotExist(timeOut:=-1) { 
+	WaitNotExist(timeOut:=-1) {
 		endtime := A_TickCount + timeout
 		while ((exists := this.Exists) && ((timeout == -1) || (A_Tickcount < endtime)))
 			Sleep 20
@@ -1923,7 +1923,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
                 ComCall(6, el, "int", 2, "ptr", c ?? UIA.TrueCondition, "ptr*", &found := 0)
                 if found && (arr := UIA.IUIAutomationElementArray(found)) && (arr.Length >= Abs(A_LoopField)) {
                     el := arr.GetElement(A_LoopField < 0 ? arr.Length+A_LoopField : A_LoopField-1)
-                } else 
+                } else
 				    throw ValueError("Step " A_Index " with value " A_LoopField " was out of bounds",-1)
 			} else if RegexMatch(A_LoopField, "i)([a-zA-Z+-]+) *(\d+)?", &m:="") {
                 if (loopFunc := (m[1] = "p") ? "GetParentElement" : (m[1] = "+") ? "GetNextSiblingElement" : (m[1] = "-") ? "GetPreviousSiblingElement" : "") {
@@ -1978,7 +1978,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
                 return false
         }
         for k, v in cond {
-            if IsObject(v) { 
+            if IsObject(v) {
                 if (k = "not" ? this.ValidateCondition(v, cached) : !this.ValidateCondition(v, cached))
                     return False
                 continue
@@ -2084,7 +2084,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 			try propertyId := UIA.Property.%propertyId%
         ComCall(10, this, "int", propertyId, "ptr", val := UIA.ComVar())
         return val[]
-    } 
+    }
 
     ; Retrieves a property value for this UI Automation element, optionally ignoring any default value.
     ; Passing FALSE in the ignoreDefaultValue parameter is equivalent to calling UIA.IUIAutomationElement.GetPropertyValue.
@@ -2142,7 +2142,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
                 name := UIA.Pattern[patternId]
             else
                 patternId := UIA.Pattern.%(name := StrReplace(patternId, "Pattern"))%
-            
+
             ComCall(16, this, "int", patternId, "ptr*", &patternObject := 0)
             return UIA.IUIAutomation%RegExReplace(name, "\d+$")%Pattern(patternObject)
         } catch
@@ -2243,7 +2243,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 			return (ComCall(29, this, "ptr*", &retVal := 0), UIA.BSTR(retVal))
 		}
 	}
-   
+
     ; Retrieves the class name of the element.
     ; The value of this property is implementation-defined. The property is useful in testing environments.
     ClassName {
@@ -3207,7 +3207,7 @@ class IUIAutomationPropertyCondition extends UIA.IUIAutomationCondition {
             local propertyValue
             return (ComCall(4, this, "ptr", propertyValue := UIA.ComVar()), propertyValue[])
         }
-    } 
+    }
     PropertyConditionFlags {
 		get {
 			local flags
@@ -3262,7 +3262,7 @@ class IUIAutomationOrCondition extends UIA.IUIAutomationAndCondition {
 
 /*
 	Represents a condition that can be either TRUE=1 (selects all elements) or FALSE=0(selects no elements).
-	Microsoft documentation: 
+	Microsoft documentation:
 */
 class IUIAutomationBoolCondition extends UIA.IUIAutomationCondition {
     static __IID := "{1B4E1F2E-75EB-4D0B-8952-5A69988E2307}"
@@ -3290,7 +3290,7 @@ class IUIAutomationCondition extends UIA.IUIAutomationBase {
     static __QueryCondition(pCond) {
         for n in ["Property", "Bool", "And", "Or", "Not"] {
             try {
-                if ComObjQuery(pCond, UIA.IUIAutomation%n%Condition.__IID) 
+                if ComObjQuery(pCond, UIA.IUIAutomation%n%Condition.__IID)
                     return UIA.IUIAutomation%n%Condition(pCond)
             }
         }
@@ -3349,7 +3349,7 @@ class IUIAutomationCacheRequest extends UIA.IUIAutomationBase {
 
 /**
  * Creates a new event handler, that when registered will call the supplied function on the registered event.
- * @param funcObj The callback function that will get called on events. 
+ * @param funcObj The callback function that will get called on events.
  *      The function needs to accept a certain number of parameters that depends on which event will be registered.
  * 		HandleAutomationEvent(sender, eventId)
  *		HandleFocusChangedEvent(sender)
@@ -3360,7 +3360,7 @@ class IUIAutomationCacheRequest extends UIA.IUIAutomationBase {
  *		HandleNotificationEvent(sender, notificationKind, notificationProcessing, displayString, activityId)
  * @param handlerType This needs to be provided if the handler is going to be used with something other than UIA.AddAutomationEventHandler()
  *      For UIA.AddAutomationEventHandler leave this empty (default value).
- *      For UIA.Add...EventHandler, specify the ... part: FocusChanged, StructureChanged, TextEditTextChanged, Changes, Notification. 
+ *      For UIA.Add...EventHandler, specify the ... part: FocusChanged, StructureChanged, TextEditTextChanged, Changes, Notification.
  *      Eg. For UIA.AddFocusChangedEventHandler, set this value to "FocusChanged": CreateEventHandler(Func, "FocusChanged")
  */
 static CreateEventHandler(funcObj, handlerType:="") {
@@ -3376,7 +3376,7 @@ static CreateEventHandler(funcObj, handlerType:="") {
     NumPut("ptr", buf.Ptr + A_PtrSize, "ptr", cQI:=CallbackCreate(QueryInterface, "F", 3), "ptr", cAF:=CallbackCreate(AddRef, "F", 1), "ptr", cR:=CallbackCreate(Release, "F", 1), "ptr", cF:=CallbackCreate(handlerFunc.Bind(handler), "F", handlerFunc.MaxParams-1), buf)
     handler.DefineProp("__Delete", { call: (*) => (CallbackFree(cQI), CallbackFree(cAF), CallbackFree(cR), CallbackFree(cF)) })
     handler.EventHandler := funcObj
-    
+
     return handler
 
     QueryInterface(pSelf, pRIID, pObj){ ; Credit: https://github.com/neptercn/UIAutomation/blob/master/UIA.ahk
@@ -3614,7 +3614,7 @@ class IUIAutomationDockPattern extends UIA.IUIAutomationBase {
     ; ---------- DockPattern methods ----------
 
     /**
-     * Sets the dock position of this element. 
+     * Sets the dock position of this element.
      * @param dockPos One of UIA.DockPosition values: Top, Left, Bottom, Right, Fill, None
      */
     SetDockPosition(dockPos) => ComCall(3, this, "int", IsInteger(dockPos) ? dockPos : UIA.DockPosition.%dockPos%)
@@ -3686,7 +3686,7 @@ class IUIAutomationDragPattern extends UIA.IUIAutomationBase {
 */
 class IUIAutomationDropTargetPattern extends UIA.IUIAutomationBase {
     static __IID := "{69A095F7-EEE4-430E-A46B-FB73B1AE39A5}"
-    
+
     ; ---------- DropTargetPattern properties ----------
     DropTargetEffect {
 		get {
@@ -4960,7 +4960,7 @@ class IUIAutomationTextRange extends UIA.IUIAutomationBase {
         Loop sa.MaxIndex() / 4 + 1
 			retArr.Push({x:Floor(sa[4*(A_Index-1)]),y:Floor(sa[4*(A_Index-1)+1]),w:Floor(sa[4*(A_Index-1)+2]),h:Floor(sa[4*(A_Index-1)+3])})
 		return retArr
-    } 
+    }
 
     ; Returns the innermost UI Automation element that encloses the text range.
     GetEnclosingElement() {
@@ -4974,12 +4974,12 @@ class IUIAutomationTextRange extends UIA.IUIAutomationBase {
         return (ComCall(12, this, "int", maxLength, "ptr*", &text := 0), UIA.BSTR(text))
     }
 
-    ; Moves the text range forward or backward by the specified number of text units. 
+    ; Moves the text range forward or backward by the specified number of text units.
     ; unit must be one of UIA.TextUnit values: Character, Format, Word, Line, Paragraph, Page, Document.
     Move(unit, count) {
         local moved
         return (ComCall(13, this, "int", unit, "int", count, "int*", &moved := 0), moved)
-    } 
+    }
 
     ; Moves one endpoint of the text range the specified number of text units within the document range.
     ; unit must be one of UIA.TextUnit values: Character, Format, Word, Line, Paragraph, Page, Document. Default is Document.
@@ -5017,7 +5017,7 @@ class IUIAutomationTextRange extends UIA.IUIAutomationBase {
     GetChildren() {
         local children
         return (ComCall(20, this, "ptr*", &children := 0), children?UIA.IUIAutomationElementArray(children).ToArray():"")
-    } 
+    }
     ; ---------- TextRange2 ----------
 
     ShowContextMenu() => ComCall(21, this)
@@ -5070,7 +5070,7 @@ class IUIAutomationTogglePattern extends UIA.IUIAutomationBase {
 			if (this.ToggleState != value)
 				this.Toggle()
         }
-    } 
+    }
 
     ; Retrieves the cached state of the control.
     CachedToggleState {
@@ -5083,7 +5083,7 @@ class IUIAutomationTogglePattern extends UIA.IUIAutomationBase {
 
 /*
 	Provides access to a control that can be moved, resized, or rotated.
-	Microsoft documentation: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationtransformpattern 
+	Microsoft documentation: https://docs.microsoft.com/en-us/windows/win32/api/uiautomationclient/nn-uiautomationclient-iuiautomationtransformpattern
 */
 class IUIAutomationTransformPattern extends UIA.IUIAutomationBase {
     ; An element cannot be moved, resized or rotated such that its resulting screen location would be completely outside the coordinates of its container and inaccessible to the keyboard or mouse. For example, when a top-level window is moved completely off-screen or a child object is moved outside the boundaries of the container's viewport, the object is placed as close to the requested screen coordinates as possible with the top or left coordinates overridden to be within the container boundaries.
@@ -5377,7 +5377,7 @@ class Viewer {
         ; Don't even get the live element, because we don't need it. Gives a significant speed improvement.
         this.cacheRequest.AutomationElementMode := UIA.AutomationElementMode.None
         ; Set TreeScope to include the starting element and all descendants as well
-        this.cacheRequest.TreeScope := 5 
+        this.cacheRequest.TreeScope := 5
 
         this.gViewer := Gui("AlwaysOnTop Resize +MinSize420x400","UIAViewer")
         this.gViewer.OnEvent("Close", (*) => ExitApp())
@@ -5397,7 +5397,7 @@ class Viewer {
         this.DisplayedProps := ["Type", "LocalizedType", "Name", "Value", "AutomationId", "BoundingRectangle", "ClassName", "FullDescription", "HelpText", "AccessKey", "AcceleratorKey", "HasKeyboardFocus", "IsKeyboardFocusable", "ItemType", "ProcessId", "IsEnabled", "IsPassword", "IsOffscreen", "FrameworkId", "IsRequiredForForm", "ItemStatus", "RuntimeId"]
         for v in this.DisplayedProps {
             this.LVProps.Add(,v,"")
-            this.cacheRequest.AddProperty(v) 
+            this.cacheRequest.AddProperty(v)
         }
         for pattern, value in UIA.Property.OwnProps() {
             if pattern ~= "Is([\w]+Pattern.?)Available"
@@ -5480,7 +5480,7 @@ class Viewer {
             return
         }
     }
-    ; Gets UIA element under mouse, updates the GUI. 
+    ; Gets UIA element under mouse, updates the GUI.
     ; If the mouse is not moved for 1 second then constructs the UIA tree.
     CaptureCycle() {
         MouseGetPos(&mX, &mY, &mwId)
@@ -5496,7 +5496,7 @@ class Viewer {
                         SetTimer(this.CaptureCallback, 0), this.ConstructTreeView(), this.FoundTime := 0
                         if this.Capturing
                             SetTimer(this.CaptureCallback, 200)
-                    } else 
+                    } else
                         this.FoundTime := A_TickCount
                 }
                 this.Stored.mX := mX, this.Stored.mY := mY

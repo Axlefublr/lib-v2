@@ -17,7 +17,7 @@ Channel := [
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
 
    ;;Main channel videos
-   
+
    "switch",
    "https://youtu.be/U3CWt2SMuLE",
 
@@ -278,7 +278,7 @@ Channel := [
 
    "vim tutorial",
    "https://www.youtube.com/watch?v=RZ4p-saaQkc",
-   
+
    "global vim command",
    "https://youtu.be/JgZu5-FNeMk",
 

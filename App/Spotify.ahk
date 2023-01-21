@@ -7,6 +7,7 @@
 Class Spotify {
 
    static exeTitle := "ahk_exe Spotify.exe"
+   static winTitle := this.exeTitle
    static path := A_AppData "\Spotify\Spotify.exe"
 
    static winObj := Win({
