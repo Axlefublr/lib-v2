@@ -3,3 +3,4 @@
 #Include <Abstractions\Script>
 #Include <Abstractions\Text>
 #Include <Abstractions\Out>
+#Include <Abstractions\Registers>
