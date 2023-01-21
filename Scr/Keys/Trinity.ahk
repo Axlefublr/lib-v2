@@ -7,11 +7,6 @@
 #!l::Send("{PgDn}")
 #!h::Send("{PgUp}")
 
-#^h::Win.RestoreLeftRight("left")
-#^l::Win.RestoreLeftRight("right")
-#^k::Win.Maximize()
-#^j::Win.RestoreDown()
-
 >^Home::Volume_Up
 >^End::Volume_Down
 >^Insert::Volume_Mute
@@ -20,3 +15,8 @@
 >^Pgdn::Media_Next
 
 #InputLevel 5
+
+#^h::Win.RestoreLeftRight("left")
+#^l::Win.RestoreLeftRight("right")
+#^k::Win.Maximize()
+#^j::Win.RestoreDown()

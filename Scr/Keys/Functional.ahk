@@ -24,7 +24,6 @@ CapsLock::SomeLockHint("CapsLock")
 !CapsLock::CloseButActually()
 
 PrintScreen::Screenshot.Start()
-#PrintScreen::Screenshot.FullScreenOut()
 
 Pause::Counter.Increment()
 +Pause::Counter.Send(), Counter.Increment()
