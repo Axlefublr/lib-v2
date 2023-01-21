@@ -17,14 +17,6 @@
 #Include <Utils\KeyChorder>
 #Include <Abstractions\Registers>
 
-#Escape::Infos(GetWeather()), RemindDate()
-
-CapsLock::SomeLockHint("CapsLock")
-+CapsLock::Win.Minimize()
-!CapsLock::CloseButActually()
-
-PrintScreen::Screenshot.Start()
-
 Pause::Counter.Increment()
 +Pause::Counter.Send(), Counter.Increment()
 !Pause::Counter.Decrement()

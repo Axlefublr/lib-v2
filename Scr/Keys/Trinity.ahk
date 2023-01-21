@@ -20,3 +20,11 @@
 #^l::Win.RestoreLeftRight("right")
 #^k::Win.Maximize()
 #^j::Win.RestoreDown()
+
+CapsLock::SomeLockHint("CapsLock")
++CapsLock::Win.Minimize()
+!CapsLock::CloseButActually()
+
+#Escape::Infos(GetWeather()), RemindDate()
+
+PrintScreen::Screenshot.Start()
