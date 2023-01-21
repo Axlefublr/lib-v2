@@ -23,7 +23,6 @@
       "update",  () => GitHub.UpdateAhkLibraries(),
       "str len", () => Infos(A_Clipboard.Length),
       "shows",   () => Shows().GetList(),
-      "rel",     () => Reload(),
       "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
       "kb",      () => KeyCodeGetter(),
       "eat",     () => EatingLogger(),

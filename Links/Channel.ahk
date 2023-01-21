@@ -17,6 +17,9 @@ Channel := [
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
 
    ;;Main channel videos
+   
+   "switch",
+   "https://youtu.be/U3CWt2SMuLE",
 
    "ctrl x mode",
    "https://youtu.be/ssF-pm0eFkw",
