@@ -1,4 +1,4 @@
-#Include <Abstractions\Global>
+#Include <Misc\Global>
 #Include <Abstractions\Text>
 #Include <Paths>
 #Include <Utils\Win>

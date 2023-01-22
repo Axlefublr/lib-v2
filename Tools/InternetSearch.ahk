@@ -1,22 +1,21 @@
 #Include <Converters\Number>
 #Include <Tools\CleanInputBox>
-#Include <Abstractions\Global>
+#Include <Misc\Global>
 #Include <Extensions\String>
-#Include <Converters\Get>
 #Include <App\Browser>
 
 Class InternetSearch extends CleanInputBox {
-   
+
    __New(searchEngine) {
       super.__New()
       this.SelectedSearchEngine := this.AvailableSearchEngines[searchEngine]
    }
-   
+
    FeedQuery(input) {
       restOfLink := this.SanitizeQuery(input)
       Browser.RunLink(this.SelectedSearchEngine restOfLink)
    }
-   
+
    DynamicallyReselectEngine(input) {
       for key, value in this.SearchEngineNicknames {
          if input.RegExMatch("^" key " ") {
@@ -35,14 +34,14 @@ Class InternetSearch extends CleanInputBox {
       query := this.DynamicallyReselectEngine(input)
       this.FeedQuery(query)
    }
-   
+
    AvailableSearchEngines := Map(
       "Google",  "https://www.google.com/search?q=",
       "Youtube", "https://www.youtube.com/results?search_query=",
       "Emoji",   "https://emojipedia.org/search/?q=",
       "Yandex",  "https://yandex.ru/search/?text=",
    )
-   
+
    SearchEngineNicknames := Map(
       "g",  this.AvailableSearchEngines["Google"],
       "y",  this.AvailableSearchEngines["Youtube"],
@@ -51,7 +50,7 @@ Class InternetSearch extends CleanInputBox {
    )
 
    ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
-   SanitizeQuery(query) { 
+   SanitizeQuery(query) {
       SpecialCharacters := '%$&+,/:;=?@ "<>#{}|\^~[]``'.Split()
       for key, value in SpecialCharacters {
          query := query.Replace(value, "%" NumberConverter.DecToHex(Ord(value), false))

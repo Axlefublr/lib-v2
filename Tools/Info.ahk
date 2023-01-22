@@ -127,14 +127,6 @@ class Infos {
 
 Info(text) => Infos(text, 2000)
 
-ToggleInfo(text) {
-   g_ToggleInfo := Gui("AlwaysOnTop -caption").DarkMode().MakeFontNicer()
-   g_ToggleInfo.Add("Text",, text)
-   g_ToggleInfo.Show("W225 NA x1595 y640")
-   SetTimer(() => g_ToggleInfo.Destroy(), -1000)
-   return g_ToggleInfo
-}
-
 ;This is the Info function that I've shown off in a video.
 ;It's deprecated, use the class above
 ;The usage is exactly the same, it's as if you're just calling a function

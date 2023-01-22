@@ -5,7 +5,7 @@
 #Include <Paths>
 #Include <Utils\Char>
 #Include <Abstractions\Script>
-#Include <Abstractions\Global>
+#Include <Misc\Global>
 #Include <Other>
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>

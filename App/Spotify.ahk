@@ -2,7 +2,7 @@
 #Include <Converters\DateTime>
 #Include <Abstractions\Text>
 #Include <Paths>
-#Include <Abstractions\Global>
+#Include <Misc\Global>
 
 Class Spotify {
 

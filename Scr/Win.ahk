@@ -1,6 +1,6 @@
 #Include <Utils\Win>
-#Include '..\App\VPN.ahk'
-#Include <Abstractions\Global>
+#Include <App\VPN>
+#Include <Misc\Global>
 #Include <Loaders\Links>
 #Include <Tools\Info>
 #Include <Utils\Press>

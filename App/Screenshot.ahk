@@ -1,4 +1,4 @@
-#Include <Abstractions\Global>
+#Include <Misc\Global>
 
 Class Screenshot {
 

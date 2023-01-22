@@ -1,6 +1,5 @@
 ﻿;; Extra
 
-#Include <Other>
 #Include <Paths>
 
 ;; Special loading
@@ -9,11 +8,10 @@
 
 ;; Abstractions
 
+#Include <Abstractions\SomeLockHint>
 #Include <Abstractions\Base>
-#Include <Abstractions\Global>
 #Include <Abstractions\Script>
 #Include <Abstractions\Text>
-#Include <Abstractions\Out>
 #Include <Abstractions\Registers>
 
 ;; Utils
@@ -32,6 +30,7 @@
 
 ;; Tools
 
+#Include <Tools\ToggleInfo>
 #Include <Tools\Info>
 #Include <Tools\CleanInputBox>
 #Include <Tools\CoordGetter>
@@ -94,3 +93,15 @@
 
 #Include <Converters\DateTime>
 #Include <Converters\Number>
+
+;; Misc
+
+#Include <Misc\Calculator>
+#Include <Misc\CountLibraries>
+#Include <Misc\RemindDate>
+#Include <Misc\Simpsons>
+#Include <Misc\ToggleModifier>
+#Include <Misc\MainApps>
+#Include <Misc\CloseButActually>
+#Include <Misc\Out>
+#Include <Misc\Global>
