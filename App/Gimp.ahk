@@ -15,7 +15,6 @@ Class Gimp {
       exePath:     this.path,
       toClose:     this.toClose,
       exception:   this.exception,
-      closeWindow: this.closeWindow
    })
    
    static Close() {

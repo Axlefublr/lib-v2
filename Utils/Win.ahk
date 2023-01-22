@@ -1,15 +1,14 @@
-;No dependencies
+#Include <Extensions\Initializable>
 
-Class Win {
+Class Win extends Initializable {
 
-   ;Defaults
    winTitle        := "A"
    winText         := ""
    excludeTitle    := ""
    excludeText     := ""
    winTitles       := []
    exception       := ""
-   exePath         := unset
+   exePath         := ""
    startIn         := ""
    runOpt          := "Max"
    waitTime        := 120
@@ -22,11 +21,9 @@ Class Win {
          return
       }
       if Type(paramsObject) != "Object" {
-         throw TypeError("Specify an object.`nYou specified: " Type(paramsObject), -1, "paramsObject in __New() of the Win class")
+         throw TypeError("Specify an object.`nYou specified: " Type(paramsObject), -1, "paramsObject")
       }
-      for key, value in paramsObject.OwnProps() {
-         this.%key% := value
-      }
+      this.Initialize(paramsObject)
    }
 
    Class Testing {
