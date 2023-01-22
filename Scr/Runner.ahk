@@ -64,7 +64,7 @@
       static runner_regex := Map(
 
          "p",       (input) => ClipSend(Links[input], , false),
-         "o",       (input) => RunLink(Links[input]),
+         "o",       (input) => Browser.RunLink(Links[input]),
          "cp",      (input) => A_Clipboard := input,
          "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
          "r",       (input) => Spotify.NewRapper(input),
@@ -87,10 +87,10 @@
          "drop",    (input) => Shows().DeleteShow(input, true),
          "counter", (input) => Info(Counter.num := input),
          "gl",      (input) => ClipSend(Git.Link(input), "", false),
-         "go",      (input) => RunLink(Git.Link(input)),
+         "go",      (input) => Browser.RunLink(Git.Link(input)),
          "glo",     (input) => (
             link := Git.Link(input),
-            RunLink(link),
+            Browser.RunLink(link),
             A_Clipboard := link
          ),
          "install", (input) => Git.InstallAhkLibrary(input),

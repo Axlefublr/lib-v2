@@ -3,6 +3,7 @@
 #Include <Abstractions\Global>
 #Include <Extensions\String>
 #Include <Converters\Get>
+#Include <App\Browser>
 
 Class InternetSearch extends CleanInputBox {
    
@@ -13,7 +14,7 @@ Class InternetSearch extends CleanInputBox {
    
    FeedQuery(input) {
       restOfLink := this.SanitizeQuery(input)
-      RunLink(this.SelectedSearchEngine restOfLink)
+      Browser.RunLink(this.SelectedSearchEngine restOfLink)
    }
    
    DynamicallyReselectEngine(input) {

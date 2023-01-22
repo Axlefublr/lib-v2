@@ -21,16 +21,6 @@ ClickThenGoBack_Event(coordinates) {
 }
 
 /**
- * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
- * @param link *String*
- */
-RunLink(link, browserWinTitle := "Google Chrome ahk_exe chrome.exe") => (
-   Run(link),
-   WinWait(browserWinTitle),
-   WinActivate(browserWinTitle)
-)
-
-/**
  * Controlclicks in the current mouse position, on the active window
  * @param winTitle *String* Specify a winTitle if you don't want to use the active window
  * @param whichButton *String* L for left mouse button, R for right mouse button

@@ -13,7 +13,7 @@ SafeSet(mapObj, key, value) {
       mapObj.Set(key, value)
       return
    }
-   throw IndexError("Map already has key", -1, mapObj[key])
+   throw IndexError("Map already has key", -1, key)
 }
 Map.Prototype.DefineProp("SafeSet", {Call: SafeSet})
 
