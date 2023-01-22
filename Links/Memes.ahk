@@ -1,4 +1,4 @@
-Memes := [
+Links_Memes := Map(
    "i made it the fuck up",
    "https://www.youtube.com/watch?v=r7l0Rq9E8MY",
 
@@ -205,4 +205,4 @@ Memes := [
    
    "oh fr on god",
    "https://www.youtube.com/watch?v=4V7_dlIEKEg",
-]
+)

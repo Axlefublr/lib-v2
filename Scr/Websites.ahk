@@ -13,6 +13,7 @@
       "f", () => RunLink(Links["sf"]),
       "p", () => RunLink(Links["gpt"]),
       "r", () => RunLink(Links["regex"]),
+      "w", () => RunLink(Links["wb"]),
 
    )
    try actions[key].Call()

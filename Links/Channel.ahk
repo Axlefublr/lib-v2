@@ -1,4 +1,4 @@
-Channel := [
+Links_Channel := Map(
 
    ;;Channels
 
@@ -314,4 +314,4 @@ Channel := [
 
    "find command",
    "https://youtu.be/skTiK_6DdqU",
-]
+)
