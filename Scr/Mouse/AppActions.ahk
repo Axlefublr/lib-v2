@@ -44,9 +44,9 @@ XButton1:: {
          }
       Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
          Switch {
-            Case sections.bottomRight:scr_Reload()
+            Case sections.bottomRight:Script.Reload()
             Case sections.right:      NextTab()
-            Case sections.bottomLeft: scr_Test()
+            Case sections.bottomLeft: Script.Test()
             Case sections.left:       PrevTab()
             Case sections.down:       VsCode.CloseTab()
             Case sections.up:         RestoreTab()

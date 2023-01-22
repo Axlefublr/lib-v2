@@ -45,6 +45,6 @@ XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 Media_Stop & MButton::F5
 Media_Stop & LButton::Screenshot.Start()
 
-XButton2 & Media_Stop::scr_Reload()
+XButton2 & Media_Stop::Script.Reload()
 
 #MaxThreadsBuffer false
