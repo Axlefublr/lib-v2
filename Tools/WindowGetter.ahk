@@ -1,7 +1,14 @@
-#Include <Converters\Get>
 #Include <Extensions\Gui>
 
 WindowGetter() {
+
+   ConvertToRegex(input) {
+      scawySymbows := ["\", ".", "(", ")", "{", "}", "[", "]", "/", "?", "+", "*"]
+      for key, value in scawySymbows {
+         input := StrReplace(input, value, "\" value)
+      }
+      return input
+   }
 
    ;Getting the current window's info
    winTitle   := WinGetTitle("A")

@@ -1,11 +1,9 @@
-#Include <Loaders\App>
 #Include <Utils\ClipSend>
 #Include <Loaders\Links>
 #Include <Extensions\String>
 #Include <Utils\Win>
 #Include <Paths>
 #Include <Utils\Char>
-#Include <Loaders\Tools>
 #Include <Abstractions\Script>
 #Include <Abstractions\Global>
 #Include <Other>
@@ -112,7 +110,7 @@
    }
    static DynamicHotstrings := Map(
 
-      "radnum",    () => RadNum(),
+      "radnum",    () => Random(1000000, 9999999),
       "date",      () => DateTime.Date,
       "datew",     () => DateTime.WeekDay,
       "time",      () => DateTime.Time,
