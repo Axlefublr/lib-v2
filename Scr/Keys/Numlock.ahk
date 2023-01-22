@@ -10,10 +10,10 @@
 
 ;; Mode switching
 U_Numlock := 0
-*NumpadEnter::global U_Numlock := 11
+*NumpadEnter::global U_Numlock := 12
 *NumpadAdd::Infos(U_Numlock, 500)
 
-#HotIf U_Numlock = 11
+#HotIf U_Numlock = 12
 NumpadIns::   global U_Numlock := 0
 NumpadEnd::   global U_Numlock := 1
 NumpadDown::  global U_Numlock := 2
@@ -25,9 +25,10 @@ NumpadHome::  global U_Numlock := 7
 NumpadUp::    global U_Numlock := 8
 NumpadPgUp::  global U_Numlock := 9
 NumpadDel::   global U_Numlock := 10
+NumpadEnter:: global U_Numlock := 11
 
 ;; Mode 10 / Numbers
-#HotIf U_Numlock = 10
+#HotIf U_Numlock = 11
 NumpadIns::0
 NumpadEnd::1
 NumpadDown::2
@@ -39,10 +40,10 @@ NumpadHome::7
 NumpadUp::8
 NumpadPgUp::9
 NumpadDel::.
-*NumpadDiv::/
-*NumpadMult::*
-*NumpadSub::-
-*NumpadAdd::+
+NumpadDiv::/
+NumpadMult::*
+NumpadSub::-
+NumpadAdd::+
 
 ;; Mode 0
 #HotIf U_Numlock = 0
