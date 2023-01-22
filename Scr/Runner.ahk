@@ -6,7 +6,6 @@
 #Include <Utils\Char>
 #Include <Abstractions\Script>
 #Include <Misc\Global>
-#Include <Other>
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>
 #Include <App\Slack>
@@ -23,7 +22,6 @@
       "shows",   () => Shows().GetList(),
       "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
       "kb",      () => KeyCodeGetter(),
-      "eat",     () => EatingLogger(),
       "libs?",   () => Infos(CountLibraries()),
 
       ;Apps

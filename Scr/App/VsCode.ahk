@@ -1,9 +1,9 @@
 #Include <Paths>
-#Include <Converters\Get>
 #Include <Abstractions\Text>
 #Include <Abstractions\Base>
 #Include <App\Spotify>
 #Include <App\VsCode>
+#Include <Converters\DateTime>
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e:: {
@@ -32,8 +32,6 @@ XButton1 & WheelDown::VsCode.Undo()
 !h::Send("{Left}")
 !l::Send("{Right}")
 
-#!sc33::Undo()
-#!sc34::Redo()
 #HotIf
 
 #InputLevel 5

@@ -55,7 +55,7 @@ XButton1:: {
          Switch {
             Case sections.topRight:   Spotify.NewDiscovery()
             Case sections.bottomRight:Spotify.Discovery()
-            Case sections.topLeft:    Spotify.Context()
+            Case sections.topLeft:    Spotify.AddToBest()
             Case sections.bottomLeft: Spotify.FavRapper_Auto()
             Case sections.up:         Spotify.Like()
             Case sections.down:       Spotify.Shuffle()

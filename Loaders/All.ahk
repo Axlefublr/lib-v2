@@ -8,6 +8,7 @@
 
 ;; Abstractions
 
+#Include <Abstractions\Mouse>
 #Include <Abstractions\SomeLockHint>
 #Include <Abstractions\Base>
 #Include <Abstractions\Script>
@@ -84,6 +85,7 @@
 
 ;; System
 
+#Include <System\System>
 #Include <System\Web>
 #Include <System\Brightness>
 #Include <System\SoundPlayer>
@@ -104,4 +106,3 @@
 #Include <Misc\MainApps>
 #Include <Misc\CloseButActually>
 #Include <Misc\Out>
-#Include <Misc\Global>

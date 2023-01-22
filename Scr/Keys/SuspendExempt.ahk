@@ -1,3 +1,4 @@
+#Include <System\System>
 #Include <Abstractions\Script>
 
 #InputLevel 6
@@ -6,7 +7,7 @@
 #!u::Script.Reload()
 #!i::Script.Test()
 #!o::Script.ExitTest()
-#ScrollLock::SystemReboot()
-#Pause::Run(Paths.Apps["Slide to shutdown"])
+#ScrollLock::System.Reboot()
+#Pause::System.PowerDownSafely()
 #SuspendExempt false
 #InputLevel 5

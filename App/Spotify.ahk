@@ -2,13 +2,16 @@
 #Include <Converters\DateTime>
 #Include <Abstractions\Text>
 #Include <Paths>
-#Include <Misc\Global>
+#Include <Abstractions\Mouse>
+#Include <System\UIA>
 
 Class Spotify {
 
    static exeTitle := "ahk_exe Spotify.exe"
    static winTitle := this.exeTitle
    static path := A_AppData "\Spotify\Spotify.exe"
+
+   static UIAObject := UIA.ElementFromHandle(this.winTitle)
 
    static winObj := Win({
       winTitle: this.exeTitle,
@@ -32,9 +35,24 @@ Class Spotify {
    static RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?(- +)?(\d\d\.\d\d\.\d\d)?( \d\d:\d\d)?( +- +)?")
 
    static Context() => (
-      ControlClick("x32 y1014", this.exeTitle, , "R"),
-      Send("{Up 2}")
+      ControlClick("x32 y1014", this.exeTitle, , "R")
    )
+
+   static AddToBest() {
+      this.Context()
+      songMenu := this.UIAObject.FindElement({
+         Type: "document"
+      }).WaitElement({
+         Type: "menu",
+         Scope: 2
+      })
+      songMenu.FindElement({
+         Name: "Add to playlist"
+      }).Click()
+      songMenu.WaitElement({
+         Name: "Best"
+      }).Click()
+   }
 
    static GetCurrSong() {
       currSong := WinGetTitle(this.exeTitle)

@@ -1,6 +1,6 @@
+#Include <Paths>
 #Include <Tools\Info>
 #Include <Abstractions\Text>
-#Include <Converters\Get>
 
 Class Git {
    /**

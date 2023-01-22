@@ -1,20 +1,11 @@
 #Include <Tools\Info>
-#Include <Converters\Get>
-#Include <Other>
-#Include <Utils\Win>
-#Include <App\Screenshot>
 #Include <Tools\Counter>
 #Include <Tools\Stopwatch>
 #Include <Tools\CoordGetter>
 #Include <Tools\KeycodeGetter>
 #Include <Tools\WindowGetter>
-#Include <Tools\HoverScreenshot>
 #Include <Tools\InternetSearch>
 #Include <System\Brightness>
-#Include <Abstractions\Text>
-#Include <Paths>
-#Include <Utils\ClipSend>
-#Include <Utils\KeyChorder>
 #Include <Abstractions\Registers>
 
 Pause::Counter.Increment()
