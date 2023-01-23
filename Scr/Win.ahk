@@ -1,6 +1,5 @@
 #Include <Utils\Win>
 #Include <App\VPN>
-#Include <Misc\Global>
 #Include <Loaders\Links>
 #Include <Tools\Info>
 #Include <Utils\Press>

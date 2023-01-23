@@ -1,4 +1,3 @@
-#Include <Misc\Global>
 #Include <Utils\KeyChorder>
 #Include <App\Browser>
 #Include <Loaders\Links>

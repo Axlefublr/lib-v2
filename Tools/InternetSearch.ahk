@@ -1,6 +1,5 @@
 #Include <Converters\Number>
 #Include <Tools\CleanInputBox>
-#Include <Misc\Global>
 #Include <Extensions\String>
 #Include <App\Browser>
 

@@ -11,8 +11,6 @@ Class Spotify {
    static winTitle := this.exeTitle
    static path := A_AppData "\Spotify\Spotify.exe"
 
-   static UIAObject := UIA.ElementFromHandle(this.winTitle)
-
    static winObj := Win({
       winTitle: this.exeTitle,
       exePath: this.path
@@ -40,7 +38,8 @@ Class Spotify {
 
    static AddToBest() {
       this.Context()
-      songMenu := this.UIAObject.FindElement({
+      UIAObject := UIA.ElementFromHandle(this.winTitle)
+      songMenu := UIAObject.FindElement({
          Type: "document"
       }).WaitElement({
          Type: "menu",

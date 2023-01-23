@@ -10,6 +10,12 @@ Links_Channel := Map(
 
    ;;Main channel playlists
 
+   "vscode playlist",
+   "https://www.youtube.com/playlist?list=PLQBdjw2QsRzO3RqyGR9Nxf4GYLosoSX_O",
+
+   "neovim vscode playlist",
+   "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMZjaGyvBxe88iS4uVaW3OI",
+
    "ahk playlist",
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
 
@@ -17,6 +23,9 @@ Links_Channel := Map(
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
 
    ;;Main channel videos
+
+   "how to debloat vscode",
+   "https://youtu.be/67YwWJsjVDU",
 
    "switch",
    "https://youtu.be/U3CWt2SMuLE",

@@ -7,19 +7,6 @@
 
 #MaxThreadsBuffer true
 
-U_VerticalScroll := true
-#c::global U_VerticalScroll := !U_VerticalScroll
-
-#HotIf U_VerticalScroll
-#WheelUp::WheelLeft
-#WheelDown::WheelRight
-#HotIf !U_VerticalScroll
-WheelUp::WheelLeft
-WheelDown::WheelRight
-#WheelUp::WheelUp
-#WheelDown::WheelDown
-#HotIf
-
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 

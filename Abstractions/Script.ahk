@@ -1,6 +1,5 @@
-﻿#Include <Misc\Global>
-#Include <Paths>
-#Include <Tools\Info>
+﻿#Include <Paths>
+#Include <Tools\ToggleInfo>
 
 class Script {
 

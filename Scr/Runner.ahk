@@ -5,7 +5,6 @@
 #Include <Paths>
 #Include <Utils\Char>
 #Include <Abstractions\Script>
-#Include <Misc\Global>
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>
 #Include <App\Slack>
