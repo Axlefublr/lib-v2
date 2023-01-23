@@ -27,7 +27,7 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 
 #sc33::Registers.Peek()
 #sc34::Registers.PeekNonEmpty()
-#sc35::Registers.Overwrite()
+#sc35::Registers.Truncate()
 #k::Registers.Write()
 #h::Registers.Paste()
 #j::Registers.Run()
