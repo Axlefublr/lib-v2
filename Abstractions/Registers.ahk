@@ -1,6 +1,6 @@
+#Include <Utils\KeyChorder> ; Suggested, but not required. Most methods require you to pass the key of a register, you can use KeyChorder to do so.
+#Include <Paths> ; For you, this isn't required. For me, it is.
 #Include <Abstractions\Text>
-#Include <Utils\KeyChorder>
-#Include <Paths>
 #Include <Tools\Info>
 #Include <Extensions\String>
 
@@ -194,5 +194,26 @@ class Registers {
       WriteFile(path2, this.__TryGetRegisterText(path1))
       WriteFile(path1)
    }
+
+   /**
+    * Currently doesn't work: has a chance to remove the contents of one register without moving it to another.
+    * Exchange the contents of two registers.
+    * The contents of register 1 will move to register 2, and vice versa.
+    * This exists entirely so you don't have to use Registers.Move() three times.
+    * @param key1 ***Char*** — Register 1
+    * @param key2 ***Char*** — Register 2
+    * @throws {ValueError} If you pass an unsupported key
+    */
+   ; static SwitchContents(key1, key2) {
+   ;    this.__ValidateKey(key1)
+   ;    this.__ValidateKey(key2)
+
+   ;    path1 := this.GetPath(key1)
+   ;    path2 := this.GetPath(key2)
+
+   ;    temp := this.__TryGetRegisterText(path1)
+   ;    WriteFile(path1, this.__TryGetRegisterText(path2))
+   ;    WriteFile(path2, temp)
+   ; }
 
 }
