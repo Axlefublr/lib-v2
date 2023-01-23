@@ -26,6 +26,7 @@ ScrollLock::Stopwatch.Start(), Info("Timer started")
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 
 #sc33::Registers.Peek(KeyChorder())
+#!sc33::Registers.Look(KeyChorder())
 #sc34::Registers.PeekNonEmpty()
 #sc35::Registers.Truncate(KeyChorder())
 #sc28::Registers.Move(KeyChorder(), KeyChorder())

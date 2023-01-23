@@ -37,7 +37,7 @@ class Registers {
    static Read(key) {
       this.__ValidateKey(key)
       path := this.GetPath(key)
-      return this.__TryGetRegisterText()
+      return this.__TryGetRegisterText(path)
    }
 
    /**
