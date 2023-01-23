@@ -3,6 +3,6 @@
 !BackSpace::Send("{Delete}")
 +^BackSpace::Send("^{Delete}")
 !Tab::Send("^!{Tab}")
-<!v::Paste()
+^!v::Paste()
 
 #InputLevel 5

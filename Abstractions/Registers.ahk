@@ -6,11 +6,21 @@
 
 class Registers {
 
+   static ValidRegisters := "1234567890qwertyuiopasdfghjklzxcvbnm"
+
    /**
     * @param key ***String*** — The key of the register to get the path of
     * @returns {String} The path of the register of entered key
     */
    static GetPath(key) => Paths.Reg "\reg_" key ".txt"
+
+   static GetValidKeychord() {
+      key := KeyChorder()
+      if !InStr(this.ValidRegisters, key, true) {
+         throw ValueError("The key you pressed isn't supported by Registers", -2, key)
+      }
+      return key
+   }
 
    /**
     * @param text ***String***
@@ -33,26 +43,26 @@ class Registers {
    }
 
    static Truncate() {
-      key := KeyChorder()
+      key := this.GetValidKeychord()
       path := this.GetPath(key)
       WriteFile(path)
    }
 
    static Write() {
-      key := KeyChorder()
+      key := this.GetValidKeychord()
       path := this.GetPath(key)
       WriteFile(path, A_Clipboard)
    }
 
    static Paste() {
-      key := KeyChorder()
+      key := this.GetValidKeychord()
       path := this.GetPath(key)
       content := ReadFile(path)
       ClipSend(content)
    }
 
    static Run() {
-     key := KeyChorder()
+     key := this.GetValidKeychord()
      path := this.GetPath(key)
      command := ReadFile(path)
      Run(command)
@@ -70,11 +80,22 @@ class Registers {
    }
 
    static Peek() {
-      key := KeyChorder()
+      key := this.GetValidKeychord()
       path := this.GetPath(key)
       text := ReadFile(path)
       shorterRegisterContents := this.__FormatRegister(text)
       Infos(shorterRegisterContents)
+   }
+
+   static Move() {
+      key1 := this.GetValidKeychord()
+      key2 := this.GetValidKeychord()
+
+      path1 := this.GetPath(key1)
+      path2 := this.GetPath(key2)
+
+      WriteFile(path2, ReadFile(path1))
+      WriteFile(path1)
    }
 
 }
