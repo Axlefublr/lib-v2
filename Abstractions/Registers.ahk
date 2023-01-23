@@ -34,6 +34,11 @@ class Registers {
     */
    static GetPath(key) => this.RegistersDirectory "\reg_" key ".txt"
 
+   /**
+    * @param key ***Char*** — Register key
+    * @returns {String} Text inside of the register file
+    * @throws {ValueError} If you pass an unsupported key
+    */
    static Read(key) {
       this.__ValidateKey(key)
       path := this.GetPath(key)
