@@ -1,5 +1,11 @@
 Links_AhkLib := Map(
 
+   "ahk v1 docs",
+   "https://www.autohotkey.com/docs/Tutorial.htm",
+
+   "ahk wiki",
+   "https://autohotkey.wiki/",
+
    "v2 download",
    "https://www.autohotkey.com/download/2.0/",
 
