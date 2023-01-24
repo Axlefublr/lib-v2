@@ -204,16 +204,14 @@ class Registers {
     * @param key2 ***Char*** — Register 2
     * @throws {ValueError} If you pass an unsupported key
     */
-   ; static SwitchContents(key1, key2) {
-   ;    this.__ValidateKey(key1)
-   ;    this.__ValidateKey(key2)
+   static SwitchContents(key1, key2) {
+      this.__ValidateKey(key1)
+      this.__ValidateKey(key2)
 
-   ;    path1 := this.GetPath(key1)
-   ;    path2 := this.GetPath(key2)
+      path1 := this.GetPath(key1)
+      path2 := this.GetPath(key2)
 
-   ;    temp := this.__TryGetRegisterText(path1)
-   ;    WriteFile(path1, this.__TryGetRegisterText(path2))
-   ;    WriteFile(path2, temp)
-   ; }
+      SwitchFiles(path1, path2)
+   }
 
 }
