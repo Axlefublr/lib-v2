@@ -20,7 +20,7 @@ class Registers {
     * Case sensitive.
     * @type {String}
     */
-   static ValidRegisters := "1234567890qwertyuiopasdfghjklzxcvbnm"
+   static ValidRegisters := "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm"
 
    /**
     * The maximum amount of characters shown when Peeking a register
@@ -118,6 +118,34 @@ class Registers {
    }
 
    /**
+    * Append the contents of your clipboard to a register
+    * @param key ***Char*** — Register key
+    * @throws {ValueError} If you pass an unsupported key
+    */
+   static Append(key) {
+      this.__ValidateKey(key)
+      path := this.GetPath(key)
+      AppendFile(path, "`n" A_Clipboard)
+   }
+
+   /**
+    * Write the contents of your clipboard to a register if you passed a lowercase key.
+    * *Append* the contents of your clipbaord to a register if you passed an upppercase key.
+    * @param key ***Char*** — Register key
+    * @throws {ValueError} If you pass an unsupported key
+    */
+   static WriteOrAppend(key) {
+      this.__ValidateKey(key)
+      path := this.GetPath(key)
+      if IsUpper(key) {
+         AppendFile(path, "`n" A_Clipboard)
+      }
+      else {
+         WriteFile(path, A_Clipboard)
+      }
+   }
+
+   /**
     * Paste the contents of a register
     * @param key ***Char*** — Register key
     * @throws {ValueError} If you pass an unsupported key
@@ -128,13 +156,18 @@ class Registers {
    }
 
    /**
-    * Run the contents of a register with the Run() function
+    * Run the contents of a register with the Run() function.
+    * One line == one command.
+    * For example, you can store 5 links in a register and run that register to open those 5 links at once.
     * @param key ***Char*** — Register key
     * @throws {ValueError} If you pass an unsupported key
     */
    static Run(key) {
-      command := this.Read(key)
-      Run(command)
+      text := this.Read(key)
+      commands := StrSplit(text, "`n")
+      for index, command in commands {
+         Run(command)
+      }
    }
 
    /**
