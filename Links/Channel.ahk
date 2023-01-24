@@ -232,41 +232,41 @@ Links_Channel := Map(
 
    ;;Second channel tutorials
 
-   "startup",
-   "https://youtu.be/vjQIbagvkcs",
-
-   "arrow",
-   "https://youtu.be/nSTL3KND25c",
-
-   "ternary",
-   "https://youtu.be/RsH6A2Cuo-c",
-
-   "getters",
-   "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
-
-   "clock",
-   "https://youtu.be/A9gBET8WHig",
-
-   "function objects",
-   "https://youtu.be/5X2OddjH96A",
-
-   "configure docs",
-   "https://youtu.be/8OymPoyUN70",
-
-   "static",
-   "https://youtu.be/HOvItTvVTZA",
-
-   "clipsend",
-   "https://youtu.be/dnp1KTu-R2k",
-
-   "objects",
-   "https://youtu.be/6W9Ruu5jHaM",
+   "settimers",
+   "https://youtu.be/bUxm_Gwd58Q",
 
    "vscode setup",
    "https://youtu.be/u66dw-hIj3g",
 
-   "settimers",
-   "https://youtu.be/bUxm_Gwd58Q",
+   "objects",
+   "https://youtu.be/6W9Ruu5jHaM",
+
+   "clipsend",
+   "https://youtu.be/dnp1KTu-R2k",
+
+   "static",
+   "https://youtu.be/HOvItTvVTZA",
+
+   "configure docs",
+   "https://youtu.be/8OymPoyUN70",
+
+   "ternary is readable",
+   "https://youtu.be/RsH6A2Cuo-c",
+
+   "function objects",
+   "https://youtu.be/5X2OddjH96A",
+
+   "clock",
+   "https://youtu.be/A9gBET8WHig",
+
+   "getters",
+   "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
+
+   "arrow",
+   "https://youtu.be/nSTL3KND25c",
+
+   "startup",
+   "https://youtu.be/vjQIbagvkcs",
 
    ;;Second channel unlisted tutorials
    ;Go ahead, watch them if you want, but they are deprecated so don't listen to me!
