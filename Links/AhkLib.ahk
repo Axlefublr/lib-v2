@@ -1,5 +1,11 @@
 Links_AhkLib := Map(
 
+   "versus",
+   "https://gist.github.com/Lexikos/a871ca393387b37204ccb4f36f2c5ddc",
+
+   "comobjects",
+   "https://www.autohotkey.com/board/topic/56987-com-object-reference-autohotkey-l/",
+
    "ahk v1 docs",
    "https://www.autohotkey.com/docs/Tutorial.htm",
 

@@ -215,6 +215,9 @@ Links_Channel := Map(
    ;;Main channel unlisted videos
    ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
 
+   "aliases vs abbreviations",
+   "https://youtu.be/wuiFATVPlOo",
+
    "ctrl x mode demo",
    "https://youtu.be/hdm6dVbzaAw",
 
@@ -230,7 +233,7 @@ Links_Channel := Map(
    "screenshot hover unfinished",
    "https://youtu.be/4jiXHYuo7D8",
 
-   ;;Second channel tutorials
+   ;;Second channel videos
 
    "settimers",
    "https://youtu.be/bUxm_Gwd58Q",
@@ -268,7 +271,7 @@ Links_Channel := Map(
    "startup",
    "https://youtu.be/vjQIbagvkcs",
 
-   ;;Second channel unlisted tutorials
+   ;;Second channel unlisted videos
    ;Go ahead, watch them if you want, but they are deprecated so don't listen to me!
 
    "install ahk deprecated",
@@ -284,6 +287,9 @@ Links_Channel := Map(
    "https://youtu.be/gHQNoOMRHBc",
 
    ;;Useful tutorials not by me
+
+   "luke fish shell",
+   "https://youtu.be/C2a7jJTh3kU",
 
    "vim tutorial",
    "https://www.youtube.com/watch?v=RZ4p-saaQkc",

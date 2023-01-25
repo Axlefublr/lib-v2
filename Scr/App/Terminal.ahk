@@ -1,5 +1,5 @@
 #Include <App\Terminal>
 
-#HotIf WinActive(Terminal.winTitle)
+#HotIf WinActive(Terminal.winTitles["Linux"])
 ^BackSpace::Terminal.DeleteWord()
 #HotIf

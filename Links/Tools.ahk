@@ -36,4 +36,7 @@ Links_Tools := Map(
    "sms",
    "https://sms-activate.org/",
 
+   "lscolor generator",
+   "https://geoff.greer.fm/lscolors/",
+   
 )

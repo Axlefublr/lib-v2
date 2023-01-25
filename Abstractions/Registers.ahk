@@ -61,7 +61,7 @@ class Registers {
       }
       return key
    }
-
+   
    /**
     * @param path ***String*** — To the register
     * @private
