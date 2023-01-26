@@ -1,4 +1,9 @@
+#Include <Utils\GetWeather>
+#Include <Misc\RemindDate>
+#Include <Tools\Info>
 #Include <Utils\Win>
+#Include <Abstractions\SomeLockHint>
+#Include <App\Screenshot>
 
 #InputLevel 6
 
@@ -22,9 +27,12 @@
 #^j::Win.RestoreDown()
 
 CapsLock::SomeLockHint("CapsLock")
-+CapsLock::Win.Minimize()
+#CapsLock::Win.Minimize()
 !CapsLock::CloseButActually()
 
+<!Escape::GroupDeactivate("Main")
+<+Escape::Win.Minimize()
+>+Escape::SomeLockHint("CapsLock")
 #Escape::Infos(GetWeather()), RemindDate()
 
 PrintScreen::Screenshot.Start()

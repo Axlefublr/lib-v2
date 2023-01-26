@@ -16,9 +16,6 @@
 
 #MaxThreadsBuffer true
 
-<!Escape::GroupDeactivate("Main")
-<+Escape::Win.Minimize()
-
 <!s::Spotify.winObj.App()
 <!a::VsCode.winObj.App()
 <!c::Browser.winObj.App()
@@ -41,11 +38,11 @@
       "a", () => Explorer.WinObj.Audio.App_Folders(),
       "w", () => Explorer.WinObj.ScreenVideos.App_Folders(),
       "d", () => (SetTitleMatchMode("RegEx"), Explorer.WinObj.PC.App()),
+      "c", () => Explorer.WinObj.Content.App_Folders(),
 
    )
 
    try keyActions[key].Call()
 }
-
 
 #MaxThreadsBuffer false

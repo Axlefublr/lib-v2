@@ -57,7 +57,7 @@ class Registers {
             The key you passed isn't supported by Registers.
             Add it to the Registers.ValidRegisters string if you want to use it.
             Some keys aren't going to work even if you do.
-         )", -2, key)
+         )", -1, key)
       }
       return key
    }

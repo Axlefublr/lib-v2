@@ -10,6 +10,9 @@ Links_Channel := Map(
 
    ;;Main channel playlists
 
+   "linux playlist",
+   "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP7Os6HNDEf8Fy5lQqkavOZ",
+
    "vscode playlist",
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzO3RqyGR9Nxf4GYLosoSX_O",
 
@@ -23,6 +26,9 @@ Links_Channel := Map(
    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
 
    ;;Main channel videos
+
+   "fish abbreviations in zsh",
+   "https://youtu.be/gjmhX693scQ",
 
    "how to debloat vscode",
    "https://youtu.be/67YwWJsjVDU",
