@@ -1,40 +1,40 @@
 Class Browser {
-   static exeTitle := "ahk_exe chrome.exe"
-   static winTitle := "Google Chrome " this.exeTitle
-   static path     := A_ProgramFiles "\Google\Chrome\Application\chrome.exe"
+	static exeTitle := "ahk_exe chrome.exe"
+	static winTitle := "Google Chrome " this.exeTitle
+	static path := A_ProgramFiles "\Google\Chrome\Application\chrome.exe"
 
-   static winObj := Win({
-      winTitle: this.winTitle,
-      exePath: this.path,
-   })
+	static winObj := Win({
+		winTitle: this.winTitle,
+		exePath: this.path,
+	})
 
-   /**
-    * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
-    * @param link *String*
-    */
-   static RunLink(link) => (
-      Run(link),
-      WinWait(this.winTitle),
-      WinActivate(this.winTitle)
-   )
+	/**
+	 * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
+	 * @param link *String*
+	 */
+	static RunLink(link) => (
+		Run(link),
+		WinWait(this.winTitle),
+		WinActivate(this.winTitle)
+	)
 
-   Class MonkeyType extends Browser {
-      static winTitle := "Monkeytype " super.exeTitle
-      static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna"
+	Class MonkeyType extends Browser {
+		static winTitle := "Monkeytype " super.exeTitle
+		static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna"
 
-      static winObj := Win({
-         winTitle: this.winTitle,
-         exePath: this.path
-      })
-   }
+		static winObj := Win({
+			winTitle: this.winTitle,
+			exePath: this.path
+		})
+	}
 
-   Class Clock extends Browser {
-      static winTitle := "Reiwa's Clock - Axle's Clock " super.exeTitle
-      static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=jibnhljmnbkjahicgmpgapbkgfcihedl"
+	Class Clock extends Browser {
+		static winTitle := "Reiwa's Clock - Axle's Clock " super.exeTitle
+		static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=jibnhljmnbkjahicgmpgapbkgfcihedl"
 
-      static winObj := Win({
-         winTitle: this.winTitle,
-         exePath: this.path
-      })
-   }
+		static winObj := Win({
+			winTitle: this.winTitle,
+			exePath: this.path
+		})
+	}
 }

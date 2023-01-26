@@ -6,9 +6,9 @@ CompressSpaces(text) => RegexReplace(text, " {2,}", " ")
  * @param text *String* The text to write
  */
 WriteFile(whichFile, text := "") {
-   fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
-   fileObj.Write(text)
-   fileObj.Close()
+	fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
+	fileObj.Write(text)
+	fileObj.Close()
 }
 
 /**
@@ -18,13 +18,13 @@ WriteFile(whichFile, text := "") {
  * @param text *String* The text to write
  */
 AppendFile(whichFile, text) {
-   if FileExist(whichFile)
-      fileObj := FileOpen(whichFile, "a", "UTF-8-RAW")
-   else
-      fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
-   fileObj.Seek(0, 2)
-   fileObj.Write(text)
-   fileObj.Close()
+	if FileExist(whichFile)
+		fileObj := FileOpen(whichFile, "a", "UTF-8-RAW")
+	else
+		fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
+	fileObj.Seek(0, 2)
+	fileObj.Write(text)
+	fileObj.Close()
 }
 
 /**
@@ -33,11 +33,11 @@ AppendFile(whichFile, text) {
  * @returns {String}
  */
 ReadFile(whichFile) {
-   fileObj := FileOpen(whichFile, "r", "UTF-8-RAW")
-   fileObj.Seek(0, 0)
-   text := fileObj.Read()
-   fileObj.Close()
-   return text
+	fileObj := FileOpen(whichFile, "r", "UTF-8-RAW")
+	fileObj.Seek(0, 0)
+	text := fileObj.Read()
+	fileObj.Close()
+	return text
 }
 
 /**
@@ -52,25 +52,25 @@ ReadFile(whichFile) {
  */
 SwitchFiles(path1, path2) {
 
-   file1Read := FileOpen(path1, "r", "UTF-8-RAW")
-   file1Read.Seek(0, 0)
+	file1Read := FileOpen(path1, "r", "UTF-8-RAW")
+	file1Read.Seek(0, 0)
 
-   file2Read := FileOpen(path2, "r", "UTF-8-RAW")
-   file2Read.Seek(0, 0)
+	file2Read := FileOpen(path2, "r", "UTF-8-RAW")
+	file2Read.Seek(0, 0)
 
-   text1 := file1Read.Read()
-   text2 := file2Read.Read()
+	text1 := file1Read.Read()
+	text2 := file2Read.Read()
 
-   file1Write := FileOpen(path1, "w", "UTF-8-RAW")
+	file1Write := FileOpen(path1, "w", "UTF-8-RAW")
 
-   file2Write := FileOpen(path2, "w", "UTF-8-RAW")
+	file2Write := FileOpen(path2, "w", "UTF-8-RAW")
 
-   file1Write.Write(text2)
-   file2Write.Write(text1)
+	file1Write.Write(text2)
+	file2Write.Write(text1)
 
-   file1Read.Close()
-   file2Read.Close()
+	file1Read.Close()
+	file2Read.Close()
 
-   file1Write.Close()
-   file2Write.Close()
+	file1Write.Close()
+	file2Write.Close()
 }

@@ -55,13 +55,13 @@ NumpadAdd::+
 *NumpadClear::SoundPlayer.Storage["faded than a hoe"].Play()
 *NumpadRight::SoundPlayer.Storage["cartoon"].Play()
 *NumpadHome:: {
-   static counter := false
-   counter := !counter
-   if counter {
-      SoundPlayer.Storage["bing chilling 1"].Play()
-   } else {
-      SoundPlayer.Storage["bing chilling 2"].Play()
-   }
+	static counter := false
+	counter := !counter
+	if counter {
+		SoundPlayer.Storage["bing chilling 1"].Play()
+	} else {
+		SoundPlayer.Storage["bing chilling 2"].Play()
+	}
 }
 *NumpadUp::SoundPlayer.Storage["oh fr on god"].Play()
 *NumpadPgUp::SoundPlayer.Storage["rizz"].Play()

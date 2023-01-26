@@ -3,17 +3,17 @@
 #Include <Loaders\Links>
 
 #n:: {
-   key := KeyChorder()
-   static actions := Map(
+	key := KeyChorder()
+	static actions := Map(
 
-      "m", () => Browser.RunLink(Links["gmail"]),
-      "n", () => Browser.MonkeyType.winObj.App(),
-      "g", () => Browser.RunLink(Links["ghm"]),
-      "f", () => Browser.RunLink(Links["sf"]),
-      "p", () => Browser.RunLink(Links["gpt"]),
-      "r", () => Browser.RunLink(Links["regex"]),
-      "w", () => Browser.RunLink(Links["wb"]),
+		"m", () => Browser.RunLink(Links["gmail"]),
+		"n", () => Browser.MonkeyType.winObj.App(),
+		"g", () => Browser.RunLink(Links["ghm"]),
+		"f", () => Browser.RunLink(Links["sf"]),
+		"p", () => Browser.RunLink(Links["gpt"]),
+		"r", () => Browser.RunLink(Links["regex"]),
+		"w", () => Browser.RunLink(Links["wb"]),
 
-   )
-   try actions[key].Call()
+	)
+	try actions[key].Call()
 }
