@@ -38,6 +38,7 @@
 
 #Include <Scr\Runner>
 #Include <Scr\Win>
+#Include <Scr\Explorer>
 #Include <Scr\Websites>
 
 ;; Postload
