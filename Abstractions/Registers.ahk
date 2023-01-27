@@ -40,7 +40,10 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static Read(key) {
-		this.__ValidateKey(key)
+		try this.__ValidateKey(key)
+		catch UnsetItemError {
+			return ""
+		}
 		path := this.GetPath(key)
 		return this.__TryGetRegisterText(path)
 	}
@@ -51,7 +54,13 @@ class Registers {
 	 * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
 	 */
 	static __ValidateKey(key) {
-		if !InStr(this.ValidRegisters, key, true) {
+		if !key {
+			throw UnsetItemError("
+			(
+				You didn't pass any key
+			)", -1)
+		}
+		else if !InStr(this.ValidRegisters, key, true) {
 			throw ValueError("
          (
             The key you passed isn't supported by Registers.
@@ -96,12 +105,24 @@ class Registers {
 	}
 
 	/**
+	 * What to do if the user passed an empty key
+	 * @private
+	 */
+	static __CancelAction() {
+		Infos("Action cancelled", 500)
+	}
+
+	/**
 	 * Remove the contents of a register
 	 * @param key ***Char*** — Register key
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static Truncate(key) {
-		this.__ValidateKey(key)
+		try this.__ValidateKey(key)
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 		path := this.GetPath(key)
 		WriteFile(path)
 	}
@@ -112,7 +133,11 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static Write(key) {
-		this.__ValidateKey(key)
+		try this.__ValidateKey(key)
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 		path := this.GetPath(key)
 		WriteFile(path, A_Clipboard)
 	}
@@ -123,7 +148,11 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static Append(key) {
-		this.__ValidateKey(key)
+		try this.__ValidateKey(key)
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 		path := this.GetPath(key)
 		AppendFile(path, "`n" A_Clipboard)
 	}
@@ -135,7 +164,11 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static WriteOrAppend(key) {
-		this.__ValidateKey(key)
+		try this.__ValidateKey(key)
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 		path := this.GetPath(key)
 		if IsUpper(key) {
 			AppendFile(path, "`n" A_Clipboard)
@@ -198,6 +231,11 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static Peek(key) {
+		try this.__ValidateKey(key)
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 		text := this.Read(key)
 		shorterRegisterContents := this.__FormatRegister(text)
 		Infos(shorterRegisterContents)
@@ -221,8 +259,14 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static Move(key1, key2) {
-		this.__ValidateKey(key1)
-		this.__ValidateKey(key2)
+		try {
+			this.__ValidateKey(key1)
+			this.__ValidateKey(key2)
+		}
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 
 		path1 := this.GetPath(key1)
 		path2 := this.GetPath(key2)
@@ -241,8 +285,14 @@ class Registers {
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
 	static SwitchContents(key1, key2) {
-		this.__ValidateKey(key1)
-		this.__ValidateKey(key2)
+		try {
+			this.__ValidateKey(key1)
+			this.__ValidateKey(key2)
+		}
+		catch UnsetItemError {
+			this.__CancelAction()
+			return
+		}
 
 		path1 := this.GetPath(key1)
 		path2 := this.GetPath(key2)

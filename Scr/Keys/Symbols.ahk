@@ -14,7 +14,8 @@
 
 	)
 	key := KeyChorder()
-	try symbols[key].Call()
+	if key
+		try symbols[key].Call()
 }
 
 ;🥺😋🤯😼😎😩🤤👉👈

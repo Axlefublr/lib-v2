@@ -15,5 +15,6 @@
 		"w", () => Browser.RunLink(Links["wb"]),
 
 	)
-	try actions[key].Call()
+	if key
+		try actions[key].Call()
 }

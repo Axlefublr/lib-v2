@@ -19,8 +19,8 @@
 		"c", () => Explorer.WinObj.Content.App_Folders(),
 
 	)
-
-	try keyActions[key].Call()
+	if key
+		try keyActions[key].Call()
 }
 
 #MaxThreadsBuffer false
