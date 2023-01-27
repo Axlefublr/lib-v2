@@ -1,6 +1,7 @@
 #InputLevel 6
 
 #f::Send("{Blind}k")
+#!sc27::Send("#;")
 !Space::return
 Launch_Media::RAlt
 AppsKey::RCtrl

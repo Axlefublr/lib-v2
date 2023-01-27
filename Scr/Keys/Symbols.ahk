@@ -1,5 +1,22 @@
 #Include <Utils\Char>
 
+#sc27:: {
+	static symbols := Map(
+
+		"f", Symbol.Bind("fearful"),      ; 😨
+		"d", Symbol.Bind("smiling imp"),  ; 😈
+		"p", Symbol.Bind("purple heart"), ; 💜
+		"r", Symbol.Bind("rolling eyes"), ; 🙄
+		"h", Symbol.Bind("handshake"),    ; 🤝
+		"s", Symbol.Bind("shrug"),        ; 🤷
+		"n", Symbol.Bind("nerd"),         ; 🤓
+		"a", Symbol.Bind("amogus"),       ; ඞ
+
+	)
+	key := KeyChorder()
+	try symbols[key].Call()
+}
+
 ;🥺😋🤯😼😎😩🤤👉👈
 #y::Symbol("pleading")
 #u::Symbol("yum")
@@ -17,11 +34,3 @@
 #0::Symbol("thinking")
 #-::Symbol("long dash", " ")
 #=::Symbol("skull")
-;😨😈💜🙄🤝🤷🤓
-#F5::Symbol("fearful")
-#F6::Symbol("smiling imp")
-#F7::Symbol("purple heart")
-#F8::Symbol("rolling eyes")
-#F9::Symbol("handshake")
-#F10::Symbol("shrug")
-#F11::Symbol("nerd")
