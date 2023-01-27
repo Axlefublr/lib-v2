@@ -20,13 +20,13 @@ Links_Docs := Map(
 
 	"lscolors",
 	"https://gist.github.com/thomd/7667642",
-	
+
 	"brotato wiki",
 	"https://brotato.wiki.spellsandguns.com",
-	
+
 	"fish bind",
 	"https://fishshell.com/docs/current/cmds/bind.html",
-	
+
 	"fish tutorial",
 	"https://fishshell.com/docs/current/tutorial.html",
 

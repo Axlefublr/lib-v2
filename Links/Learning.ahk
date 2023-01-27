@@ -9,7 +9,7 @@ Links_Learning := Map(
 	"command line challenges",
 	"https://cmdchallenge.com/",
 
-	"sf",
+	"skill factory",
 	"https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
 
 )

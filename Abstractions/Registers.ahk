@@ -159,6 +159,7 @@ class Registers {
 	 * Run the contents of a register with the Run() function.
 	 * One line == one command.
 	 * For example, you can store 5 links in a register and run that register to open those 5 links at once.
+	 * Lines that start with `;` are considered comments and don't get ran
 	 * @param key ***Char*** — Register key
 	 * @throws {ValueError} If you pass an unsupported key
 	 */
@@ -166,6 +167,8 @@ class Registers {
 		text := this.Read(key)
 		commands := StrSplit(text, "`n")
 		for index, command in commands {
+			if command ~= "^;"
+				continue
 			Run(command)
 		}
 	}
