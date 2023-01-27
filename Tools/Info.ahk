@@ -125,7 +125,7 @@ class Infos {
 
 }
 
-Info(text) => Infos(text, 2000)
+Info(text, timeout?) => Infos(text, timeout ?? 2000)
 
 ;This is the Info function that I've shown off in a video.
 ;It's deprecated, use the class above

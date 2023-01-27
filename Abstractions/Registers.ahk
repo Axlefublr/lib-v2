@@ -7,6 +7,14 @@
 class Registers {
 
 	/**
+	 * Commands executed will note you of their completion.
+	 * Set up how long they should stay.
+	 * In milliseconds.
+	 * @type {Integer}
+	 */
+	static InfoTimeout := 500
+
+	/**
 	 * The directory where you keep all of your register files.
 	 * Format: C:\Programming\registers
 	 * @type {String}
@@ -125,6 +133,7 @@ class Registers {
 		}
 		path := this.GetPath(key)
 		WriteFile(path)
+		Info(key " cleared", this.InfoTimeout)
 	}
 
 	/**
@@ -140,6 +149,7 @@ class Registers {
 		}
 		path := this.GetPath(key)
 		WriteFile(path, A_Clipboard)
+		Info(key " clipboard written", this.InfoTimeout)
 	}
 
 	/**
@@ -155,6 +165,7 @@ class Registers {
 		}
 		path := this.GetPath(key)
 		AppendFile(path, "`n" A_Clipboard)
+		Info(key " clipboard appended", this.InfoTimeout)
 	}
 
 	/**
@@ -172,9 +183,11 @@ class Registers {
 		path := this.GetPath(key)
 		if IsUpper(key) {
 			AppendFile(path, "`n" A_Clipboard)
+			Info(key " clipboard appended", this.InfoTimeout)
 		}
 		else {
 			WriteFile(path, A_Clipboard)
+			Info(key " clipboard written", this.InfoTimeout)
 		}
 	}
 
@@ -204,6 +217,7 @@ class Registers {
 				continue
 			Run(command)
 		}
+		Info(key " commands executed", this.InfoTimeout)
 	}
 
 	/**
@@ -273,6 +287,8 @@ class Registers {
 
 		WriteFile(path2, this.__TryGetRegisterText(path1))
 		WriteFile(path1)
+
+		Info(key1 " moved to " key2, this.InfoTimeout)
 	}
 
 	/**
@@ -298,6 +314,8 @@ class Registers {
 		path2 := this.GetPath(key2)
 
 		SwitchFiles(path1, path2)
+
+		Info(key1 " && " key2 " switched", this.InfoTimeout)
 	}
 
 }
