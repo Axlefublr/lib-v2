@@ -12,45 +12,45 @@
  */
 class Stopwatch {
 
-	/**
-	 * The time your stopwatch started at
-	 * In YYYYMMDDHH24MISS format
-	 * @type {Integer}
-	 */
-	startingTime := unset
+    /**
+     * The time your stopwatch started at
+     * In YYYYMMDDHH24MISS format
+     * @type {Integer}
+     */
+    startingTime := unset
 
-	/**
-	 * Start the stopwatch
-	 * @returns {Integer} The startingTime property
-	 */
-	Start() => this.startingTime := A_Now
+    /**
+     * Start the stopwatch
+     * @returns {Integer} The startingTime property
+     */
+    Start() => this.startingTime := A_Now
 
-	/**
-	 * The time passed after the start of the stopwatch
-	 * @type {String} time in format HH:mm:ss
-	 */
-	CurrTime {
-		get => FormatTime(DateTime.CorrectTimestamp(A_Now - this.startingTime), "HH:mm:ss")
-	}
+    /**
+     * The time passed after the start of the stopwatch
+     * @type {String} time in format HH:mm:ss
+     */
+    CurrTime {
+        get => FormatTime(DateTime.CorrectTimestamp(A_Now - this.startingTime), "HH:mm:ss")
+    }
 
-	/**
-	 * The time your stopwatch started at
-	 * In YYYYMMDDHH24MISS format
-	 * @type {Integer}
-	 */
-	static startingTime := 0
+    /**
+     * The time your stopwatch started at
+     * In YYYYMMDDHH24MISS format
+     * @type {Integer}
+     */
+    static startingTime := 0
 
-	/**
-	 * Start the stopwatch by setting the startingTime property
-	 * @returns {Integer} The startingTime property
-	 */
-	static Start() => this.startingTime := A_Now
+    /**
+     * Start the stopwatch by setting the startingTime property
+     * @returns {Integer} The startingTime property
+     */
+    static Start() => this.startingTime := A_Now
 
-	/**
-	 * The time passed after the start of the stopwatch
-	 * @type {String} time in format HH:mm:ss
-	 */
-	static CurrTime {
-		get => FormatTime(DateTime.CorrectTimestamp(A_Now - this.startingTime), "HH:mm:ss")
-	}
+    /**
+     * The time passed after the start of the stopwatch
+     * @type {String} time in format HH:mm:ss
+     */
+    static CurrTime {
+        get => FormatTime(DateTime.CorrectTimestamp(A_Now - this.startingTime), "HH:mm:ss")
+    }
 }

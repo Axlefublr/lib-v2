@@ -11,15 +11,15 @@
 #Include <Extensions\Map>
 
 if !IsSet(Links) {
-	Links := Map()
-	Links.SafeSetMap(Links_General)
-	Links.SafeSetMap(Links_Channel)
-	Links.SafeSetMap(Links_Memes)
-	Links.SafeSetMap(Links_Cool)
-	Links.SafeSetMap(Links_Tools)
-	Links.SafeSetMap(Links_Software)
-	Links.SafeSetMap(Links_Docs)
-	Links.SafeSetMap(Links_Learning)
-	Links.SafeSetMap(Links_Github)
-	Links.SafeSetMap(Links_AhkLib)
+    Links := Map()
+    Links.SafeSetMap(Links_General)
+    Links.SafeSetMap(Links_Channel)
+    Links.SafeSetMap(Links_Memes)
+    Links.SafeSetMap(Links_Cool)
+    Links.SafeSetMap(Links_Tools)
+    Links.SafeSetMap(Links_Software)
+    Links.SafeSetMap(Links_Docs)
+    Links.SafeSetMap(Links_Learning)
+    Links.SafeSetMap(Links_Github)
+    Links.SafeSetMap(Links_AhkLib)
 }

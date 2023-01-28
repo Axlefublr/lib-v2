@@ -1,22 +1,22 @@
 Links_Software := Map(
 
-	"buy stolen software",
-	"https://wmcentre.net/en/",
+    "buy stolen software",
+    "https://wmcentre.net/en/",
 
-	"windows64",
-	"https://windows64.net/",
+    "windows64",
+    "https://windows64.net/",
 
-	"vpn gate",
-	"https://www.vpngate.net/en/download.aspx",
+    "vpn gate",
+    "https://www.vpngate.net/en/download.aspx",
 
-	"fl studio 20",
-	"https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
+    "fl studio 20",
+    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
 
-	"microsoft office 2016",
-	"https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
+    "microsoft office 2016",
+    "https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
 
-	"windows unlocker",
-	"https://filehippo.com/download_unlocker/",
+    "windows unlocker",
+    "https://filehippo.com/download_unlocker/",
 
 
 )

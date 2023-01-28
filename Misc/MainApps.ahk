@@ -5,9 +5,9 @@
 #Include <App\Discord>
 
 MainApps() {
-	Discord.winObj.RunAct()
-	VsCode.winObj.RunAct()
-	Terminal.winObj.RunAct()
-	Browser.winObj.RunAct()
-	Spotify.winObj.RunAct()
+    Discord.winObj.RunAct()
+    VsCode.winObj.RunAct()
+    Terminal.winObj.RunAct()
+    Browser.winObj.RunAct()
+    Spotify.winObj.RunAct()
 }

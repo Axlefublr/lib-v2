@@ -7,9 +7,9 @@
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e:: {
-	text := DateTime.Date " " DateTime.Time " - " Spotify.RemoveDateAndTime(A_Clipboard)
-	AppendFile(Paths.Ptf["Unfinished"], text)
-	NextTab()
+    text := DateTime.Date " " DateTime.Time " - " Spotify.RemoveDateAndTime(A_Clipboard)
+    AppendFile(Paths.Ptf["Unfinished"], text)
+    NextTab()
 }
 
 #HotIf WinActive(VsCode.winTitle)

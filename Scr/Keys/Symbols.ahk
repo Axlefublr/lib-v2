@@ -1,21 +1,21 @@
 #Include <Utils\Char>
 
 #sc27:: {
-	static symbols := Map(
+    static symbols := Map(
 
-		"f", Symbol.Bind("fearful"),      ; 😨
-		"d", Symbol.Bind("smiling imp"),  ; 😈
-		"p", Symbol.Bind("purple heart"), ; 💜
-		"r", Symbol.Bind("rolling eyes"), ; 🙄
-		"h", Symbol.Bind("handshake"),    ; 🤝
-		"s", Symbol.Bind("shrug"),        ; 🤷
-		"n", Symbol.Bind("nerd"),         ; 🤓
-		"a", Symbol.Bind("amogus"),       ; ඞ
+        "f", Symbol.Bind("fearful"),      ; 😨
+        "d", Symbol.Bind("smiling imp"),  ; 😈
+        "p", Symbol.Bind("purple heart"), ; 💜
+        "r", Symbol.Bind("rolling eyes"), ; 🙄
+        "h", Symbol.Bind("handshake"),    ; 🤝
+        "s", Symbol.Bind("shrug"),        ; 🤷
+        "n", Symbol.Bind("nerd"),         ; 🤓
+        "a", Symbol.Bind("amogus"),       ; ඞ
 
-	)
-	key := KeyChorder()
-	if key
-		try symbols[key].Call()
+    )
+    key := KeyChorder()
+    if key
+        try symbols[key].Call()
 }
 
 ;🥺😋🤯😼😎😩🤤👉👈

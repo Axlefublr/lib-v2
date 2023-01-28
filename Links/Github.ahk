@@ -1,31 +1,31 @@
 Links_Github := Map(
 
-	;; Pages
+    ;; Pages
 
-	"so",
-	"https://stackoverflow.com/",
+    "so",
+    "https://stackoverflow.com/",
 
-	"gh",
-	"https://github.com/",
+    "gh",
+    "https://github.com/",
 
-	"ghm",
-	"https://github.com/Axlefublr/",
+    "ghm",
+    "https://github.com/Axlefublr/",
 
-	"gst",
-	"https://gist.github.com/Axlefublr",
+    "gst",
+    "https://gist.github.com/Axlefublr",
 
-	;; Stars
+    ;; Stars
 
-	"lossless cut",
-	"https://github.com/mifi/lossless-cut",
+    "lossless cut",
+    "https://github.com/mifi/lossless-cut",
 
-	"yt-dlp",
-	"https://github.com/yt-dlp/yt-dlp",
+    "yt-dlp",
+    "https://github.com/yt-dlp/yt-dlp",
 
-	"shell check",
-	"https://www.shellcheck.net/",
+    "shell check",
+    "https://www.shellcheck.net/",
 
-	"get page cookies",
-	"https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid",
+    "get page cookies",
+    "https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid",
 
 )

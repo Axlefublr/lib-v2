@@ -5,9 +5,9 @@
  * @param coordinates *String* "123 123" format
  */
 ClickThenGoBack(coordinates) {
-	MouseGetPos(&initX, &initY)
-	Click(coordinates)
-	MouseMove(initX, initY)
+    MouseGetPos(&initX, &initY)
+    Click(coordinates)
+    MouseMove(initX, initY)
 }
 
 /**
@@ -15,9 +15,9 @@ ClickThenGoBack(coordinates) {
  * @param coordinates *String* "123 123" format
  */
 ClickThenGoBack_Event(coordinates) {
-	MouseGetPos(&initX, &initY)
-	SendEvent("{Click " coordinates "}")
-	MouseMove(initX, initY)
+    MouseGetPos(&initX, &initY)
+    SendEvent("{Click " coordinates "}")
+    MouseMove(initX, initY)
 }
 
 /**
@@ -26,6 +26,6 @@ ClickThenGoBack_Event(coordinates) {
  * @param whichButton *String* L for left mouse button, R for right mouse button
  */
 ControlClick_Here(winTitle := "A", whichButton := "L") => (
-	MouseGetPos(&locX, &locY),
-	ControlClick("X" locX " Y" locY, winTitle, , whichButton)
+    MouseGetPos(&locX, &locY),
+    ControlClick("X" locX " Y" locY, winTitle, , whichButton)
 )

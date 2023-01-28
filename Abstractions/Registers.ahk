@@ -64,9 +64,9 @@ class Registers {
     static __ValidateKey(key) {
         if !key {
             throw UnsetItemError("
-			(
-				You didn't pass any key
-			)", -1)
+            (
+                You didn't pass any key
+            )", -1)
         }
         else if !InStr(this.ValidRegisters, key, true) {
             throw ValueError("

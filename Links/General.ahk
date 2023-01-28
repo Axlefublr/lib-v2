@@ -1,53 +1,53 @@
 ﻿Links_General := Map(
 
-	;; Social
+    ;; Social
 
-	"reddit",
-	"https://www.reddit.com/notifications",
+    "reddit",
+    "https://www.reddit.com/notifications",
 
-	"twitch",
-	"https://www.twitch.tv/directory/following",
+    "twitch",
+    "https://www.twitch.tv/directory/following",
 
-	;; Watch
+    ;; Watch
 
-	"movies",
-	"https://watchmovieshd.ru/",
+    "movies",
+    "https://watchmovieshd.ru/",
 
-	"gogoanime",
-	"https://gogoanime.fi/",
+    "gogoanime",
+    "https://gogoanime.fi/",
 
-	;; Services
+    ;; Services
 
-	"gmail",
-	"https://mail.google.com/mail/u/0/#inbox",
+    "gmail",
+    "https://mail.google.com/mail/u/0/#inbox",
 
-	"weather",
-	"https://yandex.ru/pogoda/",
+    "weather",
+    "https://yandex.ru/pogoda/",
 
-	"2gis",
-	"https://2gis.ru/",
+    "2gis",
+    "https://2gis.ru/",
 
-	;; Shops
+    ;; Shops
 
-	"mvideo",
-	"https://www.mvideo.ru/",
+    "mvideo",
+    "https://www.mvideo.ru/",
 
-	"dns",
-	"https://www.dns-shop.ru/",
+    "dns",
+    "https://www.dns-shop.ru/",
 
-	"zakazaka",
-	"https://zaka-zaka.com/",
+    "zakazaka",
+    "https://zaka-zaka.com/",
 
-	"ggsel",
-	"https://ggsel.com/",
+    "ggsel",
+    "https://ggsel.com/",
 
-	"wb",
-	"https://www.wildberries.ru/lk/myorders/delivery",
+    "wb",
+    "https://www.wildberries.ru/lk/myorders/delivery",
 
-	"ali",
-	"https://trade.aliexpress.ru/orderList.htm",
+    "ali",
+    "https://trade.aliexpress.ru/orderList.htm",
 
-	"kaban",
-	"https://686768.ru/",
+    "kaban",
+    "https://686768.ru/",
 
 )
