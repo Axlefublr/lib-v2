@@ -199,6 +199,7 @@ class Registers {
 	static Paste(key) {
 		content := this.Read(key)
 		ClipSend(content)
+		Info(key " pasted", this.InfoTimeout)
 	}
 
 	/**
@@ -252,7 +253,7 @@ class Registers {
 		}
 		text := this.Read(key)
 		shorterRegisterContents := this.__FormatRegister(text)
-		Infos(shorterRegisterContents)
+		Infos(key ": " shorterRegisterContents)
 	}
 
 	/**
