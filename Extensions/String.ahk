@@ -1,6 +1,7 @@
 ﻿/*
 	Name: String.ahk
 	Version 0.13 (15.10.22)
+    Github link: https://github.com/Descolada/AHK-v2-libraries/blob/main/Lib/String.ahk
 	Created: 27.08.22
 	Author: Descolada
 	Credit:
@@ -496,7 +497,7 @@ Class String2 {
 				longest := StrLen(A_LoopField)
 		if IsSet(width)
 			longest := Max(longest, width)
-		Loop parse this, delim, exclude 
+		Loop parse this, delim, exclude
 		{
 			filled:="", len := StrLen(A_LoopField)
 			Loop (longest-len)//2
