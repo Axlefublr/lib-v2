@@ -117,7 +117,7 @@ class Registers {
      * @private
      */
     static __CancelAction() {
-        Infos("Action cancelled", 500)
+        Infos("Action cancelled", this.InfoTimeout)
     }
 
     /**
