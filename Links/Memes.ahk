@@ -199,10 +199,10 @@ Links_Memes := Map(
 
     "room temperature room",
     "https://youtu.be/VxxYqE4Gil8",
-    
+
     "this entire fucking video was written by an ai",
     "https://www.youtube.com/watch?v=SOKyGVP5fD0&ab_channel=justmehabibi",
-    
+
     "oh fr on god",
     "https://www.youtube.com/watch?v=4V7_dlIEKEg",
 )

@@ -212,6 +212,7 @@ class Registers {
      */
     static Run(key) {
         text := this.Read(key)
+        text := StrReplace(text, "`r")
         commands := StrSplit(text, "`n")
         for index, command in commands {
             if command ~= "^;"

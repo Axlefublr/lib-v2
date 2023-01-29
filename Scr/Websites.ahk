@@ -12,7 +12,7 @@
         "f", () => Browser.RunLink(Links["skill factory"]),
         "p", () => Browser.RunLink(Links["gpt"]),
         "r", () => Browser.RunLink(Links["regex"]),
-        "w", () => Browser.RunLink(Links["wb"]),
+        "w", () => Browser.RunLink(Links["wildberries"]),
 
     )
     if key

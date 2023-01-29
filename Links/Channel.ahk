@@ -25,12 +25,21 @@ Links_Channel := Map(
     "ahk guis playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
 
+    "ahk vim playlist",
+    "https://youtube.com/playlist?list=PLQBdjw2QsRzProG8ksUHCK04FpD0C1gpT",
+
+    "ahk registers playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
+
     ;;Main channel videos
+
+    "registers 1",
+    "https://youtu.be/Toa3MXLcwtg",
 
     "fish abbreviations in zsh",
     "https://youtu.be/gjmhX693scQ",
 
-    "how to debloat vscode",
+    "debloat vscode",
     "https://youtu.be/67YwWJsjVDU",
 
     "switch",
@@ -293,7 +302,7 @@ Links_Channel := Map(
     "https://youtu.be/gHQNoOMRHBc",
 
     ;;Useful tutorials not by me
-    
+
     "awk tutorial",
     "https://youtu.be/9YOZmI-zWok",
 

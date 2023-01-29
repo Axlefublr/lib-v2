@@ -41,10 +41,10 @@
     "ggsel",
     "https://ggsel.com/",
 
-    "wb",
+    "wildberries",
     "https://www.wildberries.ru/lk/myorders/delivery",
 
-    "ali",
+    "aliexpress",
     "https://trade.aliexpress.ru/orderList.htm",
 
     "kaban",
