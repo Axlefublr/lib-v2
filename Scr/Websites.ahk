@@ -1,5 +1,7 @@
 #Include <Utils\KeyChorder>
 #Include <App\Browser>
+#Include <App\Steam>
+#Include <App\DS4>
 #Include <Loaders\Links>
 
 #n:: {
@@ -13,6 +15,8 @@
         "p", () => Browser.RunLink(Links["gpt"]),
         "r", () => Browser.RunLink(Links["regex"]),
         "w", () => Browser.RunLink(Links["wildberries"]),
+        "d", () => DS4.winObj.App(),
+        "s", () => Steam.winObj.App(),
 
     )
     if key
