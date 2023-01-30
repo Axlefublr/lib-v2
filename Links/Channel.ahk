@@ -33,6 +33,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "registers 2",
+    "https://youtu.be/GlzUa-dCNvk",
+
     "registers 1",
     "https://youtu.be/Toa3MXLcwtg",
 

@@ -3,6 +3,7 @@
 #Include <Abstractions\Text>
 #Include <Tools\Info>
 #Include <Extensions\String>
+#Include <Utils\ClipSend>
 
 class Registers {
 
@@ -35,26 +36,6 @@ class Registers {
      * @type {Integer}
      */
     static MaxPeekCharacters := 100
-
-    /**
-     * @param key ***String*** — The key of the register to get the path of
-     * @returns {String} The path of the register of entered key
-     */
-    static GetPath(key) => this.RegistersDirectory "\reg_" key ".txt"
-
-    /**
-     * @param key ***Char*** — Register key
-     * @returns {String} Text inside of the register file
-     * @throws {ValueError} If you pass an unsupported key
-     */
-    static Read(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            return ""
-        }
-        path := this.GetPath(key)
-        return this.__TryGetRegisterText(path)
-    }
 
     /**
      * @param key ***Char***
@@ -118,6 +99,26 @@ class Registers {
      */
     static __CancelAction() {
         Infos("Action cancelled", this.InfoTimeout)
+    }
+
+    /**
+     * @param key ***String*** — The key of the register to get the path of
+     * @returns {String} The path of the register of entered key
+     */
+    static GetPath(key) => this.RegistersDirectory "\reg_" key ".txt"
+
+    /**
+     * @param key ***Char*** — Register key
+     * @returns {String} Text inside of the register file
+     * @throws {ValueError} If you pass an unsupported key
+     */
+    static Read(key) {
+        try this.__ValidateKey(key)
+        catch UnsetItemError {
+            return ""
+        }
+        path := this.GetPath(key)
+        return this.__TryGetRegisterText(path)
     }
 
     /**
