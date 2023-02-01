@@ -1,6 +1,8 @@
 #Include <App\Spotify>
 
 #HotIf WinActive(Spotify.exeTitle)
+F1::Spotify.PlaylistSorter.ToggleHotkey()
+
 !w::Spotify.Like()
 !e::Spotify.LikedPlaylist()
 

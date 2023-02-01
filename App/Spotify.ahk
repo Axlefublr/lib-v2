@@ -36,8 +36,7 @@ Class Spotify {
         ControlClick("x32 y1014", this.exeTitle, , "R")
     )
 
-    static AddToBest() {
-        this.Context()
+    static __GetContextMenu() {
         UIAObject := UIA.ElementFromHandle(this.winTitle)
         songMenu := UIAObject.FindElement({
             Type: "document"
@@ -45,12 +44,46 @@ Class Spotify {
             Type: "menu",
             Scope: 2
         })
+        return songMenu
+    }
+
+    static AddToPlaylist(playlistName) {
+        songMenu := this.__GetContextMenu()
         songMenu.FindElement({
             Name: "Add to playlist"
         }).Click()
         songMenu.WaitElement({
-            Name: "Best"
+            Name: playlistName
         }).Click()
+    }
+
+    static AddToBest() {
+        this.Context()
+        this.AddToPlaylist("Best")
+    }
+
+    class PlaylistSorter extends Spotify {
+
+        static MaxPlaylist := 20
+
+        static AddTrack() {
+            counter := ReadFile(Paths.Ptf["playlist-sorter"])
+            super.AddToPlaylist("#" counter)
+            if counter >= this.MaxPlaylist
+                counter := 0
+            WriteFile(Paths.Ptf["playlist-sorter"], ++counter)
+        }
+
+        static bfAddTrack := (ThisHotkey) => this.AddTrack()
+
+        static ToggleHotkey() {
+            static isHotkeyActive := false
+            if isHotkeyActive
+                Hotkey("~RButton", this.bfAddTrack, "Off")
+            else
+                Hotkey("~RButton", this.bfAddTrack, "On")
+            isHotkeyActive := !isHotkeyActive
+        }
     }
 
     static GetCurrSong() {
@@ -128,6 +161,7 @@ Class Spotify {
             ControlClick_Here(this.exeTitle, "R")
             var++
             g_added_text.Text := var
+            this.AddToPlaylist("Discovery")
             if var >= 15 {
                 Destruction()
             }
