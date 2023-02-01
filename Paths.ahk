@@ -49,9 +49,10 @@ Class Paths {
         "vk reply",           this.Main "\Files\Images\vk reply.png",
         "BlankPic",           this.Main "\Files\Images\BlankPic.png",
 
-        "Timer.txt",       this.Main "\Files\Innit\Timer.txt",
-        "Timer.json",      this.Main "\Files\Innit\Timer.json",
-        "playlist-sorter", this.Main "\Files\Innit\playlist-sorter.txt",
+        "Timer.txt",        this.Main "\Files\Innit\Timer.txt",
+        "Timer.json",       this.Main "\Files\Innit\Timer.json",
+        "playlist-sorter",  this.Main "\Files\Innit\playlist-sorter.txt",
+        "current-playlist", this.Main "\Files\Innit\current-playlist.txt",
 
         "Hub", this.Main "\Hub.ahk",
 

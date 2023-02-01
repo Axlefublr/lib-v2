@@ -62,6 +62,17 @@ Class Spotify {
         this.AddToPlaylist("Best")
     }
 
+    class PlaylistCounter extends Spotify {
+        static currentPlaylist := ReadFile(Paths.Ptf["current-playlist"])
+
+        static Show() => Info(this.currentPlaylist)
+
+        static IncrementAndShow() {
+            this.currentPlaylist++
+            this.Show()
+        }
+    }
+
     class PlaylistSorter extends Spotify {
 
         static MaxPlaylist := 20
@@ -78,10 +89,14 @@ Class Spotify {
 
         static ToggleHotkey() {
             static isHotkeyActive := false
-            if isHotkeyActive
+            if isHotkeyActive {
                 Hotkey("~RButton", this.bfAddTrack, "Off")
-            else
+                Info("Hotkey disabled")
+            }
+            else {
                 Hotkey("~RButton", this.bfAddTrack, "On")
+                Info("Hotkey enabled")
+            }
             isHotkeyActive := !isHotkeyActive
         }
     }

@@ -22,7 +22,6 @@ XButton1 & WheelDown::VsCode.Undo()
 
 #HotIf !WinActive(VsCode.winTitle)
 !Insert::Cut()
-^j::Find()
 
 ^!h::Send("^{Left}")
 ^!l::Send("^{Right}")
