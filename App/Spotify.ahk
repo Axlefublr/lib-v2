@@ -63,7 +63,10 @@ Class Spotify {
     }
 
     class PlaylistCounter extends Spotify {
-        static currentPlaylist := ReadFile(Paths.Ptf["current-playlist"])
+        static currentPlaylist {
+            get => ReadFile(Paths.Ptf["current-playlist"])
+            set => WriteFile(Paths.Ptf["current-playlist"], value)
+        }
 
         static Show() => Info(this.currentPlaylist)
 
