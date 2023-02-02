@@ -58,21 +58,29 @@
         RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm|glo) (.+)", &result)
         static runner_regex := Map(
 
-            "p",       (input) => ClipSend(Links[input], , false),
-            "o",       (input) => Browser.RunLink(Links[input]),
             "op", (input) => (
                 A_Clipboard := Links[input],
                 Browser.RunLink(Links[input])
             ),
-            "cp",      (input) => A_Clipboard := input,
-            "r",       (input) => Spotify.NewRapper(input),
-            "t",       (input) => Timer(input).Start(),
-            "tm",      (input) => (
+            "cp", (input) => (
+                A_Clipboard := input,
+                Info('"' input '" copied')
+            ),
+            "tm", (input) => (
                 timerObj := Timer(input),
                 timerObj.shouldRing := false,
                 timerObj.Start()
             ),
-            "fav",       (input) => Spotify.FavRapper_Manual(input),
+            "glo",     (input) => (
+                link := Git.Link(input),
+                Browser.RunLink(link),
+                A_Clipboard := link
+            ),
+            "p",       (input) => ClipSend(Links[input], , false),
+            "o",       (input) => Browser.RunLink(Links[input]),
+            "r",       (input) => Spotify.NewRapper(input),
+            "t",       (input) => Timer(input).Start(),
+            "fav",     (input) => Spotify.FavRapper_Manual(input),
             "ev",      (input) => Infos(Calculator(input)),
             "evp",     (input) => ClipSend(Calculator(input)),
             "i",       (input) => Infos(input),
@@ -86,11 +94,6 @@
             "counter", (input) => Info(Counter.num := input),
             "gl",      (input) => ClipSend(Git.Link(input), "", false),
             "go",      (input) => Browser.RunLink(Git.Link(input)),
-            "glo",     (input) => (
-                link := Git.Link(input),
-                Browser.RunLink(link),
-                A_Clipboard := link
-            ),
             "install", (input) => Git.InstallAhkLibrary(input),
             "chrs",    (input) => ClipSend(CharGenerator(2).GenerateCharacters(input)),
             "disc",    (input) => Spotify.NewDiscovery_Manual(input),
