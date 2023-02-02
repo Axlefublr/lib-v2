@@ -55,13 +55,16 @@
 
     try runner_commands[input].Call()
     catch Any {
-        RegexMatch(input, "^(p|o|s|r|t|a|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm|glo) (.+)", &result)
+        RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm|glo) (.+)", &result)
         static runner_regex := Map(
 
             "p",       (input) => ClipSend(Links[input], , false),
             "o",       (input) => Browser.RunLink(Links[input]),
+            "op", (input) => (
+                A_Clipboard := Links[input],
+                Browser.RunLink(Links[input])
+            ),
             "cp",      (input) => A_Clipboard := input,
-            "s",       (input) => SoundPlay(Paths.Sounds "\" input ".mp3"),
             "r",       (input) => Spotify.NewRapper(input),
             "t",       (input) => Timer(input).Start(),
             "tm",      (input) => (
@@ -69,7 +72,7 @@
                 timerObj.shouldRing := false,
                 timerObj.Start()
             ),
-            "a",       (input) => Spotify.FavRapper_Manual(input),
+            "fav",       (input) => Spotify.FavRapper_Manual(input),
             "ev",      (input) => Infos(Calculator(input)),
             "evp",     (input) => ClipSend(Calculator(input)),
             "i",       (input) => Infos(input),
