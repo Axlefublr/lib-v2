@@ -50,4 +50,7 @@
     "kaban",
     "https://686768.ru/",
 
+    "dodo",
+    "https://dodopizza.ru/angarsk/mikrorayon18",
+    
 )

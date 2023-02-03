@@ -38,5 +38,5 @@ Links_Tools := Map(
 
     "lscolor generator",
     "https://geoff.greer.fm/lscolors/",
-    
+
 )

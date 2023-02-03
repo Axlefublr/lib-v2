@@ -1,8 +1,8 @@
 #Include <App\VsCode>
-#Include <App\Telegram>
 #Include <App\Browser>
 #Include <App\Spotify>
 #Include <App\Discord>
+#Include <App\Terminal>
 
 MainApps() {
     Discord.winObj.RunAct()

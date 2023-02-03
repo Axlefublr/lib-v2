@@ -32,6 +32,9 @@ Links_Channel := Map(
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
 
     ;;Main channel videos
+    
+    "viewcmd",
+    "https://youtu.be/3h_kvNDvB_Y",
 
     "registers 2",
     "https://youtu.be/GlzUa-dCNvk",
