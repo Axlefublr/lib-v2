@@ -98,6 +98,7 @@
 
 ;; Misc
 
+#Include <Misc\Meditate>
 #Include <Misc\Calculator>
 #Include <Misc\CountLibraries>
 #Include <Misc\RemindDate>

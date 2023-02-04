@@ -8,6 +8,7 @@
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>
 #Include <App\Slack>
+#Include <Misc\Meditate>
 
 +!l:: {
     if !input := CleanInputBox().WaitForInput() {
@@ -55,7 +56,7 @@
 
     try runner_commands[input].Call()
     catch Any {
-        RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|tm|glo) (.+)", &result)
+        RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|m|glo) (.+)", &result)
         static runner_regex := Map(
 
             "op", (input) => (
@@ -66,16 +67,12 @@
                 A_Clipboard := input,
                 Info('"' input '" copied')
             ),
-            "tm", (input) => (
-                timerObj := Timer(input),
-                timerObj.shouldRing := false,
-                timerObj.Start()
-            ),
             "glo",     (input) => (
                 link := Git.Link(input),
                 Browser.RunLink(link),
                 A_Clipboard := link
             ),
+            "m",       (input) => Meditate(),
             "p",       (input) => ClipSend(Links[input], , false),
             "o",       (input) => Browser.RunLink(Links[input]),
             "r",       (input) => Spotify.NewRapper(input),
