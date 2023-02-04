@@ -12,40 +12,57 @@ Class Timer {
      */
     static jsonPath := Paths.Ptf["Timer.json"]
 
-    shouldRing := true
-
     static RestartTimers() {
         jsonObj := JSON.parse(ReadFile(this.jsonPath))
         for key, value in jsonObj {
             if value["end"] < A_Now {
-                Info("Timer for " value["duration"] " ran out")
+                Info("Timer for " value["timestamp"] " ran out")
                 jsonObj.Delete(key)
                 continue
             }
 
-            ; time := 
+            ; time :=
         }
     }
 
-    __New(time) {
+    shouldRing := true
+    restartingTimer := false
+
+    __New(time, hash?) {
 
         this.timestamp := time
         this.startTime := A_Now
         this.endTime := DateTime.AddTimestamp(this.startTime, time)
         this.duration := DateTime.ConvertToSeconds(time)
-        this.hash := String(Random(1, 100000))
+        if !IsSet(hash) {
+            this.hash := String(Random(1, 100000))
+        } else {
+            this.hash := hash
+            this.restartingTimer := true
+        }
 
     }
 
-    Start() {
+    __WriteJson() {
         jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
         jsonObj.Set(this.hash, Map(
             "start",    this.startTime,
             "end",      this.endTime,
-            "duration", this.duration
+            "timestamp", this.timestamp
         ))
         WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
+    }
 
+    __DeleteJson() {
+        jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
+        jsonObj.Delete(this.hash)
+        WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
+    }
+
+    Start() {
+        if !this.restartingTimer {
+            this.__WriteJson()
+        }
         if this.shouldRing {
             action := this.Alarm.Bind(this)
         } else {
@@ -54,12 +71,6 @@ Class Timer {
 
         SetTimer(action, -this.duration * 1000)
         Info("Timer set for " this.timestamp)
-    }
-
-    __DeleteJson() {
-        jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
-        jsonObj.Delete(this.hash)
-        WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
     }
 
     /**
