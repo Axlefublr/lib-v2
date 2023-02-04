@@ -42,7 +42,7 @@ class Registers {
      * You can still peek them using Peek()
      * @type {String}
      */
-    static ExplicitPeekOnly := "mys"
+    static ExplicitPeekOnly := "mysn"
 
     /**
      * @param key ***Char***

@@ -41,6 +41,7 @@ WindowGetter() {
         Hotkey("5", "Off"),
         Hotkey("6", "Off"),
         Hotkey("Escape", "Off"),
+        g_WinGet.Minimize(),
         g_WinGet.Destroy()
     )
 

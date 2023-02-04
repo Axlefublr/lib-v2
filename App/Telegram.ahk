@@ -7,7 +7,7 @@ Class Telegram {
 
     static processExe := "Telegram.exe"
     static exeTitle := "ahk_exe " this.processExe
-    static winTitle := "Telegram " this.exeTitle
+    static winTitle := this.exeTitle
     static path := A_AppData "\Telegram Desktop\Telegram.exe"
 
     static winObj := Win({
