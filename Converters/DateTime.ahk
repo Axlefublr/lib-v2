@@ -19,25 +19,25 @@ class DateTime {
      * @type {Float}
      */
     static DaysInAYear := 365.24
-    
+
     /**
      * 30.43(6)
      * @type {Float}
      */
     static DaysInAMonth := this.DaysInAYear / 12
-    
+
     /**
      * 86400
      * @type {Integer}
      */
     static SecondsInADay := 86400
-    
+
     /**
      * 3600
      * @type {Integer}
      */
     static SecondsInAnHour := 3600
-    
+
     /**
      * YYYY - 4
      * MM - 2
@@ -92,7 +92,7 @@ class DateTime {
             minutes := -minutes
             seconds := -seconds
         }
-        
+
         return {
             years:   years,
             months:  months,
@@ -105,26 +105,23 @@ class DateTime {
 
     /**
      * Convert a YYYYMMDDHH24MISS timestamp into the amount of seconds it is.
-     * Years and months are ignored because months are of different lengths.
      * This is useful for specifying the amount of time to pass in the format of the timestamp, rather than having to do math.
+     * Years and months are calculated by averages.
      * @param timeStamp *YYYYMMDDHH24MISS*
      * @returns {Integer}
      */
     static ConvertToSeconds(timeStamp) {
         timeObj := this.ParseTimestamp(timeStamp)
 
-        daysMs    := timeObj.days * DateTime.SecondsInADay
-        hoursMs   := timeObj.hours * DateTime.SecondsInAnHour
-        minutesMs := timeObj.minutes * 60
+        yearsInSec   := timeObj.years * DateTime.DaysInAYear * DateTime.SecondsInADay
+        monthsInSec  := timeObj.months * DateTime.DaysInAMonth * DateTime.SecondsInADay
+        daysInSec    := timeObj.days * DateTime.SecondsInADay
+        hoursInSec   := timeObj.hours * DateTime.SecondsInAnHour
+        minutesInSec := timeObj.minutes * 60
 
-        return daysMs + hoursMs + minutesMs + timeObj.seconds
+        return yearsInSec + monthsInSec + daysInSec + hoursInSec + minutesInSec + timeObj.seconds
     }
 
-    static ConvertSecondsToTimestamp(seconds) {
-        if seconds > DateTime.ThirtyDaysInSeconds
-            throw ValueError("I have not implemented ")
-    }
-    
     /**
      * Add a timestamp to a timestamp.
      * @param base *YYYYMMDDHH24MISS*
@@ -148,10 +145,10 @@ class DateTime {
         years := dateTime.years
         months := dateTime.months
         rest := dateTime.days dateTime.hours dateTime.minutes dateTime.seconds
-        
+
         months += addMonths
     }
-    
+
     /**
      * DateAdd doesn't let you add months or days.
      * Do so using this method.
