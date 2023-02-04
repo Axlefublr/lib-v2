@@ -38,6 +38,13 @@ class Registers {
     static MaxPeekCharacters := 100
 
     /**
+     * Put in registers that you don't want to see when using PeekNonEmpty().
+     * You can still peek them using Peek()
+     * @type {String}
+     */
+    static ExplicitPeekOnly := "mys"
+
+    /**
      * @param key ***Char***
      * @private
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
@@ -235,8 +242,12 @@ class Registers {
             if !text {
                 continue
             }
+            registerChar := this.__FormatRegisterName(A_LoopFileName)
+            if InStr(this.ExplicitPeekOnly, registerChar) {
+                continue
+            }
             shorterRegisterContents := this.__FormatRegister(text)
-            Infos(this.__FormatRegisterName(A_LoopFileName) ": " shorterRegisterContents)
+            Infos(registerChar ": " shorterRegisterContents)
         }
     }
 
