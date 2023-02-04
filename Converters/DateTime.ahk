@@ -102,4 +102,92 @@ class DateTime {
             seconds: seconds
         }
     }
+
+    /**
+     * Convert a YYYYMMDDHH24MISS timestamp into the amount of seconds it is.
+     * This is useful for specifying the amount of time to pass in the format of the timestamp, rather than having to do math.
+     * Years and months are calculated by averages.
+     * @param timeStamp *YYYYMMDDHH24MISS*
+     * @returns {Integer}
+     */
+    static ConvertToSeconds(timeStamp) {
+        timeObj := this.ParseTimestamp(timeStamp)
+
+        yearsInSec   := timeObj.years * DateTime.DaysInAYear * DateTime.SecondsInADay
+        monthsInSec  := timeObj.months * DateTime.DaysInAMonth * DateTime.SecondsInADay
+        daysInSec    := timeObj.days * DateTime.SecondsInADay
+        hoursInSec   := timeObj.hours * DateTime.SecondsInAnHour
+        minutesInSec := timeObj.minutes * 60
+
+        return yearsInSec + monthsInSec + daysInSec + hoursInSec + minutesInSec + timeObj.seconds
+    }
+
+    /**
+     * Add a timestamp to a timestamp.
+     * @param base *YYYYMMDDHH24MISS*
+     * @param toAdd *YYYYMMDDHH24MISS*
+     * @returns {YYYYMMDDHH24MISS}
+     */
+    static AddTimestamp(base, toAdd) {
+        base := this.CorrectTimestamp(base)
+        toAddObj := this.ParseTimestamp(toAdd)
+        base := DateAdd(base, toAddObj.seconds, "seconds")
+        base := DateAdd(base, toAddObj.minutes, "minutes")
+        base := DateAdd(base, toAddObj.hours, "hours")
+        base := DateAdd(base, toAddObj.days, "days")
+        base := this.DateAddBig(base, toAddObj.years toAddObj.months)
+        return base
+    }
+
+    static DateAddMonth(dateTime, addMonths) {
+        dateTime := this.ParseTimestamp(dateTime)
+
+        years := dateTime.years
+        months := dateTime.months
+        rest := dateTime.days dateTime.hours dateTime.minutes dateTime.seconds
+
+        months += addMonths
+    }
+
+    /**
+     * DateAdd doesn't let you add months or days.
+     * Do so using this method.
+     * @param dateTime *YYYYMMDDHH24MISS*
+     * @param dateTimeToAdd *YYYYMMDDHH24MISS* 100 is one year. 10 is ten months.
+     * @returns {YYYYMMDDHH24MISS}
+     */
+    static DateAddBig(dateTime, dateTimeToAdd) {
+
+        static TimestampHasYears := () => StrLen(dateTimeToAdd) > 2
+        static GetYearAmount     := () => SubStr(dateTimeToAdd, 1, -2)
+        static GetMonthAmount    := () => SubStr(dateTimeToAdd, -2)
+
+        static CalculateFullYearsToAdd  := () => addYears + (months + addMonths) // 12
+        static CalculateRemainingMonths := () => Mod(months + addMonths, 12)
+
+        timeObj := this.ParseTimestamp(dateTime)
+
+        years  := timeObj.years
+        months := timeObj.months
+        rest   := timeObj.days timeObj.hours timeObj.minutes timeObj.seconds
+
+        addYears  := TimestampHasYears() ? GetYearAmount() : 0
+
+        addMonths := GetMonthAmount()
+
+        if months + addMonths > 12 {
+            addYears := CalculateFullYearsToAdd()
+            months := CalculateRemainingMonths()
+        } else {
+            months := months + addMonths
+        }
+
+        if StrLen(months) < 2 {
+            months := 0 months
+        }
+
+        years := years + addYears
+
+        return years months rest
+    }
 }
