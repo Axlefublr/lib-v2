@@ -1,4 +1,5 @@
 #Include <Paths>
+#Include <Utils\Eval>
 #Include <Abstractions\Text>
 #Include <Converters\DateTime>
 #Include <Extensions\Json>
@@ -14,42 +15,38 @@ Class Timer {
 
     static RestartTimers() {
         jsonObj := JSON.parse(ReadFile(this.jsonPath))
-        for key, value in jsonObj {
-            if value["end"] < A_Now {
-                Info("Timer for " value["timestamp"] " ran out")
-                jsonObj.Delete(key)
-                continue
-            }
+        timersToRenew := []
 
-            ; time :=
+        for key, value in jsonObj {
+            jsonObj.Delete(key)
+
+            if value < A_Now
+                continue
+
+            seconds := DateDiff(value, A_Now, "seconds")
+            timersToRenew.Push(Timer(seconds))
+        }
+        WriteFile(this.jsonPath, JSON.stringify(jsonObj))
+
+        for index, timerObj in timersToRenew {
+            timerObj.Start()
         }
     }
 
     shouldRing := true
-    restartingTimer := false
 
-    __New(time, hash?) {
+    __New(seconds) {
 
-        this.timestamp := time
-        this.startTime := A_Now
-        this.endTime := DateTime.AddTimestamp(this.startTime, time)
-        this.duration := DateTime.ConvertToSeconds(time)
-        if !IsSet(hash) {
-            this.hash := String(Random(1, 100000))
-        } else {
-            this.hash := hash
-            this.restartingTimer := true
-        }
+        seconds := eval(seconds)
+        this.endTime := DateAdd(A_Now, seconds, "seconds")
+        this.duration := seconds
+        this.hash := String(Random(1, 100000))
 
     }
 
     __WriteJson() {
         jsonObj := JSON.parse(ReadFile(Timer.jsonPath))
-        jsonObj.Set(this.hash, Map(
-            "start",    this.startTime,
-            "end",      this.endTime,
-            "timestamp", this.timestamp
-        ))
+        jsonObj.Set(this.hash, this.endTime)
         WriteFile(Timer.jsonPath, JSON.stringify(jsonObj))
     }
 
@@ -60,9 +57,7 @@ Class Timer {
     }
 
     Start() {
-        if !this.restartingTimer {
-            this.__WriteJson()
-        }
+        this.__WriteJson()
         if this.shouldRing {
             action := this.Alarm.Bind(this)
         } else {
@@ -70,7 +65,7 @@ Class Timer {
         }
 
         SetTimer(action, -this.duration * 1000)
-        Info("Timer set for " this.timestamp)
+        Info("Timer set for " this.duration)
     }
 
     /**
@@ -80,7 +75,7 @@ Class Timer {
      */
     Alarm() {
         this.__DeleteJson()
-        infoHwnd := Infos("Your timer for " this.timestamp " is up!").gInfo.Hwnd
+        infoHwnd := Infos("Your timer for " this.duration " is up!").gInfo.Hwnd
         while WinExist(infoHwnd) {
             SoundBeep()
             Sleep(200)

@@ -5,3 +5,4 @@
 
 Info(A_AhkPath.Replace(AutoHotkey.path "\"))
 RemindDate()
+Timer.RestartTimers()
