@@ -72,7 +72,7 @@
                 Browser.RunLink(link),
                 A_Clipboard := link
             ),
-            "m",       (input) => Meditate(),
+            "m",       (input) => Meditate(input),
             "p",       (input) => ClipSend(Links[input], , false),
             "o",       (input) => Browser.RunLink(Links[input]),
             "r",       (input) => Spotify.NewRapper(input),

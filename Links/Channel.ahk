@@ -32,7 +32,10 @@ Links_Channel := Map(
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
 
     ;;Main channel videos
-    
+
+    "db",
+    "https://youtu.be/9dCHWhwqP3A",
+
     "viewcmd",
     "https://youtu.be/3h_kvNDvB_Y",
 
