@@ -33,6 +33,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "install 0.8",
+    "https://youtu.be/2wapxsfzLho",
+
     "db",
     "https://youtu.be/9dCHWhwqP3A",
 
