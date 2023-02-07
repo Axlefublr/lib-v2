@@ -139,14 +139,29 @@ class DateTime {
         return base
     }
 
-    static DateAddMonth(dateTime, addMonths) {
+    static AddMonths(dateTime, addMonths) {
         dateTime := this.ParseTimestamp(dateTime)
 
-        years := dateTime.years
+        years  := dateTime.years
         months := dateTime.months
-        rest := dateTime.days dateTime.hours dateTime.minutes dateTime.seconds
+        rest   := dateTime.days dateTime.hours dateTime.minutes dateTime.seconds
 
         months += addMonths
+
+        if months > 12 {
+            months //= 12
+            years += months
+        }
+
+        if months < 1 {
+            years--
+            months := 12 - Abs(months)
+        }
+
+        if StrLen(months) < 2
+            months := 0 months
+
+        return years months rest 
     }
 
     /**
