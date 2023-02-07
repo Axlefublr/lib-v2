@@ -149,8 +149,8 @@ class DateTime {
         months += addMonths
 
         if months > 12 {
-            months //= 12
-            years += months
+            years += months // 12
+            months := Mod(months, 12)
         }
 
         if months < 1 {
