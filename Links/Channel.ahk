@@ -124,6 +124,9 @@ Links_Channel := Map(
 
     "how to remap ctrl characters",
     "https://youtu.be/yz3jptm414I",
+    
+    "gM",
+    "https://youtu.be/j-MBH-rVI6c",
 
     "how to make text objects",
     "https://youtu.be/wj7U-DNALN0",

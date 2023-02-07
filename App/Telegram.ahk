@@ -14,11 +14,17 @@ Class Telegram {
         winTitle: this.winTitle,
         exePath: this.path
     })
-    
+
     static Close() {
         this.winObj.Close()
         ProcessClose(this.processExe)
     }
+
+    static NextChannel() => Send("!{Down}")
+    static PrevChannel() => Send("!{Up}")
+
+    static NextFolder() => Send("^+{Down}")
+    static PrevFolder() => Send("^+{Up}")
 
     static Voice() => ClickThenGoBack_Event("1452 1052")
 
