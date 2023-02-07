@@ -1,19 +1,13 @@
+#Include <Tests\Testable>
 #Include <Converters\DateTime>
 
-class DateTimeTests {
+class DateTimeTests extends Testable {
 
     static __New() {
-        this.AddMonths_AddLessThanYear_GetLessThanYear()
-        this.AddMonths_SubLessThanYear_GetLessThanYear()
-        this.AddMonths_AddLessThanYear_GetMoreThanYear()
-        this.AddMonths_SubLessThanYear_GetMoreThanYear()
-        this.AddMonths_AddYear()
-        this.AddMonths_SubYear()
-        this.AddMonths_AddMoreThanYear()
-        this.AddMonths_SubMoreThanYear()
+        DateTimeTests().RunAll()
     }
 
-    static AddMonths_AddLessThanYear_GetLessThanYear() {
+    AddMonths_AddLessThanYear_GetLessThanYear() {
 
         startDate := 20230211223344
         endDate   := 20230711223344
@@ -23,7 +17,7 @@ class DateTimeTests {
             throw ValueError("Expected: " endDate, -1, actual)
     }
 
-    static AddMonths_SubLessThanYear_GetLessThanYear() {
+    AddMonths_SubLessThanYear_GetLessThanYear() {
 
         startDate := 20230511223344
         endDate   := 20230211223344
@@ -35,7 +29,7 @@ class DateTimeTests {
 
     }
 
-    static AddMonths_AddLessThanYear_GetMoreThanYear() {
+    AddMonths_AddLessThanYear_GetMoreThanYear() {
 
         startDate := 20230711223344
         endDate   := 20240111223344
@@ -46,7 +40,7 @@ class DateTimeTests {
             throw ValueError("Expected: " endDate, -1, actual)
     }
 
-    static AddMonths_SubLessThanYear_GetMoreThanYear() {
+    AddMonths_SubLessThanYear_GetMoreThanYear() {
 
         startDate := 20230211223344
         endDate   := 20221211223344
@@ -57,7 +51,7 @@ class DateTimeTests {
             throw ValueError("Expected: " endDate, -1, actual)
     }
 
-    static AddMonths_AddYear() {
+    AddMonths_AddYear() {
 
         startDate := 20230211223344
         endDate   := 20240211223344
@@ -68,7 +62,7 @@ class DateTimeTests {
             throw ValueError("Expected: " endDate, -1, actual)
     }
 
-    static AddMonths_SubYear() {
+    AddMonths_SubYear() {
 
         startDate := 20230211223344
         endDate   := 20220211223344
@@ -79,7 +73,7 @@ class DateTimeTests {
             throw ValueError("Expected: " endDate, -1, actual)
     }
 
-    static AddMonths_AddMoreThanYear() {
+    AddMonths_AddMoreThanYear() {
 
         startDate := 20230211223344
         endDate   := 20240311223344
@@ -90,7 +84,7 @@ class DateTimeTests {
             throw ValueError("Expected: " endDate, -1, actual)
     }
 
-    static AddMonths_SubMoreThanYear() {
+    AddMonths_SubMoreThanYear() {
 
         startDate := 20230211223344
         endDate   := 20220111223344
@@ -99,6 +93,12 @@ class DateTimeTests {
 
         if actual != endDate
             throw ValueError("Expected: " endDate, -1, actual)
+    }
+
+    AddYears_Add() {
+    }
+
+    AddYears_Sub() {
     }
 
 }

@@ -161,7 +161,7 @@ class DateTime {
         if StrLen(months) < 2
             months := 0 months
 
-        return years months rest 
+        return years months rest
     }
 
     /**

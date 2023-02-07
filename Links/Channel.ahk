@@ -31,6 +31,9 @@ Links_Channel := Map(
     "ahk registers playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
 
+    "win class playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM7l8M7K4LD8mdR16BcVprd",
+
     ;;Main channel videos
 
     "install 0.8",
@@ -104,9 +107,6 @@ Links_Channel := Map(
 
     "access modifiers",
     "https://youtu.be/fCySzFAk5JI",
-
-    "win class playlist",
-    "https://youtu.be/772suOr0yUQ",
 
     "win class 3",
     "https://youtu.be/qO3uE64M7-0",
