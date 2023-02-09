@@ -18,6 +18,7 @@
         "d", () => DS4.winObj.App(),
         "s", () => Steam.winObj.App(),
         "z", () => OBS.winObj.App(),
+        "x", () => Autohotkey.Docs.v2.winObj.App(),
 
     )
     if key

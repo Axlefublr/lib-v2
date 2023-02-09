@@ -17,7 +17,6 @@
 <!q::Discord.winObj.App()
 <!t::Telegram.winObj.App()
 <!r::Terminal.winObj.App()
-<!x::Autohotkey.Docs.v2.winObj.App()
-<!f::VPN.winObj.App()
+<!z::VPN.winObj.App()
 
 #MaxThreadsBuffer false
