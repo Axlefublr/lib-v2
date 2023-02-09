@@ -1,18 +1,6 @@
 #Include <Tests\Testable>
+#Include <Tests\ErrorObjects>
 #Include <Converters\DateTime>
-
-class DateTimeError extends Error {
-    __New(message, input, expected, actual) {
-        message := Format("
-        (
-            {1}
-            Input: {2}
-            Expected: {3}
-            Actual: {4}
-        )", message, input, expected, actual)
-        super.__New(message, -1)
-    }
-}
 
 class DateTimeTests extends Testable {
 
@@ -22,90 +10,90 @@ class DateTimeTests extends Testable {
 
     AddMonths_AddLessThanYear_GetLessThanYear() {
 
-        startDate := 20230211223344
-        endDate   := 20230711223344
+        input    := 20230211223344
+        expected := 20230711223344
 
-        actual := DateTime.AddMonths(startDate, 5)
-        if actual != endDate
-            throw DateTimeError("AddMonths_AddLessThanYear_GetLessThanYear", startDate, endDate, actual)
+        actual := DateTime.AddMonths(input, 5)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_AddLessThanYear_GetLessThanYear", input, expected, actual)
     }
 
     AddMonths_SubLessThanYear_GetLessThanYear() {
 
-        startDate := 20230511223344
-        endDate   := 20230211223344
+        input    := 20230511223344
+        expected := 20230211223344
 
-        actual := DateTime.AddMonths(startDate, -3)
+        actual := DateTime.AddMonths(input, -3)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_SubLessThanYear_GetLessThanYear", input, expected, actual)
 
     }
 
     AddMonths_AddLessThanYear_GetMoreThanYear() {
 
-        startDate := 20230711223344
-        endDate   := 20240111223344
+        input    := 20230711223344
+        expected := 20240111223344
 
-        actual := DateTime.AddMonths(startDate, 6)
+        actual := DateTime.AddMonths(input, 6)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, 0, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_AddLessThanYear_GetMoreThanYear", input, expected, actual)
     }
 
     AddMonths_SubLessThanYear_GetMoreThanYear() {
 
-        startDate := 20230211223344
-        endDate   := 20221211223344
+        input    := 20230211223344
+        expected := 20221211223344
 
-        actual := DateTime.AddMonths(startDate, -2)
+        actual := DateTime.AddMonths(input, -2)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_SubLessThanYear_GetMoreThanYear", input, expected, actual)
     }
 
     AddMonths_AddYear() {
 
-        startDate := 20230211223344
-        endDate   := 20240211223344
+        input    := 20230211223344
+        expected := 20240211223344
 
-        actual := DateTime.AddMonths(startDate, 12)
+        actual := DateTime.AddMonths(input, 12)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_AddYear", input, expected, actual)
     }
 
     AddMonths_SubYear() {
 
-        startDate := 20230211223344
-        endDate   := 20220211223344
+        input    := 20230211223344
+        expected := 20220211223344
 
-        actual := DateTime.AddMonths(startDate, -12)
+        actual := DateTime.AddMonths(input, -12)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_SubYear", input, expected, actual)
     }
 
     AddMonths_AddMoreThanYear() {
 
-        startDate := 20230211223344
-        endDate   := 20240311223344
+        input    := 20230211223344
+        expected := 20240311223344
 
-        actual := DateTime.AddMonths(startDate, 13)
+        actual := DateTime.AddMonths(input, 13)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_AddMoreThanYear", input, expected, actual)
     }
 
     AddMonths_SubMoreThanYear() {
 
-        startDate := 20230211223344
-        endDate   := 20220111223344
+        input    := 20230211223344
+        expected := 20220111223344
 
-        actual := DateTime.AddMonths(startDate, -13)
+        actual := DateTime.AddMonths(input, -13)
 
-        if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+        if actual != expected
+            throw InputExpectedActualError("AddMonths_SubMoreThanYear", input, expected, actual)
     }
 
     AddYears_Add() {

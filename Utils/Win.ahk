@@ -16,6 +16,16 @@ Class Win extends Initializable {
     direction       := "left"
     startupWintitle := ""
 
+    /**
+     * @param {Object} paramsObject Key value pairs for properties of the class you want to set. Essentially, this is an initializer
+     * @extends {Initializable}
+     * @throws {TypeError} If you didn't pass an object
+     * @example <caption>Create a Win object for the Spotify window and activate it, even if the window doesn't exist yet</caption>
+     * Win({
+     * exePath: A_AppData "\Spotify\Spotify.exe",
+     * winTitle: "ahk_exe Spotify.exe"
+     * }).RunAct()
+     */
     __New(paramsObject?) {
         if !IsSet(paramsObject) {
             return
