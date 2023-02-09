@@ -52,5 +52,5 @@
 
     "dodo",
     "https://dodopizza.ru/angarsk/mikrorayon18",
-    
+
 )

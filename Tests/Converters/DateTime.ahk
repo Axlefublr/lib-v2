@@ -1,6 +1,19 @@
 #Include <Tests\Testable>
 #Include <Converters\DateTime>
 
+class DateTimeError extends Error {
+    __New(message, input, expected, actual) {
+        message := Format("
+        (
+            {1}
+            Input: {2}
+            Expected: {3}
+            Actual: {4}
+        )", message, input, expected, actual)
+        super.__New(message, -1)
+    }
+}
+
 class DateTimeTests extends Testable {
 
     static __New() {
@@ -14,7 +27,7 @@ class DateTimeTests extends Testable {
 
         actual := DateTime.AddMonths(startDate, 5)
         if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+            throw DateTimeError("AddMonths_AddLessThanYear_GetLessThanYear", startDate, endDate, actual)
     }
 
     AddMonths_SubLessThanYear_GetLessThanYear() {
@@ -37,7 +50,7 @@ class DateTimeTests extends Testable {
         actual := DateTime.AddMonths(startDate, 6)
 
         if actual != endDate
-            throw ValueError("Expected: " endDate, -1, actual)
+            throw ValueError("Expected: " endDate, 0, actual)
     }
 
     AddMonths_SubLessThanYear_GetMoreThanYear() {
