@@ -17,6 +17,7 @@
         "w", () => Browser.RunLink(Links["wildberries"]),
         "d", () => DS4.winObj.App(),
         "s", () => Steam.winObj.App(),
+        "z", () => OBS.winObj.App(),
 
     )
     if key
