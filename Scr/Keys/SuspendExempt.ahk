@@ -8,6 +8,6 @@
 #!i::Script.Test()
 #!o::Script.ExitTest()
 #ScrollLock::System.Reboot()
-#Pause::System.PowerDownSafely()
+ScrollLock::System.PowerDownSafely()
 #SuspendExempt false
 #InputLevel 5
