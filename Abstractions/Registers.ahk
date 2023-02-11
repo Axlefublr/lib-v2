@@ -277,7 +277,7 @@ class Registers {
      */
     static Look(key) {
         text := this.Read(key)
-        Infos(text)
+        Infos(key ": " text)
     }
 
     /**

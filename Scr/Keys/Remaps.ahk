@@ -1,10 +1,13 @@
 #InputLevel 6
 
+#sc35::return
+#sc33::return
 #f::Send("{Blind}k")
 #!sc27::Send("#;")
 !Space::return
 Launch_Media::RAlt
 AppsKey::RCtrl
+*ScrollLock::return
 
 ; Launch_Media::return     ; F1
 Media_Play_Pause::return ; F2

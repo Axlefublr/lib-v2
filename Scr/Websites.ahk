@@ -4,7 +4,7 @@
 #Include <App\DS4>
 #Include <Loaders\Links>
 
-#n:: {
+#h:: {
     key := KeyChorder()
     static actions := Map(
 
@@ -17,7 +17,6 @@
         "w", () => Browser.RunLink(Links["wildberries"]),
         "d", () => DS4.winObj.App(),
         "s", () => Steam.winObj.App(),
-        "z", () => OBS.winObj.App(),
         "x", () => Autohotkey.Docs.v2.winObj.App(),
         "e", () => Browser.RunLink(Links["reddit"]),
 

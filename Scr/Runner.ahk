@@ -10,7 +10,7 @@
 #Include <App\Slack>
 #Include <Misc\Meditate>
 
-+!l:: {
+#j:: {
     if !input := CleanInputBox().WaitForInput() {
         return false
     }

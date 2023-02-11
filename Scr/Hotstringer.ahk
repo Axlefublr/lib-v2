@@ -5,7 +5,7 @@
 #Include <Loaders\Links>
 #Include <Utils\ClipSend>
 
-#m:: {
+#sc34:: {
     input := CleanInputBox().WaitForInput()
     if !input {
         return

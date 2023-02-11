@@ -18,5 +18,6 @@
 <!t::Telegram.winObj.App()
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
+!Pause::OBS.winObj.App()
 
 #MaxThreadsBuffer false

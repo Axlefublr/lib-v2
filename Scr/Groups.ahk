@@ -5,7 +5,6 @@
 #Include <App\Telegram>
 #Include <App\Autohotkey>
 #Include <App\VsCode>
-#Include <App\Player>
 
 Terminal.SetupGroup()
 Autohotkey.Docs.SetupGroup()

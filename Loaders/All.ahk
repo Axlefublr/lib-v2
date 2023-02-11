@@ -1,6 +1,7 @@
 ﻿;; Extra
 
 #Include <Paths>
+#Include <Environment>
 
 ;; Special loading
 
