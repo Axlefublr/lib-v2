@@ -19,6 +19,7 @@
         "s", () => Steam.winObj.App(),
         "z", () => OBS.winObj.App(),
         "x", () => Autohotkey.Docs.v2.winObj.App(),
+        "e", () => Browser.RunLink(Links["reddit"]),
 
     )
     if key

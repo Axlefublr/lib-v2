@@ -36,6 +36,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "error objects",
+    "https://youtu.be/JUyAq4t5XSQ",
+
     "TDD",
     "https://youtu.be/2fFuHOQFKoQ",
 

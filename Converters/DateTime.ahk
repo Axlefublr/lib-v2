@@ -139,6 +139,14 @@ class DateTime {
         return base
     }
 
+    /**
+     * DateAdd doesn't let you add months, for some reason.
+     * Use this instead.
+     * If you want to subtract instead of adding, just pass a negative number.
+     * @param {YYYYMMDDHH24MISS} dateTime
+     * @param {Integer} addMonths
+     * @returns {YYYYMMDDHH24MISS}
+     */
     static AddMonths(dateTime, addMonths) {
         dateTime := this.ParseTimestamp(dateTime)
 
@@ -162,6 +170,25 @@ class DateTime {
             months := 0 months
 
         return years months rest
+    }
+
+    /**
+     * DateAdd doesn't let you add years, for some reason.
+     * Use this.
+     * If you want to subtract instead of adding, just pass a negative number.
+     * @param {YYYYMMDDHH24MISS} dateTime
+     * @param {Integer} addYears
+     * @returns {YYYYMMDDHH24MISS}
+     */
+    static AddYears(dateTime, addYears) {
+        dateTime := this.ParseTimestamp(dateTime)
+
+        years  := dateTime.years
+        rest := dateTime.months dateTime.days dateTime.hours dateTime.minutes dateTime.seconds
+
+        years += addYears
+
+        return years rest
     }
 
     /**

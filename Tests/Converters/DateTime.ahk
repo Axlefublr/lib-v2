@@ -97,9 +97,25 @@ class DateTimeTests extends Testable {
     }
 
     AddYears_Add() {
+
+        input    := 20231122334455
+        expected := 20251122334455
+
+        actual := DateTime.AddYears(input, 2)
+
+        if actual != expected
+            throw InputExpectedActualError("AddYears_Add", input, expected, actual)
     }
 
     AddYears_Sub() {
+
+        input    := 20231122334455
+        expected := 20201122334455
+
+        actual := DateTime.AddYears(input, -3)
+
+        if actual != expected
+            throw InputExpectedActualError("AddYears_Sub", input, expected, actual)
     }
 
 }

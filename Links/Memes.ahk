@@ -205,4 +205,7 @@ Links_Memes := Map(
 
     "oh fr on god",
     "https://www.youtube.com/watch?v=4V7_dlIEKEg",
+
+    "racism lore",
+    "https://www.youtube.com/watch?v=325y8r3zSts&ab_channel=JamesProgaming",
 )
