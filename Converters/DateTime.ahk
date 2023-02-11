@@ -135,7 +135,8 @@ class DateTime {
         base := DateAdd(base, toAddObj.minutes, "minutes")
         base := DateAdd(base, toAddObj.hours, "hours")
         base := DateAdd(base, toAddObj.days, "days")
-        base := this.DateAddBig(base, toAddObj.years toAddObj.months)
+        base := this.AddMonths(base, toAddObj.months)
+        base := this.AddYears(base, toAddObj.years)
         return base
     }
 
@@ -191,45 +192,4 @@ class DateTime {
         return years rest
     }
 
-    /**
-     * DateAdd doesn't let you add months or days.
-     * Do so using this method.
-     * @param dateTime *YYYYMMDDHH24MISS*
-     * @param dateTimeToAdd *YYYYMMDDHH24MISS* 100 is one year. 10 is ten months.
-     * @returns {YYYYMMDDHH24MISS}
-     */
-    static DateAddBig(dateTime, dateTimeToAdd) {
-
-        static TimestampHasYears := () => StrLen(dateTimeToAdd) > 2
-        static GetYearAmount     := () => SubStr(dateTimeToAdd, 1, -2)
-        static GetMonthAmount    := () => SubStr(dateTimeToAdd, -2)
-
-        static CalculateFullYearsToAdd  := () => addYears + (months + addMonths) // 12
-        static CalculateRemainingMonths := () => Mod(months + addMonths, 12)
-
-        timeObj := this.ParseTimestamp(dateTime)
-
-        years  := timeObj.years
-        months := timeObj.months
-        rest   := timeObj.days timeObj.hours timeObj.minutes timeObj.seconds
-
-        addYears  := TimestampHasYears() ? GetYearAmount() : 0
-
-        addMonths := GetMonthAmount()
-
-        if months + addMonths > 12 {
-            addYears := CalculateFullYearsToAdd()
-            months := CalculateRemainingMonths()
-        } else {
-            months := months + addMonths
-        }
-
-        if StrLen(months) < 2 {
-            months := 0 months
-        }
-
-        years := years + addYears
-
-        return years months rest
-    }
 }
