@@ -4,6 +4,7 @@
 #Include <App\Spotify>
 #Include <App\VsCode>
 #Include <Converters\DateTime>
+#Include <Environment>
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e:: {
@@ -23,9 +24,7 @@ XButton1 & WheelDown::VsCode.Undo()
 #HotIf !WinActive(VsCode.winTitle)
 !Insert::Cut()
 
-^!h::Send("^{Left}")
-^!l::Send("^{Right}")
-
+#HotIf !WinActive(VsCode.winTitle) && !Environment.VimMode
 !j::Send("{Down}")
 !k::Send("{Up}")
 !h::Send("{Left}")

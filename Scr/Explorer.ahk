@@ -1,11 +1,16 @@
 #Include <Utils\KeyChorder>
 #Include <App\Explorer>
 #Include <Utils\Win>
+#Include <Abstractions\Registers>
 
 #MaxThreadsBuffer true
 
 <!d:: {
-    key := KeyChorder()
+    try key := Registers.__ValidateKey(KeyChorder())
+    catch UnsetItemError {
+        Registers.__CancelAction()
+        return
+    }
     static keyActions := Map(
 
         "q", () => Explorer.WinObj.Volume.App_Folders(),

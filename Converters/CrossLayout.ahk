@@ -72,6 +72,10 @@ class CrossLayout {
     )
 
     static __Item[character] {
-        get => this.RusToEng[character]
+        get {
+            if this.RusToEng.Has(character)
+                character := this.RusToEng[character]
+            return character
+        }
     }
 }

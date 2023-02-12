@@ -52,13 +52,10 @@ class Registers {
     static ExplicitPeekOnly := "mysn"
 
     __New(key) {
-        if InStr(Registers.RussianCharacters, key)
-            key := CrossLayout[key]
-        this.key := key
 
-        try this.__ValidateKey()
+        try this.key := Registers.__ValidateKey(key)
         catch UnsetItemError {
-            this.__CancelAction()
+            Registers.__CancelAction()
             Exit()
         }
     }
@@ -68,21 +65,27 @@ class Registers {
      * @private
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
      */
-    __ValidateKey() {
-        if !this.key {
+    static __ValidateKey(key) {
+        if !key {
             throw UnsetItemError("
             (
                 You didn't pass any key
             )", -1)
         }
-        else if !InStr(Registers.ValidRegisters, this.key, true) {
+
+        if InStr(Registers.RussianCharacters, key)
+            key := CrossLayout[key]
+
+        if !InStr(Registers.ValidRegisters, key, true) {
             throw ValueError("
             (
                 The key you passed isn't supported by Registers.
                 Add it to the Registers.ValidRegisters string if you want to use it.
                 Some keys aren't going to work even if you do.
-            )", -1, this.key)
+            )", -1, key)
         }
+
+        return key
     }
 
     /**
@@ -122,7 +125,7 @@ class Registers {
      * What to do if the user passed an empty key
      * @private
      */
-    __CancelAction() {
+    static __CancelAction() {
         Infos("Action cancelled", Registers.InfoTimeout)
     }
 
@@ -247,9 +250,9 @@ class Registers {
      * @throws {ValueError} If you pass an unsupported key
      */
     Move(key2) {
-        try this.__ValidateKey(key2)
+        try key2 := Registers.__ValidateKey(key2)
         catch UnsetItemError {
-            this.__CancelAction()
+            Registers.__CancelAction()
             return
         }
 
@@ -270,11 +273,9 @@ class Registers {
      * @param {Char} key2 Register 2
      */
     SwitchContents(key2) {
-        try {
-            this.__ValidateKey(key2)
-        }
+        try key2 := this.__ValidateKey(key2)
         catch UnsetItemError {
-            this.__CancelAction()
+            Registers.__CancelAction()
             return
         }
 
