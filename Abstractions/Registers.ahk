@@ -4,6 +4,7 @@
 #Include <Tools\Info>
 #Include <Extensions\String>
 #Include <Utils\ClipSend>
+#Include <Converters\CrossLayout>
 
 class Registers {
 
@@ -32,6 +33,12 @@ class Registers {
     static ValidRegisters := "1234567890QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm"
 
     /**
+     * I never want to accidentally write to a russian-named register, so there's a check
+     * @type {String}
+     */
+    static RussianCharacters := "йцукенгшщзфывапролдячсмить"
+
+    /**
      * The maximum amount of characters shown when Peeking a register
      * @type {Integer}
      */
@@ -44,27 +51,38 @@ class Registers {
      */
     static ExplicitPeekOnly := "mysn"
 
+    __New(key) {
+        if InStr(Registers.RussianCharacters, key)
+            key := CrossLayout[key]
+        this.key := key
+
+        try this.__ValidateKey()
+        catch UnsetItemError {
+            this.__CancelAction()
+            Exit()
+        }
+    }
+
     /**
      * @param key ***Char***
      * @private
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
      */
-    static __ValidateKey(key) {
-        if !key {
+    __ValidateKey() {
+        if !this.key {
             throw UnsetItemError("
             (
                 You didn't pass any key
             )", -1)
         }
-        else if !InStr(this.ValidRegisters, key, true) {
+        else if !InStr(Registers.ValidRegisters, this.key, true) {
             throw ValueError("
             (
                 The key you passed isn't supported by Registers.
                 Add it to the Registers.ValidRegisters string if you want to use it.
                 Some keys aren't going to work even if you do.
-            )", -1, key)
+            )", -1, this.key)
         }
-        return key
     }
 
     /**
@@ -72,7 +90,7 @@ class Registers {
      * @private
      * @returns {String} Text in the register. Empty string if the register doesn't exist.
      */
-    static __TryGetRegisterText(path) {
+    __TryGetRegisterText(path) {
         if FileExist(path)
             text := ReadFile(path)
         else
@@ -81,13 +99,13 @@ class Registers {
     }
 
     /**
-     * @param text ***String***
+     * @param {String} text
      * @private
      * @returns {String} Up to first 100 characters in a file, where newlines are replaced by `\n`
      */
     static __FormatRegister(text) {
         registerContentsNoNewlines := text.RegExReplace("\r?\n", "\n")
-        return registerContentsNoNewlines[1, this.MaxPeekCharacters]
+        return registerContentsNoNewlines[1, Registers.MaxPeekCharacters]
     }
 
     /**
@@ -104,110 +122,64 @@ class Registers {
      * What to do if the user passed an empty key
      * @private
      */
-    static __CancelAction() {
-        Infos("Action cancelled", this.InfoTimeout)
+    __CancelAction() {
+        Infos("Action cancelled", Registers.InfoTimeout)
     }
 
     /**
-     * @param key ***String*** — The key of the register to get the path of
      * @returns {String} The path of the register of entered key
      */
-    static GetPath(key) => this.RegistersDirectory "\reg_" key ".txt"
+    GetPath(key := this.key) => Registers.RegistersDirectory "\reg_" key ".txt"
 
     /**
-     * @param key ***Char*** — Register key
      * @returns {String} Text inside of the register file
      * @throws {ValueError} If you pass an unsupported key
      */
-    static Read(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            return ""
-        }
-        path := this.GetPath(key)
+    Read() {
+        path := this.GetPath(this.key)
         return this.__TryGetRegisterText(path)
     }
 
     /**
      * Remove the contents of a register
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Truncate(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            this.__CancelAction()
-            return
-        }
-        path := this.GetPath(key)
+    Truncate() {
+        path := this.GetPath(this.key)
         WriteFile(path)
-        Info(key " cleared", this.InfoTimeout)
+        Info(this.key " cleared", Registers.InfoTimeout)
     }
 
     /**
      * Write the contents of your clipboard to a register
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Write(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            this.__CancelAction()
-            return
-        }
-        path := this.GetPath(key)
+    Write() {
+        path := this.GetPath(this.key)
         WriteFile(path, A_Clipboard)
-        Info(key " clipboard written", this.InfoTimeout)
+        Info(this.key " clipboard written", Registers.InfoTimeout)
     }
 
     /**
      * Append the contents of your clipboard to a register
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Append(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            this.__CancelAction()
-            return
-        }
-        path := this.GetPath(key)
+    Append() {
+        path := this.GetPath(this.key)
         AppendFile(path, "`n" A_Clipboard)
-        Info(key " clipboard appended", this.InfoTimeout)
+        Info(this.key " clipboard appended", Registers.InfoTimeout)
     }
 
     /**
      * Write the contents of your clipboard to a register if you passed a lowercase key.
      * *Append* the contents of your clipbaord to a register if you passed an upppercase key.
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static WriteOrAppend(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            this.__CancelAction()
-            return
-        }
-        path := this.GetPath(key)
-        if IsUpper(key) {
-            AppendFile(path, "`n" A_Clipboard)
-            Info(key " clipboard appended", this.InfoTimeout)
-        }
-        else {
-            WriteFile(path, A_Clipboard)
-            Info(key " clipboard written", this.InfoTimeout)
-        }
-    }
+    WriteOrAppend() => IsUpper(this.key) ? this.Append() : this.Write()
 
     /**
      * Paste the contents of a register
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Paste(key) {
-        content := this.Read(key)
+    Paste() {
+        content := this.Read()
         ClipSend(content)
-        Info(key " pasted", this.InfoTimeout)
+        Info(this.key " pasted", Registers.InfoTimeout)
     }
 
     /**
@@ -215,11 +187,9 @@ class Registers {
      * One line == one command.
      * For example, you can store 5 links in a register and run that register to open those 5 links at once.
      * Lines that start with `;` are considered comments and don't get ran
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Run(key) {
-        text := this.Read(key)
+    Run() {
+        text := this.Read()
         text := StrReplace(text, "`r")
         commands := StrSplit(text, "`n")
         for index, command in commands {
@@ -227,7 +197,7 @@ class Registers {
                 continue
             Run(command)
         }
-        Info(key " commands executed", this.InfoTimeout)
+        Info(this.key " commands executed", Registers.InfoTimeout)
     }
 
     /**
@@ -237,16 +207,16 @@ class Registers {
      * (configurable by modifying Registers.MaxPeekCharacters)
      */
     static PeekNonEmpty() {
-        loop files this.RegistersDirectory "\*.txt" {
+        loop files Registers.RegistersDirectory "\*.txt" {
             text := ReadFile(A_LoopFileFullPath)
             if !text {
                 continue
             }
-            registerChar := this.__FormatRegisterName(A_LoopFileName)
-            if InStr(this.ExplicitPeekOnly, registerChar) {
+            registerChar := Registers.__FormatRegisterName(A_LoopFileName)
+            if InStr(Registers.ExplicitPeekOnly, registerChar) {
                 continue
             }
-            shorterRegisterContents := this.__FormatRegister(text)
+            shorterRegisterContents := Registers.__FormatRegister(text)
             Infos(registerChar ": " shorterRegisterContents)
         }
     }
@@ -255,54 +225,41 @@ class Registers {
      * Show the contents of a register in an info.
      * In the contents shown, newlines will be replaced by "\n" and only up to 100 characters are shown for each one.
      * (configurable by modifying Registers.MaxPeekCharacters)
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Peek(key) {
-        try this.__ValidateKey(key)
-        catch UnsetItemError {
-            this.__CancelAction()
-            return
-        }
-        text := this.Read(key)
-        shorterRegisterContents := this.__FormatRegister(text)
-        Infos(key ": " shorterRegisterContents)
+    Peek() {
+        text := this.Read()
+        shorterRegisterContents := Registers.__FormatRegister(text)
+        Infos(this.key ": " shorterRegisterContents)
     }
 
     /**
      * Show the full contents of a register in an info.
      * If you call this function multiple times without destroying the infos, they will overlap.
-     * @param key ***Char*** — Register key
-     * @throws {ValueError} If you pass an unsupported key
      */
-    static Look(key) {
-        text := this.Read(key)
-        Infos(key ": " text)
+    Look() {
+        text := this.Read()
+        Infos(this.key ": " text)
     }
 
     /**
      * Move the contents of one register into another register
-     * @param key1 ***Char*** — Register to move from
-     * @param key2 ***Char*** — Register to move to
+     * @param {Char} key2 Register to move to
      * @throws {ValueError} If you pass an unsupported key
      */
-    static Move(key1, key2) {
-        try {
-            this.__ValidateKey(key1)
-            this.__ValidateKey(key2)
-        }
+    Move(key2) {
+        try this.__ValidateKey(key2)
         catch UnsetItemError {
             this.__CancelAction()
             return
         }
 
-        path1 := this.GetPath(key1)
+        path1 := this.GetPath()
         path2 := this.GetPath(key2)
 
         WriteFile(path2, this.__TryGetRegisterText(path1))
         WriteFile(path1)
 
-        Info(key1 " moved to " key2, this.InfoTimeout)
+        Info(this.key " moved to " key2, Registers.InfoTimeout)
     }
 
     /**
@@ -310,13 +267,10 @@ class Registers {
      * Exchange the contents of two registers.
      * The contents of register 1 will move to register 2, and vice versa.
      * This exists entirely so you don't have to use Registers.Move() three times.
-     * @param key1 ***Char*** — Register 1
-     * @param key2 ***Char*** — Register 2
-     * @throws {ValueError} If you pass an unsupported key
+     * @param {Char} key2 Register 2
      */
-    static SwitchContents(key1, key2) {
+    SwitchContents(key2) {
         try {
-            this.__ValidateKey(key1)
             this.__ValidateKey(key2)
         }
         catch UnsetItemError {
@@ -324,11 +278,11 @@ class Registers {
             return
         }
 
-        path1 := this.GetPath(key1)
+        path1 := this.GetPath()
         path2 := this.GetPath(key2)
 
         SwitchFiles(path1, path2)
 
-        Info(key1 " && " key2 " switched", this.InfoTimeout)
+        Info(this.key " && " key2 " switched", Registers.InfoTimeout)
     }
 }

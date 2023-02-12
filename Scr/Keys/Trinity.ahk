@@ -26,12 +26,15 @@ Pgdn::Send("{Media_Next}")
 #^k::Win.Maximize()
 #^j::Win.RestoreDown()
 
-CapsLock::SomeLockHint("CapsLock")
-#CapsLock::Win.Minimize()
+CapsLock::Delete
 !CapsLock::CloseButActually()
++CapsLock::Win.Minimize()
 
 <!Escape::GroupDeactivate("Main")
-<+Escape::Win.Minimize()
+<+Escape:: {
+    SetTitleMatchMode("Regex")
+    Explorer.winObjRegex.MinMax()
+}
 >+Escape::SomeLockHint("CapsLock")
 #Escape::Infos(GetWeather()), RemindDate()
 

@@ -94,6 +94,7 @@
 
 ;; Converters
 
+#Include <Converters\CrossLayout>
 #Include <Converters\DateTime>
 #Include <Converters\Number>
 
