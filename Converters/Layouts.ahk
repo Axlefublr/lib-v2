@@ -1,6 +1,6 @@
-; No dependencies
+#Include <Extensions\Map>
 
-class CrossLayout {
+class Layouts {
 
     static RusToEng := Map(
         "й", "q",
@@ -71,11 +71,6 @@ class CrossLayout {
         ",", "?",
     )
 
-    static __Item[character] {
-        get {
-            if this.RusToEng.Has(character)
-                character := this.RusToEng[character]
-            return character
-        }
-    }
+    static EngToRus := Layouts.RusToEng.Reverse()
+
 }

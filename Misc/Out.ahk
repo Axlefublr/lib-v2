@@ -3,7 +3,7 @@
 
 ;Alternative to outputdebug
 Out(put := "", endChar := "`n", overwrite := false) {
-    filePath := Paths.GetRegPath("o")
+    filePath := Registers.GetPath("o")
     static wasRan := false
     if !wasRan || overwrite
         WriteFile(filePath, put endChar), wasRan := true

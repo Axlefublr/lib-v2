@@ -4,7 +4,7 @@
 #Include <Tools\Info>
 #Include <Extensions\String>
 #Include <Utils\ClipSend>
-#Include <Converters\CrossLayout>
+#Include <Converters\Layouts>
 
 class Registers {
 
@@ -79,7 +79,7 @@ class Registers {
         }
 
         if InStr(Registers.RussianCharacters, key)
-            key := CrossLayout[key]
+            key := Layouts.RusToEng[key]
 
         if !InStr(Registers.ValidRegisters, key, true) {
             throw ValueError("
@@ -137,14 +137,14 @@ class Registers {
     /**
      * @returns {String} The path of the register of entered key
      */
-    GetPath(key := this.key) => Registers.RegistersDirectory "\reg_" key ".txt"
+    static GetPath(key) => Registers.RegistersDirectory "\reg_" key ".txt"
 
     /**
      * @returns {String} Text inside of the register file
      * @throws {ValueError} If you pass an unsupported key
      */
     Read() {
-        path := this.GetPath(this.key)
+        path := Registers.GetPath(this.key)
         return this.__TryGetRegisterText(path)
     }
 
@@ -152,7 +152,7 @@ class Registers {
      * Remove the contents of a register
      */
     Truncate() {
-        path := this.GetPath(this.key)
+        path := Registers.GetPath(this.key)
         WriteFile(path)
         Info(this.key " cleared", Registers.InfoTimeout)
     }
@@ -161,7 +161,7 @@ class Registers {
      * Write the contents of your clipboard to a register
      */
     Write() {
-        path := this.GetPath(this.key)
+        path := Registers.GetPath(this.key)
         WriteFile(path, A_Clipboard)
         Info(this.key " clipboard written", Registers.InfoTimeout)
     }
@@ -170,7 +170,7 @@ class Registers {
      * Append the contents of your clipboard to a register
      */
     Append() {
-        path := this.GetPath(this.key)
+        path := Registers.GetPath(this.key)
         AppendFile(path, "`n" A_Clipboard)
         Info(this.key " clipboard appended", Registers.InfoTimeout)
     }
@@ -261,8 +261,8 @@ class Registers {
             return
         }
 
-        path1 := this.GetPath()
-        path2 := this.GetPath(key2)
+        path1 := Registers.GetPath(this.key)
+        path2 := Registers.GetPath(key2)
 
         WriteFile(path2, this.__TryGetRegisterText(path1))
         WriteFile(path1)
@@ -284,8 +284,8 @@ class Registers {
             return
         }
 
-        path1 := this.GetPath()
-        path2 := this.GetPath(key2)
+        path1 := Registers.GetPath(this.key)
+        path2 := Registers.GetPath(key2)
 
         SwitchFiles(path1, path2)
 

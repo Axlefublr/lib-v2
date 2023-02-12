@@ -17,7 +17,7 @@
         "n", () => Browser.MonkeyType.winObj.App(),
         "g", () => Browser.RunLink(Links["ghm"]),
         "f", () => Browser.RunLink(Links["skill factory"]),
-        "p", () => Browser.RunLink(Links["gpt"]),
+        "p", () => Browser.RunLink(Links["gpt playground"]),
         "x", () => Browser.RunLink(Links["regex"]),
         "w", () => Browser.RunLink(Links["wildberries"]),
         "d", () => DS4.winObj.App(),

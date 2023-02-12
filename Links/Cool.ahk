@@ -15,4 +15,6 @@ Links_Cool := Map(
     "gpt",
     "https://chat.openai.com/chat",
 
+    "gpt playground",
+    "https://platform.openai.com/playground/",
 )

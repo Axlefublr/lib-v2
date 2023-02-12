@@ -29,3 +29,12 @@ SafeSetMap(mapObj, mapToSet) {
     }
 }
 Map.Prototype.DefineProp("SafeSetMap", {Call: SafeSetMap})
+
+Reverse(mapObj) {
+    reversedMap := Map()
+    for key, value in mapObj {
+        reversedMap.Set(value, key)
+    }
+    return reversedMap
+}
+Map.Prototype.DefineProp("Reverse", {Call: Reverse})
