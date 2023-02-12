@@ -51,6 +51,10 @@ class Registers {
      */
     static ExplicitPeekOnly := "mysn"
 
+    /**
+     * Manage your clipboards by writing it to different files.
+     * @param {Char} key
+     */
     __New(key) {
 
         try this.key := Registers.__ValidateKey(key)
@@ -61,9 +65,10 @@ class Registers {
     }
 
     /**
-     * @param key ***Char***
+     * @param {Char} key
      * @private
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
+     * @throws {UnsetItemError} If you pass an empty string as the key
      */
     static __ValidateKey(key) {
         if !key {
@@ -89,7 +94,7 @@ class Registers {
     }
 
     /**
-     * @param path ***String*** — To the register
+     * @param {String} path To the register
      * @private
      * @returns {String} Text in the register. Empty string if the register doesn't exist.
      */
@@ -112,7 +117,7 @@ class Registers {
     }
 
     /**
-     * @param fileName ***String*** — Format: "reg_k.txt"
+     * @param {String} fileName Format: "reg_k.txt"
      * @private
      * @returns {String} The character of a register file. "reg_k.txt" => "k"
      */

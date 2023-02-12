@@ -12,12 +12,12 @@
 #!l::Send("{PgDn}")
 #!h::Send("{PgUp}")
 
-Home::Send("{Volume_Up}")
-End::Send("{Volume_Down}")
-Insert::Send("{Volume_Mute}")
+Home::Volume_Up
+End::Volume_Down
+Insert::Volume_Mute
+PgUp::Media_Prev
+Pgdn::Media_Next
 Delete::Send("{Media_Play_Pause}")
-PgUp::Send("{Media_Prev}")
-Pgdn::Send("{Media_Next}")
 
 #InputLevel 5
 
