@@ -91,6 +91,7 @@ Class Paths {
         "FL preset", this.Pictures "\Tools\FL preset.flp",
 
         "Femboy", this.Pictures "\Other\femboy.png",
+        
     )
 
     static Apps := Map(

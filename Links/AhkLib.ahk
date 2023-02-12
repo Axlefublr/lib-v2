@@ -51,6 +51,9 @@ Links_AhkLib := Map(
     "descolada array",
     "https://github.com/Descolada/AHK-v2-libraries/blob/main/Lib/Array.ahk",
 
+    "descolada uia",
+    "https://github.com/Descolada/UIA-v2/blob/main/Lib/UIA.ahk",
+
     ;; reiwa
 
     "reiwa clock",

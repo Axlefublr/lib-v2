@@ -39,7 +39,8 @@ Class Spotify {
     static __GetContextMenu() {
         UIAObject := UIA.ElementFromHandle(this.winTitle)
         songMenu := UIAObject.FindElement({
-            Type: "document"
+            Type: "document",
+            Scope: "children" ; they are the same!
         }).WaitElement({
             Type: "menu",
             Scope: 2
