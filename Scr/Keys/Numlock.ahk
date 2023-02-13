@@ -1,4 +1,5 @@
 #Include <Tools\Info>
+#Include <Environment>
 
 #InputLevel 5
 
@@ -45,14 +46,14 @@ NumpadAdd::+
 
 ;; Mode 0
 #HotIf Environment.NumLock = 0
-*NumpadIns::SoundPlayer.Storage["vine boom"].Play()
-*NumpadEnd::SoundPlayer.Storage["shall we"].Play()
-*NumpadDown::SoundPlayer.Storage["bruh sound effect"].Play()
-*NumpadPgDn::SoundPlayer.Storage["hohoho"].Play()
-*NumpadLeft::SoundPlayer.Storage["heheheha"].Play()
-*NumpadClear::SoundPlayer.Storage["faded than a hoe"].Play()
-*NumpadRight::SoundPlayer.Storage["cartoon"].Play()
-*NumpadHome:: {
+NumpadIns::SoundPlayer.Storage["vine boom"].Play()
+NumpadEnd::SoundPlayer.Storage["shall we"].Play()
+NumpadDown::SoundPlayer.Storage["bruh sound effect"].Play()
+NumpadPgDn::SoundPlayer.Storage["hohoho"].Play()
+NumpadLeft::SoundPlayer.Storage["heheheha"].Play()
+NumpadClear::SoundPlayer.Storage["faded than a hoe"].Play()
+NumpadRight::SoundPlayer.Storage["cartoon"].Play()
+NumpadHome:: {
     static counter := false
     counter := !counter
     if counter {
@@ -61,9 +62,9 @@ NumpadAdd::+
         SoundPlayer.Storage["bing chilling 2"].Play()
     }
 }
-*NumpadUp::SoundPlayer.Storage["oh fr on god"].Play()
-*NumpadPgUp::SoundPlayer.Storage["rizz"].Play()
-*NumpadDel::SoundPlayer.Storage["sus"].Play()
+NumpadUp::SoundPlayer.Storage["oh fr on god"].Play()
+NumpadPgUp::SoundPlayer.Storage["rizz"].Play()
+NumpadDel::SoundPlayer.Storage["sus"].Play()
 
 ;; Mode 1
 #HotIf Environment.NumLock = 1
