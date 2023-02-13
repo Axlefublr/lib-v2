@@ -7,9 +7,10 @@ class Counter {
         static currInfo := Info(newNum)
         currInfo := currInfo.ReplaceText(newNum)
     }
-    static Increment() => this.ShowNumber(++this.num)
-    static Decrement() => this.ShowNumber(--this.num)
-    static Reset() => this.ShowNumber(this.num := 0)
-    static Send() => Send(this.num)
+
+    static Increment() => (++this.num, this)
+    static Decrement() => (--this.num, this)
+    static Reset() => (this.num := 0, this)
+    static Send() => (Send(this.num), this)
     static Show() => this.ShowNumber(this.num)
 }

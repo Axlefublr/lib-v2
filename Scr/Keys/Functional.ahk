@@ -8,12 +8,6 @@
 #Include <System\Brightness>
 #Include <Abstractions\Registers>
 
-; Pause::Counter.Increment()
-; +Pause::Counter.Send(), Counter.Increment()
-; !Pause::Counter.Decrement()
-; +!Pause::Counter.Reset()
-; ^CtrlBreak::Counter.Show()
-
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::RelativeCoordGetter()
