@@ -2,7 +2,11 @@
 
 class Layouts {
 
+    /**
+     * @type {Map<String>}
+     */
     static RusToEng := Map(
+        "ё", "``",
         "й", "q",
         "ц", "w",
         "у", "e",
@@ -36,6 +40,12 @@ class Layouts {
         "б", ",",
         "ю", ".",
         ".", "/",
+        "Ё", "~",
+        "`"", "@",
+        "№",  "#",
+        ";",  "$",
+        ":",  "^",
+        "?",  "&",
         "Й", "Q",
         "Ц", "W",
         "У", "E",
@@ -48,6 +58,7 @@ class Layouts {
         "З", "P",
         "Х", "{",
         "Ъ", "}",
+        "/", "|",
         "Ф", "A",
         "Ы", "S",
         "В", "D",
@@ -71,6 +82,41 @@ class Layouts {
         ",", "?",
     )
 
+    /**
+     * @type {Map<String>}
+     */
     static EngToRus := Layouts.RusToEng.Reverse()
+
+    /**
+     * Convert text written in the russian layout to the same characters, but in the english layout
+     * @param {String} text
+     * @returns {String} туче => text
+     */
+    static ConvertToEnglish(text) {
+        translatedText := ""
+        for index, character in StrSplit(text) {
+            if Layouts.RusToEng.Has(character)
+                translatedText .= Layouts.RusToEng[character]
+            else
+                translatedText .= character
+        }
+        return translatedText
+    }
+
+    /**
+     * Convert text written in the english layout to the same characters, but in the russian layout
+     * @param {String} text
+     * @returns {String} text => туче
+     */
+    static ConvertToRussian(text) {
+        translatedText := ""
+        for index, character in StrSplit(text) {
+            if Layouts.EngToRus.Has(character)
+                translatedText .= Layouts.EngToRus[character]
+            else
+                translatedText .= character
+        }
+        return translatedText
+    }
 
 }

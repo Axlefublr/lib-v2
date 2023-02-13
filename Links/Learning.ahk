@@ -12,4 +12,7 @@ Links_Learning := Map(
     "skill factory",
     "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
 
+    "regex learn",
+    "https://regexlearn.com/learn/regex101",
+
 )

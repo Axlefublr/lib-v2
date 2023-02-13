@@ -61,7 +61,11 @@ Links_AhkLib := Map(
 
     ;; TigerLily
 
-    "screen dimmer",
+    "tigerlily screen dimmer",
     "https://github.com/tigerlily-dev/tigerlilys-Screen-Dimmer/",
 
+    ;; iseahound
+
+    "iseahound imageput",
+    "https://github.com/iseahound/ImagePut",
 )

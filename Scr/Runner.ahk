@@ -17,9 +17,6 @@
 
     static runner_commands := Map(
 
-        "update",  () => GitHub.UpdateAhkLibraries(),
-        "str len", () => Infos(A_Clipboard.Length),
-        "shows",   () => Shows().GetList(),
         "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
         "kb",      () => KeyCodeGetter(),
         "libs?",   () => Infos(CountLibraries()),
