@@ -4,6 +4,7 @@
 #Include <App\DS4>
 #Include <Loaders\Links>
 #Include <Abstractions\Registers>
+#Include <Converters\Layouts>
 
 #h:: {
     try key := Registers.__ValidateKey(KeyChorder())
@@ -24,6 +25,8 @@
         "s", () => Steam.winObj.App(),
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
+        "c", () => ClipSend(Layouts.ConvertToEnglish(A_Clipboard)),
+        "C", () => ClipSend(Layouts.ConvertToRussian(A_Clipboard)),
 
     )
     if key

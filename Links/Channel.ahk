@@ -34,6 +34,9 @@ Links_Channel := Map(
     "win class playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM7l8M7K4LD8mdR16BcVprd",
 
+    "ahk classes playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMaPCW0BSKD-SzemW0LHctQ",
+
     ;;Main channel videos
 
     "UIA",

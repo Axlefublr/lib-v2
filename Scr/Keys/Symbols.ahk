@@ -1,6 +1,11 @@
 #Include <Utils\Char>
 
 #sc27:: {
+    try key := Registers.__ValidateKey(KeyChorder())
+    catch UnsetItemError {
+        Registers.__CancelAction()
+        return
+    }
     static symbols := Map(
 
         "f", Symbol.Bind("fearful"),      ; 😨
@@ -13,7 +18,6 @@
         "a", Symbol.Bind("amogus"),       ; ඞ
 
     )
-    key := KeyChorder()
     if key
         try symbols[key].Call()
 }
