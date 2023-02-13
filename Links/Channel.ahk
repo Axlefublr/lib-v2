@@ -37,7 +37,13 @@ Links_Channel := Map(
     "ahk classes playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMaPCW0BSKD-SzemW0LHctQ",
 
+    "C# playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOtCzM7X7FXr0qPBwYEVOOC",
+
     ;;Main channel videos
+
+    "C# terminal app",
+    "https://youtu.be/RBOHKQtzcYk",
 
     "UIA",
     "https://youtu.be/o2E6sRxFoB0",
@@ -377,4 +383,7 @@ Links_Channel := Map(
 
     "find command",
     "https://youtu.be/skTiK_6DdqU",
+
+    "vscode C#",
+    "https://www.youtube.com/watch?v=r5dtl9Uq9V0",
 )

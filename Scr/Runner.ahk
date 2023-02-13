@@ -17,8 +17,9 @@
 
     static runner_commands := Map(
 
-        "kb",      () => KeyCodeGetter(),
-        "libs?",   () => Infos(CountLibraries()),
+        "m",     () => Meditate(20),
+        "kb",    () => KeyCodeGetter(),
+        "libs?", () => Infos(CountLibraries()),
 
         ;Apps
         "apps",    MainApps,
@@ -48,12 +49,11 @@
                 A_Clipboard := input,
                 Info('"' input '" copied')
             ),
-            "glo",     (input) => (
+            "glo", (input) => (
                 link := Git.Link(input),
                 Browser.RunLink(link),
                 A_Clipboard := link
             ),
-            "m",       (input) => Meditate(input),
             "p",       (input) => ClipSend(Links[input], , false),
             "o",       (input) => Browser.RunLink(Links[input]),
             "r",       (input) => Spotify.NewRapper(input),
