@@ -3,32 +3,30 @@
 #InputLevel 5
 
 ;; Modeless keys
-*NumpadDiv::F13
-*NumpadMult::F14
-*NumpadSub::OBS.winObj.App()
 *NumLock::SomeLockHint("NumLock")
 
 ;; Mode switching
-U_Numlock := 0
-*NumpadEnter::global U_Numlock := 12
-*NumpadAdd::Infos(U_Numlock, 500)
+NumpadEnter::Environment.NumLock := 12
 
-#HotIf U_Numlock = 12
-NumpadIns::   global U_Numlock := 0
-NumpadEnd::   global U_Numlock := 1
-NumpadDown::  global U_Numlock := 2
-NumpadPgDn::  global U_Numlock := 3
-NumpadLeft::  global U_Numlock := 4
-NumpadClear:: global U_Numlock := 5
-NumpadRight:: global U_Numlock := 6
-NumpadHome::  global U_Numlock := 7
-NumpadUp::    global U_Numlock := 8
-NumpadPgUp::  global U_Numlock := 9
-NumpadDel::   global U_Numlock := 10
-NumpadEnter:: global U_Numlock := 11
+#HotIf Environment.NumLock = 12
+NumpadIns::   Environment.NumLock := 0
+NumpadEnd::   Environment.NumLock := 1
+NumpadDown::  Environment.NumLock := 2
+NumpadPgDn::  Environment.NumLock := 3
+NumpadLeft::  Environment.NumLock := 4
+NumpadClear:: Environment.NumLock := 5
+NumpadRight:: Environment.NumLock := 6
+NumpadHome::  Environment.NumLock := 7
+NumpadUp::    Environment.NumLock := 8
+NumpadPgUp::  Environment.NumLock := 9
+NumpadDel::   Environment.NumLock := 10
+NumpadEnter:: Environment.NumLock := 11
+NumpadDiv::   Environment.NumLock := 12
+NumpadMult::  Environment.NumLock := 13
+NumpadSub::   Environment.NumLock := 14
 
 ;; Mode 10 / Numbers
-#HotIf U_Numlock = 11
+#HotIf Environment.NumLock = 11
 NumpadIns::0
 NumpadEnd::1
 NumpadDown::2
@@ -46,7 +44,7 @@ NumpadSub::-
 NumpadAdd::+
 
 ;; Mode 0
-#HotIf U_Numlock = 0
+#HotIf Environment.NumLock = 0
 *NumpadIns::SoundPlayer.Storage["vine boom"].Play()
 *NumpadEnd::SoundPlayer.Storage["shall we"].Play()
 *NumpadDown::SoundPlayer.Storage["bruh sound effect"].Play()
@@ -68,7 +66,7 @@ NumpadAdd::+
 *NumpadDel::SoundPlayer.Storage["sus"].Play()
 
 ;; Mode 1
-#HotIf U_Numlock = 1
+#HotIf Environment.NumLock = 1
 NumpadIns::return
 NumpadEnd::SoundPlayer.Storage["i just farted"].Play()
 NumpadDown::return
@@ -82,4 +80,21 @@ NumpadPgUp::return
 NumpadDel::return
 
 #HotIf
+
+;; Not implemented
+NumpadIns::return
+NumpadEnd::return
+NumpadDown::return
+NumpadPgDn::return
+NumpadLeft::return
+NumpadClear::return
+NumpadRight::return
+NumpadHome::return
+NumpadUp::return
+NumpadPgUp::return
+NumpadDel::return
+NumpadDiv::return
+NumpadMult::return
+NumpadSub::return
+
 #InputLevel 5
