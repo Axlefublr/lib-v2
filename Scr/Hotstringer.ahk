@@ -6,10 +6,6 @@
 #Include <Utils\ClipSend>
 
 #sc34:: {
-    input := CleanInputBox().WaitForInput()
-    if !input {
-        return
-    }
     static DynamicHotstrings := Map(
 
         "radnum",    () => Random(1000000, 9999999),
@@ -32,13 +28,21 @@
         "me",    "Axlefublr",
 
     )
-    try {
-        output := DynamicHotstrings[input].Call()
-    } catch Any {
-        try output := StaticHotstrings[input]
-        catch Any {
-            return
+    inputty := CleanInputBox()
+    inputtyHwnd := inputty.Hwnd
+    output := ""
+    while !output {
+        if !WinExist(inputtyHwnd) {
+            break
         }
+        text := inputty.InputField.Text
+        if DynamicHotstrings.Has(text)
+            output := DynamicHotstrings[text].Call()
+        else if StaticHotstrings.Has(text)
+            output := StaticHotstrings[text]
     }
-    ClipSend(output)
+    if output {
+        inputty.Finish()
+        ClipSend(output)
+    }
 }
