@@ -63,20 +63,6 @@ Class Spotify {
         this.AddToPlaylist("Best")
     }
 
-    class PlaylistCounter extends Spotify {
-        static currentPlaylist {
-            get => ReadFile(Paths.Ptf["current-playlist"])
-            set => WriteFile(Paths.Ptf["current-playlist"], value)
-        }
-
-        static Show() => Info(this.currentPlaylist)
-
-        static IncrementAndShow() {
-            this.currentPlaylist++
-            this.Show()
-        }
-    }
-
     class PlaylistSorter extends Spotify {
 
         static MaxPlaylist := 20
