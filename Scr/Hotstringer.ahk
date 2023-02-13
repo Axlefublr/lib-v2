@@ -9,14 +9,15 @@
     static DynamicHotstrings := Map(
 
         "radnum",    () => Random(1000000, 9999999),
-        "date",      () => DateTime.Date,
-        "datew",     () => DateTime.WeekDay,
+        "currdate",  () => DateTime.Date,
+        "weekday",   () => DateTime.WeekDay,
         "time",      () => DateTime.Time,
         "datetime",  () => DateTime.Date " " DateTime.Time,
         "datewtime", () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
         "uclanr",    () => GetRandomWord("english") " ",
         "ilandh",    () => GetRandomWord("russian") " ",
         "chrs",      () => CharGenerator(2).GenerateCharacters(15),
+        "track",     () => Spotify.GetCurrSong(),
 
     )
     static StaticHotstrings := Map(

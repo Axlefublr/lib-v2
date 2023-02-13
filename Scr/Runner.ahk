@@ -17,37 +17,21 @@
 
     static runner_commands := Map(
 
-        "track",   () => ClipSend(Spotify.GetCurrSong(),, false),
         "kb",      () => KeyCodeGetter(),
         "libs?",   () => Infos(CountLibraries()),
 
         ;Apps
-        "sm",      Run.Bind(Paths.Apps["Sound mixer"]),
         "apps",    MainApps,
         "v1 docs", () => Autohotkey.Docs.v1.RunAct(),
         "davinci", () => Davinci.projectWinObj.RunAct(),
         "slack",   () => Slack.winObj.RunAct(),
-        "steam",   () => Steam.winObj.RunAct(),
-        "vpn",     () => VPN.winObj.RunAct(),
         "fl",      () => FL.winObj.RunAct(),
-        "ds4",     () => DS4.winObj.RunAct(),
         "gimp",    () => Gimp.winObj.RunAct(),
-        "mt",      () => Browser.MonkeyType.winObj.RunAct(),
 
         ;Folders
         "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
-        "prog",  () => Explorer.WinObj.Prog.RunAct_Folders(),
         "saved", () => Explorer.WinObj.SavedScreenshots.RunAct_Folders(),
-        "gim",   () => Explorer.WinObj.VideoTools.RunAct_Folders(),
         "main",  () => VsCode.WorkSpace("Main"),
-
-        ;Video production
-        "clean",    () => VsCode.CleanText(ReadFile(A_Clipboard)),
-        "edit",     () => Video.EditScreenshot(),
-        "video up", () => VsCode.VideoUp(),
-        "dupl",     () => Video.DuplicateScreenshot(),
-        "setup",    () => Davinci.Setup(),
-        "cut",      () => LosslessCut.winObj.RunAct(),
 
     )
 
