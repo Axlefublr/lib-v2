@@ -53,7 +53,7 @@
 
     try runner_commands[input].Call()
     catch Any {
-        RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|counter|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|m|glo) (.+)", &result)
+        RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|m|glo) (.+)", &result)
         static runner_regex := Map(
 
             "op", (input) => (
@@ -85,7 +85,6 @@
             "dd",      (input) => Shows().SetDownloaded(input),
             "delow",   (input) => Shows().DeleteShow(input),
             "drop",    (input) => Shows().DeleteShow(input, true),
-            "counter", (input) => Info(Counter.num := input),
             "gl",      (input) => ClipSend(Git.Link(input), "", false),
             "go",      (input) => Browser.RunLink(Git.Link(input)),
             "install", (input) => Git.InstallAhkLibrary(input),

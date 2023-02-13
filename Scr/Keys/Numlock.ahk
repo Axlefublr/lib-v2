@@ -43,21 +43,21 @@ NumpadSub::   Environment.NumLock := 14
 
 ;; Mode 10 / Numbers
 #HotIf Environment.NumLock = 11
-NumpadIns::0
-NumpadEnd::1
-NumpadDown::2
-NumpadPgDn::3
-NumpadLeft::4
-NumpadClear::5
-NumpadRight::6
-NumpadHome::7
-NumpadUp::8
-NumpadPgUp::9
-NumpadDel::.
-NumpadDiv::/
-NumpadMult::*
-NumpadSub::-
-NumpadAdd::+
+NumpadIns::Send("0")
+NumpadEnd::Send("1")
+NumpadDown::Send("2")
+NumpadPgDn::Send("3")
+NumpadLeft::Send("4")
+NumpadClear::Send("5")
+NumpadRight::Send("6")
+NumpadHome::Send("7")
+NumpadUp::Send("8")
+NumpadPgUp::Send("9")
+NumpadDel::Send(".")
+NumpadDiv::Send("/")
+NumpadMult::Send("*")
+NumpadSub::Send("-")
+NumpadAdd::Send("{+}")
 
 ;; Mode 0
 #HotIf Environment.NumLock = 0
@@ -90,7 +90,16 @@ NumpadPgDn::return
 NumpadLeft::return
 NumpadClear::return
 NumpadRight::return
-NumpadHome::return
+NumpadHome:: {
+    prevMode := Environment.NumLock
+    Environment.NumLock := 11
+    if !input := CleanInputBox().WaitForInput() {
+        return false
+    }
+    Counter.num := input
+    Counter.Show()
+    Environment.NumLock := prevMode
+}
 NumpadUp::Counter.Send()
 NumpadPgUp::Counter.Send().Increment()
 NumpadDel::return
