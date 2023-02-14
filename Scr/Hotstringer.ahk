@@ -18,6 +18,7 @@
         "ilandh",    () => GetRandomWord("russian") " ",
         "chrs",      () => CharGenerator(2).GenerateCharacters(15),
         "track",     () => Spotify.GetCurrSong(),
+        "artist",    () => Spotify.GetCurrArtist(),
 
     )
     static StaticHotstrings := Map(

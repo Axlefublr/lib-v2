@@ -100,6 +100,11 @@ Class Spotify {
         return currSong
     }
 
+    static GetCurrArtist() {
+        artistAndSong := Spotify.GetCurrSong()
+        return Spotify.RemoveAfterArtist(artistAndSong)
+    }
+
     static NewDiscovery() {
         currSong := this.GetCurrSong()
         if !currSong {
