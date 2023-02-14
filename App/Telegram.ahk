@@ -26,7 +26,7 @@ Class Telegram {
     static NextFolder() => Send("^+{Down}")
     static PrevFolder() => Send("^+{Up}")
 
-    static Voice() => ClickThenGoBack_Event("1452 1052")
+    static Voice() => Mouse.ClickThenGoBack_Event("1452 1052")
 
     static Scroll() => ControlClick("X1434 Y964")
 

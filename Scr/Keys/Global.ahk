@@ -2,5 +2,6 @@
 
 !Tab::Send("^!{Tab}")
 ^!v::Paste()
+^!c::Copy()
 
 #InputLevel 5

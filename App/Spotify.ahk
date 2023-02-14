@@ -106,7 +106,8 @@ Class Spotify {
         static ToggleShuffle() {
             Spotify.UIA.__GetContentInfo().FindElement({
                 Type: "Button",
-                ; Name: "shuffle",
+                Name: "shuffle",
+                Matchmode: "Substring",
                 Scope: 2
             }).Click()
         }
@@ -233,7 +234,7 @@ Class Spotify {
         }
 
         onRightClick(*) {
-            ControlClick_Here(Spotify.exeTitle, "R")
+            Mouse.ControlClick_Here(Spotify.exeTitle, "R")
             var++
             g_added_text.Text := var
             Spotify.UIA.AddToPlaylist("Discovery")

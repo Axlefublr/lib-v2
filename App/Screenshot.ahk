@@ -15,7 +15,7 @@ Class Screenshot {
     ;    this.Fullscreen()
     ; }
 
-    static Rectangle()  => ClickThenGoBack("839 6")
-    static Window()     => ClickThenGoBack("959 6")
-    static Fullscreen() => ClickThenGoBack("1018 31")
+    static Rectangle()  => Mouse.ClickThenGoBack("839 6")
+    static Window()     => Mouse.ClickThenGoBack("959 6")
+    static Fullscreen() => Mouse.ClickThenGoBack("1018 31")
 }
