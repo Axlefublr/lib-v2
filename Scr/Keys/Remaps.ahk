@@ -5,7 +5,7 @@
 #f::Send("{Blind}k")
 #!sc27::Send("#;")
 !Space::return
-Launch_Media::RAlt
+RAlt::LAlt
 AppsKey::RCtrl
 *ScrollLock::return
 
