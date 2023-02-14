@@ -6778,7 +6778,7 @@ class Viewer {
             }
             Property := -1
             try Property := UIA.Property.%LVData[1]%
-            out .= ", " LVData[1] ":" (UIA.PropertyVariantTypeBSTR.Has(Property) ? "`"" StrReplace(StrReplace(LVData[2], "``", "````"), "`"", "```"") "`"" : LVData[2])
+            out .= ", " LVData[1] ": " (UIA.PropertyVariantTypeBSTR.Has(Property) ? "`"" StrReplace(StrReplace(LVData[2], "``", "````"), "`"", "```"") "`"" : LVData[2])
         }
         ToolTip("Copied: " (A_Clipboard := SubStr(out, 3)))
         SetTimer(ToolTip, -3000)

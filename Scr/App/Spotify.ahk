@@ -2,7 +2,7 @@
 
 #HotIf WinActive(Spotify.exeTitle)
 F1::Spotify.PlaylistSorter.ToggleHotkey()
-F2::Spotify.UIA.RemoveCurrTrack()
+; F2::Spotify.UIA.RemoveCurrTrack()
 
 !w::Spotify.UIA.ToggleLike()
 !e::Spotify.UIA.LikedPlaylist()

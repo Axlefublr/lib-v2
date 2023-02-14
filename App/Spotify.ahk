@@ -83,6 +83,10 @@ Class Spotify {
             return mainNavigation
         }
 
+        static RemoveCurrTrack() {
+
+        }
+
         static LikedPlaylist() {
             Spotify.UIA.__GetMainNavigation().FindElement({
                 Type:"Link",
