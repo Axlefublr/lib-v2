@@ -25,8 +25,6 @@
         "s", () => Steam.winObj.App(),
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
-        "c", () => ClipSend(Layouts.ConvertToEnglish(A_Clipboard)),
-        "C", () => ClipSend(Layouts.ConvertToRussian(A_Clipboard)),
 
     )
     if key

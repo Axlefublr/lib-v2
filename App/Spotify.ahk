@@ -8,12 +8,12 @@
 Class Spotify {
 
     static exeTitle := "ahk_exe Spotify.exe"
-    static winTitle := this.exeTitle
+    static winTitle := Spotify.exeTitle
     static path := A_AppData "\Spotify\Spotify.exe"
 
     static winObj := Win({
-        winTitle: this.exeTitle,
-        exePath: this.path
+        winTitle: Spotify.exeTitle,
+        exePath: Spotify.path
     })
 
     static Like() => Send("+!b")
@@ -33,34 +33,95 @@ Class Spotify {
     static RemoveDateAndTime(input) => RegExReplace(input, "(\d+\. )?(- +)?(\d\d\.\d\d\.\d\d)?( \d\d:\d\d)?( +- +)?")
 
     static Context() => (
-        ControlClick("x32 y1014", this.exeTitle, , "R")
+        ControlClick("x32 y1014", Spotify.exeTitle, , "R")
     )
 
-    static __GetContextMenu() {
-        UIAObject := UIA.ElementFromHandle(this.winTitle)
-        songMenu := UIAObject.FindElement({
-            Type: "document",
-            Scope: "children" ; they are the same!
-        }).WaitElement({
-            Type: "menu",
-            Scope: 2
-        })
-        return songMenu
-    }
+    class UIA extends Spotify {
 
-    static AddToPlaylist(playlistName) {
-        songMenu := this.__GetContextMenu()
-        songMenu.FindElement({
-            Name: "Add to playlist"
-        }).Click()
-        songMenu.WaitElement({
-            Name: playlistName
-        }).Click()
-    }
+        static __GetDocument() {
+            UIAObject := UIA.ElementFromHandle(Spotify.winTitle)
+            document := UIAObject.FindElement({
+                Type: "document",
+                Scope: 2
+            })
+            return document
+        }
 
-    static AddToBest() {
-        this.Context()
-        this.AddToPlaylist("Best")
+        static __GetContextMenu() {
+            songMenu := Spotify.UIA.__GetDocument().WaitElement({
+                Type: "menu",
+                Scope: 2
+            })
+            return songMenu
+        }
+
+        static __GetContentInfo() {
+            contentInfo := Spotify.UIA.__GetDocument().FindElement({
+                LocalizedType: "content info",
+                Type: "Group",
+                Scope: 2
+            })
+            return contentInfo
+        }
+
+        static __GetInnerContentInfo() {
+            innerContentInfo := Spotify.UIA.__GetContentInfo().WaitElement({
+                LocalizedType: "content info",
+                Type: "Group",
+                Scope: 2
+            })
+            return innerContentInfo
+        }
+
+        static __GetMainNavigation() {
+            mainNavigation := Spotify.UIA.__GetDocument().FindElement({
+                Type:"Group",
+                LocalizedType:"navigation",
+                Name:"Main",
+                Scope: 2
+            })
+            return mainNavigation
+        }
+
+        static LikedPlaylist() {
+            Spotify.UIA.__GetMainNavigation().FindElement({
+                Type:"Link",
+                Name:"Liked Songs",
+                Scope: 2
+            }).Click()
+        }
+
+        static ToggleLike() {
+            Spotify.UIA.__GetInnerContentInfo().WaitElement({
+                LocalizedType: "button",
+                Type: "Button",
+                Scope: 2
+            }).Click()
+        }
+
+        static ToggleShuffle() {
+            Spotify.UIA.__GetContentInfo().FindElement({
+                Type: "Button",
+                ; Name: "shuffle",
+                Scope: 2
+            }).Click()
+        }
+
+        static AddToPlaylist(playlistName) {
+            contextMenu := Spotify.UIA.__GetContextMenu()
+            contextMenu.FindElement({
+                Name: "Add to playlist"
+            }).Click()
+            contextMenu.WaitElement({
+                Name: playlistName
+            }).Click()
+        }
+
+        static AddCurrentToBest() {
+            Spotify.Context()
+            Spotify.UIA.AddToPlaylist("Best")
+        }
+
     }
 
     class PlaylistSorter extends Spotify {
@@ -70,21 +131,21 @@ Class Spotify {
         static AddTrack() {
             counter := ReadFile(Paths.Ptf["playlist-sorter"])
             super.AddToPlaylist("#" counter)
-            if counter >= this.MaxPlaylist
+            if counter >= Spotify.PlaylistSorter.MaxPlaylist
                 counter := 0
             WriteFile(Paths.Ptf["playlist-sorter"], ++counter)
         }
 
-        static bfAddTrack := (ThisHotkey) => this.AddTrack()
+        static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
 
         static ToggleHotkey() {
             static isHotkeyActive := false
             if isHotkeyActive {
-                Hotkey("~RButton", this.bfAddTrack, "Off")
+                Hotkey("~RButton", Spotify.PlaylistSorter.bfAddTrack, "Off")
                 Info("Hotkey disabled")
             }
             else {
-                Hotkey("~RButton", this.bfAddTrack, "On")
+                Hotkey("~RButton", Spotify.PlaylistSorter.bfAddTrack, "On")
                 Info("Hotkey enabled")
             }
             isHotkeyActive := !isHotkeyActive
@@ -92,7 +153,7 @@ Class Spotify {
     }
 
     static GetCurrSong() {
-        currSong := WinGetTitle(this.exeTitle)
+        currSong := WinGetTitle(Spotify.exeTitle)
         if currSong ~= "Spotify (Free)|(Premium)" {
             Info("No song is currently playing")
             return false
@@ -106,12 +167,12 @@ Class Spotify {
     }
 
     static NewDiscovery() {
-        currSong := this.GetCurrSong()
+        currSong := Spotify.GetCurrSong()
         if !currSong {
             return
         }
-        artistName := this.RemoveAfterArtist(currSong)
-        this.NewDiscovery_Manual(artistName)
+        artistName := Spotify.RemoveAfterArtist(currSong)
+        Spotify.NewDiscovery_Manual(artistName)
     }
 
     static NewDiscovery_Manual(artistName) {
@@ -123,8 +184,8 @@ Class Spotify {
         isTouched := ReadFile(Paths.Ptf["Unfinished"])
         isTouched .= ReadFile(Paths.Ptf["Rappers"])
         isTouched .= ReadFile(Paths.Ptf["Artists"])
-        isTouched := this.RemoveDateAndTime(isTouched)
-        isTouched := this.RemoveAfterArtist(isTouched)
+        isTouched := Spotify.RemoveDateAndTime(isTouched)
+        isTouched := Spotify.RemoveAfterArtist(isTouched)
         if Instr(isTouched, name) {
             Info("You've already started listening to this rapper")
             return true
@@ -133,23 +194,23 @@ Class Spotify {
     }
 
     static NewRapper(name) {
-        if this.IsRapperTouched(name)
+        if Spotify.IsRapperTouched(name)
             return
         AppendFile(Paths.Ptf["Rappers"], DateTime.Date " " DateTime.Time " - " name "`n")
         Info(name " yet to be discovered! 📃")
     }
 
     static FavRapper_Auto() {
-        currSong := this.GetCurrSong()
+        currSong := Spotify.GetCurrSong()
         if !currSong {
             return
         }
-        currArtist := this.RemoveAfterArtist(currSong)
-        this.FavRapper_Manual(currArtist)
+        currArtist := Spotify.RemoveAfterArtist(currSong)
+        Spotify.FavRapper_Manual(currArtist)
     }
 
     static FavRapper_Manual(artistName) {
-        artists := this.RemoveDateAndTime(ReadFile(Paths.Ptf["Artists"]))
+        artists := Spotify.RemoveDateAndTime(ReadFile(Paths.Ptf["Artists"]))
         if InStr(artists, artistName) {
             Info(artistName " is already added 😨")
             return
@@ -168,17 +229,17 @@ Class Spotify {
         }
 
         onRightClick(*) {
-            ControlClick_Here(this.exeTitle, "R")
+            ControlClick_Here(Spotify.exeTitle, "R")
             var++
             g_added_text.Text := var
-            this.AddToPlaylist("Discovery")
+            Spotify.UIA.AddToPlaylist("Discovery")
             if var >= 15 {
                 Destruction()
             }
         }
 
         Destruction(*) {
-            HotIfWinActive(this.exeTitle)
+            HotIfWinActive(Spotify.exeTitle)
             Hotkey("RButton", "Off")
             Hotkey("Escape", "Off")
             g_added.Destroy()
@@ -193,7 +254,7 @@ Class Spotify {
         g_added_text := g_added.Add("Text", "W200 X0 Y60 Center", "0")
         g_added.Show("W200 H200 X0 Y0 NA")
 
-        HotIfWinActive(this.exeTitle)
+        HotIfWinActive(Spotify.exeTitle)
         Hotkey("RButton", onRightClick, "On")
         Hotkey("Escape", Destruction, "On")
         g_added.OnEvent("Close", Destruction.Bind())

@@ -55,10 +55,10 @@ XButton1:: {
             Switch {
                 Case sections.topRight:   Spotify.NewDiscovery()
                 Case sections.bottomRight:Spotify.Discovery()
-                Case sections.topLeft:    Spotify.AddToBest()
+                Case sections.topLeft:    Spotify.UIA.AddCurrentToBest()
                 Case sections.bottomLeft: Spotify.FavRapper_Auto()
-                Case sections.up:         Spotify.Like()
-                Case sections.down:       Spotify.Shuffle()
+                Case sections.up:         Spotify.UIA.ToggleLike()
+                Case sections.down:       Spotify.UIA.ToggleShuffle()
             }
         Case WinActive(Telegram.winTitle) && sections.down:Telegram.Scroll()
         Case WinActive(Discord.winTitle)  && sections.down:Send("{Esc}")
