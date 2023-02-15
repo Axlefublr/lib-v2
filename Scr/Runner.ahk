@@ -69,7 +69,7 @@
             "dd",      (input) => Shows().SetDownloaded(input),
             "delow",   (input) => Shows().DeleteShow(input),
             "drop",    (input) => Shows().DeleteShow(input, true),
-            "gl",      (input) => ClipSend(Git.Link(input), "", false),
+            "gl",      (input) => ClipSend(Git.Link(input),, false),
             "go",      (input) => Browser.RunLink(Git.Link(input)),
             "install", (input) => Git.InstallAhkLibrary(input),
             "chrs",    (input) => ClipSend(CharGenerator(2).GenerateCharacters(input)),

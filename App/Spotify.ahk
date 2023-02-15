@@ -147,6 +147,7 @@ Class Spotify {
         static AddCurrentToBest() {
             Spotify.Context()
             Spotify.UIA.AddToPlaylist("Best")
+            Spotify.UIA.Like()
         }
 
     }
