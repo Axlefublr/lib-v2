@@ -2,9 +2,28 @@
 
 class Mouse {
 
-    static SmallMove := 10
+    static SmallMove  := 10
     static MediumMove := 50
-    static BigMove := 200
+    static BigMove    := 200
+
+    static HorizontalSeparator := 20
+    static VerticalSeparator   := 7
+
+    static TopY    := A_ScreenHeight // Mouse.VerticalSeparator
+    static MiddleY := A_ScreenHeight // 2
+    static BottomY := A_ScreenHeight // Mouse.VerticalSeparator * 6
+
+    static FarLeftX        := A_ScreenWidth / Mouse.HorizontalSeparator
+    static LowLeftX        := A_ScreenWidth / Mouse.HorizontalSeparator * 3
+    static MiddleLeftX     := A_ScreenWidth / Mouse.HorizontalSeparator * 5
+    static HighLeftX       := A_ScreenWidth / Mouse.HorizontalSeparator * 7
+    static LessThanMiddleX := A_ScreenWidth / Mouse.HorizontalSeparator * 9
+    static MiddleX         := A_ScreenWidth // 2
+    static MoreThanMiddleX := A_ScreenWidth / Mouse.HorizontalSeparator * 11
+    static LowRightX       := A_ScreenWidth / Mouse.HorizontalSeparator * 13
+    static MiddleRightX    := A_ScreenWidth / Mouse.HorizontalSeparator * 15
+    static HighRightX      := A_ScreenWidth / Mouse.HorizontalSeparator * 17
+    static FarRightX       := A_ScreenWidth / Mouse.HorizontalSeparator * 19
 
     /**
      * Hold down a mouse button if it's not held down currently.
@@ -12,10 +31,11 @@ class Mouse {
      * @param {Char} which Which mouse button to hold down or release. Only supports "L", "R", "M"
      */
     static HoldIfUp(which) {
+
         if GetKeyState(which "Button")
-            Click(which "Up")
+            Click(which " Up")
         else
-            Click(which "Down")
+            Click(which " Down")
     }
 
     static MoveLeft(howMuch) => MouseMove(-howMuch, 0,, "R")
