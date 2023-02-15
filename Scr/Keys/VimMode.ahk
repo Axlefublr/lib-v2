@@ -10,6 +10,7 @@ ToggleVimMode() {
 #sc33::ToggleVimMode()
 
 #HotIf Environment.VimMode
+
 h::Mouse.MoveLeft(Mouse.SmallMove)
 k::Mouse.MoveUp(Mouse.SmallMove)
 j::Mouse.MoveDown(Mouse.SmallMove)
@@ -23,9 +24,9 @@ l::Mouse.MoveRight(Mouse.SmallMove)
 ^j::Mouse.MoveDown(Mouse.BigMove)
 ^l::Mouse.MoveRight(Mouse.BigMove)
 
-u::Click()
-o::Click("Right")
-i::Click("Middle")
+*u::Click()
+*o::Click("Right")
+*i::Click("Middle")
 #u::Mouse.HoldIfUp("L")
 #o::Mouse.HoldIfUp("R")
 #i::Mouse.HoldIfUp("M")

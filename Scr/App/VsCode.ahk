@@ -15,21 +15,6 @@
 
 #HotIf WinActive(VsCode.winTitle)
 Media_Stop & MButton::VsCode.Reload()
-XButton1 & WheelUp::VsCode.Redo()
-XButton1 & WheelDown::VsCode.Undo()
-#HotIf
-
-#InputLevel 6
-
-#HotIf !WinActive(VsCode.winTitle)
-!Insert::Cut()
-
-#HotIf !WinActive(VsCode.winTitle) && !Environment.VimMode
-!j::Send("{Down}")
-!k::Send("{Up}")
-!h::Send("{Left}")
-!l::Send("{Right}")
 
 #HotIf
-
 #InputLevel 5

@@ -26,8 +26,6 @@ Class VsCode {
     static CloseTab()      => Send("!w")
     static CursorBack()    => Send("!{PgUp}")
     static CursorForward() => Send("!{PgDn}")
-    static Undo()          => Send("#^{sc33}")
-    static Redo()          => Send("#^{sc34}")
 
     static WorkSpace(wkspName) {
         this.CloseAllTabs()

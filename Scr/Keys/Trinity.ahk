@@ -7,11 +7,6 @@
 
 #InputLevel 6
 
-#!k::Send("{WheelUp}")
-#!j::Send("{WheelDown}")
-#!l::Send("{PgDn}")
-#!h::Send("{PgUp}")
-
 Home::Volume_Up
 End::Volume_Down
 Insert::Volume_Mute

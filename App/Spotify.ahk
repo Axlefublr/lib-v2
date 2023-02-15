@@ -38,73 +38,86 @@ Class Spotify {
 
     class UIA extends Spotify {
 
-        static __GetDocument() {
-            UIAObject := UIA.ElementFromHandle(Spotify.winTitle)
-            document := UIAObject.FindElement({
+        static Document {
+            get => UIA.ElementFromHandle(Spotify.winTitle).FindElement({
                 Type: "document",
                 Scope: 2
             })
-            return document
         }
 
-        static __GetContextMenu() {
-            songMenu := Spotify.UIA.__GetDocument().WaitElement({
+        static ContextMenu {
+            get => Spotify.UIA.Document.WaitElement({
                 Type: "menu",
                 Scope: 2
             })
-            return songMenu
         }
 
-        static __GetContentInfo() {
-            contentInfo := Spotify.UIA.__GetDocument().FindElement({
+        static ContentInfo {
+            get => Spotify.UIA.Document.WaitElement({
                 LocalizedType: "content info",
                 Type: "Group",
                 Scope: 2
             })
-            return contentInfo
         }
 
-        static __GetInnerContentInfo() {
-            innerContentInfo := Spotify.UIA.__GetContentInfo().WaitElement({
+        static InnerContentInfo {
+            get => Spotify.UIA.ContentInfo.WaitElement({
                 LocalizedType: "content info",
                 Type: "Group",
                 Scope: 2
             })
-            return innerContentInfo
         }
 
-        static __GetMainNavigation() {
-            mainNavigation := Spotify.UIA.__GetDocument().FindElement({
+        static MainNavigation {
+            get => Spotify.UIA.Document.WaitElement({
                 Type:"Group",
                 LocalizedType:"navigation",
                 Name:"Main",
                 Scope: 2
             })
-            return mainNavigation
         }
 
-        static RemoveCurrTrack() {
+        static LikeElement {
+            get => Spotify.UIA.InnerContentInfo.WaitElement({
+                LocalizedType: "button",
+                Type: "Button",
+                Scope: 2
+            })
+        }
 
+        static LikeState {
+            get => Spotify.UIA.LikeElement.ToggleState
+            set => Spotify.UIA.LikeElement.ToggleState := value
+        }
+
+        static TrashTrack() {
+            Spotify.UIA.Dislike()
+            Spotify.UIA.RemoveFromCurrentPlaylist()
+            Spotify.UIA.SkipNext()
         }
 
         static LikedPlaylist() {
-            Spotify.UIA.__GetMainNavigation().FindElement({
+            Spotify.UIA.MainNavigation.WaitElement({
                 Type:"Link",
                 Name:"Liked Songs",
                 Scope: 2
             }).Click()
         }
 
-        static ToggleLike() {
-            Spotify.UIA.__GetInnerContentInfo().WaitElement({
-                LocalizedType: "button",
+        static SkipNext() {
+            Spotify.UIA.ContentInfo.WaitElement({
+                Name: "Next",
                 Type: "Button",
                 Scope: 2
             }).Click()
         }
 
+        static Like() => Spotify.UIA.LikeState := true
+        static Dislike() => Spotify.UIA.LikeState := false
+        static ToggleLike() => Spotify.UIA.LikeState := !Spotify.UIA.LikeState
+
         static ToggleShuffle() {
-            Spotify.UIA.__GetContentInfo().FindElement({
+            Spotify.UIA.ContentInfo.WaitElement({
                 Type: "Button",
                 Name: "shuffle",
                 Matchmode: "Substring",
@@ -112,8 +125,17 @@ Class Spotify {
             }).Click()
         }
 
+        static RemoveFromCurrentPlaylist() {
+            Spotify.Context()
+            Spotify.UIA.ContextMenu.WaitElement({
+                Name: "Remove from this playlist",
+                Type: "MenuItem",
+                Scope: 2
+            }).Click()
+        }
+
         static AddToPlaylist(playlistName) {
-            contextMenu := Spotify.UIA.__GetContextMenu()
+            contextMenu := Spotify.UIA.ContextMenu
             contextMenu.FindElement({
                 Name: "Add to playlist"
             }).Click()
