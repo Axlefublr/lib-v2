@@ -2,12 +2,12 @@
 #Include <Environment>
 #Include <Abstractions\Mouse>
 
-#sc33::
-ToggleVimMode(ThisHotkey) {
+ToggleVimMode() {
     Environment.VimMode := !Environment.VimMode
     position := Environment.VimMode ? "On" : "Off"
     ToggleInfo("Vim mode " position)
 }
+#sc33::ToggleVimMode()
 
 #HotIf Environment.VimMode
 h::Mouse.MoveLeft(Mouse.SmallMove)
@@ -22,11 +22,12 @@ l::Mouse.MoveRight(Mouse.SmallMove)
 ^k::Mouse.MoveUp(Mouse.BigMove)
 ^j::Mouse.MoveDown(Mouse.BigMove)
 ^l::Mouse.MoveRight(Mouse.BigMove)
+
 u::Click()
-#u::Mouse.HoldIfUp("L")
 o::Click("Right")
-#o::Mouse.HoldIfUp("R")
 i::Click("Middle")
+#u::Mouse.HoldIfUp("L")
+#o::Mouse.HoldIfUp("R")
 #i::Mouse.HoldIfUp("M")
 
 1::MouseMove(Mouse.FarLeftX,        Mouse.MiddleY)
@@ -74,5 +75,5 @@ z::WheelLeft
 x::WheelUp
 c::WheelDown
 v::WheelRight
-Esc::ToggleVimMode("")
+
 #HotIf
