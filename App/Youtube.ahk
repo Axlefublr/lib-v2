@@ -1,34 +1,33 @@
 #Include <Utils\Image>
+#Include <App\Browser>
 
 Class Youtube {
 
-    static winTitle := "YouTube ahk_exe chrome.exe"
+    static winTitle := "YouTube " Browser.exeTitle
 
-    static Studio := "YouTube Studio ahk_exe chrome.exe"
+    static Studio := "YouTube Studio " Browser.exeTitle
 
-    static NotWatchingVideo := "(?<! - )Watch later|Subscriptions|Youtube ahk_exe chrome\.exe"
+    static NotWatchingVideo := "(?<! - )Watch later|Subscriptions|Youtube " Browser.exeTitle
 
     static SkipNext() => Send("+n")
 
     static SkipPrev() => Send("+p")
 
-    static MiniscreenClose() => ControlClick("X1858 Y665")
-
-    static ClickProfile() => ControlClick("X1823 Y133")
+    static ClickProfile() => ControlClick("x1819 y155")
 
     static WaitUntilProfileWindow() {
-        this.ClickProfile()
-        if !WaitUntilPixChange([1324, 116], 0x313131)
+        Browser.ClickProfile()
+        if !WaitUntilPixChange([1538, 503])
             return
     }
 
     static ChannelSwitch() {
-        this.WaitUntilProfileWindow()
+        Browser.WaitUntilProfileWindow()
         ControlClick("x1531 y407")
     }
 
     static StudioSwitch() {
-        this.WaitUntilProfileWindow()
+        Browser.WaitUntilProfileWindow()
         ControlClick("x1500 y376")
     }
 

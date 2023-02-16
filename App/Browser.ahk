@@ -1,13 +1,13 @@
 #Include <Utils\Win>
 
 Class Browser {
-    static exeTitle := "ahk_exe chrome.exe"
-    static winTitle := "Google Chrome " this.exeTitle
-    static path := A_ProgramFiles "\Google\Chrome\Application\chrome.exe"
+    static exeTitle := "ahk_exe firefox.exe"
+    static winTitle := "Mozilla Firefox " Browser.exeTitle
+    static path := A_ProgramFiles "\Mozilla Firefox\firefox.exe"
 
     static winObj := Win({
-        winTitle: this.winTitle,
-        exePath: this.path,
+        winTitle: Browser.winTitle,
+        exePath: Browser.path,
     })
 
     /**
@@ -16,27 +16,18 @@ Class Browser {
      */
     static RunLink(link) => (
         Run(link),
-        WinWait(this.winTitle),
-        WinActivate(this.winTitle)
+        WinWait(Browser.winTitle),
+        WinActivate(Browser.winTitle)
     )
 
     Class MonkeyType extends Browser {
-        static winTitle := "Monkeytype " super.exeTitle
+        static winTitle := "Monkeytype"
         static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna"
 
         static winObj := Win({
-            winTitle: this.winTitle,
-            exePath: this.path
+            winTitle: Browser.MonkeyType.winTitle,
+            exePath: Browser.MonkeyType.path
         })
     }
 
-    Class Clock extends Browser {
-        static winTitle := "Reiwa's Clock - Axle's Clock " super.exeTitle
-        static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=jibnhljmnbkjahicgmpgapbkgfcihedl"
-
-        static winObj := Win({
-            winTitle: this.winTitle,
-            exePath: this.path
-        })
-    }
 }
