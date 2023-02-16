@@ -39,7 +39,7 @@ XButton1:: {
                 Case sections.right:         NextTab()
                 Case sections.left:          PrevTab()
                 Case sections.up:            RestoreTab()
-                Case WinActive(VK.winTitle): VK.Scroll()
+                ; Case WinActive(VK.winTitle): VK.Scroll()
                 Case sections.down:          CloseTab()
             }
         Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):

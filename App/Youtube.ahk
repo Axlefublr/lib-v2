@@ -16,18 +16,18 @@ Class Youtube {
     static ClickProfile() => ControlClick("x1819 y155")
 
     static WaitUntilProfileWindow() {
-        Browser.ClickProfile()
+        Youtube.ClickProfile()
         if !WaitUntilPixChange([1538, 503])
             return
     }
 
     static ChannelSwitch() {
-        Browser.WaitUntilProfileWindow()
+        Youtube.WaitUntilProfileWindow()
         ControlClick("x1531 y407")
     }
 
     static StudioSwitch() {
-        Browser.WaitUntilProfileWindow()
+        Youtube.WaitUntilProfileWindow()
         ControlClick("x1500 y376")
     }
 
