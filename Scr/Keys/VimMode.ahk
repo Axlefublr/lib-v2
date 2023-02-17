@@ -76,5 +76,28 @@ z::WheelLeft
 x::WheelUp
 c::WheelDown
 v::WheelRight
+z Up::return
+x Up::return
+c Up::return
+v Up::return
+
+`::return
+-::return
+=::return
+t::return
+y::return
+p::return
+sc1A::return
+sc1B::return
+sc2B::return
+g::return
+sc27::return
+sc28::return
+b::return
+n::return
+m::return
+sc33::return
+sc34::return
+sc35::return
 
 #HotIf

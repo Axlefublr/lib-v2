@@ -2,10 +2,10 @@
 
 #HotIf WinActive(Spotify.exeTitle)
 F1::Spotify.PlaylistSorter.ToggleHotkey()
-F2::Spotify.UIA.TrashTrack()
+F2::Spotify.TrashTrack()
 
-!w::Spotify.UIA.ToggleLike()
-!e::Spotify.UIA.LikedPlaylist()
+!w::Spotify.ToggleLike()
+!e::Spotify.LikedPlaylist()
 
 PgDn::Spotify.SkipNext()
 PgUp::Spotify.SkipPrev()
