@@ -5,6 +5,8 @@
 #Include <Utils\Win>
 
 #HotIf WinActive(Youtube.winTitle)
+F1::Youtube.Like()
+
 PgDn::Youtube.SkipNext()
 PgUp::Youtube.SkipPrev()
 #HotIf

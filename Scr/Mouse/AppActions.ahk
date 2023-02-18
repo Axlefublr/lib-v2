@@ -34,13 +34,17 @@ XButton1:: {
     sections := Press.GetSections()
     Switch {
         Case sections.middle:Copy()
+        Case WinActive(Youtube.winTitle):
+            Switch {
+                Case sections.topRight: Youtube.Like()
+            }
         Case WinActive(Browser.winTitle):
             Switch {
-                Case sections.right:         NextTab()
-                Case sections.left:          PrevTab()
-                Case sections.up:            RestoreTab()
+                Case sections.right:           NextTab()
+                Case sections.left:            PrevTab()
+                Case sections.up:              RestoreTab()
                 ; Case WinActive(VK.winTitle): VK.Scroll()
-                Case sections.down:          CloseTab()
+                Case sections.down:            CloseTab()
             }
         Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
             Switch {
@@ -61,7 +65,6 @@ XButton1:: {
                 Case sections.down:       Spotify.ToggleShuffle()
             }
         Case WinActive(Telegram.winTitle) && sections.down:Telegram.Scroll()
-        Case WinActive(Discord.winTitle)  && sections.down:Send("{Esc}")
     }
 }
 

@@ -30,7 +30,7 @@ XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 
 ; Media_Stop & RButton::
 Media_Stop & MButton::F5
-Media_Stop & LButton::Screenshot.Start()
+; Media_Stop & LButton::Screenshot.Start()
 
 XButton2 & Media_Stop::Script.Reload()
 
