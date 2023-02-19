@@ -153,6 +153,14 @@ Class Spotify {
         }).Click()
     }
 
+    static SkipPrev() {
+        Spotify.UIA.ContentInfo.WaitElement({
+            Name: "Previous",
+            Type: "Button",
+            Scope: 2
+        }).Click()
+    }
+
     static Context() {
         MouseGetPos(&x, &y)
         Spotify.UIA.InnerContentInfo.WaitElement({
