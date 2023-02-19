@@ -37,6 +37,10 @@ XButton1:: {
         Case WinActive(Youtube.winTitle):
             Switch {
                 Case sections.topRight: Youtube.Like()
+                Case sections.right:    NextTab()
+                Case sections.left:     PrevTab()
+                Case sections.up:       RestoreTab()
+                Case sections.down:     CloseTab()
             }
         Case WinActive(Browser.winTitle):
             Switch {
