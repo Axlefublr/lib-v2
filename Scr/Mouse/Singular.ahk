@@ -28,10 +28,14 @@ XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 #!LButton::Hider(false)
 #LButton::Hider()
 
-; Media_Stop & RButton::
-Media_Stop & MButton::F5
-; Media_Stop & LButton::Screenshot.Start()
+Media_Stop & XButton1::Copy()
+Media_Stop & XButton2::Paste()
 
+; Media_Stop & RButton::return
+Media_Stop & MButton::F5
+; Media_Stop & LButton::return
+
+XButton1 & Media_Stop::return
 XButton2 & Media_Stop::Script.Reload()
 
 #MaxThreadsBuffer false
