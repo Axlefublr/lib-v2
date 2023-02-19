@@ -62,7 +62,6 @@ XButton1:: {
                 Case sections.up:         Spotify.ToggleLike()
                 Case sections.down:       Spotify.ToggleShuffle()
             }
-        Case WinActive(Telegram.winTitle) && sections.down:Telegram.Scroll()
     }
 }
 

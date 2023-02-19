@@ -9,7 +9,6 @@
 
 #MaxThreadsBuffer true
 
-; Case WinActive(Telegram.winTitle):Telegram.Voice()
 ; Case WinActive(Discord.winTitle):Discord.Gif()
 
 #MaxThreadsBuffer false
