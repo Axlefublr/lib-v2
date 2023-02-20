@@ -22,7 +22,6 @@
 #Include <Scr\Mouse\Singular>
 #Include <Scr\Mouse\AppActions>
 #Include <Scr\Mouse\XButton2>
-#Include <Scr\Mouse\SpecialSide>
 
 ;; Keys
 

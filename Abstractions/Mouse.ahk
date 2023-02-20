@@ -2,8 +2,8 @@
 
 class Mouse {
 
-    static SmallMove  := 10
-    static MediumMove := 50
+    static SmallMove  := 20
+    static MediumMove := 70
     static BigMove    := 200
 
     static HorizontalSeparator := 20

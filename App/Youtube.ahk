@@ -47,37 +47,30 @@ Class Youtube {
 
     class UIA {
 
-        static FullScreenDocument {
+        static MainGroup {
             get => Browser.UIA.Document.FindElement({
-                Type: 50025
+                Type: "Group"
+            }).FindElement({
+                Type: "Group",
+                Scope: 2
             })
         }
 
         static MainElement {
-            get {
-                props := {
-                    Type: "Group",
-                    LocalizedType: "main",
-                    Scope: 2
-                }
-                try return Browser.UIA.Document.FindElement(props)
-                try return Youtube.UIA.FullScreenDocument.FindElement(props)
-            }
+            get => Youtube.UIA.MainGroup.FindElement({
+                LocalizedType: "main",
+                Scope: 2
+            })
         }
-
-        ; static VideoInteractionElement {
-        ;     get => Youtube.UIA.MainElement.FindElement({
-        ;         Type: 50025,
-        ;         Scope: 2,
-        ;         Index: 2,
-        ;     })
-        ; }
 
         static LikeButtonElement {
             get => Youtube.UIA.MainElement.FindElement({
-                Type: "Button",
-                Name: "like",
-                Matchmode: "Substring"
+                Type: "Group",
+                ClassName: "style-scope ytd-segmented-like-dislike-button-renderer",
+                Scope: 2
+            }).FindElement({
+                LocalizedType: "toggle button",
+                Scope: 2
             })
         }
 

@@ -2,9 +2,9 @@
 #Include <System\UIA>
 
 Class Browser {
-    static exeTitle := "ahk_exe firefox.exe"
-    static winTitle := "Mozilla Firefox " Browser.exeTitle
-    static path := A_ProgramFiles "\Mozilla Firefox\firefox.exe"
+    static exeTitle := "ahk_exe msedge.exe"
+    static winTitle := "Edge " Browser.exeTitle
+    static path := "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
 
     static winObj := Win({
         winTitle: Browser.winTitle,
@@ -37,13 +37,30 @@ Class Browser {
             get => UIA.ElementFromHandle(Browser.winTitle)
         }
 
-        static Document {
+        static BrowserClient {
             get => Browser.UIA.Window.FindElement({
-                Type: "Custom",
-                AutomationId: "panel-1-2",
+                ClassName:     "BrowserRootView"
+            }).FindElement({
+                ClassName: "NonClientView"
+            }).FindElement({
+                ClassName: "GlassBrowserFrameView"
+            }).FindElement({
+                ClassName: "BrowserView"
+            })
+        }
+
+        static Document {
+            get => Browser.UIA.BrowserClient.FindElement({
+                ClassName: "SidebarContentsSplitView",
                 Scope: 2
             }).FindElement({
-                Type: "Pane"
+                ClassName: "SidebarContentsSplitView"
+            }).FindElement({
+                ClassName: "SidebarContentsSplitView"
+            }).FindElement({
+                ClassName: "SidebarContentsSplitView"
+            }).FindElement({
+                ClassName: "View"
             }).FindElement({
                 Type: "Document"
             })

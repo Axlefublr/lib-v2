@@ -118,7 +118,7 @@ class Enumeration {
 ; Access properties with UIA.property.subproperty (UIA.Type.Button)
 ; To get the property name from value, use the array style: UIA.property[value] (UIA.Type[50000] == "Button")
 
-; enum MatchMode Contains string comparison options used in various methods involving element comparison with condition. 
+; enum MatchMode Contains string comparison options used in various methods involving element comparison with condition.
 static MatchMode := {StartsWith:1, Substring:2, Exact:3, RegEx:"RegEx", base:UIA.Enumeration.Prototype}
 ; enum CaseSense Contains CaseSense options used in various methods involving element comparison with condition.
 static CaseSense := {Off:0, On:1, Default:1, base:UIA.Enumeration.Prototype}
@@ -537,17 +537,17 @@ static ClearAllHighlights() => UIA.IUIAutomationElement.Prototype.Highlight("cle
 
 /**
  * Create a property condition from an AHK object
- * @param condition Object or Array that contains property conditions.  
- * * A single property condition consists of an object where the key is the property name, and value is the property value:  
- *     `{Name:"Test"}` => Creates a condition where the Name property must match "Test" exactly  
- * * Everything inside {} is an "and" condition  
- *     `{Type:"Button", Name:"Something"}` => Name must match "Something" AND Type must be Button  
- * * Everything inside [] is an "or" condition  
- *     `[{Name:"Test"}, {Name:"Something"}]` Name must match "Test" OR Name must match "Something"  
- * * Object key "not" creates a not condition  
+ * @param condition Object or Array that contains property conditions.
+ * * A single property condition consists of an object where the key is the property name, and value is the property value:
+ *     `{Name:"Test"}` => Creates a condition where the Name property must match "Test" exactly
+ * * Everything inside {} is an "and" condition
+ *     `{Type:"Button", Name:"Something"}` => Name must match "Something" AND Type must be Button
+ * * Everything inside [] is an "or" condition
+ *     `[{Name:"Test"}, {Name:"Something"}]` Name must match "Test" OR Name must match "Something"
+ * * Object key "not" creates a not condition
  *
- * * matchmode key (short form: mm) can be one of UIA.MatchMode values (except StartsWith and RegEx) and defines the MatchMode:  
- *     2=can contain anywhere in string; 3=exact match  
+ * * matchmode key (short form: mm) can be one of UIA.MatchMode values (except StartsWith and RegEx) and defines the MatchMode:
+ *     2=can contain anywhere in string; 3=exact match
  * * casesense key (short form: cs) defines case sensitivity (default: case-sensitive/True): True=case sensitive; False=case insensitive
  *
  * @param value If this is set then UIA.CreatePropertyCondition will be called instead, with "condition" being the Property name.
@@ -849,7 +849,7 @@ static SmallestElementFromPoint(x?, y?, element?, cacheRequest?) {
  */
 static GetFocusedElement(cacheRequest?) {
     if IsSet(cacheRequest)
-        return UIA.GetFocusedElementBuildCache(cacheRequest) 
+        return UIA.GetFocusedElementBuildCache(cacheRequest)
     if (ComCall(8, this, "ptr*", &element := 0), element)
         return UIA.IUIAutomationElement(element)
     throw UnsetError("No element returned by " A_ThisFunc, -1)
@@ -1324,9 +1324,9 @@ static WindowFromPoint(X, Y?) { ; by SKAN and Linear Spoon
 
 /**
  * Checks whether two rectangles intersect and if they do, then returns an object containing the
- * rectangle of the intersection: {l:left, t:top, r:right, b:bottom}  
- * Note 1: Overlapping area must be at least 1 unit.  
- * Note 2: Second rectangle starting at the edge of the first doesn't count as intersecting:  
+ * rectangle of the intersection: {l:left, t:top, r:right, b:bottom}
+ * Note 1: Overlapping area must be at least 1 unit.
+ * Note 2: Second rectangle starting at the edge of the first doesn't count as intersecting:
  *     {l:100, t:100, r:200, b:200} does not intersect {l:200, t:100, 400, 400}
  * @param l1 x-coordinate of the upper-left corner of the first rectangle
  * @param t1 y-coordinate of the upper-left corner of the first rectangle
@@ -2050,7 +2050,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     DumpAll(delimiter:=" ", maxDepth:=-1) => this.Dump(5, delimiter, maxDepth)
 
     /**
-     * Returns an UIA path leading to the target element.  
+     * Returns an UIA path leading to the target element.
      * This path consists of Type and index information.
      * @param targetEl The element the path will lead to from this element
      * @param cached Whether this element contains a cached tree that should be used for the search.
@@ -2147,22 +2147,22 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     /**
      * Tries to click the element. The method depends on WhichButton variable: by default it is attempted
      * to use any "click"-like methods, such as InvokePattern Invoke(), TogglePattern Toggle(), SelectionItemPattern Select().
-     * @param WhichButton 
+     * @param WhichButton
      * * If WhichButton is left empty (default), then any "click"-like pattern methods
-     * will be used (Invoke(), Toggle(), Select() etc.  
-     * * If WhichButton is a number, then Sleep will be called afterwards with that number of milliseconds.  
-     *     Eg. Element.Click(200) will sleep 200ms after "clicking".  
+     * will be used (Invoke(), Toggle(), Select() etc.
+     * * If WhichButton is a number, then Sleep will be called afterwards with that number of milliseconds.
+     *     Eg. Element.Click(200) will sleep 200ms after "clicking".
      * * If WhichButton is "left" or "right", then the native Click() will be used to move the cursor to
-     * the center of the element and perform a click.  
+     * the center of the element and perform a click.
      * @param ClickCount Is used if WhichButton isn't a number or left empty, that is if AHK Click()
-     * will be used. In this case if ClickCount is a number <10, then that number of clicks will be performed.  
+     * will be used. In this case if ClickCount is a number <10, then that number of clicks will be performed.
      * If ClickCount is >=10, then Sleep will be called with that number of ms. Both ClickCount and sleep time
-     * can be combined by separating with a space.  
-     * Eg. Element.Click("left", 1000) will sleep 1000ms after clicking.  
-     *     Element.Click("left", 2) will double-click the element  
-     *     Element.Click("left" "2 1000") will double-click the element and then sleep for 1000ms  
+     * can be combined by separating with a space.
+     * Eg. Element.Click("left", 1000) will sleep 1000ms after clicking.
+     *     Element.Click("left", 2) will double-click the element
+     *     Element.Click("left" "2 1000") will double-click the element and then sleep for 1000ms
      * @param DownOrUp If AHK Click is used, then this will either press the mouse down, or release it.
-     * @param Relative If Relative is "Rel" or "Relative" then X and Y coordinates are treated as offsets from the current mouse position.  
+     * @param Relative If Relative is "Rel" or "Relative" then X and Y coordinates are treated as offsets from the current mouse position.
      * Otherwise it expects offset values for both X and Y (eg "-5 10" would offset X by -5 and Y by +10 from the center of the element).
      * @param NoActivate If AHK Click is used, then this will determine whether the window is activated
      * before clicking if the clickable point isn't visible on the screen. Default is no activating.
@@ -2233,8 +2233,8 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 
     /**
      * Uses ControlClick to click the element.
-     * @param WhichButton determines which button to use to click (left, right, middle).  
-     * If WhichButton is a number, then a Sleep will be called afterwards.  
+     * @param WhichButton determines which button to use to click (left, right, middle).
+     * If WhichButton is a number, then a Sleep will be called afterwards.
      * Eg. ControlClick(200) will sleep 200ms after clicking.
      * @param ClickCount How many times to click. Default is 1.
      * @param Options Additional ControlClick Options (see AHK documentations).
@@ -2247,7 +2247,7 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     }
     /**
      * Highlights the element for a chosen period of time.
-     * @param showTime Can be one of the following:  
+     * @param showTime Can be one of the following:
      * * Unset - if highlighting exists then removes the highlighting, otherwise highlights for 2 seconds. This is the default value.
      * * 0 - Indefinite highlighting
      * * Positive integer (eg 2000) - will highlight and pause for the specified amount of time in ms
@@ -2336,15 +2336,15 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     /**
      * Checks whether an element that matches the specified condition exists within the provided TreeScope.
      * If no element is found, then 0 is returned.
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
-     * See a more detailed explanation under FindElement condition argument.  
-     * Default MatchMode is "Exact", and CaseSense "On".  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
+     * See a more detailed explanation under FindElement condition argument.
+     * Default MatchMode is "Exact", and CaseSense "On".
      * Note: MatchMode "StartsWith" and "RegEx" will have the performance of FindElements (slower).
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
      * @param index Looks for the n-th element matching the condition
      * @param order Optional: custom tree navigation order, one of UIA.TreeTraversalOptions values (LastToFirstOrder, PostOrder, LastToFirstPostOrder). Default is FirstToLast and PreOrder. [requires Windows 10 version 1703+]
-     * @param startingElement Optional: search will start from this element instead, which must be a child/descendant of the starting element [requires Windows 10 version 1703+]  
+     * @param startingElement Optional: search will start from this element instead, which must be a child/descendant of the starting element [requires Windows 10 version 1703+]
      *     If startingElement is supplied then part of the tree will not be searched (depending on TreeTraversalOrder, either everything before this element, or everything after it will be ignored)
      * @param cacheRequest Optional: cache request object
      * @returns {UIA.IUIAutomationElement}
@@ -2463,10 +2463,10 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
      * CachedElementExist can be used to find an element inside a cached tree, using only cached properties.
      * This is not a UIA native method: make sure the cached tree is reasonably small, otherwise the performance will suffer.
      * If no element is found, then 0 is returned.
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
-     * Default MatchMode is "Exact", and CaseSense "On".  
-     * See a more detailed explanation under FindElement condition argument.  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
+     * Default MatchMode is "Exact", and CaseSense "On".
+     * See a more detailed explanation under FindElement condition argument.
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
      * @param index Looks for the n-th element matching the condition
      * @param order Optional: custom tree navigation order, one of UIA.TreeTraversalOptions values (LastToFirstOrder, PostOrder, LastToFirstPostOrder). Default is FirstToLast and PreOrder.
@@ -2486,9 +2486,9 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
      * FindCachedElement can be used to find an element inside a cached tree, using only cached properties.
      * This is not a UIA native method: make sure the cached tree is reasonably small, otherwise the performance will suffer.
      * If no element is found, then a TargetError is thrown.
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
-     * Default MatchMode is "Exact", and CaseSense "On".  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
+     * Default MatchMode is "Exact", and CaseSense "On".
      * See a more detailed explanation under FindElement condition argument.
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
      * @param index Looks for the n-th element matching the condition
@@ -2569,10 +2569,10 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 
     /**
      * Returns all UI Automation elements that satisfy the specified condition.
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
-     * Default MatchMode is "Exact", and CaseSense "On".  
-     * See a more detailed explanation under FindElement condition argument.  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
+     * Default MatchMode is "Exact", and CaseSense "On".
+     * See a more detailed explanation under FindElement condition argument.
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
      * @param order Optional: custom tree navigation order, one of UIA.TreeTraversalOptions values (LastToFirstOrder, PostOrder, LastToFirstPostOrder). Default is FirstToLast and PreOrder. [requires Windows 10 version 1703+]
      * @param startingElement Optional: element with which to begin the search [requires Windows 10 version 1703+]
@@ -2636,9 +2636,9 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     /**
      * Returns all UI Automation elements that satisfy the specified condition inside a cached tree, checking only cached properties.
      * This is not a UIA native method: make sure the cached tree is reasonably small, otherwise the performance will suffer.
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
-     * Default MatchMode is "Exact", and CaseSense "On".  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
+     * Default MatchMode is "Exact", and CaseSense "On".
      * See a more detailed explanation under FindElement condition argument.
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
      * @param order Optional: custom tree navigation order, one of UIA.TreeTraversalOptions values (LastToFirstOrder, PostOrder, LastToFirstPostOrder). Default is FirstToLast and PreOrder.
@@ -2703,8 +2703,8 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 
     /**
      * Wait element to exist.
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
      * See a more detailed explanation under FindElement condition argument.
      * @param timeOut Waiting time for element to appear in ms. Default: indefinite wait
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
@@ -2727,8 +2727,8 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
 
     /**
      * Wait element to not exist (disappear).
-     * @param condition The condition to filter with.  
-     * The condition object additionally supports named parameters.  
+     * @param condition The condition to filter with.
+     * The condition object additionally supports named parameters.
      * See a more detailed explanation under FindElement condition argument.
      * @param timeout Waiting time for element to disappear. Default: indefinite wait
      * @param scope Optional TreeScope value: Element, Children, Family (Element+Children), Descendants, Subtree (=Element+Descendants). Default is Descendants.
@@ -2749,19 +2749,19 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     }
 
     /**
-     * Tries to get an element from a path. If no element is found, an IndexError is thrown.  
-     * `ElementFromPath(path1[, path2, ...])`  
-     * 
+     * Tries to get an element from a path. If no element is found, an IndexError is thrown.
+     * `ElementFromPath(path1[, path2, ...])`
+     *
      * Paths can be:
      * 1. Comma-separated numeric path that defines which path to travel down the tree. In addition
-     *     to integer values, or TypeN which selects the nth occurrence of Type.  
-     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child  
+     *     to integer values, or TypeN which selects the nth occurrence of Type.
+     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child
      *         `Element.ElementFromPath("Button3,2")` => selects Elements third child of type Button, then its second child
      *
-     * 2. UIA path copied from UIAViewer.  
+     * 2. UIA path copied from UIAViewer.
      *     Eg. `Element.ElementFromPath("bAx3")`
      *
-     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.  
+     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.
      *        Eg. `Element.ElementFromPath({Type:"Button"}, {Type:"List"})` => finds the first Button type child of Element, then the first List type child of that element
      *
      * @returns {UIA.IUIAutomationElement}
@@ -2773,20 +2773,20 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     }
 
     /**
-     * Tries to get a cached element from a path. If no element is found, an IndexError is thrown.  
-     * This method uses only cached elements and cached properties to perform the search.  
-     * `CachedElementFromPath(path1[, path2, ...])`  
-     * 
+     * Tries to get a cached element from a path. If no element is found, an IndexError is thrown.
+     * This method uses only cached elements and cached properties to perform the search.
+     * `CachedElementFromPath(path1[, path2, ...])`
+     *
      * Paths can be:
      * 1. Comma-separated numeric path that defines which path to travel down the tree. In addition
-     *     to integer values, or TypeN which selects the nth occurrence of Type.  
-     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child  
+     *     to integer values, or TypeN which selects the nth occurrence of Type.
+     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child
      *         `Element.ElementFromPath("Button3,2")` => selects Elements third child of type Button, then its second child
      *
-     * 2. UIA path copied from UIAViewer.  
+     * 2. UIA path copied from UIAViewer.
      *     Eg. `Element.ElementFromPath("bAx3")`
      *
-     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.  
+     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.
      *        Eg. `Element.ElementFromPath({Type:"Button"}, {Type:"List"})` => finds the first Button type child of Element, then the first List type child of that element
      *
      * @returns {UIA.IUIAutomationElement}
@@ -2835,14 +2835,14 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
      *
      * Paths can be:
      * 1. Comma-separated numeric path that defines which path to travel down the tree. In addition
-     *     to integer values, or TypeN which selects the nth occurrence of Type.  
-     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child  
+     *     to integer values, or TypeN which selects the nth occurrence of Type.
+     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child
      *         `Element.ElementFromPath("Button3,2")` => selects Elements third child of type Button, then its second child
      *
-     * 2. UIA path copied from UIAViewer.  
+     * 2. UIA path copied from UIAViewer.
      *     Eg. `Element.ElementFromPath("bAx3")`
      *
-     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.  
+     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.
      *        Eg. `Element.ElementFromPath({Type:"Button"}, {Type:"List"})` => finds the first Button type child of Element, then the first List type child of that element
      *
      * @returns {UIA.IUIAutomationElement}
@@ -2855,13 +2855,13 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     }
 
     /**
-     * Checks whether a cached element exists at a path and returns the cached element if one is found.  
-     * This method uses only cached elements and cached properties to perform the search.  
+     * Checks whether a cached element exists at a path and returns the cached element if one is found.
+     * This method uses only cached elements and cached properties to perform the search.
      * If no element is found, 0 is returned.
-     * 
-     * @param paths Either an UIA path, numeric path, or condition path.  
+     *
+     * @param paths Either an UIA path, numeric path, or condition path.
      * See longer explanation under CachedElementFromPath
-     * 
+     *
      * @returns {UIA.IUIAutomationElement}
      */
     CachedElementFromPathExist(paths*) {
@@ -2872,19 +2872,19 @@ class IUIAutomationElement extends UIA.IUIAutomationBase {
     }
 
     /**
-     * Wait element to appear at a path.  
+     * Wait element to appear at a path.
      * `WaitElementFromPath(path1[, path2, ...])`
      *
      * Paths can be:
      * 1. Comma-separated numeric path that defines which path to travel down the tree. In addition
-     *     to integer values, or TypeN which selects the nth occurrence of Type.  
-     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child  
+     *     to integer values, or TypeN which selects the nth occurrence of Type.
+     *     Eg. `Element.ElementFromPath("3,2")` => selects Elements third childs second child
      *         `Element.ElementFromPath("Button3,2")` => selects Elements third child of type Button, then its second child
      *
-     * 2. UIA path copied from UIAViewer.  
+     * 2. UIA path copied from UIAViewer.
      *     Eg. `Element.ElementFromPath("bAx3")`
      *
-     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.  
+     * 3. A condition or conditions. In this case the provided conditions define the route of tree-traversal, by default with Scope Children.
      *        Eg. `Element.ElementFromPath({Type:"Button"}, {Type:"List"})` => finds the first Button type child of Element, then the first List type child of that element
      *
      * @returns {UIA.IUIAutomationElement}
@@ -6625,7 +6625,7 @@ class Viewer {
         ; Set TreeScope to include the starting element and all descendants as well
         this.cacheRequest.TreeScope := 5
 
-        this.gViewer := Gui("AlwaysOnTop Resize +MinSize520x400","UIAViewer")
+        this.gViewer := Gui("Resize +MinSize520x400","UIAViewer")
         this.gViewer.OnEvent("Close", (*) => ExitApp())
         this.gViewer.OnEvent("Size", this.GetMethod("gViewer_Size").Bind(this))
         this.gViewer.Add("Text", "w100", "Window Info").SetFont("bold")
