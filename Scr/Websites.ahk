@@ -1,4 +1,5 @@
 #Include <Utils\KeyChorder>
+#Include '..\Misc\Meditate.ahk'
 #Include <App\Browser>
 #Include <App\Steam>
 #Include <App\DS4>
@@ -26,6 +27,8 @@
         "s", () => Steam.winObj.App(),
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
+        "k", () => KeyCodeGetter(),
+        "e", () => Meditate(),
 
     )
     if key

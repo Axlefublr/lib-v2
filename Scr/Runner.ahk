@@ -17,8 +17,6 @@
 
     static runner_commands := Map(
 
-        "m",     () => Meditate(20),
-        "kb",    () => KeyCodeGetter(),
         "libs?", () => Infos(CountLibraries()),
 
         ;Apps
