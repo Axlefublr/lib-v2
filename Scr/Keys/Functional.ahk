@@ -1,6 +1,5 @@
 #Include <Tools\Info>
 #Include <Tools\Counter>
-#Include <Tools\Stopwatch>
 #Include <Tools\CoordGetter>
 #Include <Tools\KeycodeGetter>
 #Include <Tools\WindowGetter>

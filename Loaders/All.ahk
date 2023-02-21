@@ -38,11 +38,9 @@
 #Include <Tools\CoordGetter>
 #Include <Tools\FileSystemSearch>
 #Include <Tools\InternetSearch>
-#Include <Tools\Timer>
 #Include <Tools\WindowGetter>
 #Include <Tools\KeycodeGetter>
 #Include <Tools\Counter>
-#Include <Tools\Stopwatch>
 #Include <Tools\HoverScreenshot>
 #Include <Tools\RelativeCoordGetter>
 #Include <Tools\Snake>

@@ -38,13 +38,9 @@
 
     try runner_commands[input].Call()
     catch Any {
-        RegexMatch(input, "^(p|o|op|r|t|fav|ev|i|show|link|ep|delow|gl|go|install|chrs|dd|down|drop|disc|sy|ts|evp|cp|m|glo) (.+)", &result)
+        RegexMatch(input, "^(cp|glo|p|o|rap|t|fav|ev|i|show|link|ep|delow|gl|go|install|dd|down|drop|disc|evp) (.+)", &result)
         static runner_regex := Map(
 
-            "op", (input) => (
-                A_Clipboard := Links[input],
-                Browser.RunLink(Links[input])
-            ),
             "cp", (input) => (
                 A_Clipboard := input,
                 Info('"' input '" copied')
@@ -56,8 +52,7 @@
             ),
             "p",       (input) => ClipSend(Links[input], , false),
             "o",       (input) => Browser.RunLink(Links[input]),
-            "r",       (input) => Spotify.NewRapper(input),
-            "t",       (input) => Timer(input).Start(),
+            "rap",       (input) => Spotify.NewRapper(input),
             "fav",     (input) => Spotify.FavRapper_Manual(input),
             "ev",      (input) => Infos(Calculator(input)),
             "evp",     (input) => ClipSend(Calculator(input)),
@@ -66,15 +61,13 @@
             "down",    (input) => Shows().Run(input, "downloaded"),
             "link",    (input) => Shows().SetLink(input),
             "ep",      (input) => Shows().SetEpisode(input),
-            "dd",      (input) => Shows().SetDownloaded(input),
             "delow",   (input) => Shows().DeleteShow(input),
+            "dd",      (input) => Shows().SetDownloaded(input),
             "drop",    (input) => Shows().DeleteShow(input, true),
             "gl",      (input) => ClipSend(Git.Link(input),, false),
             "go",      (input) => Browser.RunLink(Git.Link(input)),
             "install", (input) => Git.InstallAhkLibrary(input),
-            "chrs",    (input) => ClipSend(CharGenerator(2).GenerateCharacters(input)),
             "disc",    (input) => Spotify.NewDiscovery_Manual(input),
-            "sy",      (input) => Symbol(input),
 
         )
         try runner_regex[result[1]].Call(result[2])
