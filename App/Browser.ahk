@@ -13,7 +13,7 @@ Class Browser {
 
     /**
      * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
-     * @param link *String*
+     * @param {String} link
      */
     static RunLink(link) => (
         Run(link),

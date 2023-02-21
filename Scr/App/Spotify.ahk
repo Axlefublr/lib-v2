@@ -2,7 +2,7 @@
 
 #HotIf WinActive(Spotify.exeTitle)
 F1::Spotify.PlaylistSorter.ToggleHotkey()
-F2::Spotify.TrashTrack()
+F2::Spotify.UIA.RemoveFromCurrentPlaylist()
 
 !w::Spotify.ToggleLike()
 !e::Spotify.LikedPlaylist()

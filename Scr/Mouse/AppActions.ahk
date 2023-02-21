@@ -58,7 +58,7 @@ XButton1:: {
                 Case sections.topRight:   Spotify.NewDiscovery()
                 Case sections.bottomRight:Spotify.Discovery()
                 Case sections.topLeft:    Spotify.AddCurrentToBest()
-                Case sections.bottomLeft: Spotify.TrashTrack()
+                Case sections.bottomLeft: Spotify.UIA.RemoveFromCurrentPlaylist()
                 Case sections.up:         Spotify.ToggleLike()
                 Case sections.down:       Spotify.ToggleShuffle()
             }

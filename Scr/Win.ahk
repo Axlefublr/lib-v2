@@ -8,6 +8,7 @@
 #Include <App\VsCode>
 #Include <App\Terminal>
 #Include <App\Spotify>
+#Include <App\ClockApp>
 
 #MaxThreadsBuffer true
 
@@ -18,6 +19,7 @@
 <!t::Telegram.winObj.App()
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
+<!x::ClockApp.winObj.App()
 !Pause::OBS.winObj.App()
 
 #MaxThreadsBuffer false

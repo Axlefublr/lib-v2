@@ -13,33 +13,23 @@ Class Youtube {
 
     static SkipPrev() => Send("+p")
 
-    static ClickProfile() => Youtube.UIA.AccountElement.Click()
-
-    static StudioClickProfile() => Youtube.UIA.StudioAccountElement.Click()
-
-    static WaitUntilProfileWindow() {
-        Youtube.ClickProfile()
-        if !WaitUntilPixChange([1520, 136])
-            return
-    }
-
     static ChannelSwitch() {
-        Youtube.WaitUntilProfileWindow()
+        Youtube.UIA.AccountElement.Click()
         Youtube.UIA.SwitchAccountElement.Click()
     }
 
     static StudioChannelSwitch() {
-        Youtube.StudioClickProfile()
+        Youtube.UIA.StudioAccountElement.Click()
         Youtube.UIA.StudioSwitchAccountElement.Click()
     }
 
     static StudioSwitch() {
-        Youtube.WaitUntilProfileWindow()
+        Youtube.UIA.AccountElement.Click()
         Youtube.UIA.YoutubeStudioElement.Click()
     }
 
     static ToYouTube() {
-        Youtube.StudioClickProfile()
+        Youtube.UIA.StudioAccountElement.Click()
         Youtube.UIA.StudioToYoutubeElement.Click()
     }
 
@@ -75,20 +65,18 @@ Class Youtube {
         }
 
         static BannerElement {
-            get => Browser.UIA.Document.FindElement({
-                ; Type: "Group",
+            get => Youtube.UIA.MainGroup.FindElement({
                 LocalizedType: "banner",
-                ; AutomationId: "masthead",
                 Scope: 2
             })
         }
 
         static AccountElement {
             get => Youtube.UIA.BannerElement.FindElement({
-                Type: "MenuItem",
+                Type: "Button",
                 Name: "Account profile photo that opens list of alternate accounts",
                 AutomationId: "avatar-btn",
-                Scope: 2
+                Order: 2
             })
         }
 
@@ -101,9 +89,10 @@ Class Youtube {
         }
 
         static AccountFloatingMenuElement {
-            get => Browser.UIA.Document.WaitElement({
-                AutomationId: "container",
-                ; Type: 50025,
+            get => Youtube.UIA.MainGroup.WaitElement({
+                Type: "Group",
+                Name: "Manage your Google Account Your channel YouTube Studio Switch account",
+                Matchmode: "Substring",
                 Order: 2
             })
         }
@@ -128,7 +117,7 @@ Class Youtube {
         static SwitchAccountElement {
             get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
                 Name: "Switch account",
-                Scope: 2
+                Type: "Link",
             })
         }
 
@@ -142,8 +131,8 @@ Class Youtube {
 
         static YoutubeStudioElement {
             get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
+                Type: "Link",
                 Name: "YouTube Studio",
-                Scope: 2
             })
         }
     }

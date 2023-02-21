@@ -82,6 +82,7 @@
 #Include <App\VPN>
 #Include <App\DS4>
 #Include <App\FL>
+#Include <App\ClockApp>
 
 ;; System
 

@@ -8,6 +8,7 @@ ToggleVimMode() {
     ToggleInfo("Vim mode " position)
 }
 #sc33::ToggleVimMode()
+#s::ToggleVimMode()
 
 #HotIf Environment.VimMode
 

@@ -102,7 +102,7 @@ Class FileSystemSearch extends Gui {
                 this.List.Add(, A_LoopFileName, , A_LoopFileDir)
         }
 
-        try WinClose(gInfo.Hwnd)
+        gInfo.Destroy()
 
         this.List.Opt("+Redraw")
         this.List.ModifyCol() ;It makes the columns fit the data — @rbstrachan

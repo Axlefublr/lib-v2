@@ -131,12 +131,6 @@ Class Spotify {
         isStarted := true
     }
 
-    static TrashTrack() {
-        Spotify.UIA.Dislike()
-        Spotify.UIA.RemoveFromCurrentPlaylist()
-        Spotify.UIA.SkipNext()
-    }
-
     static LikedPlaylist() {
         Spotify.UIA.MainNavigation.WaitElement({
             Type:"Link",
