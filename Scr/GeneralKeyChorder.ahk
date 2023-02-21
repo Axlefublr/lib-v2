@@ -1,5 +1,5 @@
 #Include <Utils\KeyChorder>
-#Include '..\Misc\Meditate.ahk'
+#Include <Misc\Meditate>
 #Include <App\Browser>
 #Include <App\Steam>
 #Include <App\DS4>

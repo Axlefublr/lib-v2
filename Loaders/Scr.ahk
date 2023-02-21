@@ -40,7 +40,7 @@
 #Include <Scr\Hotstringer>
 #Include <Scr\Win>
 #Include <Scr\Explorer>
-#Include <Scr\Websites>
+#Include <Scr\GeneralKeyChorder>
 
 ;; Postload
 
