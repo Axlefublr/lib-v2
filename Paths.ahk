@@ -40,19 +40,7 @@ Class Paths {
     static Ptf := Map(
         "Main", this.Main "\.vscode\main.code-workspace",
 
-        "react",              this.Main "\Files\Images\react.png",
-        "switch account ytt", this.Main "\Files\Images\switch account ytt.png",
-        "youtube logo",       this.Main "\Files\Images\youtube logo.png",
-        "github",             this.Main "\Files\Images\github.png",
-        "edit",               this.Main "\Files\Images\edit.png",
-        "reply",              this.Main "\Files\Images\reply.png",
-        "vk reply",           this.Main "\Files\Images\vk reply.png",
-        "BlankPic",           this.Main "\Files\Images\BlankPic.png",
-
-        "Timer.txt",        this.Main "\Files\Innit\Timer.txt",
-        "Timer.json",       this.Main "\Files\Innit\Timer.json",
         "playlist-sorter",  this.Main "\Files\Innit\playlist-sorter.txt",
-        "current-playlist", this.Main "\Files\Innit\current-playlist.txt",
 
         "Hub", this.Main "\Hub.ahk",
 
@@ -74,8 +62,6 @@ Class Paths {
         "sus",               this.Audio "\Sounds\sus.wav",
         "i just farted",     this.Audio "\Sounds\i just farted.wav",
 
-        "Timer.ahk", this.Main "\Tools\Timer.ahk",
-
         "Discovery log", this.Music "\Discovery log.txt",
         "Unfinished",    this.Music "\Unfinished.txt",
         "Rappers",       this.Music "\Rappers.txt",
@@ -91,7 +77,7 @@ Class Paths {
         "FL preset", this.Pictures "\Tools\FL preset.flp",
 
         "Femboy", this.Pictures "\Other\femboy.png",
-        
+
     )
 
     static Apps := Map(
