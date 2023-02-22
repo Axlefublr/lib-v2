@@ -38,9 +38,9 @@ class Mouse {
             Click(which " Down")
     }
 
-    static MoveLeft(howMuch) => MouseMove(-howMuch, 0,, "R")
-    static MoveUp(howMuch) => MouseMove(0, -howMuch,, "R")
-    static MoveDown(howMuch) => MouseMove(0, howMuch,, "R")
+    static MoveLeft(howMuch)  => MouseMove(-howMuch, 0,, "R")
+    static MoveUp(howMuch)    => MouseMove(0, -howMuch,, "R")
+    static MoveDown(howMuch)  => MouseMove(0, howMuch,, "R")
     static MoveRight(howMuch) => MouseMove(howMuch, 0,, "R")
 
     /**

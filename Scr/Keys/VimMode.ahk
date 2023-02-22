@@ -16,10 +16,12 @@ h::Mouse.MoveLeft(Mouse.SmallMove)
 k::Mouse.MoveUp(Mouse.SmallMove)
 j::Mouse.MoveDown(Mouse.SmallMove)
 l::Mouse.MoveRight(Mouse.SmallMove)
+
 +h::Mouse.MoveLeft(Mouse.MediumMove)
 +k::Mouse.MoveUp(Mouse.MediumMove)
 +j::Mouse.MoveDown(Mouse.MediumMove)
 +l::Mouse.MoveRight(Mouse.MediumMove)
+
 ^h::Mouse.MoveLeft(Mouse.BigMove)
 ^k::Mouse.MoveUp(Mouse.BigMove)
 ^j::Mouse.MoveDown(Mouse.BigMove)

@@ -42,6 +42,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "systemwide vim mode",
+    "https://youtu.be/ezHN3E8YCLU",
+
     "C# terminal app",
     "https://youtu.be/RBOHKQtzcYk",
 
