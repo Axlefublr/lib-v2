@@ -39,4 +39,7 @@ Links_Tools := Map(
     "lscolor generator",
     "https://geoff.greer.fm/lscolors/",
 
+    "unblock vpn",
+    "https://unblockvpn.com/",
+
 )
