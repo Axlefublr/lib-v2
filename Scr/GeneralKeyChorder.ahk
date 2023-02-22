@@ -28,7 +28,7 @@
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
         "k", () => KeyCodeGetter(),
-        "e", () => Meditate(),
+        "M", () => Meditate(),
 
     )
     if key

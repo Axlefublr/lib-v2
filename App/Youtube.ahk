@@ -30,7 +30,7 @@ Class Youtube {
 
     static ToYouTube() {
         Youtube.UIA.StudioAccountElement.Click()
-        Youtube.UIA.StudioToYoutubeElement.Click()
+        Youtube.UIA.StudioAccountElement.Click()
     }
 
     static Like() => Youtube.UIA.LikeButtonElement.ToggleState := true
