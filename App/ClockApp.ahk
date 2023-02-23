@@ -10,6 +10,10 @@ class ClockApp {
         exePath:  ClockApp.path
     })
 
+    static IsStopwatchActive {
+        get => ClockApp.UIA.StopwatchElement.IsSelected
+    }
+
     class UIA {
 
         static MainElement {
@@ -19,8 +23,57 @@ class ClockApp {
                 Name: "Clock",
                 Scope: 2,
                 Order: 2
+            }).FindElement({
+                AutomationId: "NavView",
+                Scope: 2
             })
         }
+
+        static MainPane {
+            get => ClockApp.UIA.MainElement.FindElement({
+                Type: "Pane",
+                Scope: 2
+            })
+        }
+
+        static TabList {
+            get => ClockApp.UIA.MainElement.FindElement({
+                Type: "Window",
+                Scope: 2
+            }).FindElement({
+                AutomationId: "MenuItemsScrollViewer",
+                Scope: 2
+            }).FindElement({
+                AutomationId: "MenuItemsHost"
+            })
+        }
+
+        static StopwatchElement {
+            get => ClockApp.UIA.TabList.FindElement({
+                AutomationId: "StopwatchButton"
+            })
+        }
+
+        static ToolGroup {
+            get => ClockApp.UIA.MainPane.FindElement({
+                ClassName: "NamedContainerAutomationPeer",
+                Scope: 2,
+                Order: 2
+            })
+        }
+
+        static StartButton {
+            get => ClockApp.UIA.ToolGroup.FindElement({
+                AutomationId: "StopwatchPlayPauseButton"
+            })
+        }
+
+        static ResetButton {
+            get => ClockApp.UIA.ToolGroup.FindElement({
+                AutomationId: "StopWatchResetButton"
+            })
+        }
+
     }
 
 }
