@@ -2,4 +2,5 @@
 
 #HotIf WinActive(VK.winTitle)
 MButton::VK.Reply()
-#HotIf 
+^Enter::VK.Enter()
+#HotIf

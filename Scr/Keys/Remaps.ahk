@@ -1,9 +1,13 @@
 #InputLevel 6
 
-#sc35::return
-#sc28::return
 #f::Send("{Blind}k")
 #!sc27::Send("#;")
+
+; #sc28::return
+; #sc35::return
+#b::return
+#n::return
+
 !Space::return
 RAlt::LAlt
 AppsKey::RCtrl
