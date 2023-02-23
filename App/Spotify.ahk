@@ -23,7 +23,7 @@ Class Spotify {
     static Close() => Send("^+q")
 
     static GetCurrSong() {
-        currSong := WinGetTitle(Spotify.exeTitle)
+        currSong := Spotify.realTitle
         if currSong ~= "Spotify (Free)|(Premium)" {
             Info("No song is currently playing")
             return false

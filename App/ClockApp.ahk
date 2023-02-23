@@ -10,4 +10,17 @@ class ClockApp {
         exePath:  ClockApp.path
     })
 
+    class UIA {
+
+        static MainElement {
+            get => UIA.ElementFromHandle(ClockApp.winTitle).FindElement({
+                Type: "Window",
+                ClassName: "Windows.UI.Core.CoreWindow",
+                Name: "Clock",
+                Scope: 2,
+                Order: 2
+            })
+        }
+    }
+
 }
