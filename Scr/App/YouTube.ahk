@@ -6,6 +6,9 @@
 
 #HotIf WinActive(Youtube.winTitle)
 F1::try Youtube.Like()
+F2::i
+F3::Youtube.SaveToPlaylist()
+F4::Youtube.ToggleShuffle()
 
 PgDn::Youtube.SkipNext()
 PgUp::Youtube.SkipPrev()
@@ -19,6 +22,8 @@ XButton1:: {
         && WinActive(Youtube.Studio): try Youtube.ToYouTube()
         Case sections.topRight:       try Youtube.ChannelSwitch()
         Case sections.topLeft:        try Youtube.StudioSwitch()
+        Case sections.bottomLeft:     Send("i")
+        Case sections.bottomRight:    Youtube.SaveToPlaylist()
         Case sections.middle:         try Youtube.Like()
         Case sections.right:          NextTab()
         Case sections.left:           PrevTab()

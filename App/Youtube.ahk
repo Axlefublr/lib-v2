@@ -35,6 +35,18 @@ Class Youtube {
 
     static Like() => Youtube.UIA.LikeButtonElement.ToggleState := true
 
+    static ToggleShuffle() => Youtube.UIA.ShuffleButton.Toggle()
+
+    static SaveToPlaylist() {
+        Youtube.UIA.MoreActionsButton.Click()
+        while true {
+            try {
+                Youtube.UIA.SaveToPlaylistButton.Click()
+                break
+            }
+        }
+    }
+
     class UIA {
 
         static MainGroup {
@@ -53,6 +65,34 @@ Class Youtube {
             })
         }
 
+        static BannerElement {
+            get => Youtube.UIA.MainGroup.FindElement({
+                LocalizedType: "banner",
+                Scope: 2
+            })
+        }
+
+        static PopUpMenu {
+            get => Youtube.UIA.MainGroup.FindElement({
+                ClassName: "style-scope ytd-popup-container",
+                Type: "Group",
+                Scope: 2
+            }).FindElement({
+                Type: "Group",
+                Scope: 2
+            }).FindElement({
+                Type: "List",
+                Scope: 2
+            })
+        }
+
+        static SaveToPlaylistButton {
+            get => Youtube.UIA.PopUpMenu.FindElement({
+                Name: "Save",
+                Scope: 2
+            })
+        }
+
         static LikeButtonElement {
             get => Youtube.UIA.MainElement.FindElement({
                 Type: "Group",
@@ -64,9 +104,24 @@ Class Youtube {
             })
         }
 
-        static BannerElement {
-            get => Youtube.UIA.MainGroup.FindElement({
-                LocalizedType: "banner",
+        static SidePlaylist {
+            get => Youtube.UIA.MainElement.FindElement({
+                ClassName: "header style-scope ytd-playlist-panel-renderer",
+                Type: "Group",
+            })
+        }
+
+        static ShuffleButton {
+            get => Youtube.UIA.SidePlaylist.FindElement({
+                Name: "Shuffle playlist",
+                Order: 2
+            })
+        }
+
+        static MoreActionsButton {
+            get => Youtube.UIA.MainElement.FindElement({
+                Name: "More actions",
+                Type: "Button",
                 Scope: 2
             })
         }
