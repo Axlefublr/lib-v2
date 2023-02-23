@@ -49,7 +49,7 @@ class Registers {
      * You can still peek them using Peek()
      * @type {String}
      */
-    static ExplicitPeekOnly := "ysu890"
+    static ExplicitPeekOnly := "ysu7890"
 
     /**
      * Manage your clipboards by writing it to different files.

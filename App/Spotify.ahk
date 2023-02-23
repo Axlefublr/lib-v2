@@ -16,6 +16,10 @@ Class Spotify {
         exePath: Spotify.path
     })
 
+    static realTitle {
+        get => WinGetTitle(Spotify.winTitle)
+    }
+
     static Close() => Send("^+q")
 
     static GetCurrSong() {

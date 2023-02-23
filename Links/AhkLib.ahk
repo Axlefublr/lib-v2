@@ -40,6 +40,9 @@ Links_AhkLib := Map(
     "thqby ahk extension",
     "https://github.com/thqby/vscode-autohotkey2-lsp",
 
+    "thqby gdip",
+    "https://github.com/thqby/ahk2_lib/blob/master/CGdip.ahk",
+
     ;; Descolada
 
     "descolada libs",
