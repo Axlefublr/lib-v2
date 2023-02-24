@@ -208,4 +208,8 @@ Links_Memes := Map(
 
     "racism lore",
     "https://www.youtube.com/watch?v=325y8r3zSts&ab_channel=JamesProgaming",
+
+    "2016 xxl cypher",
+    "https://youtu.be/U_IbIMUbh-k",
+
 )
