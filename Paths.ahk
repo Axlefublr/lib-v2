@@ -40,7 +40,8 @@ Class Paths {
     static Ptf := Map(
         "Main", this.Main "\.vscode\main.code-workspace",
 
-        "playlist-sorter",  this.Main "\Files\Innit\playlist-sorter.txt",
+        "playlist-sorter", this.Main "\Files\Innit\playlist-sorter.txt",
+        "test-state",      this.main "\Files\Innit\test-state.txt",
 
         "Hub", this.Main "\Hub.ahk",
 
