@@ -77,14 +77,10 @@ w::Home
 e::End
 q::PgUp
 r::PgDn
-z::WheelLeft
-x::WheelUp
-c::WheelDown
-v::WheelRight
-z Up::return
-x Up::return
-c Up::return
-v Up::return
+*z::SendInput("{Blind}{Click WheelLeft}")
+*x::SendInput("{Blind}{Click WheelUp}")
+*c::SendInput("{Blind}{Click WheelDown}")
+*v::SendInput("{Blind}{Click WheelRight}")
 
 `::return
 -::return

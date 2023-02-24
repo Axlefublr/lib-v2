@@ -73,9 +73,9 @@ Class Spotify {
     }
 
     static AddCurrentToBest() {
-        Spotify.UIA.Context()
-        Spotify.UIA.AddToPlaylist("Best")
-        Spotify.UIA.Like()
+        Spotify.Context()
+        Spotify.AddToPlaylist("Best")
+        Spotify.Like()
     }
 
     static AutoNewDiscovery() => Spotify.NewDiscovery(Spotify.FirstArtistName)
