@@ -39,7 +39,7 @@ Class Browser {
 
         static BrowserClient {
             get => Browser.UIA.Window.FindElement({
-                ClassName:     "BrowserRootView"
+                ClassName: "BrowserRootView"
             }).FindElement({
                 ClassName: "NonClientView"
             }).FindElement({

@@ -51,6 +51,12 @@ Class Spotify {
         MouseMove(x, y)
     }
 
+    static TrashTrack() {
+        Spotify.Dislike()
+        Spotify.RemoveFromCurrentPlaylist()
+        Spotify.SkipNext()
+    }
+
     static RemoveFromCurrentPlaylist() {
         Spotify.Context()
         Spotify.UIA.RemoveFromPlaylistElement.Click()
