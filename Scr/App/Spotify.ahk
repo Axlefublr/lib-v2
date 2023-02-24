@@ -9,4 +9,6 @@ F2::Spotify.UIA.RemoveFromCurrentPlaylist()
 
 PgDn::Spotify.SkipNext()
 PgUp::Spotify.SkipPrev()
+
+MButton::Spotify.AddToQueue()
 #HotIf

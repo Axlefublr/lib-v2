@@ -171,6 +171,11 @@ Class Spotify {
     static Dislike() => Spotify.UIA.LikeState := false
     static ToggleLike() => Spotify.UIA.LikeState := !Spotify.UIA.LikeState
 
+    static AddToQueue() {
+        Click("R")
+        Spotify.UIA.AddToQueueElement.Click()
+    }
+
     static ToggleShuffle() {
         Spotify.UIA.ContentInfo.WaitElement({
             Type: "Button",
@@ -224,6 +229,12 @@ Class Spotify {
             get => Spotify.UIA.Document.WaitElement({
                 Type: "menu",
                 Scope: 2
+            })
+        }
+
+        static AddToQueueElement {
+            get => Spotify.UIA.ContextMenu.WaitElement({
+                Name: "Add to queue"
             })
         }
 
