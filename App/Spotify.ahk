@@ -45,6 +45,12 @@ Class Spotify {
         MouseMove(x, y)
     }
 
+    static ArtistContext() {
+        MouseGetPos(&x, &y)
+        Spotify.UIA.FirstArtist.Click("R")
+        MouseMove(x, y)
+    }
+
     static RemoveFromCurrentPlaylist() {
         Spotify.Context()
         Spotify.UIA.RemoveFromPlaylistElement.Click()
@@ -80,7 +86,12 @@ Class Spotify {
         Info(artistName " yet to be discovered! 📃")
     }
 
-    static AutoFavRapper() => Spotify.FavRapper(Spotify.FirstArtistName)
+    static AutoFavRapper() {
+        Spotify.ArtistContext()
+        if !Spotify.UIA.FollowState
+            Spotify.UIA.FollowButton.Click()
+        Spotify.FavRapper(Spotify.FirstArtistName)
+    }
 
     static FavRapper(artistName) {
         if Spotify._IsRapperFavorite(artistName)
@@ -164,6 +175,25 @@ Class Spotify {
                 Scope: 2
             })
         }
+
+        static ArtistContextMenu {
+            get => Spotify.UIA.Document.WaitElement({
+                Type: "Menu",
+                Scope: 2,
+                Order: 2
+            })
+        }
+
+            static FollowButton {
+                get => Spotify.UIA.ArtistContextMenu.FindElement({
+                    Name: "ollow",
+                    Matchmode: "Substring"
+                })
+            }
+
+                static FollowState {
+                    get => Spotify.UIA.FollowButton.Name = "Follow" ? false : true
+                }
 
         static ContextMenu {
             get => Spotify.UIA.Document.WaitElement({

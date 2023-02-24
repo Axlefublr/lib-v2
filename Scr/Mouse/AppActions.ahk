@@ -55,12 +55,13 @@ XButton1:: {
             }
         Case WinActive(Spotify.exeTitle):
             Switch {
-                Case sections.topRight:   Spotify.NewDiscovery()
+                Case sections.topRight:   Spotify.AutoFavRapper()
                 Case sections.bottomRight:Spotify.Discovery()
                 Case sections.topLeft:    Spotify.AddCurrentToBest()
-                Case sections.bottomLeft: Spotify.UIA.RemoveFromCurrentPlaylist()
-                Case sections.up:         Spotify.ToggleLike()
+                Case sections.bottomLeft: Spotify.RemoveFromCurrentPlaylist()
+                Case sections.up:         Spotify.AutoNewDiscovery()
                 Case sections.down:       Spotify.ToggleShuffle()
+                Case sections.middle:     Spotify.ToggleLike()
             }
     }
 }
