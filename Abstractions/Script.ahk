@@ -37,8 +37,7 @@ class Script {
     static Test() => Run(Paths.Ptf["AhkTest"])
 
     static ExitTest() {
-        DetectHiddenWindows(true)
-        PostMessage(0x5555, 11, 22, , "ahk_class AutoHotkey")
+        WriteFile(Paths.Ptf["test-state"], 0)
     }
 
 }
