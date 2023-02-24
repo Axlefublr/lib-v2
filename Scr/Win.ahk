@@ -1,4 +1,5 @@
 #Include <Utils\Win>
+#Include <Environment>
 #Include <App\VPN>
 #Include <Paths>
 #Include <App\Telegram>
@@ -11,6 +12,7 @@
 #Include <App\ClockApp>
 
 #MaxThreadsBuffer true
+#HotIf !Environment.VimMode
 
 <!s::Spotify.winObj.App()
 <!a::VsCode.winObj.App()
@@ -20,6 +22,9 @@
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
 <!x::ClockApp.winObj.App()
+
+#HotIf
+
 !Pause::OBS.winObj.App()
 
 #MaxThreadsBuffer false

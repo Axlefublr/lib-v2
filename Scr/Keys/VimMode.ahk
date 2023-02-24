@@ -12,6 +12,8 @@ ToggleVimMode() {
 
 #HotIf Environment.VimMode
 
+g::ToggleVimMode()
+
 h::Mouse.MoveLeft(Mouse.SmallMove)
 k::Mouse.MoveUp(Mouse.SmallMove)
 j::Mouse.MoveDown(Mouse.SmallMove)
@@ -93,7 +95,6 @@ p::return
 sc1A::return
 sc1B::return
 sc2B::return
-g::return
 sc27::return
 sc28::return
 b::return

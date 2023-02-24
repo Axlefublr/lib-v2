@@ -6739,8 +6739,7 @@ class Viewer {
     LoadSettings() {
         this.PathIgnoreNames := IniRead(UIA.Viewer.SettingsFilePath, "Path", "IgnoreNames", 1)
         this.PathType := IniRead(UIA.Viewer.SettingsFilePath, "Path", "Type", "")
-        ; this.AlwaysOnTop := IniRead(UIA.Viewer.SettingsFilePath, "General", "AlwaysOnTop", 1)
-        this.AlwaysOnTop := false
+        this.AlwaysOnTop := IniRead(UIA.Viewer.SettingsFilePath, "General", "AlwaysOnTop", 1)
     }
     ErrorHandler(Exception, Mode) => (OutputDebug(Format("{1} ({2}) : ({3}) {4}`n", Exception.File, Exception.Line, Exception.What, Exception.Message) (HasProp(Exception, "Extra") ? "    Specifically: " Exception.Extra "`n" : "") "Stack:`n" Exception.Stack "`n`n"), 1)
     ; Resizes window controls when window is resized

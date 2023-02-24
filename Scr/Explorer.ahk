@@ -2,8 +2,10 @@
 #Include <App\Explorer>
 #Include <Utils\Win>
 #Include <Abstractions\Registers>
+#Include <Environment>
 
 #MaxThreadsBuffer true
+#HotIf !Environment.VimMode
 
 <!d:: {
     try key := Registers.__ValidateKey(KeyChorder())
@@ -28,4 +30,5 @@
         try keyActions[key].Call()
 }
 
+#HotIf
 #MaxThreadsBuffer false
