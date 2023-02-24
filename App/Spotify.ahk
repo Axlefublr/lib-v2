@@ -26,6 +26,25 @@ Class Spotify {
 
     static Close() => Send("^+q")
 
+    static LikedPlaylist() => Spotify.UIA.LikedPlaylistElement.Click()
+    static SkipNext()      => Spotify.UIA.SkipNextElement.Click()
+    static SkipPrev()      => Spotify.UIA.SkipPrevElement.Click()
+    static Like()          => Spotify.UIA.LikeState := true
+    static Dislike()       => Spotify.UIA.LikeState := false
+    static ToggleLike()    => Spotify.UIA.LikeState := !Spotify.UIA.LikeState
+    static ToggleShuffle() => Spotify.UIA.ShuffleElement.Click()
+
+    static AddToQueue() {
+        Click("R")
+        Spotify.UIA.AddToQueueElement.Click()
+    }
+
+    static Context() {
+        MouseGetPos(&x, &y)
+        Spotify.UIA.CurrentTrack.Click("R")
+        MouseMove(x, y)
+    }
+
     static AutoNewDiscovery() => Spotify.NewDiscovery(Spotify.FirstArtistName)
 
     static NewDiscovery(artistName) {
@@ -47,56 +66,6 @@ Class Spotify {
             return
         AppendFile(Paths.Ptf["Artists"], "1. " DateTime.Date " - " artistName "`n")
         Info(artistName " is now your favorite! 🥰")
-    }
-
-    static LikedPlaylist() {
-        Spotify.UIA.MainNavigation.WaitElement({
-            Type:"Link",
-            Name:"Liked Songs",
-            Scope: 2
-        }).Click()
-    }
-
-    static SkipNext() {
-        Spotify.UIA.ContentInfo.WaitElement({
-            Name: "Next",
-            Type: "Button",
-            Scope: 2
-        }).Click()
-    }
-
-    static SkipPrev() {
-        Spotify.UIA.ContentInfo.WaitElement({
-            Name: "Previous",
-            Type: "Button",
-            Scope: 2
-        }).Click()
-    }
-
-    static Context() {
-        MouseGetPos(&x, &y)
-        Spotify.UIA.InnerContentInfo.WaitElement({
-            Type: "Link",
-        }).Click("R")
-        MouseMove(x, y)
-    }
-
-    static Like() => Spotify.UIA.LikeState := true
-    static Dislike() => Spotify.UIA.LikeState := false
-    static ToggleLike() => Spotify.UIA.LikeState := !Spotify.UIA.LikeState
-
-    static AddToQueue() {
-        Click("R")
-        Spotify.UIA.AddToQueueElement.Click()
-    }
-
-    static ToggleShuffle() {
-        Spotify.UIA.ContentInfo.WaitElement({
-            Type: "Button",
-            Name: "shuffle",
-            Matchmode: "Substring",
-            Scope: 2
-        }).Click()
     }
 
     static RemoveFromCurrentPlaylist() {
@@ -206,75 +175,108 @@ Class Spotify {
             })
         }
 
-        static ContextMenu {
-            get => Spotify.UIA.Document.WaitElement({
-                Type: "menu",
-                Scope: 2
-            })
-        }
-
-        static AddToQueueElement {
-            get => Spotify.UIA.ContextMenu.WaitElement({
-                Name: "Add to queue"
-            })
-        }
-
-        static ContentInfo {
-            get => Spotify.UIA.Document.WaitElement({
-                LocalizedType: "content info",
-                Type: "Group",
-                Scope: 2
-            })
-        }
-
-        static InnerContentInfo {
-            get => Spotify.UIA.ContentInfo.WaitElement({
-                LocalizedType: "content info",
-                Type: "Group",
-                Scope: 2
-            })
-        }
-
-        static MainNavigation {
-            get => Spotify.UIA.Document.WaitElement({
-                Type:          "Group",
-                LocalizedType: "navigation",
-                Name:          "Main",
-                Scope:         2
-            })
-        }
-
-        static CurrentTrack {
-            get {
-                try return Spotify.UIA.InnerContentInfo.FindElement({
-                    Type: "Link"
+            static ContextMenu {
+                get => Spotify.UIA.Document.WaitElement({
+                    Type: "menu",
+                    Scope: 2
                 })
-                throw Spotify.Errors.SpotifyNotActiveError()
             }
-        }
 
-        static FirstArtist {
-            get {
-                try return Spotify.UIA.InnerContentInfo.FindElement({
-                    Type: "Link",
-                    Index: 2
+                static AddToQueueElement {
+                    get => Spotify.UIA.ContextMenu.WaitElement({
+                        Name: "Add to queue"
+                    })
+                }
+
+            static ContentInfo {
+                get => Spotify.UIA.Document.WaitElement({
+                    LocalizedType: "content info",
+                    Type: "Group",
+                    Scope: 2
                 })
-                throw Spotify.Errors.SpotifyNotActiveError()
             }
-        }
 
-        static LikeElement {
-            get => Spotify.UIA.InnerContentInfo.WaitElement({
-                LocalizedType: "button",
-                Type: "Button",
-                Scope: 2
-            })
-        }
+                static InnerContentInfo {
+                    get => Spotify.UIA.ContentInfo.WaitElement({
+                        LocalizedType: "content info",
+                        Type: "Group",
+                        Scope: 2
+                    })
+                }
 
-        static LikeState {
-            get => Spotify.UIA.LikeElement.ToggleState
-            set => Spotify.UIA.LikeElement.ToggleState := value
-        }
+                    static CurrentTrack {
+                        get {
+                            try return Spotify.UIA.InnerContentInfo.FindElement({
+                                Type: "Link"
+                            })
+                            throw Spotify.Errors.SpotifyNotActiveError()
+                        }
+                    }
+
+                    static FirstArtist {
+                        get {
+                            try return Spotify.UIA.InnerContentInfo.FindElement({
+                                Type: "Link",
+                                Index: 2
+                            })
+                            throw Spotify.Errors.SpotifyNotActiveError()
+                        }
+                    }
+
+                    static LikeElement {
+                        get => Spotify.UIA.InnerContentInfo.WaitElement({
+                            LocalizedType: "button",
+                            Type: "Button",
+                            Scope: 2
+                        })
+                    }
+
+                        static LikeState {
+                            get => Spotify.UIA.LikeElement.ToggleState
+                            set => Spotify.UIA.LikeElement.ToggleState := value
+                        }
+
+                static SkipNextElement {
+                    get => Spotify.UIA.ContentInfo.WaitElement({
+                        Name: "Next",
+                        Type: "Button",
+                        Scope: 2
+                    })
+                }
+
+                static SkipPrevElement {
+                    get => Spotify.UIA.ContentInfo.WaitElement({
+                        Name: "Previous",
+                        Type: "Button",
+                        Scope: 2
+                    })
+                }
+
+                static ShuffleElement {
+                    get => Spotify.UIA.ContentInfo.WaitElement({
+                        Type: "Button",
+                        Name: "shuffle",
+                        Matchmode: "Substring",
+                        Scope: 2
+                    })
+                }
+
+            static MainNavigation {
+                get => Spotify.UIA.Document.WaitElement({
+                    Type:          "Group",
+                    LocalizedType: "navigation",
+                    Name:          "Main",
+                    Scope:         2
+                })
+            }
+
+                static LikedPlaylistElement {
+                    get => Spotify.UIA.MainNavigation.WaitElement({
+                        Type:"Link",
+                        Name:"Liked Songs",
+                        Scope: 2
+                    })
+                }
 
     }
 
