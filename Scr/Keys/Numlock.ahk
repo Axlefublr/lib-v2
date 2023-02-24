@@ -2,10 +2,10 @@
 #Include <Environment>
 #Include <Tools\Counter>
 
-#InputLevel 5
+NumpadEnter::Environment.NumLock := 12
 
-;; Modeless keys
-*NumLock::SomeLockHint("NumLock")
+;; Mode none
+
 NumpadIns::return
 NumpadEnd::return
 NumpadDown::return
@@ -20,10 +20,9 @@ NumpadDel::return
 NumpadDiv::return
 NumpadMult::return
 NumpadSub::return
+NumpadAdd::return
 
-;; Mode switching
-NumpadEnter::Environment.NumLock := 12
-
+;; Mode 12
 #HotIf Environment.NumLock = 12
 NumpadIns::   Environment.NumLock := 0
 NumpadEnd::   Environment.NumLock := 1
@@ -40,8 +39,9 @@ NumpadEnter:: Environment.NumLock := 11
 NumpadDiv::   Environment.NumLock := 12
 NumpadMult::  Environment.NumLock := 13
 NumpadSub::   Environment.NumLock := 14
+NumpadAdd::   Environment.NumLock := 15
 
-;; Mode 10 / Numbers
+;; Mode 11 / Numbers
 #HotIf Environment.NumLock = 11
 NumpadIns::Send("0")
 NumpadEnd::Send("1")
@@ -80,11 +80,33 @@ NumpadHome:: {
 NumpadUp::SoundPlayer.Storage["oh fr on god"].Play()
 NumpadPgUp::SoundPlayer.Storage["rizz"].Play()
 NumpadDel::SoundPlayer.Storage["sus"].Play()
+NumpadDiv::return
+NumpadMult::return
+NumpadSub::return
+NumpadAdd::return
 
 ;; Mode 1
 #HotIf Environment.NumLock = 1
 NumpadIns::return
 NumpadEnd::SoundPlayer.Storage["i just farted"].Play()
+NumpadDown::return
+NumpadPgDn::return
+NumpadLeft::return
+NumpadClear::return
+NumpadRight::return
+NumpadHome::return
+NumpadUp::return
+NumpadPgUp::return
+NumpadDel::return
+NumpadDiv::return
+NumpadMult::return
+NumpadSub::return
+NumpadAdd::return
+
+;; Mode 5
+#HotIf Environment.NumLock = 5
+NumpadIns::return
+NumpadEnd::return
 NumpadDown::return
 NumpadPgDn::return
 NumpadLeft::return
@@ -109,5 +131,3 @@ NumpadSub::Counter.Decrement().Show()
 NumpadAdd::Counter.Increment().Show()
 
 #HotIf
-
-#InputLevel 5

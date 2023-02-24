@@ -12,6 +12,7 @@
 RAlt::LAlt
 AppsKey::RCtrl
 *ScrollLock::return
+*NumLock::return
 
 ; Launch_Media::return     ; F1
 Media_Play_Pause::return ; F2
