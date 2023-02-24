@@ -45,6 +45,27 @@ Class Spotify {
         MouseMove(x, y)
     }
 
+    static RemoveFromCurrentPlaylist() {
+        Spotify.Context()
+        Spotify.UIA.RemoveFromPlaylistElement.Click()
+    }
+
+    static AddToPlaylist(playlistName) {
+        contextMenu := Spotify.UIA.ContextMenu
+        contextMenu.FindElement({
+            Name: "Add to playlist"
+        }).Click()
+        contextMenu.WaitElement({
+            Name: playlistName
+        }).Click()
+    }
+
+    static AddCurrentToBest() {
+        Spotify.UIA.Context()
+        Spotify.UIA.AddToPlaylist("Best")
+        Spotify.UIA.Like()
+    }
+
     static AutoNewDiscovery() => Spotify.NewDiscovery(Spotify.FirstArtistName)
 
     static NewDiscovery(artistName) {
@@ -68,73 +89,42 @@ Class Spotify {
         Info(artistName " is now your favorite! 🥰")
     }
 
-    static RemoveFromCurrentPlaylist() {
-        Spotify.UIA.Context()
-        Spotify.UIA.ContextMenu.WaitElement({
-            Name: "Remove from this playlist",
-            Type: "MenuItem",
-            Scope: 2
-        }).Click()
-    }
-
-    static AddToPlaylist(playlistName) {
-        contextMenu := Spotify.UIA.ContextMenu
-        contextMenu.FindElement({
-            Name: "Add to playlist"
-        }).Click()
-        contextMenu.WaitElement({
-            Name: playlistName
-        }).Click()
-    }
-
-    static AddCurrentToBest() {
-        Spotify.UIA.Context()
-        Spotify.UIA.AddToPlaylist("Best")
-        Spotify.UIA.Like()
-    }
-
     static Discovery() {
         static isStarted := false
         static var := 0
-
         if isStarted {
             Destruction()
             return
         }
-
         onRightClick(*) {
             Mouse.ControlClick_Here(Spotify.exeTitle, "R")
             var++
             g_added_text.Text := var
-            Spotify.UIA.AddToPlaylist("Discovery")
+            Spotify.AddToPlaylist("Discovery")
             if var >= 15 {
                 Destruction()
             }
         }
-
         Destruction(*) {
-            HotIfWinActive(Spotify.exeTitle)
+            HotIfWinActive(Spotify.winTitle)
             Hotkey("RButton", "Off")
             Hotkey("Escape", "Off")
             g_added.Destroy()
             var := 0
             isStarted := false
         }
-
         static g_added
         g_added := Gui("AlwaysOnTop -Caption")
         g_added.backColor := "171717"
         g_added.SetFont("s50 c0xC5C5C5", "Consolas")
         g_added_text := g_added.Add("Text", "W200 X0 Y60 Center", "0")
         g_added.Show("W200 H200 X0 Y0 NA")
-
-        HotIfWinActive(Spotify.exeTitle)
+        HotIfWinActive(Spotify.winTitle)
         Hotkey("RButton", onRightClick, "On")
         Hotkey("Escape", Destruction, "On")
         g_added.OnEvent("Close", Destruction.Bind())
         g_added_text.OnEvent("Click", (*) => var := g_added_text.Text := g_added_text.Text - 1)	;We update the number we *see* with the one just lower than it, and also update the amount of tracks until destruction (var)
         g_added_text.OnEvent("DoubleClick", Destruction.Bind())
-
         isStarted := true
     }
 
@@ -181,6 +171,14 @@ Class Spotify {
                 Scope: 2
             })
         }
+
+            static RemoveFromPlaylistElement {
+                get => Spotify.UIA.ContextMenu.WaitElement({
+                    Name: "Remove from this playlist",
+                    Type: "MenuItem",
+                    Scope: 2
+                })
+            }
 
             static AddToQueueElement {
                 get => Spotify.UIA.ContextMenu.WaitElement({
