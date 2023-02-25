@@ -16,6 +16,10 @@ Class Spotify {
         exePath: Spotify.path
     })
 
+    static realTitle {
+        get => WinGetTitle(Spotify.winTitle)
+    }
+
     static CurrentSongName {
         get => Spotify.UIA.CurrentTrack.Name
     }
@@ -76,6 +80,18 @@ Class Spotify {
         Spotify.Context()
         Spotify.AddToPlaylist("Best")
         Spotify.Like()
+    }
+
+    static CopyArtistTrack() {
+        artistAndTrack := Spotify.FirstArtistName " - " Spotify.CurrentSongName
+        A_Clipboard := artistAndTrack
+        Info("copied: " artistAndTrack)
+    }
+
+    static CopyArtist() {
+        artistName := Spotify.FirstArtistName
+        A_Clipboard := artistName
+        Info("copied: " artistName)
     }
 
     static AutoNewDiscovery() => Spotify.NewDiscovery(Spotify.FirstArtistName)

@@ -8,6 +8,8 @@ F3::Spotify.TrashTrack()
 F4::Spotify.ToggleShuffle()
 
 F5::Spotify.AutoNewDiscovery()
+F6::Spotify.CopyArtistTrack()
+F7::Spotify.CopyArtist()
 F8::Spotify.AutoFavRapper()
 
 !w::Spotify.ToggleLike()
