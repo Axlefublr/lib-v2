@@ -5,6 +5,7 @@
 #Include <App\VsCode>
 #Include <Converters\DateTime>
 #Include <Environment>
+#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
 !e:: {
@@ -19,12 +20,7 @@ Media_Stop & MButton::VsCode.Reload()
 
 XButton1:: {
     sections := Press.GetSections()
-    Switch {
-        Case sections.right: NextTab()
-        Case sections.left:  PrevTab()
-        Case sections.down:  VsCode.CloseTab()
-        Case sections.up:    RestoreTab()
-    }
+    MouseSectionDefaulter.VsCode(sections)
 }
 
 #HotIf

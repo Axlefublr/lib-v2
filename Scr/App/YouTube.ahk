@@ -3,6 +3,7 @@
 #Include <Abstractions\Text>
 #Include <Paths>
 #Include <Utils\Win>
+#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Youtube.winTitle)
 F1::Youtube.Like()
@@ -22,10 +23,8 @@ XButton1:: {
         Case sections.bottomLeft:     Send("i")
         Case sections.bottomRight:    Youtube.SaveToPlaylist()
         Case sections.middle:         Youtube.Like()
-        Case sections.right:          NextTab()
-        Case sections.left:           PrevTab()
-        Case sections.up:             RestoreTab()
-        Case sections.down:           CloseTab()
+        default:                      MouseSectionDefaulter.Browser(sections)
     }
 }
+
 #HotIf

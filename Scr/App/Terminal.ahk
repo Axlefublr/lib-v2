@@ -1,4 +1,5 @@
 #Include <App\Terminal>
+#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Terminal.winTitles["Linux"])
 ^BackSpace::Terminal.DeleteWord()
@@ -6,12 +7,7 @@
 #HotIf WinActive(Terminal.winTitle)
 XButton1:: {
     sections := Press.GetSections()
-    Switch {
-        Case sections.right: NextTab()
-        Case sections.left:  PrevTab()
-        Case sections.down:  VsCode.CloseTab()
-        Case sections.up:    RestoreTab()
-    }
+    MouseSectionDefaulter.VsCode(sections)
 }
 
 #HotIf

@@ -16,6 +16,7 @@
 #Include <Abstractions\Text>
 #Include <Abstractions\Registers>
 #Include <Abstractions\MediaActions>
+#Include <Abstractions\MouseSectionDefaulter>
 
 ;; Utils
 

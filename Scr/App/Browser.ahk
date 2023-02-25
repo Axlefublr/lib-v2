@@ -2,6 +2,7 @@
 #Include <App\VK>
 #Include <Abstractions\Base>
 #Include <Utils\Press>
+#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Browser.winTitle)
 
@@ -21,17 +22,7 @@
 
 XButton1:: {
     sections := Press.GetSections()
-    Switch {
-        Case sections.topRight
-        && WinActive(VK.winTitle):   VK.Enter()
-        Case sections.right:         NextTab()
-        Case sections.left:          PrevTab()
-        Case sections.up:            RestoreTab()
-        Case WinActive(VK.winTitle): VK.Scroll()
-        Case sections.down:          CloseTab()
-    }
+    MouseSectionDefaulter.Browser(sections)
 }
 
-#HotIf WinActive(Browser.winTitle,, VK.winTitle)
-!w::CloseTab()
 #HotIf
