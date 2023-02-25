@@ -1,6 +1,9 @@
 #Include <Utils\Press>
 #Include <Utils\Win>
 #Include <Abstractions\Base>
+#Include <App\Youtube>
+#Include <App\Spotify>
+#Include <Abstractions\MediaActions>
 
 #MaxThreadsBuffer true
 
@@ -11,10 +14,10 @@ XButton2:: {
         Case sections.topLeft:     Win.RestoreDown()
         Case sections.bottomRight: Send("{Browser_Forward}")
         Case sections.bottomLeft:  Send("{Browser_Back}")
-        Case sections.right:       Send("{Media_Next}")
-        Case sections.left:        Send("{Media_Prev}")
         Case sections.down:        CloseButActually()
         Case sections.up:          Win.Minimize()
+        Case sections.right:       MediaActions.SkipNext()
+        Case sections.left:        MediaActions.SkipPrev()
         Default:                   return
     }
 }

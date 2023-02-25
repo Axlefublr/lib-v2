@@ -15,6 +15,7 @@
 #Include <Abstractions\Script>
 #Include <Abstractions\Text>
 #Include <Abstractions\Registers>
+#Include <Abstractions\MediaActions>
 
 ;; Utils
 
