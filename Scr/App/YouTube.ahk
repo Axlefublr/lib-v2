@@ -10,9 +10,6 @@ F2::i
 F3::Youtube.SaveToPlaylist()
 F4::Youtube.ToggleShuffle()
 
-PgDn::Youtube.SkipNext()
-PgUp::Youtube.SkipPrev()
-
 XButton1:: {
     sections := Press.GetSections()
     Switch {

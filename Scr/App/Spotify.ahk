@@ -15,9 +15,6 @@ F8::Spotify.AutoFavRapper()
 !w::Spotify.ToggleLike()
 !e::Spotify.LikedPlaylist()
 
-PgDn::Spotify.SkipNext()
-PgUp::Spotify.SkipPrev()
-
 MButton::Spotify.AddToQueue()
 
 XButton1:: {

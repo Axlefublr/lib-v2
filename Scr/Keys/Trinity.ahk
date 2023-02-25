@@ -4,14 +4,15 @@
 #Include <Utils\Win>
 #Include <Abstractions\SomeLockHint>
 #Include <App\Screenshot>
+#Include <Abstractions\MediaActions>
 
 #InputLevel 6
 
 Home::Volume_Up
 End::Volume_Down
 Insert::Volume_Mute
-PgUp::Media_Prev
-Pgdn::Media_Next
+PgUp::MediaActions.SkipPrev()
+PgDn::MediaActions.SkipNext()
 Delete::Send("{Media_Play_Pause}")
 
 #InputLevel 5
