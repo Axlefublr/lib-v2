@@ -33,7 +33,9 @@ Class Youtube {
         Youtube.UIA.StudioAccountElement.Click()
     }
 
-    static Like() => Youtube.UIA.LikeButtonElement.ToggleState := true
+    static Like() {
+        try Youtube.UIA.LikeButtonElement.ToggleState := true
+    }
 
     static ToggleShuffle() => Youtube.UIA.ShuffleButton.Toggle()
 
