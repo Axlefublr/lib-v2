@@ -19,6 +19,7 @@
 !sc34::NextTab()
 
 !e::NewTab()
+!w::CloseTab()
 
 XButton1:: {
     sections := Press.GetSections()

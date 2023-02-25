@@ -42,6 +42,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "ternary",
+    "https://youtu.be/wF1nbO15oVY",
+
     "hotstringer",
     "https://youtu.be/zvlctB1HBfI",
 
