@@ -1,6 +1,7 @@
 #Include <App\Spotify>
 
 #HotIf WinActive(Spotify.exeTitle)
+
 F1::Spotify.PlaylistSorter.ToggleHotkey()
 F2::Spotify.RemoveFromCurrentPlaylist()
 F3::Spotify.TrashTrack()
@@ -16,4 +17,18 @@ PgDn::Spotify.SkipNext()
 PgUp::Spotify.SkipPrev()
 
 MButton::Spotify.AddToQueue()
+
+XButton1:: {
+    sections := Press.GetSections()
+    Switch {
+        Case sections.topRight:    Spotify.TrashTrack()
+        Case sections.bottomRight: Spotify.Discovery()
+        Case sections.topLeft:     Spotify.AddCurrentToBest()
+        Case sections.bottomLeft:  Spotify.RemoveFromCurrentPlaylist()
+        Case sections.up:          Spotify.AutoNewDiscovery()
+        Case sections.down:        Spotify.ToggleShuffle()
+        Case sections.middle:      Spotify.ToggleLike()
+    }
+}
+
 #HotIf

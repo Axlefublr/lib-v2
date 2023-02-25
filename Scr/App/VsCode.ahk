@@ -14,7 +14,18 @@
 }
 
 #HotIf WinActive(VsCode.winTitle)
+
 Media_Stop & MButton::VsCode.Reload()
+
+XButton1:: {
+    sections := Press.GetSections()
+    Switch {
+        Case sections.right: NextTab()
+        Case sections.left:  PrevTab()
+        Case sections.down:  VsCode.CloseTab()
+        Case sections.up:    RestoreTab()
+    }
+}
 
 #HotIf
 #InputLevel 5

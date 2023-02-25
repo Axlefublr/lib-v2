@@ -21,4 +21,4 @@
 #!sc28::Registers.PeekNonEmpty()
 #m::Registers(KeyChorder()).WriteOrAppend()
 #!m::Registers(KeyChorder()).Truncate()
-#^m::Registers(KeyChorder()).Move(KeyChorder())
+#^sc28::Registers(KeyChorder()).SwitchContents(KeyChorder())

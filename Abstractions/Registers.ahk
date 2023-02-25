@@ -49,7 +49,7 @@ class Registers {
      * You can still peek them using Peek()
      * @type {String}
      */
-    static ExplicitPeekOnly := "ysufw789"
+    static ExplicitPeekOnly := "ysufw6789"
 
     /**
      * Manage your clipboards by writing it to different files.
@@ -278,7 +278,7 @@ class Registers {
      * @param {Char} key2 Register 2
      */
     SwitchContents(key2) {
-        try key2 := this.__ValidateKey(key2)
+        try key2 := Registers.__ValidateKey(key2)
         catch UnsetItemError {
             Registers.__CancelAction()
             return

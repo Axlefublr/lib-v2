@@ -28,6 +28,7 @@
         "micha", "Micha-ohne-el",
         "reiwa", "rbstrachan",
         "me",    "Axlefublr",
+        "lib",   "lib-v2/",
 
     )
     inputty := CleanInputBox()

@@ -1,4 +1,3 @@
-#Include <Utils\Press>
 #Include <App\Telegram>
 #Include <App\Discord>
 #Include <App\Terminal>
@@ -6,10 +5,8 @@
 #Include <App\VsCode>
 #Include <App\Spotify>
 #Include <App\Browser>
-#Include <App\VK>
 #Include <Utils\Win>
 #Include <Abstractions\Base>
-#Include <Abstractions\Script>
 
 #MaxThreadsBuffer true
 
@@ -27,42 +24,6 @@ Media_Stop:: {
         Case sections.down:        Spotify.winObj.App()
         Case sections.up:          Browser.winObj.App()
         Default:                   AltTab()
-    }
-}
-
-XButton1:: {
-    sections := Press.GetSections()
-    Switch {
-        default:return
-        Case WinActive(Browser.winTitle):
-            Switch {
-                Case sections.topRight
-                && WinActive(VK.winTitle):   VK.Enter()
-                Case sections.right:         NextTab()
-                Case sections.left:          PrevTab()
-                Case sections.up:            RestoreTab()
-                Case WinActive(VK.winTitle): VK.Scroll()
-                Case sections.down:          CloseTab()
-            }
-        Case WinActive(VsCode.winTitle) || WinActive(Terminal.winTitle):
-            Switch {
-                Case sections.bottomRight:Script.Reload()
-                Case sections.right:      NextTab()
-                Case sections.bottomLeft: Script.Test()
-                Case sections.left:       PrevTab()
-                Case sections.down:       VsCode.CloseTab()
-                Case sections.up:         RestoreTab()
-            }
-        Case WinActive(Spotify.exeTitle):
-            Switch {
-                Case sections.topRight:    Spotify.TrashTrack()
-                Case sections.bottomRight: Spotify.Discovery()
-                Case sections.topLeft:     Spotify.AddCurrentToBest()
-                Case sections.bottomLeft:  Spotify.RemoveFromCurrentPlaylist()
-                Case sections.up:          Spotify.AutoNewDiscovery()
-                Case sections.down:        Spotify.ToggleShuffle()
-                Case sections.middle:      Spotify.ToggleLike()
-            }
     }
 }
 

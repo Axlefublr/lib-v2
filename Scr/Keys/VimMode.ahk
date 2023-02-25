@@ -77,7 +77,7 @@ w::Home
 e::End
 q::PgUp
 r::PgDn
-*z::SendInput("{Blind}{Click WheelLeft}")
+*z::SendInput("{Blind}{Click WheelLeft}") ; Solution by childfs6865
 *x::SendInput("{Blind}{Click WheelUp}")
 *c::SendInput("{Blind}{Click WheelDown}")
 *v::SendInput("{Blind}{Click WheelRight}")

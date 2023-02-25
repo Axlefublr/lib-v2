@@ -14,8 +14,8 @@ Class Youtube {
     static SkipPrev() => Send("+p")
 
     static ChannelSwitch() {
-        Youtube.UIA.AccountElement.Click()
-        Youtube.UIA.SwitchAccountElement.Click()
+        try Youtube.UIA.AccountElement.Click()
+        try Youtube.UIA.SwitchAccountElement.Click()
     }
 
     static StudioChannelSwitch() {
@@ -24,8 +24,8 @@ Class Youtube {
     }
 
     static StudioSwitch() {
-        Youtube.UIA.AccountElement.Click()
-        Youtube.UIA.YoutubeStudioElement.Click()
+        try Youtube.UIA.AccountElement.Click()
+        try Youtube.UIA.YoutubeStudioElement.Click()
     }
 
     static ToYouTube() {
@@ -38,7 +38,10 @@ Class Youtube {
     static ToggleShuffle() => Youtube.UIA.ShuffleButton.Toggle()
 
     static SaveToPlaylist() {
-        Youtube.UIA.MoreActionsButton.Click()
+        try Youtube.UIA.MoreActionsButton.Click()
+        catch {
+            return
+        }
         while true {
             try {
                 Youtube.UIA.SaveToPlaylistButton.Click()
