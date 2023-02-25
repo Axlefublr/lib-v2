@@ -42,6 +42,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "hotstringer",
+    "https://youtu.be/zvlctB1HBfI",
+
     "systemwide vim mode",
     "https://youtu.be/ezHN3E8YCLU",
 
