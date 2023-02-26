@@ -37,33 +37,8 @@ Class Browser {
             get => UIA.ElementFromHandle(Browser.winTitle)
         }
 
-        static BrowserClient {
-            get => Browser.UIA.Window.FindElement({
-                ClassName: "BrowserRootView"
-            }).FindElement({
-                ClassName: "NonClientView"
-            }).FindElement({
-                ClassName: "GlassBrowserFrameView"
-            }).FindElement({
-                ClassName: "BrowserView"
-            })
-        }
-
         static Document {
-            get => Browser.UIA.BrowserClient.FindElement({
-                ClassName: "SidebarContentsSplitView",
-                Scope: 2
-            }).FindElement({
-                ClassName: "SidebarContentsSplitView"
-            }).FindElement({
-                ClassName: "SidebarContentsSplitView"
-            }).FindElement({
-                ClassName: "SidebarContentsSplitView"
-            }).FindElement({
-                ClassName: "View"
-            }).FindElement({
-                Type: "Document"
-            })
+            get => UIA.ElementFromChromium(Browser.winTitle)
         }
     }
 
