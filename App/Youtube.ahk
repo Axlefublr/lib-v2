@@ -54,105 +54,18 @@ Class Youtube {
 
     class UIA {
 
-        static MainGroup {
-            get => Browser.UIA.Document.FindElement({
-                Type: "Group"
-            }).FindElement({
-                Type: "Group",
-                Scope: 2
-            })
-        }
-
-        static MainElement {
-            get => Youtube.UIA.MainGroup.FindElement({
-                LocalizedType: "main",
-                Scope: 2
-            })
-        }
-
-        static BannerElement {
-            get => Youtube.UIA.MainGroup.FindElement({
-                LocalizedType: "banner",
-                Scope: 2
-            })
-        }
-
-        static PopUpMenu {
-            get => Youtube.UIA.MainGroup.FindElement({
-                ClassName: "style-scope ytd-popup-container",
-                Type: "Group",
-                Scope: 2
-            }).FindElement({
-                Type: "Group",
-                Scope: 2
-            }).FindElement({
-                Type: "List",
-                Scope: 2
-            })
-        }
-
-        static SaveToPlaylistButton {
-            get => Youtube.UIA.PopUpMenu.FindElement({
-                Name: "Save",
-                Scope: 2
-            })
-        }
-
-        static LikeButtonElement {
-            get => Youtube.UIA.MainElement.FindElement({
-                Type: "Group",
-                ClassName: "style-scope ytd-segmented-like-dislike-button-renderer",
-                Scope: 2
-            }).FindElement({
-                LocalizedType: "toggle button",
-                Scope: 2
-            })
-        }
-
-        static SidePlaylist {
-            get => Youtube.UIA.MainElement.FindElement({
-                ClassName: "header style-scope ytd-playlist-panel-renderer",
-                Type: "Group",
-            })
-        }
-
-        static ShuffleButton {
-            get => Youtube.UIA.SidePlaylist.FindElement({
-                Name: "Shuffle playlist",
+        static StudioSwitchAccountElement {
+            get => Browser.UIA.Document.WaitElement({
+                Type: "Link",
+                Name: "Switch account",
                 Order: 2
             })
         }
 
-        static MoreActionsButton {
-            get => Youtube.UIA.MainElement.FindElement({
-                Name: "More actions",
-                Type: "Button",
-                Scope: 2
-            })
-        }
-
-        static AccountElement {
-            get => Youtube.UIA.BannerElement.FindElement({
-                Type: "Button",
-                Name: "Account profile photo that opens list of alternate accounts",
-                AutomationId: "avatar-btn",
-                Order: 2
-            })
-        }
-
-        static StudioAccountElement {
-            get => Youtube.UIA.BannerElement.FindElement({
-                Name: "Account",
-                Order: 2,
-                Scope: 2
-            })
-        }
-
-        static AccountFloatingMenuElement {
-            get => Youtube.UIA.MainGroup.WaitElement({
-                Type: "Group",
-                Name: "Manage your Google Account Your channel YouTube Studio Switch account",
-                Matchmode: "Substring",
+        static StudioToYoutubeElement {
+            get => Browser.UIA.Document.WaitElement({
+                Name: "YouTube",
+                Type: "Link",
                 Order: 2
             })
         }
@@ -166,34 +79,122 @@ Class Youtube {
             })
         }
 
-        static StudioToYoutubeElement {
-            get => Browser.UIA.Document.WaitElement({
-                Name: "YouTube",
-                Type: "Link",
-                Order: 2
+        static MainGroup {
+            get => Browser.UIA.Document.FindElement({
+                Type: "Group"
+            }).FindElement({
+                Type: "Group",
+                Scope: 2
             })
         }
 
-        static SwitchAccountElement {
-            get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
-                Name: "Switch account",
-                Type: "Link",
-            })
-        }
+            static AccountFloatingMenuElement {
+                get => Youtube.UIA.MainGroup.WaitElement({
+                    Type: "Group",
+                    Name: "Manage your Google Account Your channel YouTube Studio Switch account",
+                    Matchmode: "Substring",
+                    Order: 2
+                })
+            }
 
-        static StudioSwitchAccountElement {
-            get => Browser.UIA.Document.WaitElement({
-                Type: "Link",
-                Name: "Switch account",
-                Order: 2
-            })
-        }
+                static YoutubeStudioElement {
+                    get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
+                        Type: "Link",
+                        Name: "YouTube Studio",
+                    })
+                }
 
-        static YoutubeStudioElement {
-            get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
-                Type: "Link",
-                Name: "YouTube Studio",
-            })
-        }
+                static SwitchAccountElement {
+                    get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
+                        Name: "Switch account",
+                        Type: "Link",
+                    })
+                }
+
+            static MainElement {
+                get => Youtube.UIA.MainGroup.FindElement({
+                    LocalizedType: "main",
+                    Scope: 2
+                })
+            }
+
+                static MoreActionsButton {
+                    get => Youtube.UIA.MainElement.FindElement({
+                        Name: "More actions",
+                        Type: "Button",
+                        Scope: 2
+                    })
+                }
+
+                static SidePlaylist {
+                    get => Youtube.UIA.MainElement.FindElement({
+                        ClassName: "header style-scope ytd-playlist-panel-renderer",
+                        Type: "Group",
+                    })
+                }
+
+                    static ShuffleButton {
+                        get => Youtube.UIA.SidePlaylist.FindElement({
+                            Name: "Shuffle playlist",
+                            Order: 2
+                        })
+                    }
+
+                static LikeButtonElement {
+                    get => Youtube.UIA.MainElement.FindElement({
+                        Type: "Group",
+                        ClassName: "style-scope ytd-segmented-like-dislike-button-renderer",
+                        Scope: 2
+                    }).FindElement({
+                        LocalizedType: "toggle button",
+                        Scope: 2
+                    })
+                }
+
+            static BannerElement {
+                get => Youtube.UIA.MainGroup.FindElement({
+                    LocalizedType: "banner",
+                    Scope: 2
+                })
+            }
+
+                static StudioAccountElement {
+                    get => Youtube.UIA.BannerElement.FindElement({
+                        Name: "Account",
+                        Order: 2,
+                        Scope: 2
+                    })
+                }
+
+                static AccountElement {
+                    get => Youtube.UIA.BannerElement.FindElement({
+                        Type: "Button",
+                        Name: "Account profile photo that opens list of alternate accounts",
+                        AutomationId: "avatar-btn",
+                        Order: 2
+                    })
+                }
+
+            static PopUpMenu {
+                get => Youtube.UIA.MainGroup.FindElement({
+                    ClassName: "style-scope ytd-popup-container",
+                    Type: "Group",
+                    Scope: 2
+                }).FindElement({
+                    Type: "Group",
+                    Scope: 2
+                }).FindElement({
+                    Type: "List",
+                    Scope: 2
+                })
+            }
+
+                static SaveToPlaylistButton {
+                    get => Youtube.UIA.PopUpMenu.FindElement({
+                        Name: "Save",
+                        Scope: 2
+                    })
+                }
+
     }
 }
