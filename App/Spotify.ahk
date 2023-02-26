@@ -338,10 +338,11 @@ Class Spotify {
 
         static AddTrack() {
             counter := ReadFile(Paths.Ptf["playlist-sorter"])
-            super.AddToPlaylist("#" counter)
-            if counter >= Spotify.PlaylistSorter.MaxPlaylist
-                counter := 0
-            WriteFile(Paths.Ptf["playlist-sorter"], ++counter)
+            counter += 3
+            if counter > Spotify.PlaylistSorter.MaxPlaylist
+                counter -= Spotify.PlaylistSorter.MaxPlaylist
+            WriteFile(Paths.Ptf["playlist-sorter"], counter)
+            Spotify.AddToPlaylist("#" counter)
         }
 
         static ToggleHotkey() {
