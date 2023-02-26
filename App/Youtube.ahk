@@ -18,19 +18,19 @@ Class Youtube {
         try Youtube.UIA.SwitchAccountElement.Click()
     }
 
-    static StudioChannelSwitch() {
-        Youtube.UIA.StudioAccountElement.Click()
-        Youtube.UIA.StudioSwitchAccountElement.Click()
-    }
-
     static StudioSwitch() {
         try Youtube.UIA.AccountElement.Click()
         try Youtube.UIA.YoutubeStudioElement.Click()
     }
 
+    static StudioChannelSwitch() {
+        try Youtube.UIA.StudioAccountElement.Click()
+        try Youtube.UIA.SwitchAccountElement.Click()
+    }
+
     static ToYouTube() {
-        Youtube.UIA.StudioAccountElement.Click()
-        Youtube.UIA.StudioAccountElement.Click()
+        try Youtube.UIA.StudioAccountElement.Click()
+        try Youtube.UIA.ToYoutube.Click()
     }
 
     static Like() {
@@ -91,7 +91,7 @@ Class Youtube {
             static AccountFloatingMenuElement {
                 get => Youtube.UIA.MainGroup.WaitElement({
                     Type: "Group",
-                    Name: "Manage your Google Account Your channel YouTube Studio Switch account",
+                    Name: "Switch account",
                     Matchmode: "Substring",
                     Order: 2
                 })
@@ -108,6 +108,13 @@ Class Youtube {
                     get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
                         Name: "Switch account",
                         Type: "Link",
+                    })
+                }
+
+                static ToYoutube {
+                    get => Youtube.UIA.AccountFloatingMenuElement.WaitElement({
+                        Type: "Link",
+                        Name: "YouTube",
                     })
                 }
 
@@ -158,20 +165,27 @@ Class Youtube {
                 })
             }
 
-                static StudioAccountElement {
-                    get => Youtube.UIA.BannerElement.FindElement({
-                        Name: "Account",
-                        Order: 2,
-                        Scope: 2
-                    })
-                }
-
                 static AccountElement {
                     get => Youtube.UIA.BannerElement.FindElement({
                         Type: "Button",
                         Name: "Account profile photo that opens list of alternate accounts",
                         AutomationId: "avatar-btn",
                         Order: 2
+                    })
+                }
+
+            static HeaderElement {
+                get => Youtube.UIA.MainGroup.FindElement({
+                    LocalizedType: "header",
+                    Scope: 2
+                })
+            }
+
+                static StudioAccountElement {
+                    get => Youtube.UIA.HeaderElement.FindElement({
+                        Type: "Button",
+                        Name: "Account",
+                        Order: 2,
                     })
                 }
 

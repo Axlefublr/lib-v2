@@ -15,9 +15,9 @@ XButton1:: {
     sections := Press.GetSections()
     Switch {
         Case sections.topRight
-        && WinActive(Youtube.Studio): try Youtube.StudioChannelSwitch()
+        && WinActive(Youtube.Studio): Youtube.StudioChannelSwitch()
         Case sections.topLeft
-        && WinActive(Youtube.Studio): try Youtube.ToYouTube()
+        && WinActive(Youtube.Studio): Youtube.ToYouTube()
         Case sections.topRight:       Youtube.ChannelSwitch()
         Case sections.topLeft:        Youtube.StudioSwitch()
         Case sections.bottomLeft:     Send("i")
