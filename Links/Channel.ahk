@@ -42,6 +42,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "maps",
+    "https://youtu.be/3J9vlNyz0Lc",
+
     "ternary",
     "https://youtu.be/wF1nbO15oVY",
 
@@ -197,7 +200,7 @@ Links_Channel := Map(
     "refactoring shows 3",
     "https://youtu.be/_jUbkfWLfkA",
 
-    "inputbox but better",
+    "cleaninputbox",
     "https://youtu.be/qTnhY8ivZLk",
 
     "refactoring shows 2",

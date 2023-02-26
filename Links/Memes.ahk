@@ -212,4 +212,7 @@ Links_Memes := Map(
     "2016 xxl cypher",
     "https://youtu.be/U_IbIMUbh-k",
 
+    "I am gay straight up",
+    "https://www.youtube.com/watch?v=_GQ_sKMZ-mE",
+
 )
