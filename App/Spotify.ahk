@@ -333,15 +333,21 @@ Class Spotify {
     class PlaylistSorter {
 
         static MaxPlaylist := 20
+        static Step := 3
 
         static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
 
+        static CounterFile {
+            get => ReadFile(Paths.Ptf["playlist-sorter"])
+            set => WriteFile(Paths.Ptf["playlist-sorter"], value)
+        }
+
         static AddTrack() {
-            counter := ReadFile(Paths.Ptf["playlist-sorter"])
-            counter += 3
+            counter := Spotify.PlaylistSorter.CounterFile
+            counter += Spotify.PlaylistSorter.Step
             if counter > Spotify.PlaylistSorter.MaxPlaylist
                 counter -= Spotify.PlaylistSorter.MaxPlaylist
-            WriteFile(Paths.Ptf["playlist-sorter"], counter)
+            Spotify.PlaylistSorter.CounterFile := counter
             Spotify.AddToPlaylist("#" counter)
         }
 
