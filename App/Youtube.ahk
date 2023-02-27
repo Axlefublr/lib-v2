@@ -1,5 +1,6 @@
 #Include <Utils\Image>
 #Include <App\Browser>
+#Include <Misc\HandleUIAError>
 
 Class Youtube {
 
@@ -14,35 +15,49 @@ Class Youtube {
     static SkipPrev() => Send("+p")
 
     static ChannelSwitch() {
-        try Youtube.UIA.AccountElement.Click()
-        try Youtube.UIA.SwitchAccountElement.Click()
+        HandleUIAError(() => (
+            Youtube.UIA.AccountElement.Click(),
+            Youtube.UIA.SwitchAccountElement.Click()
+        ))
     }
 
     static StudioSwitch() {
-        try Youtube.UIA.AccountElement.Click()
-        try Youtube.UIA.YoutubeStudioElement.Click()
+        HandleUIAError(() => (
+            Youtube.UIA.AccountElement.Click()
+            Youtube.UIA.YoutubeStudioElement.Click()
+        ))
     }
 
     static StudioChannelSwitch() {
-        try Youtube.UIA.StudioAccountElement.Click()
-        try Youtube.UIA.SwitchAccountElement.Click()
+        HandleUIAError(() => (
+            Youtube.UIA.StudioAccountElement.Click()
+            Youtube.UIA.SwitchAccountElement.Click()
+        ))
     }
 
     static ToYouTube() {
-        try Youtube.UIA.StudioAccountElement.Click()
-        try Youtube.UIA.ToYoutube.Click()
+        HandleUIAError(() => (
+            Youtube.UIA.StudioAccountElement.Click()
+            Youtube.UIA.ToYoutube.Click()
+        ))
     }
 
     static Like() {
-        try Youtube.UIA.LikeButtonElement.ToggleState := true
+        HandleUIAError(() => (
+            Youtube.UIA.LikeButtonElement.ToggleState := true
+        ))
     }
 
     static ToggleShuffle() {
-        try Youtube.UIA.ShuffleButton.Toggle()
+        HandleUIAError(() => (
+            Youtube.UIA.ShuffleButton.Toggle()
+        ))
     }
 
     static SaveToPlaylist() {
-        try Youtube.UIA.MoreActionsButton.Click()
+        HandleUIAError(() => (
+            Youtube.UIA.MoreActionsButton.Click()
+        ))
     }
 
     class UIA {
