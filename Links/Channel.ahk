@@ -51,7 +51,7 @@ Links_Channel := Map(
     "hotstringer",
     "https://youtu.be/zvlctB1HBfI",
 
-    "systemwide vim mode",
+    "vim mode",
     "https://youtu.be/ezHN3E8YCLU",
 
     "C# terminal app",

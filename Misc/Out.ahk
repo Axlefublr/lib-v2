@@ -4,8 +4,9 @@
 ;Alternative to outputdebug
 Out(put := "", endChar := "`n", overwrite := false) {
     static wasRan := false
+    static path := Registers.GetPath("o")
     if !wasRan || overwrite
-        Registers("o").Write(put endChar), wasRan := true
+        WriteFile(path, put endChar), wasRan := true
     else
-        Registers("o").Append(put endChar)
+        AppendFile(path, put endChar)
 }

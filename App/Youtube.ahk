@@ -14,42 +14,35 @@ Class Youtube {
     static SkipPrev() => Send("+p")
 
     static ChannelSwitch() {
-        Youtube.UIA.AccountElement.Click()
-        Youtube.UIA.SwitchAccountElement.Click()
+        try Youtube.UIA.AccountElement.Click()
+        try Youtube.UIA.SwitchAccountElement.Click()
     }
 
     static StudioSwitch() {
-        Youtube.UIA.AccountElement.Click()
-        Youtube.UIA.YoutubeStudioElement.Click()
+        try Youtube.UIA.AccountElement.Click()
+        try Youtube.UIA.YoutubeStudioElement.Click()
     }
 
     static StudioChannelSwitch() {
-        Youtube.UIA.StudioAccountElement.Click()
-        Youtube.UIA.SwitchAccountElement.Click()
+        try Youtube.UIA.StudioAccountElement.Click()
+        try Youtube.UIA.SwitchAccountElement.Click()
     }
 
     static ToYouTube() {
-        Youtube.UIA.StudioAccountElement.Click()
-        Youtube.UIA.ToYoutube.Click()
+        try Youtube.UIA.StudioAccountElement.Click()
+        try Youtube.UIA.ToYoutube.Click()
     }
 
     static Like() {
-        Youtube.UIA.LikeButtonElement.ToggleState := true
+        try Youtube.UIA.LikeButtonElement.ToggleState := true
     }
 
-    static ToggleShuffle() => Youtube.UIA.ShuffleButton.Toggle()
+    static ToggleShuffle() {
+        try Youtube.UIA.ShuffleButton.Toggle()
+    }
 
     static SaveToPlaylist() {
         try Youtube.UIA.MoreActionsButton.Click()
-        catch {
-            return
-        }
-        while true {
-            try {
-                Youtube.UIA.SaveToPlaylistButton.Click()
-                break
-            }
-        }
     }
 
     class UIA {
@@ -191,15 +184,12 @@ Class Youtube {
 
             static PopUpMenu {
                 get => Youtube.UIA.MainGroup.FindElement({
-                    ClassName: "style-scope ytd-popup-container",
                     Type: "Group",
-                    Scope: 2
+                    Scope: 2,
+                    Order: 2,
+                    Index: 2
                 }).FindElement({
-                    Type: "Group",
-                    Scope: 2
-                }).FindElement({
-                    Type: "List",
-                    Scope: 2
+                    AutomationId: "items"
                 })
             }
 

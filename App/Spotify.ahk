@@ -321,12 +321,27 @@ Class Spotify {
         }
 
             static LikedPlaylistElement {
-                get => Spotify.UIA.MainNavigation.WaitElement({
+                get => Spotify.UIA.MainNavigation.FindElement({
                     Type:"Link",
                     Name:"Liked Songs",
                     Scope: 2
                 })
             }
+
+            static YourLibraryButton {
+                get => Spotify.UIA.MainNavigation.FindElement({
+                    Name: "Your Library",
+                    Type: "Link"
+                })
+            }
+
+        static YourLibraryElement {
+            get => Spotify.UIA.Document.WaitElement({
+                Name: "Spotify – Your Library",
+                LocalizedType: "main",
+                Scope: 2
+            })
+        }
 
     }
 
