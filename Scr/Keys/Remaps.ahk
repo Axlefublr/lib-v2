@@ -4,8 +4,8 @@
 #!sc27::Send("#;")
 
 ; #sc28::return
-#sc33::return
-; #sc35::return
+; #sc33::return
+#sc35::return
 ; #b::return
 #n::return
 

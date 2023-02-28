@@ -15,8 +15,8 @@
 #^sc1A::Brightness.ChangeBrightnessRelative(-10)
 #^sc1B::Brightness.ChangeBrightnessRelative(10)
 
-#sc35::Registers(KeyChorder()).Paste()
-#!sc35::Registers(KeyChorder()).Run()
+#sc33::Registers(KeyChorder()).Paste()
+#!sc33::Registers(KeyChorder()).Run()
 #sc28::Registers(KeyChorder()).Look()
 #!sc28::Registers.PeekNonEmpty()
 #m::Registers(KeyChorder()).WriteOrAppend()
