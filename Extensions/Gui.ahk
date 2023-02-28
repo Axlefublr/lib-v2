@@ -18,7 +18,7 @@ PressTitleBar(winTitle) {
 Gui.Prototype.DefineProp("PressTitleBar", {Call: PressTitleBar})
 
 NeverFocusWindow(winTitle) {
-WinSetExStyle("0x08000000L", winTitle)
+    WinSetExStyle("0x08000000L", winTitle)
 }
 Gui.Prototype.DefineProp("NeverFocusWindow", {Call: NeverFocusWindow})
 

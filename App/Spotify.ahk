@@ -4,6 +4,7 @@
 #Include <Paths>
 #Include <Abstractions\Mouse>
 #Include <System\UIA>
+#Include <Tools\StateBulb>
 
 Class Spotify {
 
@@ -349,6 +350,7 @@ Class Spotify {
 
         static MaxPlaylist := 20
         static Step := 3
+        static BulbIndex := 4
 
         static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
 
@@ -370,11 +372,11 @@ Class Spotify {
             static isHotkeyActive := false
             if isHotkeyActive {
                 Hotkey("~RButton", Spotify.PlaylistSorter.bfAddTrack, "Off")
-                Info("Hotkey disabled")
+                StateBulb[Spotify.PlaylistSorter.BulbIndex].Destroy()
             }
             else {
                 Hotkey("~RButton", Spotify.PlaylistSorter.bfAddTrack, "On")
-                Info("Hotkey enabled")
+                StateBulb[Spotify.PlaylistSorter.BulbIndex].Create()
             }
             isHotkeyActive := !isHotkeyActive
         }
