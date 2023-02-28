@@ -1,4 +1,4 @@
-#Include <Tools\ToggleInfo>
+#Include <Tools\StateBulb>
 
 SomeLockHint(whatLock) {
 
@@ -9,5 +9,8 @@ SomeLockHint(whatLock) {
 
     Set%whatLock%State(newState)
 
-    ToggleInfo(whatLock " " newState_Word)
+    if newState
+        StateBulb[2].Create()
+    else
+        StateBulb[2].Destroy()
 }
