@@ -13,23 +13,17 @@ class StateBulb {
     }
 
 
-    static Unit := A_ScreenWidth / 1920
+    static Unit := Round(A_ScreenWidth / 1920)
 
-    static Side    := StateBulb.Unit * 20
-    static Spacing := (2 * StateBulb.Side)
+    static Side := StateBulb.Unit * 20
+
+    static Spacing := 2 * StateBulb.Side
 
     static YPosition := StateBulb._GetYPosition()
 
     static MaxBulbs := A_ScreenWidth / StateBulb.Spacing
 
-    static Positions := [
-        StateBulb._GetXPosition(1),
-        StateBulb._GetXPosition(2),
-        StateBulb._GetXPosition(3),
-        StateBulb._GetXPosition(4),
-        StateBulb._GetXPosition(5),
-        StateBulb._GetXPosition(6),
-    ]
+    static Positions := StateBulb._GeneratePositions()
 
     static Colors := Map(
         "magenta", 0xD3869B,
@@ -39,6 +33,15 @@ class StateBulb {
         "cyan",    0x89B482,
         "blue",    0x7DAEA3,
     )
+
+    static ColorOrder := [
+        StateBulb.Colors["magenta"],
+        StateBulb.Colors["red"],
+        StateBulb.Colors["yellow"],
+        StateBulb.Colors["green"],
+        StateBulb.Colors["cyan"],
+        StateBulb.Colors["blue"],
+    ]
 
     static Bulbs := [
         StateBulb(1, "magenta"),
@@ -52,6 +55,16 @@ class StateBulb {
 
     static _GetXPosition(index) => StateBulb.Unit * (A_ScreenWidth - index * StateBulb.Spacing)
     static _GetYPosition() => A_ScreenHeight - StateBulb.Spacing
+
+    static _GeneratePositions() {
+        positions := []
+        index := 1
+        loop StateBulb.MaxBulbs {
+            positions.Push(StateBulb._GetXPosition(index))
+            index++
+        }
+        return positions
+    }
 
 
     XPosition := unset
