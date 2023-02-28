@@ -94,7 +94,7 @@ class StateBulb {
     Create() {
         if this.GuiExist
             return
-        this.GuiObj := Gui("AlwaysOnTop -Caption")
+        this.GuiObj := Gui("AlwaysOnTop -Caption +ToolWindow")
         this.GuiObj.BackColor := this.Color
         this.GuiExist := true
         this._Show()
