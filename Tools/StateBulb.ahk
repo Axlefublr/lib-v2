@@ -9,7 +9,11 @@ class StateBulb {
 
     __New(position, color) {
         this.XPosition := StateBulb.Positions[position]
-        this.Color     := StateBulb.Colors[color]
+        switch Type(color) {
+            case "String":  this.Color := StateBulb.Colors[color]
+            case "Integer": this.Color := StateBulb.ColorOrder[color]
+            default:        throw StateBulb.ConstructorColorTypeError(color)
+        }
     }
 
 
@@ -43,14 +47,7 @@ class StateBulb {
         StateBulb.Colors["blue"],
     ]
 
-    static Bulbs := [
-        StateBulb(1, "magenta"),
-        StateBulb(2, "red"),
-        StateBulb(3, "yellow"),
-        StateBulb(4, "green"),
-        StateBulb(5, "cyan"),
-        StateBulb(6, "blue")
-    ]
+    static Bulbs := StateBulb._GeneratePossibleBulbs()
 
 
     static _GetXPosition(index) => StateBulb.Unit * (A_ScreenWidth - index * StateBulb.Spacing)
@@ -64,6 +61,20 @@ class StateBulb {
             index++
         }
         return positions
+    }
+
+    static _GeneratePossibleBulbs() {
+        bulbs := []
+        index := 1
+        colorIndex := 1
+        loop StateBulb.MaxBulbs {
+            bulbs.Push(StateBulb(index, colorIndex))
+            if colorIndex >= StateBulb.ColorOrder.Length
+                colorIndex := 1
+            index++
+            colorIndex++
+        }
+        return bulbs
     }
 
 
@@ -101,6 +112,19 @@ class StateBulb {
             this.XPosition,
             StateBulb.YPosition
         ))
+    }
+
+    class ConstructorColorTypeError extends TypeError {
+        __New(color) {
+            this.Message := Format("
+            (
+                Wrong type passed for the "color" parameter.
+                You're supposed to pass one of the two:
+                1) String - the name of the color which exists in the Colors map
+                2) Integer - the order of the color in the ColorOrder array
+                You passed the value of "{1}" of type {2}
+            )", color, Type(color))
+        }
     }
 
 }
