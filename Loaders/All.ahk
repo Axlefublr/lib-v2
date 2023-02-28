@@ -46,6 +46,7 @@
 #Include <Tools\HoverScreenshot>
 #Include <Tools\RelativeCoordGetter>
 #Include <Tools\Snake>
+#Include <Tools\StateBulb>
 
 ;; Extensions
 
