@@ -7,12 +7,9 @@ ToggleVimMode() {
     position := Environment.VimMode ? "On" : "Off"
     ToggleInfo("Vim mode " position)
 }
-#sc33::ToggleVimMode()
-#s::ToggleVimMode()
+!Space::ToggleVimMode()
 
 #HotIf Environment.VimMode
-
-g::ToggleVimMode()
 
 h::Mouse.MoveLeft(Mouse.SmallMove)
 k::Mouse.MoveUp(Mouse.SmallMove)
@@ -69,8 +66,8 @@ l::Mouse.MoveRight(Mouse.SmallMove)
 ^9::MouseMove(Mouse.HighRightX,      Mouse.BottomY)
 ^0::MouseMove(Mouse.FarRightX,       Mouse.BottomY)
 
-d::Down
-s::Up
+s::Down
+d::Up
 a::Left
 f::Right
 w::Home
@@ -88,6 +85,7 @@ r::PgDn
 t::return
 y::return
 p::return
+g::return
 sc1A::return
 sc1B::return
 sc2B::return

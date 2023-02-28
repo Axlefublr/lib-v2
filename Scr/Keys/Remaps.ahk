@@ -4,11 +4,12 @@
 #!sc27::Send("#;")
 
 ; #sc28::return
+#sc33::return
 ; #sc35::return
 ; #b::return
 #n::return
 
-!Space::return
+; !Space::return
 RAlt::LAlt
 AppsKey::RCtrl
 *ScrollLock::return
