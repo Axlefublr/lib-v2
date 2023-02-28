@@ -1,11 +1,14 @@
 #Include <Tools\ToggleInfo>
+#Include <Tools\StateBulb>
 #Include <Environment>
 #Include <Abstractions\Mouse>
 
 ToggleVimMode() {
     Environment.VimMode := !Environment.VimMode
-    position := Environment.VimMode ? "On" : "Off"
-    ToggleInfo("Vim mode " position)
+    if Environment.VimMode
+        StateBulb[1].Create()
+    else
+        StateBulb[1].Destroy()
 }
 !Space::ToggleVimMode()
 

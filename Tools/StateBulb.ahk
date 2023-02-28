@@ -92,6 +92,8 @@ class StateBulb {
     }
 
     Create() {
+        if this.GuiExist
+            return
         this.GuiObj := Gui("AlwaysOnTop -Caption")
         this.GuiObj.BackColor := this.Color
         this.GuiExist := true
@@ -99,6 +101,8 @@ class StateBulb {
     }
 
     Destroy() {
+        if !this.GuiExist
+            return
         this.GuiObj.Minimize()
         this.GuiObj.Destroy()
         this.GuiExist := false
