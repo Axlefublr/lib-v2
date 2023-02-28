@@ -17,15 +17,15 @@ class StateBulb {
     }
 
 
-    static Unit := Round(A_ScreenWidth / 1920)
+    static Unit := A_ScreenDPI / 96
 
-    static Side := StateBulb.Unit * 20
+    static Side := StateBulb.Unit * 12
 
     static Spacing := 2 * StateBulb.Side
 
     static YPosition := StateBulb._GetYPosition()
 
-    static MaxBulbs := A_ScreenWidth / StateBulb.Spacing
+    static MaxBulbs := Round(A_ScreenWidth / StateBulb.Spacing)
 
     static Positions := StateBulb._GeneratePositions()
 
@@ -50,8 +50,8 @@ class StateBulb {
     static Bulbs := StateBulb._GeneratePossibleBulbs()
 
 
-    static _GetXPosition(index) => StateBulb.Unit * (A_ScreenWidth - index * StateBulb.Spacing)
-    static _GetYPosition() => A_ScreenHeight - StateBulb.Spacing
+    static _GetXPosition(index) => A_ScreenWidth  - index * StateBulb.Spacing
+    static _GetYPosition()      => A_ScreenHeight - StateBulb.Spacing
 
     static _GeneratePositions() {
         positions := []
@@ -112,9 +112,9 @@ class StateBulb {
     _Show() {
         this.GuiObj.Show(Format(
             "NA w{1} h{1} x{2} y{3}",
-            StateBulb.Side,
-            this.XPosition,
-            StateBulb.YPosition
+            Round(StateBulb.Side),
+            Round(this.XPosition),
+            Round(StateBulb.YPosition)
         ))
     }
 
