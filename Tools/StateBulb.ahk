@@ -8,73 +8,84 @@ class StateBulb {
 
 
     __New(position, color) {
-        this.Position := position
-        this.Color := color
+        this.XPosition := StateBulb.Positions[position]
+        this.Color     := StateBulb.Colors[color]
     }
 
 
-    static Bulbs := Map(
-        "CapsLock", StateBulb(1, "green"),
-        "VimMode", StateBulb(2, "red")
-    )
+    static Unit := A_ScreenWidth / 1920
 
-    static YPosition := A_ScreenHeight / 20 * 19
-    static HorizontalSeparator := 30
-    static Side := A_ScreenHeight / 30 * 1
+    static Side    := StateBulb.Unit * 20
+    static Spacing := (2 * StateBulb.Side)
+
+    static YPosition := StateBulb._GetYPosition()
+
+    static MaxBulbs := A_ScreenWidth / StateBulb.Spacing
 
     static Positions := [
-        A_ScreenWidth / StateBulb.HorizontalSeparator * 19,
-        A_ScreenWidth / StateBulb.HorizontalSeparator * 18
+        StateBulb._GetXPosition(1),
+        StateBulb._GetXPosition(2),
+        StateBulb._GetXPosition(3),
+        StateBulb._GetXPosition(4),
+        StateBulb._GetXPosition(5),
+        StateBulb._GetXPosition(6),
     ]
+
     static Colors := Map(
-        "red",   0x443E3C,
-        "green", 0xA9B665,
+        "magenta", 0xD3869B,
+        "red",     0xDE4D37,
+        "yellow",  0xD8A657,
+        "green",   0xA9B665,
+        "cyan",    0x89B482,
+        "blue",    0x7DAEA3,
     )
 
+    static Bulbs := [
+        StateBulb(1, "magenta"),
+        StateBulb(2, "red"),
+        StateBulb(3, "yellow"),
+        StateBulb(4, "green"),
+        StateBulb(5, "cyan"),
+        StateBulb(6, "blue")
+    ]
 
-    Position {
-        get => this._position
-        set => this._position := StateBulb.Positions[value]
-    }
-    Color {
-        get => this._color
-        set => this._color := StateBulb.Colors[value]
-    }
+
+    static _GetXPosition(index) => StateBulb.Unit * (A_ScreenWidth - index * StateBulb.Spacing)
+    static _GetYPosition() => A_ScreenHeight - StateBulb.Spacing
 
 
-    _guiObj   := unset
-    _position := unset
-    _color    := unset
-    _guiExist := false
+    XPosition := unset
+    Color     := unset
+    GuiObj    := unset
+    GuiExist  := false
 
 
     Toggle() {
-        if this._guiExist
-            this._Destroy()
+        if this.GuiExist
+            this.Destroy()
         else
-            this._Create()
+            this.Create()
     }
 
-
-    _Create() {
-        this._guiObj := Gui("AlwaysOnTop -Caption")
-        this._guiObj.BackColor := this.Color
-        this._guiExist := true
+    Create() {
+        this.GuiObj := Gui("AlwaysOnTop -Caption")
+        this.GuiObj.BackColor := this.Color
+        this.GuiExist := true
         this._Show()
     }
 
-    _Destroy() {
-        this._guiObj.Minimize()
-        this._guiObj.Destroy()
-        this._guiExist := false
+    Destroy() {
+        this.GuiObj.Minimize()
+        this.GuiObj.Destroy()
+        this.GuiExist := false
     }
 
+
     _Show() {
-        this._guiObj.Show(Format(
-            "NA w{1} h{2} x{3} y{4}",
+        this.GuiObj.Show(Format(
+            "NA w{1} h{1} x{2} y{3}",
             StateBulb.Side,
-            StateBulb.Side,
-            this.Position,
+            this.XPosition,
             StateBulb.YPosition
         ))
     }
