@@ -1,4 +1,4 @@
-; No dependencies
+#Include <Extensions\Gui>
 
 class StateBulb {
 
@@ -103,7 +103,6 @@ class StateBulb {
     Destroy() {
         if !this.GuiExist
             return
-        this.GuiObj.Minimize()
         this.GuiObj.Destroy()
         this.GuiExist := false
     }
@@ -116,6 +115,8 @@ class StateBulb {
             Round(this.XPosition),
             Round(StateBulb.YPosition)
         ))
+        this.GuiObj.NeverFocusWindow()
+        this.GuiObj.MakeClickthrough()
     }
 
     class ConstructorColorTypeError extends TypeError {

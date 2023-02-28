@@ -13,9 +13,17 @@ MakeFontNicer(guiObj, fontSize := 20) {
 Gui.Prototype.DefineProp("MakeFontNicer", {Call: MakeFontNicer})
 
 PressTitleBar(winTitle) {
-    if Type(winTitle) = "Gui" {
-        winTitle := winTitle.Hwnd
-    }
     PostMessage(0xA1, 2,,, winTitle)
 }
 Gui.Prototype.DefineProp("PressTitleBar", {Call: PressTitleBar})
+
+NeverFocusWindow(winTitle) {
+WinSetExStyle("0x08000000L", winTitle)
+}
+Gui.Prototype.DefineProp("NeverFocusWindow", {Call: NeverFocusWindow})
+
+MakeClickthrough(guiObj) {
+    WinSetTransparent(255, guiObj)
+    guiObj.Opt("+E0x20")
+}
+Gui.Prototype.DefineProp("MakeClickthrough", {Call: MakeClickthrough})
