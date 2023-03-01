@@ -80,6 +80,39 @@ Class Youtube {
                 })
             }
 
+        static Banner {
+            get => Browser.UIA.Document.FindElement({
+                LocalizedType: "banner",
+                Scope: 2
+            })
+        }
+
+            static AccountElement {
+                get => Youtube.UIA.Banner.FindElement({
+                    Type: "MenuItem",
+                    Name: "Account profile photo that opens list of alternate accounts",
+                    Scope: 2,
+                    Order: 2
+                })
+            }
+
+        static PopupMenu {
+            get => Browser.UIA.Document.WaitElement({
+                Name: "Switch account",
+                Type: "Group",
+                Matchmode: "Substring",
+                Scope: 2,
+                Order: 2
+            })
+        }
+
+            static SwitchAccountElement {
+                get => Youtube.UIA.PopupMenu.WaitElement({
+                    Type: "Link",
+                    Name: "Switch account",
+                })
+            }
+
     }
 
     ; class UIA { ; Microsoft Edge

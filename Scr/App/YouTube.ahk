@@ -18,7 +18,7 @@ XButton1:: {
         ; && WinActive(Youtube.Studio): Youtube.StudioChannelSwitch()
         ; Case sections.topLeft
         ; && WinActive(Youtube.Studio): Youtube.ToYouTube()
-        ; Case sections.topRight:       Youtube.ChannelSwitch()
+        Case sections.topRight:       Youtube.ChannelSwitch()
         ; Case sections.topLeft:        Youtube.StudioSwitch()
         Case sections.bottomLeft:     Youtube.ToggleMiniscreen()
         ; Case sections.bottomRight:    Youtube.SaveToPlaylist()
