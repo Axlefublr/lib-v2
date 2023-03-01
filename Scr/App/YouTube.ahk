@@ -6,22 +6,22 @@
 #Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Youtube.winTitle)
-F1::Youtube.ToggelLike()
+F1::Youtube.ToggleLike()
 F2::Youtube.ToggleMiniscreen()
-; F3::Youtube.SaveToPlaylist()
-; F4::Youtube.ToggleShuffle()
+F3::Youtube.SaveToPlaylist()
+F4::Youtube.ToggleShuffle()
 
 XButton1:: {
     sections := Press.GetSections()
     Switch {
-        ; Case sections.topRight
-        ; && WinActive(Youtube.Studio): Youtube.StudioChannelSwitch()
-        ; Case sections.topLeft
-        ; && WinActive(Youtube.Studio): Youtube.ToYouTube()
+        Case sections.topRight
+        && WinActive(Youtube.Studio): Youtube.StudioChannelSwitch()
+        Case sections.topLeft
+        && WinActive(Youtube.Studio): Youtube.ToYouTube()
         Case sections.topRight:       Youtube.ChannelSwitch()
-        ; Case sections.topLeft:        Youtube.StudioSwitch()
+        Case sections.topLeft:        Youtube.StudioSwitch()
         Case sections.bottomLeft:     Youtube.ToggleMiniscreen()
-        ; Case sections.bottomRight:    Youtube.SaveToPlaylist()
+        Case sections.bottomRight:    Youtube.SaveToPlaylist()
         Case sections.middle:         Youtube.ToggleLike()
         default:                      MouseSectionDefaulter.Browser(sections)
     }

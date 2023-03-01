@@ -40,13 +40,13 @@ Class Youtube {
     static ToYouTube() {
         HandleUIAError(() => (
             Youtube.UIA.StudioAccountElement.Click()
-            Youtube.UIA.ToYoutube.Click()
+            Youtube.UIA.ToYoutubeElement.Click()
         ))
     }
 
     static ToggleLike() {
         HandleUIAError(() => (
-            Youtube.UIA.LikeButtonElement.Click()
+            Youtube.UIA.LikeButtonElement.Toggle()
         ))
     }
 
@@ -80,6 +80,22 @@ Class Youtube {
                 })
             }
 
+            static ShuffleButton {
+                get => Youtube.UIA.MainElement.FindElement({
+                    Name: "Shuffle playlist",
+                    Type: "Button",
+                    Scope: 2
+                })
+            }
+
+            static MoreActionsButton {
+                get => Youtube.UIA.MainElement.FindElement({
+                    Name: "More actions",
+                    Type: "Button",
+                    Scope: 2
+                })
+            }
+
         static Banner {
             get => Browser.UIA.Document.FindElement({
                 LocalizedType: "banner",
@@ -92,6 +108,14 @@ Class Youtube {
                     Type: "MenuItem",
                     Name: "Account profile photo that opens list of alternate accounts",
                     Scope: 2,
+                    Order: 2
+                })
+            }
+
+            static StudioAccountElement {
+                get => Youtube.UIA.Banner.FindElement({
+                    Type: "MenuItem",
+                    Name: "Account",
                     Order: 2
                 })
             }
@@ -110,6 +134,21 @@ Class Youtube {
                 get => Youtube.UIA.PopupMenu.WaitElement({
                     Type: "Link",
                     Name: "Switch account",
+                })
+            }
+
+            static YoutubeStudioElement {
+                get => Youtube.UIA.PopupMenu.WaitElement({
+                    Type: "Link",
+                    Name: "YouTube Studio",
+                })
+            }
+
+            static ToYoutubeElement {
+                get => Youtube.UIA.PopupMenu.WaitElement({
+                    Type: "Link",
+                    Name: "YouTube",
+                    Scope: 2
                 })
             }
 
