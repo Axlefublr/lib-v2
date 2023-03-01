@@ -60,7 +60,7 @@ Class Youtube {
         ))
     }
 
-    class UIA {
+    class UIA { ; Microsoft Edge
 
         static StudioSwitchAccountElement {
             get => Browser.UIA.Document.WaitElement({
