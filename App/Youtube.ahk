@@ -14,6 +14,8 @@ Class Youtube {
 
     static SkipPrev() => Send("+p")
 
+    static ToggleMiniscreen() => Send("i")
+
     static ChannelSwitch() {
         HandleUIAError(() => (
             Youtube.UIA.AccountElement.Click(),
