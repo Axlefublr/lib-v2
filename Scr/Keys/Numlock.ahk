@@ -92,9 +92,9 @@ NumpadEnd::SoundPlayer.Storage["i just farted"].Play()
 NumpadDown::return
 NumpadPgDn::return
 NumpadLeft::return
-NumpadClear::return
+NumpadClear::SoundPlayer.Storage["shutter"].Play()
 NumpadRight::return
-NumpadHome::return
+NumpadHome::SoundPlayer.Storage["ting"].Play()
 NumpadUp::return
 NumpadPgUp::return
 NumpadDel::return
