@@ -15,4 +15,7 @@ Links_Learning := Map(
     "regex learn",
     "https://regexlearn.com/learn/regex101",
 
+    "leetcode",
+    "https://leetcode.com/",
+
 )
