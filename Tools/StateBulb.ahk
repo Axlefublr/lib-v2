@@ -25,7 +25,7 @@ class StateBulb {
 
     static YPosition := StateBulb._GetYPosition()
 
-    static MaxBulbs := Round(A_ScreenWidth / StateBulb.Spacing)
+    static MaxBulbs := Floor(A_ScreenWidth / StateBulb.Spacing)
 
     static Positions := StateBulb._GeneratePositions()
 
@@ -69,10 +69,10 @@ class StateBulb {
         colorIndex := 1
         loop StateBulb.MaxBulbs {
             bulbs.Push(StateBulb(index, colorIndex))
-            if colorIndex >= StateBulb.ColorOrder.Length
-                colorIndex := 1
             index++
             colorIndex++
+            if colorIndex > StateBulb.ColorOrder.Length
+                colorIndex := 1
         }
         return bulbs
     }

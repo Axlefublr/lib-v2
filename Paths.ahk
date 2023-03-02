@@ -62,6 +62,8 @@ Class Paths {
         "oh fr on god",      this.Audio "\Sounds\oh fr on god.wav",
         "sus",               this.Audio "\Sounds\sus.wav",
         "i just farted",     this.Audio "\Sounds\i just farted.wav",
+        "ting",              this.Audio "\Sounds\ting.wav",
+        "shutter",           this.Audio "\Sounds\shutter.wav",
 
         "Discovery log", this.Music "\Discovery log.txt",
         "Unfinished",    this.Music "\Unfinished.txt",

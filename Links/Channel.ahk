@@ -152,8 +152,6 @@ Links_Channel := Map(
 
     "regremap",
     "https://youtu.be/AEnz3Bd-PV4",
-    "gst regremap",
-    "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
 
     "how to remap ctrl characters",
     "https://youtu.be/yz3jptm414I",

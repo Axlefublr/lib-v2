@@ -14,6 +14,11 @@ Links_Github := Map(
     "gst",
     "https://gist.github.com/Axlefublr",
 
+    ;; My gists
+
+    "gst regremap",
+    "https://gist.github.com/Axlefublr/49e7b6de4f2e5a0ceda6733f8d4d32cb",
+
     ;; Stars
 
     "lossless cut",
