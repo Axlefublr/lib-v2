@@ -83,7 +83,10 @@ Class Paths {
 
         "femboy",       this.Pictures "\Tree\Memes\femboy.png",
         "writing fire", this.Pictures "\Tree\Memes\writing fire.jpg",
-        "urethra",      this.Pictures "\Tree\Memes\urethra.jpg"
+        "urethra",      this.Pictures "\Tree\Memes\urethra.jpg",
+        "welp",         this.Pictures "\Tree\Memes\welp.jpg",
+        "how did we get here", this.Pictures "\Tree\Memes\how did we get here.jpeg",
+        "do you have the slightest idea how little that narrows it down", this.Pictures "\Tree\Memes\do you have the slightest idea how little that narrows it down.png",
 
     )
 

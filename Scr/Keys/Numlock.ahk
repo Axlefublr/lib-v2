@@ -134,12 +134,12 @@ NumpadAdd::Counter.Increment().Show()
 ;; Mode 7
 #HotIf Environment.NumLock = 7
 NumpadIns::return
-NumpadEnd::return
+NumpadEnd::HoverScreenshot(Paths.Ptf["welp"]).Show()
 NumpadDown::return
 NumpadPgDn::HoverScreenshot(Paths.Ptf["femboy"]).Show()
-NumpadLeft::return
+NumpadLeft::HoverScreenshot(Paths.Ptf["do you have the slightest idea how little that narrows it down"]).Show()
 NumpadClear::return
-NumpadRight::return
+NumpadRight::HoverScreenshot(Paths.Ptf["how did we get here"]).Show()
 NumpadHome::HoverScreenshot(Paths.Ptf["writing fire"]).Show()
 NumpadUp::return
 NumpadPgUp::HoverScreenshot(Paths.Ptf["urethra"]).Show()
