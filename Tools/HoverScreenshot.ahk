@@ -25,6 +25,8 @@ class HoverScreenshot {
      */
     gcPicture := unset
 
+    guiHwnd := unset
+
     /**
      * Make a picture of your choosing appear on your screen
      * @example <caption>Choose a picture to hover and do so</caption>
@@ -40,6 +42,7 @@ class HoverScreenshot {
      */
     __New(picturePath?) {
         this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
+        this.guiHwnd := this.gHover.Hwnd
         if IsSet(picturePath) {
             this.picturePath := picturePath
         }
@@ -76,11 +79,28 @@ class HoverScreenshot {
         this.gcPicture := this.gHover.AddPicture(, this.picturePath)
         WinSetTransColor(0xF0F0F0, this.gHover.Hwnd)
 
-        this.gcPicture.OnEvent("DoubleClick", (guiCtrlObj, *) => guiCtrlObj.Gui.Destroy())
-        this.gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
+        this._SetOnevents()
 
         this.gHover.Show("AutoSize NA")
     }
+
+    Destroy() {
+        HotIfWinExist("ahk_id " this.guiHwnd)
+        Hotkey("^Escape", this._foDestroy, "Off")
+        this.gHover.Destroy()
+    }
+
+
+    _foDestroy := (*) => this.Destroy()
+
+    _SetOnevents() {
+        HotIfWinExist("ahk_id " this.guiHwnd)
+        Hotkey("^Escape", this._foDestroy, "On")
+
+        this.gcPicture.OnEvent("DoubleClick", (*) => this.Destroy())
+        this.gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
+    }
+
 
     class Exceptions {
         /**
