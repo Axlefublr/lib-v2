@@ -81,7 +81,9 @@ Class Paths {
 
         "FL preset", this.Pictures "\Tools\FL preset.flp",
 
-        "Femboy", this.Pictures "\Other\femboy.png",
+        "femboy",       this.Pictures "\Tree\Memes\femboy.png",
+        "writing fire", this.Pictures "\Tree\Memes\writing fire.jpg",
+        "urethra",      this.Pictures "\Tree\Memes\urethra.jpg"
 
     )
 

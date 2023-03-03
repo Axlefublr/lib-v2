@@ -1,6 +1,7 @@
 #Include <Tools\Info>
 #Include <Environment>
 #Include <Tools\Counter>
+#Include <Tools\HoverScreenshot>
 
 NumpadEnter::Environment.NumLock := 12
 
@@ -129,5 +130,23 @@ NumpadDiv::Counter.Reset().Show()
 NumpadMult::Counter.Show()
 NumpadSub::Counter.Decrement().Show()
 NumpadAdd::Counter.Increment().Show()
+
+;; Mode 7
+#HotIf Environment.NumLock = 7
+NumpadIns::return
+NumpadEnd::return
+NumpadDown::return
+NumpadPgDn::HoverScreenshot(Paths.Ptf["femboy"]).Show()
+NumpadLeft::return
+NumpadClear::return
+NumpadRight::return
+NumpadHome::HoverScreenshot(Paths.Ptf["writing fire"]).Show()
+NumpadUp::return
+NumpadPgUp::HoverScreenshot(Paths.Ptf["urethra"]).Show()
+NumpadDel::return
+NumpadDiv::return
+NumpadMult::return
+NumpadSub::return
+NumpadAdd::return
 
 #HotIf
