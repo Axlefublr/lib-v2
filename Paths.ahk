@@ -43,6 +43,8 @@ Class Paths {
         "playlist-sorter", this.Main "\Files\Innit\playlist-sorter.txt",
         "test-state",      this.main "\Files\Innit\test-state.txt",
 
+        "BlankPic", this.Main "\Files\img\BlankPic.png",
+
         "Hub", this.Main "\Hub.ahk",
 
         "AhkTest", this.Test "\AhkTest.ahk",

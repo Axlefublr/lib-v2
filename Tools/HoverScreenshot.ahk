@@ -38,8 +38,11 @@ class HoverScreenshot {
      * gHover.picturePath := "C:\Pictures\My favorite picture 257.png"
      * gHover.Show()
      */
-    __New() {
+    __New(picturePath?) {
         this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
+        if IsSet(picturePath) {
+            this.picturePath := picturePath
+        }
     }
 
     /**
