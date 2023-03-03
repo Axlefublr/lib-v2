@@ -42,6 +42,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "statebulb",
+    "https://youtu.be/HupdUByOCqs",
+
     "maps",
     "https://youtu.be/3J9vlNyz0Lc",
 

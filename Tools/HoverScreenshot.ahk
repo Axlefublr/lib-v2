@@ -43,9 +43,7 @@ class HoverScreenshot {
     __New(picturePath?) {
         this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
         this.guiHwnd := this.gHover.Hwnd
-        if IsSet(picturePath) {
-            this.picturePath := picturePath
-        }
+        this.picturePath := picturePath ?? ""
     }
 
     /**
