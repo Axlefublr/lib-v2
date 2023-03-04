@@ -40,7 +40,43 @@ Links_Channel := Map(
     "C# playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOtCzM7X7FXr0qPBwYEVOOC",
 
+    "ahk all the way playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
+
     ;;Main channel videos
+
+    "threads and settimers",
+    "https://youtu.be/PedUPO8KSDE",
+
+    "vscode setup",
+    "https://youtu.be/QPl1sla67Bo",
+
+    "objects",
+    "https://youtu.be/BMpkQsppeaY",
+
+    "clipsend",
+    "https://youtu.be/8SEZ5nvWCPs",
+
+    "static",
+    "https://youtu.be/V-8DNxO3KrU",
+
+    "configure your docs",
+    "https://youtu.be/y86WkQPTMjw",
+
+    "function objects",
+    "https://youtu.be/unGy1o0Z_qw",
+
+    "clock",
+    "https://youtu.be/O4ucE3zEfKw",
+
+    "getters",
+    "https://youtu.be/BqerJiAjnWo",
+
+    "arrow",
+    "https://youtu.be/FHDcVtiAvu8",
+
+    "startup run",
+    "https://youtu.be/uA7d4M5B798",
 
     "statebulb",
     "https://youtu.be/HupdUByOCqs",
@@ -296,59 +332,6 @@ Links_Channel := Map(
 
     "screenshot hover unfinished",
     "https://youtu.be/4jiXHYuo7D8",
-
-    ;;Second channel videos
-
-    "settimers",
-    "https://youtu.be/bUxm_Gwd58Q",
-
-    "vscode setup",
-    "https://youtu.be/u66dw-hIj3g",
-
-    "objects",
-    "https://youtu.be/6W9Ruu5jHaM",
-
-    "clipsend",
-    "https://youtu.be/dnp1KTu-R2k",
-
-    "static",
-    "https://youtu.be/HOvItTvVTZA",
-
-    "configure docs",
-    "https://youtu.be/8OymPoyUN70",
-
-    "ternary is readable",
-    "https://youtu.be/RsH6A2Cuo-c",
-
-    "function objects",
-    "https://youtu.be/5X2OddjH96A",
-
-    "clock",
-    "https://youtu.be/A9gBET8WHig",
-
-    "getters",
-    "https://www.youtube.com/watch?v=Nn6ndRMsDJs",
-
-    "arrow",
-    "https://youtu.be/nSTL3KND25c",
-
-    "startup",
-    "https://youtu.be/vjQIbagvkcs",
-
-    ;;Second channel unlisted videos
-    ;Go ahead, watch them if you want, but they are deprecated so don't listen to me!
-
-    "install ahk deprecated",
-    "https://youtu.be/X4elEmKFep4",
-
-    "v2 setup",
-    "https://youtu.be/TSvp6ktqo1Q",
-
-    "syntax highlighting",
-    "https://youtu.be/kYtKBncvEAA",
-
-    "snippets",
-    "https://youtu.be/gHQNoOMRHBc",
 
     ;;Useful tutorials not by me
 
