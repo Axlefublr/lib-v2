@@ -50,7 +50,7 @@
         "gc",      (input) => A_Clipboard := Git.Link(input),
         "gl",      (input) => ClipSend(Git.Link(input),, false),
         "go",      (input) => Browser.RunLink(Git.Link(input)),
-        "cpl",     (input) => (A_Clipboard := Links[input], Info('"' input '" copied')),
+        "cpl",     (input) => (A_Clipboard := Links[input], Info('"' Links[input] '" copied')),
         "p",       (input) => ClipSend(Links[input],, false),
         "o",       (input) => Browser.RunLink(Links[input]),
         "cp",      (input) => (A_Clipboard := input, Info('"' input '" copied')),

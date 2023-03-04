@@ -3,10 +3,10 @@
 
 Class VPN {
 
-    static process := "NordVPN.exe"
+    static process := "UnblockVpn.exe"
     static exeTitle := "ahk_exe " this.process
-    static winTitle := "NordVPN " this.exeTitle
-    static path := "C:\Program Files\NordVPN\NordVPN.exe"
+    static winTitle := "Unblock VPN " this.exeTitle
+    static path := "C:\Program Files (x86)\UnblockVPN\UnblockVpn.exe"
 
     static winObj := Win({
         winTitle: this.winTitle,
