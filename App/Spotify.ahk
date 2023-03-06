@@ -100,6 +100,12 @@ Class Spotify {
         Info("copied: " artistName)
     }
 
+    static CopyLink() {
+        Spotify.Context()
+        Spotify.UIA.ShareElement.Click()
+        Spotify.UIA.CopySongLinkElement.Click()
+    }
+
     static AutoNewDiscovery() => Spotify.NewDiscovery(Spotify.FirstArtistName)
 
     static NewDiscovery(artistName) {
@@ -241,6 +247,19 @@ Class Spotify {
             static AddToQueueElement {
                 get => Spotify.UIA.ContextMenu.WaitElement({
                     Name: "Add to queue"
+                })
+            }
+
+            static ShareElement {
+                get => Spotify.UIA.ContextMenu.WaitElement({
+                    Name: "Share"
+                })
+            }
+
+            static CopySongLinkElement {
+                get => Spotify.UIA.ContextMenu.WaitElement({
+                    Name: "Copy Song Link",
+                    Order: 2
                 })
             }
 

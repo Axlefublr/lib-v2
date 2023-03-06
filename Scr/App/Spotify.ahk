@@ -9,7 +9,7 @@ F4::Spotify.ToggleShuffle()
 
 F5::Spotify.AutoNewDiscovery()
 F6::Spotify.CopyArtistTrack()
-F7::Spotify.CopyArtist()
+F7::Spotify.CopyLink()
 F8::Spotify.AutoFavRapper()
 F9::Spotify.PlayOldestPlaylist()
 
