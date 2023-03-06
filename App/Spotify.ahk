@@ -62,6 +62,11 @@ Class Spotify {
         Spotify.SkipNext()
     }
 
+    static PlayOldestPlaylist() {
+        Spotify.UIA.YourLibraryButton.Click()
+        Spotify.UIA.OldestPlaylistPlayButton.Click()
+    }
+
     static RemoveFromCurrentPlaylist() {
         Spotify.Context()
         Spotify.UIA.RemoveFromPlaylistElement.Click()
@@ -343,6 +348,16 @@ Class Spotify {
                 Scope: 2
             })
         }
+
+            static OldestPlaylistPlayButton {
+                get => Spotify.UIA.YourLibraryElement.WaitElement({
+                    Name:      "Play #\d+",
+                    Matchmode: "Regex",
+                    Type:      "Button",
+                    Scope:     2,
+                    Order:     2
+                })
+            }
 
     }
 
