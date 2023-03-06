@@ -96,7 +96,7 @@ Links_Channel := Map(
     "C# terminal app",
     "https://youtu.be/RBOHKQtzcYk",
 
-    "UIA",
+    "uia",
     "https://youtu.be/o2E6sRxFoB0",
 
     "initializers",
@@ -273,7 +273,7 @@ Links_Channel := Map(
     "guard clauses",
     "https://youtu.be/UChoYAdSG-U",
 
-    "context sensitive hotkeys",
+    "hotif",
     "https://youtu.be/XBLchI24ijQ",
 
     "maybe maybe or operators",

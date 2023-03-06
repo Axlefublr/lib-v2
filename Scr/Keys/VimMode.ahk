@@ -82,21 +82,22 @@ r::PgDn
 *c::SendInput("{Blind}{Click WheelDown}")
 *v::SendInput("{Blind}{Click WheelRight}")
 
+g::Volume_Down
+y::Volume_Up
+t::Media_Play_Pause
+n::MediaActions.SkipPrev()
+m::MediaActions.SkipNext()
+p::Volume_Mute
+
 `::return
 -::return
 =::return
-t::return
-y::return
-p::return
-g::return
 sc1A::return
 sc1B::return
 sc2B::return
 sc27::return
 sc28::return
 b::return
-n::return
-m::return
 sc33::return
 sc34::return
 sc35::return
