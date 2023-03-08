@@ -1,4 +1,13 @@
-﻿;; Extra
+﻿;; Extensions
+
+#Include <Extensions\Gui>
+#Include <Extensions\Json>
+#Include <Extensions\Sort>
+#Include <Extensions\String>
+#Include <Extensions\Map>
+#Include <Extensions\Initializable>
+
+;; Extra
 
 #Include <Paths>
 #Include <Environment>
@@ -47,15 +56,6 @@
 #Include <Tools\RelativeCoordGetter>
 #Include <Tools\Snake>
 #Include <Tools\StateBulb>
-
-;; Extensions
-
-#Include <Extensions\Gui>
-#Include <Extensions\Json>
-#Include <Extensions\Sort>
-#Include <Extensions\String>
-#Include <Extensions\Map>
-#Include <Extensions\Initializable>
 
 ;; App
 
