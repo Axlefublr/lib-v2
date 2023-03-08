@@ -215,4 +215,7 @@ Links_Memes := Map(
     "I am gay straight up",
     "https://www.youtube.com/watch?v=_GQ_sKMZ-mE",
 
+    "presidents dicuss their favorite anime",
+    "https://youtu.be/IkaAZE_UGMo",
+
 )
