@@ -7,6 +7,20 @@
 #Include <System\Brightness>
 #Include <Abstractions\Registers>
 
++End::Counter.Decrement().Show()
++Home::Counter.Increment().Show()
++Insert::Counter.Show()
++!Insert::Counter.Reset().Show()
++PgDn::Counter.Send()
++PgUp::Counter.Send().Increment()
++!Delete:: {
+    if !input := CleanInputBox().WaitForInput() {
+        return
+    }
+    Counter.num := input
+    Counter.Show()
+}
+
 +!f::CoordGetter()
 +!g::WindowGetter()
 +!v::RelativeCoordGetter()
