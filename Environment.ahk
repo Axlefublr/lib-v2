@@ -8,8 +8,10 @@ class Environment {
     static NumLock {
         get => this._numlock
         set {
-            StateBulb[value + 7].Create()
-            SetTimer(() => StateBulb[value + 7].Destroy(), -200)
+            if value
+                StateBulb[3].Create()
+            else 
+                StateBulb[3].Destroy()
             this._numlock := value
         }
     }
