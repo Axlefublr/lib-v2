@@ -26,8 +26,8 @@
 #^8::return
 #^9::return
 #^0::return
-#^-::return
-#^=::return
+#^-::Counter.Decrement().Show()
+#^=::Counter.Increment().Show()
 #^q::return
 #^w::HoverScreenshot(Paths.Ptf["welp"]).Show()
 #^e::SoundPlayer.Storage["heheheha"].Play()
@@ -46,9 +46,15 @@
 }
 #^o::SoundPlayer.Storage["hohoho"].Play()
 #^p::return
-#^sc1A::return
-#^sc1B::return
-#^sc2B::return
+#^sc1A::Counter.Send()
+#^sc1B::Counter.Send().Increment()
+#^sc2B:: {
+    if !input := CleanInputBox().WaitForInput() {
+        return
+    }
+    Counter.num := input
+    Counter.Show()
+}
 #^a::SoundPlayer.Storage["shutter"].Play()
 #^s::SoundPlayer.Storage["sus"].Play()
 #^d::SoundPlayer.Storage["oh fr on god"].Play()
@@ -58,8 +64,8 @@
 #^j::SoundPlayer.Storage["i just farted"].Play()
 #^k::return
 #^l::return
-#^sc27::return
-#^sc28::return
+#^sc27::Counter.Show()
+#^sc28::Counter.Reset().Show()
 #^z::return
 #^x::return
 #^c::SoundPlayer.Storage["cartoon"].Play()
