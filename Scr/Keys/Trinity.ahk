@@ -17,10 +17,10 @@ Delete::Send("{Media_Play_Pause}")
 
 #InputLevel 5
 
-#^h::Win.RestoreLeftRight("left")
-#^l::Win.RestoreLeftRight("right")
-#^k::Win.Maximize()
-#^j::Win.RestoreDown()
+#!h::Win.RestoreLeftRight("left")
+#!l::Win.RestoreLeftRight("right")
+#!k::Win.Maximize()
+#!j::Win.RestoreDown()
 
 CapsLock::Delete
 !CapsLock::CloseButActually()
