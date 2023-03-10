@@ -45,6 +45,12 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "most useful nvim remaps",
+    "https://youtu.be/tTnv7BHngW0",
+
+    "map object syntax",
+    "https://youtu.be/9OINu9xjPVw",
+
     "threads and settimers",
     "https://youtu.be/PedUPO8KSDE",
 
