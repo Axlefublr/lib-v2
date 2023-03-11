@@ -341,6 +341,9 @@ Links_Channel := Map(
 
     ;;Useful tutorials not by me
 
+    "levenshtein distance tsoding",
+    "https://www.youtube.com/watch?v=tG4IeY01-xw",
+
     "awk tutorial",
     "https://youtu.be/9YOZmI-zWok",
 

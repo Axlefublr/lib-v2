@@ -85,7 +85,7 @@ class JSON {
         expandlevel := IsSet(expandlevel) ? Abs(expandlevel) : 10000000
         return Trim(CO(obj, expandlevel))
         CO(O, J := 0, R := 0, Q := 0) {
-            static M1 := "{", M2 := "}", S1 := "[", S2 := "]", N := "`n", C := ",", S := "- ", E := "", K := ":"
+            static M1 := "{", M2 := "}", S1 := "[", S2 := "]", N := "`n", C := ",", S := "- ", E := "", K := ": "
             if (OT := Type(O)) = "Array" {
                 D := !R ? S1 : ""
                 for key, value in O {
