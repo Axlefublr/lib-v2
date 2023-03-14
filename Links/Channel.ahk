@@ -45,6 +45,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "double deref",
+    "https://youtu.be/GCWxZEcV_64",
+
     "most useful nvim remaps",
     "https://youtu.be/tTnv7BHngW0",
 
@@ -340,6 +343,9 @@ Links_Channel := Map(
     "https://youtu.be/4jiXHYuo7D8",
 
     ;;Useful tutorials not by me
+
+    "voice feminization",
+    "https://youtu.be/BfCS01MkbIY",
 
     "levenshtein distance tsoding",
     "https://www.youtube.com/watch?v=tG4IeY01-xw",
