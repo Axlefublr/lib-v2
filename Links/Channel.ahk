@@ -1,11 +1,6 @@
 Links_Channel := Map(
 
-    ;;Channels
-
-    "ahk channel",
-    "https://www.youtube.com/@AhkAllTheWay",
-
-    "main channel",
+    "channel",
     "https://www.youtube.com/@Axlefublr",
 
     ;;Main channel playlists

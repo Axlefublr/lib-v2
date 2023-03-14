@@ -1,3 +1,5 @@
+; No dependencies
+
 class InputExpectedActualError extends Error {
     /**
      * @param {String} message

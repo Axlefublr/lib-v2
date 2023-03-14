@@ -23,8 +23,10 @@ class Infos {
         this.text := text
         this.__CreateGui()
         this.__DoOnce()
-        if !this.__GetAvailableSpace()
+        if !this.__GetAvailableSpace() {
             this.__StopDueToNoSpace()
+            return
+        }
         this.__SetupHotkeysAndEvents()
         this.__SetupAutoclose()
         this.__Show()
@@ -93,16 +95,17 @@ class Infos {
     }
 
     __GetAvailableSpace() {
+        currYCoord := unset
         for key, value in Infos.AvailablePlaces {
             if value
                 continue
-            this.currYCoord := key
-            Infos.AvailablePlaces[this.currYCoord] := true
+            currYCoord := key
+            Infos.AvailablePlaces[currYCoord] := true
             break
         }
-        _ := this.currYCoord
-        if !IsSet(_) ; Ahk limitation
+        if !IsSet(currYCoord)
             return false
+        this.currYCoord := currYCoord
         return true
     }
 
