@@ -1,36 +1,65 @@
 ;No dependencies
 
-/**
- * Syntax sugar: "Run *this* using *this program*"
- * @param with *String* The program to use to run something with: either Program.exe format, or the full path to the executable
- * @param runFile *String* The path to the file (or link!) you want to run
- */
-RunWith(with, runFile) => Run(with ' "' runFile '"')
+class Cmd {
 
-/**
- * A way to execute cmd commands using ahk, rather than running a bat script
- * @param commands {str,arr} Specify a string of the command if it's just one. Specify an array of strings for multiple commands
- * @param AsAdmin *Boolean* Whether the commands should run with administrative priviledges
- * @param seeCmd *Boolean* Whether you want to see the cmd window (it will technically exist either way)
- * @param startingDir *String* What directory should the commands be run from (you could instead use cd to change directory to reach the same effect)
- */
-RunSpec(commands, AsAdmin := false, seeCmd := false, startingDir?) {
-
-    commands_converted := IsObject(commands) ? "" : commands
-    AsAdmin := AsAdmin ? "*RunAs " : ""
-    seeCmd := seeCmd ? "Max" : "hide"
-
-    if IsObject(commands) {
-
-        commands_concoct := " & " ;to run multiple lines using Run, you concoct them together using &
-        for key, value in commands {
-
-            if key = commands.Length ;if it's the last command
-                commands_concoct := "" ;we don't need to append the commands together anymore
-
-            commands_converted .= value commands_concoct
-        }
+    __New(workingDir := A_WorkingDir) {
+        PID := this._CreateConsoleWindow()
+        this._AttachConsole(PID)
+        this.shell := ComObject("WScript.Shell")
+        this.shell.CurrentDirectory := workingDir
     }
 
-    RunWait(AsAdmin A_ComSpec " /c " commands_converted, startingDir ?? "", seeCmd)
+    __Delete() {
+        this._FreeConsole()
+    }
+
+
+    StdOut {
+        get => Trim(this.exec.StdOut.ReadAll(), "`r`n`t ")
+    }
+
+
+    Execute(commands*) {
+        commands := this._GetCommandString(commands)
+        this.exec := this.shell.Exec(A_ComSpec " /C " commands)
+        return this
+    }
+
+
+    exec := unset
+
+
+    _CreateConsoleWindow() {
+        DetectHiddenWindows(True)
+        Run(A_ComSpec,, "Hide", &PID)
+        while !WinExist("ahk_pid " PID) {
+            Sleep(50)
+        }
+        return PID
+    }
+
+    _GetCommandString(commands) {
+        commandString := ""
+        for index, command in commands {
+            if index = commands.Length {
+                commandString .= command
+                break
+            }
+            commandString .= command " && "
+        }
+        return commandString
+    }
+
+    _AttachConsole(PID) => DllCall("kernel32.dll\AttachConsole", "UInt", PID)
+
+    _FreeConsole() => DllCall("kernel32.dll\FreeConsole")
+
+
+    /**
+     * Syntax sugar: "Run *this* using *this program*"
+     * @param with *String* The program to use to run something with: either Program.exe format, or the full path to the executable
+     * @param runFile *String* The path to the file (or link!) you want to run
+     */
+    static RunWith(with, runFile) => Run(with ' "' runFile '"')
+
 }
