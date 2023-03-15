@@ -15,6 +15,9 @@ Links_AhkLib := Map(
     "v2 download",
     "https://www.autohotkey.com/download/2.0/",
 
+    "wscript.shell",
+    "https://autohotkey.wiki/guides:com:wscript.shell",
+
     ;; aliztori
 
     "aliztori mouseinzone",
@@ -71,4 +74,5 @@ Links_AhkLib := Map(
 
     "iseahound imageput",
     "https://github.com/iseahound/ImagePut",
+
 )

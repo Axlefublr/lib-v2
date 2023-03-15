@@ -39,7 +39,52 @@ Links_Tools := Map(
     "lscolor generator",
     "https://geoff.greer.fm/lscolors/",
 
-    "unblock vpn",
-    "https://unblockvpn.com/create-account.php",
+    "buy stolen software",
+    "https://wmcentre.net/en/",
+
+    "windows64",
+    "https://windows64.net/",
+
+    "vpn gate",
+    "https://www.vpngate.net/en/download.aspx",
+
+    "fl studio 20",
+    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
+
+    "microsoft office 2016",
+    "https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
+
+    "windows unlocker",
+    "https://filehippo.com/download_unlocker/",
+
+    "lossless cut",
+    "https://github.com/mifi/lossless-cut",
+
+    "yt-dlp",
+    "https://github.com/yt-dlp/yt-dlp",
+
+    "shell check",
+    "https://www.shellcheck.net/",
+
+    "get page cookies",
+    "https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid",
+
+    "pointer pointer",
+    "https://pointerpointer.com/",
+
+    "guess this code",
+    "https://guessthiscode.com/",
+
+    "elevator game",
+    "https://play.elevatorsaga.com/",
+
+    "character ai",
+    "https://beta.character.ai/",
+
+    "gpt",
+    "https://chat.openai.com/chat",
+
+    "gpt playground",
+    "https://platform.openai.com/playground/",
 
 )

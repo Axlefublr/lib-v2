@@ -27,6 +27,18 @@
     "2gis",
     "https://2gis.ru/",
 
+    "so",
+    "https://stackoverflow.com/",
+
+    "gh",
+    "https://github.com/",
+
+    "ghm",
+    "https://github.com/Axlefublr/",
+
+    "gst",
+    "https://gist.github.com/Axlefublr",
+
     ;; Shops
 
     "mvideo",

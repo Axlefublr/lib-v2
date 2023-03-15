@@ -33,4 +33,25 @@ Links_Docs := Map(
     "edge hotkeys",
     "https://support.microsoft.com/en-us/microsoft-edge/keyboard-shortcuts-in-microsoft-edge-50d3edab-30d9-c7e4-21ce-37fe2713cfad",
 
+    "conventional commits",
+    "https://www.conventionalcommits.org/en/v1.0.0/",
+
+    "git branching",
+    "https://learngitbranching.js.org/",
+
+    "simplilearn",
+    "https://www.simplilearn.com/tutorials/data-structure-tutorial",
+
+    "command line challenges",
+    "https://cmdchallenge.com/",
+
+    "skill factory",
+    "https://lms.skillfactory.ru/courses/course-v1:SkillFactory+CDEV+2021/",
+
+    "regex learn",
+    "https://regexlearn.com/learn/regex101",
+
+    "leetcode",
+    "https://leetcode.com/",
+
 )

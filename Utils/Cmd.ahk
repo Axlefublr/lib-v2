@@ -1,18 +1,6 @@
 ;No dependencies
 
 /**
- * Creates a symlink of a file / folder
- * @param source *String* The path of what the symlink should be *of* 
- * (the path to the original file / folder)
- * @param destination *String* The path to where the symlink should be located at
- * @param isDir *Boolean* Specify as true of your source is a directory, instead of a file
- */
-CreateSymlink(source, destination, isDir := false) => (
-    isDir := isDir ? "/D" : "",
-    RunSpec('mklink ' isDir ' "' destination '" "' source '"', true)
-)
-
-/**
  * Syntax sugar: "Run *this* using *this program*"
  * @param with *String* The program to use to run something with: either Program.exe format, or the full path to the executable
  * @param runFile *String* The path to the file (or link!) you want to run
