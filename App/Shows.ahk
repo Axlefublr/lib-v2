@@ -118,6 +118,7 @@ Class Shows {
         }
 
         this.ApplyJson()
+        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("watch episode " episode " of show " show).Execute()
         Info(show ": " episode)
     }
 
@@ -135,6 +136,7 @@ Class Shows {
         this.shows[show]["downloaded"] := downloaded
 
         this.ApplyJson()
+        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("download episode " downloaded " of show " show)
         Info(show ": " downloaded)
     }
 }

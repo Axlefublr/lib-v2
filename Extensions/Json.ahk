@@ -81,7 +81,7 @@ class JSON {
      * @param space Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.
      * @param unicode_escaped Convert non-ascii characters to \uxxxx where unicode_escaped = true
      */
-    static stringify(obj, expandlevel := unset, space := "   ", unicode_escaped := false) {
+    static stringify(obj, expandlevel := unset, space := "    ", unicode_escaped := false) {
         expandlevel := IsSet(expandlevel) ? Abs(expandlevel) : 10000000
         return Trim(CO(obj, expandlevel))
         CO(O, J := 0, R := 0, Q := 0) {
