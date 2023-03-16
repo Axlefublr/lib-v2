@@ -1,8 +1,54 @@
 #Include <Paths>
 #Include <Tools\Info>
 #Include <Abstractions\Text>
+#Include <Utils\Cmd>
 
 Class Git {
+
+    __New(workingDir) {
+        this.shell := Cmd(workingDir)
+    }
+
+
+    shell := unset
+    commands := []
+
+
+    Add(files*) {
+        sFiles := this._GetFilesString(files)
+        this.commands.Push("git add " sFiles)
+        return this
+    }
+
+    Commit(message) {
+        this.commands.Push('git commit -m "' message '"')
+        return this
+    }
+
+    Push() {
+        this.commands.Push("git push")
+        return this
+    }
+
+    Execute() {
+        this.shell.Execute(this.commands*)
+        this.commands := []
+        return this
+    }
+
+
+    _GetFilesString(files) {
+        sFiles := ""
+        if !files.Length {
+            return "."
+        }
+        for index, filePath in files {
+            sFiles .= '"' filePath '" '
+        }
+        return sFiles
+    }
+
+
     /**
     * Specify a file path and get the github link for it
     * @param path *String* Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
