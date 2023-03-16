@@ -41,7 +41,7 @@ Class Paths {
         "Main", this.Main "\.vscode\main.code-workspace",
 
         "playlist-sorter", this.Main "\Files\Innit\playlist-sorter.txt",
-        "test-state",      this.main "\Files\Innit\test-state.txt",
+        "test-state",      this.Main "\Files\Innit\test-state.txt",
 
         "BlankPic", this.Main "\Files\img\BlankPic.png",
 
