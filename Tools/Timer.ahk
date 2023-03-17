@@ -38,9 +38,7 @@ class Timer {
 
 
     static _ParseHours(sTime) {
-        Infos(sTime)
         actualTime := StrReplace(sTime, "h")
-        Infos(actualTime)
         if sTime != actualTime
             return actualTime * 60 * 60 * 1000
         return 0
