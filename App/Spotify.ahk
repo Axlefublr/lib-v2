@@ -134,7 +134,7 @@ Class Spotify {
         if Spotify._IsRapperFavorite(artistName)
             return
         AppendFile(Paths.Ptf["Artists"], "1. " DateTime.Date " - " artistName "`n")
-        Git(Paths.Music).Add("Artists").Commit("favorite " artistName)
+        Git(Paths.Music).Add("Artists").Commit("favorite " artistName).Execute()
         Info(artistName " is now your favorite! 🥰")
     }
 
