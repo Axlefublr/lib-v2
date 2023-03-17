@@ -21,11 +21,12 @@ class Infos {
     }
 
 
-    static fontSize         := 20
-    static unit             := A_ScreenDPI / 96
-    static guiWidth         := Infos.fontSize * Infos.unit * 3
-    static maximumInfos     := Floor(A_ScreenHeight / Infos.guiWidth)
-    static AvailablePlaces  := Infos._GeneratePlacesArray()
+    static FontSize        := 20
+    static Distance        := 3
+    static unit            := A_ScreenDPI / 96
+    static guiWidth        := Infos.FontSize * Infos.unit * Infos.Distance
+    static maximumInfos    := Floor(A_ScreenHeight / Infos.guiWidth)
+    static availablePlaces := Infos._GeneratePlacesArray()
 
 
     static _GeneratePlacesArray() {
@@ -63,7 +64,7 @@ class Infos {
             return this
         }
 
-        Infos.AvailablePlaces[this.spaceIndex] := false
+        Infos.availablePlaces[this.spaceIndex] := false
         return Infos(newText, this.autoCloseTimeout)
     }
 
@@ -74,23 +75,23 @@ class Infos {
         }
         Hotkey("Escape", "Off")
         this.gInfo.Destroy()
-        Infos.AvailablePlaces[this.spaceIndex] := false
+        Infos.availablePlaces[this.spaceIndex] := false
         return true
     }
 
 
     _CreateGui() {
-        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize) ;.NeverFocusWindow()
+        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.FontSize) ;.NeverFocusWindow()
         this.gcText := this.gInfo.AddText(, this.text)
     }
 
     _GetAvailableSpace() {
         spaceIndex := unset
-        for index, isOccupied in Infos.AvailablePlaces {
+        for index, isOccupied in Infos.availablePlaces {
             if isOccupied
                 continue
             spaceIndex := index
-            Infos.AvailablePlaces[spaceIndex] := true
+            Infos.availablePlaces[spaceIndex] := this
             break
         }
         if !IsSet(spaceIndex)
