@@ -7,6 +7,7 @@
 #!u::Script.Reload()
 #!i::Script.Test()
 #!o::Script.ExitTest()
+#!p::Script.RunTests()
 #ScrollLock::System.Reboot()
 ScrollLock::System.PowerDownSafely()
 #SuspendExempt false

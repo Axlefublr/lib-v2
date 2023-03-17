@@ -1,9 +1,11 @@
-; No dependencies
+#Include <Tools\Info>
+#Include <Paths>
 
 class Timer {
 
     __New(time) {
         this.sTime := time
+        this._ParseTimeStr()
     }
 
 
@@ -12,16 +14,16 @@ class Timer {
 
 
     Start() {
-
+        SetTimer(this._foRing, -this.msTime)
+        Info("Timer started!", 500)
     }
 
 
+    _foRing := this._Ring.Bind(this)
     _Ring() {
-
-    }
-
-    _GetTimeInMs() {
-
+        Infos("Timer for " this.sTime " is done!")
+        loop 2
+            SoundPlay(Paths.Ptf["ting"])
     }
 
     _ParseTimeStr() {
@@ -36,7 +38,9 @@ class Timer {
 
 
     static _ParseHours(sTime) {
+        Infos(sTime)
         actualTime := StrReplace(sTime, "h")
+        Infos(actualTime)
         if sTime != actualTime
             return actualTime * 60 * 60 * 1000
         return 0

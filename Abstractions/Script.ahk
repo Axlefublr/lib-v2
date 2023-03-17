@@ -40,4 +40,6 @@ class Script {
         WriteFile(Paths.Ptf["test-state"], 0)
     }
 
+    static RunTests() => Run(Paths.Ptf["Tests"])
+
 }
