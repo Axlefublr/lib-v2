@@ -3,8 +3,9 @@
 
 class Timer {
 
-    __New(time) {
+    __New(time, shouldExitapp := false) {
         this.sTime := time
+        this.shouldExitapp := shouldExitapp
         this._ParseTimeStr()
     }
 
@@ -22,8 +23,11 @@ class Timer {
     _foRing := this._Ring.Bind(this)
     _Ring() {
         Infos("Timer for " this.sTime " is done!")
-        loop 2
+        loop 2 {
             SoundPlay(Paths.Ptf["ting"])
+        }
+        if this.shouldExitapp
+            ExitApp()
     }
 
     _ParseTimeStr() {
