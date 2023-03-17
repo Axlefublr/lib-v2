@@ -2,13 +2,6 @@
 
 class Infos {
 
-    static __New() {
-        loop Infos.maximumInfos {
-            Infos.AvailablePlaces.Push(false)
-        }
-    }
-
-
     /**
      * To use Info, you just need to create an instance of it, no need to call any method after
      * @param text *String*
@@ -29,10 +22,19 @@ class Infos {
 
 
     static fontSize         := 20
-    static AvailablePlaces  := []
     static unit             := A_ScreenDPI / 96
-    static guiWidth         := Infos.fontSize * Infos.unit * 50
+    static guiWidth         := Infos.fontSize * Infos.unit * 3
     static maximumInfos     := Floor(A_ScreenHeight / Infos.guiWidth)
+    static AvailablePlaces  := Infos._GeneratePlacesArray()
+
+
+    static _GeneratePlacesArray() {
+        availablePlaces := []
+        loop Infos.maximumInfos {
+            availablePlaces.Push(false)
+        }
+        return availablePlaces
+    }
 
 
     autoCloseTimeout := 0
@@ -78,7 +80,7 @@ class Infos {
 
 
     _CreateGui() {
-        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize).NeverFocusWindow()
+        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize) ;.NeverFocusWindow()
         this.gcText := this.gInfo.AddText(, this.text)
     }
 
