@@ -42,12 +42,14 @@ Class Paths {
 
         "playlist-sorter", Paths.Main "\Files\Innit\playlist-sorter.txt",
         "test-state",      Paths.Main "\Files\Innit\test-state.txt",
+        "time-agent",      Paths.Main "\Files\Innit\time-agent.txt",
 
         "BlankPic", Paths.Main "\Files\img\BlankPic.png",
 
         "Hub", Paths.Main "\Hub.ahk",
 
         "Tests", Paths.Main "\Tools\Tests.ahk",
+        "Timer", Paths.Main "\Tools\Timer.ahk",
 
         "AhkTest", Paths.Test "\AhkTest.ahk",
 

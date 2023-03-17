@@ -29,6 +29,7 @@
         "r", () => Browser.RunLink(Links["reddit"]),
         "k", () => KeyCodeGetter(),
         "M", () => Meditate(),
+        "t", () => (WriteFile(Paths.Ptf["time-agent"], CleanInputBox().WaitForInput()), Run(Paths.Ptf["Timer"]))
 
     )
     if key
