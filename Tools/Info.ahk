@@ -11,21 +11,20 @@ class Infos {
         this.autoCloseTimeout := autoCloseTimeout
         this.text := text
         this._CreateGui()
-        this.__DoOnce()
-        if !this.__GetAvailableSpace() {
-            this.__StopDueToNoSpace()
+        this._DoOnce()
+        if !this._GetAvailableSpace() {
+            this._StopDueToNoSpace()
             return
         }
-        this.__SetupHotkeysAndEvents()
-        this.__SetupAutoclose()
-        this.__Show()
+        this._SetupHotkeysAndEvents()
+        this._SetupAutoclose()
+        this._Show()
     }
 
     static fontSize         := 20
     static ranOnce          := false
     static guiWidthModifier := 5
 
-    ; These get set the first time you create an instance of this class
     static guiWidth        := unset
     static maximumInfos    := unset
     static AvailablePlaces := []
@@ -33,20 +32,8 @@ class Infos {
 
     autoCloseTimeout := 0
 
+    bfDestroy := this.Destroy.Bind(this)
 
-    _bfDestroy := this.Destroy.Bind(this)
-
-
-    Destroy(*) {
-        try HotIfWinExist("ahk_id " this.gInfo.Hwnd)
-        catch Any {
-            return false
-        }
-        Hotkey("Escape", "Off")
-        this.gInfo.Destroy()
-        Infos.AvailablePlaces[this.spaceIndex] := false
-        return true
-    }
 
     /**
      * Will replace the text in the Info
@@ -67,7 +54,7 @@ class Infos {
         ; If the text provided is the same length as in the existing gui's window
         if StrLen(newText) = StrLen(this.gcText.Text) {
             this.gcText.Text := newText
-            this.__SetupAutoclose()
+            this._SetupAutoclose()
             return this
         }
 
@@ -76,12 +63,24 @@ class Infos {
         return Infos(newText, this.autoCloseTimeout)
     }
 
+    Destroy(*) {
+        try HotIfWinExist("ahk_id " this.gInfo.Hwnd)
+        catch Any {
+            return false
+        }
+        Hotkey("Escape", "Off")
+        this.gInfo.Destroy()
+        Infos.AvailablePlaces[this.spaceIndex] := false
+        return true
+    }
+
+
     _CreateGui() {
         this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize)
         this.gcText := this.gInfo.AddText(, this.text)
     }
 
-    __DoOnce() {
+    _DoOnce() {
         if Infos.ranOnce {
             return
         }
@@ -95,7 +94,7 @@ class Infos {
         Infos.ranOnce := true
     }
 
-    __GetAvailableSpace() {
+    _GetAvailableSpace() {
         spaceIndex := unset
         for index, isOccupied in Infos.AvailablePlaces {
             if isOccupied
@@ -112,22 +111,22 @@ class Infos {
 
     _CalculateYCoord() => this.spaceIndex * Infos.guiWidth - Infos.guiWidth
 
-    __StopDueToNoSpace() => this.gInfo.Destroy()
+    _StopDueToNoSpace() => this.gInfo.Destroy()
 
-    __SetupHotkeysAndEvents() {
+    _SetupHotkeysAndEvents() {
         HotIfWinExist("ahk_id " this.gInfo.Hwnd)
-        Hotkey("Escape", this._bfDestroy, "On")
-        this.gcText.OnEvent("Click", this._bfDestroy)
-        this.gInfo.OnEvent("Close", this._bfDestroy)
+        Hotkey("Escape", this.bfDestroy, "On")
+        this.gcText.OnEvent("Click", this.bfDestroy)
+        this.gInfo.OnEvent("Close", this.bfDestroy)
     }
 
-    __SetupAutoclose() {
+    _SetupAutoclose() {
         if this.autoCloseTimeout {
-            SetTimer(this._bfDestroy, -this.autoCloseTimeout)
+            SetTimer(this.bfDestroy, -this.autoCloseTimeout)
         }
     }
 
-    __Show() => this.gInfo.Show("AutoSize NA x0 y" this._CalculateYCoord())
+    _Show() => this.gInfo.Show("AutoSize NA x0 y" this._CalculateYCoord())
 
 }
 
