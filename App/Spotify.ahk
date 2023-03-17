@@ -119,7 +119,7 @@ Class Spotify {
         if Spotify._IsRapperTouched(artistName)
             return
         AppendFile(Paths.Ptf["Rappers"], DateTime.Date " " DateTime.Time " - " artistName "`n")
-        Git(Paths.Music).Add(Paths.Ptf["Rappers"]).Commit("interest " artistName)
+        Git(Paths.Music).Add(Paths.Ptf["Rappers"]).Commit("interest " artistName).Execute()
         Info(artistName " yet to be discovered! 📃")
     }
 
