@@ -83,6 +83,7 @@ class Infos {
             return false
         }
         Hotkey("Escape", "Off")
+        Hotkey("^Escape", "Off")
         if this.spaceIndex < 10
             Hotkey("#" this.spaceIndex, "Off")
         this.gInfo.Destroy()
@@ -118,7 +119,7 @@ class Infos {
     _SetupHotkeysAndEvents() {
         HotIfWinExist("ahk_id " this.gInfo.Hwnd)
         Hotkey("Escape", this.bfDestroy, "On")
-        Hotkey("^Escape", )
+        Hotkey("^Escape", Infos.foDestroyAll, "On")
         if this.spaceIndex < 10
             Hotkey("#" this.spaceIndex, this.bfDestroy, "On")
         this.gcText.OnEvent("Click", this.bfDestroy)
