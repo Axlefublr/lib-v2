@@ -31,6 +31,7 @@ class Timer {
             this.msTime += Timer._ParseMinutes(sTime)
             this.msTime += Timer._ParseSeconds(sTime)
         }
+        return this
     }
 
 

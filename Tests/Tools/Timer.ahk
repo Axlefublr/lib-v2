@@ -39,4 +39,14 @@ class TimerTests extends Testable {
             throw InputExpectedActualError("_ParseSeconds", input, expected, actual)
     }
 
+    _ParseTimeStr() {
+
+        input := "h2h m2mm s2ss"
+        expected := 7322000
+
+        actual := Timer(input)._ParseTimeStr().msTime
+        if actual != expected
+            throw InputExpectedActualError("_ParseTimeStr", input, expected, actual)
+    }
+
 }
