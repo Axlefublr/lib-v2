@@ -21,12 +21,22 @@ class Infos {
     }
 
 
-    static FontSize        := 20
-    static Distance        := 3
-    static unit            := A_ScreenDPI / 96
-    static guiWidth        := Infos.FontSize * Infos.unit * Infos.Distance
-    static maximumInfos    := Floor(A_ScreenHeight / Infos.guiWidth)
-    static spots := Infos._GeneratePlacesArray()
+    static FontSize     := 20
+    static Distance     := 3
+    static unit         := A_ScreenDPI / 96
+    static guiWidth     := Infos.FontSize * Infos.unit * Infos.Distance
+    static maximumInfos := Floor(A_ScreenHeight / Infos.guiWidth)
+    static spots        := Infos._GeneratePlacesArray()
+    static foDestroyAll := (*) => Infos.DestroyAll()
+
+
+    static DestroyAll() {
+        for index, infoObj in Infos.spots {
+            if !infoObj
+                continue
+            infoObj.Destroy()
+        }
+    }
 
 
     static _GeneratePlacesArray() {
@@ -39,7 +49,6 @@ class Infos {
 
 
     autoCloseTimeout := 0
-
     bfDestroy := this.Destroy.Bind(this)
 
 
@@ -109,6 +118,7 @@ class Infos {
     _SetupHotkeysAndEvents() {
         HotIfWinExist("ahk_id " this.gInfo.Hwnd)
         Hotkey("Escape", this.bfDestroy, "On")
+        Hotkey("^Escape", )
         if this.spaceIndex < 10
             Hotkey("#" this.spaceIndex, this.bfDestroy, "On")
         this.gcText.OnEvent("Click", this.bfDestroy)
