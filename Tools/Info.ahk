@@ -28,6 +28,7 @@ class Infos {
     static maximumInfos := Floor(A_ScreenHeight / Infos.guiWidth)
     static spots        := Infos._GeneratePlacesArray()
     static foDestroyAll := (*) => Infos.DestroyAll()
+    static maxNumberedHotkeys := 12
 
 
     static DestroyAll() {
@@ -84,8 +85,8 @@ class Infos {
         }
         Hotkey("Escape", "Off")
         Hotkey("^Escape", "Off")
-        if this.spaceIndex < 10
-            Hotkey("#" this.spaceIndex, "Off")
+        if this.spaceIndex <= Infos.maxNumberedHotkeys
+            Hotkey("#" this._GetKeyFromIndex(this.spaceIndex), "Off")
         this.gInfo.Destroy()
         Infos.spots[this.spaceIndex] := false
         return true
@@ -120,8 +121,8 @@ class Infos {
         HotIfWinExist("ahk_id " this.gInfo.Hwnd)
         Hotkey("Escape", this.bfDestroy, "On")
         Hotkey("^Escape", Infos.foDestroyAll, "On")
-        if this.spaceIndex < 10
-            Hotkey("#" this.spaceIndex, this.bfDestroy, "On")
+        if this.spaceIndex <= Infos.maxNumberedHotkeys
+            Hotkey("#" this._GetKeyFromIndex(this.spaceIndex), this.bfDestroy, "On")
         this.gcText.OnEvent("Click", this.bfDestroy)
         this.gInfo.OnEvent("Close", this.bfDestroy)
     }
@@ -133,6 +134,16 @@ class Infos {
     }
 
     _Show() => this.gInfo.Show("AutoSize NA x0 y" this._CalculateYCoord())
+
+    _GetKeyFromIndex(index) {
+        if index < 10
+            return index
+        switch index {
+            case 10:return "0"
+            case 11:return "-"
+            case 12:return "="
+        }
+    }
 
 }
 
