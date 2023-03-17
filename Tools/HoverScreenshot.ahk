@@ -75,7 +75,8 @@ class HoverScreenshot {
             HoverScreenshot.Exceptions.PicturePathWrong(this.picturePath)
         }
         this.gcPicture := this.gHover.AddPicture(, this.picturePath)
-        WinSetTransColor(0xF0F0F0, this.gHover.Hwnd)
+        this.gHover.BackColor := 808080
+        WinSetTransColor(808080, this.gHover.Hwnd)
 
         this._SetOnevents()
 
