@@ -47,9 +47,9 @@ Class Paths {
 
         "Hub", Paths.Main "\Hub.ahk",
 
-        "AhkTest", Paths.Test "\AhkTest.ahk",
+        "Tests", Paths.Main "\Tools\Tests.ahk",
 
-        "Tests", Paths.Lib "\Loaders\Tests.ahk",
+        "AhkTest", Paths.Test "\AhkTest.ahk",
 
         "vine boom",         Paths.Audio "\Sounds\vine boom.wav",
         "faded than a hoe",  Paths.Audio "\Sounds\faded than a hoe.wav",
