@@ -2,6 +2,13 @@
 
 class Infos {
 
+    static __New() {
+        loop Infos.maximumInfos {
+            Infos.AvailablePlaces.Push(false)
+        }
+    }
+
+
     /**
      * To use Info, you just need to create an instance of it, no need to call any method after
      * @param text *String*
@@ -11,7 +18,6 @@ class Infos {
         this.autoCloseTimeout := autoCloseTimeout
         this.text := text
         this._CreateGui()
-        this._DoOnce()
         if !this._GetAvailableSpace() {
             this._StopDueToNoSpace()
             return
@@ -21,13 +27,12 @@ class Infos {
         this._Show()
     }
 
-    static fontSize         := 20
-    static ranOnce          := false
-    static guiWidthModifier := 5
 
-    static guiWidth        := unset
-    static maximumInfos    := unset
-    static AvailablePlaces := []
+    static fontSize         := 20
+    static AvailablePlaces  := []
+    static unit             := A_ScreenDPI / 96
+    static guiWidth         := Infos.fontSize * Infos.unit * 50
+    static maximumInfos     := Floor(A_ScreenHeight / Infos.guiWidth)
 
 
     autoCloseTimeout := 0
@@ -46,19 +51,16 @@ class Infos {
      */
     ReplaceText(newText) {
 
-        ; If the gui doesn't exist
-        try WinExist(this.gInfo) ; Not an if because we can't access the gui object once it's destroyed
+        try WinExist(this.gInfo)
         catch
             return Infos(newText, this.autoCloseTimeout)
 
-        ; If the text provided is the same length as in the existing gui's window
         if StrLen(newText) = StrLen(this.gcText.Text) {
             this.gcText.Text := newText
             this._SetupAutoclose()
             return this
         }
 
-        ; If the text length is different, but the window exists (it's a refresh)
         Infos.AvailablePlaces[this.spaceIndex] := false
         return Infos(newText, this.autoCloseTimeout)
     }
@@ -76,22 +78,8 @@ class Infos {
 
 
     _CreateGui() {
-        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize)
+        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize).NeverFocusWindow()
         this.gcText := this.gInfo.AddText(, this.text)
-    }
-
-    _DoOnce() {
-        if Infos.ranOnce {
-            return
-        }
-
-        Infos.guiWidth     := this.gInfo.MarginY * Infos.guiWidthModifier
-        Infos.maximumInfos := Floor(A_ScreenHeight / Infos.guiWidth)
-
-        loop Infos.maximumInfos {
-            Infos.AvailablePlaces.Push(false)
-        }
-        Infos.ranOnce := true
     }
 
     _GetAvailableSpace() {
@@ -109,7 +97,7 @@ class Infos {
         return true
     }
 
-    _CalculateYCoord() => this.spaceIndex * Infos.guiWidth - Infos.guiWidth
+    _CalculateYCoord() => Round(this.spaceIndex * Infos.guiWidth - Infos.guiWidth)
 
     _StopDueToNoSpace() => this.gInfo.Destroy()
 
