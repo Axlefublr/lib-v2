@@ -9,6 +9,12 @@
 #Include <Tools\CleanInputBox>
 #Include <App\Slack>
 #Include <Misc\Meditate>
+#Include <Misc\CountLibraries>
+#Include <App\FL>
+#Include <App\Gimp>
+#Include <Misc\MainApps>
+#Include <App\Shows>
+#Include <Misc\Calculator>
 
 #j:: {
     if !input := CleanInputBox().WaitForInput() {

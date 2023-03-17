@@ -4,6 +4,7 @@
 #Include <App\Youtube>
 #Include <App\Spotify>
 #Include <Abstractions\MediaActions>
+#Include <Misc\CloseButActually>
 
 #MaxThreadsBuffer true
 

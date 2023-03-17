@@ -10,6 +10,7 @@
 #Include <App\Terminal>
 #Include <App\Spotify>
 #Include <App\ClockApp>
+#Include <App\OBS>
 
 #MaxThreadsBuffer true
 #HotIf !Environment.VimMode

@@ -5,6 +5,7 @@
 #Include <Abstractions\SomeLockHint>
 #Include <App\Screenshot>
 #Include <Abstractions\MediaActions>
+#Include <Misc\CloseButActually>
 
 #InputLevel 6
 

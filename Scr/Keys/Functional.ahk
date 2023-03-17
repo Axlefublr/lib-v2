@@ -6,6 +6,7 @@
 #Include <Tools\InternetSearch>
 #Include <System\Brightness>
 #Include <Abstractions\Registers>
+#Include <Tools\RelativeCoordGetter>
 
 +!f::CoordGetter()
 +!g::WindowGetter()
