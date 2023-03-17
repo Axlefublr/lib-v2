@@ -22,9 +22,11 @@ class Timer {
 
     _foRing := this._Ring.Bind(this)
     _Ring() {
-        Infos("Timer for " this.sTime " is done!")
+        infoHwnd := Infos("Timer for " this.sTime " is done!").gInfo.Hwnd
         loop 2 {
             SoundPlay(Paths.Ptf["ting"])
+        }
+        while WinExist(infoHwnd) {
         }
         if this.shouldExitapp
             ExitApp()

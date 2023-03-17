@@ -6,6 +6,7 @@
 #Include <Loaders\Links>
 #Include <Abstractions\Registers>
 #Include <Converters\Layouts>
+#Include <Misc\TimerLoader>
 
 #h:: {
     try key := Registers.__ValidateKey(KeyChorder())
@@ -27,9 +28,9 @@
         "s", () => Steam.winObj.App(),
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
-        "k", () => KeyCodeGetter(),
-        "M", () => Meditate(),
-        "t", () => (WriteFile(Paths.Ptf["time-agent"], CleanInputBox().WaitForInput()), Run(Paths.Ptf["Timer"]))
+        "k", KeyCodeGetter,
+        "M", Meditate,
+        "t", TimerLoader,
 
     )
     if key
