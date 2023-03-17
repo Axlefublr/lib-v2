@@ -21,10 +21,10 @@ class Infos {
     }
 
 
-    static FontSize     := 20
-    static Distance     := 3
+    static fontSize     := 20
+    static distance     := 3
     static unit         := A_ScreenDPI / 96
-    static guiWidth     := Infos.FontSize * Infos.unit * Infos.Distance
+    static guiWidth     := Infos.fontSize * Infos.unit * Infos.distance
     static maximumInfos := Floor(A_ScreenHeight / Infos.guiWidth)
     static spots        := Infos._GeneratePlacesArray()
     static foDestroyAll := (*) => Infos.DestroyAll()
@@ -94,7 +94,7 @@ class Infos {
 
 
     _CreateGui() {
-        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.FontSize).NeverFocusWindow()
+        this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize).NeverFocusWindow()
         this.gcText := this.gInfo.AddText(, this.text)
     }
 
