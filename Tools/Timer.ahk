@@ -16,7 +16,7 @@ class Timer {
 
     Start() {
         SetTimer(this._foRing, -this.msTime)
-        Info("Timer started!", 500)
+        Info("Timer for " this.sTime " started!", 500)
     }
 
 
