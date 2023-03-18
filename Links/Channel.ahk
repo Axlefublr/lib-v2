@@ -39,6 +39,9 @@ Links_Channel := Map(
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
 
     ;;Main channel videos
+    
+    "infos",
+    "https://youtu.be/TH_oSFTyMuA",
 
     "double deref",
     "https://youtu.be/GCWxZEcV_64",
@@ -283,9 +286,6 @@ Links_Channel := Map(
     "maybe maybe or operators",
     "https://youtu.be/4B3oY8dSrXU",
 
-    "info",
-    "https://youtu.be/MNproAKcjow",
-
     "spotify wintitles",
     "https://youtu.be/yF3slRV1hFo",
 
@@ -318,6 +318,9 @@ Links_Channel := Map(
 
     ;;Main channel unlisted videos
     ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
+
+    "infos deprecated",
+    "https://youtu.be/MNproAKcjow",
 
     "aliases vs abbreviations",
     "https://youtu.be/wuiFATVPlOo",
