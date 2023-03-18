@@ -111,3 +111,4 @@
 #Include <Misc\MainApps>
 #Include <Misc\CloseButActually>
 #Include <Misc\Out>
+#Include <Misc\TimerLoader>

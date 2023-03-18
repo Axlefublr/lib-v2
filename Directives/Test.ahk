@@ -1,5 +1,7 @@
 #Include <Directives\Base>
-#Include <Loaders/All>
+
+#Include <Paths>
+#Include <Abstractions\Text>
 
 ExitOnWrite() {
     if !ReadFile(Paths.Ptf["test-state"]) {
