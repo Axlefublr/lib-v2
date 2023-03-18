@@ -38,7 +38,9 @@ Class Spotify {
     static Like()          => Spotify.UIA.LikeState := true
     static Dislike()       => Spotify.UIA.LikeState := false
     static ToggleLike()    => Spotify.UIA.LikeState := !Spotify.UIA.LikeState
-    static ToggleShuffle() => Spotify.UIA.ShuffleElement.Click()
+    static YesShuffle()    => Spotify.UIA.ShuffleState := true
+    static NoShuffle()     => Spotify.UIA.ShuffleState := false
+    static ToggleShuffle() => Spotify.UIA.ShuffleState := Spotify.UIA.ShuffleState
 
     static AddToQueue() {
         Click("R")
@@ -64,6 +66,7 @@ Class Spotify {
     }
 
     static PlayOldestPlaylist() {
+        Spotify.ToggleShuffle()
         Spotify.UIA.YourLibraryButton.Click()
         Spotify.UIA.OldestPlaylistPlayButton.Click()
     }
@@ -339,6 +342,11 @@ Class Spotify {
                     Scope: 2
                 })
             }
+
+                static ShuffleState {
+                    get => Spotify.UIA.ShuffleElement.ToggleState
+                    set => Spotify.UIA.ShuffleElement.ToggleState := value
+                }
 
         static MainNavigation {
             get => Spotify.UIA.Document.WaitElement({
