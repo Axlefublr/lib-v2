@@ -9,7 +9,7 @@ class Infos {
      */
     __New(text, autoCloseTimeout := 0) {
         this.autoCloseTimeout := autoCloseTimeout
-        this.text := text
+        this.text := StrReplace(text, "&", "&&")
         this._CreateGui()
         if !this._GetAvailableSpace() {
             this._StopDueToNoSpace()
