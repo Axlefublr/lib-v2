@@ -66,7 +66,7 @@ Class Spotify {
     }
 
     static PlayOldestPlaylist() {
-        Spotify.ToggleShuffle()
+        Spotify.YesShuffle()
         Spotify.UIA.YourLibraryButton.Click()
         Spotify.UIA.OldestPlaylistPlayButton.Click()
     }
