@@ -9,7 +9,7 @@ class Infos {
      */
     __New(text, autoCloseTimeout := 0) {
         this.autoCloseTimeout := autoCloseTimeout
-        this.text := StrReplace(text, "&", "&&")
+        this.text := text
         this._CreateGui()
         if !this._GetAvailableSpace() {
             this._StopDueToNoSpace()
@@ -95,7 +95,7 @@ class Infos {
 
     _CreateGui() {
         this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize).NeverFocusWindow()
-        this.gcText := this.gInfo.AddText(, this.text)
+        this.gcText := this.gInfo.AddText(, StrReplace(this.text, "&", "&&"))
     }
 
     _GetAvailableSpace() {
