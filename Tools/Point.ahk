@@ -19,7 +19,7 @@ class Point {
 
 
     Color := 0xDE4D37
-    multiplier := 50
+    multiplier := 15
     guiExist := false
 
 
@@ -45,11 +45,15 @@ class Point {
 
     _Show() {
         this.guiObj.Show(Format(
-            "NA w{1} h{1}",
-            Round(this.Size)
+            "NA w{1} h{1} x{2} y{3}",
+            Round(this.Size),
+            this._CalculateGuiCoord(this.x),
+            this._CalculateGuiCoord(this.y)
         ))
         this.guiObj.NeverFocusWindow()
         this.guiObj.MakeClickthrough()
     }
+
+    _CalculateGuiCoord(coord) => Round(coord - this.Size / 2)
 
 }
