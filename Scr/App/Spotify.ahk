@@ -12,6 +12,7 @@ F6::Spotify.CopyArtistTrack()
 F7::Spotify.CopyLink()
 F8::Spotify.AutoFavRapper()
 F9::Spotify.PlayOldestPlaylist()
+F10::Spotify.PlayDiscovery()
 
 !w::Spotify.ToggleLike()
 !e::Spotify.LikedPlaylist()

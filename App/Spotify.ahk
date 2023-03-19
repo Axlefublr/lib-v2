@@ -71,6 +71,12 @@ Class Spotify {
         Spotify.UIA.OldestPlaylistPlayButton.Click()
     }
 
+    static PlayDiscovery() {
+        Spotify.NoShuffle()
+        Spotify.UIA.YourLibraryButton.Click()
+        Spotify.UIA.DiscoveryPlaylistPlayButton.Click()
+    }
+
     static RemoveFromCurrentPlaylist() {
         Spotify.Context()
         Spotify.UIA.RemoveFromPlaylistElement.Click()
@@ -387,6 +393,14 @@ Class Spotify {
                     Type:      "Button",
                     Scope:     2,
                     Order:     2
+                })
+            }
+
+            static DiscoveryPlaylistPlayButton {
+                get => Spotify.UIA.YourLibraryElement.WaitElement({
+                    Name: "Play Discovery",
+                    Type: "Button",
+                    Scope: 2
                 })
             }
 
