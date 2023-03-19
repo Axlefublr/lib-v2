@@ -13,38 +13,43 @@ class Point {
 
 
     Size {
-        get => this.unit * this.multiplier
+        get => Point.unit * this.multiplier
         set => this.multiplier := value
     }
 
+
     Color := 0xDE4D37
-    unit := A_ScreenDPI / 96
     multiplier := 50
     guiExist := false
 
 
+    static unit := A_ScreenDPI / 96
+
+
     Create() {
-        this.GuiObj := Gui("AlwaysOnTop -Caption +ToolWindow")
+        if this.guiExist
+            this.Destroy()
+        this.guiObj := Gui("AlwaysOnTop -Caption +ToolWindow")
+        this.guiObj.BackColor := this.Color
+        this.guiExist := true
+        this._Show()
     }
 
     Destroy() {
-
+        if !this.guiExist
+            return
+        this.guiObj.Destroy()
+        this.guiExist := false
     }
 
 
     _Show() {
-
+        this.guiObj.Show(Format(
+            "NA w{1} h{1}",
+            Round(this.Size)
+        ))
+        this.guiObj.NeverFocusWindow()
+        this.guiObj.MakeClickthrough()
     }
-
-    ; _Show() {
-    ;     this.GuiObj.Show(Format(
-    ;         "NA w{1} h{1} x{2} y{3}",
-    ;         Round(StateBulb.Side),
-    ;         Round(this.XPosition),
-    ;         Round(StateBulb.YPosition)
-    ;     ))
-    ;     this.GuiObj.NeverFocusWindow()
-    ;     this.GuiObj.MakeClickthrough()
-    ; }
 
 }
