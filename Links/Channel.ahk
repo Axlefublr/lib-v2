@@ -38,8 +38,14 @@ Links_Channel := Map(
     "ahk all the way playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
 
+    "shows playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP-K28TLJFNve4HnxkI00p5",
+
     ;;Main channel videos
-    
+
+    "cmd",
+    "https://youtu.be/EpzVeU5b9zc",
+
     "infos",
     "https://youtu.be/TH_oSFTyMuA",
 
