@@ -1,6 +1,6 @@
 #InputLevel 6
 
-#f::Send("{Blind}k")
+#s::Send("{Blind}k")
 #!sc27::Send("#;")
 
 ; #sc28::return

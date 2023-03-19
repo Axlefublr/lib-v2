@@ -8,8 +8,8 @@
 #Include <Abstractions\Registers>
 #Include <Tools\RelativeCoordGetter>
 
-+!f::CoordGetter()
-+!g::WindowGetter()
+#^LButton::CoordGetter()
+#f::WindowGetter()
 +!v::RelativeCoordGetter()
 
 #k::InternetSearch("Google").TriggerSearch()
