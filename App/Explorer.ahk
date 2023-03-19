@@ -21,6 +21,7 @@ Class Explorer {
         static Audio            := Win({exePath: Paths.Audio,        runOpt: "Min"})
         static ScreenVideos     := Win({exePath: Paths.ScreenVideos, runOpt: "Min"})
         static Content          := Win({exePath: Paths.Content,      runOpt: "Min"})
+        static Tree             := Win({exePath: Paths.Tree,         runOpt: "Min"})
 
         static VsCodeExtensions := Win({exePath: Paths.VsCodeExtensions})
         static Prog             := Win({exePath: Paths.Prog})

@@ -27,6 +27,7 @@ Class Paths {
     static Content      := Paths.Pictures "\Content"
     static VideoTools   := Paths.Pictures "\Tools"
     static ScreenVideos := Paths.Pictures "\Screenvideos"
+    static Tree         := Paths.Pictures "\Tree"
     static Memes        := Paths.Pictures "\Tree\Memes"
     static Emoji        := Paths.Pictures "\Tree\Emojis"
 

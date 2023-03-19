@@ -17,6 +17,7 @@
 
         "q", () => Explorer.WinObj.Volume.App_Folders(),
         "v", () => Explorer.WinObj.Pictures.App_Folders(),
+        "r", () => Explorer.WinObj.Tree.App_Folders(),
         "t", () => Explorer.WinObj.VideoTools.App_Folders(),
         "s", () => Explorer.WinObj.Memes.App_Folders(),
         "e", () => Explorer.WinObj.Emoji.App_Folders(),
