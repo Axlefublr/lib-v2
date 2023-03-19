@@ -26,7 +26,7 @@ XButton2 & LButton::Enter
 XButton2 & MButton::Screenshot.FullScreenOut()
 XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 
-#!LButton::Hider(false)
+#!LButton::Hider()
 #LButton:: {
     While GetKeyState("LButton", "P")
         Point().Create()
