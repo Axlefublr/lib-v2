@@ -27,7 +27,10 @@ XButton2 & MButton::Screenshot.FullScreenOut()
 XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 
 #!LButton::Hider(false)
-#LButton::Point().Create()
+#LButton:: {
+    While GetKeyState("LButton", "P")
+        Point().Create()
+}
 
 #HotIf GetKeyState("Ctrl", "P")
 Media_Stop & XButton1::Cut()

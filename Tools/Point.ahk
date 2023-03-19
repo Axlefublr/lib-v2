@@ -61,7 +61,6 @@ class Point {
         Point.spots.Push(this)
     }
 
-    foDestroy := (*) => this.Destroy()
     Destroy() {
         if !this.guiExist
             return
@@ -86,14 +85,12 @@ class Point {
 
     _SetupHotkeys() {
         HotIfWinExist("ahk_id " this.guiHwnd)
-        Hotkey("Escape", this.foDestroy, "On")
-        Hotkey("^Escape", Point.foDestroyAll, "On")
+        Hotkey("Escape", Point.foDestroyAll, "On")
     }
 
     _DisableHotkeys() {
         HotIfWinExist("ahk_id " this.guiHwnd)
         Hotkey("Escape", "Off")
-        Hotkey("^Escape", "Off")
     }
 
 }
