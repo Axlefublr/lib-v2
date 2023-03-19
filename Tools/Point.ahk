@@ -31,11 +31,12 @@ class Point {
     }
 
 
-    Color := 0xDE4D37
+    Color := Point.Color
     multiplier := 15
     guiExist := false
 
 
+    static Color := 0xDE4D37
     static unit := A_ScreenDPI / 96
     static spots := []
 
