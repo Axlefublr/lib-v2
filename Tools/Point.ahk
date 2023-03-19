@@ -37,6 +37,15 @@ class Point {
 
 
     static unit := A_ScreenDPI / 96
+    static spots := []
+
+
+    static DestroyAll() {
+        for index, pointy in Point.spots {
+            try pointy.Destroy()
+        }
+        Point.spots := []
+    }
 
 
     Create() {
@@ -48,6 +57,7 @@ class Point {
         this._Show()
         this.guiHwnd := this.guiObj.Hwnd
         this._SetupHotkeys()
+        Point.spots.Push(this)
     }
 
     foDestroy := (*) => this.Destroy()
