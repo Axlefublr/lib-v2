@@ -118,3 +118,9 @@ WaitUntilPixChange(coords := [], timeout := 5000) {
     } Until differentPixel != pixelColor
     return true
 }
+
+GetCurrentColor() {
+    CoordMode("Mouse", "Screen")
+    MouseGetPos(&x, &y)
+    return PixelGetColor(x, y)
+}

@@ -27,10 +27,12 @@ XButton2 & MButton::Screenshot.FullScreenOut()
 XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 
 #!LButton::Hider()
+#w::Hider(false)
 #LButton:: {
     While GetKeyState("LButton", "P")
         Point().Create()
 }
+#e::Point.Color := GetCurrentColor()
 
 #HotIf GetKeyState("Ctrl", "P")
 Media_Stop & XButton1::Cut()
