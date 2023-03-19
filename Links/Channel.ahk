@@ -43,6 +43,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "point",
+    "https://youtu.be/qS5wpYuTIBI",
+
     "cmd",
     "https://youtu.be/EpzVeU5b9zc",
 
