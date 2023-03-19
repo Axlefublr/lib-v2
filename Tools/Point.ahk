@@ -40,6 +40,7 @@ class Point {
     static spots := []
 
 
+    static foDestroyAll := (*) => Point.DestroyAll()
     static DestroyAll() {
         for index, pointy in Point.spots {
             try pointy.Destroy()
@@ -86,11 +87,13 @@ class Point {
     _SetupHotkeys() {
         HotIfWinExist("ahk_id " this.guiHwnd)
         Hotkey("Escape", this.foDestroy, "On")
+        Hotkey("^Escape", Point.foDestroyAll, "On")
     }
 
     _DisableHotkeys() {
         HotIfWinExist("ahk_id " this.guiHwnd)
         Hotkey("Escape", "Off")
+        Hotkey("^Escape", "Off")
     }
 
 }
