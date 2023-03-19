@@ -46,13 +46,17 @@ class Point {
         this.guiObj.BackColor := this.Color
         this.guiExist := true
         this._Show()
+        this.guiHwnd := this.guiObj.Hwnd
+        this._SetupHotkeys()
     }
 
+    foDestroy := (*) => this.Destroy()
     Destroy() {
         if !this.guiExist
             return
         this.guiObj.Destroy()
         this.guiExist := false
+        this._DisableHotkeys()
     }
 
 
@@ -68,5 +72,15 @@ class Point {
     }
 
     _CalculateGuiCoord(coord) => Round(coord - this.Size / 2)
+
+    _SetupHotkeys() {
+        HotIfWinExist("ahk_id " this.guiHwnd)
+        Hotkey("Escape", this.foDestroy, "On")
+    }
+
+    _DisableHotkeys() {
+        HotIfWinExist("ahk_id " this.guiHwnd)
+        Hotkey("Escape", "Off")
+    }
 
 }
