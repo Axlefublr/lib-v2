@@ -2,7 +2,20 @@
 
 class Point {
 
-    __New(x, y, size?, color?) {
+    __New(x?, y?, size?, color?) {
+
+        isXSet := IsSet(x)
+        isYSet := IsSet(y)
+
+        if !isXSet || !isYSet {
+            CoordMode("Mouse", "Screen")
+            MouseGetPos(&xPos, &yPos)
+        }
+        if !isXSet
+            x := xPos
+        if !isYSet
+            y := yPos
+
         this.x := x
         this.y := y
         if IsSet(color)

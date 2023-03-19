@@ -4,6 +4,7 @@
 #Include <App\Screenshot>
 #Include <Tools\Hider>
 #Include <Abstractions\Script>
+#Include <Tools\Point>
 
 #MaxThreadsBuffer true
 
@@ -26,7 +27,7 @@ XButton2 & MButton::Screenshot.FullScreenOut()
 XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
 
 #!LButton::Hider(false)
-#LButton::Hider()
+#LButton::Point().Create()
 
 #HotIf GetKeyState("Ctrl", "P")
 Media_Stop & XButton1::Cut()
