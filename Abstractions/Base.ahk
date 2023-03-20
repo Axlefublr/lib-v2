@@ -54,10 +54,6 @@ Save() => Send("^s")
 
 RestoreTab() => Send("^+t")
 
-LanguageRus() => PostMessage(0x0050, , 0x0419, , "A")
-
-LanguageEng() => PostMessage(0x0050, , 0x0409, , "A")
-
 DeleteWord() => Send("{Ctrl down}{Left}{Delete}{Ctrl up}")
 
 SelectWord() => Send("{left}{ctrl down}{right}{left}{shift down}{right}{shift up}{ctrl up}")
