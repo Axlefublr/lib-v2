@@ -87,4 +87,7 @@ Links_Tools := Map(
     "gpt playground",
     "https://platform.openai.com/playground/",
 
+    "fzf gh",
+    "https://github.com/junegunn/fzf",
+
 )

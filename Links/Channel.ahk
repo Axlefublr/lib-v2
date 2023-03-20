@@ -43,6 +43,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "fzf",
+    "https://youtu.be/VW7S21_v1a8",
+
     "point",
     "https://youtu.be/qS5wpYuTIBI",
 
@@ -139,7 +142,7 @@ Links_Channel := Map(
     "registers 1",
     "https://youtu.be/Toa3MXLcwtg",
 
-    "fish abbreviations in zsh",
+    "abbreviations",
     "https://youtu.be/gjmhX693scQ",
 
     "debloat vscode",
@@ -350,6 +353,9 @@ Links_Channel := Map(
     "https://youtu.be/4jiXHYuo7D8",
 
     ;;Useful tutorials not by me
+
+    "fzf luke",
+    "https://youtu.be/fcwSR4LWdNo",
 
     "voice feminization",
     "https://youtu.be/BfCS01MkbIY",
