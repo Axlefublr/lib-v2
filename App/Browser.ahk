@@ -20,6 +20,9 @@ Class Browser {
         exePath: Browser.path,
     })
 
+
+    static SearchTabs() => Send("^+a")
+
     /**
      * Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
      * @param {String} link

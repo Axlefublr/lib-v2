@@ -20,6 +20,7 @@
 
 !e::NewTab()
 !w::CloseTab()
+^p::Browser.SearchTabs()
 
 XButton1:: {
     sections := Press.GetSections()
