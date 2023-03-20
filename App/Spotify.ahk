@@ -120,7 +120,7 @@ Class Spotify {
 
     static NewDiscovery(artistName) {
         AppendFile(Paths.Ptf["Discovery log"], DateTime.Date " " DateTime.Time " - " artistName "`n")
-        Git(Paths.Music).Add(Paths.Ptf["Discovery log"]).Commit("discover " artistName).Execute()
+        Git(Paths.Music).Add(Paths.Ptf["Discovery log"]).Commit("discover " artistName).Push().Execute()
         Info(artistName " just discovered! 🌎")
     }
 
@@ -128,7 +128,7 @@ Class Spotify {
         if Spotify._IsRapperTouched(artistName)
             return
         AppendFile(Paths.Ptf["Rappers"], DateTime.Date " " DateTime.Time " - " artistName "`n")
-        Git(Paths.Music).Add(Paths.Ptf["Rappers"]).Commit("interest " artistName).Execute()
+        Git(Paths.Music).Add(Paths.Ptf["Rappers"]).Commit("interest " artistName).Push().Execute()
         Info(artistName " yet to be discovered! 📃")
     }
 
@@ -143,7 +143,7 @@ Class Spotify {
         if Spotify._IsRapperFavorite(artistName)
             return
         AppendFile(Paths.Ptf["Artists"], "1. " DateTime.Date " - " artistName "`n")
-        Git(Paths.Music).Add("Artists").Commit("favorite " artistName).Execute()
+        Git(Paths.Music).Add("Artists").Commit("favorite " artistName).Push().Execute()
         Info(artistName " is now your favorite! 🥰")
     }
 

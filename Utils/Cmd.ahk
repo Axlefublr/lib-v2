@@ -22,6 +22,9 @@ class Cmd {
     Execute(commands*) {
         commands := this._GetCommandString(commands)
         this.exec := this.shell.Exec(A_ComSpec " /C " commands)
+        While !this.exec.Status {
+            Sleep(50)
+        }
         return this
     }
 
