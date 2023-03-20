@@ -15,6 +15,10 @@ class Timer {
 
 
     Start() {
+        if this.msTime <= 0 {
+            this._Ring()
+            return
+        }
         SetTimer(this._foRing, -this.msTime)
         Info("Timer for " this.sTime " started!", 500)
     }
