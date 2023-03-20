@@ -5,6 +5,7 @@
 #Include <Tools\Hider>
 #Include <Abstractions\Script>
 #Include <Tools\Point>
+#Include <Tools\HoverScreenshot>
 
 #MaxThreadsBuffer true
 

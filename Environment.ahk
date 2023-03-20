@@ -4,7 +4,19 @@ class Environment {
 
     static VimMode := false
 
-    static _numlock := 0
+    static _sndMem := false
+    static SndMem {
+        get => this._sndMem
+        set {
+            if value
+                StateBulb[5].Create()
+            else
+                StateBulb[5].Destroy()
+            this._sndMem := value
+        }
+    }
+
+    static _numlock := false
     static NumLock {
         get => this._numlock
         set {
