@@ -32,7 +32,7 @@
 #Include <Scr\Keys\Remaps>
 #Include <Scr\Keys\Functional>
 #Include <Scr\Keys\Trinity>
-#Include <Scr\Keys\WinCtrl>
+#Include <Scr\Keys\SndMem>
 #Include <Scr\Keys\VimMode>
 #Include <Scr/Keys/Numlock>
 
