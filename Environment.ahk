@@ -9,9 +9,9 @@ class Environment {
         get => this._sndMem
         set {
             if value
-                StateBulb[5].Create()
+                StateBulb[3].Create()
             else
-                StateBulb[5].Destroy()
+                StateBulb[3].Destroy()
             this._sndMem := value
         }
     }
