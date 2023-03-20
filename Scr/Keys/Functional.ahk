@@ -8,13 +8,28 @@
 #Include <Abstractions\Registers>
 #Include <Tools\RelativeCoordGetter>
 
+#!-::Counter.Decrement().Show()
+#!=::Counter.Increment().Show()
+#!sc1A::Counter.Send()
+#!sc1B::Counter.Send().Increment()
+#!sc2B:: {
+    if !input := CleanInputBox().WaitForInput() {
+        return
+    }
+    Counter.num := input
+    Counter.Show()
+}
+#!9::Counter.Show()
+#!0::Counter.Reset().Show()
+
+#!7::Brightness.ChangeBrightnessRelative(-10)
+#!8::Brightness.ChangeBrightnessRelative(10)
+
 #^LButton::CoordGetter()
 #f::WindowGetter()
 +!v::RelativeCoordGetter()
 
 #k::InternetSearch("Google").TriggerSearch()
-#!sc1A::Brightness.ChangeBrightnessRelative(-10)
-#!sc1B::Brightness.ChangeBrightnessRelative(10)
 
 #m::Registers(KeyChorder()).WriteOrAppend()
 #!m::Registers(KeyChorder()).Paste()
