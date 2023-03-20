@@ -34,6 +34,7 @@
 #Include <Scr\Keys\Trinity>
 #Include <Scr\Keys\WinCtrl>
 #Include <Scr\Keys\VimMode>
+#Include <Scr/Keys/Numlock>
 
 ;; Extra
 
