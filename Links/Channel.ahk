@@ -43,10 +43,10 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
-    "fzf history",
+    "fzf 2",
     "https://youtu.be/WAU-egeWff4",
 
-    "fzf",
+    "fzf 1",
     "https://youtu.be/VW7S21_v1a8",
 
     "point",
