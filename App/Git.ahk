@@ -2,6 +2,7 @@
 #Include <Tools\Info>
 #Include <Abstractions\Text>
 #Include <Utils\Cmd>
+#Include <Loaders\Links>
 
 Class Git {
 
