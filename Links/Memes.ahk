@@ -134,6 +134,9 @@ Links_Memes := Map(
     "you me gas station",
     "https://www.youtube.com/watch?v=npiLJLEpPhE&ab_channel=Rasu",
 
+    "you me gas station reversed",
+    "https://www.youtube.com/watch?v=yBLq5RXp0mo&ab_channel=Rxjgamer",
+
     "the interview but vertical",
     "https://www.youtube.com/shorts/bqyCunElT_Y",
 
