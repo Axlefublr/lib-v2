@@ -43,6 +43,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "fzf history",
+    "https://youtu.be/WAU-egeWff4",
+
     "fzf",
     "https://youtu.be/VW7S21_v1a8",
 
@@ -353,9 +356,6 @@ Links_Channel := Map(
     "https://youtu.be/4jiXHYuo7D8",
 
     ;;Useful tutorials not by me
-
-    "fzf luke",
-    "https://youtu.be/fcwSR4LWdNo",
 
     "voice feminization",
     "https://youtu.be/BfCS01MkbIY",
