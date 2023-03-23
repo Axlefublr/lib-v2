@@ -271,7 +271,7 @@ Links_Channel := Map(
     "refactoring shows 1",
     "https://youtu.be/_jUbkfWLfkA",
 
-    "classes and googler",
+    "googler",
     "https://youtu.be/RuUOSEwtLy0",
 
     "autoupdate your libraries",

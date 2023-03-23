@@ -118,8 +118,9 @@ Class Shows {
         }
 
         this.ApplyJson()
-        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("watch episode " episode " of show " show).Push().Execute()
         Info(show ": " episode)
+        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("watch episode " episode " of show " show).Push().Execute()
+        Info("pushed!")
     }
 
     SetDownloaded(show_and_downloaded) {
@@ -136,7 +137,8 @@ Class Shows {
         this.shows[show]["downloaded"] := downloaded
 
         this.ApplyJson()
-        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("download episode " downloaded " of show " show).Push().Execute()
         Info(show ": " downloaded)
+        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("download episode " downloaded " of show " show).Push().Execute()
+        Info("pushed!")
     }
 }

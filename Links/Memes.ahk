@@ -221,4 +221,9 @@ Links_Memes := Map(
     "presidents dicuss their favorite anime",
     "https://youtu.be/IkaAZE_UGMo",
 
+    "master chief teaches you python",
+    "https://youtu.be/jQVTNuTjnFU",
+
+    "no? check under your foreskin",
+    "https://www.youtube.com/watch?v=vhuY8Kcm_Hg&ab_channel=memearchive",
 )
