@@ -9,22 +9,10 @@ class Environment {
         get => this._sndMem
         set {
             if value
-                StateBulb[3].Create()
+                StateBulb[5].Create()
             else
-                StateBulb[3].Destroy()
+                StateBulb[5].Destroy()
             this._sndMem := value
-        }
-    }
-
-    static _numlock := false
-    static NumLock {
-        get => this._numlock
-        set {
-            if value
-                StateBulb[3].Create()
-            else
-                StateBulb[3].Destroy()
-            this._numlock := value
         }
     }
 

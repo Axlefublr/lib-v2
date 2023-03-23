@@ -7,6 +7,9 @@
 #Include <System\Brightness>
 #Include <Abstractions\Registers>
 #Include <Tools\RelativeCoordGetter>
+#Include <System\Language>
+
+#Space::Language.Toggle()
 
 #!-::Counter.Decrement().Show()
 #!=::Counter.Increment().Show()

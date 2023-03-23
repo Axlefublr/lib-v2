@@ -1,30 +1,32 @@
 #Include <Extensions\Map>
+#Include <Tools\StateBulb>
 
 class Language {
 
     static Current {
-        get => this._GetCurrentLanguageCode()
+        get => this._current
         set {
             switch Type(value) {
                 case "String":  code := this.LangToCode[value]
                 case "Integer": code := value
                 default:        throw ValueError("Wrong type passed.")
             }
+            this._current := code
             this._ChangeLanguage(code)
         }
     }
 
     static CurrentWord {
-        get => this.CodeToLang[this.Current]
+        get => this.CodeToLang[this._current]
         set {
             switch Type(value) {
                 case "String": code := this.LangToCode[value]
                 default:       throw ValueError("Wrong type passed.")
             }
+            this._current := code
             this._ChangeLanguage(code)
         }
     }
-
 
     static CodeToLang := Map(
         "0x4090409", "English",
@@ -33,9 +35,17 @@ class Language {
 
     static LangToCode := this.CodeToLang.Reverse()
 
+    static _current := this.LangToCode["English"]
 
-    static ToRussian() => this.CurrentWord := "Russian"
-    static ToEnglish() => this.CurrentWord := "English"
+
+    static ToRussian() {
+        this.CurrentWord := "Russian"
+        StateBulb[3].Create()
+    }
+    static ToEnglish() {
+        this.CurrentWord := "English"
+        StateBulb[3].Destroy()
+    }
 
     static Toggle() {
         switch this.CurrentWord {
