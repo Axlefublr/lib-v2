@@ -5,10 +5,10 @@ class Language {
 
     static __New() {
         if this._current = this.LangToCode["Russian"]
-            StateBulb[3].Create()
+            StateBulb[this.BulbIndex].Create()
     }
 
-
+    static BulbIndex := 3
     static _current := this._GetCurrentLanguageCode()
 
     static Current {
@@ -38,11 +38,11 @@ class Language {
 
     static ToRussian() {
         this.Current := "Russian"
-        StateBulb[3].Create()
+        StateBulb[this.BulbIndex].Create()
     }
     static ToEnglish() {
         this.Current := "English"
-        StateBulb[3].Destroy()
+        StateBulb[this.BulbIndex].Destroy()
     }
 
     static Toggle() {
