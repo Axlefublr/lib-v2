@@ -7,7 +7,7 @@
 #Include <Environment>
 #Include <Abstractions\MouseSectionDefaulter>
 
-#HotIf WinActive(Paths.Ptf["Rappers"] " ahk_exe Code.exe")
+#HotIf WinActive(Paths.Ptf["Rappers"] " " VsCode.exeTitle)
 !e:: {
     text := DateTime.Date " " DateTime.Time " - " Spotify._RemoveDateAndTime(A_Clipboard)
     AppendFile(Paths.Ptf["Unfinished"], text)
