@@ -3,6 +3,14 @@
 
 class Language {
 
+    static __New() {
+        if this._current = this.LangToCode["Russian"]
+            StateBulb[3].Create()
+    }
+
+
+    static _current := this._GetCurrentLanguageCode()
+
     static Current {
         get => this._current
         set {
@@ -18,14 +26,6 @@ class Language {
 
     static CurrentWord {
         get => this.CodeToLang[this._current]
-        set {
-            switch Type(value) {
-                case "String": code := this.LangToCode[value]
-                default:       throw ValueError("Wrong type passed.")
-            }
-            this._current := code
-            this._ChangeLanguage(code)
-        }
     }
 
     static CodeToLang := Map(
@@ -35,15 +35,13 @@ class Language {
 
     static LangToCode := this.CodeToLang.Reverse()
 
-    static _current := this.LangToCode["English"]
-
 
     static ToRussian() {
-        this.CurrentWord := "Russian"
+        this.Current := "Russian"
         StateBulb[3].Create()
     }
     static ToEnglish() {
-        this.CurrentWord := "English"
+        this.Current := "English"
         StateBulb[3].Destroy()
     }
 
@@ -52,7 +50,6 @@ class Language {
             case "Russian": this.ToEnglish()
             case "English": this.ToRussian()
         }
-        return this
     }
 
 
