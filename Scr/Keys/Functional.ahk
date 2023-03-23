@@ -9,7 +9,9 @@
 #Include <Tools\RelativeCoordGetter>
 #Include <System\Language>
 
+#HotIf !WinActive("ahk_exe " A_AhkPath)
 #Space::Language.Toggle()
+#HotIf
 
 #!-::Counter.Decrement().Show()
 #!=::Counter.Increment().Show()
