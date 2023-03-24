@@ -3,7 +3,7 @@
 #Include <Extensions\String>
 #Include <Utils\Win>
 #Include <Paths>
-#Include <Utils\Char>
+#Include <Utils\Unicode>
 #Include <Abstractions\Script>
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>

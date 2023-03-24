@@ -31,7 +31,7 @@
 
 #Include <Utils\GetWeather>
 #Include <Utils\CharGenerator>
-#Include <Utils\Char>
+#Include <Utils\Unicode>
 #Include <Utils\ClipSend>
 #Include <Utils\Cmd>
 #Include <Utils\Image>
