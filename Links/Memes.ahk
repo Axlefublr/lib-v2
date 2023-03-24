@@ -226,4 +226,7 @@ Links_Memes := Map(
 
     "no? check under your foreskin",
     "https://www.youtube.com/watch?v=vhuY8Kcm_Hg&ab_channel=memearchive",
+
+    "meouwghaa",
+    "https://www.youtube.com/watch?v=r_AsdRbiLu8&ab_channel=cutecats1991",
 )

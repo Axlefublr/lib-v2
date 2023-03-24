@@ -40,7 +40,7 @@ Class Spotify {
     static ToggleLike()    => Spotify.UIA.LikeState := !Spotify.UIA.LikeState
     static YesShuffle()    => Spotify.UIA.ShuffleState := true
     static NoShuffle()     => Spotify.UIA.ShuffleState := false
-    static ToggleShuffle() => Spotify.UIA.ShuffleState := !Spotify.UIA.ShuffleState
+    static ToggleShuffle() => Spotify.UIA.ShuffleElement.Toggle()
 
     static AddToQueue() {
         Click("R")

@@ -43,6 +43,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "spotify uia",
+    "https://youtu.be/dWc_sl2Fx3k",
+
     "fzf 2",
     "https://youtu.be/WAU-egeWff4",
 
