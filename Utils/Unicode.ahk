@@ -25,7 +25,7 @@ class Unicode {
         "eggplant",                 0x1F346, ; 🍆
         "smiling imp",              0x1F608, ; 😈
         "fearful",                  0x1F628, ; 😨
-        "middle dot",               0x00B7,
+        "middle dot",               0x00B7, ; ·
         "discord escape",           0x001B,
         "long dash",                0x2014,  ; —
         "sun",                      0x2600,  ; ☀
@@ -33,7 +33,7 @@ class Unicode {
         "nerd",                     0x1F913, ; 🤓
         "handshake",                0x1F91D, ; 🤝
         "shrug",                    0x1F937, ; 🤷
-        "clap",                     0x1F44F,
+        "clap",                     0x1F44F, ; 👏
         "amogus",                   0x0D9E,  ; ඞ
         "confetti",                 0x1F389, ; 🎉
 
