@@ -36,6 +36,7 @@ class Unicode {
         "clap",                     0x1F44F, ; 👏
         "amogus",                   0x0D9E,  ; ඞ
         "confetti",                 0x1F389, ; 🎉
+        " ",                        A_Space
 
     )
 

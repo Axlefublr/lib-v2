@@ -38,5 +38,5 @@
 #8::Unicode.Send("flushed")                        ; 😳
 #9::Unicode.Send("face with raised eyebrow")       ; 🤨
 #0::Unicode.Send("thinking")                       ; 🤔
-#-::Unicode.Send("long dash")                      ; —
+#-::Unicode.Send("long dash", " ")                 ; —
 #=::Unicode.Send("skull")                          ; 💀
