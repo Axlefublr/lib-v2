@@ -70,7 +70,7 @@ class Registers {
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
      * @throws {UnsetItemError} If you pass an empty string as the key
      */
-    static ValidateKey(key, arValidKeys?) {
+    static ValidateKey(key, sValidKeys?) {
         if !key {
             throw UnsetItemError("
             (
@@ -81,9 +81,9 @@ class Registers {
         if InStr(Registers.RussianCharacters, key)
             key := Layouts.RusToEng[key]
 
-        arValidKeys := arValidKeys ?? Registers.ValidRegisters
+        sValidKeys := sValidKeys ?? Registers.ValidRegisters
 
-        if !InStr(arValidKeys, key, true) {
+        if !InStr(sValidKeys, key, true) {
             throw ValueError("
             (
                 The key you passed isn't supported by Registers.

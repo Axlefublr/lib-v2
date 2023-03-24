@@ -2,8 +2,8 @@
 #Include <Abstractions\Registers>
 
 #sc27:: {
-    arValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
-    try key := Registers.ValidateKey(KeyChorder(), arValidKeys)
+    sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
+    try key := Registers.ValidateKey(KeyChorder(), sValidKeys)
     catch UnsetItemError {
         Registers.CancelAction()
         return
