@@ -8,9 +8,9 @@
 #HotIf !Environment.VimMode
 
 <!d:: {
-    try key := Registers.__ValidateKey(KeyChorder())
+    try key := Registers.ValidateKey(KeyChorder())
     catch UnsetItemError {
-        Registers.__CancelAction()
+        Registers.CancelAction()
         return
     }
     static keyActions := Map(

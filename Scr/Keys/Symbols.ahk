@@ -1,9 +1,11 @@
 #Include <Utils\Char>
+#Include <Abstractions\Registers>
 
 #sc27:: {
-    try key := Registers.__ValidateKey(KeyChorder())
+    arValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
+    try key := Registers.ValidateKey(KeyChorder(), arValidKeys)
     catch UnsetItemError {
-        Registers.__CancelAction()
+        Registers.CancelAction()
         return
     }
     static symbols := Map(
@@ -16,6 +18,7 @@
         "s", Symbol.Bind("shrug"),        ; 🤷
         "n", Symbol.Bind("nerd"),         ; 🤓
         "a", Symbol.Bind("amogus"),       ; ඞ
+        "[", Symbol.Bind("confetti"),     ; 🎉
 
     )
     if key

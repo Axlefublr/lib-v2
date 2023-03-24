@@ -9,9 +9,9 @@
 #Include <Misc\TimerLoader>
 
 #h:: {
-    try key := Registers.__ValidateKey(KeyChorder())
+    try key := Registers.ValidateKey(KeyChorder())
     catch UnsetItemError {
-        Registers.__CancelAction()
+        Registers.CancelAction()
         return
     }
     static actions := Map(

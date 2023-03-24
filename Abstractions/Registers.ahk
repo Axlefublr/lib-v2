@@ -57,9 +57,9 @@ class Registers {
      */
     __New(key) {
 
-        try this.key := Registers.__ValidateKey(key)
+        try this.key := Registers.ValidateKey(key)
         catch UnsetItemError {
-            Registers.__CancelAction()
+            Registers.CancelAction()
             Exit()
         }
     }
@@ -70,7 +70,7 @@ class Registers {
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
      * @throws {UnsetItemError} If you pass an empty string as the key
      */
-    static __ValidateKey(key) {
+    static ValidateKey(key, arValidKeys?) {
         if !key {
             throw UnsetItemError("
             (
@@ -81,7 +81,9 @@ class Registers {
         if InStr(Registers.RussianCharacters, key)
             key := Layouts.RusToEng[key]
 
-        if !InStr(Registers.ValidRegisters, key, true) {
+        arValidKeys := arValidKeys ?? Registers.ValidRegisters
+
+        if !InStr(arValidKeys, key, true) {
             throw ValueError("
             (
                 The key you passed isn't supported by Registers.
@@ -130,7 +132,7 @@ class Registers {
      * What to do if the user passed an empty key
      * @private
      */
-    static __CancelAction() {
+    static CancelAction() {
         Infos("Action cancelled", Registers.InfoTimeout)
     }
 
@@ -255,9 +257,9 @@ class Registers {
      * @throws {ValueError} If you pass an unsupported key
      */
     Move(key2) {
-        try key2 := Registers.__ValidateKey(key2)
+        try key2 := Registers.ValidateKey(key2)
         catch UnsetItemError {
-            Registers.__CancelAction()
+            Registers.CancelAction()
             return
         }
 
@@ -278,9 +280,9 @@ class Registers {
      * @param {Char} key2 Register 2
      */
     SwitchContents(key2) {
-        try key2 := Registers.__ValidateKey(key2)
+        try key2 := Registers.ValidateKey(key2)
         catch UnsetItemError {
-            Registers.__CancelAction()
+            Registers.CancelAction()
             return
         }
 

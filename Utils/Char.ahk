@@ -40,6 +40,7 @@ GetUnicode(name) {
         "shrug",                    0x1F937,
         "clap",                     0x1F44F,
         "amogus",                   0x0D9E,
+        "confetti",                 0x1F389,
 
     )
 
