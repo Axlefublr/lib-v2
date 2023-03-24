@@ -1,6 +1,6 @@
 #Include <Tools\CleanInputBox>
 #Include <Converters\DateTime>
-#Include <Utils\Char>
+#Include <Utils\LangDict>
 #Include <Utils\CharGenerator>
 #Include <Loaders\Links>
 #Include <Utils\ClipSend>

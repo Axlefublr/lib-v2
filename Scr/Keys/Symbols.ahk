@@ -10,35 +10,33 @@
     }
     static symbols := Map(
 
-        "f", Symbol.Bind("fearful"),      ; 😨
-        "d", Symbol.Bind("smiling imp"),  ; 😈
-        "p", Symbol.Bind("purple heart"), ; 💜
-        "r", Symbol.Bind("rolling eyes"), ; 🙄
-        "h", Symbol.Bind("handshake"),    ; 🤝
-        "s", Symbol.Bind("shrug"),        ; 🤷
-        "n", Symbol.Bind("nerd"),         ; 🤓
-        "a", Symbol.Bind("amogus"),       ; ඞ
-        "[", Symbol.Bind("confetti"),     ; 🎉
+        "f", () => Unicode.Send("fearful"),      ; 😨
+        "d", () => Unicode.Send("smiling imp"),  ; 😈
+        "p", () => Unicode.Send("purple heart"), ; 💜
+        "r", () => Unicode.Send("rolling eyes"), ; 🙄
+        "h", () => Unicode.Send("handshake"),    ; 🤝
+        "s", () => Unicode.Send("shrug"),        ; 🤷
+        "n", () => Unicode.Send("nerd"),         ; 🤓
+        "a", () => Unicode.Send("amogus"),       ; ඞ
+        "[", () => Unicode.Send("confetti"),     ; 🎉
 
     )
     if key
         try symbols[key].Call()
 }
 
-;🥺😋🤯😼😎😩🤤👉👈
-#y::Symbol("pleading")
-#u::Symbol("yum")
-#i::Symbol("exploding head")
-#o::Symbol("smirk cat")
-#p::Symbol("sunglasses")
-#sc1a::Symbol("weary")
-#sc1b::Symbol("drooling")
-#sc2b::Symbol(["finger right", "finger left"])
-;😭🧐😳🤨🤔—💀
-#6::Symbol("sob")
-#7::Symbol("face with monocle")
-#8::Symbol("flushed")
-#9::Symbol("face with raised eyebrow")
-#0::Symbol("thinking")
-#-::Symbol("long dash", " ")
-#=::Symbol("skull")
+#y::Unicode.Send("pleading")                       ; 🥺
+#u::Unicode.Send("yum")                            ; 😋
+#i::Unicode.Send("exploding head")                 ; 🤯
+#o::Unicode.Send("smirk cat")                      ; 😼
+#p::Unicode.Send("sunglasses")                     ; 😎
+#sc1a::Unicode.Send("weary")                       ; 😩
+#sc1b::Unicode.Send("drooling")                    ; 🤤
+#sc2b::Unicode.Send("finger right", "finger left") ; 👉👈
+#6::Unicode.Send("sob")                            ; 😭
+#7::Unicode.Send("face with monocle")              ; 🧐
+#8::Unicode.Send("flushed")                        ; 😳
+#9::Unicode.Send("face with raised eyebrow")       ; 🤨
+#0::Unicode.Send("thinking")                       ; 🤔
+#-::Unicode.Send("long dash")                      ; —
+#=::Unicode.Send("skull")                          ; 💀
