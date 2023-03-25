@@ -1,8 +1,8 @@
 #Include <Extensions\Gui>
 
-; class WindowGetter {
+class WindowInfo {
 
-; }
+}
 
 WindowGetter() {
 
