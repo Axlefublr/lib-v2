@@ -5,6 +5,7 @@
 #Include <Extensions\String>
 #Include <Utils\ClipSend>
 #Include <Converters\Layouts>
+#Include <Utils\Cmd>
 
 class Registers {
 
@@ -199,15 +200,22 @@ class Registers {
      * Lines that start with `;` are considered comments and don't get ran
      */
     Run() {
+        cmdie := Cmd()
+        output := ""
         text := this.Read()
         text := StrReplace(text, "`r")
         commands := StrSplit(text, "`n")
         for index, command in commands {
             if command ~= "^;"
                 continue
-            Run(command)
+            if command ~= "^http" {
+                Run(command)
+                continue
+            }
+            output .= cmdie.Execute(command).StdOut
         }
-        ; Info(this.key " commands executed", Registers.InfoTimeout)
+        if output
+            Infos(output)
     }
 
     /**
