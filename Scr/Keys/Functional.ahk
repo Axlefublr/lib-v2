@@ -32,7 +32,7 @@
 #!8::Brightness.ChangeBrightnessRelative(10)
 
 #c::Autoclicker()
-#^LButton::CoordGetter()
+#^LButton::CoordInfo()
 #f::WindowGetter()
 +!v::RelativeCoordGetter()
 

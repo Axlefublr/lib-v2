@@ -1,7 +1,7 @@
 #Include <Extensions\Gui>
 #Include <Tools\Info>
 
-class CoordGetter {
+class CoordInfo {
 
     __New() {
         this._CreateGui()
@@ -38,7 +38,7 @@ class CoordGetter {
     }
 
     static GetScreenColor() {
-        coords := CoordGetter.GetScreenCoords()
+        coords := CoordInfo.GetScreenCoords()
         CoordMode("Pixel", "Screen")
         return PixelGetColor(coords.x, coords.y, "Alt Slow")
     }
@@ -65,7 +65,7 @@ class CoordGetter {
     _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
 
     _AddScreenCtrls() {
-        crds := CoordGetter.GetScreenCoords()
+        crds := CoordInfo.GetScreenCoords()
         this.gObj.Add("Text",     , "Screen: "    ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
         this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
         this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
@@ -74,7 +74,7 @@ class CoordGetter {
     }
 
     _AddWindowCtrls() {
-        crds := CoordGetter.GetWindowCoords()
+        crds := CoordInfo.GetWindowCoords()
         this.gObj.Add("Text", "xm", "Window: "    ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
         this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
         this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
@@ -83,7 +83,7 @@ class CoordGetter {
     }
 
     _AddClientCtrls() {
-        crds := CoordGetter.GetWindowCoords()
+        crds := CoordInfo.GetWindowCoords()
         this.gObj.Add("Text", "xm", "Client: "  ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
         this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
         this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
@@ -92,7 +92,7 @@ class CoordGetter {
     }
 
     _AddPixelCtrl() {
-        pixel := CoordGetter.GetScreenColor()
+        pixel := CoordInfo.GetScreenColor()
         this.gObj.Add("Text", "xm", "Pixel: " pixel)
             .OnEvent("Click", this._ToClip.Bind(pixel))
         HotIfWinActive("ahk_id " this.hwnd)
@@ -100,8 +100,8 @@ class CoordGetter {
     }
 
     _AddCtrlClickCtrl() {
-        crds := CoordGetter.GetClientCoords()
-        ctrlClickString := CoordGetter.PreferredQuotes "x" crds.X " y" crds.Y CoordGetter.PreferredQuotes
+        crds := CoordInfo.GetClientCoords()
+        ctrlClickString := CoordInfo.PreferredQuotes "x" crds.X " y" crds.Y CoordInfo.PreferredQuotes
         this.gObj.Add("Text", "xm", "CtrlClick Format")
             .OnEvent("Click", this._ToClip.Bind(ctrlClickString))
         HotIfWinActive("ahk_id " this.hwnd)

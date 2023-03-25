@@ -1,5 +1,9 @@
 #Include <Extensions\Gui>
 
+; class WindowGetter {
+
+; }
+
 WindowGetter() {
 
     ConvertToRegex(input) {
