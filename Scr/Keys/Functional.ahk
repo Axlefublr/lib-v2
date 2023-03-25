@@ -1,8 +1,8 @@
 #Include <Tools\Info>
 #Include <Tools\Counter>
-#Include <Tools\CoordGetter>
+#Include <Tools\CoordInfo>
 #Include <Tools\KeycodeGetter>
-#Include <Tools\WindowGetter>
+#Include <Tools\WindowInfo>
 #Include <Tools\InternetSearch>
 #Include <System\Brightness>
 #Include <Abstractions\Registers>
@@ -33,7 +33,7 @@
 
 #c::Autoclicker()
 #^LButton::CoordInfo()
-#f::WindowGetter()
+#f::WindowInfo()
 +!v::RelativeCoordGetter()
 
 #k::InternetSearch("Google").TriggerSearch()

@@ -1,86 +1,97 @@
 #Include <Extensions\Gui>
+#Include <Tools\Info>
 
 class WindowInfo {
 
-}
-
-WindowGetter() {
-
-    ConvertToRegex(input) {
-        scawySymbows := ["\", ".", "(", ")", "{", "}", "[", "]", "/", "?", "+", "*"]
-        for key, value in scawySymbows {
-            input := StrReplace(input, value, "\" value)
-        }
-        return input
+    __New(winTitle := "A") {
+        this.winTitle   := WinGetTitle(winTitle)
+        this.exePath    := WinGetProcessPath(winTitle)
+        this.processExe := WinGetProcessName(winTitle)
+        this.ID         := WinGetID(winTitle)
+        this.PID        := WinGetPID(winTitle)
+        this._CreateGui()
+        this.hwnd := this.gObj.Hwnd
+        this._AddWintitleCtrl()
+        this._AddExePathCtrl()
+        this._AddProcessExeCtrl()
+        this._AddIDCtrl()
+        this._AddPIDCtrl()
+        this._SetHotkey()
+        this._Show()
     }
 
-    ;Getting the current window's info
-    winTitle   := WinGetTitle("A")
-    winTitle_regex := ConvertToRegex(winTitle) 
-    winExePath := WinGetProcessPath("A")
-    winExe     := WinGetProcessName("A")
-    winID      := WinGetID("A")
-    winPID     := WinGetPID("A")
 
-    ;Gui creation
-    g_WinGet := Gui(, "WindowGetter").DarkMode().MakeFontNicer()
+    winTitle := ""
+    exePath := ""
+    processExe := ""
+    ID := ""
+    PID := ""
 
-    WinGet_hwnd := g_WinGet.hwnd
 
-    ;Show the window's info
-    g_WinGet_WinTitle       := g_WinGet.Add("Text", "Center", winTitle)
-    g_WinGet_WinTitle_regex := g_WinGet.Add("Text", "Center", winTitle_regex)
-    g_WinGet_WinExePath     := g_WinGet.Add("Text", "Center", winExePath)
-    g_WinGet_WinExe         := g_WinGet.Add("Text", "Center", winExe)
-    g_WinGet_WinID          := g_WinGet.Add("Text", "Center", "id: " winID)
-    g_WinGet_WinPID         := g_WinGet.Add("Text", "Center", "pid: " winPID)
+    foDestroy := (*) => this.Destroy()
+    Destroy() {
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("1", "Off")
+        Hotkey("2", "Off")
+        Hotkey("3", "Off")
+        Hotkey("4", "Off")
+        Hotkey("5", "Off")
+        Hotkey("Escape", "Off")
+        this.gObj.Minimize()
+        this.gObj.Destroy()
+    }
 
-    ;Destroys the gui as well as every previously created hotkeys
-    FlushHotkeys := (*) => (
-        HotIfWinActive("ahk_id " WinGet_hwnd),
-        Hotkey("1", "Off"),
-        Hotkey("2", "Off"),
-        Hotkey("3", "Off"),
-        Hotkey("4", "Off"),
-        Hotkey("5", "Off"),
-        Hotkey("6", "Off"),
-        Hotkey("Escape", "Off"),
-        g_WinGet.Minimize(),
-        g_WinGet.Destroy()
-    )
 
-    ;This function copies the text you clicked to your clipboard and destroys the gui right after
-    ToClip := (text, *) => (
-        A_Clipboard := text,
-        FlushHotkeys()
-    )
+    _CreateGui() => this.gObj := Gui(, "WindowGetter").DarkMode().MakeFontNicer()
 
-    ;Making the func objects to later call in two separate instances
-    ToClip_Title       := ToClip.Bind(winTitle) ;We pass the params of winSmth
-    ToClip_Title_regex := ToClip.Bind(winTitle_regex)
-    ToClip_Path        := ToClip.Bind(winExePath) ;To copy it, disable the hotkeys and destroy the gui
-    ToClip_Exe         := ToClip.Bind(winExe)
-    ToClip_ID          := ToClip.Bind(winID)
-    ToClip_PID         := ToClip.Bind(winPID)
+    _Show() => this.gObj.Show("AutoSize y0")
 
-    HotIfWinActive("ahk_id " WinGet_hwnd)
-    Hotkey("1", ToClip_Title, "On")
-    Hotkey("2", ToClip_Title_regex, "On")
-    Hotkey("3", ToClip_Path, "On")
-    Hotkey("4", ToClip_Exe, "On")
-    Hotkey("5", ToClip_ID, "On")
-    Hotkey("6", ToClip_PID, "On")
+    _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
 
-    Hotkey("Escape", FlushHotkeys, "On")
+    _AddWintitleCtrl() {
+        foToClip := this._ToClip.Bind(this.winTitle)
+        this.gObj.Add("Text", "Center", this.winTitle)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("1", foToClip, "On")
+    }
 
-    g_WinGet_WinTitle.OnEvent("Click",       ToClip_Title)
-    g_WinGet_WinTitle_regex.OnEvent("Click", ToClip_Title_regex)
-    g_WinGet_WinExePath.OnEvent("Click",     ToClip_Path)
-    g_WinGet_WinExe.OnEvent("Click",         ToClip_Exe)
-    g_WinGet_WinID.OnEvent("Click",          ToClip_ID)
-    g_WinGet_WinPID.OnEvent("Click",         ToClip_PID)
+    _AddExePathCtrl() {
+        foToClip := this._ToClip.Bind(this.exePath)
+        this.gObj.Add("Text", "Center", this.exePath)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("2", foToClip, "On")
+    }
 
-    g_WinGet.OnEvent("Close", FlushHotkeys) ;Destroys the gui when you close the X button on it
+    _AddProcessExeCtrl() {
+        foToClip := this._ToClip.Bind(this.processExe)
+        this.gObj.Add("Text", "Center", this.processExe)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("3", foToClip, "On")
+    }
 
-    g_WinGet.Show("AutoSize y0")
+    _AddIDCtrl() {
+        foToClip := this._ToClip.Bind(this.ID)
+        this.gObj.Add("Text", "Center", "id: " this.ID)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("4", foToClip, "On")
+    }
+
+    _AddPIDCtrl() {
+        foToClip := this._ToClip.Bind(this.PID)
+        this.gObj.Add("Text", "Center", "pid: " this.PID)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("5", foToClip, "On")
+    }
+
+    _SetHotkey() {
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("Escape", this.foDestroy, "On")
+        this.gObj.OnEvent("Close", this.foDestroy)
+    }
+
 }
