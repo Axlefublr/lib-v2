@@ -412,7 +412,7 @@ Class Spotify {
     class PlaylistSorter {
 
         static MaxPlaylist := 20
-        static Step := 3
+        static Step := 7
         static BulbIndex := 4
 
         static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
