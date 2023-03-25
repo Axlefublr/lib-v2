@@ -71,6 +71,7 @@ Class Paths {
         "i just farted",     Paths.Audio "\Sounds\i just farted.wav",
         "ting",              Paths.Audio "\Sounds\ting.wav",
         "shutter",           Paths.Audio "\Sounds\shutter.wav",
+        "was that his cock", Paths.Audio "\Sounds\was that his cock.wav",
 
         "Discovery log", Paths.Music "\Discovery log.txt",
         "Unfinished",    Paths.Music "\Unfinished.txt",

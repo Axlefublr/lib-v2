@@ -1,4 +1,5 @@
 #Include <System\SoundPlayer>
+#Include <Paths>
 
 SoundPlayer.Storage.Set(
 
@@ -19,5 +20,6 @@ SoundPlayer.Storage.Set(
     "i just farted",     SoundPlayer(Paths.Ptf["i just farted"]),
     "ting",              SoundPlayer(Paths.Ptf["ting"]),
     "shutter",           SoundPlayer(Paths.Ptf["shutter"]),
+    "was that his cock", SoundPlayer(Paths.Ptf["was that his cock"]),
 
 )

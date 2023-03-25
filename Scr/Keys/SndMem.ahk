@@ -43,7 +43,7 @@ _BingChilling() {
         "g", () => HoverScreenshot(Paths.Ptf["do you have the slightest idea how little that narrows it down"]).Show(),
         "h", () => SoundPlayer.Storage["shall we"].Play(),
         "j", () => SoundPlayer.Storage["i just farted"].Play(),
-        "k", () => 0,
+        "k", () => SoundPlayer.Storage["was that his cock"].Play(),
         "l", () => 0,
         "sc28", () => 0,
         "sc29", () => 0,
