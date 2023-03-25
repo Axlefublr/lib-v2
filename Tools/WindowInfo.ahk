@@ -21,11 +21,11 @@ class WindowInfo {
     }
 
 
-    winTitle := ""
-    exePath := ""
+    winTitle   := ""
+    exePath    := ""
     processExe := ""
-    ID := ""
-    PID := ""
+    ID         := ""
+    PID        := ""
 
 
     foDestroy := (*) => this.Destroy()
