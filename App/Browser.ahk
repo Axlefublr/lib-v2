@@ -21,8 +21,7 @@ Class Browser {
     })
 
     static CurrentLink {
-        get => Browser.UIA.AddressSearchBar.Value
-        set => Browser.UIA.AddressSearchBar.Value := value
+        get => Browser.UIA.Document.Value
     }
 
 
@@ -87,7 +86,7 @@ Class Browser {
                 }
 
         static Document {
-            get => UIA.ElementFromChromium(Browser.winTitle)
+            get => UIA.ElementFromChromium(Browser.winTitle).FindElement(UIA.RawViewCondition, 1)
         }
     }
 
