@@ -1,4 +1,5 @@
 #Include <Extensions\Gui>
+#Include <Tools\Info>
 
 class CoordGetter {
 
@@ -61,7 +62,7 @@ class CoordGetter {
 
     _Show() => this.gObj.Show("AutoSize y0 x0")
 
-    _ToClip := (text, *) => A_Clipboard := text
+    _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
 
     _AddScreenCtrls() {
         crds := CoordGetter.GetScreenCoords()
