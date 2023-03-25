@@ -8,6 +8,7 @@
 #Include <Abstractions\Registers>
 #Include <Tools\RelativeCoordGetter>
 #Include <System\Language>
+#Include <Utils\Autoclicker>
 
 #HotIf !WinActive("ahk_exe " A_AhkPath)
 #Space::Language.Toggle()
@@ -30,6 +31,7 @@
 #!7::Brightness.ChangeBrightnessRelative(-10)
 #!8::Brightness.ChangeBrightnessRelative(10)
 
+#c::Autoclicker()
 #^LButton::CoordGetter()
 #f::WindowGetter()
 +!v::RelativeCoordGetter()
