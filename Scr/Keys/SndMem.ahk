@@ -44,7 +44,7 @@ _BingChilling() {
         "h", () => SoundPlayer.Storage["shall we"].Play(),
         "j", () => SoundPlayer.Storage["i just farted"].Play(),
         "k", () => SoundPlayer.Storage["was that his cock"].Play(),
-        "l", () => 0,
+        "l", () => SoundPlayer.Storage["cyberpunk"].Play(),
         "sc28", () => 0,
         "sc29", () => 0,
         "z", () => 0,
