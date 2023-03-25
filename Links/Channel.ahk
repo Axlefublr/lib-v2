@@ -360,6 +360,9 @@ Links_Channel := Map(
 
     ;;Useful tutorials not by me
 
+    "how to learn rust",
+    "https://youtu.be/2hXNd6x9sZs",
+
     "voice feminization",
     "https://youtu.be/BfCS01MkbIY",
 

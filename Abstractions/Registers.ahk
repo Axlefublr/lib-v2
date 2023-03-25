@@ -207,7 +207,7 @@ class Registers {
                 continue
             Run(command)
         }
-        Info(this.key " commands executed", Registers.InfoTimeout)
+        ; Info(this.key " commands executed", Registers.InfoTimeout)
     }
 
     /**
