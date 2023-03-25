@@ -3,6 +3,7 @@
 #Include <Abstractions\Base>
 #Include <Utils\Press>
 #Include <Abstractions\MouseSectionDefaulter>
+#Include <Tools\Info>
 
 #HotIf WinActive(Browser.winTitle)
 
@@ -21,6 +22,11 @@
 !e::NewTab()
 !w::CloseTab()
 ^p::Browser.SearchTabs()
+F6:: {
+    link := Browser.CurrentLink
+    A_Clipboard := link
+    Info("copied: " link)
+}
 
 XButton1:: {
     sections := Press.GetSections()
