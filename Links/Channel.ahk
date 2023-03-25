@@ -3,44 +3,6 @@ Links_Channel := Map(
     "channel",
     "https://www.youtube.com/@Axlefublr",
 
-    ;;Main channel playlists
-
-    "linux playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP7Os6HNDEf8Fy5lQqkavOZ",
-
-    "vscode playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzO3RqyGR9Nxf4GYLosoSX_O",
-
-    "neovim vscode playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMZjaGyvBxe88iS4uVaW3OI",
-
-    "ahk playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
-
-    "ahk guis playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
-
-    "ahk vim playlist",
-    "https://youtube.com/playlist?list=PLQBdjw2QsRzProG8ksUHCK04FpD0C1gpT",
-
-    "ahk registers playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
-
-    "win class playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM7l8M7K4LD8mdR16BcVprd",
-
-    "ahk classes playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMaPCW0BSKD-SzemW0LHctQ",
-
-    "C# playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOtCzM7X7FXr0qPBwYEVOOC",
-
-    "ahk all the way playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
-
-    "shows playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP-K28TLJFNve4HnxkI00p5",
-
     ;;Main channel videos
 
     "spotify uia",
@@ -333,6 +295,44 @@ Links_Channel := Map(
 
     "github profile hotkey",
     "https://youtu.be/IfQ-sl04xu8",
+
+    ;;Main channel playlists
+
+    "linux playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP7Os6HNDEf8Fy5lQqkavOZ",
+
+    "vscode playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzO3RqyGR9Nxf4GYLosoSX_O",
+
+    "neovim vscode playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMZjaGyvBxe88iS4uVaW3OI",
+
+    "ahk playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
+
+    "ahk guis playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
+
+    "ahk vim playlist",
+    "https://youtube.com/playlist?list=PLQBdjw2QsRzProG8ksUHCK04FpD0C1gpT",
+
+    "ahk registers playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
+
+    "win class playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM7l8M7K4LD8mdR16BcVprd",
+
+    "ahk classes playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMaPCW0BSKD-SzemW0LHctQ",
+
+    "C# playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOtCzM7X7FXr0qPBwYEVOOC",
+
+    "ahk all the way playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
+
+    "shows playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP-K28TLJFNve4HnxkI00p5",
 
     ;;Main channel unlisted videos
     ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
