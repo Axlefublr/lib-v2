@@ -1,67 +1,116 @@
 #Include <Extensions\Gui>
 
-CoordGetter() {
-    CoordMode("Mouse", "Screen")
-    MouseGetPos(&ScrX, &ScrY)
+class CoordGetter {
 
-    CoordMode("Mouse", "Window")
-    MouseGetPos(&WinX, &WinY)
+    __New() {
+        this._CreateGui()
+        this.hwnd := this.gObj.Hwnd
+        this._AddScreenCtrls()
+        this._AddWindowCtrls()
+        this._AddClientCtrls()
+        this._AddPixelCtrl()
+        this._AddCtrlClickCtrl()
+        this._Show()
+        this._SetHotkey()
+    }
 
-    CoordMode("Mouse", "Client")
-    MouseGetPos(&CliX, &CliY)
 
-    CoordMode("Pixel", "Screen")
-    pixel := PixelGetColor(ScrX, ScrY, "Alt Slow")
+    static PreferredQuotes := '"'
 
-    g_CrdGet := Gui(, "Coord Getter").DarkMode().MakeFontNicer(30)
 
-    CrdGet_hwnd := g_CrdGet.hwnd
+    static GetScreenCoords() {
+        CoordMode("Mouse", "Screen")
+        MouseGetPos(&X, &Y)
+        return {x: X, y: Y}
+    }
 
-    toClip := (text, *) => A_Clipboard := text
+    static GetWindowCoords() {
+        CoordMode("Mouse", "Window")
+        MouseGetPos(&X, &Y)
+        return {x: X, y: Y}
+    }
 
-    g_CrdGet.Add("Text", , "Screen: ")
-        .OnEvent("Click", toClip.Bind(ScrX " " ScrY))
-    g_CrdGet.Add("Text", "x+", "x" ScrX " ")
-        .OnEvent("Click", toClip.Bind(ScrX))
-    g_CrdGet.Add("Text", "x+", "y" ScrY " ")
-        .OnEvent("Click", toClip.Bind(ScrY))
-    g_CrdGet.Add("Text", "xm", "Window: ")
-        .OnEvent("Click", toClip.Bind(WinX " " WinY))
-    g_CrdGet.Add("Text", "x+", "x" WinX " ")
-        .OnEvent("Click", toClip.Bind(WinX))
-    g_CrdGet.Add("Text", "x+", "y" WinY " ")
-        .OnEvent("Click", toClip.Bind(WinY))
-    g_CrdGet.Add("Text", "xm", "Client: ")
-        .OnEvent("Click", toClip.Bind(CliX " " CliY))
-    g_CrdGet.Add("Text", "x+", "x" CliX " ")
-        .OnEvent("Click", toClip.Bind(CliX))
-    g_CrdGet.Add("Text", "x+", "y" CliY " ")
-        .OnEvent("Click", toClip.Bind(CliY))
-    g_CrdGet.Add("Text", "xm", "Pixel: " pixel)
-        .OnEvent("Click", toClip.Bind(pixel))
-    g_CrdGet.Add("Text", "xm", "CtrlClick Format")
-        .OnEvent("Click", toClip.Bind('"x' CliX " y" CliY '"'))
+    static GetClientCoords() {
+        CoordMode("Mouse", "Client")
+        MouseGetPos(&X, &Y)
+        return {x: X, y: Y}
+    }
 
-    Destruction := (*) => (
-        HotIfWinActive("ahk_id " CrdGet_hwnd),
-        Hotkey("Escape", "Off"),
-        Hotkey("1", "Off"),
-        Hotkey("2", "Off"),
-        Hotkey("3", "Off"),
-        Hotkey("4", "Off"),
-        Hotkey("5", "Off"),
-        g_CrdGet.Minimize()
-        g_CrdGet.Destroy()
-    )
+    static GetScreenColor() {
+        coords := CoordGetter.GetScreenCoords()
+        CoordMode("Pixel", "Screen")
+        return PixelGetColor(coords.x, coords.y, "Alt Slow")
+    }
 
-    HotIfWinActive("ahk_id " CrdGet_hwnd)
-    Hotkey("Escape", Destruction, "On")
-    Hotkey("1", toClip.Bind(ScrX " " ScrY), "On")
-    Hotkey("2", toClip.Bind(WinX " " WinY), "On")
-    Hotkey("3", toClip.Bind(CliX " " CliY), "On")
-    Hotkey("4", toClip.Bind(pixel), "On")
-    Hotkey("5", toClip.Bind('"x' CliX " y" CliY '"'), "On")
-    g_CrdGet.OnEvent("Close", Destruction)
 
-    g_CrdGet.Show("AutoSize y0 x" A_ScreenWidth / 20 * 13.5)
+    foDestroy := (*) => this.Destroy()
+    Destroy() {
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("Escape", "Off")
+        Hotkey("1", "Off")
+        Hotkey("2", "Off")
+        Hotkey("3", "Off")
+        Hotkey("4", "Off")
+        Hotkey("5", "Off")
+        this.gObj.Minimize()
+        this.gObj.Destroy()
+    }
+
+
+    _CreateGui() => this.gObj := Gui(, "Coord Getter").DarkMode().MakeFontNicer(30)
+
+    _Show() => this.gObj.Show("AutoSize y0 x0")
+
+    _ToClip := (text, *) => A_Clipboard := text
+
+    _AddScreenCtrls() {
+        crds := CoordGetter.GetScreenCoords()
+        this.gObj.Add("Text",     , "Screen: "    ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
+        this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
+        this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("1", this._ToClip.Bind(crds.X " " crds.Y), "On")
+    }
+
+    _AddWindowCtrls() {
+        crds := CoordGetter.GetWindowCoords()
+        this.gObj.Add("Text", "xm", "Window: "    ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
+        this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
+        this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("2", this._ToClip.Bind(crds.X " " crds.Y), "On")
+    }
+
+    _AddClientCtrls() {
+        crds := CoordGetter.GetWindowCoords()
+        this.gObj.Add("Text", "xm", "Client: "  ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
+        this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
+        this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("3", this._ToClip.Bind(crds.X " " crds.Y), "On")
+    }
+
+    _AddPixelCtrl() {
+        pixel := CoordGetter.GetScreenColor()
+        this.gObj.Add("Text", "xm", "Pixel: " pixel)
+            .OnEvent("Click", this._ToClip.Bind(pixel))
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("4", this._ToClip.Bind(pixel), "On")
+    }
+
+    _AddCtrlClickCtrl() {
+        crds := CoordGetter.GetClientCoords()
+        ctrlClickString := CoordGetter.PreferredQuotes "x" crds.X " y" crds.Y CoordGetter.PreferredQuotes
+        this.gObj.Add("Text", "xm", "CtrlClick Format")
+            .OnEvent("Click", this._ToClip.Bind(ctrlClickString))
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("5", this._ToClip.Bind(ctrlClickString), "On")
+    }
+
+    _SetHotkey() {
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("Escape", this.foDestroy, "On")
+        this.gObj.OnEvent("Close", this.foDestroy)
+    }
+
 }
