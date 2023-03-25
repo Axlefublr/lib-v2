@@ -199,7 +199,7 @@ class Registers {
      * For example, you can store 5 links in a register and run that register to open those 5 links at once.
      * Lines that start with `;` are considered comments and don't get ran
      */
-    Run() {
+    Run(showOutput := true) {
         cmdie := Cmd()
         output := ""
         text := this.Read()
@@ -214,7 +214,7 @@ class Registers {
             }
             output .= cmdie.Execute(command).StdOut
         }
-        if output
+        if output && showOutput
             Infos(output)
     }
 
