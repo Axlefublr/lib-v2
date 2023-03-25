@@ -9,7 +9,8 @@
 #Include <Misc\TimerLoader>
 
 #h:: {
-    try key := Registers.ValidateKey(KeyChorder())
+    sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
+    try key := Registers.ValidateKey(KeyChorder(), sValidKeys)
     catch UnsetItemError {
         Registers.CancelAction()
         return
