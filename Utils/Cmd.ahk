@@ -15,7 +15,12 @@ class Cmd {
 
 
     StdOut {
-        get => Trim(this.exec.StdOut.ReadAll(), "`r`n`t ")
+        get {
+            output := this.exec.StdOut.ReadAll()
+            if !output
+                output := this.exec.StdErr.ReadAll()
+            return Trim(output, "`r`n`t ")
+        }
     }
 
 
