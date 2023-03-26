@@ -1,65 +1,80 @@
+#Include <Extensions\Gui>
+#Include <Tools\Point>
 #Include <Tools\Info>
 
-RelativeCoordGetter() {
-    static var := 0
-    static initX
-    static initY
-    if !var {
-        MouseGetPos(&locX, &locY)
-        ToolTip("Initial position")
-        initX := locX
-        initY := locY
-        var := !var
-        return
-    }
-    ToolTip()
-    MouseGetPos(&loc1X, &loc1Y)
+class RelativeCoordInfo {
 
-    relPosX := loc1X - initX
-    relPosY := loc1Y - initY
-
-    initX := 0
-    initY := 0
-    var := !var
-
-    g_relative := Gui(, "Relative coord getter")
-    g_relative.BackColor := "171717"
-    g_relative.SetFont("s30 cC5C5C5", "Consolas")
-
-    g_relative_textX := g_relative.Add("Text", , "Relative X: " relPosX)
-    g_relative_textY := g_relative.Add("Text", , "Relative Y: " relPosY)
-
-    topRightCorner := A_ScreenWidth / 20 * 14.3
-
-    g_relative_hwnd := g_relative.hwnd
-
-    Destruction := (*) => (
-        HotIfWinActive("ahk_id " g_relative_hwnd),
-        Hotkey("Escape", "Off"),
-        Hotkey("1", "Off"),
-        Hotkey("2", "Off"),
-        g_relative.Destroy()
-    )
-
-    toClip(text, *) {
-        static var := 0
-        var++
-        A_Clipboard := text
-        Info("copied " text)
-        if var >= 2
-            Destruction()
+    __New() {
+        CoordMode("Mouse", "Screen")
+        this._CreateGui()
+        this.hwnd := this.gObj.Hwnd
+        this._AddXCtrl()
+        this._AddYCtrl()
+        this._SetupHotkey()
     }
 
-    HotIfWinActive("ahk_id " g_relative_hwnd)
-    Hotkey("1", toClip.Bind(relPosX), "On")
-    Hotkey("2", toClip.Bind(relPosY), "On")
-    Hotkey("Escape", Destruction, "On")
 
-    g_relative_textX.OnEvent("Click", toClip.Bind(relPosX))
-    g_relative_textY.OnEvent("Click", toClip.Bind(relPosY))
+    InitX := 0
+    InitY := 0
+    EndX  := 0
+    EndY  := 0
+    DiffX := 0
+    DiffY := 0
 
-    g_relative.OnEvent("Close", Destruction)
 
-    g_relative.Show("AutoSize y0 x" topRightCorner)
+    GetFirstCoords() {
+        MouseGetPos(&this.InitX, &this.InitY)
+        this.pointInst := Point(this.InitX, this.InitY)
+    }
 
+    GetSecondCoords() {
+        MouseGetPos(&this.EndX, &this.EndY)
+        this.pointInst.Destroy()
+    }
+
+    foDestroy := (*) => this.Destroy()
+    Destroy() {
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("Escape", "Off")
+        Hotkey("1", "Off")
+        Hotkey("2", "Off")
+        this.gObj.Minimize()
+        this.gObj.Destroy()
+    }
+
+    CalcualteDiff() {
+        this.DiffX := this.EndX - this.InitX
+        this.DiffY := this.EndY - this.InitY
+    }
+
+
+    _CreateGui() {
+        this.gObj := Gui(, "Relative Coord Info").DarkMode().MakeFontNicer()
+    }
+
+    _Show() => this.gObj.Show("AutoSize y0 x0")
+
+    _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
+
+    _AddXCtrl() {
+        foToClip := this._ToClip.Bind(this.DiffX)
+        this.gObj.Add("Text", , "Relative X: " this.DiffX)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("1", foToClip, "On")
+    }
+
+    _AddYCtrl() {
+        foToClip := this._ToClip.Bind(this.DiffY)
+        this.gObj.Add("Text", , "Relative Y: " this.DiffY)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("2", foToClip, "On")
+    }
+
+    _SetupHotkey() {
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("Escape", foDestroy, "On")
+        this.gObj.OnEvent("Close", foDestroy)
+    }
 }
