@@ -73,7 +73,7 @@ class RelativeCoordInfo {
     }
 
     _CreateGui() {
-        this.gObj := Gui(, "Relative Coord Info").DarkMode().MakeFontNicer()
+        this.gObj := Gui(, "Relative Coord Info").DarkMode().MakeFontNicer(30)
     }
 
     _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
