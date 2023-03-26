@@ -14,27 +14,27 @@ ToggleVimMode() {
 
 #HotIf Environment.VimMode
 
-h::Mouse.MoveLeft(Mouse.SmallMove)
-k::Mouse.MoveUp(Mouse.SmallMove)
-j::Mouse.MoveDown(Mouse.SmallMove)
-l::Mouse.MoveRight(Mouse.SmallMove)
+s::Mouse.MoveLeft(Mouse.MediumMove)
+d::Mouse.MoveUp(Mouse.MediumMove)
+f::Mouse.MoveDown(Mouse.MediumMove)
+g::Mouse.MoveRight(Mouse.MediumMove)
 
-+h::Mouse.MoveLeft(Mouse.MediumMove)
-+k::Mouse.MoveUp(Mouse.MediumMove)
-+j::Mouse.MoveDown(Mouse.MediumMove)
-+l::Mouse.MoveRight(Mouse.MediumMove)
++s::Mouse.MoveLeft(Mouse.SmallMove)
++d::Mouse.MoveUp(Mouse.SmallMove)
++f::Mouse.MoveDown(Mouse.SmallMove)
++g::Mouse.MoveRight(Mouse.SmallMove)
 
-^h::Mouse.MoveLeft(Mouse.BigMove)
-^k::Mouse.MoveUp(Mouse.BigMove)
-^j::Mouse.MoveDown(Mouse.BigMove)
-^l::Mouse.MoveRight(Mouse.BigMove)
+^s::Mouse.MoveLeft(Mouse.BigMove)
+^d::Mouse.MoveUp(Mouse.BigMove)
+^f::Mouse.MoveDown(Mouse.BigMove)
+^g::Mouse.MoveRight(Mouse.BigMove)
 
-*u::Click()
-*o::Click("Right")
-*i::Click("Middle")
-#u::Mouse.HoldIfUp("L")
-#o::Mouse.HoldIfUp("R")
-#i::Mouse.HoldIfUp("M")
+*r::Click()
+*w::Click("Right")
+*e::Click("Middle")
+#r::Mouse.HoldIfUp("L")
+#w::Mouse.HoldIfUp("R")
+#e::Mouse.HoldIfUp("M")
 
 1::MouseMove(Mouse.FarLeftX,        Mouse.MiddleY)
 2::MouseMove(Mouse.LowLeftX,        Mouse.MiddleY)
@@ -69,25 +69,25 @@ l::Mouse.MoveRight(Mouse.SmallMove)
 ^9::MouseMove(Mouse.HighRightX,      Mouse.BottomY)
 ^0::MouseMove(Mouse.FarRightX,       Mouse.BottomY)
 
-s::Down
-d::Up
-a::Left
-f::Right
-w::Home
-e::End
-q::PgUp
-r::PgDn
+j::Down
+k::Up
+h::Left
+l::Right
+i::Home
+o::End
+u::PgUp
+p::PgDn
 *z::SendInput("{Blind}{Click WheelLeft}") ; Solution by childfs6865
 *x::SendInput("{Blind}{Click WheelUp}")
 *c::SendInput("{Blind}{Click WheelDown}")
 *v::SendInput("{Blind}{Click WheelRight}")
 
-g::Volume_Down
-y::Volume_Up
+a::Volume_Down
+q::Volume_Up
 t::Media_Play_Pause
-n::MediaActions.SkipPrev()
-m::MediaActions.SkipNext()
-p::Volume_Mute
+m::Volume_Mute
+sc33::MediaActions.SkipPrev()
+sc34::MediaActions.SkipNext()
 
 `::return
 -::return
@@ -97,9 +97,6 @@ sc1B::return
 sc2B::return
 sc27::return
 sc28::return
-b::return
-sc33::return
-sc34::return
 sc35::return
 
 #HotIf
