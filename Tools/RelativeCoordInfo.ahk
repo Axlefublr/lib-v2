@@ -5,7 +5,10 @@
 class RelativeCoordInfo {
 
     __New() {
-        this.Setup()
+        CoordMode("Mouse", "Screen")
+        this._CreateGui()
+        this.hwnd := this.gObj.Hwnd
+        this._SetupHotkey()
     }
 
 
@@ -22,18 +25,15 @@ class RelativeCoordInfo {
     }
 
 
-    static JustCallThis() {
+    static BetterCallThis() {
         static firstTime := true
         static inst
         if firstTime {
-            inst := RelativeCoordInfo()
-            inst.GetFirstCoords()
+            inst := RelativeCoordInfo().GetFirstCoords()
             firstTime := false
             return
         }
-        inst.GetSecondCoords()
-        inst.CalcualteDiff()
-        inst.Show()
+        inst.GetSecondCoords().Show()
         firstTime := true
     }
 
@@ -43,6 +43,7 @@ class RelativeCoordInfo {
         this.InitY := InitY
         this.pointInst := Point(this.InitX, this.InitY)
         this.pointInst.Create()
+        return this
     }
 
     GetSecondCoords() {
@@ -50,16 +51,12 @@ class RelativeCoordInfo {
         this.EndX := EndX
         this.EndY := EndY
         this.pointInst.Destroy()
-    }
-
-    Setup() {
-        CoordMode("Mouse", "Screen")
-        this._CreateGui()
-        this.hwnd := this.gObj.Hwnd
-        this._SetupHotkey()
+        return this
     }
 
     Show() {
+        if WinExist("Relative Coord Info ahk_id " this.hwnd)
+            throw TargetError("You can only have one gui per instance of the RelativeCoordInfo class")
         this._AddXCtrl()
         this._AddYCtrl()
         this.gObj.Show("AutoSize y0 x0")

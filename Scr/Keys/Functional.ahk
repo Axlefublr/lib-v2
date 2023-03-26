@@ -6,7 +6,7 @@
 #Include <Tools\InternetSearch>
 #Include <System\Brightness>
 #Include <Abstractions\Registers>
-#Include <Tools\RelativeCoordGetter>
+#Include <Tools\RelativeCoordInfo>
 #Include <System\Language>
 #Include <Utils\Autoclicker>
 
@@ -34,7 +34,7 @@
 #c::Autoclicker()
 #^LButton::CoordInfo()
 #f::WindowInfo()
-#+LButton::RelativeCoordInfo.JustCallThis()
+#+LButton::RelativeCoordInfo.BetterCallThis()
 
 #k::InternetSearch("Google").TriggerSearch()
 
