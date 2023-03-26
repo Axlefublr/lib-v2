@@ -34,7 +34,7 @@
 #c::Autoclicker()
 #^LButton::CoordInfo()
 #f::WindowInfo()
-+!v::RelativeCoordGetter()
+#+LButton::RelativeCoordInfo.JustCallThis()
 
 #k::InternetSearch("Google").TriggerSearch()
 

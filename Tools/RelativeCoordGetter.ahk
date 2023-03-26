@@ -5,12 +5,7 @@
 class RelativeCoordInfo {
 
     __New() {
-        CoordMode("Mouse", "Screen")
-        this._CreateGui()
-        this.hwnd := this.gObj.Hwnd
-        this._AddXCtrl()
-        this._AddYCtrl()
-        this._SetupHotkey()
+        this.Setup()
     }
 
 
@@ -18,18 +13,56 @@ class RelativeCoordInfo {
     InitY := 0
     EndX  := 0
     EndY  := 0
-    DiffX := 0
-    DiffY := 0
 
+    DiffX {
+        get => this.EndX - this.InitX
+    }
+    DiffY {
+        get => this.EndY - this.InitY
+    }
+
+
+    static JustCallThis() {
+        static firstTime := true
+        static inst
+        if firstTime {
+            inst := RelativeCoordInfo()
+            inst.GetFirstCoords()
+            firstTime := false
+            return
+        }
+        inst.GetSecondCoords()
+        inst.CalcualteDiff()
+        inst.Show()
+        firstTime := true
+    }
 
     GetFirstCoords() {
-        MouseGetPos(&this.InitX, &this.InitY)
+        MouseGetPos(&InitX, &InitY)
+        this.InitX := InitX
+        this.InitY := InitY
         this.pointInst := Point(this.InitX, this.InitY)
+        this.pointInst.Create()
     }
 
     GetSecondCoords() {
-        MouseGetPos(&this.EndX, &this.EndY)
+        MouseGetPos(&EndX, &EndY)
+        this.EndX := EndX
+        this.EndY := EndY
         this.pointInst.Destroy()
+    }
+
+    Setup() {
+        CoordMode("Mouse", "Screen")
+        this._CreateGui()
+        this.hwnd := this.gObj.Hwnd
+        this._SetupHotkey()
+    }
+
+    Show() {
+        this._AddXCtrl()
+        this._AddYCtrl()
+        this.gObj.Show("AutoSize y0 x0")
     }
 
     foDestroy := (*) => this.Destroy()
@@ -42,17 +75,9 @@ class RelativeCoordInfo {
         this.gObj.Destroy()
     }
 
-    CalcualteDiff() {
-        this.DiffX := this.EndX - this.InitX
-        this.DiffY := this.EndY - this.InitY
-    }
-
-
     _CreateGui() {
         this.gObj := Gui(, "Relative Coord Info").DarkMode().MakeFontNicer()
     }
-
-    _Show() => this.gObj.Show("AutoSize y0 x0")
 
     _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
 
@@ -74,7 +99,7 @@ class RelativeCoordInfo {
 
     _SetupHotkey() {
         HotIfWinActive("ahk_id " this.hwnd)
-        Hotkey("Escape", foDestroy, "On")
-        this.gObj.OnEvent("Close", foDestroy)
+        Hotkey("Escape", this.foDestroy, "On")
+        this.gObj.OnEvent("Close", this.foDestroy)
     }
 }
