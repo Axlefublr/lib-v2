@@ -22,5 +22,6 @@ SoundPlayer.Storage.Set(
     "shutter",           SoundPlayer(Paths.Ptf["shutter"]),
     "was that his cock", SoundPlayer(Paths.Ptf["was that his cock"]),
     "cyberpunk",         SoundPlayer(Paths.Ptf["cyberpunk"]),
+    "better call saul",  SoundPlayer(Paths.Ptf["better call saul"]),
 
 )

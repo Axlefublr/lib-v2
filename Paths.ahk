@@ -73,6 +73,7 @@ Class Paths {
         "shutter",           Paths.Audio "\Sounds\shutter.wav",
         "was that his cock", Paths.Audio "\Sounds\was that his cock.wav",
         "cyberpunk",         Paths.Audio "\Sounds\cyberpunk.wav",
+        "better call saul",  Paths.Audio "\Sounds\better call saul short.wav",
 
         "Discovery log", Paths.Music "\Discovery log.txt",
         "Unfinished",    Paths.Music "\Unfinished.txt",
