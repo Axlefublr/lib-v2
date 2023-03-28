@@ -1,3 +1,5 @@
+#Include <App\ClockApp>
+#Include <App\OBS>
 #Include <App\Terminal>
 #Include <App\Spotify>
 #Include <App\Discord>
@@ -18,5 +20,5 @@ GroupAdd("Main", Browser.winTitle)
 GroupAdd("Main", Telegram.winTitle)
 GroupAdd("Main", Terminal.winTitle)
 GroupAdd("Main", Explorer.exeTitle)
-; GroupAdd("Main", ClockApp.winTitle)
-; GroupAdd("Main", VPN.winTitle)
+GroupAdd("Main", OBS.winTitle)
+GroupAdd("Main", ClockApp.winTitle)
