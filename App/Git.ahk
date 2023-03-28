@@ -61,10 +61,13 @@ Class Git {
         static fileBlob := "/blob/main/" ;The part between the name of the repo and the other file path is different depending on whether it's a file or a folder
         static folderBlob := "/tree/main/"
 
-        path := StrReplace(path, "\", "/") ;The link uses forward slashes, this replace is made so you can use whatever slashes you feel like
+        if InStr(path, Paths.Prog "\")
+            path := StrReplace(path, Paths.Prog "\")
 
-        if InStr(path, "C:/Programming/")
-            path := StrReplace(path, "C:/Programming/") ;For the if I specify the full path, ignore this, will be removed in the public release of the function
+        if InStr(path, Paths.Lib "\")
+            path := StrReplace(path, Paths.Lib "\")
+
+        path := StrReplace(path, "\", "/") ;The link uses forward slashes, this replace is made so you can use whatever slashes you feel like
 
         if !InStr(path, "/") ;You can just specify the name of the repo to get a link for it
             return github path
