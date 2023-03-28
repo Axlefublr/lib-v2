@@ -20,11 +20,6 @@ Class Browser {
         exePath: Browser.path,
     })
 
-    static CurrentLink {
-        get => Browser.UIA.Document.Value
-    }
-
-
     static SearchTabs() => Send("^+a")
 
     /**
@@ -52,38 +47,6 @@ Class Browser {
         static Window {
             get => UIA.ElementFromHandle(Browser.winTitle)
         }
-
-            static MainWindow {
-                get => Browser.UIA.Window.FindElement({
-                    ClassName: "BrowserRootView",
-                    Scope: 2
-                }).FindElement({
-                    ClassName: "NonClientView",
-                    Scope: 2
-                }).FindElement({
-                    ClassName: "GlassBrowserFrameView",
-                    Scope: 2
-                }).FindElement({
-                    ClassName: "BrowserView",
-                    Scope: 2
-                }).FindElement({
-                    ClassName: "TopContainerView",
-                    Scope: 2
-                })
-            }
-
-                static AddressSearchBar {
-                    get => Browser.UIA.MainWindow.FindElement({
-                        Type: "ToolBar",
-                        Scope: 2
-                    }).FindElement({
-                        ClassName: "LocationBarView",
-                        Scope: 2
-                    }).FindElement({
-                        Name: "Address and search bar",
-                        Scope: 2
-                    })
-                }
 
         static Document {
             get => UIA.ElementFromChromium(Browser.winTitle).FindElement(UIA.RawViewCondition, 1)
