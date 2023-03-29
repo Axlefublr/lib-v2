@@ -64,8 +64,8 @@ Class Git {
         if InStr(path, Paths.Prog "\")
             path := StrReplace(path, Paths.Prog "\")
 
-        if InStr(path, Paths.Lib "\")
-            path := StrReplace(path, Paths.Lib "\")
+        if InStr(path, Paths.Lib)
+            path := StrReplace(path, Paths.Lib, "lib-v2")
 
         path := StrReplace(path, "\", "/") ;The link uses forward slashes, this replace is made so you can use whatever slashes you feel like
 

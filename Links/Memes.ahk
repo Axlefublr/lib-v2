@@ -232,4 +232,7 @@ Links_Memes := Map(
 
     "how to say life is meaningless in polish",
     "https://www.youtube.com/watch?v=JW50-YruRuA&ab_channel=HowtoPolish",
+
+    "we are going to piss on the moon",
+    "https://www.youtube.com/watch?v=dPCpGSjNxHo&ab_channel=BosnianApeSociety",
 )

@@ -32,7 +32,7 @@ Links_Channel := Map(
     "map object syntax",
     "https://youtu.be/9OINu9xjPVw",
 
-    "threads and settimers",
+    "settimers",
     "https://youtu.be/PedUPO8KSDE",
 
     "vscode setup",
