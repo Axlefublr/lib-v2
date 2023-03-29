@@ -235,4 +235,7 @@ Links_Memes := Map(
 
     "we are going to piss on the moon",
     "https://www.youtube.com/watch?v=dPCpGSjNxHo&ab_channel=BosnianApeSociety",
+
+    "better call goofy ahh saul",
+    "https://youtu.be/PceHIT9vaF8",
 )

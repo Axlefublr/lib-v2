@@ -24,4 +24,3 @@ XButton1:: {
 }
 
 #HotIf
-#InputLevel 5

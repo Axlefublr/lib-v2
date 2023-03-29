@@ -54,4 +54,16 @@ Links_Docs := Map(
     "leetcode",
     "https://leetcode.com/",
 
+    "sql practice",
+    "https://pgexercises.com/questions/basic/",
+
+    "sql practice 2",
+    "https://sql-academy.org/en/trainer?sort=byId",
+
+    "sql practice 3",
+    "https://sqlbolt.com/lesson/select_queries_introduction",
+
+    "150 dotnet questions",
+    "https://itvdn.com/ru/blog/article/150-questions-net-developer",
+
 )
