@@ -11,6 +11,7 @@ class Infos {
         this.autoCloseTimeout := autoCloseTimeout
         this.text := text
         this._CreateGui()
+        this.hwnd := this.gInfo.hwnd
         if !this._GetAvailableSpace() {
             this._StopDueToNoSpace()
             return

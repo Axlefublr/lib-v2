@@ -1,14 +1,20 @@
 #Include <Tools\Info>
 
-class Chooser {
-
-    __New(mapObj) {
-        this.mapObj := mapObj
+Choose(options*) {
+    infoObjs := [Infos("")]
+    for index, option in options {
+        infoObjs.Push(Infos(option))
     }
-
-    Get(keyName) {
-        if this.mapObj.Has(keyName)
-            return this.mapObj[keyName]
+    loop {
+        for index, infoObj in infoObjs {
+            if WinExist(infoObj.hwnd)
+                continue
+            text := infoObj.text
+            break 2
+        }
     }
-
+    for index, infoObj in infoObjs {
+        infoObj.Destroy()
+    }
+    return text
 }
