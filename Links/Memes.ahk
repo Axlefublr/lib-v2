@@ -238,4 +238,7 @@ Links_Memes := Map(
 
     "better call goofy ahh saul",
     "https://youtu.be/PceHIT9vaF8",
+
+    "ted talk about nothing",
+    "https://www.youtube.com/watch?v=8S0FDjFBj8o&ab_channel=TEDxTalks",
 )

@@ -5,6 +5,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "april fools video",
+    "https://youtu.be/-ekItDfTd_Y",
+
     "spotify uia",
     "https://youtu.be/dWc_sl2Fx3k",
 

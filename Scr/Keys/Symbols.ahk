@@ -1,5 +1,6 @@
 #Include <Utils\Unicode>
 #Include <Abstractions\Registers>
+#Include <Utils\KeyChorder>
 
 #sc27:: {
     sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
