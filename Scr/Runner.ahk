@@ -1,4 +1,4 @@
-#Include <Misc\Linker>
+#Include <Loaders\Links>
 #Include <Utils\ClipSend>
 #Include <Extensions\String>
 #Include <Utils\Win>
@@ -52,7 +52,7 @@
     }
 
     static _LinkCopy(input) {
-        link := Linker(input)
+        link := Links.Choose(input)
         if !link
             return
         A_Clipboard := link
@@ -60,14 +60,14 @@
     }
 
     static _LinkPaste(input) {
-        link := Linker(input)
+        link := Links.Choose(input)
         if !link
             return
         ClipSend(link,, false)
     }
 
     static _LinkOpen(input) {
-        link := Linker(input)
+        link := Links.Choose(input)
         if !link
             return
         Browser.RunLink(link)

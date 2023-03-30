@@ -1,4 +1,4 @@
-; No dependencies
+#Include <Utils\Choose>
 
 /**
  * By default, you can set the same key to a map multiple times.
@@ -50,3 +50,18 @@ Map___New_Call_Custom(this, params*) {
         Map___New_Call(this, params*)
     }
 }
+
+_ChooseMap(this, keyName) {
+    if this.Has(keyName)
+        return this[keyName]
+    options := []
+    for key, _ in this {
+        if InStr(key, keyName)
+            options.Push(key)
+    }
+    chosen := Choose(options*)
+    if chosen
+        return this[chosen]
+    return ""
+}
+Map.Prototype.DefineProp("Choose", {Call: _ChooseMap})
