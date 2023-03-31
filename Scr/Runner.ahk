@@ -1,3 +1,4 @@
+#Include <Extensions\String>
 #Include <Loaders\Links>
 #Include <Utils\ClipSend>
 #Include <Extensions\String>
@@ -100,6 +101,12 @@
         "i",       (input) => Infos(input),
 
     )
+    regex := "^("
+    for key, _ in runner_regex {
+        regex .= key "|"
+    }
+    regex .= ") (.+)"
+    result := input.RegexMatch(regex)
     if runner_regex.Has(result[1])
         try runner_regex[result[1]].Call(result[2])
 }
