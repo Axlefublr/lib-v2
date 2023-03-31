@@ -5,6 +5,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "choose",
+    "https://youtu.be/w0Y-MROa1L8",
+
     "april fools video",
     "https://youtu.be/-ekItDfTd_Y",
 
