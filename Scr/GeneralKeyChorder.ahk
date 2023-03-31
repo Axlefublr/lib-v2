@@ -1,3 +1,4 @@
+#Include <Misc\EmojiSearch>
 #Include <Utils\KeyChorder>
 #Include <Misc\Meditate>
 #Include <App\Browser>
@@ -32,6 +33,7 @@
         "k", KeyCodeGetter,
         "M", Meditate,
         "t", TimerLoader,
+        "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
 
     )
     if key
