@@ -182,6 +182,16 @@ Class Win extends Initializable {
         }
     }
 
+    CloseOnceInactive() {
+        _Checker() {
+            if !WinActive(this.winTitle,, this.exception) {
+                this.Close()
+                SetTimer(, 0)
+            }
+        }
+        SetTimer(_Checker, 1)
+    }
+
     RunAct() {
         this.Run()
         if this.startupWintitle {
@@ -192,23 +202,26 @@ Class Win extends Initializable {
         if this.startupWintitle {
             this.winTitle := temp
         }
+        return this
     }
 
     RunAct_Folders() {
         this.SetExplorerWintitle()
         this.RunAct()
+        return this
     }
 
     App() {
         if this.MinMax()
-            return true
+            return this
         this.RunAct()
-        return false
+        return this
     }
 
     App_Folders() {
         this.SetExplorerWintitle()
         this.App()
+        return this
     }
 
     RestoreLeftRight() {
