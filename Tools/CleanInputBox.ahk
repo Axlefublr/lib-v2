@@ -24,7 +24,6 @@ Class CleanInputBox extends Gui {
         this.Input := ""
         this.isWaiting := true
         this.RegisterHotkeys()
-        this.Show()
     }
 
     Show() => super.Show("y" this.TopMargin " w" this.Width)
@@ -35,6 +34,7 @@ Class CleanInputBox extends Gui {
      * @returns {String}
      */
     WaitForInput() {
+        this.Show()
         while this.isWaiting {
         }
         return this.Input
