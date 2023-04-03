@@ -67,7 +67,6 @@ class Registers {
 
     /**
      * @param {Char} key
-     * @private
      * @throws {ValueError} If the key passed isn't in Registers.ValidRegisters
      * @throws {UnsetItemError} If you pass an empty string as the key
      */
@@ -144,7 +143,6 @@ class Registers {
 
     /**
      * @returns {String} Text inside of the register file
-     * @throws {ValueError} If you pass an unsupported key
      */
     Read() {
         path := Registers.GetPath(this.key)
