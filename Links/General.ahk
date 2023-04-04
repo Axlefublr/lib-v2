@@ -18,6 +18,9 @@
 
     ;; Services
 
+    "yt comments",
+    "https://studio.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw/comments",
+
     "gmail",
     "https://mail.google.com/mail/u/0/#inbox",
 

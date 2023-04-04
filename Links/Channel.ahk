@@ -369,6 +369,12 @@ Links_Channel := Map(
 
     ;;Useful tutorials not by me
 
+    "vim registers",
+    "https://youtu.be/I5QGlfbuCfs",
+
+    "better vim substitute",
+    "https://youtu.be/k_PBlhH-DKk",
+
     "how to learn rust",
     "https://youtu.be/2hXNd6x9sZs",
 
