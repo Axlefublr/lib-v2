@@ -96,6 +96,7 @@
         "finish",  (input) => Shows.DeleteShow(input, false),
         "dd",      (input) => Shows.SetDownloaded(input),
         "drop",    (input) => Shows.DeleteShow(input, true),
+        "update",  (input) => Shows.UpdateLink(input),
         "install", (input) => Git.InstallAhkLibrary(input),
         "ev",      (input) => Infos(Calculator(input)),
         "evp",     (input) => ClipSend(Calculator(input)),

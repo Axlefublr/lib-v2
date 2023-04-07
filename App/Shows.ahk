@@ -27,6 +27,10 @@ class Shows {
         }
     }
 
+
+    static _linkRegex := "https:\/\/[^ ]+"
+
+
     static ApplyJson() => WriteFile(this.ShowsJsonPath, JSON.stringify(this.shows))
 
     static Run(progressType?) => Browser.RunLink(this._GetLink(progressType?))
@@ -40,7 +44,7 @@ class Shows {
     }
 
     static SetLink(show_and_link) {
-        if !show_and_link := this._ValidateSetInput(show_and_link, "(.+) (https:\/\/[^ ]+)") {
+        if !show_and_link := this._ValidateSetInput(show_and_link, "(.+) (" this._linkRegex ")") {
             return false
         }
 
@@ -56,9 +60,23 @@ class Shows {
         Info(show ": link set")
     }
 
+    static UpdateLink(link) {
+        if !link := this._ValidateSetInput(link, this._linkRegex) {
+            return false
+        }
+
+        if !show := Choose(this.showsArr*) {
+            return false
+        }
+
+        this.shows[show]["link"] := link
+
+        this.ApplyJson()
+        Info(show ": link updated")
+    }
+
     static SetEpisode(episode) {
         if !episode := this._ValidateSetInput(episode, "\d+")[] {
-            Infos("exited")
             return false
         }
 
