@@ -11,9 +11,11 @@
 
 class Shows {
 
-    static ShowsJson := Paths.Ptf["Shows"]
+    static ShowsJsonPath := Paths.Ptf["Shows"]
 
-    static shows := GetJson()
+    static ConsumedPath := Paths.Ptf["Consumed"]
+
+    static shows := _GetJson()
 
     static showsArr {
         get {
@@ -25,51 +27,27 @@ class Shows {
         }
     }
 
-    static GetJson() => JSON.parse(ReadFile(this.ShowsJson))
-    static ApplyJson() => WriteFile(this.ShowsJson, JSON.stringify(this.shows))
+    static ApplyJson() => WriteFile(this.ShowsJsonPath, JSON.stringify(this.shows))
 
-    static Run(show, progressType?) {
-        try Run(this._GetLink(show, progressType?))
-        catch Any {
-            Info("Fucked up link :(")
+    static Run(progressType?) => Browser.RunLink(this._GetLink(progressType?))
+
+    static DeleteShow(isDropped := false) {
+        if !show := Choose(this.showsArr*)
             return
-        }
-        Browser.winObj.Activate()
-    }
-
-    static DeleteShow(show?, isDropped := false) {
-        if !IsSet(show) {
-            if !show := Choose(this.showsArr*)
-                return
-        }
-        try {
-            this.shows.Delete(show)
-            this.ApplyJson()
-        }
-        this._WriteConsumed(show, isDropped)
-        this._PushConsumed(show, isDropped)
-    }
-
-    static ValidateSetInput(input, regex) {
-        input := CompressSpaces(input)
-
-        RegexMatch(input, regex, &match)
-        if !match {
-            Info("Wrong!")
-            return false
-        }
-        return match
+        this.shows.Delete(show)
+        this.ApplyJson()
+        this._OperateConsumed(show, isDropped)
     }
 
     static SetLink(show_and_link) {
-        if !show_and_link := this.ValidateSetInput(show_and_link, "(.+) (https:\/\/[^ ]+)") {
+        if !show_and_link := this._ValidateSetInput(show_and_link, "(.+) (https:\/\/[^ ]+)") {
             return false
         }
 
         show := show_and_link[1]
         link := show_and_link[2]
 
-        if !this.ValidateShow(show) {
+        if !this.shows.Has(show) {
             this._CreateBlankShow(show)
         }
         this.shows[show]["link"] := link
@@ -79,7 +57,7 @@ class Shows {
     }
 
     static SetEpisode(episode) {
-        if !episode := this.ValidateSetInput(episode, "\d+")[] {
+        if !episode := this._ValidateSetInput(episode, "\d+")[] {
             Infos("exited")
             return false
         }
@@ -100,7 +78,7 @@ class Shows {
     }
 
     static SetDownloaded(downloaded) {
-        if !downloaded := this.ValidateSetInput(downloaded, "\d+")[] {
+        if !downloaded := this._ValidateSetInput(downloaded, "\d+")[] {
             return false
         }
 
@@ -115,10 +93,23 @@ class Shows {
     }
 
 
+    static _GetJson() => JSON.parse(ReadFile(this.ShowsJsonPath))
+
     static _GetLink(progressType := "episode") {
         if !show := Choose(this.showsArr*)
             return
         return this.shows[show]["link"] this.shows[show][progressType] + 1
+    }
+
+    static _ValidateSetInput(input, regex) {
+        input := CompressSpaces(input)
+
+        RegexMatch(input, regex, &match)
+        if !match {
+            Info("Wrong!")
+            return false
+        }
+        return match
     }
 
     static _CreateBlankShow(show) => this.shows.Set(show, Map(
@@ -128,16 +119,18 @@ class Shows {
         "timestamp",  DateTime.Date " " DateTime.Time
     ))
 
-    static _WriteConsumed(show, isDropped := false) {
+    static _OperateConsumed(show, isDropped) => (this._WriteConsumed(show, isDropped), this._PushConsumed(show, isDropped))
+
+    static _WriteConsumed(show, isDropped) {
         date := "`n1. " DateTime.Date " - "
-        isDropped_string := isDropped ? "(dropped)" : ""
-        AppendFile(Paths.Ptf["Consumed"], date isDropped_string show.ToTitle())
+        isDropped_string := isDropped ? "(dropped) " : ""
+        AppendFile(this.ConsumedPath, date isDropped_string show.ToTitle())
     }
 
-    static _PushConsumed(show, isDropped := false) {
+    static _PushConsumed(show, isDropped) {
         action := isDropped ? "drop" : "finish"
         Info(action " " show)
-        Git(Paths.Shows).Add(Paths.Ptf["Consumed"], Paths.Ptf["Shows"]).Commit(action " " show).Push().Execute()
+        Git(Paths.Shows).Add(this.ConsumedPath, this.ShowsJsonPath).Commit(action " " show).Push().Execute()
         Info("pushed!")
     }
 }

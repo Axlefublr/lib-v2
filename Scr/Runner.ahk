@@ -24,9 +24,11 @@
 
     static runner_commands := Map(
 
-        "libs?", () => Infos(CountLibraries()),
-        "drop",  () => Shows().DeleteShow(, true),
-        "finish", () => Shows().DeleteShow(, false),
+        "libs?",  () => Infos(CountLibraries()),
+        "drop",   () => Shows.DeleteShow(, true),
+        "finish", () => Shows.DeleteShow(, false),
+        "show",   () => Shows.Run("episode"),
+        "down",   () => Shows.Run("downloaded"),
 
         ;Apps
         "apps",    MainApps,
@@ -89,13 +91,11 @@
         "rap",     (input) => Spotify.NewRapper(input),
         "fav",     (input) => Spotify.FavRapper(input),
         "disc",    (input) => Spotify.NewDiscovery(input),
-        "show",    (input) => Shows().Run(input),
-        "down",    (input) => Shows().Run(input, "downloaded"),
-        "link",    (input) => Shows().SetLink(input),
-        "ep",      (input) => Shows().SetEpisode(input),
-        "finish",  (input) => Shows().DeleteShow(input, false),
-        "dd",      (input) => Shows().SetDownloaded(input),
-        "drop",    (input) => Shows().DeleteShow(input, true),
+        "link",    (input) => Shows.SetLink(input),
+        "ep",      (input) => Shows.SetEpisode(input),
+        "finish",  (input) => Shows.DeleteShow(input, false),
+        "dd",      (input) => Shows.SetDownloaded(input),
+        "drop",    (input) => Shows.DeleteShow(input, true),
         "install", (input) => Git.InstallAhkLibrary(input),
         "ev",      (input) => Infos(Calculator(input)),
         "evp",     (input) => ClipSend(Calculator(input)),
