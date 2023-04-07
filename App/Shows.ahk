@@ -9,16 +9,23 @@
 #Include <Extensions\String>
 #Include <Converters\DateTime>
 
-Class Shows {
-    __New() {
-        this.shows := JSON.parse(ReadFile(Paths.Ptf["Shows"]))
-    }
+class Shows {
 
-    ApplyJson() => WriteFile(Paths.Ptf["Shows"], JSON.stringify(this.shows))
+    static showsJson := Paths.Ptf["Shows"]
 
-    CreateBlankShow(show) => this.shows.Set(show, Map("episode", 0, "link", "", "downloaded", 0, "timestamp", DateTime.Date " " DateTime.Time))
+    static shows := GetJson()
 
-    ValidateShow(show) {
+    static GetJson() => JSON.parse(ReadFile(this.showsJson))
+    static ApplyJson() => WriteFile(this.showsJson, JSON.stringify(this.shows))
+
+    static CreateBlankShow(show) => this.shows.Set(show, Map(
+        "episode",    0,
+        "link",       "",
+        "downloaded", 0,
+        "timestamp",  DateTime.Date " " DateTime.Time
+    ))
+
+    static ValidateShow(show) {
         try this.shows[show]
         catch Any {
             return false ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
@@ -26,25 +33,7 @@ Class Shows {
         return true
     }
 
-    ValidateShowLink(show) {
-        if !this.ValidateShow(show) {
-            return false
-        }
-        if !this.shows[show]["link"] {
-            Info("No link!🔗")
-            return false ;If the object exists, so does the link property, which will be blank if I only set the episode (somehow). The episode always starts out being 0 though, no need to check for it
-        }
-        return true
-    }
-
-    GetLink(show, progressType := "episode") {
-        if !this.ValidateShowLink(show) {
-            return ""
-        }
-        return this.shows[show]["link"] this.shows[show][progressType] + 1
-    }
-
-    GetShows() {
+    static GetShows() {
         shows := []
         for key, _ in this.shows {
             shows.Push(key)
@@ -52,8 +41,8 @@ Class Shows {
         return shows
     }
 
-    Run(show, progressType?) {
-        try Run(this.GetLink(show, progressType?))
+    static Run(show, progressType?) {
+        try Run(this._GetLink(show, progressType?))
         catch Any {
             Info("Fucked up link :(")
             return
@@ -61,7 +50,7 @@ Class Shows {
         Browser.winObj.Activate()
     }
 
-    DeleteShow(show?, isDropped := false) {
+    static DeleteShow(show?, isDropped := false) {
         if !IsSet(show) {
             if !show := Choose(this.GetShows()*)
                 return
@@ -70,11 +59,11 @@ Class Shows {
             this.shows.Delete(show)
             this.ApplyJson()
         }
-        this._UpdateConsumed(show, isDropped)
+        this._WriteConsumed(show, isDropped)
         this._PushConsumed(show, isDropped)
     }
 
-    ValidateSetInput(input, regex) {
+    static ValidateSetInput(input, regex) {
         input := CompressSpaces(input)
 
         RegexMatch(input, regex, &match)
@@ -85,7 +74,7 @@ Class Shows {
         return match
     }
 
-    SetLink(show_and_link) {
+    static SetLink(show_and_link) {
         if !show_and_link := this.ValidateSetInput(show_and_link, "(.+) (https:\/\/[^ ]+)") {
             return false
         }
@@ -102,7 +91,7 @@ Class Shows {
         Info(show ": link set")
     }
 
-    SetEpisode(episode) {
+    static SetEpisode(episode) {
         if !episode := this.ValidateSetInput(episode, "\d+")[] {
             Infos("exited")
             return false
@@ -123,7 +112,7 @@ Class Shows {
         Info("pushed!")
     }
 
-    SetDownloaded(downloaded) {
+    static SetDownloaded(downloaded) {
         if !downloaded := this.ValidateSetInput(downloaded, "\d+")[] {
             return false
         }
@@ -139,13 +128,19 @@ Class Shows {
     }
 
 
-    _UpdateConsumed(show, isDropped := false) {
-        date := "`n1. " DateTime.Date " - "
-        isDropped_string := isDropped ? " - dropped" : ""
-        AppendFile(Paths.Ptf["Consumed"], date show.ToTitle() isDropped_string)
+    static _GetLink(progressType := "episode") {
+        if !show := Choose(this.GetShows()*)
+            return
+        return this.shows[show]["link"] this.shows[show][progressType] + 1
     }
 
-    _PushConsumed(show, isDropped := false) {
+    static _WriteConsumed(show, isDropped := false) {
+        date := "`n1. " DateTime.Date " - "
+        isDropped_string := isDropped ? "(dropped)" : ""
+        AppendFile(Paths.Ptf["Consumed"], date isDropped_string show.ToTitle())
+    }
+
+    static _PushConsumed(show, isDropped := false) {
         action := isDropped ? "drop" : "finish"
         Info(action " " show)
         Git(Paths.Shows).Add(Paths.Ptf["Consumed"], Paths.Ptf["Shows"]).Commit(action " " show).Push().Execute()
