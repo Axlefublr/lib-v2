@@ -25,8 +25,8 @@
     static runner_commands := Map(
 
         "libs?",  () => Infos(CountLibraries()),
-        "drop",   () => Shows.DeleteShow(, true),
-        "finish", () => Shows.DeleteShow(, false),
+        "drop",   () => Shows.DeleteShow(true),
+        "finish", () => Shows.DeleteShow(false),
         "show",   () => Shows.Run("episode"),
         "down",   () => Shows.Run("downloaded"),
 
@@ -96,7 +96,7 @@
         "finish",  (input) => Shows._OperateConsumed(input, false),
         "dd",      (input) => Shows.SetDownloaded(input),
         "drop",    (input) => Shows._OperateConsumed(input, true),
-        "update",  (input) => Shows.UpdateLink(input),
+        "relink",  (input) => Shows.UpdateLink(input),
         "install", (input) => Git.InstallAhkLibrary(input),
         "ev",      (input) => Infos(Calculator(input)),
         "evp",     (input) => ClipSend(Calculator(input)),

@@ -122,7 +122,7 @@ class Shows {
         return match
     }
 
-    static _CreateBlankShow(show) => this.shows.Set(show, Map(
+    static _CreateBlankShow(show) => this.shows.Set(show.ToTitle(), Map(
         "episode",    0,
         "link",       "",
         "downloaded", 0,
@@ -163,7 +163,7 @@ class Shows {
         this.ApplyJson()
         Info(show ": " downloaded)
         Git(Paths.Shows)
-            .Add(Paths.Ptf["Shows"])
+            .Add(this.ShowsJsonPath)
             .Commit("download episode " downloaded " of show " show)
             .Push()
             .Execute()

@@ -6,7 +6,7 @@
 #Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Youtube.winTitle)
-F2::Youtube.ToggleMiniscreen()
+F1::Youtube.ToggleMiniscreen()
 
 XButton1:: {
     sections := Press.GetSections()
