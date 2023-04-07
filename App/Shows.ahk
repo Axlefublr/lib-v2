@@ -109,7 +109,8 @@ Class Shows {
             return false
         }
 
-        show := Choose(this.GetShows()*)
+        if !show := Choose(this.GetShows()*)
+            return
         this.shows[show]["episode"] := episode
         this.shows[show]["timestamp"] := DateTime.Date " " DateTime.Time
 
@@ -123,17 +124,13 @@ Class Shows {
         Info("pushed!")
     }
 
-    SetDownloaded(show_and_downloaded) {
-        if !match := this.ValidateSetInput(show_and_downloaded, "(.+) (\d+)") {
+    SetDownloaded(downloaded) {
+        if !downloaded := this.ValidateSetInput(downloaded, "\d+")[] {
             return false
         }
 
-        show       := match[1]
-        downloaded := match[2]
-
-        if !this.ValidateShow(show) {
-            this.CreateBlankShow(show)
-        }
+        if !show := Choose(this.GetShows()*)
+            return
         this.shows[show]["downloaded"] := downloaded
 
         this.ApplyJson()
