@@ -61,19 +61,18 @@ Class Shows {
         Browser.winObj.Activate()
     }
 
-    DeleteShow(show, isDropped := false) {
+    DeleteShow(show?, isDropped := false) {
+        if !IsSet(show) {
+            if !show := Choose(this.GetShows()*)
+                return
+        }
         try {
             this.shows.Delete(show)
             this.ApplyJson()
         }
-        this.UpdateConsumed(show, isDropped)
+        this._UpdateConsumed(show, isDropped)
+        this._PushConsumed(show, isDropped)
     }
-
-    UpdateConsumed(show, isDropped) => (
-        date := "`n1. " DateTime.Date " - ",
-        isDropped_string := isDropped ? " - dropped" : "",
-        AppendFile(Paths.Ptf["Consumed"], date show.ToTitle() isDropped_string)
-    )
 
     ValidateSetInput(input, regex) {
         input := CompressSpaces(input)
@@ -136,6 +135,20 @@ Class Shows {
         this.ApplyJson()
         Info(show ": " downloaded)
         Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("download episode " downloaded " of show " show).Push().Execute()
+        Info("pushed!")
+    }
+
+
+    _UpdateConsumed(show, isDropped := false) {
+        date := "`n1. " DateTime.Date " - "
+        isDropped_string := isDropped ? " - dropped" : ""
+        AppendFile(Paths.Ptf["Consumed"], date show.ToTitle() isDropped_string)
+    }
+
+    _PushConsumed(show, isDropped := false) {
+        action := isDropped ? "drop" : "finish"
+        Info(action " " show)
+        Git(Paths.Shows).Add(Paths.Ptf["Consumed"], Paths.Ptf["Shows"]).Commit(action " " show).Push().Execute()
         Info("pushed!")
     }
 }

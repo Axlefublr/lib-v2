@@ -25,6 +25,8 @@
     static runner_commands := Map(
 
         "libs?", () => Infos(CountLibraries()),
+        "drop",  () => Shows().DeleteShow(, true),
+        "finish", () => Shows().DeleteShow(, false),
 
         ;Apps
         "apps",    MainApps,
@@ -74,7 +76,6 @@
         Browser.RunLink(link)
     }
 
-    RegexMatch(input, "^(cp|glo|p|o|cpl|rap|t|fav|ev|i|show|link|ep|delow|gc|gl|go|install|dd|down|drop|disc|evp) (.+)", &result)
     static runner_regex := Map(
 
         "glo",     (input) => _GitLinkOpenCopy(input),
@@ -92,7 +93,7 @@
         "down",    (input) => Shows().Run(input, "downloaded"),
         "link",    (input) => Shows().SetLink(input),
         "ep",      (input) => Shows().SetEpisode(input),
-        "delow",   (input) => Shows().DeleteShow(input),
+        "finish",  (input) => Shows().DeleteShow(input, false),
         "dd",      (input) => Shows().SetDownloaded(input),
         "drop",    (input) => Shows().DeleteShow(input, true),
         "install", (input) => Git.InstallAhkLibrary(input),
