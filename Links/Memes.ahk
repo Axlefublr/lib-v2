@@ -241,4 +241,7 @@ Links_Memes := Map(
 
     "ted talk about nothing",
     "https://www.youtube.com/watch?v=8S0FDjFBj8o&ab_channel=TEDxTalks",
+
+    "dinky",
+    "https://youtu.be/nos_w39ayxg",
 )

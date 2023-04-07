@@ -26,7 +26,7 @@ Class CleanInputBox extends Gui {
         this.RegisterHotkeys()
     }
 
-    Show() => super.Show("y" this.TopMargin " w" this.Width)
+    Show() => (super.Show("y" this.TopMargin " w" this.Width), this)
 
     /**
      * Occupy the thread until you type in your input and press

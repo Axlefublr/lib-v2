@@ -369,6 +369,9 @@ Links_Channel := Map(
 
     ;;Useful tutorials not by me
 
+    "vocal resonance",
+    "https://youtu.be/oWmj73Ttp4E",
+
     "vim registers",
     "https://youtu.be/I5QGlfbuCfs",
 

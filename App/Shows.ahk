@@ -1,3 +1,5 @@
+#Include <Utils\Choose>
+#Include <App\Git>
 #Include <Extensions\Json>
 #Include <Abstractions\Text>
 #Include <Paths>
@@ -42,10 +44,12 @@ Class Shows {
         return this.shows[show]["link"] this.shows[show][progressType] + 1
     }
 
-    GetList() {
-        for key, value in this.shows {
-            Infos(key)
+    GetShows() {
+        shows := []
+        for key, _ in this.shows {
+            shows.Push(key)
         }
+        return shows
     }
 
     Run(show, progressType?) {
@@ -99,17 +103,13 @@ Class Shows {
         Info(show ": link set")
     }
 
-    SetEpisode(show_and_episode) {
-        if !show_and_episode := this.ValidateSetInput(show_and_episode, "(.+) (\d+)") {
+    SetEpisode(episode) {
+        if !episode := this.ValidateSetInput(episode, "\d+")[] {
+            Infos("exited")
             return false
         }
 
-        show    := show_and_episode[1]
-        episode := show_and_episode[2]
-
-        if !this.ValidateShow(show) {
-            this.CreateBlankShow(show)
-        }
+        show := Choose(this.GetShows()*)
         this.shows[show]["episode"] := episode
         this.shows[show]["timestamp"] := DateTime.Date " " DateTime.Time
 

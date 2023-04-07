@@ -13,7 +13,6 @@
 #Include <App\OBS>
 
 #MaxThreadsBuffer true
-#HotIf !Environment.VimMode
 
 <!s::Spotify.winObj.App()
 <!a::VsCode.winObj.App()
@@ -23,8 +22,6 @@
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
 <!x::ClockApp.winObj.App()
-
-#HotIf
 
 !Pause::OBS.winObj.App()
 
