@@ -89,10 +89,7 @@ class Shows {
             this.shows[show]["downloaded"] := episode
         }
 
-        this.ApplyJson()
-        Info(show ": " episode)
-        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("watch episode " episode " of show " show).Push().Execute()
-        Info("pushed!")
+        this._OperateEpisode(show, episode)
     }
 
     static SetDownloaded(downloaded) {
@@ -104,10 +101,7 @@ class Shows {
             return
         this.shows[show]["downloaded"] := downloaded
 
-        this.ApplyJson()
-        Info(show ": " downloaded)
-        Git(Paths.Shows).Add(Paths.Ptf["Shows"]).Commit("download episode " downloaded " of show " show).Push().Execute()
-        Info("pushed!")
+        this._OperateDownloaded(show, downloaded)
     }
 
 
@@ -146,7 +140,33 @@ class Shows {
     static _PushConsumed(show, isDropped) {
         action := isDropped ? "drop" : "finish"
         Info(action " " show)
-        Git(Paths.Shows).Add(this.ConsumedPath, this.ShowsJsonPath).Commit(action " " show).Push().Execute()
+        Git(Paths.Shows)
+            .Add(this.ConsumedPath, this.ShowsJsonPath)
+            .Commit(action " " show)
+            .Push()
+            .Execute()
+        Info("pushed!")
+    }
+
+    static _OperateEpisode(show, episode) {
+        this.ApplyJson()
+        Info(show ": " episode)
+        Git(Paths.Shows)
+            .Add(this.ShowsJsonPath)
+            .Commit("watch episode " episode " of show " show)
+            .Push()
+            .Execute()
+        Info("pushed!")
+    }
+
+    static _OperateDownloaded(show, downloaded) {
+        this.ApplyJson()
+        Info(show ": " downloaded)
+        Git(Paths.Shows)
+            .Add(Paths.Ptf["Shows"])
+            .Commit("download episode " downloaded " of show " show)
+            .Push()
+            .Execute()
         Info("pushed!")
     }
 }
