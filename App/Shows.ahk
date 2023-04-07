@@ -11,35 +11,22 @@
 
 class Shows {
 
-    static showsJson := Paths.Ptf["Shows"]
+    static ShowsJson := Paths.Ptf["Shows"]
 
     static shows := GetJson()
 
-    static GetJson() => JSON.parse(ReadFile(this.showsJson))
-    static ApplyJson() => WriteFile(this.showsJson, JSON.stringify(this.shows))
-
-    static CreateBlankShow(show) => this.shows.Set(show, Map(
-        "episode",    0,
-        "link",       "",
-        "downloaded", 0,
-        "timestamp",  DateTime.Date " " DateTime.Time
-    ))
-
-    static ValidateShow(show) {
-        try this.shows[show]
-        catch Any {
-            return false ;There for sure won't be a link nor an episode if the object doesn't exist yet, because if I either set the link or the episode, the show object will exist along with the properties, even if one of them doesn't have a non-zero value
+    static showsArr {
+        get {
+            shows := []
+            for key, _ in this.shows {
+                shows.Push(key)
+            }
+            return shows
         }
-        return true
     }
 
-    static GetShows() {
-        shows := []
-        for key, _ in this.shows {
-            shows.Push(key)
-        }
-        return shows
-    }
+    static GetJson() => JSON.parse(ReadFile(this.ShowsJson))
+    static ApplyJson() => WriteFile(this.ShowsJson, JSON.stringify(this.shows))
 
     static Run(show, progressType?) {
         try Run(this._GetLink(show, progressType?))
@@ -52,7 +39,7 @@ class Shows {
 
     static DeleteShow(show?, isDropped := false) {
         if !IsSet(show) {
-            if !show := Choose(this.GetShows()*)
+            if !show := Choose(this.showsArr*)
                 return
         }
         try {
@@ -83,7 +70,7 @@ class Shows {
         link := show_and_link[2]
 
         if !this.ValidateShow(show) {
-            this.CreateBlankShow(show)
+            this._CreateBlankShow(show)
         }
         this.shows[show]["link"] := link
 
@@ -97,7 +84,7 @@ class Shows {
             return false
         }
 
-        if !show := Choose(this.GetShows()*)
+        if !show := Choose(this.showsArr*)
             return
         this.shows[show]["episode"] := episode
         this.shows[show]["timestamp"] := DateTime.Date " " DateTime.Time
@@ -117,7 +104,7 @@ class Shows {
             return false
         }
 
-        if !show := Choose(this.GetShows()*)
+        if !show := Choose(this.showsArr*)
             return
         this.shows[show]["downloaded"] := downloaded
 
@@ -129,10 +116,17 @@ class Shows {
 
 
     static _GetLink(progressType := "episode") {
-        if !show := Choose(this.GetShows()*)
+        if !show := Choose(this.showsArr*)
             return
         return this.shows[show]["link"] this.shows[show][progressType] + 1
     }
+
+    static _CreateBlankShow(show) => this.shows.Set(show, Map(
+        "episode",    0,
+        "link",       "",
+        "downloaded", 0,
+        "timestamp",  DateTime.Date " " DateTime.Time
+    ))
 
     static _WriteConsumed(show, isDropped := false) {
         date := "`n1. " DateTime.Date " - "
