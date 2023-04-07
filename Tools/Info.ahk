@@ -87,7 +87,7 @@ class Infos {
         Hotkey("Escape", "Off")
         Hotkey("^Escape", "Off")
         if this.spaceIndex <= Infos.maxNumberedHotkeys
-            Hotkey("#" this._GetKeyFromIndex(this.spaceIndex), "Off")
+            Hotkey("F" this.spaceIndex, "Off")
         this.gInfo.Destroy()
         Infos.spots[this.spaceIndex] := false
         return true
@@ -123,7 +123,7 @@ class Infos {
         Hotkey("Escape", this.bfDestroy, "On")
         Hotkey("^Escape", Infos.foDestroyAll, "On")
         if this.spaceIndex <= Infos.maxNumberedHotkeys
-            Hotkey("#" this._GetKeyFromIndex(this.spaceIndex), this.bfDestroy, "On")
+            Hotkey("F" this.spaceIndex, this.bfDestroy, "On")
         this.gcText.OnEvent("Click", this.bfDestroy)
         this.gInfo.OnEvent("Close", this.bfDestroy)
     }
@@ -135,16 +135,6 @@ class Infos {
     }
 
     _Show() => this.gInfo.Show("AutoSize NA x0 y" this._CalculateYCoord())
-
-    _GetKeyFromIndex(index) {
-        if index < 10
-            return index
-        switch index {
-            case 10:return "0"
-            case 11:return "-"
-            case 12:return "="
-        }
-    }
 
 }
 
