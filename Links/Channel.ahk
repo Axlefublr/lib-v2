@@ -5,6 +5,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "refactoring shows 4",
+    "https://youtu.be/kTu5Bo8sKmY",
+
     "comment documentation",
     "https://youtu.be/uhx4JyT1wE0",
 

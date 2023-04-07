@@ -15,7 +15,7 @@ class Shows {
 
     static ConsumedPath := Paths.Ptf["Consumed"]
 
-    static shows := _GetJson()
+    static shows := JSON.parse(ReadFile(this.ShowsJsonPath))
 
     static showsArr {
         get {
@@ -92,8 +92,6 @@ class Shows {
         Info("pushed!")
     }
 
-
-    static _GetJson() => JSON.parse(ReadFile(this.ShowsJsonPath))
 
     static _GetLink(progressType := "episode") {
         if !show := Choose(this.showsArr*)
