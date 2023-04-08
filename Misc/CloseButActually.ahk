@@ -1,3 +1,4 @@
+#Include <App\VPN>
 #Include <App\Spotify>
 #Include <App\Steam>
 #Include <App\Gimp>
@@ -8,6 +9,7 @@
 
 CloseButActually() {
     Switch {
+        Case WinActive(VPN.winTitle):     VPN.Close()
         Case WinActive(Spotify.exeTitle): Spotify.Close()
         Case WinActive(Steam.exeTitle):   Steam.Close()
         Case WinActive(Gimp.exeTitle):    Gimp.Close()

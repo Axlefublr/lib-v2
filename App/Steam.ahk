@@ -3,8 +3,8 @@
 
 Class Steam {
 
-    static processExe := "steam.exe"
-    static exeTitle := "ahk_exe " this.processExe
+    static process  := "steam.exe"
+    static exeTitle := "ahk_exe " this.process
     static winTitle := this.exeTitle
     static path     := "C:\Programs\Steam\steam.exe"
     static toClose  := ["Steam - News", "Special Offers"]
@@ -17,6 +17,6 @@ Class Steam {
 
     static Close() {
         this.winObj.Close()
-        ProcessClose(this.processExe)
+        ProcessClose(this.process)
     }
 }

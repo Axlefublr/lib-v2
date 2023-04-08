@@ -12,4 +12,9 @@ Class VPN {
         winTitle: this.winTitle,
         exePath: this.path
     })
+
+    static Close() {
+        this.winObj.Close()
+        ProcessClose(this.process)
+    }
 }
