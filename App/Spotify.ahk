@@ -1,3 +1,4 @@
+#Include <Abstractions\Registers>
 #Include <Tools\Info>
 #Include <Converters\DateTime>
 #Include <Abstractions\Text>
@@ -421,6 +422,11 @@ Class Spotify {
         static CounterFile {
             get => ReadFile(Paths.Ptf["playlist-sorter"])
             set => WriteFile(Paths.Ptf["playlist-sorter"], value)
+        }
+
+        static TrackTracker {
+            get => ReadFile(Registers.GetPath("s"))
+            set => WriteFile(Registers.GetPath("s"), value)
         }
 
         static AddTrack() {
