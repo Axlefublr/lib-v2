@@ -146,7 +146,7 @@ Class Spotify {
             return
         AppendFile(Paths.Ptf["Artists"], "1. " DateTime.Date " - " artistName "`n")
         Info(artistName " is now your favorite! 🥰")
-        Git(Paths.Music).Add("Artists").Commit("favorite " artistName).Push().Execute()
+        Git(Paths.Music).Add(Paths.Ptf["Artists"]).Commit("favorite " artistName).Push().Execute()
         Info("pushed!")
     }
 
@@ -316,8 +316,9 @@ Class Spotify {
 
                 static LikeElement {
                     get => Spotify.UIA.InnerContentInfo.WaitElement({
-                        LocalizedType: "button",
                         Type: "Button",
+                        Name: "Library",
+                        Matchmode: "Substring",
                         Scope: 2
                     })
                 }
