@@ -299,6 +299,8 @@ Class Spotify {
                 static CurrentTrack {
                     get {
                         try return Spotify.UIA.InnerContentInfo.FindElement({
+                            Name: "^[^Now playing: ].+",
+                            Matchmode: "Regex",
                             Type: "Link"
                         })
                         throw Spotify.Errors.SpotifyNotActiveError()
@@ -309,6 +311,8 @@ Class Spotify {
                     get {
                         try return Spotify.UIA.InnerContentInfo.FindElement({
                             Type: "Link",
+                            Name: "^[^Now playing: ].+",
+                            Matchmode: "Regex",
                             Index: 2
                         })
                         throw Spotify.Errors.SpotifyNotActiveError()
