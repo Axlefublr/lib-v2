@@ -7,6 +7,7 @@ class WindowInfo {
         this.winTitle   := WinGetTitle(winTitle)
         this.exePath    := WinGetProcessPath(winTitle)
         this.processExe := WinGetProcessName(winTitle)
+        this.class      := WinGetClass(winTitle)
         this.ID         := WinGetID(winTitle)
         this.PID        := WinGetPID(winTitle)
         this._CreateGui()
@@ -14,6 +15,7 @@ class WindowInfo {
         this._AddWintitleCtrl()
         this._AddExePathCtrl()
         this._AddProcessExeCtrl()
+        this._AddClassCtrl()
         this._AddIDCtrl()
         this._AddPIDCtrl()
         this._SetHotkey()
@@ -24,6 +26,7 @@ class WindowInfo {
     winTitle   := ""
     exePath    := ""
     processExe := ""
+    class      := ""
     ID         := ""
     PID        := ""
 
@@ -36,6 +39,7 @@ class WindowInfo {
         Hotkey("3", "Off")
         Hotkey("4", "Off")
         Hotkey("5", "Off")
+        Hotkey("6", "Off")
         Hotkey("Escape", "Off")
         this.gObj.Minimize()
         this.gObj.Destroy()
@@ -72,12 +76,20 @@ class WindowInfo {
         Hotkey("3", foToClip, "On")
     }
 
+    _AddClassCtrl() {
+        foToClip := this._ToClip.Bind(this.class)
+        this.gObj.Add("Text", "Center", this.class)
+            .OnEvent("Click", foToClip)
+        HotIfWinActive("ahk_id " this.hwnd)
+        Hotkey("4", foToClip, "On")
+    }
+
     _AddIDCtrl() {
         foToClip := this._ToClip.Bind(this.ID)
         this.gObj.Add("Text", "Center", "id: " this.ID)
             .OnEvent("Click", foToClip)
         HotIfWinActive("ahk_id " this.hwnd)
-        Hotkey("4", foToClip, "On")
+        Hotkey("5", foToClip, "On")
     }
 
     _AddPIDCtrl() {
@@ -85,7 +97,7 @@ class WindowInfo {
         this.gObj.Add("Text", "Center", "pid: " this.PID)
             .OnEvent("Click", foToClip)
         HotIfWinActive("ahk_id " this.hwnd)
-        Hotkey("5", foToClip, "On")
+        Hotkey("6", foToClip, "On")
     }
 
     _SetHotkey() {
