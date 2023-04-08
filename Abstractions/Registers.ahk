@@ -289,7 +289,6 @@ class Registers {
     }
 
     /**
-     * Currently doesn't work: has a chance to remove the contents of one register without moving it to another.
      * Exchange the contents of two registers.
      * The contents of register 1 will move to register 2, and vice versa.
      * This exists entirely so you don't have to use Registers.Move() three times.
