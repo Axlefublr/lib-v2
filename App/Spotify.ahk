@@ -424,11 +424,6 @@ Class Spotify {
             set => WriteFile(Paths.Ptf["playlist-sorter"], value)
         }
 
-        static TrackTracker {
-            get => ReadFile(Registers.GetPath("s"))
-            set => WriteFile(Registers.GetPath("s"), value)
-        }
-
         static AddTrack() {
             counter := Spotify.PlaylistSorter.CounterFile
             counter += Spotify.PlaylistSorter.Step
