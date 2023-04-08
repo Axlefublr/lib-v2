@@ -1,3 +1,4 @@
+#Include <Extensions\String>
 #Include <Tools\Info>
 #Include <Tools\Counter>
 #Include <Tools\CoordInfo>
@@ -38,7 +39,7 @@
 
 #k::InternetSearch("Google").TriggerSearch()
 
-#n::Registers(KeyChorder()).WriteOrAppend(CleanInputBox().WaitForInput())
+#n::Registers(KeyChorder()).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
 #m::Registers(KeyChorder()).WriteOrAppend()
 #!m::Registers(KeyChorder()).Paste()
 #sc33::Registers(KeyChorder()).Run()
