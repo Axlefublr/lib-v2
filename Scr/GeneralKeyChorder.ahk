@@ -1,6 +1,5 @@
 #Include <Misc\EmojiSearch>
 #Include <Utils\KeyChorder>
-#Include <Misc\Meditate>
 #Include <App\Browser>
 #Include <App\Steam>
 #Include <App\DS4>
@@ -31,7 +30,6 @@
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
         "k", KeyCodeGetter,
-        "M", Meditate,
         "t", TimerLoader,
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
 

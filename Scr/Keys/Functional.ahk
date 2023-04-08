@@ -38,6 +38,7 @@
 
 #k::InternetSearch("Google").TriggerSearch()
 
+#n::Registers(KeyChorder()).WriteOrAppend(CleanInputBox().WaitForInput())
 #m::Registers(KeyChorder()).WriteOrAppend()
 #!m::Registers(KeyChorder()).Paste()
 #sc33::Registers(KeyChorder()).Run()

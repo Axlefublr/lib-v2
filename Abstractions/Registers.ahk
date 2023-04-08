@@ -161,18 +161,28 @@ class Registers {
     /**
      * Write the contents of your clipboard to a register
      */
-    Write() {
+    Write(text?) {
         path := Registers.GetPath(this.key)
-        WriteFile(path, A_Clipboard)
+        text := text ?? A_Clipboard
+        if !text {
+            Info(this.key " empty write denied", Registers.InfoTimeout)
+            return
+        }
+        WriteFile(path, text)
         Info(this.key " clipboard written", Registers.InfoTimeout)
     }
 
     /**
      * Append the contents of your clipboard to a register
      */
-    Append() {
+    Append(text?) {
         path := Registers.GetPath(this.key)
-        AppendFile(path, "`n" A_Clipboard)
+        text := text ?? A_Clipboard
+        if !text {
+            Info(this.key " empty append denied", Registers.InfoTimeout)
+            return
+        }
+        AppendFile(path, "`n" text)
         Info(this.key " clipboard appended", Registers.InfoTimeout)
     }
 
@@ -180,7 +190,7 @@ class Registers {
      * Write the contents of your clipboard to a register if you passed a lowercase key.
      * *Append* the contents of your clipbaord to a register if you passed an upppercase key.
      */
-    WriteOrAppend() => IsUpper(this.key) ? this.Append() : this.Write()
+    WriteOrAppend(text?) => IsUpper(this.key) ? this.Append(text?) : this.Write(text?)
 
     /**
      * Paste the contents of a register
