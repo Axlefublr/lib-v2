@@ -18,6 +18,11 @@ Links_AhkLib := Map(
     "wscript.shell",
     "https://autohotkey.wiki/guides:com:wscript.shell",
 
+    ;; Other ahk github projects
+
+    "eval",
+    "https://github.com/TheArkive/eval_ahk2",
+
     ;; aliztori
 
     "aliztori mouseinzone",

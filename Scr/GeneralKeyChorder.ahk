@@ -32,6 +32,7 @@
         "k", KeyCodeGetter,
         "t", TimerLoader,
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
+        "o", () => WinSetAlwaysOnTop(-1, "A"),
 
     )
     if key
