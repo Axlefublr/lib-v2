@@ -18,6 +18,9 @@ Links_AhkLib := Map(
     "wscript.shell",
     "https://autohotkey.wiki/guides:com:wscript.shell",
 
+    "ahk v2 logo svg",
+    "https://github.com/AutoHotkey/AutoHotkey/blob/alpha/source/resources/icons.svg",
+
     ;; Other ahk github projects
 
     "eval",
