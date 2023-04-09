@@ -346,7 +346,7 @@ Links_Channel := Map(
     "shows playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP-K28TLJFNve4HnxkI00p5",
 
-    ;;Main channel unlisted videos
+    ;; Main channel unlisted videos
     ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
 
     "infos deprecated",
@@ -371,6 +371,9 @@ Links_Channel := Map(
     "https://youtu.be/4jiXHYuo7D8",
 
     ;;Useful tutorials not by me
+
+    "why you don't need multiple cursors in vim",
+    "https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db",
 
     "vocal resonance",
     "https://youtu.be/oWmj73Ttp4E",
