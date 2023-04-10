@@ -145,7 +145,7 @@ class Registers {
      * @returns {String} Text inside of the register file
      */
     Read() {
-        path := Registers.GetPath(this.key)
+        path := Registers.GetPath(this.key.ToLower())
         return this.__TryGetRegisterText(path)
     }
 
@@ -153,30 +153,30 @@ class Registers {
      * Remove the contents of a register
      */
     Truncate() {
-        path := Registers.GetPath(this.key)
+        path := Registers.GetPath(this.key.ToLower())
         WriteFile(path)
-        Info(this.key " cleared", Registers.InfoTimeout)
+        Info(this.key.ToLower() " cleared", Registers.InfoTimeout)
     }
 
     /**
      * Write the contents of your clipboard to a register
      */
     Write(text?) {
-        path := Registers.GetPath(this.key)
+        path := Registers.GetPath(this.key.ToLower())
         text := text ?? A_Clipboard
         if !text {
-            Info(this.key " empty write denied", Registers.InfoTimeout)
+            Info(this.key.ToLower() " empty write denied", Registers.InfoTimeout)
             return
         }
         WriteFile(path, text)
-        Info(this.key " clipboard written", Registers.InfoTimeout)
+        Info(this.key.ToLower() " clipboard written", Registers.InfoTimeout)
     }
 
     /**
      * Append the contents of your clipboard to a register
      */
     Append(text?) {
-        path := Registers.GetPath(this.key)
+        path := Registers.GetPath(this.key.ToLower())
         text := text ?? A_Clipboard
         if !text {
             Info(this.key " empty append denied", Registers.InfoTimeout)
@@ -198,7 +198,7 @@ class Registers {
     Paste() {
         content := this.Read()
         ClipSend(content)
-        Info(this.key " pasted", Registers.InfoTimeout)
+        Info(this.key.ToLower() " pasted", Registers.InfoTimeout)
     }
 
     /**
@@ -255,7 +255,7 @@ class Registers {
     Peek() {
         text := this.Read()
         shorterRegisterContents := Registers.__FormatRegister(text)
-        Infos(this.key ": " shorterRegisterContents)
+        Infos(this.key.ToLower() ": " shorterRegisterContents)
     }
 
     /**
@@ -264,7 +264,7 @@ class Registers {
      */
     Look() {
         text := this.Read()
-        Infos(this.key ": " text)
+        Infos(this.key.ToLower() ": " text)
     }
 
     /**
@@ -273,19 +273,19 @@ class Registers {
      * @throws {ValueError} If you pass an unsupported key
      */
     Move(key2) {
-        try key2 := Registers.ValidateKey(key2)
+        try key2 := Registers.ValidateKey(key2).ToLower()
         catch UnsetItemError {
             Registers.CancelAction()
             return
         }
 
-        path1 := Registers.GetPath(this.key)
+        path1 := Registers.GetPath(this.key.ToLower())
         path2 := Registers.GetPath(key2)
 
         WriteFile(path2, this.__TryGetRegisterText(path1))
         WriteFile(path1)
 
-        Info(this.key " moved to " key2, Registers.InfoTimeout)
+        Info(this.key.ToLower() " moved to " key2, Registers.InfoTimeout)
     }
 
     /**
@@ -295,17 +295,17 @@ class Registers {
      * @param {Char} key2 Register 2
      */
     SwitchContents(key2) {
-        try key2 := Registers.ValidateKey(key2)
+        try key2 := Registers.ValidateKey(key2).ToLower()
         catch UnsetItemError {
             Registers.CancelAction()
             return
         }
 
-        path1 := Registers.GetPath(this.key)
+        path1 := Registers.GetPath(this.key.ToLower())
         path2 := Registers.GetPath(key2)
 
         SwitchFiles(path1, path2)
 
-        Info(this.key " && " key2 " switched", Registers.InfoTimeout)
+        Info(this.key.ToLower() " && " key2 " switched", Registers.InfoTimeout)
     }
 }
