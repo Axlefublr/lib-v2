@@ -420,6 +420,7 @@ Class Spotify {
         static MaxPlaylist := 50
         static Step := 9
         static BulbIndex := 4
+        static MoveInPixels := 78
 
         static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
 
@@ -435,6 +436,7 @@ Class Spotify {
                 counter -= Spotify.PlaylistSorter.MaxPlaylist
             Spotify.PlaylistSorter.CounterFile := counter
             Spotify.AddToPlaylist("#" counter)
+            this._CorrectMousePosition()
         }
 
         static ToggleHotkey() {
@@ -448,6 +450,14 @@ Class Spotify {
                 StateBulb[Spotify.PlaylistSorter.BulbIndex].Create()
             }
             isHotkeyActive := !isHotkeyActive
+        }
+
+
+        static _CorrectMousePosition() {
+            CoordMode("Mouse", "Screen")
+            MouseMove(0, -this.MoveInPixels,, "R")
+            if (MouseGetPos(, &y), y) < 141
+                MouseMove(1055, 782)
         }
     }
 
