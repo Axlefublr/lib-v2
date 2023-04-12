@@ -446,8 +446,7 @@ Class Spotify {
 
                 static OpenTrackMenu(element) {
                     element.FindElement({
-                        Name: "More options",
-                        Matchmode: "Substring",
+                        Type: "MenuItem",
                         Order: 2
                     }).Click()
                 }
