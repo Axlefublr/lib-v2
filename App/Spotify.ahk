@@ -44,6 +44,24 @@ Class Spotify {
     static NoShuffle()     => Spotify.UIA.ShuffleState := false
     static ToggleShuffle() => Spotify.UIA.ShuffleElement.Toggle()
 
+    static GetSelectedTrackMenu() {
+        element := Spotify.ScrollSelectedTrackIntoView()
+        element.Click("R",,, Spotify.UIA.SelectedTrackOffset)
+        return element
+    }
+
+    static ClickPrevTrack(element) {
+        Spotify.UIA.GetPrevSelectedTrack(element).Click(,,, Spotify.UIA.SelectedTrackOffset)
+    }
+
+    static ScrollSelectedTrackIntoView() {
+        element := Spotify.UIA.SelectedTrack
+        element.ScrollIntoView()
+        while element.IsOffscreen {
+        }
+        return element
+    }
+
     static AddToQueue() {
         Click("R")
         Spotify.UIA.AddToQueueElement.Click()
@@ -427,15 +445,23 @@ Class Spotify {
                 get => this.PlaylistHeader.FindElement({
                     Type: "Table",
                     Scope: 2,
-                    Order: 2
                 })
             }
+
+                static SelectedTrackOffset := "-150 5"
 
                 static SelectedTrack {
                     get => this.PlaylistTable.FindElement({
                         Type: "Button",
                         HasKeyboardFocus: true
-                    }).Parent.Parent
+                    }).Parent.Parent.Parent
+                }
+
+                static GetPrevSelectedTrack(element) {
+                    return this.PlaylistTable.FindElement({
+                        LocalizedType: "row",
+                        Order: 2
+                    },,,, element)
                 }
 
     }
@@ -448,43 +474,22 @@ Class Spotify {
         static MoveInPixels := 78
         static Hotkey := "~RButton"
 
-        static bfAddTrack := (ThisHotkey) => this.AddTrack()
-
         static CounterFile {
             get => ReadFile(Paths.Ptf["playlist-sorter"])
             set => WriteFile(Paths.Ptf["playlist-sorter"], value)
         }
 
         static AddTrack() {
-            counter := this.CounterFile
-            counter += this.Step
-            if counter > this.MaxPlaylist
-                counter -= this.MaxPlaylist
-            this.CounterFile := counter
-            Spotify.AddToPlaylist("#" counter)
-            this._MoveNext()
+            element := Spotify.GetSelectedTrackMenu()
+            ; counter := this.CounterFile
+            ; counter += this.Step
+            ; if counter > this.MaxPlaylist
+            ;     counter -= this.MaxPlaylist
+            ; this.CounterFile := counter
+            ; Spotify.AddToPlaylist("#" counter)
+            Spotify.ClickPrevTrack(element)
         }
 
-        static ToggleHotkey() {
-            static isHotkeyActive := false
-            if isHotkeyActive {
-                Hotkey(this.Hotkey, this.bfAddTrack, "Off")
-                StateBulb[this.BulbIndex].Destroy()
-            }
-            else {
-                Hotkey(this.Hotkey, this.bfAddTrack, "On")
-                StateBulb[this.BulbIndex].Create()
-            }
-            isHotkeyActive := !isHotkeyActive
-        }
-
-
-        static _MoveNext() {
-            CoordMode("Mouse", "Screen")
-            MouseMove(0, -this.MoveInPixels,, "R")
-            if (MouseGetPos(, &y), y) < 141
-                MouseMove(1055, 782)
-        }
     }
 
     class Errors {
