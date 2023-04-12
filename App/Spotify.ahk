@@ -229,7 +229,7 @@ Class Spotify {
         }
 
         static ArtistContextMenu {
-            get => Spotify.UIA.Document.WaitElement({
+            get => this.Document.WaitElement({
                 Type: "Menu",
                 Scope: 2,
                 Order: 2
@@ -237,25 +237,25 @@ Class Spotify {
         }
 
             static FollowButton {
-                get => Spotify.UIA.ArtistContextMenu.FindElement({
+                get => this.ArtistContextMenu.FindElement({
                     Name: "ollow",
                     Matchmode: "Substring"
                 })
             }
 
                 static FollowState {
-                    get => Spotify.UIA.FollowButton.Name = "Follow" ? false : true
+                    get => this.FollowButton.Name = "Follow" ? false : true
                 }
 
         static ContextMenu {
-            get => Spotify.UIA.Document.WaitElement({
+            get => this.Document.WaitElement({
                 Type: "menu",
                 Scope: 2
             })
         }
 
             static RemoveFromPlaylistElement {
-                get => Spotify.UIA.ContextMenu.WaitElement({
+                get => this.ContextMenu.WaitElement({
                     Name: "Remove from this playlist",
                     Type: "MenuItem",
                     Scope: 2
@@ -263,26 +263,26 @@ Class Spotify {
             }
 
             static AddToQueueElement {
-                get => Spotify.UIA.ContextMenu.WaitElement({
+                get => this.ContextMenu.WaitElement({
                     Name: "Add to queue"
                 })
             }
 
             static ShareElement {
-                get => Spotify.UIA.ContextMenu.WaitElement({
+                get => this.ContextMenu.WaitElement({
                     Name: "Share"
                 })
             }
 
             static CopySongLinkElement {
-                get => Spotify.UIA.ContextMenu.WaitElement({
+                get => this.ContextMenu.WaitElement({
                     Name: "Copy Song Link",
                     Order: 2
                 })
             }
 
         static ContentInfo {
-            get => Spotify.UIA.Document.WaitElement({
+            get => this.Document.WaitElement({
                 LocalizedType: "content info",
                 Type: "Group",
                 Scope: 2
@@ -290,7 +290,7 @@ Class Spotify {
         }
 
             static InnerContentInfo {
-                get => Spotify.UIA.ContentInfo.WaitElement({
+                get => this.ContentInfo.WaitElement({
                     LocalizedType: "content info",
                     Type: "Group",
                     Scope: 2
@@ -299,7 +299,7 @@ Class Spotify {
 
                 static CurrentTrack {
                     get {
-                        try return Spotify.UIA.InnerContentInfo.FindElement({
+                        try return this.InnerContentInfo.FindElement({
                             Name: "^[^Now playing: ].+",
                             Matchmode: "Regex",
                             Type: "Link"
@@ -310,7 +310,7 @@ Class Spotify {
 
                 static FirstArtist {
                     get {
-                        try return Spotify.UIA.InnerContentInfo.FindElement({
+                        try return this.InnerContentInfo.FindElement({
                             Type: "Link",
                             Name: "^[^Now playing: ].+",
                             Matchmode: "Regex",
@@ -321,7 +321,7 @@ Class Spotify {
                 }
 
                 static LikeElement {
-                    get => Spotify.UIA.InnerContentInfo.WaitElement({
+                    get => this.InnerContentInfo.WaitElement({
                         Type: "Button",
                         Name: "Library",
                         Matchmode: "Substring",
@@ -330,12 +330,12 @@ Class Spotify {
                 }
 
                     static LikeState {
-                        get => Spotify.UIA.LikeElement.ToggleState
-                        set => Spotify.UIA.LikeElement.ToggleState := value
+                        get => this.LikeElement.ToggleState
+                        set => this.LikeElement.ToggleState := value
                     }
 
             static SkipNextElement {
-                get => Spotify.UIA.ContentInfo.WaitElement({
+                get => this.ContentInfo.WaitElement({
                     Name: "Next",
                     Type: "Button",
                     Scope: 2
@@ -343,7 +343,7 @@ Class Spotify {
             }
 
             static SkipPrevElement {
-                get => Spotify.UIA.ContentInfo.WaitElement({
+                get => this.ContentInfo.WaitElement({
                     Name: "Previous",
                     Type: "Button",
                     Scope: 2
@@ -351,7 +351,7 @@ Class Spotify {
             }
 
             static ShuffleElement {
-                get => Spotify.UIA.ContentInfo.WaitElement({
+                get => this.ContentInfo.WaitElement({
                     Type: "Button",
                     Name: "shuffle",
                     Matchmode: "Substring",
@@ -360,12 +360,12 @@ Class Spotify {
             }
 
                 static ShuffleState {
-                    get => Spotify.UIA.ShuffleElement.ToggleState
-                    set => Spotify.UIA.ShuffleElement.ToggleState := value
+                    get => this.ShuffleElement.ToggleState
+                    set => this.ShuffleElement.ToggleState := value
                 }
 
         static MainNavigation {
-            get => Spotify.UIA.Document.WaitElement({
+            get => this.Document.WaitElement({
                 Type:          "Group",
                 LocalizedType: "navigation",
                 Name:          "Main",
@@ -374,7 +374,7 @@ Class Spotify {
         }
 
             static LikedPlaylistElement {
-                get => Spotify.UIA.MainNavigation.FindElement({
+                get => this.MainNavigation.FindElement({
                     Type:"Link",
                     Name:"Liked Songs",
                     Scope: 2
@@ -382,14 +382,14 @@ Class Spotify {
             }
 
             static YourLibraryButton {
-                get => Spotify.UIA.MainNavigation.FindElement({
+                get => this.MainNavigation.FindElement({
                     Name: "Your Library",
                     Type: "Link"
                 })
             }
 
         static YourLibraryElement {
-            get => Spotify.UIA.Document.WaitElement({
+            get => this.Document.WaitElement({
                 Name: "Spotify – Your Library",
                 LocalizedType: "main",
                 Scope: 2
@@ -397,7 +397,7 @@ Class Spotify {
         }
 
             static OldestPlaylistPlayButton {
-                get => Spotify.UIA.YourLibraryElement.WaitElement({
+                get => this.YourLibraryElement.WaitElement({
                     Name:      "Play #\d+",
                     Matchmode: "Regex",
                     Type:      "Button",
@@ -407,7 +407,7 @@ Class Spotify {
             }
 
             static DiscoveryPlaylistPlayButton {
-                get => Spotify.UIA.YourLibraryElement.WaitElement({
+                get => this.YourLibraryElement.WaitElement({
                     Name: "Play Discovery",
                     Type: "Button",
                     Scope: 2
@@ -415,7 +415,7 @@ Class Spotify {
             }
 
         static PlaylistHeader {
-            get => Spotify.UIA.Document.FindElement({
+            get => this.Document.FindElement({
                 Name: "Spotify",
                 Matchmode: "Substring",
                 LocalizedType: "main",
@@ -424,7 +424,7 @@ Class Spotify {
         }
 
             static PlaylistTable {
-                get => Spotify.UIA.PlaylistHeader.FindElement({
+                get => this.PlaylistHeader.FindElement({
                     Type: "Table",
                     Scope: 2,
                     Order: 2
@@ -432,7 +432,7 @@ Class Spotify {
             }
 
                 static SelectedTrack {
-                    get => Spotify.UIA.PlaylistTable.FindElement({
+                    get => this.PlaylistTable.FindElement({
                         Type: "Button",
                         HasKeyboardFocus: true
                     }).Parent.Parent
@@ -448,7 +448,7 @@ Class Spotify {
         static MoveInPixels := 78
         static Hotkey := "~RButton"
 
-        static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
+        static bfAddTrack := (ThisHotkey) => this.AddTrack()
 
         static CounterFile {
             get => ReadFile(Paths.Ptf["playlist-sorter"])
@@ -456,11 +456,11 @@ Class Spotify {
         }
 
         static AddTrack() {
-            counter := Spotify.PlaylistSorter.CounterFile
-            counter += Spotify.PlaylistSorter.Step
-            if counter > Spotify.PlaylistSorter.MaxPlaylist
-                counter -= Spotify.PlaylistSorter.MaxPlaylist
-            Spotify.PlaylistSorter.CounterFile := counter
+            counter := this.CounterFile
+            counter += this.Step
+            if counter > this.MaxPlaylist
+                counter -= this.MaxPlaylist
+            this.CounterFile := counter
             Spotify.AddToPlaylist("#" counter)
             this._MoveNext()
         }
@@ -468,12 +468,12 @@ Class Spotify {
         static ToggleHotkey() {
             static isHotkeyActive := false
             if isHotkeyActive {
-                Hotkey(Spotify.PlaylistSorter.Hotkey, Spotify.PlaylistSorter.bfAddTrack, "Off")
-                StateBulb[Spotify.PlaylistSorter.BulbIndex].Destroy()
+                Hotkey(this.Hotkey, this.bfAddTrack, "Off")
+                StateBulb[this.BulbIndex].Destroy()
             }
             else {
-                Hotkey(Spotify.PlaylistSorter.Hotkey, Spotify.PlaylistSorter.bfAddTrack, "On")
-                StateBulb[Spotify.PlaylistSorter.BulbIndex].Create()
+                Hotkey(this.Hotkey, this.bfAddTrack, "On")
+                StateBulb[this.BulbIndex].Create()
             }
             isHotkeyActive := !isHotkeyActive
         }
