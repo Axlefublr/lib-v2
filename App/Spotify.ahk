@@ -7,6 +7,7 @@
 #Include <System\UIA>
 #Include <Tools\StateBulb>
 #Include <App\Git>
+#Include <Utils\Win>
 
 Class Spotify {
 
@@ -413,6 +414,30 @@ Class Spotify {
                 })
             }
 
+        static PlaylistHeader {
+            get => Spotify.UIA.Document.FindElement({
+                Name: "Spotify",
+                Matchmode: "Substring",
+                LocalizedType: "main",
+                Scope: 2
+            })
+        }
+
+            static PlaylistTable {
+                get => Spotify.UIA.PlaylistHeader.FindElement({
+                    Type: "Table",
+                    Scope: 2,
+                    Order: 2
+                })
+            }
+
+                static SelectedTrack {
+                    get => Spotify.UIA.PlaylistTable.FindElement({
+                        Type: "Button",
+                        HasKeyboardFocus: true
+                    }).Parent.Parent
+                }
+
     }
 
     class PlaylistSorter {
@@ -421,6 +446,7 @@ Class Spotify {
         static Step := 9
         static BulbIndex := 4
         static MoveInPixels := 78
+        static Hotkey := "~RButton"
 
         static bfAddTrack := (ThisHotkey) => Spotify.PlaylistSorter.AddTrack()
 
@@ -436,24 +462,24 @@ Class Spotify {
                 counter -= Spotify.PlaylistSorter.MaxPlaylist
             Spotify.PlaylistSorter.CounterFile := counter
             Spotify.AddToPlaylist("#" counter)
-            this._CorrectMousePosition()
+            this._MoveNext()
         }
 
         static ToggleHotkey() {
             static isHotkeyActive := false
             if isHotkeyActive {
-                Hotkey("~RButton", Spotify.PlaylistSorter.bfAddTrack, "Off")
+                Hotkey(Spotify.PlaylistSorter.Hotkey, Spotify.PlaylistSorter.bfAddTrack, "Off")
                 StateBulb[Spotify.PlaylistSorter.BulbIndex].Destroy()
             }
             else {
-                Hotkey("~RButton", Spotify.PlaylistSorter.bfAddTrack, "On")
+                Hotkey(Spotify.PlaylistSorter.Hotkey, Spotify.PlaylistSorter.bfAddTrack, "On")
                 StateBulb[Spotify.PlaylistSorter.BulbIndex].Create()
             }
             isHotkeyActive := !isHotkeyActive
         }
 
 
-        static _CorrectMousePosition() {
+        static _MoveNext() {
             CoordMode("Mouse", "Screen")
             MouseMove(0, -this.MoveInPixels,, "R")
             if (MouseGetPos(, &y), y) < 141
