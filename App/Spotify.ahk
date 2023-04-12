@@ -437,6 +437,21 @@ Class Spotify {
                     }).Parent.Parent.Parent
                 }
 
+                static GetPrevSelectedTrack(element) {
+                    return this.PlaylistTable.FindElement({
+                        LocalizedType: "row",
+                        Order: 2
+                    },,,, element)
+                }
+
+                static OpenTrackMenu(element) {
+                    element.FindElement({
+                        Name: "More options",
+                        Matchmode: "Substring",
+                        Order: 2
+                    }).Click()
+                }
+
     }
 
     class PlaylistSorter {
