@@ -437,11 +437,12 @@ Class Spotify {
                     }).Parent.Parent.Parent
                 }
 
-                static GetPrevSelectedTrack(element) {
+                static GetTrackStartingFromSelected(index := 1, shouldGoForward := true) {
                     return this.PlaylistTable.FindElement({
                         LocalizedType: "row",
-                        Order: 2
-                    },,,, element)
+                        Index: index,
+                        Order: shouldGoForward ? 1 : 2
+                    },,,, this.SelectedTrack)
                 }
 
                 static OpenTrackMenu(element) {
