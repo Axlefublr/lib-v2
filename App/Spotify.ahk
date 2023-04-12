@@ -45,21 +45,13 @@ Class Spotify {
     static ToggleShuffle() => Spotify.UIA.ShuffleElement.Toggle()
 
     static GetSelectedTrackMenu() {
-        element := Spotify.ScrollSelectedTrackIntoView()
+        element := Spotify.UIA.SelectedTrack
         element.Click("R",,, Spotify.UIA.SelectedTrackOffset)
         return element
     }
 
     static ClickPrevTrack(element) {
         Spotify.UIA.GetPrevSelectedTrack(element).Click(,,, Spotify.UIA.SelectedTrackOffset)
-    }
-
-    static ScrollSelectedTrackIntoView() {
-        element := Spotify.UIA.SelectedTrack
-        element.ScrollIntoView()
-        while element.IsOffscreen {
-        }
-        return element
     }
 
     static AddToQueue() {
