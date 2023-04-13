@@ -298,26 +298,20 @@ Class Spotify {
             }
 
                 static CurrentTrack {
-                    get {
-                        try return this.InnerContentInfo.FindElement({
-                            Name: "^[^Now playing: ].+",
-                            Matchmode: "Regex",
-                            Type: "Link"
-                        })
-                        throw Spotify.Errors.SpotifyNotActiveError()
-                    }
+                    get => this.InnerContentInfo.FindElement({
+                        Name: "^[^Now playing: ].+",
+                        Matchmode: "Regex",
+                        Type: "Link"
+                    })
                 }
 
                 static FirstArtist {
-                    get {
-                        try return this.InnerContentInfo.FindElement({
-                            Type: "Link",
-                            Name: "^[^Now playing: ].+",
-                            Matchmode: "Regex",
-                            Index: 2
-                        })
-                        throw Spotify.Errors.SpotifyNotActiveError()
-                    }
+                    get => this.InnerContentInfo.FindElement({
+                        Name: "^[^Now playing: ].+",
+                        Matchmode: "Regex",
+                        Type: "Link",
+                        Index: 2
+                    })
                 }
 
                 static LikeElement {
