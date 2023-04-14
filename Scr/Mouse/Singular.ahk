@@ -25,7 +25,7 @@ XButton2 & RButton::PrintScreen
 XButton2 & LButton::Enter
 
 XButton2 & MButton::Screenshot.FullScreenOut()
-XButton1 & MButton::try HoverScreenshot().SelectPath().Show()
+XButton1 & MButton::HoverScreenshot().UseRecentScreenshot().Show()
 
 #!LButton::Hider()
 #w::Hider(false)

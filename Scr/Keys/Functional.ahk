@@ -1,3 +1,4 @@
+#Include <Tools\HoverScreenshot>
 #Include <Extensions\String>
 #Include <Tools\Info>
 #Include <Tools\Counter>
@@ -36,6 +37,7 @@
 #^LButton::CoordInfo()
 #f::WindowInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
+#x::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
 
 #k::InternetSearch("Google").TriggerSearch()
 

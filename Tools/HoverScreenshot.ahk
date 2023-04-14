@@ -1,4 +1,6 @@
+#Include <Utils\GetFilesSortedByDate>
 #Include <Extensions\Gui>
+#Include <Paths>
 
 /**
  * Make a picture of your choosing appear on your screen
@@ -55,13 +57,18 @@ class HoverScreenshot {
      * supported
      * @returns {Boolean/HoverScreenshot} `this` if you picked something, false if you didn't
      */
-    SelectPath() {
-        picturePath := FileSelect(, Paths.SavedScreenshots,, "*.png")
+    SelectPath(startingDir?) {
+        picturePath := FileSelect(, startingDir?,, "*.png")
         if picturePath {
             this.picturePath := picturePath
             return this
         }
         return false
+    }
+
+    UseRecentScreenshot() {
+        this.picturePath := GetFilesSortedByDate(Paths.SavedScreenshots "\*.png")[2]
+        return this
     }
 
     /**
@@ -81,6 +88,7 @@ class HoverScreenshot {
         this._SetOnevents()
 
         this.gHover.Show("AutoSize NA")
+        return this
     }
 
     Destroy() {
