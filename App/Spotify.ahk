@@ -299,16 +299,12 @@ Class Spotify {
 
                 static CurrentTrack {
                     get => this.InnerContentInfo.FindElement({
-                        Name: "^[^Now playing: ].+",
-                        Matchmode: "Regex",
                         Type: "Link"
                     })
                 }
 
                 static FirstArtist {
                     get => this.InnerContentInfo.FindElement({
-                        Name: "^[^Now playing: ].+",
-                        Matchmode: "Regex",
                         Type: "Link",
                         Index: 2
                     })
