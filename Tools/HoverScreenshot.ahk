@@ -1,3 +1,4 @@
+#Include <Abstractions\GetPicSize>
 #Include <Utils\GetFilesSortedByDate>
 #Include <Extensions\Gui>
 #Include <Paths>
@@ -67,8 +68,14 @@ class HoverScreenshot {
     }
 
     UseRecentScreenshot() {
-        this.picturePath := GetFilesSortedByDate(Paths.SavedScreenshots "\*.png")[2]
-        return this
+        picturesArr := GetFilesSortedByDate(Paths.SavedScreenshots "\*.png")
+        for , picturePath in picturesArr {
+            size := GetPicSize(picturePath)
+            if size.Width = 455 && size.Height = 225
+                continue
+            this.picturePath := picturePath
+            return this
+        }
     }
 
     /**
