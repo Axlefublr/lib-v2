@@ -15,6 +15,7 @@ class Press {
      * Multiple properties can be true at once.
      */
     static GetSections() {
+        CoordMode("Mouse", "Screen")
         MouseGetPos &sectionX, &sectionY
         right         := (sectionX > 1368)
         , left        := (sectionX < 568)
