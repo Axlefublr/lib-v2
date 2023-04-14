@@ -1,4 +1,4 @@
-; No dependencies
+#Include <Abstractions\GetFileModificationTime>
 
 GetFilesSortedByDate(pattern, newToOld := true) {
     files := Map()
