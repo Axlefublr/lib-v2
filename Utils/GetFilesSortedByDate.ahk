@@ -3,7 +3,7 @@
 GetFilesSortedByDate(pattern, newToOld := true) {
     files := Map()
     loop files pattern {
-        modificationTime := GetFileModificationTime(A_LoopFileFullPath)
+        modificationTime := GetFileModificationTime(A_LoopFileFullPath).CreationTime
         if (newToOld)
             modificationTime *= -1
         files.Set(modificationTime, A_LoopFileFullPath)

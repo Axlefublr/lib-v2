@@ -2,6 +2,15 @@
 
 GetFileModificationTime(filePath) {
     oFile := FileOpen(filePath, 0x700)
-    DllCall("GetFileTime", "Ptr", oFile.Handle, "Ptr", 0, "Ptr", 0, "Int64*", &modificationTime := 0)
-    return modificationTime
+    DllCall("GetFileTime",
+        "Ptr",    oFile.Handle,
+        "int64*", &creationTime     := 0,
+        "int64*", &accessedTime     := 0,
+        "int64*", &modificationTime := 0
+    )
+    return {
+        CreationTime:     creationTime,
+        AccessedTime:     accessedTime,
+        ModificationTime: modificationTime
+    }
 }
