@@ -5,6 +5,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "hoverscreenshot 2",
+    "https://youtu.be/wmhTUdOT1zA",
+
     "refactoring shows 4",
     "https://youtu.be/kTu5Bo8sKmY",
 
@@ -263,7 +266,7 @@ Links_Channel := Map(
     "working with files",
     "https://youtu.be/4KoDu6yp3dw",
 
-    "screenshot hover",
+    "hoverscreenshot",
     "https://youtu.be/2JVI4v9rQT4",
 
     "hider",
