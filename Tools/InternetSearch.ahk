@@ -40,6 +40,7 @@ Class InternetSearch extends CleanInputBox {
         "Emoji",   "https://emojipedia.org/search/?q=",
         "Yandex",  "https://yandex.ru/search/?text=",
         "Movies",  "https://watchmovieshd.ru/search?keyword=",
+        "Phind",   "https://www.phind.com/search?q=",
     )
 
     SearchEngineNicknames := Map(
@@ -48,6 +49,7 @@ Class InternetSearch extends CleanInputBox {
         "e",  this.AvailableSearchEngines["Emoji"],
         "ya", this.AvailableSearchEngines["Yandex"],
         "m",  this.AvailableSearchEngines["Movies"],
+        "p",  this.AvailableSearchEngines["Phind"],
     )
 
     ;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()

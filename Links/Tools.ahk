@@ -90,4 +90,7 @@ Links_Tools := Map(
     "fzf gh",
     "https://github.com/junegunn/fzf",
 
+    "phind",
+    "https://www.phind.com/",
+
 )
