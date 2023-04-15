@@ -1,6 +1,6 @@
 ; No dependencies
 
-GetFileModificationTime(filePath) {
+GetFileTimes(filePath) {
     oFile := FileOpen(filePath, 0x700)
     DllCall("GetFileTime",
         "Ptr",    oFile.Handle,

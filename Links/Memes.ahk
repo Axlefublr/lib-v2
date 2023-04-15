@@ -244,4 +244,7 @@ Links_Memes := Map(
 
     "dinky",
     "https://youtu.be/nos_w39ayxg",
+
+    "indian coding tutorials be like",
+    "https://youtu.be/Y9Zw6xOGly0",
 )
