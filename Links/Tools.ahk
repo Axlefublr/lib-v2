@@ -93,4 +93,6 @@ Links_Tools := Map(
     "phind",
     "https://www.phind.com/",
 
+    "snappify",
+    "https://snappify.com/",
 )
