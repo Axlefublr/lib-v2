@@ -38,6 +38,7 @@
 #f::WindowInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
 #x::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
+#g::HoverScreenshot().UseRecentScreenshot().Show()
 
 #k::InternetSearch("Google").TriggerSearch()
 
