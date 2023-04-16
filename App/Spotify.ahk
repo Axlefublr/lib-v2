@@ -122,11 +122,11 @@ Class Spotify {
     static NewDiscovery(artistName) {
         AppendFile(Paths.Ptf["Discovery log"], DateTime.Date " " DateTime.Time " - " artistName "`n")
         Info(artistName " just discovered! 🌎")
-        console := Git(Paths.Music)
+        Git(Paths.Music)
             .Add(Paths.Ptf["Discovery log"])
             .Commit("discover " artistName)
+            .Push()
             .Execute()
-        SetTimer(() => console.Push(), -1)
         Info("pushed!")
     }
 
@@ -135,11 +135,11 @@ Class Spotify {
             return
         AppendFile(Paths.Ptf["Rappers"], DateTime.Date " " DateTime.Time " - " artistName "`n")
         Info(artistName " yet to be discovered! 📃")
-        console := Git(Paths.Music)
+        Git(Paths.Music)
             .Add(Paths.Ptf["Rappers"])
             .Commit("interest " artistName)
+            .Push()
             .Execute()
-        SetTimer(() => console.Push(), -1)
         Info("pushed!")
     }
 
@@ -155,11 +155,11 @@ Class Spotify {
             return
         AppendFile(Paths.Ptf["Artists"], "1. " DateTime.Date " - " artistName "`n")
         Info(artistName " is now your favorite! 🥰")
-        console := Git(Paths.Music)
+        Git(Paths.Music)
             .Add(Paths.Ptf["Artists"])
             .Commit("favorite " artistName)
+            .Push()
             .Execute()
-        SetTimer(() => console.Push(), -1)
         Info("pushed!")
     }
 

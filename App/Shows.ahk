@@ -140,33 +140,33 @@ class Shows {
     static _PushConsumed(show, isDropped) {
         action := isDropped ? "drop" : "finish"
         Info(action " " show)
-        console := Git(Paths.Shows)
+        Git(Paths.Shows)
             .Add(this.ConsumedPath, this.ShowsJsonPath)
             .Commit(action " " show)
+            .Push()
             .Execute()
-        SetTimer(() => console.Push(), -1)
         Info("pushed!")
     }
 
     static _OperateEpisode(show, episode) {
         this.ApplyJson()
         Info(show ": " episode)
-        console := Git(Paths.Shows)
+        Git(Paths.Shows)
             .Add(this.ShowsJsonPath)
             .Commit("watch episode " episode " of show " show)
+            .Push()
             .Execute()
-        SetTimer(() => console.Push(), -1)
         Info("pushed!")
     }
 
     static _OperateDownloaded(show, downloaded) {
         this.ApplyJson()
         Info(show ": " downloaded)
-        console := Git(Paths.Shows)
+        Git(Paths.Shows)
             .Add(this.ShowsJsonPath)
             .Commit("download episode " downloaded " of show " show)
+            .Push()
             .Execute()
-        SetTimer(() => console.Push(), -1)
         Info("pushed!")
     }
 }
