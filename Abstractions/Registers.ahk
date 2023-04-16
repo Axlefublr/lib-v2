@@ -58,7 +58,8 @@ class Registers {
      */
     __New(key) {
 
-        try this.key := Registers.ValidateKey(key)
+        this.IsUpper := IsUpper(key) ? true : false
+        try this.key := Registers.ValidateKey(key).ToLower()
         catch UnsetItemError {
             Registers.CancelAction()
             Exit()
@@ -145,7 +146,7 @@ class Registers {
      * @returns {String} Text inside of the register file
      */
     Read() {
-        path := Registers.GetPath(this.key.ToLower())
+        path := Registers.GetPath(this.key)
         return this.__TryGetRegisterText(path)
     }
 
@@ -153,30 +154,30 @@ class Registers {
      * Remove the contents of a register
      */
     Truncate() {
-        path := Registers.GetPath(this.key.ToLower())
+        path := Registers.GetPath(this.key)
         WriteFile(path)
-        Info(this.key.ToLower() " cleared", Registers.InfoTimeout)
+        Info(this.key " cleared", Registers.InfoTimeout)
     }
 
     /**
      * Write the contents of your clipboard to a register
      */
     Write(text?) {
-        path := Registers.GetPath(this.key.ToLower())
+        path := Registers.GetPath(this.key)
         text := text ?? A_Clipboard
         if !text {
-            Info(this.key.ToLower() " empty write denied", Registers.InfoTimeout)
+            Info(this.key " empty write denied", Registers.InfoTimeout)
             return
         }
         WriteFile(path, text)
-        Info(this.key.ToLower() " clipboard written", Registers.InfoTimeout)
+        Info(this.key " clipboard written", Registers.InfoTimeout)
     }
 
     /**
      * Append the contents of your clipboard to a register
      */
     Append(text?) {
-        path := Registers.GetPath(this.key.ToLower())
+        path := Registers.GetPath(this.key)
         text := text ?? A_Clipboard
         if !text {
             Info(this.key " empty append denied", Registers.InfoTimeout)
@@ -190,7 +191,7 @@ class Registers {
      * Write the contents of your clipboard to a register if you passed a lowercase key.
      * *Append* the contents of your clipbaord to a register if you passed an upppercase key.
      */
-    WriteOrAppend(text?) => IsUpper(this.key) ? this.Append(text?) : this.Write(text?)
+    WriteOrAppend(text?) => this.IsUpper ? this.Append(text?) : this.Write(text?)
 
     /**
      * Paste the contents of a register
@@ -198,7 +199,7 @@ class Registers {
     Paste() {
         content := this.Read()
         ClipSend(content)
-        Info(this.key.ToLower() " pasted", Registers.InfoTimeout)
+        Info(this.key " pasted", Registers.InfoTimeout)
     }
 
     /**
@@ -255,7 +256,7 @@ class Registers {
     Peek() {
         text := this.Read()
         shorterRegisterContents := Registers.__FormatRegister(text)
-        Infos(this.key.ToLower() ": " shorterRegisterContents)
+        Infos(this.key ": " shorterRegisterContents)
     }
 
     /**
@@ -264,7 +265,7 @@ class Registers {
      */
     Look() {
         text := this.Read()
-        Infos(this.key.ToLower() ": " text)
+        Infos(this.key ": " text)
     }
 
     /**
@@ -279,13 +280,13 @@ class Registers {
             return
         }
 
-        path1 := Registers.GetPath(this.key.ToLower())
+        path1 := Registers.GetPath(this.key)
         path2 := Registers.GetPath(key2)
 
         WriteFile(path2, this.__TryGetRegisterText(path1))
         WriteFile(path1)
 
-        Info(this.key.ToLower() " moved to " key2, Registers.InfoTimeout)
+        Info(this.key " moved to " key2, Registers.InfoTimeout)
     }
 
     /**
@@ -301,11 +302,11 @@ class Registers {
             return
         }
 
-        path1 := Registers.GetPath(this.key.ToLower())
+        path1 := Registers.GetPath(this.key)
         path2 := Registers.GetPath(key2)
 
         SwitchFiles(path1, path2)
 
-        Info(this.key.ToLower() " && " key2 " switched", Registers.InfoTimeout)
+        Info(this.key " && " key2 " switched", Registers.InfoTimeout)
     }
 }
