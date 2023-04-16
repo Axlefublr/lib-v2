@@ -30,6 +30,7 @@ Class Paths {
     static Tree         := Paths.Pictures "\Tree"
     static Memes        := Paths.Pictures "\Tree\Memes"
     static Emoji        := Paths.Pictures "\Tree\Emojis"
+    static Other        := Paths.Pictures "\Other"
 
     static Audio := "C:\Audio"
 

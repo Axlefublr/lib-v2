@@ -26,6 +26,7 @@
         "w", () => Explorer.WinObj.ScreenVideos.App_Folders().CloseOnceInactive(),
         "d", () => (SetTitleMatchMode("RegEx"), Explorer.WinObj.PC.App()),
         "c", () => Explorer.WinObj.Content.App_Folders(),
+        "o", () => Explorer.WinObj.Other.App_Folders().CloseOnceInactive(),
 
     )
     if key
