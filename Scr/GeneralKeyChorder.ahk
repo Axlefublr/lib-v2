@@ -31,6 +31,7 @@
         "r", () => Browser.RunLink(Links["reddit"]),
         "k", KeyCodeGetter,
         "t", TimerLoader,
+        "h", () => Browser.RunLink(Links["phind"]),
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
         "o", () => WinSetAlwaysOnTop(-1, "A"),
 
