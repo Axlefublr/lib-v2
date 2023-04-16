@@ -27,6 +27,7 @@
         "d", () => (SetTitleMatchMode("RegEx"), Explorer.WinObj.PC.App()),
         "c", () => Explorer.WinObj.Content.App_Folders(),
         "o", () => Explorer.WinObj.Other.App_Folders().CloseOnceInactive(),
+        "O", () => Explorer.WinObj.OnePiece.App_Folders(),
 
     )
     if key

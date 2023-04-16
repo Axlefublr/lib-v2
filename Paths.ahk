@@ -25,6 +25,7 @@ Class Paths {
 
     static Pictures     := "C:\Pictures"
     static Content      := Paths.Pictures "\Content"
+    static OnePiece     := Paths.Pictures "\Content\One piece"
     static VideoTools   := Paths.Pictures "\Tools"
     static ScreenVideos := Paths.Pictures "\Screenvideos"
     static Tree         := Paths.Pictures "\Tree"
