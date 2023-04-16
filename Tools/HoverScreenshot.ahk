@@ -8,6 +8,8 @@
  */
 class HoverScreenshot {
 
+    static ActualScreenDpi := Round(A_ScreenDPI / 25) * 25 / 100
+
     /**
      * Full path to the picture you want to hover (show).
      * @type {String}
@@ -71,7 +73,7 @@ class HoverScreenshot {
         picturesArr := GetFilesSortedByDate(Paths.SavedScreenshots "\*.png")
         for , picturePath in picturesArr {
             size := GetPicSize(picturePath)
-            if size.Width = 455 && size.Height = 225
+            if size.Width = 364 * HoverScreenshot.ActualScreenDpi && size.Height = 180 * HoverScreenshot.ActualScreenDpi
                 continue
             this.picturePath := picturePath
             return this
