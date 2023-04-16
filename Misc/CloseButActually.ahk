@@ -8,14 +8,12 @@
 #Include <Utils\Win>
 
 CloseButActually() {
-    Switch {
-        Case WinActive(VPN.winTitle):     VPN.Close()
-        Case WinActive(Spotify.exeTitle): Spotify.Close()
-        Case WinActive(Steam.exeTitle):   Steam.Close()
-        Case WinActive(Gimp.exeTitle):    Gimp.Close()
-        Case WinActive(Davinci.winTitle): Davinci.Close()
-        Case WinActive(Telegram.winTitle):Telegram.Close()
-        Case WinActive(FL.exeTitle):      FL.Close()
-        Default:                          Win.Close()
+    windowClassNames := ["VPN", "Spotify", "Steam", "Gimp", "Davinci", "Telegram", "FL"]
+    for , windowClassName in windowClassNames {
+        if WinActive(%windowClassName%.winTitle) {
+            %windowClassName%.Close()
+            return
+        }
     }
+    Win.Close()
 }

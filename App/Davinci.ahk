@@ -3,11 +3,12 @@
 #Include <Paths>
 
 Class Davinci {
-    static exeTitle := "ahk_exe Resolve.exe"
-    static winTitle := "DaVinci Resolve " this.exeTitle
+
+    static exeTitle     := "ahk_exe Resolve.exe"
+    static winTitle     := "DaVinci Resolve " this.exeTitle
     static projectTitle := "Project Manager " this.exeTitle
-    static path := "C:\Programs\Davinci Resolve\Resolve.exe"
-    static closeWindow := "Message " this.exeTitle
+    static path         := "C:\Programs\Davinci Resolve\Resolve.exe"
+    static closeWindow  := "Message " this.exeTitle
 
     static winObj := Win({
         winTitle: this.winTitle,
