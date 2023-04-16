@@ -5,6 +5,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "concatenation interpolation continuation",
+    "https://youtu.be/wh1Kk0xKvrQ",
+
     "hoverscreenshot 2",
     "https://youtu.be/wmhTUdOT1zA",
 
