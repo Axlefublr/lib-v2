@@ -66,4 +66,6 @@ Links_Docs := Map(
     "150 dotnet questions",
     "https://itvdn.com/ru/blog/article/150-questions-net-developer",
 
+    "my resume",
+    "https://angarsk.hh.ru/applicant/resumes/view?resume=576d62dcff0be7229b0039ed1f63783945746b",
 )
