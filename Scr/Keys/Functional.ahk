@@ -1,3 +1,4 @@
+#Include <Utils\KeyChorder>
 #Include <Tools\HoverScreenshot>
 #Include <Extensions\String>
 #Include <Tools\Info>
