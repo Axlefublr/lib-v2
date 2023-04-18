@@ -10,17 +10,11 @@ Class Paths {
     static Lib   := A_MyDocuments "\AutoHotkey\Lib"
     static Music := "C:\Programming\music"
     static Shows := "C:\Programming\shows"
-    static YtDev := "C:\Programming\yt-dev"
     static Info  := "C:\Programming\info"
     static Test  := "C:\Programming\test"
     static Reg   := "C:\Programming\registers"
 
-    static Backups   := Paths.Main "\Backups"
-    static Docs      := Paths.Main "\Docs"
     static Files     := Paths.Main "\Files"
-    static Images    := Paths.Main "\Files\Images"
-    static Notes     := Paths.Main "\Notes"
-    static NotesTemp := Paths.Main "\Notes temp"
     static Tools     := Paths.Main "\Tools"
 
     static Pictures     := "C:\Pictures"
@@ -34,6 +28,7 @@ Class Paths {
     static Other        := Paths.Pictures "\Other"
 
     static Audio := "C:\Audio"
+    static Sounds := Paths.Audio "\Sounds"
 
     static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
@@ -41,41 +36,39 @@ Class Paths {
     static SavedScreenshots := Paths.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
 
     static Ptf := Map(
-        "Main", Paths.Main "\.vscode\main.code-workspace",
+        "playlist-sorter", Paths.Files "\Innit\playlist-sorter.txt",
+        "test-state",      Paths.Files "\Innit\test-state.txt",
+        "time-agent",      Paths.Files "\Innit\time-agent.txt",
 
-        "playlist-sorter", Paths.Main "\Files\Innit\playlist-sorter.txt",
-        "test-state",      Paths.Main "\Files\Innit\test-state.txt",
-        "time-agent",      Paths.Main "\Files\Innit\time-agent.txt",
-
-        "BlankPic", Paths.Main "\Files\img\BlankPic.png",
+        "BlankPic", Paths.Files "\img\BlankPic.png",
 
         "Hub", Paths.Main "\Hub.ahk",
 
-        "Tests", Paths.Main "\Tools\Tests.ahk",
-        "Timer", Paths.Main "\Tools\Timer.ahk",
+        "Tests", Paths.Tools "\Tests.ahk",
+        "Timer", Paths.Tools "\Timer.ahk",
 
         "AhkTest", Paths.Test "\AhkTest.ahk",
 
-        "vine boom",         Paths.Audio "\Sounds\vine boom.wav",
-        "faded than a hoe",  Paths.Audio "\Sounds\faded than a hoe.wav",
-        "heheheha",          Paths.Audio "\Sounds\heheheha.wav",
-        "shall we",          Paths.Audio "\Sounds\shall we.wav",
-        "slip and crash",    Paths.Audio "\Sounds\slip and crash.wav",
-        "cartoon running",   Paths.Audio "\Sounds\cartoon running.wav",
-        "rizz",              Paths.Audio "\Sounds\rizz.wav",
-        "bruh sound effect", Paths.Audio "\Sounds\bruh sound effect.wav",
-        "cartoon",           Paths.Audio "\Sounds\cartoon.wav",
-        "hohoho",            Paths.Audio "\Sounds\hohoho.wav",
-        "bing chilling 1",   Paths.Audio "\Sounds\bing chilling 1.wav",
-        "bing chilling 2",   Paths.Audio "\Sounds\bing chilling 2.wav",
-        "oh fr on god",      Paths.Audio "\Sounds\oh fr on god.wav",
-        "sus",               Paths.Audio "\Sounds\sus.wav",
-        "i just farted",     Paths.Audio "\Sounds\i just farted.wav",
-        "ting",              Paths.Audio "\Sounds\ting.wav",
-        "shutter",           Paths.Audio "\Sounds\shutter.wav",
-        "was that his cock", Paths.Audio "\Sounds\was that his cock.wav",
-        "cyberpunk",         Paths.Audio "\Sounds\cyberpunk.wav",
-        "better call saul",  Paths.Audio "\Sounds\better call saul short.wav",
+        "vine boom",         Paths.Sounds "\vine boom.wav",
+        "faded than a hoe",  Paths.Sounds "\faded than a hoe.wav",
+        "heheheha",          Paths.Sounds "\heheheha.wav",
+        "shall we",          Paths.Sounds "\shall we.wav",
+        "slip and crash",    Paths.Sounds "\slip and crash.wav",
+        "cartoon running",   Paths.Sounds "\cartoon running.wav",
+        "rizz",              Paths.Sounds "\rizz.wav",
+        "bruh sound effect", Paths.Sounds "\bruh sound effect.wav",
+        "cartoon",           Paths.Sounds "\cartoon.wav",
+        "hohoho",            Paths.Sounds "\hohoho.wav",
+        "bing chilling 1",   Paths.Sounds "\bing chilling 1.wav",
+        "bing chilling 2",   Paths.Sounds "\bing chilling 2.wav",
+        "oh fr on god",      Paths.Sounds "\oh fr on god.wav",
+        "sus",               Paths.Sounds "\sus.wav",
+        "i just farted",     Paths.Sounds "\i just farted.wav",
+        "ting",              Paths.Sounds "\ting.wav",
+        "shutter",           Paths.Sounds "\shutter.wav",
+        "was that his cock", Paths.Sounds "\was that his cock.wav",
+        "cyberpunk",         Paths.Sounds "\cyberpunk.wav",
+        "better call saul",  Paths.Sounds "\better call saul short.wav",
 
         "Discovery log", Paths.Music "\Discovery log.txt",
         "Unfinished",    Paths.Music "\Unfinished.txt",
@@ -89,14 +82,12 @@ Class Paths {
         "Events",    Paths.Info "\Events.jsonc",
         "Birthdays", Paths.Info "\Birthdays.jsonc",
 
-        "FL preset", Paths.Pictures "\Tools\FL preset.flp",
-
-        "femboy",       Paths.Pictures "\Tree\Memes\femboy.png",
-        "writing fire", Paths.Pictures "\Tree\Memes\writing fire.jpg",
-        "urethra",      Paths.Pictures "\Tree\Memes\urethra.jpg",
-        "welp",         Paths.Pictures "\Tree\Memes\welp.jpg",
-        "how did we get here", Paths.Pictures "\Tree\Memes\how did we get here.jpeg",
-        "do you have the slightest idea how little that narrows it down", Paths.Pictures "\Tree\Memes\do you have the slightest idea how little that narrows it down.png",
+        "femboy",       Paths.Memes "\femboy.png",
+        "writing fire", Paths.Memes "\writing fire.jpg",
+        "urethra",      Paths.Memes "\urethra.jpg",
+        "welp",         Paths.Memes "\welp.jpg",
+        "how did we get here", Paths.Memes "\how did we get here.jpeg",
+        "do you have the slightest idea how little that narrows it down", Paths.Memes "\do you have the slightest idea how little that narrows it down.png",
 
     )
 

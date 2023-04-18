@@ -1,3 +1,5 @@
+#Include <App\Davinci>
+#Include <App\Autohotkey>
 #Include <Extensions\String>
 #Include <Loaders\Links>
 #Include <Utils\ClipSend>
@@ -16,6 +18,7 @@
 #Include <Misc\MainApps>
 #Include <App\Shows>
 #Include <Misc\Calculator>
+#Include <App\Explorer>
 
 #j:: {
     if !input := CleanInputBox().WaitForInput() {
@@ -30,7 +33,6 @@
         "show",   () => Shows.Run("episode"),
         "down",   () => Shows.Run("downloaded"),
 
-        ;Apps
         "apps",    MainApps,
         "v1 docs", () => Autohotkey.Docs.v1.RunAct(),
         "davinci", () => Davinci.projectWinObj.RunAct(),
@@ -38,7 +40,6 @@
         "fl",      () => FL.winObj.RunAct(),
         "gimp",    () => Gimp.winObj.RunAct(),
 
-        ;Folders
         "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
         "saved", () => Explorer.WinObj.SavedScreenshots.RunAct_Folders(),
         "main",  () => VsCode.WorkSpace("Main"),
