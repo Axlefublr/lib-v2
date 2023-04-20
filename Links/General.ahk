@@ -11,33 +11,11 @@
     "pachka",
     "https://app.pachca.com/",
 
-    ;; Watch
-
-    "movies",
-    "https://watchmovieshd.ru/",
-
-    "gogoanime",
-    "https://gogoanime.fi/",
-
-    ;; Services
-
     "superjob",
     "https://www.superjob.ru/",
 
     "hh",
     "https://hh.ru/",
-
-    "yt comments",
-    "https://studio.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw/comments",
-
-    "gmail",
-    "https://mail.google.com/mail/u/0/#inbox",
-
-    "weather",
-    "https://yandex.ru/pogoda/",
-
-    "2gis",
-    "https://2gis.ru/",
 
     "so",
     "https://stackoverflow.com/",
@@ -50,6 +28,28 @@
 
     "gst",
     "https://gist.github.com/Axlefublr",
+
+    ;; Watch
+
+    "movies",
+    "https://watchmovieshd.ru/",
+
+    "gogoanime",
+    "https://gogoanime.fi/",
+
+    ;; Services
+
+    "yt comments",
+    "https://studio.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw/comments",
+
+    "gmail",
+    "https://mail.google.com/mail/u/0/#inbox",
+
+    "weather",
+    "https://yandex.ru/pogoda/",
+
+    "2gis",
+    "https://2gis.ru/",
 
     ;; Shops
 
