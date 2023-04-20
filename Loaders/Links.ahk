@@ -1,3 +1,4 @@
+#Include <Links\DiscordPins>
 #Include <Links\General>
 #Include <Links\Channel>
 #Include <Links\Memes>
@@ -14,4 +15,5 @@ if !IsSet(Links) {
     Links.SafeSetMap(Links_Tools)
     Links.SafeSetMap(Links_Docs)
     Links.SafeSetMap(Links_AhkLib)
+    Links.SafeSetMap(Links_DiscordPins)
 }

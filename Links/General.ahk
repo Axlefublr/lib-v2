@@ -8,6 +8,9 @@
     "twitch",
     "https://www.twitch.tv/directory/following",
 
+    "pachka",
+    "https://app.pachca.com/",
+
     ;; Watch
 
     "movies",

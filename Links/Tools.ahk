@@ -95,4 +95,7 @@ Links_Tools := Map(
 
     "snappify",
     "https://snappify.com/",
+
+    "future tools",
+    "https://www.futuretools.io/",
 )
