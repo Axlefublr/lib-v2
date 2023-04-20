@@ -32,16 +32,6 @@ Class Browser {
         WinActivate(Browser.winTitle)
     )
 
-    class MonkeyType extends Browser {
-        static winTitle := "Monkeytype"
-        static path := A_ProgramFiles "\Google\Chrome\Application\chrome_proxy.exe --profile-directory=Default --app-id=picebhhlijnlefeleilfbanaghjlkkna"
-
-        static winObj := Win({
-            winTitle: Browser.MonkeyType.winTitle,
-            exePath: Browser.MonkeyType.path
-        })
-    }
-
     class UIA {
 
         static Window {

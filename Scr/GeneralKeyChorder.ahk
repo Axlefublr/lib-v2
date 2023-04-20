@@ -18,7 +18,7 @@
     static actions := Map(
 
         "m", () => Browser.RunLink(Links["gmail"]),
-        "n", () => Browser.MonkeyType.winObj.App(),
+        "n", () => Browser.RunLink(Links["monkeytype"]),
         "g", () => Browser.RunLink(Links["ghm"]),
         "f", () => Browser.RunLink(Links["skill factory"]),
         "p", () => Browser.RunLink(Links["gpt"]),
