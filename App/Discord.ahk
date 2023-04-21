@@ -1,3 +1,4 @@
+#Include <Utils\Win>
 #Include <Paths>
 #Include <Utils\Image>
 
@@ -9,8 +10,8 @@ Class Discord {
     static path := Paths.LocalAppData "\Discord\app-1.0.9012\Discord.exe"
 
     static winObj := Win({
-        winTitle: this.winTitle,
-        exePath: this.path,
+        winTitle:  this.winTitle,
+        exePath:   this.path,
         exception: this.exception
     })
 
