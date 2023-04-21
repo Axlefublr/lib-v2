@@ -9,20 +9,35 @@
 
 #HotIf Environment.WindowManagerMode
 
-s::WindowManager().MoveLeft(Mouse.MediumMove)
-d::WindowManager().MoveUp(Mouse.MediumMove)
-f::WindowManager().MoveDown(Mouse.MediumMove)
-g::WindowManager().MoveRight(Mouse.MediumMove)
+h::WindowManager().MoveLeft(Mouse.MediumMove)
+k::WindowManager().MoveUp(Mouse.MediumMove)
+j::WindowManager().MoveDown(Mouse.MediumMove)
+l::WindowManager().MoveRight(Mouse.MediumMove)
 
-+s::WindowManager().MoveLeft(Mouse.SmallMove)
-+d::WindowManager().MoveUp(Mouse.SmallMove)
-+f::WindowManager().MoveDown(Mouse.SmallMove)
-+g::WindowManager().MoveRight(Mouse.SmallMove)
++h::WindowManager().MoveLeft(Mouse.SmallMove)
++k::WindowManager().MoveUp(Mouse.SmallMove)
++j::WindowManager().MoveDown(Mouse.SmallMove)
++l::WindowManager().MoveRight(Mouse.SmallMove)
 
-^s::WindowManager().MoveLeft(Mouse.BigMove)
-^d::WindowManager().MoveUp(Mouse.BigMove)
-^f::WindowManager().MoveDown(Mouse.BigMove)
-^g::WindowManager().MoveRight(Mouse.BigMove)
+^h::WindowManager().MoveLeft(Mouse.BigMove)
+^k::WindowManager().MoveUp(Mouse.BigMove)
+^j::WindowManager().MoveDown(Mouse.BigMove)
+^l::WindowManager().MoveRight(Mouse.BigMove)
+
+s::WindowManager().DecreaseWidth(Mouse.MediumMove)
+f::WindowManager().IncreaseHeight(Mouse.MediumMove)
+d::WindowManager().DecreaseHeight(Mouse.MediumMove)
+g::WindowManager().IncreaseWidth(Mouse.MediumMove)
+
++s::WindowManager().DecreaseWidth(Mouse.SmallMove)
++f::WindowManager().IncreaseHeight(Mouse.SmallMove)
++d::WindowManager().DecreaseHeight(Mouse.SmallMove)
++g::WindowManager().IncreaseWidth(Mouse.SmallMove)
+
+^s::WindowManager().DecreaseWidth(Mouse.BigMove)
+^f::WindowManager().IncreaseHeight(Mouse.BigMove)
+^d::WindowManager().DecreaseHeight(Mouse.BigMove)
+^g::WindowManager().IncreaseWidth(Mouse.BigMove)
 
 #HotIf Environment.VimMode
 
