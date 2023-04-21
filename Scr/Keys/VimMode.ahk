@@ -1,12 +1,10 @@
+#Include <Abstractions\MediaActions>
 #Include <Tools\ToggleInfo>
 #Include <Tools\StateBulb>
 #Include <Environment>
 #Include <Abstractions\Mouse>
 
-ToggleVimMode() {
-    Environment.VimMode := !Environment.VimMode
-}
-!Space::ToggleVimMode()
+!Space::Environment.VimMode := !Environment.VimMode
 
 #HotIf Environment.VimMode
 
