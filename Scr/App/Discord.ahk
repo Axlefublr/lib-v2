@@ -3,7 +3,7 @@
 
 #HotIf WinActive(Discord.winTitle,, Discord.exception)
 
-^q::Registers("k").Paste().Truncate()
+^q::Registers("k").Paste().Truncate(), Send("{Enter}")
 
 ; sc33 is a , and sc34 is a .
 !sc33::Discord.PrevChannel()
