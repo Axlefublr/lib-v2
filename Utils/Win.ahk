@@ -224,37 +224,6 @@ Class Win extends Initializable {
         return this
     }
 
-    RestoreLeftRight() {
-
-        _WinMove() {
-            static halfScreen := A_ScreenWidth // 2
-            Switch this.direction {
-                Case "right": this.direction := halfScreen
-                Case "left": this.direction := 0
-            }
-            WinMove(this.direction, 0, halfScreen, A_ScreenHeight, this.winTitle)
-        }
-
-        _WinMoveWhenMin() {
-            if WinGetMinMax(this.winTitle)
-                return
-            _WinMove(), SetTimer(, 0)
-        }
-
-        if !WinGetMinMax(this.winTitle) {
-            _WinMove()
-            return
-        }
-
-        this.RestoreDown() ;Unmaximize it
-        SetTimer(_WinMoveWhenMin, 20)
-
-    }
-    
-    static RestoreLeftRight(direction) {
-        Win({direction: direction}).RestoreLeftRight()
-    }
-
     ActiveRegex() {
         SetTitleMatchMode("RegEx")
         return WinActive(this.winTitle, this.winText, this.excludeTitle, this.excludeText)
