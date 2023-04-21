@@ -1,3 +1,4 @@
+#Include <Abstractions\WindowManager>
 #Include <Abstractions\MediaActions>
 #Include <Tools\ToggleInfo>
 #Include <Tools\StateBulb>
@@ -6,7 +7,26 @@
 
 !Space::Environment.VimMode := !Environment.VimMode
 
+#HotIf Environment.WindowManagerMode
+
+s::WindowManager().MoveLeft(Mouse.MediumMove)
+d::WindowManager().MoveUp(Mouse.MediumMove)
+f::WindowManager().MoveDown(Mouse.MediumMove)
+g::WindowManager().MoveRight(Mouse.MediumMove)
+
++s::WindowManager().MoveLeft(Mouse.SmallMove)
++d::WindowManager().MoveUp(Mouse.SmallMove)
++f::WindowManager().MoveDown(Mouse.SmallMove)
++g::WindowManager().MoveRight(Mouse.SmallMove)
+
+^s::WindowManager().MoveLeft(Mouse.BigMove)
+^d::WindowManager().MoveUp(Mouse.BigMove)
+^f::WindowManager().MoveDown(Mouse.BigMove)
+^g::WindowManager().MoveRight(Mouse.BigMove)
+
 #HotIf Environment.VimMode
+
+`::Environment.WindowManagerMode := !Environment.WindowManagerMode
 
 s::Mouse.MoveLeft(Mouse.MediumMove)
 d::Mouse.MoveUp(Mouse.MediumMove)
@@ -83,7 +103,6 @@ m::Volume_Mute
 sc33::MediaActions.SkipPrev()
 sc34::MediaActions.SkipNext()
 
-`::return
 -::return
 =::return
 sc1A::return
