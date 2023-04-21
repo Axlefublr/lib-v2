@@ -8,7 +8,6 @@ CompressSpaces(text) => RegexReplace(text, " {2,}", " ")
 WriteFile(whichFile, text := "") {
     fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
     fileObj.Write(text)
-    fileObj.Close()
 }
 
 /**
@@ -24,7 +23,6 @@ AppendFile(whichFile, text) {
         fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
     fileObj.Seek(0, 2)
     fileObj.Write(text)
-    fileObj.Close()
 }
 
 /**
@@ -36,7 +34,6 @@ ReadFile(whichFile) {
     fileObj := FileOpen(whichFile, "r", "UTF-8-RAW")
     fileObj.Seek(0, 0)
     text := fileObj.Read()
-    fileObj.Close()
     return text
 }
 
