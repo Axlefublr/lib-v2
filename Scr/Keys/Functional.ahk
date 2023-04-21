@@ -46,6 +46,7 @@
 #n::Registers(KeyChorder()).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
 #m::Registers(KeyChorder()).WriteOrAppend()
 #!m::Registers(KeyChorder()).Paste()
+#^m::Registers(KeyChorder()).Paste().Truncate()
 #sc33::Registers(KeyChorder()).Run()
 #!sc33::Registers(KeyChorder()).Truncate()
 #sc28::Registers(KeyChorder()).Look()

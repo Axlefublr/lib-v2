@@ -200,6 +200,7 @@ class Registers {
         content := this.Read()
         ClipSend(content)
         Info(this.key " pasted", Registers.InfoTimeout)
+        return this
     }
 
     /**
