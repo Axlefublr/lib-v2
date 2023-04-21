@@ -9,8 +9,10 @@ class Environment {
             this._vimMode := value
             if value
                 StateBulb[1].Create()
-            else
+            else {
                 StateBulb[1].Destroy()
+                this.WindowManagerMode := value
+            }
         }
     }
 
