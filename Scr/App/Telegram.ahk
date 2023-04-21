@@ -1,6 +1,10 @@
+#Include <Abstractions\Registers>
+#Include <Utils\Press>
 #Include <App\Telegram>
 
 #HotIf WinActive(Telegram.winTitle)
+
+!e::Registers("d").Paste().Truncate()
 
 !sc33::Telegram.PrevChannel()
 !sc34::Telegram.NextChannel()
