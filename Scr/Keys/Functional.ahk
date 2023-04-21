@@ -37,10 +37,7 @@
 #+LButton::RelativeCoordInfo.BetterCallThis()
 #y::WindowInfo()
 #x::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
-#u:: {
-    HoverScreenshot().UseRecentScreenshot().Show().gHover.PressTitleBar()
-    Environ
-}
+#u::HoverScreenshot().UseRecentScreenshot().Show()
 
 #k::InternetSearch("Google").TriggerSearch()
 

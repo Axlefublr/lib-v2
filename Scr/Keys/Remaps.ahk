@@ -2,6 +2,7 @@
 
 #o::Send("{Blind}k")
 #p::Send("{Blind}d")
+
 #!sc27::Send("#;")
 
 RAlt::LAlt
