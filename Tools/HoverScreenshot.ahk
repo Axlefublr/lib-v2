@@ -90,14 +90,13 @@ class HoverScreenshot {
         if !(this.picturePath ~= "^[A-Z]:\\") {
             HoverScreenshot.Exceptions.PicturePathWrong(this.picturePath)
         }
-        this.gHover.NeverFocusWindow()
         this.gcPicture := this.gHover.AddPicture(, this.picturePath)
         this.gHover.BackColor := 808080
         WinSetTransColor(808080, this.gHover.Hwnd)
 
         this._SetOnevents()
 
-        this.gHover.Show("AutoSize NA")
+        this.gHover.Show("AutoSize")
         return this
     }
 
