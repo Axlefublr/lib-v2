@@ -60,6 +60,11 @@ g::WindowManager().IncreaseWidth(Mouse.MediumMove)
 +8::WinMove(Mouse.LowRightX,       Mouse.MiddleY,,, "A")
 +9::WinMove(Mouse.MiddleRightX,    Mouse.MiddleY,,, "A")
 
+q::WindowManager().SetFullHeight()
+a::WindowManager().SetHalfHeight()
+w::WindowManager().SetHalfWidth()
+e::WindowManager().SetFullWidth()
+
 #HotIf Environment.VimMode
 
 `::Environment.WindowManagerMode := !Environment.WindowManagerMode

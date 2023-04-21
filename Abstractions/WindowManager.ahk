@@ -22,4 +22,9 @@ class WindowManager {
     DecreaseHeight(howMuch) => WinMove(,,, this.Height - howMuch, this.winTitle)
     IncreaseHeight(howMuch) => WinMove(,,, this.Height + howMuch, this.winTitle)
 
+    SetHalfWidth()  => WinMove(,,  A_ScreenWidth  // 2,, this.winTitle)
+    SetHalfHeight() => WinMove(,,, A_ScreenHeight // 2,  this.winTitle)
+    SetFullWidth()  => WinMove(,,  A_ScreenWidth,,       this.winTitle)
+    SetFullHeight() => WinMove(,,, A_ScreenHeight,       this.winTitle)
+
 }
