@@ -30,8 +30,8 @@
 #!9::Counter.Show()
 #!0::Counter.Reset().Show()
 
-#sc1A::Brightness.ChangeBrightnessRelative(-10)
-#sc1B::Brightness.ChangeBrightnessRelative(10)
+#7::Brightness.ChangeBrightnessRelative(-10)
+#8::Brightness.ChangeBrightnessRelative(10)
 
 #^LButton::CoordInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
