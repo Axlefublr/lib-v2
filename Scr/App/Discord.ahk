@@ -1,6 +1,9 @@
+#Include <Abstractions\Registers>
 #Include <App\Discord>
 
 #HotIf WinActive(Discord.winTitle,, Discord.exception)
+
+^q::Registers("k").Paste().Truncate()
 
 ; sc33 is a , and sc34 is a .
 !sc33::Discord.PrevChannel()
