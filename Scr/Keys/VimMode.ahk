@@ -5,10 +5,6 @@
 
 ToggleVimMode() {
     Environment.VimMode := !Environment.VimMode
-    if Environment.VimMode
-        StateBulb[1].Create()
-    else
-        StateBulb[1].Destroy()
 }
 !Space::ToggleVimMode()
 

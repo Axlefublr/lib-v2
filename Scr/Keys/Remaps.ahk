@@ -1,16 +1,9 @@
 #InputLevel 6
 
-#s::Send("{Blind}k")
+#o::Send("{Blind}k")
+#p::Send("{Blind}d")
 #!sc27::Send("#;")
 
-; #sc28::return
-; #sc33::return
-; #sc35::return
-; #c::return
-; #b::return
-; #n::return
-
-; !Space::return
 RAlt::LAlt
 AppsKey::RCtrl
 *ScrollLock::return

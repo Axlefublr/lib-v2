@@ -11,7 +11,6 @@
 #Include <Abstractions\Registers>
 #Include <Tools\RelativeCoordInfo>
 #Include <System\Language>
-#Include <Utils\Autoclicker>
 
 #HotIf !WinActive("ahk_exe " A_AhkPath)
 #Space::Language.Toggle()
@@ -31,15 +30,17 @@
 #!9::Counter.Show()
 #!0::Counter.Reset().Show()
 
-#!7::Brightness.ChangeBrightnessRelative(-10)
-#!8::Brightness.ChangeBrightnessRelative(10)
+#sc1A::Brightness.ChangeBrightnessRelative(-10)
+#sc1B::Brightness.ChangeBrightnessRelative(10)
 
-#c::Autoclicker()
 #^LButton::CoordInfo()
-#f::WindowInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
+#y::WindowInfo()
 #x::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
-#g::HoverScreenshot().UseRecentScreenshot().Show()
+#u:: {
+    HoverScreenshot().UseRecentScreenshot().Show().gHover.PressTitleBar()
+    Environ
+}
 
 #k::InternetSearch("Google").TriggerSearch()
 

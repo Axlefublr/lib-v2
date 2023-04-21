@@ -1,3 +1,4 @@
+#Include <Utils\Autoclicker>
 #Include <Abstractions\Base>
 #Include <Utils\Press>
 #Include <Utils\Image>
@@ -27,13 +28,12 @@ XButton2 & LButton::Enter
 XButton2 & MButton::Screenshot.FullScreenOut()
 XButton1 & MButton::HoverScreenshot().UseRecentScreenshot().Show()
 
++!LButton::AutoClicker()
 #!LButton::Hider()
-#w::Hider(false)
 #LButton:: {
     While GetKeyState("LButton", "P")
         Point().Create()
 }
-#e::Point.Color := GetCurrentColor()
 
 #HotIf GetKeyState("Ctrl", "P")
 Media_Stop & XButton1::Cut()
