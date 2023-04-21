@@ -1,3 +1,4 @@
+#Include <App\Explorer>
 #Include <Utils\GetWeather>
 #Include <Misc\RemindDate>
 #Include <Tools\Info>
