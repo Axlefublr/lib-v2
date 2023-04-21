@@ -1,3 +1,4 @@
+#Include <App\Screenshot>
 #Include <Abstractions\WindowManager>
 #Include <Abstractions\MediaActions>
 #Include <Tools\ToggleInfo>
@@ -118,9 +119,10 @@ m::Volume_Mute
 sc33::MediaActions.SkipPrev()
 sc34::MediaActions.SkipNext()
 
+sc1A::Screenshot.Start()
+
 -::return
 =::return
-sc1A::return
 sc1B::return
 sc2B::return
 sc27::return
