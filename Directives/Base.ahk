@@ -6,6 +6,7 @@
 A_MaxHotkeysPerInterval := 1000
 SetWorkingDir A_ScriptDir
 SetControlDelay(-1)
+SetWinDelay(-1)
 SetDefaultMouseSpeed(0)
 #Hotstring EndChars `t
 CoordMode("Mouse", "Screen")
