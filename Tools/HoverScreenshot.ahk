@@ -46,7 +46,7 @@ class HoverScreenshot {
      * gHover.Show()
      */
     __New(picturePath?) {
-        this.gHover := Gui("AlwaysOnTop +ToolWindow -Caption")
+        this.gHover := Gui("AlwaysOnTop -Caption")
         this.guiHwnd := this.gHover.Hwnd
         this.picturePath := picturePath ?? ""
     }
@@ -103,6 +103,7 @@ class HoverScreenshot {
     Destroy() {
         HotIfWinExist("ahk_id " this.guiHwnd)
         Hotkey("^Escape", this._foDestroy, "Off")
+        this.gHover.Minimize()
         this.gHover.Destroy()
     }
 
@@ -115,6 +116,7 @@ class HoverScreenshot {
 
         this.gcPicture.OnEvent("DoubleClick", (*) => this.Destroy())
         this.gcPicture.OnEvent("Click",       (guiCtrlObj, *) => guiCtrlObj.Gui.PressTitleBar())
+        this.gHover.OnEvent("Close", (*) => this.Destroy())
     }
 
 
