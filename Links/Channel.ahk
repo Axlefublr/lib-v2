@@ -8,6 +8,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "window manager multi modal hotkeys",
+    "https://youtu.be/dcL46PszmfM",
+
     "concatenation interpolation continuation",
     "https://youtu.be/wh1Kk0xKvrQ",
 
