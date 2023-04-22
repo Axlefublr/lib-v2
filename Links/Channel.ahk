@@ -3,6 +3,9 @@ Links_Channel := Map(
     "channel",
     "https://www.youtube.com/@Axlefublr",
 
+    "micha's channel",
+    "https://www.youtube.com/@devbriefing",
+
     ;;Main channel videos
 
     "concatenation interpolation continuation",
@@ -375,6 +378,11 @@ Links_Channel := Map(
 
     "screenshot hover unfinished",
     "https://youtu.be/4jiXHYuo7D8",
+
+    ;; Micha's videos
+
+    "micha's first video",
+    "https://www.youtube.com/watch?v=UK3ZT4XS8aw",
 
     ;;Useful tutorials not by me
 

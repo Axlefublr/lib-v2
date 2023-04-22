@@ -11,6 +11,7 @@ class Mouse {
 
     static TopY    := A_ScreenHeight // Mouse.VerticalSeparator
     static MiddleY := A_ScreenHeight // 2
+    static LowY    := Round(A_ScreenHeight / 1080 * 740)
     static BottomY := A_ScreenHeight // Mouse.VerticalSeparator * 6
 
     static FarLeftX        := A_ScreenWidth / Mouse.HorizontalSeparator
