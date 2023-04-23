@@ -36,6 +36,7 @@
         "t", TimerLoader,
         "h", () => Browser.RunLink(Links["phind"]),
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
+        "i", () => Infos(A_Clipboard),
 
     )
     if key
