@@ -35,7 +35,7 @@
 
 #^LButton::CoordInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
-#y::WindowInfo()
+#f::WindowInfo()
 #9::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
 #0::HoverScreenshot().UseRecentScreenshot().Show()
 
