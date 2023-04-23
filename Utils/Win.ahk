@@ -182,6 +182,8 @@ Class Win extends Initializable {
         }
     }
 
+    static CloseOnceInactive(winTitle := WinGetID("A")) => Win({winTitle: winTitle}).CloseOnceInactive()
+
     CloseOnceInactive() {
         _Checker() {
             if !WinActive(this.winTitle,, this.exception) {

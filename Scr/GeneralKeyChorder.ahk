@@ -1,3 +1,4 @@
+#Include <Tools\CleanInputBox>
 #Include <App\Autohotkey>
 #Include <Tools\KeycodeGetter>
 #Include <Misc\EmojiSearch>
@@ -35,7 +36,6 @@
         "t", TimerLoader,
         "h", () => Browser.RunLink(Links["phind"]),
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
-        "o", () => WinSetAlwaysOnTop(-1, "A"),
 
     )
     if key
