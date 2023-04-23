@@ -1,3 +1,5 @@
+#Include <App\Autohotkey>
+#Include <Tools\KeycodeGetter>
 #Include <Misc\EmojiSearch>
 #Include <Utils\KeyChorder>
 #Include <App\Browser>
