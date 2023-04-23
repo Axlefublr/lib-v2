@@ -73,8 +73,8 @@ g::WindowManager().IncreaseWidth(Mouse.MediumMove)
 ^9::WinMove(Mouse.LowRightX,       Mouse.LowY,,, "A")
 ^0::WinMove(Mouse.MiddleRightX,    Mouse.LowY,,, "A")
 
-q::WindowManager().SetFullHeight()
-a::WindowManager().SetHalfHeight()
+a::WindowManager().SetFullHeight()
+q::WindowManager().SetHalfHeight()
 w::WindowManager().SetHalfWidth()
 e::WindowManager().SetFullWidth()
 

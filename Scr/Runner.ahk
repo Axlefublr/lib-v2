@@ -40,8 +40,8 @@
         "fl",      () => FL.winObj.RunAct(),
         "gimp",    () => Gimp.winObj.RunAct(),
 
-        "ext",   () => Explorer.WinObj.VsCodeExtensions.RunAct_Folders(),
-        "saved", () => Explorer.WinObj.SavedScreenshots.RunAct_Folders(),
+        "ext",   () => Explorer.WinObjs.VsCodeExtensions.RunAct_Folders(),
+        "saved", () => Explorer.WinObjs.SavedScreenshots.RunAct_Folders(),
         "main",  () => VsCode.WorkSpace("Main"),
 
     )

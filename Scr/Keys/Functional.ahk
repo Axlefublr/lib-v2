@@ -1,3 +1,5 @@
+#Include <Abstractions\Mouse>
+#Include <Abstractions\WindowManager>
 #Include <Utils\KeyChorder>
 #Include <Tools\HoverScreenshot>
 #Include <Extensions\String>
@@ -33,12 +35,21 @@
 #7::Brightness.ChangeBrightnessRelative(-10)
 #8::Brightness.ChangeBrightnessRelative(10)
 
+#s::WindowManager().SetHalfWidth().SetFullHeight().AbsoluteMove(0, 0)
+#d::WindowManager().SetFullWidth().SetHalfHeight().AbsoluteMove(0, 0)
+#f::WindowManager().SetFullWidth().SetHalfHeight().AbsoluteMove(0, Mouse.MiddleY)
+#g::WindowManager().SetHalfWidth().SetFullHeight().AbsoluteMove(Mouse.MiddleX, 0)
+
+#a::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(0, Mouse.MiddleY)
+#q::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(0, 0)
+#w::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(Mouse.MiddleX, Mouse.MiddleY)
+#e::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(Mouse.MiddleX, 0)
+
 #^LButton::CoordInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
-#f::WindowInfo()
+#y::WindowInfo()
 #9::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
 #0::HoverScreenshot().UseRecentScreenshot().Show()
-
 #k::InternetSearch("Google").TriggerSearch()
 
 #n::Registers(KeyChorder()).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
