@@ -17,9 +17,7 @@ Media_Stop:: {
         Case sections.bottomRight: Telegram.winObj.App()
         Case sections.right:       Discord.winObj.App()
         Case sections.topLeft:     Terminal.winObj.App()
-        Case sections.bottomLeft:
-            SetTitleMatchMode("Regex")
-            Explorer.winObjRegex.MinMax()
+        Case sections.bottomLeft:  Explorer.winObj.MinMax()
         Case sections.left:        VsCode.winObj.App()
         Case sections.down:        Spotify.winObj.App()
         Case sections.up:          Browser.winObj.App()

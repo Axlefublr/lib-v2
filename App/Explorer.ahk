@@ -5,13 +5,26 @@ Class Explorer {
 
     static process := "explorer.exe"
     static exeTitle := "ahk_exe " this.process
-    static winTitleRegex := "^[A-Z]:|Downloads|Documents|This PC|OneDrive|Network|Linux|Desktop|File Explorer ahk_exe explorer\.exe"
+    static winTitle := "ahk_class CabinetWClass " this.exeTitle
 
-    static winObjRegex := Win({winTitle: this.winTitleRegex})
+    static winObj := Win({
+        winTitle: this.winTitle,
+        exePath: this.process,
+        runOpt: "Min"
+    })
 
-    Class WinObj {
+    Class WinObjs {
 
-        static PC := Win({winTitle:Explorer.winTitleRegex, exePath: Explorer.process, runOpt: "Min"})
+        static PC := Win({
+            winTitle: Explorer.winTitle,
+            exePath:  Explorer.process,
+            runOpt:   "Min"
+        })
+        static User := Win({
+            winTitle: Explorer.winTitle,
+            exePath:  Paths.User,
+            runOpt:   "Min"
+        })
 
         static Volume       := Win({exePath: "C:\",              runOpt: "Min"})
         static Pictures     := Win({exePath: Paths.Pictures,     runOpt: "Min"})

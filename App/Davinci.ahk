@@ -47,7 +47,7 @@ Class Davinci {
         }
         this.winObj.RestoreDown()
         WinMove(-8, 0, 1492, A_ScreenHeight, this.winTitle)
-        Explorer.WinObj.Pictures.RunAct_Folders()
+        Explorer.WinObjs.Pictures.RunAct_Folders()
         WinMove(1466, 0, 463, A_ScreenHeight)
         this.winObj.Activate()
     }

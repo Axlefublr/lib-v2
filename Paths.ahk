@@ -2,7 +2,8 @@
 
 Class Paths {
 
-    static LocalAppData := "C:\Users\" A_UserName "\AppData\Local"
+    static User         := "C:\Users\" A_UserName
+    static LocalAppData := Paths.User "\AppData\Local"
     static System32     := "C:\Windows\System32"
 
     static Prog  := "C:\Programming"

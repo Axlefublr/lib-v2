@@ -27,10 +27,7 @@ CapsLock::Delete
 +CapsLock::Win.Minimize()
 
 <!Escape::GroupDeactivate("Main")
-<+Escape:: {
-    SetTitleMatchMode("Regex")
-    Explorer.winObjRegex.MinMax()
-}
+<+Escape::Explorer.winObj.MinMax()
 >+Escape::SomeLockHint("CapsLock")
 #Escape::Infos(GetWeather()), RemindDate()
 
