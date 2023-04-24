@@ -1,4 +1,5 @@
 Links_Memes := Map(
+
     "i made it the fuck up",
     "https://www.youtube.com/watch?v=r7l0Rq9E8MY",
 
@@ -247,4 +248,8 @@ Links_Memes := Map(
 
     "indian coding tutorials be like",
     "https://youtu.be/Y9Zw6xOGly0",
+
+    "jerma teacher noise",
+    "https://www.youtube.com/watch?v=dpTte1scAm0&pp=ygUTamVybWEgdGVhY2hlciBub2lzZQ%3D%3D",
+
 )
