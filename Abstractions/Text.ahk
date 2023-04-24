@@ -16,26 +16,14 @@ WriteFile(whichFile, text := "") {
  * @param whichFile *String* The path to the file
  * @param text *String* The text to write
  */
-AppendFile(whichFile, text) {
-    if FileExist(whichFile)
-        fileObj := FileOpen(whichFile, "a", "UTF-8-RAW")
-    else
-        fileObj := FileOpen(whichFile, "w", "UTF-8-RAW")
-    fileObj.Seek(0, 2)
-    fileObj.Write(text)
-}
+AppendFile(whichFile, text) => FileAppend(text, whichFile, "UTF-8-RAW `n")
 
 /**
  * Syntax sugar. Reads a file and returns the text in it
  * @param whichFile *String* The path to the file to read
  * @returns {String}
  */
-ReadFile(whichFile) {
-    fileObj := FileOpen(whichFile, "r", "UTF-8-RAW")
-    fileObj.Seek(0, 0)
-    text := fileObj.Read()
-    return text
-}
+ReadFile(whichFile) => FileRead(whichFile, "UTF-8-RAW `n")
 
 /**
  * Switch the contents of two files.
