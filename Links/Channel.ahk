@@ -384,6 +384,9 @@ Links_Channel := Map(
 
     ;; Micha's videos
 
+    "micha's kotlin functions",
+    "https://youtu.be/HacCF-Ma2mI",
+
     "micha's first video",
     "https://www.youtube.com/watch?v=UK3ZT4XS8aw",
 
