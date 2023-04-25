@@ -374,6 +374,13 @@ Class Spotify {
             })
         }
 
+            static YourLibraryGroup {
+                get => this.MainNavigation.WaitElement({
+                    Type:  "Group",
+                    Scope: 2
+                })
+            }
+
             static LikedPlaylistElement {
                 get => this.MainNavigation.FindElement({
                     Type:"Link",
