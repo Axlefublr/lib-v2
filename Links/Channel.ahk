@@ -8,6 +8,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "fix windowsapps change user folder name",
+    "https://youtu.be/M9n8C14rh7w",
+
     "window manager multi modal hotkeys",
     "https://youtu.be/dcL46PszmfM",
 
@@ -321,6 +324,9 @@ Links_Channel := Map(
     "https://youtu.be/IfQ-sl04xu8",
 
     ;;Main channel playlists
+
+    "windows playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNQU8HOTRMJ7csHPOSMtKA-",
 
     "linux playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP7Os6HNDEf8Fy5lQqkavOZ",
