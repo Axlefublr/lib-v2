@@ -381,13 +381,21 @@ Class Spotify {
                 })
             }
 
-            static LikedPlaylistElement {
-                get => this.MainNavigation.FindElement({
-                    Type:"Link",
-                    Name:"Liked Songs",
-                    Scope: 2
-                })
-            }
+                static YourLibraryList {
+                    get => this.YourLibraryGroup.WaitElement({
+                        Type:  "List",
+                        Name:  "Your Library",
+                        Scope: 2
+                    })
+                }
+
+                    static LikedPlaylistElement {
+                        get => this.MainNavigation.FindElement({
+                            Type:"Link",
+                            Name:"Liked Songs",
+                            Scope: 2
+                        })
+                    }
 
             static YourLibraryButton {
                 get => this.MainNavigation.FindElement({
