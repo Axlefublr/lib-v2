@@ -382,7 +382,7 @@ Class Spotify {
             }
 
                 static YourLibraryList {
-                    get => this.YourLibraryGroup.WaitElement({
+                    get => this.YourLibraryGroup.FindElement({
                         Type:  "List",
                         Name:  "Your Library",
                         Scope: 2
@@ -390,19 +390,12 @@ Class Spotify {
                 }
 
                     static LikedPlaylistElement {
-                        get => this.MainNavigation.FindElement({
-                            Type:"Link",
-                            Name:"Liked Songs",
-                            Scope: 2
+                        get => this.YourLibraryList.FindElement({
+                            Type: "Button",
+                            Name: "Liked Songs",
+                            Matchmode: "Substring"
                         })
                     }
-
-            static YourLibraryButton {
-                get => this.MainNavigation.FindElement({
-                    Name: "Your Library",
-                    Type: "Link"
-                })
-            }
 
         static YourLibraryElement {
             get => this.Document.WaitElement({
