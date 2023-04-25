@@ -74,7 +74,7 @@ Class Spotify {
 
     static PlayDiscovery() {
         Spotify.NoShuffle()
-        Spotify.UIA.DiscoveryPlaylistPlayButton.Click()
+        Spotify.UIA.DiscoveryPlaylistElement.Click()
     }
 
     static RemoveFromCurrentPlaylist() {
@@ -317,7 +317,7 @@ Class Spotify {
                     })
                 }
 
-                    static OldestPlaylistPlayButton {
+                    static OldestPlaylistElement {
                         get => this.YourLibraryList.WaitElement({
                             Name:      "Play #\d+",
                             Matchmode: "Regex",
@@ -327,7 +327,7 @@ Class Spotify {
                         })
                     }
 
-                    static DiscoveryPlaylistPlayButton {
+                    static DiscoveryPlaylistElement {
                         get => this.YourLibraryList.WaitElement({
                             Type: "Button",
                             Name: "Discovery",
