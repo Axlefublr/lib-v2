@@ -14,13 +14,21 @@ class Cmd {
     }
 
 
-    StdOut {
+    StdOut => this.StdOutOnly || this.StdErr
+
+    StdOutOnly {
         get {
-            output := this.exec.StdOut.ReadAll() || this.exec.StdErr.ReadAll()
+            output := this.exec.StdOut.ReadAll()
             return Trim(output, "`r`n`t ")
         }
     }
 
+    StdErr {
+        get {
+            output := this.exec.StdErr.ReadAll()
+            return Trim(output, "`r`n`t ")
+        }
+    }
 
     Execute(commands*) {
         commands := this._GetCommandString(commands)
