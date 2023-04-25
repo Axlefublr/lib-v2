@@ -389,6 +389,24 @@ Class Spotify {
                     })
                 }
 
+                    static OldestPlaylistPlayButton {
+                        get => this.YourLibraryElement.WaitElement({
+                            Name:      "Play #\d+",
+                            Matchmode: "Regex",
+                            Type:      "Button",
+                            Scope:     2,
+                            Order:     2
+                        })
+                    }
+
+                    static DiscoveryPlaylistPlayButton {
+                        get => this.YourLibraryElement.WaitElement({
+                            Name: "Play Discovery",
+                            Type: "Button",
+                            Scope: 2
+                        })
+                    }
+
                     static LikedPlaylistElement {
                         get => this.YourLibraryList.FindElement({
                             Type: "Button",
@@ -396,32 +414,6 @@ Class Spotify {
                             Matchmode: "Substring"
                         })
                     }
-
-        static YourLibraryElement {
-            get => this.Document.WaitElement({
-                Name: "Spotify – Your Library",
-                LocalizedType: "main",
-                Scope: 2
-            })
-        }
-
-            static OldestPlaylistPlayButton {
-                get => this.YourLibraryElement.WaitElement({
-                    Name:      "Play #\d+",
-                    Matchmode: "Regex",
-                    Type:      "Button",
-                    Scope:     2,
-                    Order:     2
-                })
-            }
-
-            static DiscoveryPlaylistPlayButton {
-                get => this.YourLibraryElement.WaitElement({
-                    Name: "Play Discovery",
-                    Type: "Button",
-                    Scope: 2
-                })
-            }
 
         static PlaylistHeader {
             get => this.Document.FindElement({
