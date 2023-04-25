@@ -423,6 +423,15 @@ Class Spotify {
             })
         }
 
+            static ViewPlayButton {
+                get => this.MainView.WaitElement({
+                    Type: "Button",
+                    Name: "Play Discovery",
+                    Matchmode: "Substring",
+                    Scope: 2
+                })
+            }
+
     }
 
     class PlaylistSorter {
