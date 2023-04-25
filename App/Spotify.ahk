@@ -74,7 +74,6 @@ Class Spotify {
 
     static PlayDiscovery() {
         Spotify.NoShuffle()
-        Spotify.UIA.YourLibraryButton.Click()
         Spotify.UIA.DiscoveryPlaylistPlayButton.Click()
     }
 
@@ -232,6 +231,8 @@ Class Spotify {
 
     class UIA {
 
+        static UserName := "Axlefublr"
+
         static Document {
             get => UIA.ElementFromHandle(Spotify.winTitle).FindElement({
                 Type: "document",
@@ -291,6 +292,56 @@ Class Spotify {
                     Order: 2
                 })
             }
+
+        static MainNavigation {
+            get => this.Document.WaitElement({
+                Type:          "Group",
+                LocalizedType: "navigation",
+                Name:          "Main",
+                Scope:         2
+            })
+        }
+
+            static YourLibraryGroup {
+                get => this.MainNavigation.WaitElement({
+                    Type:  "Group",
+                    Scope: 2
+                })
+            }
+
+                static YourLibraryList {
+                    get => this.YourLibraryGroup.FindElement({
+                        Type:  "List",
+                        Name:  "Your Library",
+                        Scope: 2
+                    })
+                }
+
+                    static OldestPlaylistPlayButton {
+                        get => this.YourLibraryList.WaitElement({
+                            Name:      "Play #\d+",
+                            Matchmode: "Regex",
+                            Type:      "Button",
+                            Scope:     2,
+                            Order:     2
+                        })
+                    }
+
+                    static DiscoveryPlaylistPlayButton {
+                        get => this.YourLibraryList.WaitElement({
+                            Type: "Button",
+                            Name: "Discovery",
+                            Matchmode: "Substring"
+                        })
+                    }
+
+                    static LikedPlaylistElement {
+                        get => this.YourLibraryList.FindElement({
+                            Type: "Button",
+                            Name: "Liked Songs",
+                            Matchmode: "Substring"
+                        })
+                    }
 
         static ContentInfo {
             get => this.Document.WaitElement({
@@ -363,94 +414,6 @@ Class Spotify {
                 static ShuffleState {
                     get => this.ShuffleElement.ToggleState
                     set => this.ShuffleElement.ToggleState := value
-                }
-
-        static MainNavigation {
-            get => this.Document.WaitElement({
-                Type:          "Group",
-                LocalizedType: "navigation",
-                Name:          "Main",
-                Scope:         2
-            })
-        }
-
-            static YourLibraryGroup {
-                get => this.MainNavigation.WaitElement({
-                    Type:  "Group",
-                    Scope: 2
-                })
-            }
-
-                static YourLibraryList {
-                    get => this.YourLibraryGroup.FindElement({
-                        Type:  "List",
-                        Name:  "Your Library",
-                        Scope: 2
-                    })
-                }
-
-                    static OldestPlaylistPlayButton {
-                        get => this.YourLibraryElement.WaitElement({
-                            Name:      "Play #\d+",
-                            Matchmode: "Regex",
-                            Type:      "Button",
-                            Scope:     2,
-                            Order:     2
-                        })
-                    }
-
-                    static DiscoveryPlaylistPlayButton {
-                        get => this.YourLibraryElement.WaitElement({
-                            Name: "Play Discovery",
-                            Type: "Button",
-                            Scope: 2
-                        })
-                    }
-
-                    static LikedPlaylistElement {
-                        get => this.YourLibraryList.FindElement({
-                            Type: "Button",
-                            Name: "Liked Songs",
-                            Matchmode: "Substring"
-                        })
-                    }
-
-        static PlaylistHeader {
-            get => this.Document.FindElement({
-                Name: "Spotify",
-                Matchmode: "Substring",
-                LocalizedType: "main",
-                Scope: 2
-            })
-        }
-
-            static PlaylistTable {
-                get => this.PlaylistHeader.FindElement({
-                    Type: "Table",
-                    Scope: 2,
-                })
-            }
-
-                static SelectedTrack {
-                    get => this.PlaylistTable.FindElement({
-                        Type: "Button",
-                        HasKeyboardFocus: true
-                    }).Parent.Parent.Parent
-                }
-
-                static GetTrackStartingFromSelected(index := 1, shouldGoForward := true) {
-                    return this.PlaylistTable.FindElement({
-                        LocalizedType: "row",
-                        Index: index,
-                        Order: shouldGoForward ? 1 : 2
-                    },,,, this.SelectedTrack)
-                }
-
-                static OpenTrackMenu(element) {
-                    element.FindElement({
-                        Type: "MenuItem",
-                        Order: 2
-                    }).Click()
                 }
 
     }
