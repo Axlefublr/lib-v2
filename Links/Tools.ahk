@@ -98,4 +98,7 @@ Links_Tools := Map(
 
     "future tools",
     "https://www.futuretools.io/",
+
+    "days since last javascript framework",
+    "https://dayssincelastjavascriptframework.com/",
 )
