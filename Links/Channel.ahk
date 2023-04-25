@@ -8,6 +8,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "how to disable warning non nullable property must contain a non null value when exiting constructor",
+    "https://youtu.be/oo5aGGNqSLk",
+
     "fix windowsapps change user folder name",
     "https://youtu.be/M9n8C14rh7w",
 
