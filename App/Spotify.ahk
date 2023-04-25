@@ -68,16 +68,6 @@ Class Spotify {
         Spotify.SkipNext()
     }
 
-    static PlayOldestPlaylist() {
-        Spotify.YesShuffle()
-        Spotify.UIA.YourLibraryButton.Click()
-    }
-
-    static PlayDiscovery() {
-        Spotify.NoShuffle()
-        Spotify.UIA.DiscoveryPlaylistElement.Click()
-    }
-
     static RemoveFromCurrentPlaylist() {
         Spotify.Context()
         Spotify.UIA.RemoveFromPlaylistElement.Click()
@@ -317,24 +307,6 @@ Class Spotify {
                         Scope: 2
                     })
                 }
-
-                    static OldestPlaylistElement {
-                        get => this.YourLibraryList.WaitElement({
-                            Name:      "Play #\d+",
-                            Matchmode: "Regex",
-                            Type:      "Button",
-                            Scope:     2,
-                            Order:     2
-                        })
-                    }
-
-                    static DiscoveryPlaylistElement {
-                        get => this.YourLibraryList.WaitElement({
-                            Type: "Button",
-                            Name: "Discovery",
-                            Matchmode: "Substring"
-                        })
-                    }
 
                     static LikedPlaylistElement {
                         get => this.YourLibraryList.FindElement({
