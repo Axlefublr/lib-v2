@@ -416,6 +416,13 @@ Class Spotify {
                     set => this.ShuffleElement.ToggleState := value
                 }
 
+        static MainView {
+            get => this.Document.WaitElement({
+                LocalizedType: "main",
+                Scope: 2
+            })
+        }
+
     }
 
     class PlaylistSorter {
