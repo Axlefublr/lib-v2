@@ -43,6 +43,7 @@ Class Spotify {
     static YesShuffle()    => Spotify.UIA.ShuffleState := true
     static NoShuffle()     => Spotify.UIA.ShuffleState := false
     static ToggleShuffle() => Spotify.UIA.ShuffleElement.Toggle()
+    static PlayPauseCurrentView() => Spotify.UIA.ViewPlayButton.Click()
 
     static AddToQueue() {
         Click("R")
@@ -426,8 +427,8 @@ Class Spotify {
             static ViewPlayButton {
                 get => this.MainView.WaitElement({
                     Type: "Button",
-                    Name: "Play Discovery",
-                    Matchmode: "Substring",
+                    Name: "Play|Pause .*",
+                    Matchmode: "Regex",
                     Scope: 2
                 })
             }
