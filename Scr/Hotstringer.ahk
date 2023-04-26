@@ -33,7 +33,7 @@
         ;; Command line
 
         "help",  "--help",
-        "helpl", "--help && less"
+        "lhelp", "--help && less",
 
         ;; Copypastas
 
