@@ -8,6 +8,6 @@ SetWorkingDir A_ScriptDir
 SetControlDelay(-1)
 SetWinDelay(-1)
 SetDefaultMouseSpeed(0)
-#Hotstring EndChars `t
+#Hotstring EndChars `t`n
 CoordMode("Mouse", "Screen")
 CoordMode("Pixel", "Client")
