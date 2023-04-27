@@ -33,7 +33,7 @@
         ;; Command line
 
         "help",  "--help",
-        "lhelp", "--help | less",
+        "helpl", "--help | less",
 
         ;; Copypastas
 
@@ -50,6 +50,6 @@
     )
     Hotstringer.DynamicHotstrings := DynamicHotstrings
     Hotstringer.StaticHotstrings := StaticHotstrings
-    Hotstringer.EndKeys .= "@{Enter}{Tab} "
+    Hotstringer.EndKeys .= "{Enter}{Tab} "
     Hotstringer.Initiate()
 }
