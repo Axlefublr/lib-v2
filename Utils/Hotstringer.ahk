@@ -9,7 +9,7 @@ class Hotstringer {
     static DynamicHotstrings := Map()
     static StaticHotstrings  := Map()
     static EndKeys := "{Esc}"
-    static CancelEndKeys := ["Escape", "Space"]
+    static CancelEndKeys := ["Escape"]
 
     static Initiate() {
         this.ih := GetInput(, this.EndKeys)

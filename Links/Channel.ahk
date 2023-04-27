@@ -8,6 +8,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "hotstringer 2",
+    "https://youtu.be/QVHT9h8VjaA",
+
     "how to disable warning non nullable property must contain a non null value when exiting constructor",
     "https://youtu.be/oo5aGGNqSLk",
 
