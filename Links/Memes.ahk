@@ -252,4 +252,7 @@ Links_Memes := Map(
     "jerma teacher noise",
     "https://www.youtube.com/watch?v=dpTte1scAm0&pp=ygUTamVybWEgdGVhY2hlciBub2lzZQ%3D%3D",
 
+    "ben shapiro barbie girl",
+    "https://www.youtube.com/watch?v=tjQiSsmiToE",
+
 )
