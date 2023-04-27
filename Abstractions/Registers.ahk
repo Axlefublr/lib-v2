@@ -1,4 +1,3 @@
-; #Include <Utils\KeyChorder> ; Suggested, but not required. Most methods require you to pass the key of a register, you can use KeyChorder to do so.
 #Include <Paths> ; For you, this isn't required. For me, it is.
 #Include <Abstractions\Text>
 #Include <Tools\Info>

@@ -3,6 +3,7 @@
 #Include <Tools\Counter>
 #Include <Tools\HoverScreenshot>
 #Include <Abstractions\Registers>
+#Include <Utils\GetInput>
 
 _BingChilling() {
     static counter := false
@@ -16,7 +17,7 @@ _BingChilling() {
 
 #sc35:: {
     sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
-    try key := Registers.ValidateKey(KeyChorder(), sValidKeys)
+    try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
     catch UnsetItemError {
         Registers.CancelAction()
         return

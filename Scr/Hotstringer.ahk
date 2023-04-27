@@ -13,6 +13,7 @@
         "date",   () => DateTime.Date,
         "week",   () => DateTime.WeekDay,
         "time",   () => DateTime.Time,
+        "dt",     () => DateTime.Date " " DateTime.Time,
         "dwt",    () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
         "uclanr", () => GetRandomWord("english") " ",
         "ilandh", () => GetRandomWord("russian") " ",
@@ -50,13 +51,4 @@
     Hotstringer.DynamicHotstrings := DynamicHotstrings
     Hotstringer.StaticHotstrings := StaticHotstrings
     Hotstringer.Initiate()
-    input := Hotstringer.ih.Input
-    endReason := Hotstringer.ih.EndReason
-    if endReason != "Match"
-        return
-    if DynamicHotstrings.Has(input)
-        output := DynamicHotstrings[input].Call()
-    else
-        output := StaticHotstrings[input]
-    ClipSend(output)
 }

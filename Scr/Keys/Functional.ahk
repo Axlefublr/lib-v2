@@ -1,6 +1,6 @@
 #Include <Abstractions\Mouse>
 #Include <Abstractions\WindowManager>
-#Include <Utils\KeyChorder>
+#Include <Utils\GetInput>
 #Include <Tools\HoverScreenshot>
 #Include <Extensions\String>
 #Include <Tools\Info>
@@ -52,12 +52,12 @@
 #0::HoverScreenshot().UseRecentScreenshot().Show()
 #k::InternetSearch("Google").TriggerSearch()
 
-#n::Registers(KeyChorder()).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
-#m::Registers(KeyChorder()).WriteOrAppend()
-#!m::Registers(KeyChorder()).Paste()
-#^m::Registers(KeyChorder()).Paste().Truncate()
-#sc33::Registers(KeyChorder()).Run()
-#!sc33::Registers(KeyChorder()).Truncate()
-#sc28::Registers(KeyChorder()).Look()
+#n::Registers(GetInput("L1", "{Esc}").Input).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
+#m::Registers(GetInput("L1", "{Esc}").Input).WriteOrAppend()
+#!m::Registers(GetInput("L1", "{Esc}").Input).Paste()
+#^m::Registers(GetInput("L1", "{Esc}").Input).Paste().Truncate()
+#sc33::Registers(GetInput("L1", "{Esc}").Input).Run()
+#!sc33::Registers(GetInput("L1", "{Esc}").Input).Truncate()
+#sc28::Registers(GetInput("L1", "{Esc}").Input).Look()
 #!sc28::Registers.PeekNonEmpty()
-#!sc34::Registers(KeyChorder()).SwitchContents(KeyChorder())
+#!sc34::Registers(GetInput("L1", "{Esc}").Input).SwitchContents(GetInput("L1", "{Esc}").Input)

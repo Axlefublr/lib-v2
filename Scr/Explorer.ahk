@@ -1,4 +1,4 @@
-#Include <Utils\KeyChorder>
+#Include <Utils\GetInput>
 #Include <App\Explorer>
 #Include <Utils\Win>
 #Include <Abstractions\Registers>
@@ -9,7 +9,7 @@
 
 <!d:: {
     sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
-    try key := Registers.ValidateKey(KeyChorder(), sValidKeys)
+    try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
     catch UnsetItemError {
         Registers.CancelAction()
         return

@@ -2,7 +2,7 @@
 #Include <App\Autohotkey>
 #Include <Tools\KeycodeGetter>
 #Include <Misc\EmojiSearch>
-#Include <Utils\KeyChorder>
+#Include <Utils\GetInput>
 #Include <App\Browser>
 #Include <App\Steam>
 #Include <App\DS4>
@@ -13,7 +13,7 @@
 
 #h:: {
     sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
-    try key := Registers.ValidateKey(KeyChorder(), sValidKeys)
+    try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
     catch UnsetItemError {
         Registers.CancelAction()
         return
