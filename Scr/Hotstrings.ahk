@@ -58,6 +58,24 @@
             STOP. DOING. MATH. Numbers were not supposed to be given names! YEARS of counting yet NO REAL WORLD USE for going higher than your FINGERS. Wanted to go higher anyway for a laugh? We had a tool for that, it was called GUESSING. "Yes please give me ZERO of something. Please give me INFINITY of it." Statements dreamed of by the utterly deranged! LOOK at what mathematicians have been DEMANDING YOUR RESPECT for with all the calculators and abacus we built for them. This is REAL math done by REAL mathematicians: "Hello, I would like *** apples please." They have played us for absolute FOOLS.
         )",
 
+        "ananas", "
+        (
+            Мужик с ананасом вместо головы заходит в бар.
+            Все женщины в баре начинают пожирать его глазами, при этом ни одна из них не замечает, что другие женщины тоже на него пяляться.
+
+            Мужик с ананасовой головой подходит к бармену, заказывает вискарь и сразу расплачивается.
+            Подав спиртное, бармен говорит :
+            – Ну, мужик, рассказывай свою историю
+
+            – Нашёл я как-то лампу с джином и загадал три желания,– отвечает ананасовоголовый.– Я попытался сформулировать свои желания как можно более точно и осторожно, поскольку знал, что джины, будучи злыми и коварными, могут обернуть желание против самого человека.
+            Сначала я загадал стать самым желанным мужчиной в мире, но при этом чтобы никто не мог принести мне какого либо вреда в порыве ревности.
+            Моим вторым желанием было всегда иметь при себе ровно столько денег сколько мне нужно для текущей покупки.
+
+            – Ого, ты как! Мудро, мудро. А что с третьим желанием?
+
+            – Именно после третьего желания всё пошло по наклонной... Я попросил джина превратить мою голову в ананас.
+        )",
+
     )
     Hotstringer.DynamicHotstrings := DynamicHotstrings
     Hotstringer.StaticHotstrings := StaticHotstrings
