@@ -1,3 +1,4 @@
+#Include <Utils\GetInput>
 #Include <Extensions\Array>
 #Include <Extensions\String>
 #Include <Utils\ClipSend>
@@ -7,14 +8,12 @@ class Hotstringer {
 
     static DynamicHotstrings := Map()
     static StaticHotstrings  := Map()
-    static EndKeys := "{Esc} "
-    static AcceptEndKeys := ["Space"]
+    static EndKeys := "{Esc}"
+    static CancelEndKeys := ["Escape"]
 
     static Initiate() {
-        this.ih := InputHook(, this.EndKeys)
-        this.ih.Start()
-        this.ih.Wait()
-        if this.ih.EndReason = "EndKey" && this.ih.EndKey != "Space" {
+        this.ih := GetInput(, this.EndKeys)
+        if this.CancelEndKeys.HasValue(this.ih.EndKey) {
             Info("exited", 500)
             return
         }
@@ -24,26 +23,13 @@ class Hotstringer {
     static Paste() {
         if this.DynamicHotstrings.Has(this.ih.Input)
             output := this.DynamicHotstrings[this.ih.Input].Call()
-        else
+        else if this.StaticHotstrings.Has(this.ih.Input)
             output := this.StaticHotstrings[this.ih.Input]
+        else {
+            Info('no key: "' this.ih.Input '"')
+            return
+        }
         ClipSend(output)
-    }
-
-
-    static _CollectMatchList() {
-        hasSingleComma := "(?<!,),(?!,)"
-        matchList := ""
-        for key, _ in this.DynamicHotstrings {
-            if key.RegExMatch(hasSingleComma)
-                throw ValueError("Make sure to put two commas for one comma",, -1)
-            matchList .= key ","
-        }
-        for key, _ in this.StaticHotstrings {
-            if key.RegExMatch(hasSingleComma)
-                throw ValueError("Make sure to put two commas for one comma",, -1)
-            matchList .= key ","
-        }
-        return matchList
     }
 
 }

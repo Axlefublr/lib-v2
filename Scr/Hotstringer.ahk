@@ -50,5 +50,6 @@
     )
     Hotstringer.DynamicHotstrings := DynamicHotstrings
     Hotstringer.StaticHotstrings := StaticHotstrings
+    Hotstringer.EndKeys .= " @{Enter}{Tab}"
     Hotstringer.Initiate()
 }
