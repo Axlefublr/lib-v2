@@ -13,3 +13,12 @@ _ArrayToString(this) {
     return str
 }
 Array.Prototype.DefineProp("ToString", { Call: _ArrayToString })
+
+_ArrayHasValue(this, valueToFind) {
+    for index, value in this {
+        if value = valueToFind
+            return true
+    }
+    return false
+}
+Array.Prototype.DefineProp("HasValue", { Call: _ArrayHasValue })
