@@ -1,3 +1,4 @@
+#Include <Utils\Hotstringer>
 #Include <Tools\CleanInputBox>
 #Include <Converters\DateTime>
 #Include <Utils\LangDict>
@@ -8,16 +9,14 @@
 #sc34:: {
     static DynamicHotstrings := Map(
 
-        "radnum",       () => Random(1000000, 9999999),
-        "justdate",     () => DateTime.Date,
-        "weekday",      () => DateTime.WeekDay,
-        "time",         () => DateTime.Time,
-        "datetime",     () => DateTime.Date " " DateTime.Time,
-        "dateweektime", () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
-        "datejustweek", () => DateTime.Date " " DateTime.WeekDay,
-        "uclanr",       () => GetRandomWord("english") " ",
-        "ilandh",       () => GetRandomWord("russian") " ",
-        "chrs",         () => CharGenerator(2).GenerateCharacters(15),
+        "radnum", () => Random(1000000, 9999999),
+        "date",   () => DateTime.Date,
+        "week",   () => DateTime.WeekDay,
+        "time",   () => DateTime.Time,
+        "dwt",    () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
+        "uclanr", () => GetRandomWord("english") " ",
+        "ilandh", () => GetRandomWord("russian") " ",
+        "chrs",   () => CharGenerator(2).GenerateCharacters(15),
 
     )
     static StaticHotstrings := Map(
@@ -48,21 +47,16 @@
         )",
 
     )
-    inputty := CleanInputBox().Show()
-    inputtyHwnd := inputty.Hwnd
-    output := ""
-    while !output {
-        if !WinExist(inputtyHwnd) {
-            break
-        }
-        text := inputty.InputField.Text
-        if DynamicHotstrings.Has(text)
-            output := DynamicHotstrings[text].Call()
-        else if StaticHotstrings.Has(text)
-            output := StaticHotstrings[text]
-    }
-    if output {
-        inputty.Finish()
-        ClipSend(output)
-    }
+    Hotstringer.DynamicHotstrings := DynamicHotstrings
+    Hotstringer.StaticHotstrings := StaticHotstrings
+    Hotstringer.Initiate()
+    input := Hotstringer.ih.Input
+    endReason := Hotstringer.ih.EndReason
+    if endReason != "Match"
+        return
+    if DynamicHotstrings.Has(input)
+        output := DynamicHotstrings[input].Call()
+    else
+        output := StaticHotstrings[input]
+    ClipSend(output)
 }
