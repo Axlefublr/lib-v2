@@ -101,4 +101,7 @@ Links_Tools := Map(
 
     "days since last javascript framework",
     "https://dayssincelastjavascriptframework.com/",
+
+    "visual event",
+    "https://sprymedia.co.uk/article/Visual+Event+2",
 )

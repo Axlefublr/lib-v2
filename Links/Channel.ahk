@@ -8,6 +8,9 @@ Links_Channel := Map(
 
     ;;Main channel videos
 
+    "parameter hints info hover suggestions code actions",
+    "https://youtu.be/2KcX_SdtHz0",
+
     "hotstringer 2",
     "https://youtu.be/QVHT9h8VjaA",
 

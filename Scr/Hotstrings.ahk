@@ -24,10 +24,10 @@
 
         ;; Words
 
-        "imm", "immediately", ; it's a hard word okay!
-        "thu", "thumbnail",
-        "imp", "implement",
-        "uni", "uninterest",
+        "imm", "immediately ", ; it's a hard word okay!
+        "thu", "thumbnail ",
+        "imp", "implement ",
+        "uni", "uninterest ",
 
         ;; Nicknames
 

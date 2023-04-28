@@ -68,4 +68,7 @@ Links_Docs := Map(
 
     "my resume",
     "https://angarsk.hh.ru/applicant/resumes/view?resume=576d62dcff0be7229b0039ed1f63783945746b",
+
+    "65 sql questions",
+    "https://habr.com/ru/companies/otus/articles/461067/",
 )
