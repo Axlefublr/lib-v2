@@ -35,6 +35,7 @@
         "t", () => Unicode.Send("thinking"),                    ; 🤔
         "-", () => Unicode.Send("long dash", " "),              ; —
         "=", () => Unicode.Send("skull"),                       ; 💀
+        "e", () => Unicode.Send("eyes"),                        ; 👀
 
     )
     if key
