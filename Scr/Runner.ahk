@@ -105,5 +105,5 @@
     regex .= ") (.+)"
     result := input.RegexMatch(regex)
     if runner_regex.Has(result[1])
-        try runner_regex[result[1]].Call(result[2])
+        runner_regex[result[1]].Call(result[2])
 }

@@ -1,3 +1,4 @@
+#Include <Notes\Info>
 #Include <Notes\Tech>
 #Include <Notes\Code>
 #Include <Notes\Terminal>
@@ -8,4 +9,5 @@ if !IsSet(Notes) {
     Notes.SafeSetMap(Notes_Terminal)
     Notes.SafeSetMap(Notes_Code)
     Notes.SafeSetMap(Notes_Tech)
+    Notes.SafeSetMap(Notes_Info)
 }

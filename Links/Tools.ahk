@@ -95,4 +95,8 @@ Links_Tools := Map(
 
     "visual event",
     "https://sprymedia.co.uk/article/Visual+Event+2",
+
+    "vanced microg",
+    "https://www.apkmirror.com/apk/team-vanced/microg-youtube-vanced/",
+
 )

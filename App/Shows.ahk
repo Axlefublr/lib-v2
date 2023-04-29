@@ -28,7 +28,7 @@ class Shows {
     }
 
 
-    static _linkRegex := "https:\/\/[^ ]+"
+    static _linkRegex := "https:.+"
 
 
     static ApplyJson() => WriteFile(this.ShowsJsonPath, JSON.stringify(this.shows))
@@ -48,7 +48,7 @@ class Shows {
             return false
         }
 
-        show := show_and_link[1]
+        show := show_and_link[1].ToTitle()
         link := show_and_link[2]
 
         if !this.shows.Has(show) {
