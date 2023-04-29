@@ -45,17 +45,6 @@
         "l",    "| less",
         "proj", "--project ",
 
-        ;; Commands
-
-        "fixprogperm", "
-        (
-            $user = "LAPTOP-FSDVNK6M\axlefublr"
-            Get-ChildItem "C:/Programming" -Recurse -Directory | ForEach-Object {
-                icacls $_.FullName /setowner $user /T
-                icacls $_.FullName /grant "${user}:(OI)(CI)F" /T
-            }
-        )",
-
         ;; Copypastas
 
         "queen",

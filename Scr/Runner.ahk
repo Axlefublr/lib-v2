@@ -1,3 +1,4 @@
+#Include <Loaders\Notes>
 #Include <App\Spotify>
 #Include <App\Davinci>
 #Include <App\Autohotkey>
@@ -66,8 +67,17 @@
         Browser.RunLink(link)
     }
 
+    static _ViewNote(input) {
+        note := Notes.Choose(input)
+        if !note
+            return
+        A_Clipboard := note
+        Infos(note)
+    }
+
     static runner_regex := Map(
 
+        "n",       (input) => _ViewNote(input),
         "go",      (input) => _GitLinkOpenCopy(input),
         "gl",      (input) => ClipSend(Git.Link(input),, false),
         "p",       (input) => _LinkPaste(input),
