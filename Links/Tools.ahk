@@ -57,12 +57,6 @@ Links_Tools := Map(
     "windows unlocker",
     "https://filehippo.com/download_unlocker/",
 
-    "lossless cut",
-    "https://github.com/mifi/lossless-cut",
-
-    "yt-dlp",
-    "https://github.com/yt-dlp/yt-dlp",
-
     "shell check",
     "https://www.shellcheck.net/",
 
@@ -86,9 +80,6 @@ Links_Tools := Map(
 
     "gpt playground",
     "https://platform.openai.com/playground/",
-
-    "fzf gh",
-    "https://github.com/junegunn/fzf",
 
     "phind",
     "https://www.phind.com/",

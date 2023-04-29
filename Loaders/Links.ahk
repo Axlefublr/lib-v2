@@ -1,3 +1,4 @@
+#Include <Links\Github>
 #Include <Links\DiscordPins>
 #Include <Links\General>
 #Include <Links\Channel>
@@ -16,4 +17,5 @@ if !IsSet(Links) {
     Links.SafeSetMap(Links_Docs)
     Links.SafeSetMap(Links_AhkLib)
     Links.SafeSetMap(Links_DiscordPins)
+    Links.SafeSetMap(Links_Github)
 }
