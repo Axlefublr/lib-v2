@@ -46,7 +46,7 @@
     "https://mail.google.com/mail/u/0/#inbox",
 
     "weather",
-    "https://yandex.ru/pogoda/",
+    "https://yandex.ru/pogoda/?lat=52.54436111&lon=103.8882446&via=srp",
 
     "2gis",
     "https://2gis.ru/",

@@ -255,4 +255,7 @@ Links_Memes := Map(
     "ben shapiro barbie girl",
     "https://www.youtube.com/watch?v=tjQiSsmiToE",
 
+    "news anchor cracking up over a swimming cat",
+    "https://youtu.be/enB2QL9Ulus",
+
 )

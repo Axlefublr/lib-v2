@@ -71,4 +71,7 @@ Links_Docs := Map(
 
     "65 sql questions",
     "https://habr.com/ru/companies/otus/articles/461067/",
+
+    "how to install revanced",
+    "https://www.reddit.com/r/revancedapp/comments/xlcny9/revanced_manager_guide_for_dummies/",
 )

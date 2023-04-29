@@ -1,3 +1,4 @@
+#Include <App\Spotify>
 #Include <App\Davinci>
 #Include <App\Autohotkey>
 #Include <Extensions\String>
@@ -15,7 +16,6 @@
 #Include <Misc\CountLibraries>
 #Include <App\FL>
 #Include <App\Gimp>
-#Include <Misc\MainApps>
 #Include <App\Shows>
 #Include <Misc\Calculator>
 #Include <App\Explorer>
@@ -33,16 +33,11 @@
         "show",   () => Shows.Run("episode"),
         "down",   () => Shows.Run("downloaded"),
 
-        "apps",    MainApps,
-        "v1 docs", () => Autohotkey.Docs.v1.RunAct(),
-        "davinci", () => Davinci.projectWinObj.RunAct(),
-        "slack",   () => Slack.winObj.RunAct(),
-        "fl",      () => FL.winObj.RunAct(),
-        "gimp",    () => Gimp.winObj.RunAct(),
+        "fl",   () => FL.winObj.RunAct(),
+        "gimp", () => Gimp.winObj.RunAct(),
 
         "ext",   () => Explorer.WinObjs.VsCodeExtensions.RunAct_Folders(),
         "saved", () => Explorer.WinObjs.SavedScreenshots.RunAct_Folders(),
-        "main",  () => VsCode.WorkSpace("Main"),
 
     )
 
@@ -55,14 +50,6 @@
         link := Git.Link(input)
         Browser.RunLink(link)
         A_Clipboard := link
-    }
-
-    static _LinkCopy(input) {
-        link := Links.Choose(input)
-        if !link
-            return
-        A_Clipboard := link
-        Info('"' link '" copied')
     }
 
     static _LinkPaste(input) {
@@ -81,11 +68,8 @@
 
     static runner_regex := Map(
 
-        "glo",     (input) => _GitLinkOpenCopy(input),
-        "gc",      (input) => A_Clipboard := Git.Link(input),
+        "go",      (input) => _GitLinkOpenCopy(input),
         "gl",      (input) => ClipSend(Git.Link(input),, false),
-        "go",      (input) => Browser.RunLink(Git.Link(input)),
-        "cpl",     (input) => _LinkCopy(input),
         "p",       (input) => _LinkPaste(input),
         "o",       (input) => _LinkOpen(input),
         "cp",      (input) => (A_Clipboard := input, Info('"' input '" copied')),

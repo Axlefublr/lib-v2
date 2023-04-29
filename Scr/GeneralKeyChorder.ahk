@@ -34,6 +34,7 @@
         "r", () => Browser.RunLink(Links["reddit"]),
         "k", KeyCodeGetter,
         "t", TimerLoader,
+        "T", () => Browser.RunLink(Links["twitch"]),
         "h", () => Browser.RunLink(Links["phind"]),
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
         "i", () => Infos(A_Clipboard),
