@@ -1,4 +1,5 @@
 #Include <Extensions\Gui>
+#Include <Extensions\String>
 
 class Infos {
 
@@ -30,6 +31,7 @@ class Infos {
     static spots        := Infos._GeneratePlacesArray()
     static foDestroyAll := (*) => Infos.DestroyAll()
     static maxNumberedHotkeys := 12
+    static maxWidthInChars := 104
 
 
     static DestroyAll() {
@@ -96,7 +98,25 @@ class Infos {
 
     _CreateGui() {
         this.gInfo  := Gui("AlwaysOnTop -Caption +ToolWindow").DarkMode().MakeFontNicer(Infos.fontSize).NeverFocusWindow()
-        this.gcText := this.gInfo.AddText(, StrReplace(this.text, "&", "&&"))
+        this.gcText := this.gInfo.AddText(, this._FormatText())
+    }
+
+    _FormatText() {
+        text := String(this.text)
+        text := this._LimitWidth(text)
+        return text.Replace("&", "&&")
+    }
+
+    _LimitWidth(text) {
+        if StrLen(text) < Infos.maxWidthInChars {
+            return text
+        }
+        insertions := 0
+        while (insertions + 1) * Infos.maxWidthInChars + insertions < StrLen(text) {
+            insertions++
+            text := text.Insert("`n", insertions * Infos.maxWidthInChars + insertions)
+        }
+        return text
     }
 
     _GetAvailableSpace() {
