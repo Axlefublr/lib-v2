@@ -1,3 +1,4 @@
+#Include <Extensions\Array>
 #Include <Extensions\Gui>
 #Include <Extensions\String>
 
@@ -105,20 +106,28 @@ class Infos {
         text := String(this.text)
         lines := text.Split("`n")
         if lines.Length > 1 {
-            newLines := []
-            for index, line in lines {
-                newLines.Push(this._LimitWidth(line))
-            }
-            text := ""
-            for index, line in newLines {
-                if index = newLines.Length {
-                    text .= line
-                    break
-                }
-                text .= line "`n"
-            }
+            text := this._FormatByLine(lines)
+        }
+        else {
+            text := this._LimitWidth(text)
         }
         return text.Replace("&", "&&")
+    }
+
+    _FormatByLine(lines) {
+        newLines := []
+        for index, line in lines {
+            newLines.Push(this._LimitWidth(line))
+        }
+        text := ""
+        for index, line in newLines {
+            if index = newLines.Length {
+                text .= line
+                break
+            }
+            text .= line "`n"
+        }
+        return text
     }
 
     _LimitWidth(text) {
