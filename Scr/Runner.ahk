@@ -41,31 +41,6 @@
 
     )
 
-    if runner_commands.Has(input) {
-        runner_commands[input].Call()
-        return
-    }
-
-    static _GitLinkOpenCopy(input) {
-        link := Git.Link(input)
-        Browser.RunLink(link)
-        A_Clipboard := link
-    }
-
-    static _LinkPaste(input) {
-        link := Environment.Links.Choose(input)
-        if !link
-            return
-        ClipSend(link,, false)
-    }
-
-    static _LinkOpen(input) {
-        link := Environment.Links.Choose(input)
-        if !link
-            return
-        Browser.RunLink(link)
-    }
-
     static runner_regex := Map(
 
         "go",      (input) => _GitLinkOpenCopy(input),
@@ -87,6 +62,12 @@
         "evp",     (input) => ClipSend(Calculator(input)),
 
     )
+
+    if runner_commands.Has(input) {
+        runner_commands[input].Call()
+        return
+    }
+
     regex := "^("
     for key, _ in runner_regex {
         regex .= key "|"
@@ -95,4 +76,25 @@
     result := input.RegexMatch(regex)
     if runner_regex.Has(result[1])
         runner_regex[result[1]].Call(result[2])
+
+    static _GitLinkOpenCopy(input) {
+        link := Git.Link(input)
+        Browser.RunLink(link)
+        A_Clipboard := link
+    }
+
+    static _LinkPaste(input) {
+        link := Environment.Links.Choose(input)
+        if !link
+            return
+        ClipSend(link,, false)
+    }
+
+    static _LinkOpen(input) {
+        link := Environment.Links.Choose(input)
+        if !link
+            return
+        Browser.RunLink(link)
+    }
+
 }
