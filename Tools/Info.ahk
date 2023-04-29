@@ -103,7 +103,21 @@ class Infos {
 
     _FormatText() {
         text := String(this.text)
-        text := this._LimitWidth(text)
+        lines := text.Split("`n")
+        if lines.Length > 1 {
+            newLines := []
+            for index, line in lines {
+                newLines.Push(this._LimitWidth(line))
+            }
+            text := ""
+            for index, line in newLines {
+                if index = newLines.Length {
+                    text .= line
+                    break
+                }
+                text .= line "`n"
+            }
+        }
         return text.Replace("&", "&&")
     }
 

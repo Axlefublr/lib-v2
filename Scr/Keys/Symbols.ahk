@@ -15,7 +15,7 @@
         "d", () => Unicode.Send("smiling imp"),                 ; 😈
         "h", () => Unicode.Send("purple heart"),                ; 💜
         "r", () => Unicode.Send("rolling eyes"),                ; 🙄
-        "n", () => Unicode.Send("handshake"),                   ; 🤝
+        "H", () => Unicode.Send("handshake"),                   ; 🤝
         "s", () => Unicode.Send("shrug"),                       ; 🤷
         "n", () => Unicode.Send("nerd"),                        ; 🤓
         "a", () => Unicode.Send("amogus"),                      ; ඞ
