@@ -36,6 +36,7 @@
         "-", () => Unicode.Send("long dash", " "),              ; —
         "=", () => Unicode.Send("skull"),                       ; 💀
         "e", () => Unicode.Send("eyes"),                        ; 👀
+        "z", () => Unicode.Send("sneezing face"),               ; 🤧
 
     )
     if key
