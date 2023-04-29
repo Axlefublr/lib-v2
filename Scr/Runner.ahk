@@ -86,7 +86,6 @@
         "install", (input) => Git.InstallAhkLibrary(input),
         "ev",      (input) => Infos(Calculator(input)),
         "evp",     (input) => ClipSend(Calculator(input)),
-        "i",       (input) => Infos(input),
 
     )
     regex := "^("

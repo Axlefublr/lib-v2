@@ -29,6 +29,12 @@
         Infos(note)
     }
 
+    static _ShowInInfo() {
+        if !input := CleanInputBox().WaitForInput()
+            return
+        Infos(input)
+    }
+
     static actions := Map(
 
         "m", () => Browser.RunLink(Links["gmail"]),
@@ -50,6 +56,7 @@
         "k", KeyCodeGetter,
         "t", TimerLoader,
         "o", _ViewNote,
+        "i", _ShowInInfo,
 
     )
     if key
