@@ -18,6 +18,17 @@
         Registers.CancelAction()
         return
     }
+
+    static _ViewNote() {
+        if !input := CleanInputBox().WaitForInput()
+            return
+        note := Notes.Choose(input)
+        if !note
+            return
+        A_Clipboard := note
+        Infos(note)
+    }
+
     static actions := Map(
 
         "m", () => Browser.RunLink(Links["gmail"]),
@@ -32,12 +43,13 @@
         "s", () => Steam.winObj.App(),
         "a", () => Autohotkey.Docs.v2.winObj.App(),
         "r", () => Browser.RunLink(Links["reddit"]),
-        "k", KeyCodeGetter,
-        "t", TimerLoader,
         "T", () => Browser.RunLink(Links["twitch"]),
         "h", () => Browser.RunLink(Links["phind"]),
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
-        "i", () => Infos(A_Clipboard),
+        "c", () => Infos(A_Clipboard),
+        "k", KeyCodeGetter,
+        "t", TimerLoader,
+        "o", _ViewNote,
 
     )
     if key
