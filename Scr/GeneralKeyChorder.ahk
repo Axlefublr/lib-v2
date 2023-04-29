@@ -6,7 +6,7 @@
 #Include <App\Browser>
 #Include <App\Steam>
 #Include <App\DS4>
-#Include <Loaders\Links>
+#Include <Environment>
 #Include <Abstractions\Registers>
 #Include <Converters\Layouts>
 #Include <Misc\TimerLoader>
@@ -22,7 +22,7 @@
     static _ViewNote() {
         if !input := CleanInputBox().WaitForInput()
             return
-        note := Notes.Choose(input)
+        note := Environment.Notes.Choose(input)
         if !note
             return
         A_Clipboard := note
@@ -37,20 +37,20 @@
 
     static actions := Map(
 
-        "m", () => Browser.RunLink(Links["gmail"]),
-        "n", () => Browser.RunLink(Links["monkeytype"]),
-        "g", () => Browser.RunLink(Links["ghm"]),
-        "f", () => Browser.RunLink(Links["skill factory"]),
-        "p", () => Browser.RunLink(Links["gpt"]),
-        "P", () => Browser.RunLink(Links["gpt playground"]),
-        "x", () => Browser.RunLink(Links["regex"]),
-        "w", () => Browser.RunLink(Links["wildberries"]),
+        "m", () => Browser.RunLink(Environment.Links["gmail"]),
+        "n", () => Browser.RunLink(Environment.Links["monkeytype"]),
+        "g", () => Browser.RunLink(Environment.Links["ghm"]),
+        "f", () => Browser.RunLink(Environment.Links["skill factory"]),
+        "p", () => Browser.RunLink(Environment.Links["gpt"]),
+        "P", () => Browser.RunLink(Environment.Links["gpt playground"]),
+        "x", () => Browser.RunLink(Environment.Links["regex"]),
+        "w", () => Browser.RunLink(Environment.Links["wildberries"]),
         "d", () => DS4.winObj.App(),
         "s", () => Steam.winObj.App(),
         "a", () => Autohotkey.Docs.v2.winObj.App(),
-        "r", () => Browser.RunLink(Links["reddit"]),
-        "T", () => Browser.RunLink(Links["twitch"]),
-        "h", () => Browser.RunLink(Links["phind"]),
+        "r", () => Browser.RunLink(Environment.Links["reddit"]),
+        "T", () => Browser.RunLink(Environment.Links["twitch"]),
+        "h", () => Browser.RunLink(Environment.Links["phind"]),
         "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
         "c", () => Infos(A_Clipboard),
         "k", KeyCodeGetter,

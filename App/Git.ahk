@@ -2,7 +2,7 @@
 #Include <Tools\Info>
 #Include <Abstractions\Text>
 #Include <Utils\Cmd>
-#Include <Loaders\Links>
+#Include <Environment>
 #Include <System\Web>
 
 Class Git {
@@ -57,7 +57,7 @@ Class Git {
     * @returns {String} the github link
     */
     static Link(path) {
-        static github := Links["ghm"] ;Specify you github link (https://github.com/yourNickname/)
+        static github := Environment.Links["ghm"] ;Specify you github link (https://github.com/yourNickname/)
         static fileBlob := "/blob/main/" ;The part between the name of the repo and the other file path is different depending on whether it's a file or a folder
         static folderBlob := "/tree/main/"
 

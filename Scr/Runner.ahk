@@ -1,9 +1,8 @@
-#Include <Loaders\Notes>
+#Include <Environment>
 #Include <App\Spotify>
 #Include <App\Davinci>
 #Include <App\Autohotkey>
 #Include <Extensions\String>
-#Include <Loaders\Links>
 #Include <Utils\ClipSend>
 #Include <Extensions\String>
 #Include <Utils\Win>
@@ -54,14 +53,14 @@
     }
 
     static _LinkPaste(input) {
-        link := Links.Choose(input)
+        link := Environment.Links.Choose(input)
         if !link
             return
         ClipSend(link,, false)
     }
 
     static _LinkOpen(input) {
-        link := Links.Choose(input)
+        link := Environment.Links.Choose(input)
         if !link
             return
         Browser.RunLink(link)
