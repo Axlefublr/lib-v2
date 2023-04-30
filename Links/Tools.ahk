@@ -96,4 +96,7 @@ Links_Tools := Map(
     "vanced microg",
     "https://www.apkmirror.com/apk/team-vanced/microg-youtube-vanced/",
 
+    "unix timestamp",
+    "https://www.unixtimestamp.com/",
+
 )

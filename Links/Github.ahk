@@ -14,6 +14,15 @@ Links_Github := Map(
     "gst html elements",
     "https://gist.github.com/Axlefublr/3975a3a934e321d2d49a920bb840408d",
 
+    "gst lua",
+    "https://gist.github.com/Axlefublr/343ac78e88513a3883d4a4efebb9303d",
+
+    "gst math",
+    "https://gist.github.com/Axlefublr/530e90e0d4fd6e3eb2a55486691b501b",
+
+    "gst C#",
+    "https://gist.github.com/Axlefublr/af86b7a224842345d28b98afe59d56c4",
+
     ;; Repos
 
     "gh lossless cut",

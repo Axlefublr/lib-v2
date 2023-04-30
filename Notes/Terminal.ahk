@@ -21,9 +21,6 @@ Notes_Terminal := Map(
         ffmpeg -f concat -safe 0 -i inputs.txt -c copy final_output.mp4
     )",
 
-    "gh repo fork",
-    "gh repo fork [username]/[repository] --clone",
-
     "passing arguments to bash functions and scripts", "
     (
         $? — contains the last command's error code

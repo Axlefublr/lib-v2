@@ -1,4 +1,6 @@
 #Include <Notes\Long>
+#Include <Notes\Git>
+#Include <Notes\Math>
 #Include <Links\Github>
 #Include <Links\DiscordPins>
 #Include <Links\General>
@@ -53,6 +55,8 @@ class Environment {
         Notes.SafeSetMap(Notes_Tech)
         Notes.SafeSetMap(Notes_Info)
         Notes.SafeSetMap(Notes_Long)
+        Notes.SafeSetMap(Notes_Math)
+        Notes.SafeSetMap(Notes_Git)
         return Notes
     }
 
