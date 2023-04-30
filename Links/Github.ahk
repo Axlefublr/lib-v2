@@ -37,4 +37,90 @@ Links_Github := Map(
     "gh fzf",
     "https://github.com/junegunn/fzf",
 
+    "gh vscode neovim extension",
+    "https://github.com/vscode-neovim/vscode-neovim",
+
+    ;; Vim plugins
+
+    "gh vim textobj user repo",
+    "https://github.com/kana/vim-textobj-user",
+
+    "gh vim entire file repo",
+    "https://github.com/kana/vim-textobj-entire",
+
+    "gh vim inside indent repo",
+    "https://github.com/michaeljsmith/vim-indent-object",
+
+    "gh vim inside line repo",
+    "https://github.com/kana/vim-textobj-line",
+
+    "gh vim more text objects",
+    "https://github.com/wellle/targets.vim",
+
+    "gh vim lualine",
+    "https://github.com/nvim-lualine/lualine.nvim",
+
+    "gh vim nightfox theme",
+    "https://github.com/EdenEast/nightfox.nvim",
+
+    "gh vim everforest theme",
+    "https://github.com/sainnhe/everforest",
+
+    "gh vim gruvbox material theme",
+    "https://github.com/sainnhe/gruvbox-material",
+
+    "gh vim tender theme",
+    "https://github.com/jacoborus/tender.vim",
+
+    "gh vim melange theme",
+    "https://github.com/savq/melange",
+
+    "gh vim edge theme",
+    "https://github.com/sainnhe/edge",
+
+    "gh vim hop easymotion",
+    "https://github.com/phaazon/hop.nvim",
+
+    "gh vim surround",
+    "https://github.com/kylechui/nvim-surround",
+
+    "gh vim move",
+    "https://github.com/fedepujol/move.nvim",
+
+    "gh vim easy align",
+    "https://github.com/junegunn/vim-easy-align",
+
+    "gh vim vim polyglot",
+    "https://github.com/sheerun/vim-polyglot",
+
+    "gh vim repeat",
+    "https://github.com/tpope/vim-repeat",
+
+    "gh vim be good",
+    "https://github.com/ThePrimeagen/vim-be-good",
+
+    "gh vim camel case motion",
+    "https://github.com/bkad/CamelCaseMotion",
+
+    "gh vim marks",
+    "https://github.com/chentoast/marks.nvim",
+
+    "gh vim replace with register",
+    "https://github.com/vim-scripts/ReplaceWithRegister",
+
+    "gh vim title case",
+    "https://github.com/christoomey/vim-titlecase",
+
+    "gh vim commentary",
+    "https://github.com/tpope/vim-commentary",
+
+    "gh vim ahk language support",
+    "https://github.com/huleiak47/vim-AHKcomplete",
+
+    "gh vim last place",
+    "https://github.com/farmergreg/vim-lastplace",
+
+    "gh vim css colors",
+    "https://github.com/ap/vim-css-color",
+
 )
