@@ -261,4 +261,7 @@ Links_Memes := Map(
     "casually recites the bing chilling verse then goes back to chess",
     "https://www.youtube.com/watch?v=KwC16WlpYWQ",
 
+    "hello fat fetish artist",
+    "https://www.youtube.com/watch?v=TGAtMNn3td0",
+
 )

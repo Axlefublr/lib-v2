@@ -1,3 +1,4 @@
+#Include <Notes\Vim>
 #Include <Notes\Long>
 #Include <Notes\Git>
 #Include <Notes\Math>
@@ -57,6 +58,7 @@ class Environment {
         Notes.SafeSetMap(Notes_Long)
         Notes.SafeSetMap(Notes_Math)
         Notes.SafeSetMap(Notes_Git)
+        Notes.SafeSetMap(Notes_Vim)
         return Notes
     }
 

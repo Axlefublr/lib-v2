@@ -23,6 +23,9 @@ Links_Github := Map(
     "gst C#",
     "https://gist.github.com/Axlefublr/af86b7a224842345d28b98afe59d56c4",
 
+    "gst vscode neovim api",
+    "https://gist.github.com/Axlefublr/b05d91c0e39f265e35bc7cc7d591645e",
+
     ;; Repos
 
     "gh lossless cut",
