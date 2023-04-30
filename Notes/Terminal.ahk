@@ -9,4 +9,7 @@ Notes_Terminal := Map(
         }
     )",
 
+    "cmd close a process",
+    "taskkill /f /im name.exe",
+
 )

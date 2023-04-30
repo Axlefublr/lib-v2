@@ -28,6 +28,7 @@
         "thu", "thumbnail ",
         "imp", "implement ",
         "uni", "uninterest ",
+        "abb", "abbreviation",
 
         ;; Nicknames
 

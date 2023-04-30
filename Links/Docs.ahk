@@ -68,4 +68,8 @@ Links_Docs := Map(
 
     "how to install revanced",
     "https://www.reddit.com/r/revancedapp/comments/xlcny9/revanced_manager_guide_for_dummies/",
+
+    "html standard",
+    "https://html.spec.whatwg.org/multipage/",
+
 )
