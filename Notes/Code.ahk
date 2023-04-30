@@ -9,4 +9,15 @@ Notes_Code := Map(
     "iframe website inside of website",
     '<iframe src="URL" width="200" height="200"></iframe>',
 
+    "bash if statements", "
+    (
+        if [ $name == "Alisa" ]; then
+            echo "Your name is $name"
+        elif [ $name == "AnotherName" ]; then
+            echo "Your name is $name"
+        else
+            echo "Your name is not Alisa"
+        fi
+    )",
+
 )

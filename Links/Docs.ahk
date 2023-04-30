@@ -72,4 +72,7 @@ Links_Docs := Map(
     "html standard",
     "https://html.spec.whatwg.org/multipage/",
 
+    "zsh built in plugins",
+    "https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins",
+
 )

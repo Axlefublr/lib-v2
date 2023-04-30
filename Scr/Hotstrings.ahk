@@ -29,6 +29,7 @@
         "imp", "implement ",
         "uni", "uninterest ",
         "abb", "abbreviation",
+        "unf", "unfavorite ",
 
         ;; Nicknames
 
@@ -41,11 +42,13 @@
 
         ;; Command line
 
-        "h",    "--help",
-        "hl",   "--help | less",
-        "l",    "| less",
-        "proj", "--project ",
-        "vers", "--version",
+        "h",     "--help",
+        "hl",    "--help | less",
+        "l",     "| less",
+        "proj",  "--project ",
+        "vers",  "--version",
+        "color", "--color=always",
+        "sta",   "--staged ",
 
     )
     Hotstringer.DynamicHotstrings := DynamicHotstrings
