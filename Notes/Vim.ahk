@@ -35,4 +35,16 @@ Notes_Vim := Map(
         t Terminal-Job
     )",
 
+    "vim settings variables", "
+    (
+        vim.o`tgeneral setttings
+        vim.wo`twindow scoped settings
+        vim.bo`tbuffer scoped settings
+        vim.g`tglobal settings
+        vim.env`tenvironment settings
+        vim.opt`tworks for setting pretty much anything
+        vim.fn`tcalls a vim function
+        vim.call same thing, but you provide the name of the function as a string
+    )",
+
 )
