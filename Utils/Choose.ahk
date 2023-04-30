@@ -3,6 +3,8 @@
 Choose(options*) {
     infoObjs := [Infos("")]
     for index, option in options {
+        if infoObjs.Length >= Infos.maximumInfos
+            break
         infoObjs.Push(Infos(option))
     }
     loop {
