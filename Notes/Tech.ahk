@@ -6,4 +6,15 @@ Notes_Tech := Map(
         paint in vscode: luna paint
     )",
 
+    "@things ahk", "
+    (
+        * private
+        * protected
+        * example - Use the `<caption>` tag to give a caption (recommended). Everything after is code
+        * extends
+        * throws
+        * type
+        * returns?
+    )",
+
 )

@@ -258,4 +258,7 @@ Links_Memes := Map(
     "news anchor cracking up over a swimming cat",
     "https://youtu.be/enB2QL9Ulus",
 
+    "casually recites the bing chilling verse then goes back to chess",
+    "https://www.youtube.com/watch?v=KwC16WlpYWQ",
+
 )
