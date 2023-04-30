@@ -39,6 +39,12 @@
 
     ;; Services
 
+    "imgur",
+    "https://imgur.com/upload",
+
+    "imgbb",
+    "https://imgbb.com/",
+
     "yt comments",
     "https://studio.youtube.com/channel/UCEBqPAhcQlx36jnSEPMEaAw/comments",
 

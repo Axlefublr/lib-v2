@@ -11,6 +11,9 @@ Links_Github := Map(
     "gst lscolors",
     "https://gist.github.com/thomd/7667642",
 
+    "gst html elements",
+    "https://gist.github.com/Axlefublr/3975a3a934e321d2d49a920bb840408d",
+
     ;; Repos
 
     "gh lossless cut",

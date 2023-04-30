@@ -44,6 +44,7 @@
         "hl",   "--help | less",
         "l",    "| less",
         "proj", "--project ",
+        "vers", "--version",
 
         ;; Copypastas
 

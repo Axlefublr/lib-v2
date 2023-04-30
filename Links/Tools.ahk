@@ -27,9 +27,6 @@ Links_Tools := Map(
     "regex",
     "https://regex101.com/",
 
-    "img",
-    "https://imgur.com/upload",
-
     "1secmail",
     "https://www.1secmail.com/",
 
