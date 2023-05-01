@@ -1,6 +1,6 @@
 Notes_Terminal := [
 
-    "claim ownership of a directory powershell", "
+    "psh claim ownership of a directory", "
     (
         $user = "LAPTOP-FSDVNK6M\axlefublr"
         Get-ChildItem "C:/Programming" -Recurse -Directory | ForEach-Object {
@@ -57,6 +57,11 @@ Notes_Terminal := [
     (
         `[]` a class of characters, accepts a range as well
         ``filename{1..10}` will catch filename1, filename2, filename3, etc up to 10 (including)
+    )",
+
+    "psh pipeline", "
+    (
+        echo "input text" | pwsh -c "Get-Content - | ForEach-Object { $_.ToUpper() }" | further_linux_command
     )",
 
 ]

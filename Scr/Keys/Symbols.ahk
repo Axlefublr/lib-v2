@@ -38,6 +38,7 @@
         "e", () => Unicode.Send("eyes"),                        ; 👀
         "z", () => Unicode.Send("sneezing face"),               ; 🤧
         "g", () => Unicode.Send("grimacing"),                   ; 😬
+        "d", () => ClipSend("😵‍💫"),                           ; 😵‍💫
 
     )
     if key

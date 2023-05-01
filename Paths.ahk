@@ -33,7 +33,7 @@ Class Paths {
 
     static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
-    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode\extensions"
+    static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode-insiders\extensions"
     static SavedScreenshots := Paths.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
 
     static Ptf := Map(

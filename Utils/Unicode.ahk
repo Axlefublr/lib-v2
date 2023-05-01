@@ -4,6 +4,7 @@ class Unicode {
 
     static Symbols := Map(
 
+        " ",                        0x0020,
         "pleading",                 0x1F97A, ; 🥺
         "yum",                      0x1F60B, ; 😋
         "exploding head",           0x1F92F, ; 🤯
@@ -26,7 +27,6 @@ class Unicode {
         "smiling imp",              0x1F608, ; 😈
         "fearful",                  0x1F628, ; 😨
         "middle dot",               0x00B7,  ; ·
-        "discord escape",           0x001B,
         "long dash",                0x2014,  ; —
         "sun",                      0x2600,  ; ☀
         "cloud",                    0x2601,  ; ☁
@@ -36,10 +36,11 @@ class Unicode {
         "clap",                     0x1F44F, ; 👏
         "amogus",                   0x0D9E,  ; ඞ
         "confetti",                 0x1F389, ; 🎉
-        " ",                        0x0020,
         "eyes",                     0x1F440, ; 👀
-        "sneezing face",            0x1F927,  ; 🤧
-        "grimacing",                0x1F62C  ; 😬
+        "sneezing face",            0x1F927, ; 🤧
+        "grimacing",                0x1F62C, ; 😬
+        "crossed out",              0x1F635, ;
+        "dizzy",                    0x1F4AB  ;
 
     )
 
