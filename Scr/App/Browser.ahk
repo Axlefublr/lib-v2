@@ -16,6 +16,7 @@
 !7::Send("^7")
 !8::Send("^8")
 !9::Send("^9")
+!0::Send("^9")
 !sc33::PrevTab()
 !sc34::NextTab()
 
