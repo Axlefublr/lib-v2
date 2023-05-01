@@ -1,10 +1,11 @@
-﻿;No dependencies
+﻿#Include <Utils\ClipSend>
 
 class Unicode {
 
     static Symbols := Map(
 
         " ",                        0x0020,
+        "zwj",                      0x200D,
         "pleading",                 0x1F97A, ; 🥺
         "yum",                      0x1F60B, ; 😋
         "exploding head",           0x1F92F, ; 🤯
@@ -53,7 +54,7 @@ class Unicode {
         output := ""
         for index, symbol in symbols
             output .= Chr(this.Symbols[symbol])
-        Send(output)
+        ClipSend(output)
     }
 
 }
