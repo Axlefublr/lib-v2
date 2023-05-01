@@ -99,4 +99,7 @@ Links_Tools := Map(
     "unix timestamp",
     "https://www.unixtimestamp.com/",
 
+    "caniuse",
+    "https://caniuse.com/",
+
 )

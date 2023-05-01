@@ -20,4 +20,10 @@ Notes_Code := Map(
         fi
     )",
 
+    "C# console encoding", "
+    (
+        Console.OutputEncoding = Encoding.Unicode;
+        Console.InputEncoding  = Encoding.Unicode;
+    )",
+
 )

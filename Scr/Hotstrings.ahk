@@ -30,6 +30,7 @@
         "uni", "uninterest ",
         "abb", "abbreviation",
         "unf", "unfavorite ",
+        "aba", "abbrev-alias ",
 
         ;; Nicknames
 
@@ -49,6 +50,8 @@
         "vers",  "--version",
         "color", "--color=always",
         "sta",   "--staged ",
+        "C",     "C# en-us",
+        "en",    "en-us",
 
     )
     Hotstringer.DynamicHotstrings := DynamicHotstrings

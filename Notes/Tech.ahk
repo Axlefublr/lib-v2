@@ -4,6 +4,9 @@ Notes_Tech := Map(
     (
         a simpler gitlens: git history
         paint in vscode: luna paint
+        advanced-new-file
+        an alternative to codesnap: snappify
+        vscode-autohotkey-debug
     )",
 
     "@things ahk", "
