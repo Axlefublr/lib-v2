@@ -38,7 +38,8 @@ class Unicode {
         "confetti",                 0x1F389, ; 🎉
         " ",                        0x0020,
         "eyes",                     0x1F440, ; 👀
-        "sneezing face",            0x1F927  ; 🤧
+        "sneezing face",            0x1F927,  ; 🤧
+        "grimacing",                0x1F62C  ; 😬
 
     )
 
