@@ -1,4 +1,4 @@
-Notes_Git := Map(
+Notes_Git := [
 
     ;; Github
 
@@ -60,4 +60,4 @@ Notes_Git := Map(
 
     "git pick the upstream branch for future pushes and push to it",
     "git push -u origin main",
-)
+]

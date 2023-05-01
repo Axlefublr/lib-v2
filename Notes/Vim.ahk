@@ -1,4 +1,4 @@
-Notes_Vim := Map(
+Notes_Vim := [
 
     "vim ranges", "
     (
@@ -47,4 +47,4 @@ Notes_Vim := Map(
         vim.call same thing, but you provide the name of the function as a string
     )",
 
-)
+]

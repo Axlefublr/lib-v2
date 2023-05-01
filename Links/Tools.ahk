@@ -1,4 +1,4 @@
-Links_Tools := Map(
+Links_Tools := [
 
     "ninja api",
     "https://api-ninjas.com/",
@@ -102,4 +102,4 @@ Links_Tools := Map(
     "caniuse",
     "https://caniuse.com/",
 
-)
+]

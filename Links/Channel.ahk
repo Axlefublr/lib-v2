@@ -1,4 +1,4 @@
-Links_Channel := Map(
+Links_Channel := [
 
     "channel",
     "https://www.youtube.com/@Axlefublr",
@@ -475,4 +475,4 @@ Links_Channel := Map(
 
     "vscode C#",
     "https://www.youtube.com/watch?v=r5dtl9Uq9V0",
-)
+]

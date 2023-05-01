@@ -1,4 +1,4 @@
-Notes_Code := Map(
+Notes_Code := [
 
     "clickthrough gui",
     "+E0x20`nWinSetTransparent(255, guiWinTitle)",
@@ -26,4 +26,4 @@ Notes_Code := Map(
         Console.InputEncoding  = Encoding.Unicode;
     )",
 
-)
+]

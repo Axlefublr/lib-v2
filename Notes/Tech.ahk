@@ -1,4 +1,4 @@
-Notes_Tech := Map(
+Notes_Tech := [
 
     "vscode extensions", "
     (
@@ -40,4 +40,4 @@ Notes_Tech := Map(
     "time in seconds, relative countdown timer",
     "<t:1655282000:R>",
 
-)
+]

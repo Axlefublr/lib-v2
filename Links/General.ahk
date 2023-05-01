@@ -1,4 +1,4 @@
-﻿Links_General := Map(
+﻿Links_General := [
 
     ;; Social
 
@@ -83,4 +83,4 @@
     "dodo",
     "https://dodopizza.ru/angarsk/mikrorayon18",
 
-)
+]

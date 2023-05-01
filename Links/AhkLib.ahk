@@ -1,4 +1,4 @@
-Links_AhkLib := Map(
+Links_AhkLib := [
 
     "versus",
     "https://gist.github.com/Lexikos/a871ca393387b37204ccb4f36f2c5ddc",
@@ -83,4 +83,4 @@ Links_AhkLib := Map(
     "iseahound imageput",
     "https://github.com/iseahound/ImagePut",
 
-)
+]

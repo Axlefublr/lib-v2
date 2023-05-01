@@ -1,4 +1,4 @@
-Links_Docs := Map(
+Links_Docs := [
 
     "ascii codes",
     "https://theasciicode.com.ar/",
@@ -75,4 +75,4 @@ Links_Docs := Map(
     "zsh built in plugins",
     "https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins",
 
-)
+]

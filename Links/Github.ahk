@@ -1,4 +1,4 @@
-Links_Github := Map(
+Links_Github := [
 
     ;; Gists
 
@@ -123,4 +123,4 @@ Links_Github := Map(
     "gh vim css colors",
     "https://github.com/ap/vim-css-color",
 
-)
+]

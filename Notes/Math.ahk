@@ -1,5 +1,5 @@
-Notes_Math := Map(
+Notes_Math := [
 
 
 
-)
+]

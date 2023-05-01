@@ -1,4 +1,4 @@
-Notes_Terminal := Map(
+Notes_Terminal := [
 
     "claim ownership of a directory powershell", "
     (
@@ -59,4 +59,4 @@ Notes_Terminal := Map(
         ``filename{1..10}` will catch filename1, filename2, filename3, etc up to 10 (including)
     )",
 
-)
+]

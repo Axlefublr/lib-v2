@@ -19,8 +19,8 @@
 
 class Environment {
 
-    static Notes := this._GenerateNotesMap()
-    static Links := this._GenerateLinksMap()
+    ; static Notes := this._GenerateNotesMap()
+    ; static Links := this._GenerateLinksMap()
 
     static _vimMode := false
     static VimMode {
@@ -51,27 +51,27 @@ class Environment {
 
     static _GenerateNotesMap() {
         Notes := Map()
-        Notes.SafeSetMap(Notes_Terminal)
-        Notes.SafeSetMap(Notes_Code)
-        Notes.SafeSetMap(Notes_Tech)
-        Notes.SafeSetMap(Notes_Info)
-        Notes.SafeSetMap(Notes_Long)
-        Notes.SafeSetMap(Notes_Math)
-        Notes.SafeSetMap(Notes_Git)
-        Notes.SafeSetMap(Notes_Vim)
+        Notes.Set(Notes_Terminal*)
+        Notes.Set(Notes_Code*)
+        Notes.Set(Notes_Tech*)
+        Notes.Set(Notes_Info*)
+        Notes.Set(Notes_Long*)
+        Notes.Set(Notes_Math*)
+        Notes.Set(Notes_Git*)
+        Notes.Set(Notes_Vim*)
         return Notes
     }
 
     static _GenerateLinksMap() {
         Links := Map()
-        Links.SafeSetMap(Links_General)
-        Links.SafeSetMap(Links_Channel)
-        Links.SafeSetMap(Links_Memes)
-        Links.SafeSetMap(Links_Tools)
-        Links.SafeSetMap(Links_Docs)
-        Links.SafeSetMap(Links_AhkLib)
-        Links.SafeSetMap(Links_DiscordPins)
-        Links.SafeSetMap(Links_Github)
+        Links.Set(Links_General*)
+        Links.Set(Links_Channel*)
+        Links.Set(Links_Memes*)
+        Links.Set(Links_Tools*)
+        Links.Set(Links_Docs*)
+        Links.Set(Links_AhkLib*)
+        Links.Set(Links_DiscordPins*)
+        Links.Set(Links_Github*)
         return Links
     }
 
