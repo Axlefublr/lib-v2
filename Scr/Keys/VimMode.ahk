@@ -1,3 +1,5 @@
+#Include <Tools\CleanInputBox>
+#Include <Tools\Counter>
 #Include <App\Screenshot>
 #Include <Abstractions\WindowManager>
 #Include <Abstractions\MediaActions>
@@ -160,6 +162,23 @@ sc34::MediaActions.SkipNext()
 sc1A::Screenshot.Start()
 +sc1A::Send("+{PrintScreen}")
 !sc1A::Send("!{PrintScreen}")
+
+F1::Counter.Decrement().Show()
+F2::Counter.Increment().Show()
+F3::Counter.Send()
+F4::Counter.Send().Increment()
+F5::Counter.Show()
+F6::Counter.Reset().Show()
+F7:: {
+    Environment.VimMode := false
+    input := CleanInputBox().WaitForInput()
+    Environment.VimMode := true
+    if !input {
+        return
+    }
+    Counter.num := input
+    Counter.Show()
+}
 
 -::return
 =::return

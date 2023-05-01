@@ -18,20 +18,6 @@
 #Space::Language.Toggle()
 #HotIf
 
-#!-::Counter.Decrement().Show()
-#!=::Counter.Increment().Show()
-#!sc1A::Counter.Send()
-#!sc1B::Counter.Send().Increment()
-#!sc2B:: {
-    if !input := CleanInputBox().WaitForInput() {
-        return
-    }
-    Counter.num := input
-    Counter.Show()
-}
-#!9::Counter.Show()
-#!0::Counter.Reset().Show()
-
 #7::Brightness.ChangeBrightnessRelative(-10)
 #8::Brightness.ChangeBrightnessRelative(10)
 
