@@ -158,6 +158,8 @@ sc33::MediaActions.SkipPrev()
 sc34::MediaActions.SkipNext()
 
 sc1A::Screenshot.Start()
++sc1A::Send("+{PrintScreen}")
+!sc1A::Send("!{PrintScreen}")
 
 -::return
 =::return

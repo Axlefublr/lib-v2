@@ -26,4 +26,10 @@ Notes_Code := [
         Console.InputEncoding  = Encoding.Unicode;
     )",
 
+    "html subscript underscript",
+    "<sub>subscript</sub>",
+
+    "html superscript",
+    "<sup>superscript</sup>",
+
 ]

@@ -19,8 +19,8 @@
 
 class Environment {
 
-    ; static Notes := this._GenerateNotesMap()
-    ; static Links := this._GenerateLinksMap()
+    static Notes := this._GenerateNotesMap()
+    static Links := this._GenerateLinksMap()
 
     static _vimMode := false
     static VimMode {

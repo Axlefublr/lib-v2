@@ -39,17 +39,17 @@ Reverse(mapObj) {
 }
 Map.Prototype.DefineProp("Reverse", {Call: Reverse})
 
-Map___New_Call := Map.Prototype.GetOwnPropDesc("__New").Call
-Map.Prototype.DefineProp("__New", {Call: Map___New_Call_Custom})
-Map___New_Call_Custom(this, params*) {
-    if (params.Length = 1 && IsObject(params[1])) {
-        for key, value in params[1].OwnProps()
-            this[key] := value
-    }
-    else {
-        Map___New_Call(this, params*)
-    }
-}
+; Map___New_Call := Map.Prototype.GetOwnPropDesc("__New").Call
+; Map.Prototype.DefineProp("__New", {Call: Map___New_Call_Custom})
+; Map___New_Call_Custom(this, params*) {
+;     if (params.Length = 1 && IsObject(params[1])) {
+;         for key, value in params[1].OwnProps()
+;             this[key] := value
+;     }
+;     else {
+;         Map___New_Call(this, params*)
+;     }
+; }
 
 _ChooseMap(this, keyName) {
     if this.Has(keyName)
