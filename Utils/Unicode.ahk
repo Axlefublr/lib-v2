@@ -41,7 +41,8 @@ class Unicode {
         "sneezing face",            0x1F927, ; 🤧
         "grimacing",                0x1F62C, ; 😬
         "crossed out",              0x1F635, ;
-        "dizzy",                    0x1F4AB  ;
+        "dizzy",                    0x1F4AB, ;
+        "face with hearts",         0x1F970, ; 🥰
 
     )
 

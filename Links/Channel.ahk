@@ -32,7 +32,7 @@ Links_Channel := [
     "refactoring shows 4",
     "https://youtu.be/kTu5Bo8sKmY",
 
-    "comment documentation",
+    "vscode ahk v2 comment documentation",
     "https://youtu.be/uhx4JyT1wE0",
 
     "choose",

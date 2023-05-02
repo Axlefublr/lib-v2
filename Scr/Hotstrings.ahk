@@ -24,13 +24,14 @@
 
         ;; Words
 
-        "imm", "immediately ", ; it's a hard word okay!
-        "thu", "thumbnail ",
-        "imp", "implement ",
-        "uni", "uninterest ",
-        "abb", "abbreviation",
-        "unf", "unfavorite ",
-        "aba", "abbrev-alias ",
+        "imm",  "immediately ", ; it's a hard word okay!
+        "thu",  "thumbnail ",
+        "imp",  "implement ",
+        "uni",  "uninterest ",
+        "abb",  "abbreviation",
+        "unf",  "unfavorite ",
+        "aba",  "abbrev-alias ",
+        "cata", "cataclysmic",
 
         ;; Nicknames
 

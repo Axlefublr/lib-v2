@@ -16,7 +16,7 @@
         "h", () => Unicode.Send("purple heart"),                ; 💜
         "r", () => Unicode.Send("rolling eyes"),                ; 🙄
         "H", () => Unicode.Send("handshake"),                   ; 🤝
-        "s", () => ClipSend("🤷‍♀️"),                            ; 🤷‍♀️
+        "s", () => ClipSend("🤷‍♀️"),                       ; 🤷‍♀️
         "n", () => Unicode.Send("nerd"),                        ; 🤓
         "a", () => Unicode.Send("amogus"),                      ; ඞ
         "c", () => Unicode.Send("confetti"),                    ; 🎉
@@ -38,7 +38,8 @@
         "e", () => Unicode.Send("eyes"),                        ; 👀
         "z", () => Unicode.Send("sneezing face"),               ; 🤧
         "g", () => Unicode.Send("grimacing"),                   ; 😬
-        "d", () => Unicode.Send("crossed out", "zwj", "dizzy")  ; 
+        "d", () => Unicode.Send("crossed out", "zwj", "dizzy"), ;
+        "l", () => Unicode.Send("face with hearts"),            ; 🥰
 
     )
     if key
