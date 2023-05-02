@@ -1,3 +1,4 @@
+#Include <Converters\DateTime>
 #Include <App\Explorer>
 #Include <Utils\GetWeather>
 #Include <Misc\RemindDate>
@@ -29,6 +30,6 @@ CapsLock::Delete
 <!Escape::GroupDeactivate("Main")
 <+Escape::Explorer.winObj.MinMax()
 >+Escape::SomeLockHint("CapsLock")
-#Escape::Infos(GetWeather()), RemindDate()
+#Escape::Infos(GetWeather()), RemindDate(), Infos(DateTime.Date " " DateTime.WeekDay " " DateTime.Time)
 
 PrintScreen::Screenshot.Start()

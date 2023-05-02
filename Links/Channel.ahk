@@ -6,6 +6,9 @@ Links_Channel := [
     "micha's channel",
     "https://www.youtube.com/@devbriefing",
 
+    "xkiri's channel",
+    "https://www.youtube.com/@xkirrri/",
+
     ;;Main channel videos
 
     "parameter hints info hover suggestions code actions",

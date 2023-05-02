@@ -19,31 +19,6 @@ class CoordInfo {
     static PreferredQuotes := '"'
 
 
-    static GetScreenCoords() {
-        CoordMode("Mouse", "Screen")
-        MouseGetPos(&X, &Y)
-        return {x: X, y: Y}
-    }
-
-    static GetWindowCoords() {
-        CoordMode("Mouse", "Window")
-        MouseGetPos(&X, &Y)
-        return {x: X, y: Y}
-    }
-
-    static GetClientCoords() {
-        CoordMode("Mouse", "Client")
-        MouseGetPos(&X, &Y)
-        return {x: X, y: Y}
-    }
-
-    static GetScreenColor() {
-        coords := CoordInfo.GetScreenCoords()
-        CoordMode("Pixel", "Screen")
-        return PixelGetColor(coords.x, coords.y, "Alt Slow")
-    }
-
-
     foDestroy := (*) => this.Destroy()
     Destroy() {
         HotIfWinActive("ahk_id " this.hwnd)
@@ -65,7 +40,7 @@ class CoordInfo {
     _ToClip := (text, *) => (A_Clipboard := text, Info(text " copied!"))
 
     _AddScreenCtrls() {
-        crds := CoordInfo.GetScreenCoords()
+        crds := CoordInfo._GetScreenCoords()
         this.gObj.Add("Text",     , "Screen: "    ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
         this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
         this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
@@ -74,7 +49,7 @@ class CoordInfo {
     }
 
     _AddWindowCtrls() {
-        crds := CoordInfo.GetWindowCoords()
+        crds := CoordInfo._GetWindowCoords()
         this.gObj.Add("Text", "xm", "Window: "    ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
         this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
         this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
@@ -83,7 +58,7 @@ class CoordInfo {
     }
 
     _AddClientCtrls() {
-        crds := CoordInfo.GetWindowCoords()
+        crds := CoordInfo._GetWindowCoords()
         this.gObj.Add("Text", "xm", "Client: "  ).OnEvent("Click", this._ToClip.Bind(crds.X " " crds.Y))
         this.gObj.Add("Text", "x+", "x" crds.X " ").OnEvent("Click", this._ToClip.Bind(crds.X))
         this.gObj.Add("Text", "x+", "y" crds.Y " ").OnEvent("Click", this._ToClip.Bind(crds.Y))
@@ -92,7 +67,7 @@ class CoordInfo {
     }
 
     _AddPixelCtrl() {
-        pixel := CoordInfo.GetScreenColor()
+        pixel := CoordInfo._GetScreenColor()
         this.gObj.Add("Text", "xm", "Pixel: " pixel)
             .OnEvent("Click", this._ToClip.Bind(pixel))
         HotIfWinActive("ahk_id " this.hwnd)
@@ -100,7 +75,7 @@ class CoordInfo {
     }
 
     _AddCtrlClickCtrl() {
-        crds := CoordInfo.GetClientCoords()
+        crds := CoordInfo._GetClientCoords()
         ctrlClickString := CoordInfo.PreferredQuotes "x" crds.X " y" crds.Y CoordInfo.PreferredQuotes
         this.gObj.Add("Text", "xm", "CtrlClick Format")
             .OnEvent("Click", this._ToClip.Bind(ctrlClickString))
@@ -112,6 +87,31 @@ class CoordInfo {
         HotIfWinActive("ahk_id " this.hwnd)
         Hotkey("Escape", this.foDestroy, "On")
         this.gObj.OnEvent("Close", this.foDestroy)
+    }
+
+
+    static _GetScreenCoords() {
+        CoordMode("Mouse", "Screen")
+        MouseGetPos(&X, &Y)
+        return {x: X, y: Y}
+    }
+
+    static _GetWindowCoords() {
+        CoordMode("Mouse", "Window")
+        MouseGetPos(&X, &Y)
+        return {x: X, y: Y}
+    }
+
+    static _GetClientCoords() {
+        CoordMode("Mouse", "Client")
+        MouseGetPos(&X, &Y)
+        return {x: X, y: Y}
+    }
+
+    static _GetScreenColor() {
+        coords := CoordInfo._GetScreenCoords()
+        CoordMode("Pixel", "Screen")
+        return PixelGetColor(coords.x, coords.y, "Alt Slow")
     }
 
 }
