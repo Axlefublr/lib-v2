@@ -47,7 +47,7 @@ Notes_Terminal := [
         `-not -path GLOB` exclude GLOB from showing up in the results
     )",
 
-    "piping", "
+    "pipe", "
     (
         `<` redirect the file's contents as the input to a command
         `>` redirect the output of a command into a file

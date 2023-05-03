@@ -9,4 +9,13 @@ Notes_Info := [
     "bird that makes crazy sounds",
     "lyre bird",
 
+    "social networks", "
+    (
+        youtube
+        mastodon
+        vk
+        discord
+        github
+    )",
+
 ]

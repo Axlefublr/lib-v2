@@ -32,4 +32,7 @@ Notes_Code := [
     "html superscript",
     "<sup>superscript</sup>",
 
+    "css set background image",
+    "background-image: url('yourSite.com');",
+
 ]

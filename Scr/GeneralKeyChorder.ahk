@@ -39,7 +39,7 @@
 
         "m", () => Browser.RunLink(Environment.Links["gmail"]),
         "n", () => Browser.RunLink(Environment.Links["monkeytype"]),
-        "g", () => Browser.RunLink(Environment.Links["ghm"]),
+        "g", () => Browser.RunLink(Environment.Links["my github"]),
         "f", () => Browser.RunLink(Environment.Links["skill factory"]),
         "p", () => Browser.RunLink(Environment.Links["gpt"]),
         "P", () => Browser.RunLink(Environment.Links["gpt playground"]),

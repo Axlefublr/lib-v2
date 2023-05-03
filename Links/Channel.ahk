@@ -1,13 +1,21 @@
 Links_Channel := [
 
+    ;; My socials
+
     "channel",
     "https://www.youtube.com/@Axlefublr",
 
-    "micha's channel",
-    "https://www.youtube.com/@devbriefing",
+    "my github",
+    "https://github.com/Axlefublr/",
 
-    "xkiri's channel",
-    "https://www.youtube.com/@xkirrri/",
+    "my gists",
+    "https://gist.github.com/Axlefublr",
+
+    "my mastodon",
+    "https://mastodon.social/@Axlefublr",
+
+    "my linktree",
+    "https://linktr.ee/Axlefublr",
 
     ;;Main channel videos
 
@@ -400,6 +408,14 @@ Links_Channel := [
     "screenshot hover unfinished",
     "https://youtu.be/4jiXHYuo7D8",
 
+    ;; My friends' channels
+
+    "micha's channel",
+    "https://www.youtube.com/@devbriefing",
+
+    "xkiri's channel",
+    "https://www.youtube.com/@xkirrri/",
+
     ;; Micha's videos
 
     "micha's kotlin functions",
@@ -409,6 +425,12 @@ Links_Channel := [
     "https://www.youtube.com/watch?v=UK3ZT4XS8aw",
 
     ;;Useful tutorials not by me
+
+    "how to stream",
+    "https://youtu.be/FN1ghFZleRM",
+
+    "obs best settings for streaming",
+    "https://youtu.be/9idPREZzWpE",
 
     "why you don't need multiple cursors in vim",
     "https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db",

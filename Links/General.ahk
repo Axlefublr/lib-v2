@@ -2,6 +2,15 @@
 
     ;; Social
 
+    "mastodon",
+    "https://mastodon.social/",
+
+    "linktree",
+    "https://linktr.ee/",
+
+    "vk",
+    "https://vk.com/im",
+
     "reddit",
     "https://www.reddit.com/notifications",
 
@@ -22,12 +31,6 @@
 
     "gh",
     "https://github.com/",
-
-    "ghm",
-    "https://github.com/Axlefublr/",
-
-    "gst",
-    "https://gist.github.com/Axlefublr",
 
     ;; Watch
 

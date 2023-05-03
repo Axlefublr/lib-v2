@@ -6,6 +6,8 @@ class Unicode {
 
         " ",                        0x0020,
         "zwj",                      0x200D,
+        "varsel16",                 0xFE0F,
+        "female sign",              0x2640,
         "pleading",                 0x1F97A, ; 🥺
         "yum",                      0x1F60B, ; 😋
         "exploding head",           0x1F92F, ; 🤯
