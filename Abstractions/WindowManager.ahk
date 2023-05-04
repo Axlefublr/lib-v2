@@ -5,6 +5,7 @@ class WindowManager {
     __New(winTitle := "A") {
         this.winTitle := winTitle
         CoordMode("Mouse", "Screen")
+        this.RestoreDown()
         WinGetPos(&x, &y, &width, &height, this.winTitle)
         this.X := x
         this.Y := y
@@ -28,5 +29,11 @@ class WindowManager {
     SetFullHeight() => (WinMove(,,, A_ScreenHeight,       this.winTitle), this)
 
     AbsoluteMove(x, y) => (WinMove(x, y,,, this.winTitle), this)
+
+    RestoreDown() {
+        WinRestore(this.winTitle)
+        while WinGetMinMax(this.winTitle) > 0 {
+        }
+    }
 
 }

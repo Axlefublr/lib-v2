@@ -45,6 +45,8 @@ class Unicode {
         "crossed out",              0x1F635, ;
         "dizzy",                    0x1F4AB, ;
         "face with hearts",         0x1F970, ; 🥰
+        "innocent",                 0x1F607, ; 😇
+        "scarf",                    0x1F9E3, ; 🧣
 
     )
 

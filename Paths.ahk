@@ -27,6 +27,7 @@ Class Paths {
     static Memes        := Paths.Pictures "\Tree\Memes"
     static Emoji        := Paths.Pictures "\Tree\Emojis"
     static Other        := Paths.Pictures "\Tree\Other"
+    static Logos        := Paths.Pictures "\Tree\Logos"
 
     static Audio := "C:\Audio"
     static Sounds := Paths.Audio "\Sounds"

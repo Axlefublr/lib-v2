@@ -19,6 +19,9 @@ Links_Channel := [
 
     ;;Main channel videos
 
+    "face reveal numpad",
+    "https://youtu.be/fxQU1QVJo0s",
+
     "parameter hints info hover suggestions code actions",
     "https://youtu.be/2KcX_SdtHz0",
 
@@ -344,6 +347,9 @@ Links_Channel := [
     "https://youtu.be/IfQ-sl04xu8",
 
     ;;Main channel playlists
+
+    "irl playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOW6dWxV9grdc8Rb745DrLl",
 
     "windows playlist",
     "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNQU8HOTRMJ7csHPOSMtKA-",

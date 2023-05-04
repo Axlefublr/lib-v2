@@ -21,6 +21,12 @@ Notes_Terminal := [
         ffmpeg -f concat -safe 0 -i inputs.txt -c copy final_output.mp4
     )",
 
+    "ffmpeg convert to input stream", "
+    (
+        ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts input1.ts
+        ffmpeg -f concat -safe 0 -i inputs.txt -c copy final_output.mp4
+    )",
+
     "passing arguments to bash functions and scripts", "
     (
         $? — contains the last command's error code
