@@ -1,3 +1,4 @@
+#Include <App\Explorer>
 #Include <App\ClockApp>
 #Include <App\OBS>
 #Include <App\Terminal>
@@ -10,7 +11,6 @@
 #Include <App\ClockApp>
 #Include <App\VPN>
 
-Terminal.SetupGroup()
 Autohotkey.Docs.SetupGroup()
 
 GroupAdd("Main", VsCode.winTitle)

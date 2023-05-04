@@ -2,41 +2,15 @@
 
 Class Terminal {
 
-    static exeTitle := "ahk_exe WindowsTerminal.exe"
-    static winTitle := "ahk_group Terminal"
-    static path := "wt.exe"
+	static exeTitle := "ahk_exe WindowsTerminal.exe"
+	static class    := "ahk_class CASCADIA_HOSTING_WINDOW_CLASS"
+	static winTitle := this.class " " this.exeTitle
+	static path := "wt.exe"
 
-    static winTitles := Map(
+	static winObj := Win({
+		winTitle: this.winTitle,
+		exePath: this.path
+	})
 
-        "Linux",    "Linux " this.exeTitle,
-        "Cmd",      "Cmd " this.exeTitle,
-        "Psh",      "PowerShell " this.exeTitle,
-        "Git Bash", "Git Bash " this.exeTitle,
-        "Settings", "Settings " this.exeTitle
-
-    )
-
-    static winObj := Win({
-        winTitle: this.winTitle,
-        exePath: this.path
-    })
-
-    static SetupGroup() {
-
-        static ranAlready := false
-
-        if ranAlready {
-            return
-        }
-
-        for key, value in this.winTitles {
-            GroupAdd("Terminal", value)
-        }
-
-        ranAlready := true
-    }
-
-    static DeleteWord() => Send("^w")
+	static DeleteWord() => Send("^w")
 }
-
-Terminal.SetupGroup()
