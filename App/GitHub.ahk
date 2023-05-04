@@ -4,9 +4,9 @@
 
 Class GitHub {
 
-    static Profile() {
-        ControlClick("x1825 y134")
-        WaitClick(Paths.Ptf["github"])
-    }
+	static Profile() {
+		ControlClick("x1825 y134")
+		WaitClick(Paths.Ptf["github"])
+	}
 
 }

@@ -170,14 +170,14 @@ F4::Counter.Send().Increment()
 F5::Counter.Show()
 F6::Counter.Reset().Show()
 F7:: {
-    Environment.VimMode := false
-    input := CleanInputBox().WaitForInput()
-    Environment.VimMode := true
-    if !input {
-        return
-    }
-    Counter.num := input
-    Counter.Show()
+	Environment.VimMode := false
+	input := CleanInputBox().WaitForInput()
+	Environment.VimMode := true
+	if !input {
+		return
+	}
+	Counter.num := input
+	Counter.Show()
 }
 
 -::return

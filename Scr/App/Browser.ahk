@@ -25,8 +25,8 @@
 ^p::Browser.SearchTabs()
 
 XButton1:: {
-    sections := Press.GetSections()
-    MouseSectionDefaulter.Browser(sections)
+	sections := Press.GetSections()
+	MouseSectionDefaulter.Browser(sections)
 }
 
 #HotIf

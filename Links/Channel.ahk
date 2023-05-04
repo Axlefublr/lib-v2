@@ -1,509 +1,509 @@
 Links_Channel := [
 
-    ;; My socials
+	;; My socials
 
-    "channel",
-    "https://www.youtube.com/@Axlefublr",
+	"channel",
+	"https://www.youtube.com/@Axlefublr",
 
-    "my github",
-    "https://github.com/Axlefublr/",
+	"my github",
+	"https://github.com/Axlefublr/",
 
-    "my gists",
-    "https://gist.github.com/Axlefublr",
+	"my gists",
+	"https://gist.github.com/Axlefublr",
 
-    "my mastodon",
-    "https://mastodon.social/@Axlefublr",
+	"my mastodon",
+	"https://mastodon.social/@Axlefublr",
 
-    "my linktree",
-    "https://linktr.ee/Axlefublr",
+	"my linktree",
+	"https://linktr.ee/Axlefublr",
 
-    ;;Main channel videos
+	;;Main channel videos
 
-    "face reveal numpad",
-    "https://youtu.be/fxQU1QVJo0s",
+	"face reveal numpad",
+	"https://youtu.be/fxQU1QVJo0s",
 
-    "parameter hints info hover suggestions code actions",
-    "https://youtu.be/2KcX_SdtHz0",
+	"parameter hints info hover suggestions code actions",
+	"https://youtu.be/2KcX_SdtHz0",
 
-    "hotstringer 2",
-    "https://youtu.be/QVHT9h8VjaA",
+	"hotstringer 2",
+	"https://youtu.be/QVHT9h8VjaA",
 
-    "how to disable warning non nullable property must contain a non null value when exiting constructor",
-    "https://youtu.be/oo5aGGNqSLk",
+	"how to disable warning non nullable property must contain a non null value when exiting constructor",
+	"https://youtu.be/oo5aGGNqSLk",
 
-    "fix windowsapps change user folder name",
-    "https://youtu.be/M9n8C14rh7w",
+	"fix windowsapps change user folder name",
+	"https://youtu.be/M9n8C14rh7w",
 
-    "window manager multi modal hotkeys",
-    "https://youtu.be/dcL46PszmfM",
+	"window manager multi modal hotkeys",
+	"https://youtu.be/dcL46PszmfM",
 
-    "concatenation interpolation continuation",
-    "https://youtu.be/wh1Kk0xKvrQ",
+	"concatenation interpolation continuation",
+	"https://youtu.be/wh1Kk0xKvrQ",
 
-    "hoverscreenshot 2",
-    "https://youtu.be/wmhTUdOT1zA",
+	"hoverscreenshot 2",
+	"https://youtu.be/wmhTUdOT1zA",
 
-    "refactoring shows 4",
-    "https://youtu.be/kTu5Bo8sKmY",
+	"refactoring shows 4",
+	"https://youtu.be/kTu5Bo8sKmY",
 
-    "vscode ahk v2 comment documentation",
-    "https://youtu.be/uhx4JyT1wE0",
+	"vscode ahk v2 comment documentation",
+	"https://youtu.be/uhx4JyT1wE0",
 
-    "choose",
-    "https://youtu.be/w0Y-MROa1L8",
+	"choose",
+	"https://youtu.be/w0Y-MROa1L8",
 
-    "april fools video",
-    "https://youtu.be/-ekItDfTd_Y",
+	"april fools video",
+	"https://youtu.be/-ekItDfTd_Y",
 
-    "spotify uia",
-    "https://youtu.be/dWc_sl2Fx3k",
+	"spotify uia",
+	"https://youtu.be/dWc_sl2Fx3k",
 
-    "fzf 2",
-    "https://youtu.be/WAU-egeWff4",
+	"fzf 2",
+	"https://youtu.be/WAU-egeWff4",
 
-    "fzf 1",
-    "https://youtu.be/VW7S21_v1a8",
+	"fzf 1",
+	"https://youtu.be/VW7S21_v1a8",
 
-    "point",
-    "https://youtu.be/qS5wpYuTIBI",
+	"point",
+	"https://youtu.be/qS5wpYuTIBI",
 
-    "cmd",
-    "https://youtu.be/EpzVeU5b9zc",
+	"cmd",
+	"https://youtu.be/EpzVeU5b9zc",
 
-    "infos",
-    "https://youtu.be/TH_oSFTyMuA",
+	"infos",
+	"https://youtu.be/TH_oSFTyMuA",
 
-    "double deref",
-    "https://youtu.be/GCWxZEcV_64",
+	"double deref",
+	"https://youtu.be/GCWxZEcV_64",
 
-    "most useful nvim remaps",
-    "https://youtu.be/tTnv7BHngW0",
+	"most useful nvim remaps",
+	"https://youtu.be/tTnv7BHngW0",
 
-    "map object syntax",
-    "https://youtu.be/9OINu9xjPVw",
+	"map object syntax",
+	"https://youtu.be/9OINu9xjPVw",
 
-    "settimers",
-    "https://youtu.be/PedUPO8KSDE",
+	"settimers",
+	"https://youtu.be/PedUPO8KSDE",
 
-    "vscode setup",
-    "https://youtu.be/QPl1sla67Bo",
+	"vscode setup",
+	"https://youtu.be/QPl1sla67Bo",
 
-    "objects",
-    "https://youtu.be/BMpkQsppeaY",
+	"objects",
+	"https://youtu.be/BMpkQsppeaY",
 
-    "clipsend",
-    "https://youtu.be/8SEZ5nvWCPs",
+	"clipsend",
+	"https://youtu.be/8SEZ5nvWCPs",
 
-    "static",
-    "https://youtu.be/V-8DNxO3KrU",
+	"static",
+	"https://youtu.be/V-8DNxO3KrU",
 
-    "configure your docs",
-    "https://youtu.be/y86WkQPTMjw",
+	"configure your docs",
+	"https://youtu.be/y86WkQPTMjw",
 
-    "function objects",
-    "https://youtu.be/unGy1o0Z_qw",
+	"function objects",
+	"https://youtu.be/unGy1o0Z_qw",
 
-    "clock",
-    "https://youtu.be/O4ucE3zEfKw",
+	"clock",
+	"https://youtu.be/O4ucE3zEfKw",
 
-    "getters",
-    "https://youtu.be/BqerJiAjnWo",
+	"getters",
+	"https://youtu.be/BqerJiAjnWo",
 
-    "arrow",
-    "https://youtu.be/FHDcVtiAvu8",
+	"arrow",
+	"https://youtu.be/FHDcVtiAvu8",
 
-    "startup run",
-    "https://youtu.be/uA7d4M5B798",
+	"startup run",
+	"https://youtu.be/uA7d4M5B798",
 
-    "statebulb",
-    "https://youtu.be/HupdUByOCqs",
+	"statebulb",
+	"https://youtu.be/HupdUByOCqs",
 
-    "maps",
-    "https://youtu.be/3J9vlNyz0Lc",
+	"maps",
+	"https://youtu.be/3J9vlNyz0Lc",
 
-    "ternary",
-    "https://youtu.be/wF1nbO15oVY",
+	"ternary",
+	"https://youtu.be/wF1nbO15oVY",
 
-    "hotstringer",
-    "https://youtu.be/zvlctB1HBfI",
+	"hotstringer",
+	"https://youtu.be/zvlctB1HBfI",
 
-    "vim mode",
-    "https://youtu.be/ezHN3E8YCLU",
+	"vim mode",
+	"https://youtu.be/ezHN3E8YCLU",
 
-    "C# terminal app",
-    "https://youtu.be/RBOHKQtzcYk",
+	"C# terminal app",
+	"https://youtu.be/RBOHKQtzcYk",
 
-    "uia",
-    "https://youtu.be/o2E6sRxFoB0",
+	"uia",
+	"https://youtu.be/o2E6sRxFoB0",
 
-    "initializers",
-    "https://youtu.be/KZ8ya20hK64",
+	"initializers",
+	"https://youtu.be/KZ8ya20hK64",
 
-    "error objects",
-    "https://youtu.be/JUyAq4t5XSQ",
+	"error objects",
+	"https://youtu.be/JUyAq4t5XSQ",
 
-    "TDD",
-    "https://youtu.be/2fFuHOQFKoQ",
+	"TDD",
+	"https://youtu.be/2fFuHOQFKoQ",
 
-    "install 0.8",
-    "https://youtu.be/2wapxsfzLho",
+	"install 0.8",
+	"https://youtu.be/2wapxsfzLho",
 
-    "db",
-    "https://youtu.be/9dCHWhwqP3A",
+	"db",
+	"https://youtu.be/9dCHWhwqP3A",
 
-    "viewcmd",
-    "https://youtu.be/3h_kvNDvB_Y",
+	"viewcmd",
+	"https://youtu.be/3h_kvNDvB_Y",
 
-    "registers 2",
-    "https://youtu.be/GlzUa-dCNvk",
+	"registers 2",
+	"https://youtu.be/GlzUa-dCNvk",
 
-    "registers 1",
-    "https://youtu.be/Toa3MXLcwtg",
+	"registers 1",
+	"https://youtu.be/Toa3MXLcwtg",
 
-    "abbreviations",
-    "https://youtu.be/gjmhX693scQ",
+	"abbreviations",
+	"https://youtu.be/gjmhX693scQ",
 
-    "debloat vscode",
-    "https://youtu.be/67YwWJsjVDU",
+	"debloat vscode",
+	"https://youtu.be/67YwWJsjVDU",
 
-    "switch",
-    "https://youtu.be/U3CWt2SMuLE",
+	"switch",
+	"https://youtu.be/U3CWt2SMuLE",
 
-    "ctrl x mode",
-    "https://youtu.be/ssF-pm0eFkw",
+	"ctrl x mode",
+	"https://youtu.be/ssF-pm0eFkw",
 
-    "how to get faded than a hoe",
-    "https://youtu.be/UQIVv6nZZ1o",
+	"how to get faded than a hoe",
+	"https://youtu.be/UQIVv6nZZ1o",
 
-    "install ahk",
-    "https://youtu.be/fcwSR4LWdNo",
+	"install ahk",
+	"https://youtu.be/fcwSR4LWdNo",
 
-    "how to ask gaming questions",
-    "https://youtu.be/zF0BKJsR91o",
+	"how to ask gaming questions",
+	"https://youtu.be/zF0BKJsR91o",
 
-    "arrays and for loops",
-    "https://youtu.be/dxf3hRhywvQ",
+	"arrays and for loops",
+	"https://youtu.be/dxf3hRhywvQ",
 
-    "explorer movement",
-    "https://youtu.be/XXr06HBccBs",
+	"explorer movement",
+	"https://youtu.be/XXr06HBccBs",
 
-    "how to use vim in any app",
-    "https://www.youtube.com/watch?v=I1Z8z3r3Lt8",
+	"how to use vim in any app",
+	"https://www.youtube.com/watch?v=I1Z8z3r3Lt8",
 
-    "how to clean a keyboard",
-    "https://youtu.be/Dcx1g2oNuUY",
+	"how to clean a keyboard",
+	"https://youtu.be/Dcx1g2oNuUY",
 
-    "fixing scrolling",
-    "https://youtu.be/PH3CRgDa9tQ",
+	"fixing scrolling",
+	"https://youtu.be/PH3CRgDa9tQ",
 
-    "feedkeys",
-    "https://youtu.be/_a2WLClyIpg",
+	"feedkeys",
+	"https://youtu.be/_a2WLClyIpg",
 
-    "how to use regex in ahk",
-    "https://youtu.be/FwrtUiUpWkc",
+	"how to use regex in ahk",
+	"https://youtu.be/FwrtUiUpWkc",
 
-    "vertical movement",
-    "https://youtu.be/pStsi968ChE",
+	"vertical movement",
+	"https://youtu.be/pStsi968ChE",
 
-    "zsh hotkeys",
-    "https://youtu.be/viOPfywjnZg",
+	"zsh hotkeys",
+	"https://youtu.be/viOPfywjnZg",
 
-    "convert to lua",
-    "https://youtu.be/vvyJtqPiJwc",
+	"convert to lua",
+	"https://youtu.be/vvyJtqPiJwc",
 
-    "reminddate",
-    "https://youtu.be/y9LSw1K_AI4",
+	"reminddate",
+	"https://youtu.be/y9LSw1K_AI4",
 
-    "access modifiers",
-    "https://youtu.be/fCySzFAk5JI",
+	"access modifiers",
+	"https://youtu.be/fCySzFAk5JI",
 
-    "win class 3",
-    "https://youtu.be/qO3uE64M7-0",
+	"win class 3",
+	"https://youtu.be/qO3uE64M7-0",
 
-    "win class 2",
-    "https://youtu.be/018oZlrRw7c",
+	"win class 2",
+	"https://youtu.be/018oZlrRw7c",
 
-    "win class 1",
-    "https://youtu.be/772suOr0yUQ",
+	"win class 1",
+	"https://youtu.be/772suOr0yUQ",
 
-    "regremap",
-    "https://youtu.be/AEnz3Bd-PV4",
+	"regremap",
+	"https://youtu.be/AEnz3Bd-PV4",
 
-    "how to remap ctrl characters",
-    "https://youtu.be/yz3jptm414I",
+	"how to remap ctrl characters",
+	"https://youtu.be/yz3jptm414I",
 
-    "gM",
-    "https://youtu.be/j-MBH-rVI6c",
+	"gM",
+	"https://youtu.be/j-MBH-rVI6c",
 
-    "how to make text objects",
-    "https://youtu.be/wj7U-DNALN0",
+	"how to make text objects",
+	"https://youtu.be/wj7U-DNALN0",
 
-    "transandproud",
-    "https://youtu.be/UBPaABITDaA",
+	"transandproud",
+	"https://youtu.be/UBPaABITDaA",
 
-    "my vscode setup",
-    "https://youtu.be/1mHU3OfmLy4",
+	"my vscode setup",
+	"https://youtu.be/1mHU3OfmLy4",
 
-    "recolor code",
-    "https://youtu.be/uA9DiCq2-7c",
+	"recolor code",
+	"https://youtu.be/uA9DiCq2-7c",
 
-    "text objects",
-    "https://youtu.be/nU4vRFMf4F8",
+	"text objects",
+	"https://youtu.be/nU4vRFMf4F8",
 
-    "autoclicker",
-    "https://youtu.be/jRXij-cJKpw",
+	"autoclicker",
+	"https://youtu.be/jRXij-cJKpw",
 
-    "code block text object",
-    "https://youtu.be/KQ5WbYcJswk",
+	"code block text object",
+	"https://youtu.be/KQ5WbYcJswk",
 
-    "include",
-    "https://youtu.be/nFnMiVAjkv4",
+	"include",
+	"https://youtu.be/nFnMiVAjkv4",
 
-    "timer",
-    "https://youtu.be/C1-U3ErdGc0",
+	"timer",
+	"https://youtu.be/C1-U3ErdGc0",
 
-    "neovim api",
-    "https://youtu.be/VBr2DPm30h8",
+	"neovim api",
+	"https://youtu.be/VBr2DPm30h8",
 
-    "how to use vim",
-    "https://youtu.be/JJLJ9hm8AZ8",
+	"how to use vim",
+	"https://youtu.be/JJLJ9hm8AZ8",
 
-    "filesearch",
-    "https://youtu.be/lay80oB7w1s",
+	"filesearch",
+	"https://youtu.be/lay80oB7w1s",
 
-    "refactoring shows 3",
-    "https://youtu.be/_jUbkfWLfkA",
+	"refactoring shows 3",
+	"https://youtu.be/_jUbkfWLfkA",
 
-    "cleaninputbox",
-    "https://youtu.be/qTnhY8ivZLk",
+	"cleaninputbox",
+	"https://youtu.be/qTnhY8ivZLk",
 
-    "refactoring shows 2",
-    "https://youtu.be/c8srPXwRMW0",
+	"refactoring shows 2",
+	"https://youtu.be/c8srPXwRMW0",
 
-    "fixing that annoying gui issue",
-    "https://youtu.be/v_ja54uA7UE",
+	"fixing that annoying gui issue",
+	"https://youtu.be/v_ja54uA7UE",
 
-    "refactoring shows 1",
-    "https://youtu.be/_jUbkfWLfkA",
+	"refactoring shows 1",
+	"https://youtu.be/_jUbkfWLfkA",
 
-    "internetsearch",
-    "https://youtu.be/RuUOSEwtLy0",
+	"internetsearch",
+	"https://youtu.be/RuUOSEwtLy0",
 
-    "autoupdate your libraries",
-    "https://youtu.be/jADuLp4-JAI",
+	"autoupdate your libraries",
+	"https://youtu.be/jADuLp4-JAI",
 
-    "showing off cool libraries",
-    "https://youtu.be/Ea2LwsDTK1s",
+	"showing off cool libraries",
+	"https://youtu.be/Ea2LwsDTK1s",
 
-    "classes",
-    "https://youtu.be/Ey8x8d8W1W4",
+	"classes",
+	"https://youtu.be/Ey8x8d8W1W4",
 
-    "working with files",
-    "https://youtu.be/4KoDu6yp3dw",
+	"working with files",
+	"https://youtu.be/4KoDu6yp3dw",
 
-    "hoverscreenshot",
-    "https://youtu.be/2JVI4v9rQT4",
+	"hoverscreenshot",
+	"https://youtu.be/2JVI4v9rQT4",
 
-    "hider",
-    "https://youtu.be/f9FYWsmALeI",
+	"hider",
+	"https://youtu.be/f9FYWsmALeI",
 
-    "guard clauses",
-    "https://youtu.be/UChoYAdSG-U",
+	"guard clauses",
+	"https://youtu.be/UChoYAdSG-U",
 
-    "hotif",
-    "https://youtu.be/XBLchI24ijQ",
+	"hotif",
+	"https://youtu.be/XBLchI24ijQ",
 
-    "maybe maybe or operators",
-    "https://youtu.be/4B3oY8dSrXU",
+	"maybe maybe or operators",
+	"https://youtu.be/4B3oY8dSrXU",
 
-    "spotify wintitles",
-    "https://youtu.be/yF3slRV1hFo",
+	"spotify wintitles",
+	"https://youtu.be/yF3slRV1hFo",
 
-    "food logger",
-    "https://youtu.be/lV6dUiNjgL4",
+	"food logger",
+	"https://youtu.be/lV6dUiNjgL4",
 
-    "runner",
-    "https://youtu.be/Q3OSCYdVGX8",
+	"runner",
+	"https://youtu.be/Q3OSCYdVGX8",
 
-    "better discord but worse",
-    "https://youtu.be/mHs111Irw-w",
+	"better discord but worse",
+	"https://youtu.be/mHs111Irw-w",
 
-    "json shows",
-    "https://youtu.be/_LY6ReJsp_k",
+	"json shows",
+	"https://youtu.be/_LY6ReJsp_k",
 
-    "communication between scripts",
-    "https://youtu.be/TO8Nnsu7pYU",
+	"communication between scripts",
+	"https://youtu.be/TO8Nnsu7pYU",
 
-    "better weather clock",
-    "https://youtu.be/apez9vnJ2Bg",
+	"better weather clock",
+	"https://youtu.be/apez9vnJ2Bg",
 
-    "making toggles for modifiers",
-    "https://youtu.be/7QCsOEOlAlI",
+	"making toggles for modifiers",
+	"https://youtu.be/7QCsOEOlAlI",
 
-    "better windowgetter",
-    "https://youtu.be/dMnOM4BqGRc",
+	"better windowgetter",
+	"https://youtu.be/dMnOM4BqGRc",
 
-    "github profile hotkey",
-    "https://youtu.be/IfQ-sl04xu8",
+	"github profile hotkey",
+	"https://youtu.be/IfQ-sl04xu8",
 
-    ;;Main channel playlists
+	;;Main channel playlists
 
-    "irl playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOW6dWxV9grdc8Rb745DrLl",
+	"irl playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzOW6dWxV9grdc8Rb745DrLl",
 
-    "windows playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNQU8HOTRMJ7csHPOSMtKA-",
+	"windows playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzNQU8HOTRMJ7csHPOSMtKA-",
 
-    "linux playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP7Os6HNDEf8Fy5lQqkavOZ",
+	"linux playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzP7Os6HNDEf8Fy5lQqkavOZ",
 
-    "vscode playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzO3RqyGR9Nxf4GYLosoSX_O",
+	"vscode playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzO3RqyGR9Nxf4GYLosoSX_O",
 
-    "neovim vscode playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMZjaGyvBxe88iS4uVaW3OI",
+	"neovim vscode playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzMZjaGyvBxe88iS4uVaW3OI",
 
-    "ahk playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
+	"ahk playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzNTsSemXv-xqcIDx9-X3vMS",
 
-    "ahk guis playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
+	"ahk guis playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzM_7vsG7c7H5VHWwIEUGv89",
 
-    "ahk vim playlist",
-    "https://youtube.com/playlist?list=PLQBdjw2QsRzProG8ksUHCK04FpD0C1gpT",
+	"ahk vim playlist",
+	"https://youtube.com/playlist?list=PLQBdjw2QsRzProG8ksUHCK04FpD0C1gpT",
 
-    "ahk registers playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
+	"ahk registers playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzMsASpB7IjwU_zkbovJIOmx",
 
-    "win class playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzM7l8M7K4LD8mdR16BcVprd",
+	"win class playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzM7l8M7K4LD8mdR16BcVprd",
 
-    "ahk classes playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzMaPCW0BSKD-SzemW0LHctQ",
+	"ahk classes playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzMaPCW0BSKD-SzemW0LHctQ",
 
-    "C# playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzOtCzM7X7FXr0qPBwYEVOOC",
+	"C# playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzOtCzM7X7FXr0qPBwYEVOOC",
 
-    "ahk all the way playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
+	"ahk all the way playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzNP837ycpBiA45UtoHjrXFD",
 
-    "shows playlist",
-    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP-K28TLJFNve4HnxkI00p5",
+	"shows playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzP-K28TLJFNve4HnxkI00p5",
 
-    ;; Main channel unlisted videos
-    ;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
+	;; Main channel unlisted videos
+	;Either unfinished or not worth uploading for some other reason. often just a way for me to share videos with friends
 
-    "infos deprecated",
-    "https://youtu.be/MNproAKcjow",
+	"infos deprecated",
+	"https://youtu.be/MNproAKcjow",
 
-    "aliases vs abbreviations",
-    "https://youtu.be/wuiFATVPlOo",
+	"aliases vs abbreviations",
+	"https://youtu.be/wuiFATVPlOo",
 
-    "ctrl x mode demo",
-    "https://youtu.be/hdm6dVbzaAw",
+	"ctrl x mode demo",
+	"https://youtu.be/hdm6dVbzaAw",
 
-    "fixing scrolling deprecated", ;The neovim extension devs fixed the issue before I could even publish the video. Thanks for fixing it but also fuck you for fixing it /s.
-    "https://youtu.be/6-MgEcZpNsg",
+	"fixing scrolling deprecated", ;The neovim extension devs fixed the issue before I could even publish the video. Thanks for fixing it but also fuck you for fixing it /s.
+	"https://youtu.be/6-MgEcZpNsg",
 
-    "making codesnap work with neovim",
-    "https://youtu.be/z0wvpBEjEeQ",
+	"making codesnap work with neovim",
+	"https://youtu.be/z0wvpBEjEeQ",
 
-    "v2iB",
-    "https://youtu.be/8Jtm-cx4k6Y",
+	"v2iB",
+	"https://youtu.be/8Jtm-cx4k6Y",
 
-    "screenshot hover unfinished",
-    "https://youtu.be/4jiXHYuo7D8",
+	"screenshot hover unfinished",
+	"https://youtu.be/4jiXHYuo7D8",
 
-    ;; My friends' channels
+	;; My friends' channels
 
-    "micha's channel",
-    "https://www.youtube.com/@devbriefing",
+	"micha's channel",
+	"https://www.youtube.com/@devbriefing",
 
-    "xkiri's channel",
-    "https://www.youtube.com/@xkirrri/",
+	"xkiri's channel",
+	"https://www.youtube.com/@xkirrri/",
 
-    ;; Micha's videos
+	;; Micha's videos
 
-    "micha's kotlin functions",
-    "https://youtu.be/HacCF-Ma2mI",
+	"micha's kotlin functions",
+	"https://youtu.be/HacCF-Ma2mI",
 
-    "micha's first video",
-    "https://www.youtube.com/watch?v=UK3ZT4XS8aw",
+	"micha's first video",
+	"https://www.youtube.com/watch?v=UK3ZT4XS8aw",
 
-    ;;Useful tutorials not by me
+	;;Useful tutorials not by me
 
-    "how to stream",
-    "https://youtu.be/FN1ghFZleRM",
+	"how to stream",
+	"https://youtu.be/FN1ghFZleRM",
 
-    "obs best settings for streaming",
-    "https://youtu.be/9idPREZzWpE",
+	"obs best settings for streaming",
+	"https://youtu.be/9idPREZzWpE",
 
-    "why you don't need multiple cursors in vim",
-    "https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db",
+	"why you don't need multiple cursors in vim",
+	"https://medium.com/@schtoeffel/you-don-t-need-more-than-one-cursor-in-vim-2c44117d51db",
 
-    "vocal resonance",
-    "https://youtu.be/oWmj73Ttp4E",
+	"vocal resonance",
+	"https://youtu.be/oWmj73Ttp4E",
 
-    "vim registers",
-    "https://youtu.be/I5QGlfbuCfs",
+	"vim registers",
+	"https://youtu.be/I5QGlfbuCfs",
 
-    "better vim substitute",
-    "https://youtu.be/k_PBlhH-DKk",
+	"better vim substitute",
+	"https://youtu.be/k_PBlhH-DKk",
 
-    "how to learn rust",
-    "https://youtu.be/2hXNd6x9sZs",
+	"how to learn rust",
+	"https://youtu.be/2hXNd6x9sZs",
 
-    "voice feminization",
-    "https://youtu.be/BfCS01MkbIY",
+	"voice feminization",
+	"https://youtu.be/BfCS01MkbIY",
 
-    "levenshtein distance tsoding",
-    "https://www.youtube.com/watch?v=tG4IeY01-xw",
+	"levenshtein distance tsoding",
+	"https://www.youtube.com/watch?v=tG4IeY01-xw",
 
-    "awk tutorial",
-    "https://youtu.be/9YOZmI-zWok",
+	"awk tutorial",
+	"https://youtu.be/9YOZmI-zWok",
 
-    "luke fish shell",
-    "https://youtu.be/C2a7jJTh3kU",
+	"luke fish shell",
+	"https://youtu.be/C2a7jJTh3kU",
 
-    "vim tutorial",
-    "https://www.youtube.com/watch?v=RZ4p-saaQkc",
+	"vim tutorial",
+	"https://www.youtube.com/watch?v=RZ4p-saaQkc",
 
-    "global vim command",
-    "https://youtu.be/JgZu5-FNeMk",
+	"global vim command",
+	"https://youtu.be/JgZu5-FNeMk",
 
-    "cute twink explains helix",
-    "https://youtu.be/tGYvUXYN-c0",
+	"cute twink explains helix",
+	"https://youtu.be/tGYvUXYN-c0",
 
-    "regex tutorial",
-    "https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
+	"regex tutorial",
+	"https://youtu.be/rhzKDrUiJVk?list=PLTkSemxVVxTFqNP2mQm-uk2wIlJtSvO63",
 
-    "static in classes",
-    "https://youtu.be/8xcIy9cV-6g",
+	"static in classes",
+	"https://youtu.be/8xcIy9cV-6g",
 
-    "60 bash commands",
-    "https://youtu.be/gd7BXuUQ91w",
+	"60 bash commands",
+	"https://youtu.be/gd7BXuUQ91w",
 
-    "how to use a debugger",
-    "https://youtu.be/7qZBwhSlfOo",
+	"how to use a debugger",
+	"https://youtu.be/7qZBwhSlfOo",
 
-    "tim corey access modifiers",
-    "https://www.youtube.com/watch?v=jcn5uCZAk2w",
+	"tim corey access modifiers",
+	"https://www.youtube.com/watch?v=jcn5uCZAk2w",
 
-    "lua tutorial",
-    "https://youtu.be/iMacxZQMPXs",
+	"lua tutorial",
+	"https://youtu.be/iMacxZQMPXs",
 
-    "vim talk",
-    "https://www.youtube.com/watch?v=XA2WjJbmmoM&list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs",
+	"vim talk",
+	"https://www.youtube.com/watch?v=XA2WjJbmmoM&list=PL8tzorAO7s0jy7DQ3Q0FwF3BnXGQnDirs",
 
-    "zsh vim mode",
-    "https://youtu.be/hIJh-KlQ7io",
+	"zsh vim mode",
+	"https://youtu.be/hIJh-KlQ7io",
 
-    "grep",
-    "https://youtu.be/Tc_jntovCM0",
+	"grep",
+	"https://youtu.be/Tc_jntovCM0",
 
-    "find command",
-    "https://youtu.be/skTiK_6DdqU",
+	"find command",
+	"https://youtu.be/skTiK_6DdqU",
 
-    "vscode C#",
-    "https://www.youtube.com/watch?v=r5dtl9Uq9V0",
+	"vscode C#",
+	"https://www.youtube.com/watch?v=r5dtl9Uq9V0",
 ]

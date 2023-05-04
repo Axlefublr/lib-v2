@@ -22,16 +22,16 @@ F12::return
 MButton::Spotify.AddToQueue()
 
 XButton1:: {
-    sections := Press.GetSections()
-    Switch {
-        Case sections.topRight:    Spotify.TrashTrack()
-        Case sections.bottomRight: Spotify.Discovery()
-        Case sections.topLeft:     Spotify.AddCurrentToBest()
-        Case sections.bottomLeft:  Spotify.RemoveFromCurrentPlaylist()
-        Case sections.up:          Spotify.AutoNewDiscovery()
-        Case sections.down:        Spotify.ToggleShuffle()
-        Case sections.middle:      Spotify.ToggleLike()
-    }
+	sections := Press.GetSections()
+	Switch {
+		Case sections.topRight:    Spotify.TrashTrack()
+		Case sections.bottomRight: Spotify.Discovery()
+		Case sections.topLeft:     Spotify.AddCurrentToBest()
+		Case sections.bottomLeft:  Spotify.RemoveFromCurrentPlaylist()
+		Case sections.up:          Spotify.AutoNewDiscovery()
+		Case sections.down:        Spotify.ToggleShuffle()
+		Case sections.middle:      Spotify.ToggleLike()
+	}
 }
 
 #HotIf

@@ -31,8 +31,8 @@ XButton1 & MButton::HoverScreenshot().UseRecentScreenshot().Show()
 +!LButton::AutoClicker()
 #!LButton::Hider()
 #LButton:: {
-    While GetKeyState("LButton", "P")
-        Point().Create()
+	While GetKeyState("LButton", "P")
+		Point().Create()
 }
 
 #HotIf GetKeyState("Ctrl", "P")

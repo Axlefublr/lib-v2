@@ -3,8 +3,8 @@
 #Include <Abstractions\Text>
 
 TimerLoader() {
-    if !input := CleanInputBox().WaitForInput()
-        return
-    WriteFile(Paths.Ptf["time-agent"], input)
-    Run(Paths.Ptf["Timer"])
+	if !input := CleanInputBox().WaitForInput()
+		return
+	WriteFile(Paths.Ptf["time-agent"], input)
+	Run(Paths.Ptf["Timer"])
 }

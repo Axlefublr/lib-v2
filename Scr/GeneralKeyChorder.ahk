@@ -12,53 +12,53 @@
 #Include <Misc\TimerLoader>
 
 #h:: {
-    sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
-    try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
-    catch UnsetItemError {
-        Registers.CancelAction()
-        return
-    }
+	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
+	try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
+	catch UnsetItemError {
+		Registers.CancelAction()
+		return
+	}
 
-    static _ViewNote() {
-        if !input := CleanInputBox().WaitForInput()
-            return
-        note := Environment.Notes.Choose(input)
-        if !note
-            return
-        A_Clipboard := note
-        Infos(note)
-    }
+	static _ViewNote() {
+		if !input := CleanInputBox().WaitForInput()
+			return
+		note := Environment.Notes.Choose(input)
+		if !note
+			return
+		A_Clipboard := note
+		Infos(note)
+	}
 
-    static _ShowInInfo() {
-        if !input := CleanInputBox().WaitForInput()
-            return
-        Infos(input)
-    }
+	static _ShowInInfo() {
+		if !input := CleanInputBox().WaitForInput()
+			return
+		Infos(input)
+	}
 
-    static actions := Map(
+	static actions := Map(
 
-        "m", () => Browser.RunLink(Environment.Links["gmail"]),
-        "n", () => Browser.RunLink(Environment.Links["monkeytype"]),
-        "g", () => Browser.RunLink(Environment.Links["my github"]),
-        "f", () => Browser.RunLink(Environment.Links["skill factory"]),
-        "p", () => Browser.RunLink(Environment.Links["gpt"]),
-        "P", () => Browser.RunLink(Environment.Links["gpt playground"]),
-        "x", () => Browser.RunLink(Environment.Links["regex"]),
-        "w", () => Browser.RunLink(Environment.Links["wildberries"]),
-        "d", () => DS4.winObj.App(),
-        "s", () => Steam.winObj.App(),
-        "a", () => Autohotkey.Docs.v2.winObj.App(),
-        "r", () => Browser.RunLink(Environment.Links["reddit"]),
-        "T", () => Browser.RunLink(Environment.Links["twitch"]),
-        "h", () => Browser.RunLink(Environment.Links["phind"]),
-        "j", () => EmojiSearch(CleanInputBox().WaitForInput()),
-        "c", () => Infos(A_Clipboard),
-        "k", KeyCodeGetter,
-        "t", TimerLoader,
-        "o", _ViewNote,
-        "i", _ShowInInfo,
+		"m", () => Browser.RunLink(Environment.Links["gmail"]),
+		"n", () => Browser.RunLink(Environment.Links["monkeytype"]),
+		"g", () => Browser.RunLink(Environment.Links["my github"]),
+		"f", () => Browser.RunLink(Environment.Links["skill factory"]),
+		"p", () => Browser.RunLink(Environment.Links["gpt"]),
+		"P", () => Browser.RunLink(Environment.Links["gpt playground"]),
+		"x", () => Browser.RunLink(Environment.Links["regex"]),
+		"w", () => Browser.RunLink(Environment.Links["wildberries"]),
+		"d", () => DS4.winObj.App(),
+		"s", () => Steam.winObj.App(),
+		"a", () => Autohotkey.Docs.v2.winObj.App(),
+		"r", () => Browser.RunLink(Environment.Links["reddit"]),
+		"T", () => Browser.RunLink(Environment.Links["twitch"]),
+		"h", () => Browser.RunLink(Environment.Links["phind"]),
+		"j", () => EmojiSearch(CleanInputBox().WaitForInput()),
+		"c", () => Infos(A_Clipboard),
+		"k", KeyCodeGetter,
+		"t", TimerLoader,
+		"o", _ViewNote,
+		"i", _ShowInInfo,
 
-    )
-    if key
-        try actions[key].Call()
+	)
+	if key
+		try actions[key].Call()
 }

@@ -1,105 +1,105 @@
 Links_Tools := [
 
-    "ninja api",
-    "https://api-ninjas.com/",
+	"ninja api",
+	"https://api-ninjas.com/",
 
-    "color picker",
-    "https://docs.microsoft.com/en-us/windows/powertoys/color-picker",
+	"color picker",
+	"https://docs.microsoft.com/en-us/windows/powertoys/color-picker",
 
-    "regex generator",
-    "https://ibnuhx.com/regex-generator/",
+	"regex generator",
+	"https://ibnuhx.com/regex-generator/",
 
-    "regex one",
-    "https://regexone.com/",
+	"regex one",
+	"https://regexone.com/",
 
-    "docsify",
-    "https://docsify.js.org/#/",
+	"docsify",
+	"https://docsify.js.org/#/",
 
-    "color generator",
-    "https://coolors.co/generate",
+	"color generator",
+	"https://coolors.co/generate",
 
-    "color generator 2",
-    "https://color.adobe.com/create/color-wheel",
+	"color generator 2",
+	"https://color.adobe.com/create/color-wheel",
 
-    "share files",
-    "https://files.fm/",
+	"share files",
+	"https://files.fm/",
 
-    "regex",
-    "https://regex101.com/",
+	"regex",
+	"https://regex101.com/",
 
-    "1secmail",
-    "https://www.1secmail.com/",
+	"1secmail",
+	"https://www.1secmail.com/",
 
-    "sms",
-    "https://sms-activate.org/",
+	"sms",
+	"https://sms-activate.org/",
 
-    "lscolor generator",
-    "https://geoff.greer.fm/lscolors/",
+	"lscolor generator",
+	"https://geoff.greer.fm/lscolors/",
 
-    "buy stolen software",
-    "https://wmcentre.net/en/",
+	"buy stolen software",
+	"https://wmcentre.net/en/",
 
-    "windows64",
-    "https://windows64.net/",
+	"windows64",
+	"https://windows64.net/",
 
-    "vpn gate",
-    "https://www.vpngate.net/en/download.aspx",
+	"vpn gate",
+	"https://www.vpngate.net/en/download.aspx",
 
-    "fl studio 20",
-    "https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
+	"fl studio 20",
+	"https://drive.google.com/u/0/uc?id=12PlMnHAMD0xJ9oPpjRIPX2qVd3wCbWQs&export=download",
 
-    "microsoft office 2016",
-    "https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
+	"microsoft office 2016",
+	"https://drive.google.com/drive/folders/1D3iyp8gzr1xHcacJNT2tjq61R8wmuZFu?usp=sharing",
 
-    "windows unlocker",
-    "https://filehippo.com/download_unlocker/",
+	"windows unlocker",
+	"https://filehippo.com/download_unlocker/",
 
-    "shell check",
-    "https://www.shellcheck.net/",
+	"shell check",
+	"https://www.shellcheck.net/",
 
-    "get page cookies",
-    "https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid",
+	"get page cookies",
+	"https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid",
 
-    "pointer pointer",
-    "https://pointerpointer.com/",
+	"pointer pointer",
+	"https://pointerpointer.com/",
 
-    "guess this code",
-    "https://guessthiscode.com/",
+	"guess this code",
+	"https://guessthiscode.com/",
 
-    "elevator game",
-    "https://play.elevatorsaga.com/",
+	"elevator game",
+	"https://play.elevatorsaga.com/",
 
-    "character ai",
-    "https://beta.character.ai/",
+	"character ai",
+	"https://beta.character.ai/",
 
-    "gpt",
-    "https://chat.openai.com/chat",
+	"gpt",
+	"https://chat.openai.com/chat",
 
-    "gpt playground",
-    "https://platform.openai.com/playground/",
+	"gpt playground",
+	"https://platform.openai.com/playground/",
 
-    "phind",
-    "https://www.phind.com/",
+	"phind",
+	"https://www.phind.com/",
 
-    "snappify",
-    "https://snappify.com/",
+	"snappify",
+	"https://snappify.com/",
 
-    "future tools",
-    "https://www.futuretools.io/",
+	"future tools",
+	"https://www.futuretools.io/",
 
-    "days since last javascript framework",
-    "https://dayssincelastjavascriptframework.com/",
+	"days since last javascript framework",
+	"https://dayssincelastjavascriptframework.com/",
 
-    "visual event",
-    "https://sprymedia.co.uk/article/Visual+Event+2",
+	"visual event",
+	"https://sprymedia.co.uk/article/Visual+Event+2",
 
-    "vanced microg",
-    "https://www.apkmirror.com/apk/team-vanced/microg-youtube-vanced/",
+	"vanced microg",
+	"https://www.apkmirror.com/apk/team-vanced/microg-youtube-vanced/",
 
-    "unix timestamp",
-    "https://www.unixtimestamp.com/",
+	"unix timestamp",
+	"https://www.unixtimestamp.com/",
 
-    "caniuse",
-    "https://caniuse.com/",
+	"caniuse",
+	"https://caniuse.com/",
 
 ]

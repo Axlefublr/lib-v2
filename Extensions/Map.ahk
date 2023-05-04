@@ -9,11 +9,11 @@
  * @param value ***Any***
  */
 SafeSet(mapObj, key, value) {
-    if !mapObj.Has(key) {
-        mapObj.Set(key, value)
-        return
-    }
-    throw IndexError("Map already has key", -1, key)
+	if !mapObj.Has(key) {
+		mapObj.Set(key, value)
+		return
+	}
+	throw IndexError("Map already has key", -1, key)
 }
 Map.Prototype.DefineProp("SafeSet", {Call: SafeSet})
 
@@ -24,18 +24,18 @@ Map.Prototype.DefineProp("SafeSet", {Call: SafeSet})
  * @param mapToSet ***Map*** the map to set into the initial map
  */
 SafeSetMap(mapObj, mapToSet) {
-    for key, value in mapToSet {
-        SafeSet(mapObj, key, value)
-    }
+	for key, value in mapToSet {
+		SafeSet(mapObj, key, value)
+	}
 }
 Map.Prototype.DefineProp("SafeSetMap", {Call: SafeSetMap})
 
 Reverse(mapObj) {
-    reversedMap := Map()
-    for key, value in mapObj {
-        reversedMap.Set(value, key)
-    }
-    return reversedMap
+	reversedMap := Map()
+	for key, value in mapObj {
+		reversedMap.Set(value, key)
+	}
+	return reversedMap
 }
 Map.Prototype.DefineProp("Reverse", {Call: Reverse})
 
@@ -52,16 +52,16 @@ Map.Prototype.DefineProp("Reverse", {Call: Reverse})
 ; }
 
 _ChooseMap(this, keyName) {
-    if this.Has(keyName)
-        return this[keyName]
-    options := []
-    for key, _ in this {
-        if InStr(key, keyName)
-            options.Push(key)
-    }
-    chosen := Choose(options*)
-    if chosen
-        return this[chosen]
-    return ""
+	if this.Has(keyName)
+		return this[keyName]
+	options := []
+	for key, _ in this {
+		if InStr(key, keyName)
+			options.Push(key)
+	}
+	chosen := Choose(options*)
+	if chosen
+		return this[chosen]
+	return ""
 }
 Map.Prototype.DefineProp("Choose", {Call: _ChooseMap})

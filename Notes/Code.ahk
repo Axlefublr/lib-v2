@@ -39,7 +39,7 @@ Notes_Code := [
 	(
 		exact: a[href="#Food"]
 		inStr: a[href *= "ou"]
-		       a[href *= ou]
+			   a[href *= ou]
 		end:   a[href $= "ouse"]
 		start: a[href ^= "Hou"]
 	)",

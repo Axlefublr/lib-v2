@@ -4,73 +4,73 @@
 
 class LayoutsTests extends Testable {
 
-    static __New() {
-        LayoutsTests().RunAll()
-    }
+	static __New() {
+		LayoutsTests().RunAll()
+	}
 
-    ConvertToEnglish_NormalCharacters() {
+	ConvertToEnglish_NormalCharacters() {
 
-        input    := "фФ"
-        expected := "aA"
+		input    := "фФ"
+		expected := "aA"
 
-        actual := Layouts.ConvertToEnglish(input)
+		actual := Layouts.ConvertToEnglish(input)
 
-        if actual != expected
-            throw InputExpectedActualError("ConvertToEnglish_NormalCharacters", input, expected, actual)
-    }
+		if actual != expected
+			throw InputExpectedActualError("ConvertToEnglish_NormalCharacters", input, expected, actual)
+	}
 
-    ConvertToEnglish_SpecialCharacters() {
+	ConvertToEnglish_SpecialCharacters() {
 
-        input    := "хХъЪ\/жЖэЭбБюЮ.,ёЁ"
-        expected := "[{]}\|;:'`",<.>/?``~"
+		input    := "хХъЪ\/жЖэЭбБюЮ.,ёЁ"
+		expected := "[{]}\|;:'`",<.>/?``~"
 
-        actual := Layouts.ConvertToEnglish(input)
+		actual := Layouts.ConvertToEnglish(input)
 
-        if actual != expected
-            throw InputExpectedActualError("ConvertToEnglish_SpecialCharacters", input, expected, actual)
-    }
+		if actual != expected
+			throw InputExpectedActualError("ConvertToEnglish_SpecialCharacters", input, expected, actual)
+	}
 
-    ConvertToEnglish_NumberRow() {
+	ConvertToEnglish_NumberRow() {
 
-        input    := "`"№;:?"
-        expected := "@#$^&"
+		input    := "`"№;:?"
+		expected := "@#$^&"
 
-        actual := Layouts.ConvertToEnglish(input)
+		actual := Layouts.ConvertToEnglish(input)
 
-        if actual != expected
-            throw InputExpectedActualError("ConvertToEnglish_NumberRow", input, expected, actual)
-    }
+		if actual != expected
+			throw InputExpectedActualError("ConvertToEnglish_NumberRow", input, expected, actual)
+	}
 
-    ConvertToRussian_NormalCharacters() {
+	ConvertToRussian_NormalCharacters() {
 
-        input    := "aA"
-        expected := "фФ"
+		input    := "aA"
+		expected := "фФ"
 
-        actual := Layouts.ConvertToRussian(input)
+		actual := Layouts.ConvertToRussian(input)
 
-        if actual != expected
-            throw InputExpectedActualError("ConvertToRussian_NormalCharacters", input, expected, actual)
-    }
+		if actual != expected
+			throw InputExpectedActualError("ConvertToRussian_NormalCharacters", input, expected, actual)
+	}
 
-    ConvertToRussian_SpecialCharacters() {
+	ConvertToRussian_SpecialCharacters() {
 
-        input    := "[{]}\|;:'`",<.>/?``~"
-        expected := "хХъЪ\/жЖэЭбБюЮ.,ёЁ"
+		input    := "[{]}\|;:'`",<.>/?``~"
+		expected := "хХъЪ\/жЖэЭбБюЮ.,ёЁ"
 
-        actual := Layouts.ConvertToRussian(input)
+		actual := Layouts.ConvertToRussian(input)
 
-        if actual != expected
-            throw InputExpectedActualError("ConvertToRussian_SpecialCharacters", input, expected, actual)
-    }
+		if actual != expected
+			throw InputExpectedActualError("ConvertToRussian_SpecialCharacters", input, expected, actual)
+	}
 
-    ConvertToRussian_NumberRow() {
+	ConvertToRussian_NumberRow() {
 
-        input    := "@#$^&"
-        expected := "`"№;:?"
+		input    := "@#$^&"
+		expected := "`"№;:?"
 
-        actual := Layouts.ConvertToRussian(input)
+		actual := Layouts.ConvertToRussian(input)
 
-        if actual != expected
-            throw InputExpectedActualError("ConvertToRussian_NumberRow", input, expected, actual)
-    }
+		if actual != expected
+			throw InputExpectedActualError("ConvertToRussian_NumberRow", input, expected, actual)
+	}
 }

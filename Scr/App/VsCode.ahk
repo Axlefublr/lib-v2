@@ -9,9 +9,9 @@
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " " VsCode.exeTitle)
 !e:: {
-    text := DateTime.Date " " DateTime.Time " - " Spotify._RemoveDateAndTime(A_Clipboard)
-    AppendFile(Paths.Ptf["Unfinished"], text)
-    NextTab()
+	text := DateTime.Date " " DateTime.Time " - " Spotify._RemoveDateAndTime(A_Clipboard)
+	AppendFile(Paths.Ptf["Unfinished"], text)
+	NextTab()
 }
 
 #HotIf WinActive(VsCode.winTitle)
@@ -19,8 +19,8 @@
 Media_Stop & MButton::VsCode.Reload()
 
 XButton1:: {
-    sections := Press.GetSections()
-    MouseSectionDefaulter.VsCode(sections)
+	sections := Press.GetSections()
+	MouseSectionDefaulter.VsCode(sections)
 }
 
 #HotIf
