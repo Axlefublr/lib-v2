@@ -10,7 +10,6 @@ XButton1:: {
 	sections := Press.GetSections()
 	Switch {
 		Case sections.topRight: VK.Enter()
-		Case sections.down:     VK.Scroll()
 		default:                MouseSectionDefaulter.Browser(sections)
 	}
 }

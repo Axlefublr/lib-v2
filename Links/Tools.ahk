@@ -102,4 +102,7 @@ Links_Tools := [
 	"caniuse",
 	"https://caniuse.com/",
 
+    "css selector game",
+    "https://flukeout.github.io/",
+
 ]

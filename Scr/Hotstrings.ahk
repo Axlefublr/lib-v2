@@ -14,6 +14,7 @@
 		"week",   () => DateTime.WeekDay,
 		"time",   () => DateTime.Time,
 		"dt",     () => DateTime.Date " " DateTime.Time,
+		"dw",     () => DateTime.Date " " DateTime.WeekDay,
 		"dwt",    () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
 		"uclanr", () => GetRandomWord("english") " ",
 		"ilandh", () => GetRandomWord("russian") " ",

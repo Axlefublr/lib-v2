@@ -75,4 +75,7 @@ Links_Docs := [
 	"zsh built in plugins",
 	"https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins",
 
+    "ffmpeg cut a video out",
+    "https://shotstack.io/learn/use-ffmpeg-to-trim-video/",
+
 ]

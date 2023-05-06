@@ -1,3 +1,4 @@
+#Include <Tools\Counter>
 #Include <Utils\Choose>
 #Include <App\Git>
 #Include <Extensions\Json>
@@ -108,7 +109,9 @@ class Shows {
 	static _GetLink(progressType := "episode") {
 		if !show := Choose(this.showsArr*)
 			return
-		return this.shows[show]["link"] this.shows[show][progressType] + 1
+		nextEp := this.shows[show][progressType] + 1
+		Counter.num := nextEp
+		return this.shows[show]["link"] nextEp
 	}
 
 	static _ValidateSetInput(input, regex) {

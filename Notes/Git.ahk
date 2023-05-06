@@ -60,4 +60,7 @@ Notes_Git := [
 
 	"git pick the upstream branch for future pushes and push to it",
 	"git push -u origin main",
+
+	"git undo only unstaged changes",
+	"git restore --source=HEAD -- <file>",
 ]

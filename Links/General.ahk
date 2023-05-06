@@ -2,6 +2,9 @@
 
 	;; Social
 
+	"yt",
+	"https://www.youtube.com/playlist?list=WL",
+
 	"mastodon",
 	"https://mastodon.social/",
 
