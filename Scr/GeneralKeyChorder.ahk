@@ -9,7 +9,6 @@
 #Include <Environment>
 #Include <Abstractions\Registers>
 #Include <Converters\Layouts>
-#Include <Misc\TimerLoader>
 
 #h:: {
 	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
@@ -54,7 +53,6 @@
 		"j", () => EmojiSearch(CleanInputBox().WaitForInput()),
 		"c", () => Infos(A_Clipboard),
 		"k", KeyCodeGetter,
-		"t", TimerLoader,
 		"o", _ViewNote,
 		"i", _ShowInInfo,
 
