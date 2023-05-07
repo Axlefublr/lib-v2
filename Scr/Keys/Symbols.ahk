@@ -41,6 +41,8 @@
 		"g", () => Unicode.Send("grimacing"),                   ; 😬
 		"d", () => Unicode.Send("crossed out", "zwj", "dizzy"), ;
 		"l", () => Unicode.Send("face with hearts"),            ; 🥰
+        "x", () => Unicode.Send("sparkles"),                    ; ✨
+		"v", () => Unicode.Send("relieved"),                    ; 😌
 
 	)
 	if key
