@@ -19,6 +19,15 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"termdown terminal timer",
+	"https://youtu.be/VlB1U2ugY9g",
+
+	"symlinks",
+	"https://youtu.be/_pW0sDmKczs",
+
+	"path environment variable",
+    "https://youtu.be/6M4qMcMKcWk",
+
 	"face reveal numpad",
 	"https://youtu.be/fxQU1QVJo0s",
 
@@ -347,6 +356,12 @@ Links_Channel := [
 	"https://youtu.be/IfQ-sl04xu8",
 
 	;;Main channel playlists
+
+	"linux ahk playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzNJCUYAecsl3Il33UjCaKCK",
+
+	"windows linux playlist",
+    "https://www.youtube.com/playlist?list=PLQBdjw2QsRzP9a8rCht-Zh2AI0pbLR2EB",
 
 	"irl playlist",
 	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzOW6dWxV9grdc8Rb745DrLl",

@@ -49,6 +49,10 @@ class Unicode {
 		"scarf",                    0x1F9E3, ; 🧣
         "sparkles",                 0x2728,  ; ✨
 		"relieved",                 0x1F60C, ; 😌
+        "knot",                     0x1FAA2, ;
+        "comet",                    0x2604,  ; ☄️varsel16
+        "panda",                    0x1F43C, ; 🐼
+		"bamboo",                   0x1F38D, ; 🎍
 
 	)
 
