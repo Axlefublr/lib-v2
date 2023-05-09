@@ -38,6 +38,7 @@ Class Explorer {
 		static Other        := Win({exePath: Paths.Other,        runOpt: "Min"})
 		static OnePiece     := Win({exePath: Paths.OnePiece,     runOpt: "Min"})
 		static Logos        := Win({exePath: Paths.Logos,        runOpt: "Min"})
+		static Themes       := Win({exePath: Paths.Themes,       runOpt: "Min"})
 
 		static VsCodeExtensions := Win({exePath: Paths.VsCodeExtensions})
 		static Prog             := Win({exePath: Paths.Prog})

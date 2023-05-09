@@ -32,6 +32,7 @@
 		"3", () => WinSetAlwaysOnTop(-1, "A"),
 		"4", () => Win.CloseOnceInactive(),
 		"l", () => Explorer.WinObjs.Logos.App_Folders().CloseOnceInactive(),
+		"h", () => Explorer.WinObjs.Themes.App_Folders().CloseOnceInactive(),
 
 	)
 	if key
