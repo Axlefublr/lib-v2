@@ -159,9 +159,21 @@ m::Volume_Mute
 sc33::MediaActions.SkipPrev()
 sc34::MediaActions.SkipNext()
 
-sc1A::Screenshot.Start()
-+sc1A::Send("+{PrintScreen}")
-!sc1A::Send("!{PrintScreen}")
+sc1A:: {
+	Environment.VimMode := false
+	Screenshot.Start()
+	Environment.VimMode := true
+}
++sc1A:: {
+	Environment.VimMode := false
+	Send("+{PrintScreen}")
+	Environment.VimMode := true
+}
+!sc1A:: {
+	Environment.VimMode := false
+	Send("!{PrintScreen}")
+	Environment.VimMode := true
+}
 
 F1::Counter.Decrement().Show()
 F2::Counter.Increment().Show()
