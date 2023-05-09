@@ -1,3 +1,4 @@
+#Include <Tools\CleanInputBox>
 #Include <Utils\Unicode>
 #Include <Abstractions\Registers>
 #Include <Utils\GetInput>
@@ -9,6 +10,7 @@
 		Registers.CancelAction()
 		return
 	}
+
 	static symbols := Map(
 
 		"f", () => Unicode.Send("fearful"),                     ; 😨
@@ -43,6 +45,7 @@
 		"l", () => Unicode.Send("face with hearts"),            ; 🥰
         "x", () => Unicode.Send("sparkles"),                    ; ✨
 		"v", () => Unicode.Send("relieved"),                    ; 😌
+        ";", () => Unicode.DynamicSend(),
 
 	)
 	if key

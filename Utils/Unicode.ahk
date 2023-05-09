@@ -1,4 +1,5 @@
-﻿#Include <Utils\ClipSend>
+﻿#Include <Tools\CleanInputBox>
+#Include <Utils\ClipSend>
 
 class Unicode {
 
@@ -65,6 +66,17 @@ class Unicode {
 		output := ""
 		for index, symbol in symbols
 			output .= Chr(this.Symbols[symbol])
+		ClipSend(output)
+	}
+
+	static DynamicSend() {
+		if !input := CleanInputBox().WaitForInput()
+			return
+		symbols := StrSplit(input, ",")
+		output := ""
+		for index, symbol in symbols {
+			output .= Chr(this.Symbols.Choose(symbol))
+		}
 		ClipSend(output)
 	}
 
