@@ -1,4 +1,5 @@
 ﻿#Include <Tools\CleanInputBox>
+#Include <Extensions\Map>
 #Include <Utils\ClipSend>
 
 class Unicode {
