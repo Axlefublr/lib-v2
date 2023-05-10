@@ -166,12 +166,12 @@ sc1A:: {
 }
 +sc1A:: {
 	Environment.VimMode := false
-	Send("+{PrintScreen}")
+    Screenshot.CaptureScreen()
 	Environment.VimMode := true
 }
 !sc1A:: {
 	Environment.VimMode := false
-	Send("!{PrintScreen}")
+    Screenshot.CaptureWindow()
 	Environment.VimMode := true
 }
 
