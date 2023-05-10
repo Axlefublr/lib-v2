@@ -34,7 +34,6 @@
 #Include <Scr\Keys\Trinity>
 #Include <Scr\Keys\SndMem>
 #Include <Scr\Keys\VimMode>
-#Include <Scr/Keys/NumpadRemote>
 
 ;; Extra
 
