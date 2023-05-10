@@ -82,4 +82,7 @@ Notes_Code := [
 		*            0
 	)",
 
+    "js redirect",
+    "window.location.href = 'https://www.google.com'",
+
 ]

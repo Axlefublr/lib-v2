@@ -55,6 +55,8 @@ class Unicode {
         "comet",                    0x2604,  ; ☄️varsel16
         "panda",                    0x1F43C, ; 🐼
 		"bamboo",                   0x1F38D, ; 🎍
+		"muscle",                   0x1F4AA, ; 💪
+		"scale",                    0x2696,  ; ⚖varsel16
 
 	)
 
