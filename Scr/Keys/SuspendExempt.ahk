@@ -8,7 +8,7 @@
 #!i::Script.Test()
 #!o::Script.ExitTest()
 #!p::Script.RunTests()
-#F14::System.Reboot()
-F14::System.PowerDownSafely()
+#Pause::System.Reboot()
+Pause::System.PowerDownSafely()
 #SuspendExempt false
 #InputLevel 5

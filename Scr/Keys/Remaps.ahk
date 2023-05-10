@@ -6,7 +6,7 @@
 #!sc27::Send("#;")
 
 RAlt::LAlt
-AppsKey::RCtrl
+*Pause::return
 
 ; Launch_Media::return     ; F1
 Media_Play_Pause::return ; F2

@@ -23,6 +23,6 @@
 <!z::VPN.winObj.App()
 <!x::ClockApp.winObj.App()
 
-!Pause::OBS.winObj.App()
+!F14::OBS.winObj.App()
 
 #MaxThreadsBuffer false
