@@ -123,4 +123,7 @@ Links_Github := [
 	"gh vim css colors",
 	"https://github.com/ap/vim-css-color",
 
+    "gh windows debloater",
+    "https://github.com/Sycnex/Windows10Debloater",
+
 ]

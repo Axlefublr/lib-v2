@@ -23,9 +23,9 @@ Delete::Send("{Media_Play_Pause}")
 #!k::Win.Maximize()
 #!j::Win.RestoreDown()
 
-CapsLock::Delete
-!CapsLock::CloseButActually()
-+CapsLock::Win.Minimize()
+F13::Delete
+!F13::CloseButActually()
++F13::Win.Minimize()
 
 <!Escape::GroupDeactivate("Main")
 <+Escape::Explorer.winObj.MinMax()
