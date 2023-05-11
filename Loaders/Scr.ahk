@@ -16,7 +16,6 @@
 #Include <Scr\App\Explorer>
 #Include <Scr\App\Terminal>
 #Include <Scr\App\Screenshot>
-#Include <Scr\App\ClockApp>
 
 ;; Mouse
 
