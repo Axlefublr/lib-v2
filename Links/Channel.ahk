@@ -20,16 +20,16 @@ Links_Channel := [
 	;;Main channel videos
 
 	"linker",
-	"https://youtu.be/LXxGW1SVoqE",
+	"https://youtu.be/baA4KrVRXwA",
 
 	"ffmpeg",
-	"https://youtu.be/ztFmT4ipgCc",
+	"https://youtu.be/cBvXDExCNRY",
 
 	"powerlevel10k configuration",
-	"https://youtu.be/ReJ-hmetfgM",
+	"https://youtu.be/vQx8TE18P9c",
 
 	"termdown terminal timer",
-	"https://youtu.be/VlB1U2ugY9g",
+	"https://youtu.be/k1AYMQQgqzM",
 
 	"symlinks",
 	"https://youtu.be/_pW0sDmKczs",
