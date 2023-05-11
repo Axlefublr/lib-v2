@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"linker",
+	"https://youtu.be/LXxGW1SVoqE",
+
 	"ffmpeg",
 	"https://youtu.be/ztFmT4ipgCc",
 

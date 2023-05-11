@@ -57,6 +57,8 @@ class Unicode {
 		"bamboo",                   0x1F38D, ; 🎍
 		"muscle",                   0x1F4AA, ; 💪
 		"scale",                    0x2696,  ; ⚖varsel16
+        "alien",                    0x1F47D, ; 👽
+        "badminton",                0x1F3F8, ; 🏸
 
 	)
 
