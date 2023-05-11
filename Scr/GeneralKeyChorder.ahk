@@ -55,6 +55,8 @@
 		"k", KeyCodeGetter,
 		"o", _ViewNote,
 		"i", _ShowInInfo,
+        "v", () => Browser.RunLink(Environment.Links["vk"]),
+        "t", () => Browser.RunLink(Environment.Links["mastodon"]),
 
 	)
 	if key

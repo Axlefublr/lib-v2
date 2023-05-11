@@ -59,6 +59,9 @@ class Unicode {
 		"scale",                    0x2696,  ; ⚖varsel16
         "alien",                    0x1F47D, ; 👽
         "badminton",                0x1F3F8, ; 🏸
+        "clipboard",                0x1F4CB, ; 📋
+        "lobster",                  0x1F99E, ; 🦞
+        "rosette",                  0x1F3F5, ; 🏵varsel16
 
 	)
 

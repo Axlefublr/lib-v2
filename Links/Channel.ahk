@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"noter",
+	"https://youtu.be/d0oejHnah5E",
+
 	"linker",
 	"https://youtu.be/baA4KrVRXwA",
 

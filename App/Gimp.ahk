@@ -20,8 +20,6 @@ Class Gimp {
 
 	static Close() {
 		this.winObj.Close()
-		if !WinWait(this.closeWindow,, this.winObj.waitTime)
-			return
-		Send("{Left}{Enter}")
+		ProcessClose(this.process)
 	}
 }
