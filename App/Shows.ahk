@@ -129,7 +129,7 @@ class Shows {
 		"episode",    0,
 		"link",       "",
 		"downloaded", 0,
-		"timestamp",  DateTime.Date " " DateTime.Time
+		"timestamp",  ""
 	))
 
 	static _OperateConsumed(show, isDropped) => (this._WriteConsumed(show, isDropped), this._PushConsumed(show, isDropped))

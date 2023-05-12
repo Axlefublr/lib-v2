@@ -57,6 +57,7 @@
 		"i", _ShowInInfo,
         "v", () => Browser.RunLink(Environment.Links["vk"]),
         "t", () => Browser.RunLink(Environment.Links["mastodon"]),
+        "e", () => Browser.RunLink(Environment.Links["gogoanime"]),
 
 	)
 	if key
