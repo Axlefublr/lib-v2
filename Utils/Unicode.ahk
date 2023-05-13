@@ -49,19 +49,19 @@ class Unicode {
 		"face with hearts",         0x1F970, ; 🥰
 		"innocent",                 0x1F607, ; 😇
 		"scarf",                    0x1F9E3, ; 🧣
-        "sparkles",                 0x2728,  ; ✨
+		"sparkles",                 0x2728,  ; ✨
 		"relieved",                 0x1F60C, ; 😌
-        "knot",                     0x1FAA2, ;
-        "comet",                    0x2604,  ; ☄️varsel16
-        "panda",                    0x1F43C, ; 🐼
+		"knot",                     0x1FAA2, ;
+		"comet",                    0x2604,  ; ☄️varsel16
+		"panda",                    0x1F43C, ; 🐼
 		"bamboo",                   0x1F38D, ; 🎍
 		"muscle",                   0x1F4AA, ; 💪
 		"scale",                    0x2696,  ; ⚖varsel16
-        "alien",                    0x1F47D, ; 👽
-        "badminton",                0x1F3F8, ; 🏸
-        "clipboard",                0x1F4CB, ; 📋
-        "lobster",                  0x1F99E, ; 🦞
-        "rosette",                  0x1F3F5, ; 🏵varsel16
+		"alien",                    0x1F47D, ; 👽
+		"badminton",                0x1F3F8, ; 🏸
+		"clipboard",                0x1F4CB, ; 📋
+		"lobster",                  0x1F99E, ; 🦞
+		"rosette",                  0x1F3F5, ; 🏵varsel16
 
 	)
 

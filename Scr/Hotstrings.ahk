@@ -32,7 +32,7 @@
 		"abb",  "abbreviation",
 		"unf",  "unfavorite ",
 		"aba",  "abbrev-alias ",
-		"cata", "cataclysmic",
+		"cata", "cataclysmic ",
 
 		;; Nicknames
 
