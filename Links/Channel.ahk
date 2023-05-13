@@ -369,6 +369,9 @@ Links_Channel := [
 
 	;;Main channel playlists
 
+	"stream vods playlist",
+	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzN1njGhf31le7-uKeJyA2pW",
+
 	"linux ahk playlist",
 	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzNJCUYAecsl3Il33UjCaKCK",
 
