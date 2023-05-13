@@ -9,7 +9,7 @@ class Unicode {
 		" ",                        0x0020,
 		"zwj",                      0x200D,
 		"varsel16",                 0xFE0F,
-		"female sign",              0x2640,
+		"female sign",              0x2640,  ; ♀
 		"pleading",                 0x1F97A, ; 🥺
 		"yum",                      0x1F60B, ; 😋
 		"exploding head",           0x1F92F, ; 🤯
@@ -44,8 +44,8 @@ class Unicode {
 		"eyes",                     0x1F440, ; 👀
 		"sneezing face",            0x1F927, ; 🤧
 		"grimacing",                0x1F62C, ; 😬
-		"crossed out",              0x1F635, ;
-		"dizzy",                    0x1F4AB, ;
+		"crossed out",              0x1F635, ; 😵
+		"dizzy",                    0x1F4AB, ; 💫
 		"face with hearts",         0x1F970, ; 🥰
 		"innocent",                 0x1F607, ; 😇
 		"scarf",                    0x1F9E3, ; 🧣

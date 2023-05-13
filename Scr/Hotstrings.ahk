@@ -54,6 +54,7 @@
 		"sta",   "--staged ",
 		"C",     "C# en-us",
 		"en",    "en-us",
+		"vimap", "vim.keymap.set()",
 
 	)
 	Hotstringer.DynamicHotstrings := DynamicHotstrings
