@@ -4,7 +4,6 @@
 #Include <Abstractions\WindowManager>
 #Include <Abstractions\MediaActions>
 #Include <Tools\ToggleInfo>
-#Include <Tools\StateBulb>
 #Include <Environment>
 #Include <Abstractions\Mouse>
 
