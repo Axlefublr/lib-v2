@@ -1,16 +1,15 @@
 #Include <Tools\StateBulb>
 
-SomeLockHint(whatLock, stateBulb) {
+SomeLockHint(whatLock, bulbie) {
 
 	newState := !GetKeyState(whatLock, "T")
 
 	newState_Word := newState ? "On" : "Off"
-	whatLock := StrTitle(whatLock)
 
 	Set%whatLock%State(newState)
 
 	if newState
-		StateBulb[stateBulb].Create()
+		StateBulb[bulbie].Create()
 	else
-		StateBulb[stateBulb].Destroy()
+		StateBulb[bulbie].Destroy()
 }
