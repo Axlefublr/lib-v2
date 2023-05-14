@@ -8,7 +8,7 @@ Class Screenshot {
 
 	static Start() => Send("#+s")
 	static CaptureWindow() => Send("!{Printscreen}")
-    static CaptureScreen() => Send("+{Printscreen}")
+	static CaptureScreen() => Send("+{Printscreen}")
 
 	static Rectangle()  => Mouse.ClickThenGoBack("839 6")
 	static Window()     => Mouse.ClickThenGoBack("959 6")
