@@ -62,6 +62,8 @@ class Unicode {
 		"clipboard",                0x1F4CB, ; 📋
 		"lobster",                  0x1F99E, ; 🦞
 		"rosette",                  0x1F3F5, ; 🏵varsel16
+		"gem",                      0x1F48E, ; 💎
+		"firecracker",              0x1F9E8, ; 🧨
 
 	)
 
