@@ -1,6 +1,6 @@
 #Include <Tools\StateBulb>
 
-SomeLockHint(whatLock) {
+SomeLockHint(whatLock, stateBulb) {
 
 	newState := !GetKeyState(whatLock, "T")
 
@@ -10,7 +10,7 @@ SomeLockHint(whatLock) {
 	Set%whatLock%State(newState)
 
 	if newState
-		StateBulb[2].Create()
+		StateBulb[stateBulb].Create()
 	else
-		StateBulb[2].Destroy()
+		StateBulb[stateBulb].Destroy()
 }

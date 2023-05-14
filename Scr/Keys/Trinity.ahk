@@ -29,7 +29,7 @@ F13::Delete
 
 <!Escape::GroupDeactivate("Main")
 <+Escape::Explorer.winObj.MinMax()
->+Escape::SomeLockHint("CapsLock")
+>+Escape::SomeLockHint("CapsLock", 2)
 #Escape::Infos(GetWeather()), RemindDate(), Infos(DateTime.Date " " DateTime.WeekDay " " DateTime.Time)
 
 PrintScreen::Screenshot.Start()
