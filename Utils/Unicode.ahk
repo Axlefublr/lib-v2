@@ -64,6 +64,8 @@ class Unicode {
 		"rosette",                  0x1F3F5, ; 🏵varsel16
 		"gem",                      0x1F48E, ; 💎
 		"firecracker",              0x1F9E8, ; 🧨
+		"athletic shoe",            0x1F45F, ; 👟
+		"fish",                     0x1F41F, ; 🐟
 
 	)
 
