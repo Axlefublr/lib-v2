@@ -66,6 +66,8 @@ class Unicode {
 		"firecracker",              0x1F9E8, ; 🧨
 		"athletic shoe",            0x1F45F, ; 👟
 		"fish",                     0x1F41F, ; 🐟
+		"satellite",                0x1F6F0, ; 🛰varsel16
+		"statue of liberty",        0x1F5FD, ; 🗽
 
 	)
 

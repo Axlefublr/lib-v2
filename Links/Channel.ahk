@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"switch languages",
+	"https://youtu.be/4Gww84_FlJ0",
+
 	"better H & L motions",
 	"https://youtu.be/m__dtxGg9As",
 
