@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"better H & L motions",
+	"https://youtu.be/m__dtxGg9As",
+
 	"noter",
 	"https://youtu.be/d0oejHnah5E",
 
