@@ -1,7 +1,7 @@
 #Include <Utils\Win>
 #Include <Paths>
 
-Class Slack {
+class Slack {
 
 	static exeTitle := "ahk_exe slack.exe"
 	static winTitle := "Slack " this.exeTitle

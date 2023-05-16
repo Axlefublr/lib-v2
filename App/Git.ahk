@@ -5,7 +5,7 @@
 #Include <Environment>
 #Include <System\Web>
 
-Class Git {
+class Git {
 
 	__New(workingDir) {
 		this.shell := Cmd(workingDir)

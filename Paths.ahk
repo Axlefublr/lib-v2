@@ -1,6 +1,6 @@
 ﻿;No dependencies
 
-Class Paths {
+class Paths {
 
 	static User         := "C:\Users\" A_UserName
 	static LocalAppData := Paths.User "\AppData\Local"

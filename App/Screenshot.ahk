@@ -1,6 +1,6 @@
 #Include <Abstractions\Mouse>
 
-Class Screenshot {
+class Screenshot {
 
 	static exeTitle  := "ahk_exe ScreenClippingHost.exe"
 	static winTitle  := "Screen Snipping " this.exeTitle

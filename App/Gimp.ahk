@@ -1,7 +1,7 @@
 #Include <Paths>
 #Include <Utils\Win>
 
-Class Gimp {
+class Gimp {
 
 	static process   := "gimp-2.10.exe"
 	static exeTitle  := "ahk_exe " this.process

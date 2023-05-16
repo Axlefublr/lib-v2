@@ -1,6 +1,6 @@
 #Include <Utils\Win>
 
-Class LosslessCut {
+class LosslessCut {
 
 	static exePath  := "ahk_exe LosslessCut.exe"
 	static winTitle := "LosslessCut " this.exePath

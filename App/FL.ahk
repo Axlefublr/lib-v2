@@ -1,7 +1,7 @@
 #Include <Utils\Win>
 #Include <Paths>
 
-Class FL {
+class FL {
 
 	static exeTitle := "ahk_exe FL64.exe"
 	static winTitle := this.exeTitle

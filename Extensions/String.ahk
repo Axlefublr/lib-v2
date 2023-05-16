@@ -60,7 +60,7 @@
 	'-==========================================================================-'
 */
 
-Class String2 {
+class String2 {
 	static __New() {
 		; Add String2 methods and properties into String object
 		__ObjDefineProp := Object.Prototype.DefineProp

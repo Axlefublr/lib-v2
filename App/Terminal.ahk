@@ -1,6 +1,6 @@
 #Include <Utils\Win>
 
-Class Terminal {
+class Terminal {
 
 	static exeTitle := "ahk_exe WindowsTerminal.exe"
 	static class    := "ahk_class CASCADIA_HOSTING_WINDOW_CLASS"

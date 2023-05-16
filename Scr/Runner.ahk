@@ -35,6 +35,7 @@
 
 		"fl",   () => FL.winObj.RunAct(),
 		"gimp", () => Gimp.winObj.RunAct(),
+		"davinci", () => Davinci.winObj.RunAct(),
 
 		"ext",   () => Explorer.WinObjs.VsCodeExtensions.RunAct_Folders(),
 		"saved", () => Explorer.WinObjs.SavedScreenshots.RunAct_Folders(),

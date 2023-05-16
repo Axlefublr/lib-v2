@@ -1,7 +1,7 @@
 #Include <Utils\Win>
 #Include <Paths>
 
-Class Steam {
+class Steam {
 
 	static process  := "steam.exe"
 	static exeTitle := "ahk_exe " this.process

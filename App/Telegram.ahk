@@ -3,7 +3,7 @@
 #Include <Utils\Win>
 #Include <Utils\ClipSend>
 
-Class Telegram {
+class Telegram {
 
 	static processExe := "Telegram.exe"
 	static exeTitle := "ahk_exe " this.processExe

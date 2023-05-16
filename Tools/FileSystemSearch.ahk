@@ -3,7 +3,7 @@
 #Include <Tools\Info>
 #Include <Extensions\String>
 
-Class FileSystemSearch extends Gui {
+class FileSystemSearch extends Gui {
 
 	/**
 	 * Find all the matches of your search request within the currently

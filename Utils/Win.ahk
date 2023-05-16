@@ -1,6 +1,6 @@
 #Include <Extensions\Initializable>
 
-Class Win extends Initializable {
+class Win extends Initializable {
 
 	winTitle        := "A"
 	winText         := ""
@@ -36,7 +36,7 @@ Class Win extends Initializable {
 		this.Initialize(paramsObject)
 	}
 
-	Class Testing {
+	class Testing {
 		static NoExePath() {
 			throw TargetError("Specify a file path", -1)
 		}

@@ -2,7 +2,7 @@
 #Include <Paths>
 #Include <Utils\Image>
 
-Class Discord {
+class Discord {
 
 	static exeTitle := "ahk_exe Discord.exe"
 	static winTitle := "Discord " this.exeTitle

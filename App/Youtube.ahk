@@ -2,7 +2,7 @@
 #Include <App\Browser>
 #Include <Misc\HandleUIAError>
 
-Class Youtube {
+class Youtube {
 
 	static winTitle := "YouTube " Browser.exeTitle
 

@@ -1,6 +1,6 @@
 #Include <Utils\Win>
 
-Class Autohotkey {
+class Autohotkey {
 
 	static path := A_ProgramFiles "\AutoHotkey"
 	; static currVersion := this.path "\v" A_AhkVersion
@@ -9,11 +9,11 @@ Class Autohotkey {
 	static processExe := A_AhkPath
 	static exeTitle := "ahk_exe " this.processExe
 
-	Class Docs extends Autohotkey {
+	class Docs extends Autohotkey {
 
 		static exeTitle := "ahk_exe hh.exe"
 
-		Class v2 extends Autohotkey.Docs {
+		class v2 extends Autohotkey.Docs {
 
 			static winTitle := "AutoHotkey v2 Help " super.exeTitle
 			static path := super.currVersion "\AutoHotkey.chm"
@@ -23,7 +23,7 @@ Class Autohotkey {
 				exePath: this.path
 			})
 		}
-		Class v1 extends Autohotkey.Docs {
+		class v1 extends Autohotkey.Docs {
 
 			static winTitle := "AutoHotkey Help " super.exeTitle
 			static path := super.v1Version "\AutoHotkey.chm"

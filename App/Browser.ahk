@@ -1,7 +1,7 @@
 #Include <Utils\Win>
 #Include <System\UIA>
 
-Class Browser {
+class Browser {
 
 	static exeTitle := "ahk_exe msedge.exe"
 	static winTitle := "Edge " Browser.exeTitle

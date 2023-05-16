@@ -9,7 +9,7 @@
 #Include <App\Git>
 #Include <Utils\Win>
 
-Class Spotify {
+class Spotify {
 
 	static exeTitle := "ahk_exe Spotify.exe"
 	static winTitle := Spotify.exeTitle

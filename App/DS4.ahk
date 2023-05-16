@@ -1,7 +1,7 @@
 #Include <Utils\Win>
 #Include <Paths>
 
-Class DS4 {
+class DS4 {
 
 	static exeTitle := "ahk_exe DS4Windows.exe"
 	static winTitle := "DS4Windows " this.exeTitle

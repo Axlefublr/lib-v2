@@ -4,7 +4,7 @@
 #Include <Extensions\String>
 #Include <Paths>
 
-Class VsCode {
+class VsCode {
 
 	static exeTitle := "ahk_exe Code - Insiders.exe"
 	static winTitle := "Visual Studio Code " this.exeTitle

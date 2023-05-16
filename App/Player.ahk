@@ -1,6 +1,6 @@
 #Include <Utils\Win>
 
-Class Player {
+class Player {
 	static exeTitle := "ahk_exe KMPlayer64.exe"
 	static winTitle := this.exeTitle
 

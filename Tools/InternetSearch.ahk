@@ -3,7 +3,7 @@
 #Include <Extensions\String>
 #Include <App\Browser>
 
-Class InternetSearch extends CleanInputBox {
+class InternetSearch extends CleanInputBox {
 
 	__New(searchEngine) {
 		super.__New()

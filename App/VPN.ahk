@@ -1,7 +1,7 @@
 #Include <Utils\Win>
 #Include <Paths>
 
-Class VPN {
+class VPN {
 
 	static process := "PlanetVPN.exe"
 	static exeTitle := "ahk_exe " this.process

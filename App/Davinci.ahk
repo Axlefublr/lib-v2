@@ -2,12 +2,12 @@
 #Include <Tools\Info>
 #Include <Paths>
 
-Class Davinci {
+class Davinci {
 
 	static exeTitle     := "ahk_exe Resolve.exe"
 	static winTitle     := "DaVinci Resolve " this.exeTitle
 	static projectTitle := "Project Manager " this.exeTitle
-	static path         := "C:\Programs\Davinci Resolve\Resolve.exe"
+	static path         := A_ProgramFiles "\Blackmagic Design\DaVinci Resolve\Resolve.exe"
 	static closeWindow  := "Message " this.exeTitle
 
 	static winObj := Win({
@@ -38,18 +38,6 @@ Class Davinci {
 		if !WinWaitActive("New Timeline Properties", , 3)
 			return
 		Send("{Enter}")
-	}
-
-	static Setup() {
-		if !this.winObj.Activate() {
-			Info("No Davinci Resolve window!")
-			return
-		}
-		this.winObj.RestoreDown()
-		WinMove(-8, 0, 1492, A_ScreenHeight, this.winTitle)
-		Explorer.WinObjs.Pictures.RunAct_Folders()
-		WinMove(1466, 0, 463, A_ScreenHeight)
-		this.winObj.Activate()
 	}
 
 }

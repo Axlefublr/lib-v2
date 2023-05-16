@@ -1,7 +1,7 @@
 #Include <Paths>
 #Include <Utils\Win>
 
-Class Explorer {
+class Explorer {
 
 	static process := "explorer.exe"
 	static exeTitle := "ahk_exe " this.process
@@ -13,7 +13,7 @@ Class Explorer {
 		runOpt: "Min"
 	})
 
-	Class WinObjs {
+	class WinObjs {
 
 		static PC := Win({
 			winTitle: Explorer.winTitle,

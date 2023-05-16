@@ -2,7 +2,7 @@
 #Include <Paths>
 #Include <Utils\Image>
 
-Class VK {
+class VK {
 
 	static winTitle := "Messenger " Browser.exeTitle
 

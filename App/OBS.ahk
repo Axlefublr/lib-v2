@@ -1,7 +1,7 @@
 #Include <Paths>
 #Include <Utils\Win>
 
-Class OBS {
+class OBS {
 
 	static exeTitle := "ahk_exe obs64.exe"
 	static winTitle := "OBS " this.exeTitle

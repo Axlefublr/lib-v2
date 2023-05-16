@@ -2,7 +2,7 @@
 #Include <Paths>
 #Include <App\Git>
 
-Class GitHub {
+class GitHub {
 
 	static Profile() {
 		ControlClick("x1825 y134")
