@@ -128,4 +128,10 @@ Links_Github := [
 
 	"gh sneak.vim",
 	"https://github.com/justinmk/vim-sneak",
+
+	"gh tide",
+	"https://github.com/IlanCosman/tide",
+
+	"gh tide wiki",
+	"https://github.com/IlanCosman/tide/wiki",
 ]

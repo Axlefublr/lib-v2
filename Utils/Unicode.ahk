@@ -68,6 +68,8 @@ class Unicode {
 		"fish",                     0x1F41F, ; 🐟
 		"satellite",                0x1F6F0, ; 🛰varsel16
 		"statue of liberty",        0x1F5FD, ; 🗽
+		"tropical fish",            0x1F420, ; 🐠
+		"penguin",                  0x1F427, ; 🐧
 
 	)
 

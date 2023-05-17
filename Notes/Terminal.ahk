@@ -70,4 +70,11 @@ Notes_Terminal := [
 		echo "input text" | pwsh -c "Get-Content - | ForEach-Object { $_.ToUpper() }" | further_linux_command
 	)",
 
+	"fish redirect", "
+	(
+		echo whatever >  file redirects stdout to file
+		echo whatever 2> file redirects stderr to file
+		echo whatever &> file redirects both   to file
+	)",
+
 ]

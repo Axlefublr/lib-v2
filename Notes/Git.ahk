@@ -63,4 +63,7 @@ Notes_Git := [
 
 	"git undo only unstaged changes",
 	"git restore --source=HEAD -- <file>",
+
+	"git remove files locally but not on the remote",
+	"git update-index --assume-unchanged files",
 ]
