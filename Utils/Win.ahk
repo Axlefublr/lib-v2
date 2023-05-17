@@ -226,9 +226,14 @@ class Win extends Initializable {
 		return this
 	}
 
-	ActiveRegex() {
+	WinActiveRegex() {
 		SetTitleMatchMode("RegEx")
 		return WinActive(this.winTitle, this.winText, this.excludeTitle, this.excludeText)
+	}
+
+	static WinActiveRegex(winTitle := "A", winText?, excludeTitle?, excludeText?) {
+		SetTitleMatchMode("RegEx")
+		return WinActive(winTitle, winText?, excludeTitle?, excludeText?)
 	}
 
 	/**
