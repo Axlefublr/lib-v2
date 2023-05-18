@@ -80,4 +80,10 @@ Links_Docs := [
 
 	"git hooks",
 	"https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks",
+
+	"fish clipboard copy",
+	"https://fishshell.com/docs/current/cmds/fish_clipboard_copy.html",
+
+	"fish bind",
+	"https://fishshell.com/docs/current/cmds/bind.html",
 ]

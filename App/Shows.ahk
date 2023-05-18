@@ -165,11 +165,5 @@ class Shows {
 	static _OperateDownloaded(show, downloaded) {
 		this.ApplyJson()
 		Info(show ": " downloaded)
-		Git(Paths.Shows)
-			.Add(this.ShowsJsonPath)
-			.Commit("download ep" downloaded " -> " show)
-			.Push()
-			.Execute()
-		Info("pushed!")
 	}
 }
