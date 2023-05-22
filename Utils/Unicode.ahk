@@ -70,6 +70,8 @@ class Unicode {
 		"statue of liberty",        0x1F5FD, ; 🗽
 		"tropical fish",            0x1F420, ; 🐠
 		"penguin",                  0x1F427, ; 🐧
+		"kiwi",                     0x1F95D, ; 🥝
+		"archery",                  0x1F3F9, ; 🏹
 
 	)
 

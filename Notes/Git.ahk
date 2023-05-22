@@ -66,4 +66,21 @@ Notes_Git := [
 
 	"git remove files locally but not on the remote",
 	"git update-index --assume-unchanged files",
+
+	"git interactive add", "
+	(
+		y: Stage the current hunk.
+		n: Do not stage the current hunk and move to the next.
+		q: Quit the interactive prompt and leave all remaining hunks unstaged.
+		a: Stage the current hunk and all the following hunks in the current file.
+		d: Skip the current hunk and all the following hunks in the current file.
+		g: Select a hunk to go to.
+		/: Search and navigate to a specific hunk, based on a regex pattern.
+		j: Leave the current hunk unstaged and move to the next hunk.
+		J: Leave the current hunk unstaged and move to the next hunk in the next file.
+		k: Leave the current hunk unstaged and move to the previous hunk.
+		K: Leave the current hunk unstaged and move to the previous hunk in the previous file.
+		s: Split the current hunk into smaller hunks (if possible).
+		e: Edit the current hunk manually.
+	)",
 ]

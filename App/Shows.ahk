@@ -34,7 +34,12 @@ class Shows {
 
 	static ApplyJson() => WriteFile(this.ShowsJsonPath, JSON.stringify(this.shows))
 
-	static Run(progressType?) => Browser.RunLink(this._GetLink(progressType?))
+	static Run(progressType?) {
+		Browser.RunLink(this._GetLink(progressType?))
+		if progressType = "downloaded" {
+			Environment.VimMode := true
+		}
+	}
 
 	static DeleteShow(isDropped := false) {
 		if !show := Choose(this.showsArr*)
