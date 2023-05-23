@@ -77,4 +77,9 @@ Notes_Terminal := [
 		echo whatever &> file redirects both   to file
 	)",
 
+	"cool packages", "
+	(
+		hollywood - makes your terminal looks like you're a cool hacker
+	)",
+
 ]

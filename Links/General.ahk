@@ -63,6 +63,9 @@
 	"2gis",
 	"https://2gis.ru/",
 
+	"monkeytype",
+	"https://monkeytype.com/",
+
 	;; Shops
 
 	"mvideo",

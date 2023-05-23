@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"how to install fish shell",
+	"https://youtu.be/RKg-GvnOR_8",
+
 	"switch languages",
 	"https://youtu.be/4Gww84_FlJ0",
 
