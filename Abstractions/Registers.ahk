@@ -36,7 +36,7 @@ class Registers {
 	* I never want to accidentally write to a russian-named register, so there's a check
 	* @type {String}
 	*/
-	static RussianCharacters := "йцукенгшщзхъфывапролджэячсмить"
+	static RussianCharacters := "йцукенгшщзхъфывапролджэячсмитьЙЦУКЕНГШЩЗФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
 
 	/**
 	* The maximum amount of characters shown when Peeking a register
