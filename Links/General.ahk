@@ -8,6 +8,9 @@
 	"mastodon",
 	"https://mastodon.social/",
 
+	"instagram",
+	"https://www.instagram.com/",
+
 	"linktree",
 	"https://linktr.ee/",
 

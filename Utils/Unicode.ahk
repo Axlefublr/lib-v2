@@ -73,6 +73,8 @@ class Unicode {
 		"kiwi",                     0x1F95D, ; 🥝
 		"archery",                  0x1F3F9, ; 🏹
 		"shell",                    0x1F41A, ; 🐚
+		"shrimp",                   0x1F990, ; 🦐
+		"broom",                    0x1F9F9, ; 🧹
 
 	)
 
