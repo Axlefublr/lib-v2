@@ -10,7 +10,6 @@
 #Include <Abstractions\Script>
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>
-#Include <App\Slack>
 #Include <Misc\Meditate>
 #Include <Misc\CountLibraries>
 #Include <App\Gimp>

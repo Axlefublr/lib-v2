@@ -1,8 +1,5 @@
+#Include <Utils\Press>
 #Include <App\Youtube>
-#Include <Utils\ClipSend>
-#Include <Abstractions\Text>
-#Include <Paths>
-#Include <Utils\Win>
 #Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Youtube.winTitle)

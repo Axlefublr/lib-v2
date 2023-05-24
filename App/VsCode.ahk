@@ -16,21 +16,8 @@ class VsCode {
 		exePath:  this.path,
 	})
 
-	static IndentRight()   => Send("^!{Right}")
-	static IndentLeft()    => Send("^!{Left}")
-	static Comment()       => Send("#{End}")
-	static Debug()         => Send("+!9")
 	static CloseAllTabs()  => Send("+!w")
-	static DeleteLine()    => Send("+{Delete}")
 	static Reload()        => Send("+!y+!y")
 	static CloseTab()      => Send("!w")
-	static CursorBack()    => Send("!{PgUp}")
-	static CursorForward() => Send("!{PgDn}")
-
-	static WorkSpace(wkspName) {
-		this.CloseAllTabs()
-		this.winObj.Close()
-		Run(Paths.Ptf[wkspName], , "Max")
-	}
 
 }

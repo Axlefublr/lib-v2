@@ -20,5 +20,4 @@ XButton1:: {
 		default:                return
 	}
 }
-
 #HotIf

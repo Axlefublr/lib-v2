@@ -3,10 +3,10 @@
 
 class VPN {
 
-	static process := "PlanetVPN.exe"
+	static process := "ExpressVPN.exe"
 	static exeTitle := "ahk_exe " this.process
-	static winTitle := "Planet VPN " this.exeTitle
-	static path := "C:\Program Files (x86)\PlanetVPN\PlanetVPN.exe"
+	static winTitle := "ExpressVPN " this.exeTitle
+	static path := "C:\Program Files (x86)\ExpressVPN\expressvpn-ui\ExpressVPN.exe"
 
 	static winObj := Win({
 		winTitle: this.winTitle,

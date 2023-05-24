@@ -1,3 +1,4 @@
+#Include <Abstractions\Mouse>
 #Include <Abstractions\Text>
 #Include <Paths>
 #Include <Utils\Win>
@@ -29,19 +30,4 @@ class Telegram {
 	static Voice() => Mouse.ClickThenGoBack_Event("1452 1052")
 
 	static Scroll() => ControlClick("X1434 Y964")
-
-	static Channel(channelToFind) => (
-		ControlClick("X456 Y74"),
-		Send(channelToFind),
-		Send("{Enter}")
-	)
-
-	static Diary() {
-		diary := ReadFile(Paths.Ptf["Diary"])
-		WriteFile(Paths.Ptf["Diary"])
-		this.winObj.RunAct()
-		this.Channel("Diary")
-		ClipSend(diary)
-		Send("{Enter}")
-	}
 }

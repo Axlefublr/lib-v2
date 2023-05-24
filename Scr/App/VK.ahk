@@ -3,7 +3,6 @@
 #Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(VK.winTitle)
-MButton::VK.Reply()
 ^Enter::VK.Enter()
 
 XButton1:: {
