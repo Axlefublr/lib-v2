@@ -20,27 +20,14 @@ class Browser {
 		exePath: Browser.path,
 	})
 
-	static SearchTabs() => Send("^+a")
-
 	/**
 	* Run("https://link.com") will run the link, but the browser might not get focused. This function makes sure it does
 	* @param {String} link
 	*/
-	static RunLink(link) => (
-		Run(link),
-		WinWait(Browser.winTitle),
+	static RunLink(link) {
+		Run(link)
+		WinWait(Browser.winTitle)
 		WinActivate(Browser.winTitle)
-	)
-
-	class UIA {
-
-		static Window {
-			get => UIA.ElementFromHandle(Browser.winTitle)
-		}
-
-		static Document {
-			get => UIA.ElementFromChromium(Browser.winTitle).FindElement(UIA.RawViewCondition, 1)
-		}
 	}
 
 }

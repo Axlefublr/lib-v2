@@ -13,7 +13,6 @@
 #Include <App\Slack>
 #Include <Misc\Meditate>
 #Include <Misc\CountLibraries>
-#Include <App\FL>
 #Include <App\Gimp>
 #Include <App\Shows>
 #Include <Misc\Calculator>
@@ -32,7 +31,6 @@
 		"show",   () => Shows.Run("episode"),
 		"down",   () => Shows.Run("downloaded"),
 
-		"fl",   () => FL.winObj.RunAct(),
 		"gimp", () => Gimp.winObj.RunAct(),
 		"davinci", () => Davinci.winObj.RunAct(),
 

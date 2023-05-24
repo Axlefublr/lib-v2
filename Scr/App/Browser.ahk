@@ -1,9 +1,7 @@
 #Include <App\Browser>
-#Include <App\VK>
 #Include <Abstractions\Base>
 #Include <Utils\Press>
 #Include <Abstractions\MouseSectionDefaulter>
-#Include <Tools\Info>
 
 #HotIf WinActive(Browser.winTitle)
 
@@ -22,7 +20,6 @@
 
 !e::NewTab()
 !w::CloseTab()
-^p::Browser.SearchTabs()
 
 XButton1:: {
 	sections := Press.GetSections()

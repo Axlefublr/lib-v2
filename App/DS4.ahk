@@ -1,5 +1,4 @@
 #Include <Utils\Win>
-#Include <Paths>
 
 class DS4 {
 
@@ -9,6 +8,6 @@ class DS4 {
 
 	static winObj := Win({
 		winTitle: this.winTitle,
-		exePath: this.path 
+		exePath: this.path
 	})
 }

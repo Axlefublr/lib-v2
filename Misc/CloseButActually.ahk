@@ -4,11 +4,10 @@
 #Include <App\Gimp>
 #Include <App\Davinci>
 #Include <App\Telegram>
-#Include <App\FL>
 #Include <Utils\Win>
 
 CloseButActually() {
-	windowClassNames := ["VPN", "Spotify", "Steam", "Gimp", "Davinci", "Telegram", "FL"]
+	windowClassNames := ["VPN", "Spotify", "Steam", "Gimp", "Davinci", "Telegram"]
 	for , windowClassName in windowClassNames {
 		if WinActive(%windowClassName%.winTitle) {
 			%windowClassName%.Close()

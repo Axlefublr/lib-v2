@@ -15,10 +15,6 @@ class Discord {
 		exception: this.exception
 	})
 
-	static Emoji() => Send("^e")
-
-	static Gif() => Send("^g")
-
 	static PrevChannel() => Send("!{Up}")
 
 	static NextChannel() => Send("!{Down}")
