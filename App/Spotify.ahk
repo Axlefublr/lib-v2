@@ -450,7 +450,7 @@ class Spotify {
 			CoordMode("Mouse", "Screen")
 			MouseMove(0, -this.MoveInPixels,, "R")
 			if (MouseGetPos(, &y), y) < 141
-				MouseMove(1055, 782)
+				MouseMove(607, 782)
 		}
 	}
 
