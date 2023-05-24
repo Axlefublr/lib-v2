@@ -4,7 +4,7 @@
 #HotIf WinActive(Autohotkey.exeTitle)
 ^BackSpace::DeleteWord()
 
-#HotIf WinActive(Autohotkey.Docs.v2.winTitle)
+#HotIf WinActive(Autohotkey.Docs.winTitle)
 !sc33::Send("!n")
 !sc34::Send("!s")
 #HotIf

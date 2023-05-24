@@ -1,7 +1,6 @@
 #Include <Environment>
 #Include <App\Spotify>
 #Include <App\Davinci>
-#Include <App\Autohotkey>
 #Include <Extensions\String>
 #Include <Utils\ClipSend>
 #Include <Extensions\String>

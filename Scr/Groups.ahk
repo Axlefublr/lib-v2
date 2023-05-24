@@ -5,11 +5,8 @@
 #Include <App\Discord>
 #Include <App\Browser>
 #Include <App\Telegram>
-#Include <App\Autohotkey>
 #Include <App\VsCode>
 #Include <App\VPN>
-
-Autohotkey.Docs.SetupGroup()
 
 GroupAdd("Main", VsCode.winTitle)
 GroupAdd("Main", Spotify.exeTitle)

@@ -5,7 +5,6 @@
 #Include <App\Telegram>
 #Include <App\Discord>
 #Include <App\Browser>
-#Include <App\Autohotkey>
 #Include <App\VsCode>
 #Include <App\Terminal>
 #Include <App\Spotify>
