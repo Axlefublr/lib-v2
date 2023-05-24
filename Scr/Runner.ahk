@@ -55,7 +55,6 @@
 		"dd",      (input) => Shows.SetDownloaded(input),
 		"drop",    (input) => Shows._OperateConsumed(input, true),
 		"relink",  (input) => Shows.UpdateLink(input),
-		"install", (input) => Git.InstallAhkLibrary(input),
 		"ev",      (input) => Infos(Calculator(input)),
 		"evp",     (input) => ClipSend(Calculator(input)),
 

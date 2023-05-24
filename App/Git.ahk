@@ -53,7 +53,7 @@ class Git {
 
 	/**
 	* Specify a file path and get the github link for it
-	* @param path *String* Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
+	* @param {String} path Path to the file / folder you want the link to. In Main/Folder/file.txt, Main is the name of the repo (so the path is relative to your gh profile, basically)
 	* @returns {String} the github link
 	*/
 	static Link(path) {
@@ -83,22 +83,6 @@ class Git {
 
 		github_link := StrReplace(github repo currentBlob relPath, " ", "%20")
 		return github_link
-	}
-
-	static InstallAhkLibrary(link, fileName?) {
-		static libFolder := Paths.Lib "\"
-		link := StrReplace(link, "https://github.com/")
-		link := StrReplace(link, "blob/",,,, 1)
-		file_html := GetHtml("https://raw.githubusercontent.com/" link)
-		if !IsSet(fileName) {
-			RegExMatch(link, "\/([^.\/]+\.\w+)$", &match)
-			newFile := match[1]
-		}
-		else {
-			newFile := fileName
-		}
-		WriteFile(libFolder newFile, file_html)
-		Info(newFile " library installed in: " libFolder)
 	}
 
 }

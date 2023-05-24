@@ -1,4 +1,3 @@
-#Include <Paths>
 #Include <Utils\Win>
 
 class Gimp {
