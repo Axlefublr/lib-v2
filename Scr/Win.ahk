@@ -16,7 +16,7 @@
 <!a::VsCode.winObj.App()
 <!c::Browser.winObj.App()
 <!q::Discord.winObj.App()
-; <!t::Telegram.winObj.App()
+<!t::Telegram.winObj.App()
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
 

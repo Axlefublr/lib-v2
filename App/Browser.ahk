@@ -30,4 +30,7 @@ class Browser {
 		WinActivate(Browser.winTitle)
 	}
 
+	static FullScreen() => Send("{F11}")
+	static SearchTabs() => Send("^+a")
+
 }

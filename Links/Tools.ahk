@@ -102,7 +102,10 @@ Links_Tools := [
 	"caniuse",
 	"https://caniuse.com/",
 
-    "css selector game",
-    "https://flukeout.github.io/",
+	"css selector game",
+	"https://flukeout.github.io/",
+
+	"consolas nerd font",
+	"https://github.com/wclr/my-nerd-fonts/tree/master/Consolas%20NF",
 
 ]

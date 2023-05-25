@@ -269,4 +269,8 @@ Links_Memes := [
 
 	"name soundalikes",
 	"https://youtu.be/OXaCp-861jM",
+
+	"butta dog dog wit da butta onem",
+	"https://www.youtube.com/watch?v=26j1pkS83dQ",
+
 ]

@@ -134,4 +134,7 @@ Links_Github := [
 
 	"gh tide wiki",
 	"https://github.com/IlanCosman/tide/wiki",
+
+	"gh trash-cli",
+	"https://github.com/andreafrancia/trash-cli",
 ]

@@ -15,11 +15,13 @@
 !8::Send("^8")
 !9::Send("^9")
 !0::Send("^9")
+
 !sc33::PrevTab()
 !sc34::NextTab()
-
 !e::NewTab()
 !w::CloseTab()
+^+sc1A::Browser.FullScreen()
+^p::Browser.SearchTabs()
 
 XButton1:: {
 	sections := Press.GetSections()
