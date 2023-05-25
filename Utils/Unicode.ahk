@@ -87,7 +87,10 @@ class Unicode {
 		output := ""
 		for index, symbol in symbols
 			output .= Chr(this.Symbols[symbol])
-		ClipSend(output)
+		if symbols.Length > 1
+			ClipSend(output)
+		else
+			SendText(output)
 	}
 
 	static DynamicSend() {

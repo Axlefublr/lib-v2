@@ -108,4 +108,7 @@ Links_Tools := [
 	"consolas nerd font",
 	"https://github.com/wclr/my-nerd-fonts/tree/master/Consolas%20NF",
 
+	"consolas ligatures font",
+	"https://github.com/somq/consolas-ligaturized",
+
 ]
