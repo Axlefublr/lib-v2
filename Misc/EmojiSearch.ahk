@@ -3,7 +3,7 @@
 
 EmojiSearch(emojiName) {
 	foundEmojis := []
-	dashEmojiName := StrReplace(emojiName, " ", "-")
+	emojiName := StrReplace(emojiName, " ", "-")
 	loop files Paths.Emoji "\*.*" {
 		if A_LoopFileName ~= emojiName
 			foundEmojis.Push(A_LoopFileFullPath)
