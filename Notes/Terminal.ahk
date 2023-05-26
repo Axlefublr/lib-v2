@@ -82,4 +82,9 @@ Notes_Terminal := [
 		hollywood - makes your terminal looks like you're a cool hacker
 	)",
 
+	"fish shell not bold anchors", "
+	(
+		remove -o on the first line in ~/.config/fish/functions/_tide_pwd.fish
+	)",
+
 ]

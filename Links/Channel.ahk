@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;;Main channel videos
 
+	"how to configure fish shell tide prompt",
+	"https://youtu.be/8FIc7nXyZUI",
+
 	"how to install fish shell",
 	"https://youtu.be/RKg-GvnOR_8",
 

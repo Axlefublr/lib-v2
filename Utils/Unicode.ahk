@@ -75,6 +75,7 @@ class Unicode {
 		"shell",                    0x1F41A, ; 🐚
 		"shrimp",                   0x1F990, ; 🦐
 		"broom",                    0x1F9F9, ; 🧹
+		"ocean",                    0x1F30A, ; 🌊
 
 	)
 
