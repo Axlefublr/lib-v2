@@ -8,7 +8,7 @@ class VsCode {
 
 	static exeTitle := "ahk_exe Code - Insiders.exe"
 	static winTitle := "Visual Studio Code " this.exeTitle
-	static path := Paths.LocalAppData "\Programs\Microsoft VS Code Insiders\Code - Insiders.exe"
+	static path := "C:\Users\" A_UserName "\AppData\Local\Programs\Microsoft VS Code Insiders\Code - Insiders.exe"
 	static exception := "VsCodeIntegratedTerminal"
 
 	static winObj := Win({

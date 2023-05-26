@@ -76,6 +76,7 @@ class Unicode {
 		"shrimp",                   0x1F990, ; 🦐
 		"broom",                    0x1F9F9, ; 🧹
 		"ocean",                    0x1F30A, ; 🌊
+		"wolf",                     0x1F43A, ; 🐺
 
 	)
 
