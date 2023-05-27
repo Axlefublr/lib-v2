@@ -13,13 +13,15 @@
 
 	static symbols := Map(
 
-		"f", () => Unicode.Send("fearful"),                     ; 😨
-		"d", () => Unicode.Send("smiling imp"),                 ; 😈
-		"h", () => Unicode.Send("purple heart"),                ; 💜
-		"r", () => Unicode.Send("rolling eyes"),                ; 🙄
-		"H", () => Unicode.Send("handshake"),                   ; 🤝
-		"s", () => Unicode.Send(
-			"shrug", "zwj", "female sign", "varsel16"),         ; 🤷‍♀️
+			;; code section uwu 🥺👉👈
+
+			"f", () => Unicode.Send("fearful"),                     ; 😨
+			"d", () => Unicode.Send("smiling imp"),                 ; 😈
+			"h", () => Unicode.Send("purple heart"),                ; 💜
+			"r", () => Unicode.Send("rolling eyes"),                ; 🙄
+			"H", () => Unicode.Send("handshake"),                   ; 🤝
+			"s", () => Unicode.Send(
+				"shrug", "zwj", "female sign", "varsel16"),          ; 🤷‍♀️
 			"n", () => Unicode.Send("nerd"),                        ; 🤓
 			"a", () => Unicode.Send("amogus"),                      ; ඞ
 			"c", () => Unicode.Send("confetti"),                    ; 🎉

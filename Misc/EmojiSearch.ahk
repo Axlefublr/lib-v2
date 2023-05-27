@@ -4,7 +4,7 @@
 EmojiSearch(emojiName) {
 	foundEmojis := []
 	emojiName := StrReplace(emojiName, " ", "-")
-	loop files Paths.Emoji "\*.*" {
+	loop files Paths.Emoji "\*.*", "FR" {
 		if A_LoopFileName ~= emojiName
 			foundEmojis.Push(A_LoopFileFullPath)
 	}
