@@ -15,6 +15,8 @@ class Discord {
 		excludeTitle: this.excludeTitle
 	})
 
+	static ToggleMentions() => ControlClick("x1788 y962")
+
 	static PrevChannel() => Send("!{Up}")
 
 	static NextChannel() => Send("!{Down}")

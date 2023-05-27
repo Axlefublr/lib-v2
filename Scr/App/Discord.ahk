@@ -4,6 +4,7 @@
 #HotIf WinActive(Discord.winTitle,, Discord.excludeTitle)
 
 !e::Registers("d").Paste().Truncate()
+^m::Discord.ToggleMentions()
 
 ; sc33 is a , and sc34 is a .
 !sc33::Discord.PrevChannel()
