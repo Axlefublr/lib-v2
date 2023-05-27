@@ -89,4 +89,7 @@ Links_Docs := [
 
 	"fish set color",
 	"https://fishshell.com/docs/current/cmds/set_color.html",
+
+	"fish argparse",
+	"https://fishshell.com/docs/current/cmds/argparse.html",
 ]
