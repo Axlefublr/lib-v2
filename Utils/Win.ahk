@@ -7,7 +7,6 @@ class Win extends Initializable {
 	excludeTitle    := ""
 	excludeText     := ""
 	winTitles       := []
-	exception       := ""
 	exePath         := ""
 	startIn         := ""
 	runOpt          := "Max"
@@ -86,8 +85,8 @@ class Win extends Initializable {
 
 	Activate() {
 		try {
-			WinActivate(this.winTitle)
-			WinWaitActive(this.winTitle)
+			WinActivate(this.winTitle,, this.excludeTitle)
+			WinWaitActive(this.winTitle,, this.excludeTitle)
 			return true
 		} catch Any {
 			return false
@@ -102,7 +101,7 @@ class Win extends Initializable {
 	* @returns {Boolean} False if there were less than 2 windows that matched (there could be zero); True if the operation completed successfully
 	*/
 	ActivateAnother() {
-		windows := WinGetList(this.winTitle,, this.exception)
+		windows := WinGetList(this.winTitle,, this.excludeTitle)
 		if (windows.Length < 2) {
 			return false
 		}
@@ -123,10 +122,10 @@ class Win extends Initializable {
 	}
 
 	MinMax() {
-		if !WinExist(this.winTitle,, this.exception)
+		if !WinExist(this.winTitle,, this.excludeTitle)
 			return false
 
-		if WinActive(this.winTitle,, this.exception) {
+		if WinActive(this.winTitle,, this.excludeTitle) {
 			if !this.ActivateAnother()
 				this.Minimize()
 		}
@@ -136,13 +135,13 @@ class Win extends Initializable {
 	}
 
 	Run() {
-		if WinExist(this.winTitle,, this.exception)
+		if WinExist(this.winTitle,, this.excludeTitle)
 			return false
 		if !this.exePath {
 			Win.Testing.NoExePath()
 		}
 		Run(this.exePath, this.startIn, this.runOpt)
-		WinWait(this.startupWintitle ? this.startupWintitle : this.winTitle,, this.waitTime, this.exception)
+		WinWait(this.startupWintitle ? this.startupWintitle : this.winTitle,, this.waitTime, this.excludeTitle)
 		if this.toClose {
 			this.CloseOnceExists()
 		}
@@ -186,7 +185,7 @@ class Win extends Initializable {
 
 	CloseOnceInactive() {
 		_Checker() {
-			if !WinActive(this.winTitle,, this.exception) {
+			if !WinActive(this.winTitle,, this.excludeTitle) {
 				this.Close()
 				SetTimer(, 0)
 			}
@@ -238,7 +237,7 @@ class Win extends Initializable {
 
 	/**
 	* Specify an array of winTitles, will return 1 if one of them is active
-	* Specify a map if you want to have a "excludeTitle" for one, some, or all of your winTitles
+	* Specify a map if you want to have a "exception" for one, some, or all of your winTitles
 	* @param winTitles *Array/Map*
 	* @returns {Integer}
 	*/

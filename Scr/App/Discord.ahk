@@ -1,7 +1,7 @@
 #Include <Abstractions\Registers>
 #Include <App\Discord>
 
-#HotIf WinActive(Discord.winTitle,, Discord.exception)
+#HotIf WinActive(Discord.winTitle,, Discord.excludeTitle)
 
 !e::Registers("d").Paste().Truncate()
 

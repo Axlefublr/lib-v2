@@ -6,7 +6,7 @@ class Gimp {
 	static exeTitle  := "ahk_exe " this.process
 	static winTitle  := this.exeTitle
 	static path      := A_ProgramFiles "\GIMP 2\bin\gimp-2.10.exe"
-	static exception := "GIMP Startup"
+	static excludeTitle := "GIMP Startup"
 	static toClose   := ""
 	static closeWindow := "Quit GIMP " this.exeTitle
 
@@ -14,7 +14,7 @@ class Gimp {
 		winTitle:    this.winTitle,
 		exePath:     this.path,
 		toClose:     this.toClose,
-		exception:   this.exception,
+		excludeTitle:   this.excludeTitle,
 	})
 
 	static Close() {

@@ -12,6 +12,10 @@
 
 #MaxThreadsBuffer true
 
+#HotIf WinExist(Browser.Chat.winTitle)
+<!t::Browser.Chat.winObj.MinMax()
+#HotIf
+
 <!s::Spotify.winObj.App()
 <!a::VsCode.winObj.App()
 <!c::Browser.winObj.App()

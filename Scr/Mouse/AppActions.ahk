@@ -13,16 +13,18 @@
 
 Media_Stop:: {
 	sections := Press.GetSections()
-	Switch {
-		Case sections.topRight:    GroupDeactivate("Main")
-		Case sections.bottomRight: Telegram.winObj.App()
-		Case sections.right:       Discord.winObj.App()
-		Case sections.topLeft:     Terminal.winObj.App()
-		Case sections.bottomLeft:  Explorer.winObj.MinMax()
-		Case sections.left:        VsCode.winObj.App()
-		Case sections.down:        Spotify.winObj.App()
-		Case sections.up:          Browser.winObj.App()
-		Default:                   AltTab()
+	switch {
+		case sections.topRight:    GroupDeactivate("Main")
+		case sections.bottomRight
+			&& WinExist(Browser.Chat.winTitle): Browser.Chat.winObj.MinMax()
+		case sections.bottomRight: Telegram.winObj.App()
+		case sections.right:       Discord.winObj.App()
+		case sections.topLeft:     Terminal.winObj.App()
+		case sections.bottomLeft:  Explorer.winObj.MinMax()
+		case sections.left:        VsCode.winObj.App()
+		case sections.down:        Spotify.winObj.App()
+		case sections.up:          Browser.winObj.App()
+		default:                   AltTab()
 	}
 }
 
