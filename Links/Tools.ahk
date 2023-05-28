@@ -105,10 +105,4 @@ Links_Tools := [
 	"css selector game",
 	"https://flukeout.github.io/",
 
-	"consolas nerd font",
-	"https://github.com/wclr/my-nerd-fonts/tree/master/Consolas%20NF",
-
-	"consolas ligatures font",
-	"https://github.com/somq/consolas-ligaturized",
-
 ]
