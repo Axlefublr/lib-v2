@@ -10,6 +10,7 @@
 #Include <Links\Tools>
 #Include <Links\Docs>
 #Include <Links\AhkLib>
+#Include <Links\Fonts>
 #Include <Notes\Code>
 #Include <Notes\Info>
 #Include <Notes\Tech>
@@ -72,6 +73,7 @@ class Environment {
 		Links.Set(Links_AhkLib*)
 		Links.Set(Links_DiscordPins*)
 		Links.Set(Links_Github*)
+		Links.Set(Links_Fonts*)
 		return Links
 	}
 

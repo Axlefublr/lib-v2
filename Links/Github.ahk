@@ -138,19 +138,4 @@ Links_Github := [
 	"gh trash-cli",
 	"https://github.com/andreafrancia/trash-cli",
 
-	"gh font consolas nerd",
-	"https://github.com/wclr/my-nerd-fonts/tree/master/Consolas%20NF",
-
-	"gh font consolas ligatures",
-	"https://github.com/somq/consolas-ligaturized",
-
-	"gh font sf mono",
-	"https://github.com/supercomputra/SF-Mono-Font",
-
-	"gh font fira code",
-	"https://github.com/tonsky/FiraCode",
-
-	"gh font hack",
-	"https://github.com/source-foundry/Hack",
-
 ]
