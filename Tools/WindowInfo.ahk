@@ -15,7 +15,7 @@ class WindowInfo {
 		this.hwnd := this.gObj.Hwnd
 		position := 0
 		this._AddWintitleCtrl(++position)
-		this._AddWinTextCtrl(++position)
+		; this._AddWinTextCtrl(++position)
 		this._AddExePathCtrl(++position)
 		this._AddProcessExeCtrl(++position)
 		this._AddClassCtrl(++position)
