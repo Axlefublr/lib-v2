@@ -1,10 +1,10 @@
 Links_Fonts := [
 
-	"font consolas nerd",
-	"https://github.com/wclr/my-nerd-fonts/tree/master/Consolas%20NF",
+	"fonts nerd patched",
+	"https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts",
 
-	"font consolas ligatures",
-	"https://github.com/somq/consolas-ligaturized",
+	"font consolas",
+	"https://github.com/wclr/my-nerd-fonts/tree/master/Consolas%20NF",
 
 	"font sf mono",
 	"https://github.com/supercomputra/SF-Mono-Font",
@@ -21,5 +21,15 @@ Links_Fonts := [
 	"font jetbrains mono",
 	"https://www.jetbrains.com/lp/mono/",
 
+	"font ubuntu: UbuntuMono Nerd Font",
+	"https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono",
 
+	"font robotomano: RobotoMono Nerd Font",
+	"https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/RobotoMono",
+
+	"font nerd symbols only: Symbols Nerd Font",
+	"https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly",
+
+	"font meslolgm: MesloLGM Nerd Font",
+	"https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Meslo/M",
 ]

@@ -77,6 +77,7 @@ class Unicode {
 		"broom",                    0x1F9F9, ; 🧹
 		"ocean",                    0x1F30A, ; 🌊
 		"wolf",                     0x1F43A, ; 🐺
+		"paperclip",                0x1F4CE, ; 📎
 
 	)
 

@@ -2,7 +2,7 @@
 
 class CleanInputBox extends Gui {
 
-	Width     := Round(A_ScreenWidth / 1920 * 1200)
+	Width     := Round(A_ScreenWidth  / 1920 * 1200)
 	TopMargin := Round(A_ScreenHeight / 1080 * 800)
 
 	/**

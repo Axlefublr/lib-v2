@@ -76,7 +76,7 @@ class Win extends Initializable {
 	}
 
 	Minimize() {
-		try PostMessage("0x112", "0xF020",,, this.winTitle)
+		try PostMessage("0x112", "0xF020",,, this.winTitle,, this.excludeTitle)
 	}
 
 	static Minimize(winTitle := "A") {

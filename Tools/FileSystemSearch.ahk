@@ -167,6 +167,6 @@ class FileSystemSearch extends Gui {
 		dir  := this.List.GetText(rowNumber, 2)
 		path := this.List.GetText(rowNumber, 3)
 
-		return path "\" file dir ;No explanation required, it's just logic — @rbstrachan
+		return path "\" file dir ; No explanation required, it's just logic — @rbstrachan
 	}
 }
