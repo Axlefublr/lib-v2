@@ -78,6 +78,7 @@ class Unicode {
 		"ocean",                    0x1F30A, ; 🌊
 		"wolf",                     0x1F43A, ; 🐺
 		"paperclip",                0x1F4CE, ; 📎
+		"nail polish",              0x1F485, ; 💅
 
 	)
 

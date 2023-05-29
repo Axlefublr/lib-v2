@@ -13,8 +13,6 @@
 
 	static symbols := Map(
 
-			;; code section uwu 🥺👉👈
-
 			"f", () => Unicode.Send("fearful"),                     ; 😨
 			"d", () => Unicode.Send("smiling imp"),                 ; 😈
 			"h", () => Unicode.Send("purple heart"),                ; 💜
@@ -47,6 +45,7 @@
 			"l", () => Unicode.Send("face with hearts"),            ; 🥰
 			"x", () => Unicode.Send("sparkles"),                    ; ✨
 			"v", () => Unicode.Send("relieved"),                    ; 😌
+			"L", () => Unicode.Send("nail polish"),                 ; 💅
 			";", () => Unicode.DynamicSend(),
 
 		)
