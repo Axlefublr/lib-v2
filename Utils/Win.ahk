@@ -122,6 +122,7 @@ class Win extends Initializable {
 	}
 
 	MinMax() {
+		Thread("Priority", 8)
 		if !WinExist(this.winTitle,, this.excludeTitle)
 			return false
 
@@ -194,6 +195,7 @@ class Win extends Initializable {
 	}
 
 	RunAct() {
+		Thread("Priority", 8)
 		this.Run()
 		if this.startupWintitle {
 			temp := this.winTitle
@@ -213,6 +215,7 @@ class Win extends Initializable {
 	}
 
 	App() {
+		Thread("Priority", 9)
 		if this.MinMax()
 			return this
 		this.RunAct()
