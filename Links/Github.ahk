@@ -138,4 +138,6 @@ Links_Github := [
 	"gh trash-cli",
 	"https://github.com/andreafrancia/trash-cli",
 
+	"gh starship wiki",
+	"https://starship.rs/config/",
 ]

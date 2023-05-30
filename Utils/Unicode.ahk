@@ -79,6 +79,10 @@ class Unicode {
 		"wolf",                     0x1F43A, ; 🐺
 		"paperclip",                0x1F4CE, ; 📎
 		"nail polish",              0x1F485, ; 💅
+		"shell top arc",            0x256D,  ; ╭
+		"shell horizontal",         0x2500,  ; ─
+		"shell bottom arc",         0x2570,  ; ╰
+		"shell middle line",        0x2502,  ; │
 
 	)
 
