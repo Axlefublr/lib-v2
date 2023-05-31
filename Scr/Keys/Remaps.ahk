@@ -1,9 +1,11 @@
-#InputLevel 6
+#InputLevel 5
 
 #u::Send("{Blind}a")
 #o::Send("{Blind}k")
 #p::Send("{Blind}d")
 #!sc27::Send("#;")
+
+#InputLevel 6
 
 RAlt::LAlt
 *Pause::return
