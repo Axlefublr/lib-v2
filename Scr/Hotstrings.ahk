@@ -45,15 +45,7 @@
 
 		;; Command line
 
-		"h",     "--help",
-		"hl",    "--help | less",
-		"l",     "| less",
-		"proj",  "--project ",
-		"vers",  "--version",
-		"color", "--color=always",
-		"sta",   "--staged ",
 		"C",     "C# en-us",
-		"en",    "en-us",
 		"vimap", "vim.keymap.set()",
 
 	)

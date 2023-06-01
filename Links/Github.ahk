@@ -140,4 +140,7 @@ Links_Github := [
 
 	"gh starship wiki",
 	"https://starship.rs/config/",
+
+	"gh tgpt",
+	"https://github.com/aandrew-me/tgpt",
 ]
