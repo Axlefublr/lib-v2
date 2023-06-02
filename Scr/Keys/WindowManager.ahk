@@ -12,14 +12,14 @@
 
 	static presets := Map(
 
-		"h", () => WindowManager.Presets().LeftSide(),
-		"l", () => WindowManager.Presets().RightSide(),
-		"j", () => WindowManager.Presets().BottomSide(),
-		"k", () => WindowManager.Presets().TopSide(),
-		"p", () => WindowManager.Presets().ThirtyVert(),
-		"o", () => WindowManager.Presets().SeventyVert(),
-		"g", () => WindowManager.Presets().SeventyHor(),
-		"t", () => WindowManager.Presets().ThirtyHor(),
+		"h", () => WindowManager().LeftSide(),
+		"l", () => WindowManager().RightSide(),
+		"j", () => WindowManager().BottomSide(),
+		"k", () => WindowManager().TopSide(),
+		"p", () => WindowManager().ThirtyVert(),
+		"o", () => WindowManager().SeventyVert(),
+		"g", () => WindowManager().SeventyHor(),
+		"t", () => WindowManager().ThirtyHor(),
 		"[", () => WinRestore("A"),
 		"]", () => WinMaximize("A"),
 		".", () => Win.CloseOnceInactive(),
