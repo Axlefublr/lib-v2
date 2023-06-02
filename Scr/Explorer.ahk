@@ -14,25 +14,42 @@
 		Registers.CancelAction()
 		return
 	}
+
+	static GetTerminal() {
+		WindowManager().SeventyHor()
+		prevPosition := Terminal.winObj.position
+		Terminal.winObj.position := "ThirtyHor"
+		Terminal.winObj.RunAct()
+		Terminal.winObj.position := prevPosition
+	}
+
+	static SetupExplorer(dir, folders := "_Folders") {
+		WindowManager(, Explorer.winTitle).SeventyVert()
+		Explorer.WinObjs.%dir%.App%folders%()
+	}
+
 	static keyActions := Map(
 
-		"q", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Volume.App_Folders()),
-		"v", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Pictures.App_Folders()),
-		"r", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Tree.App_Folders()),
-		"t", () => (WindowManager().SeventyVert(), Explorer.WinObjs.VideoTools.App_Folders()),
-		"s", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Memes.App_Folders()),
-		"e", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Emoji.App_Folders()),
-		"a", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Audio.App_Folders()),
-		"w", () => (WindowManager().SeventyVert(), Explorer.WinObjs.ScreenVideos.App_Folders()),
-		"d", () => (WindowManager().SeventyVert(), Explorer.WinObjs.PC.App()),
-		"c", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Content.App_Folders()),
-		"o", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Other.App_Folders()),
-		"O", () => (WindowManager().SeventyVert(), Explorer.WinObjs.OnePiece.App_Folders()),
-		"u", () => (WindowManager().SeventyVert(), Explorer.WinObjs.User.App()),
-		"l", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Logos.App_Folders()),
-		"h", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Themes.App_Folders()),
-		"p", () => (WindowManager().SeventyVert(), Explorer.WinObjs.Prog.App_Folders()),
-		"1", () => Explorer.winObj.CloseAll(),
+		"q", () => SetupExplorer("Volume"),
+		"v", () => SetupExplorer("Pictures"),
+		"r", () => SetupExplorer("Tree"),
+		"t", () => SetupExplorer("VideoTools"),
+		"s", () => SetupExplorer("Memes"),
+		"e", () => SetupExplorer("Emoji"),
+		"a", () => SetupExplorer("Audio"),
+		"w", () => SetupExplorer("ScreenVideos"),
+		"d", () => SetupExplorer("PC", ""),
+		"c", () => SetupExplorer("Content"),
+		"o", () => SetupExplorer("Other"),
+		"O", () => SetupExplorer("OnePiece"),
+		"u", () => SetupExplorer("User", ""),
+		"l", () => SetupExplorer("Logos"),
+		"h", () => SetupExplorer("Themes"),
+		"p", () => SetupExplorer("Prog"),
+		"1", () => WinRestore("A"),
+		"2", () => WinMaximize("A"),
+		"3", () => (WinMaximize("A"), Explorer.winObj.CloseAll()),
+		"4", () => GetTerminal(),
 
 	)
 	if key

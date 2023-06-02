@@ -2,10 +2,11 @@
 
 class WindowManager {
 
-	__New(winTitle := "A") {
-		if WinGetMinMax(winTitle) = 1
-			WinRestore(winTitle)
+	__New(winTitle := "A", excludeTitle := "") {
+		if WinGetMinMax(winTitle,, excludeTitle) = 1
+			WinRestore(winTitle,, excludeTitle)
 		this.winTitle := winTitle
+		this.excludeTitle := excludeTitle
 	}
 
 	zeroX      := -8
@@ -30,28 +31,32 @@ class WindowManager {
 		this.zeroY,
 		this.halfWidth,
 		this.fullHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	RightSide() => WinMove(
 		this.halfX,
 		this.zeroY,
 		this.halfWidth,
 		this.fullHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	TopSide() => WinMove(
 		this.zeroX,
 		this.zeroY,
 		this.fullWidth,
 		this.halfHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	BottomSide() => WinMove(
 		this.zeroX,
 		this.halfY,
 		this.fullWidth,
 		this.halfHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 
 	ThirtyVert() => WinMove(
@@ -59,43 +64,49 @@ class WindowManager {
 		this.zeroY,
 		this.thirtyWidth,
 		this.fullHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	UpThirtyVert() => WinMove(
 		this.seventyX,
 		this.zeroY,
 		this.thirtyWidth,
 		this.halfHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	DownThirtyVert() => WinMove(
 		this.seventyX,
 		this.halfY,
 		this.thirtyWidth,
 		this.halfHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	SeventyVert() => WinMove(
 		this.zeroX,
 		this.zeroY,
 		this.seventyWidth,
 		this.fullHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 
-	ThirtyHor() => WinMove(
+	SeventyHor() => WinMove(
 		this.zeroX,
 		this.zeroY,
 		this.fullWidth,
 		this.seventyHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 	ThirtyHor() => WinMove(
 		this.zeroX,
 		this.seventyY,
 		this.fullWidth,
 		this.thirtyHeight,
-		this.winTitle
+		this.winTitle,,
+		this.excludeTitle
 	)
 
 }
