@@ -22,61 +22,61 @@ class WindowManager {
 
 	class Presets extends WindowManager {
 
-		zeroX      := -8
-		zeroY      := 0
-		fullWidth  := A_ScreenWidth + 14
-		fullHeight := A_ScreenHeight + 6
-		halfX      := this.fullWidth // 2 - 18
-		halfWidth  := this.fullWidth // 2 + 12
-		halfY      := this.fullHeight // 2 - 3
-		halfHeight := this.fullHeight // 2 + 3
+		static zeroX      := -8
+		static zeroY      := 0
+		static fullWidth  := A_ScreenWidth + 14
+		static fullHeight := A_ScreenHeight + 6
+		static halfX      := this.fullWidth // 2 - 18
+		static halfWidth  := this.fullWidth // 2 + 12
+		static halfY      := this.fullHeight // 2 - 3
+		static halfHeight := this.fullHeight // 2 + 3
 
-		seventyX := 1350
-		seventyWidth := this.seventyX + 22
-		thirtyWidth := this.fullWidth - this.seventyX - 7
+		static seventyX     := 1350
+		static seventyWidth := this.seventyX + 22
+		static thirtyWidth  := this.fullWidth - this.seventyX - 7
 
 		LeftSide() => WinMove(
-			this.zeroX,
-			this.zeroY,
-			this.halfWidth,
-			this.fullHeight,
-			this.winTitle
+			WindowManager.Presets.zeroX,
+			WindowManager.Presets.zeroY,
+			WindowManager.Presets.halfWidth,
+			WindowManager.Presets.fullHeight,
+			WindowManager.Presets.winTitle
 		)
 		RightSide() => WinMove(
-			this.halfX,
-			this.zeroY,
-			this.halfWidth,
-			this.fullHeight,
-			this.winTitle
+			WindowManager.Presets.halfX,
+			WindowManager.Presets.zeroY,
+			WindowManager.Presets.halfWidth,
+			WindowManager.Presets.fullHeight,
+			WindowManager.Presets.winTitle
 		)
 		TopSide() => WinMove(
-			this.zeroX,
-			this.zeroY,
-			this.fullWidth,
-			this.halfHeight,
-			this.winTitle
+			WindowManager.Presets.zeroX,
+			WindowManager.Presets.zeroY,
+			WindowManager.Presets.fullWidth,
+			WindowManager.Presets.halfHeight,
+			WindowManager.Presets.winTitle
 		)
 		BottomSide() => WinMove(
-			this.zeroX,
-			this.halfY,
-			this.fullWidth,
-			this.halfHeight,
-			this.winTitle
+			WindowManager.Presets.zeroX,
+			WindowManager.Presets.halfY,
+			WindowManager.Presets.fullWidth,
+			WindowManager.Presets.halfHeight,
+			WindowManager.Presets.winTitle
 		)
 
 		Thiry() => WinMove(
-			this.seventyX,
-			this.zeroY,
-			this.thirtyWidth,
-			this.fullHeight,
-			this.winTitle
+			WindowManager.Presets.seventyX,
+			WindowManager.Presets.zeroY,
+			WindowManager.Presets.thirtyWidth,
+			WindowManager.Presets.fullHeight,
+			WindowManager.Presets.winTitle
 		)
 		Seventy() => WinMove(
-			this.zeroX,
-			this.zeroY,
-			this.seventyWidth,
-			this.fullHeight,
-			this.winTitle
+			WindowManager.Presets.zeroX,
+			WindowManager.Presets.zeroY,
+			WindowManager.Presets.seventyWidth,
+			WindowManager.Presets.fullHeight,
+			WindowManager.Presets.winTitle
 		)
 
 	}
