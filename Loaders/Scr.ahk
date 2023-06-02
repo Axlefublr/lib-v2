@@ -35,6 +35,7 @@
 #Include <Scr\Keys\SndMem>
 #Include <Scr\Keys\VimMode>
 #Include <Scr\Keys\Numpad>
+#Include <Scr\Keys\WindowManager>
 
 ;; Extra
 
