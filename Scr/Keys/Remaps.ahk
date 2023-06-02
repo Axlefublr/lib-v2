@@ -1,10 +1,23 @@
 #InputLevel 5
 
-#u::Send("{Blind}a")
-#o::Send("{Blind}k")
-#p::Send("{Blind}d")
-#!sc27::Send("#;")
+#q::return
+#w::return
+#e::return
+#s::Send("{Blind}k")
+#f::return
+#z::return
+#x::return
+#c::return
 
+; #y::return
+#u::return
+; #i::return
+#o::return
+#p::Send("{Blind}i")
+#sc1A::return
+#sc1B::return
+#sc2B::return
+#!sc27::Send("#;")
 *Pause::return
 
 ; Launch_Media::return     ; F1
