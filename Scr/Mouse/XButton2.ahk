@@ -12,7 +12,7 @@ XButton2:: {
 	sections := Press.GetSections()
 	Switch {
 		Case sections.topRight:    Win.Maximize()
-		Case sections.topLeft:     Win.RestoreDown()
+		Case sections.topLeft:     WindowManager.RestoreDown()
 		Case sections.bottomRight: Send("{Browser_Forward}")
 		Case sections.bottomLeft:  Send("{Browser_Back}")
 		Case sections.down:        CloseButActually()

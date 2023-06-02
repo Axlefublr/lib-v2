@@ -59,14 +59,6 @@ class Win extends Initializable {
 		Win({winTitle: winTitle}).Close()
 	}
 
-	RestoreDown() {
-		try PostMessage("0x112", "0xF120",,, this.winTitle)
-	}
-
-	static RestoreDown(winTitle := "A") {
-		Win({winTitle: winTitle}).RestoreDown()
-	}
-
 	Maximize() {
 		try PostMessage("0x112", "0xF030",,, this.winTitle)
 	}
