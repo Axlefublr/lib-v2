@@ -61,6 +61,20 @@ class WindowManager {
 		this.fullHeight,
 		this.winTitle
 	)
+	UpThirtyVert() => WinMove(
+		this.seventyX,
+		this.zeroY,
+		this.thirtyWidth,
+		this.halfHeight,
+		this.winTitle
+	)
+	DownThirtyVert() => WinMove(
+		this.seventyX,
+		this.halfY,
+		this.thirtyWidth,
+		this.halfHeight,
+		this.winTitle
+	)
 	SeventyVert() => WinMove(
 		this.zeroX,
 		this.zeroY,

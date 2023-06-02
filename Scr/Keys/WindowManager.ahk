@@ -20,6 +20,8 @@
 		"o", () => WindowManager().SeventyVert(),
 		"i", () => WindowManager().SeventyHor(),
 		"u", () => WindowManager().ThirtyHor(),
+		";", () => WindowManager().UpThirtyVert(),
+		"'", () => WindowManager().DownThirtyVert(),
 		"[", () => WinRestore("A"),
 		"]", () => WinMaximize("A"),
 		".", () => Win.CloseOnceInactive(),
