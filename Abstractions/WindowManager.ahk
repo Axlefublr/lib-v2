@@ -4,13 +4,7 @@ class WindowManager {
 
 	__New(winTitle := "A") {
 		this.winTitle := winTitle
-		CoordMode("Mouse", "Screen")
 		this.RestoreDown()
-		WinGetPos(&x, &y, &width, &height, this.winTitle)
-		this.X := x
-		this.Y := y
-		this.Width := width
-		this.Height := height
 	}
 
 	RestoreDown() {
