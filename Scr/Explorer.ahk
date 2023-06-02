@@ -29,8 +29,6 @@
 		"o", () => Explorer.WinObjs.Other.App_Folders().CloseOnceInactive(),
 		"O", () => Explorer.WinObjs.OnePiece.App_Folders(),
 		"u", () => Explorer.WinObjs.User.App(),
-		"3", () => WinSetAlwaysOnTop(-1, "A"),
-		"4", () => Win.CloseOnceInactive(),
 		"l", () => Explorer.WinObjs.Logos.App_Folders().CloseOnceInactive(),
 		"h", () => Explorer.WinObjs.Themes.App_Folders().CloseOnceInactive(),
 

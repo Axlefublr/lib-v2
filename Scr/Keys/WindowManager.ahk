@@ -20,6 +20,8 @@
 		"o", () => WindowManager.Presets().Seventy(),
 		"[", () => WindowManager(),
 		"]", () => WindowManager.Maximize(),
+		".", () => Win.CloseOnceInactive(),
+		"/", () => WinSetAlwaysOnTop(-1, "A"),
 
 	)
 
