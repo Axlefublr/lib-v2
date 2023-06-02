@@ -20,9 +20,6 @@ Delete::Send("{Media_Play_Pause}")
 
 #InputLevel 5
 
-#!k::Win.Maximize()
-#!j::Win.RestoreDown()
-
 F13::Delete
 !F13::CloseButActually()
 +F13::Win.Minimize()
