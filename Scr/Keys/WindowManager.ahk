@@ -16,6 +16,8 @@
 		"l", () => WindowManager.Presets().RightSide(),
 		"j", () => WindowManager.Presets().BottomSide(),
 		"k", () => WindowManager.Presets().TopSide(),
+		"p", () => WindowManager.Presets().Thiry(),
+		"o", () => WindowManager.Presets().Seventy(),
 
 	)
 
