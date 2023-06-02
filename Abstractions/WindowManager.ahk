@@ -22,9 +22,9 @@ class WindowManager {
 		seventyWidth := this.seventyX + 22
 		thirtyWidth  := this.fullWidth - this.seventyWidth - 7
 
-		seventyY := 600
-		seventyHeight := this.seventyY
-		thirtyHeight := this.fullHeight - this.seventyHeight
+		seventyY := 790
+		seventyHeight := this.seventyY + 7
+		thirtyHeight := this.fullHeight - this.seventyHeight + 7
 
 		LeftSide() => WinMove(
 			this.zeroX,
@@ -55,18 +55,33 @@ class WindowManager {
 			this.winTitle
 		)
 
-		Thirty() => WinMove(
+		ThirtyVert() => WinMove(
 			this.seventyX,
 			this.zeroY,
 			this.thirtyWidth,
 			this.fullHeight,
 			this.winTitle
 		)
-		Seventy() => WinMove(
+		SeventyVert() => WinMove(
 			this.zeroX,
 			this.zeroY,
 			this.seventyWidth,
 			this.fullHeight,
+			this.winTitle
+		)
+
+		ThirtyHor() => WinMove(
+			this.zeroX,
+			this.zeroY,
+			this.fullWidth,
+			this.seventyHeight,
+			this.winTitle
+		)
+		SeventyHor() => WinMove(
+			this.zeroX,
+			this.seventyY,
+			this.fullWidth,
+			this.thirtyHeight,
 			this.winTitle
 		)
 
