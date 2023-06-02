@@ -59,14 +59,6 @@ class Win extends Initializable {
 		Win({winTitle: winTitle}).Close()
 	}
 
-	Maximize() {
-		try PostMessage("0x112", "0xF030",,, this.winTitle)
-	}
-
-	static Maximize(winTitle := "A") {
-		Win({winTitle: winTitle}).Maximize()
-	}
-
 	Minimize() {
 		try PostMessage("0x112", "0xF020",,, this.winTitle,, this.excludeTitle)
 	}

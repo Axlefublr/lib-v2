@@ -5,13 +5,14 @@
 #Include <App\Spotify>
 #Include <Abstractions\MediaActions>
 #Include <Misc\CloseButActually>
+#Include <Abstractions\WindowManager>
 
 #MaxThreadsBuffer true
 
 XButton2:: {
 	sections := Press.GetSections()
 	Switch {
-		Case sections.topRight:    Win.Maximize()
+		Case sections.topRight:    WindowManager.Maximize()
 		Case sections.topLeft:     WindowManager.RestoreDown()
 		Case sections.bottomRight: Send("{Browser_Forward}")
 		Case sections.bottomLeft:  Send("{Browser_Back}")

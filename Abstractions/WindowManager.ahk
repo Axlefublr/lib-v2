@@ -13,8 +13,11 @@ class WindowManager {
 		}
 	}
 
+	static Maximize(winTitle?) {
+		try PostMessage("0x112", "0xF030",,, winTitle ?? "A")
+	}
+
 	static IsMaximized(winTitle?) => WinGetMinMax(winTitle ?? "A") > 0
-	static Maximize(winTitle?) => Win.Maximize(winTitle ?? "A")
 
 	class Presets extends WindowManager {
 
