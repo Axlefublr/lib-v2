@@ -7,77 +7,7 @@
 #Include <Environment>
 #Include <Abstractions\Mouse>
 
-<!Space::Environment.VimMode := !Environment.VimMode
-
-#HotIf Environment.WindowManagerMode
-
-h::WindowManager().MoveLeft(Mouse.MediumMove)
-k::WindowManager().MoveUp(Mouse.MediumMove)
-j::WindowManager().MoveDown(Mouse.MediumMove)
-l::WindowManager().MoveRight(Mouse.MediumMove)
-
-+h::WindowManager().MoveLeft(Mouse.SmallMove)
-+k::WindowManager().MoveUp(Mouse.SmallMove)
-+j::WindowManager().MoveDown(Mouse.SmallMove)
-+l::WindowManager().MoveRight(Mouse.SmallMove)
-
-^h::WindowManager().MoveLeft(Mouse.BigMove)
-^k::WindowManager().MoveUp(Mouse.BigMove)
-^j::WindowManager().MoveDown(Mouse.BigMove)
-^l::WindowManager().MoveRight(Mouse.BigMove)
-
-s::WindowManager().DecreaseWidth(Mouse.MediumMove)
-f::WindowManager().IncreaseHeight(Mouse.MediumMove)
-d::WindowManager().DecreaseHeight(Mouse.MediumMove)
-g::WindowManager().IncreaseWidth(Mouse.MediumMove)
-
-+s::WindowManager().DecreaseWidth(Mouse.SmallMove)
-+f::WindowManager().IncreaseHeight(Mouse.SmallMove)
-+d::WindowManager().DecreaseHeight(Mouse.SmallMove)
-+g::WindowManager().IncreaseWidth(Mouse.SmallMove)
-
-^s::WindowManager().DecreaseWidth(Mouse.BigMove)
-^f::WindowManager().IncreaseHeight(Mouse.BigMove)
-^d::WindowManager().DecreaseHeight(Mouse.BigMove)
-^g::WindowManager().IncreaseWidth(Mouse.BigMove)
-
-1::WinMove(0,                     0,,, "A")
-2::WinMove(Mouse.FarLeftX,        0,,, "A")
-3::WinMove(Mouse.HighLeftX,       0,,, "A")
-4::WinMove(Mouse.MiddleLeftX,     0,,, "A")
-5::WinMove(Mouse.LowLeftX,        0,,, "A")
-6::WinMove(Mouse.LessThanMiddleX, 0,,, "A")
-7::WinMove(Mouse.MiddleX,         0,,, "A")
-8::WinMove(Mouse.MoreThanMiddleX, 0,,, "A")
-9::WinMove(Mouse.LowRightX,       0,,, "A")
-0::WinMove(Mouse.MiddleRightX,    0,,, "A")
-
-+1::WinMove(0,                     Mouse.MiddleY,,, "A")
-+2::WinMove(Mouse.FarLeftX,        Mouse.MiddleY,,, "A")
-+3::WinMove(Mouse.HighLeftX,       Mouse.MiddleY,,, "A")
-+4::WinMove(Mouse.MiddleLeftX,     Mouse.MiddleY,,, "A")
-+5::WinMove(Mouse.LowLeftX,        Mouse.MiddleY,,, "A")
-+6::WinMove(Mouse.LessThanMiddleX, Mouse.MiddleY,,, "A")
-+7::WinMove(Mouse.MiddleX,         Mouse.MiddleY,,, "A")
-+8::WinMove(Mouse.MoreThanMiddleX, Mouse.MiddleY,,, "A")
-+9::WinMove(Mouse.LowRightX,       Mouse.MiddleY,,, "A")
-+0::WinMove(Mouse.MiddleRightX,    Mouse.MiddleY,,, "A")
-
-^1::WinMove(0,                     Mouse.LowY,,, "A")
-^2::WinMove(Mouse.FarLeftX,        Mouse.LowY,,, "A")
-^3::WinMove(Mouse.HighLeftX,       Mouse.LowY,,, "A")
-^4::WinMove(Mouse.MiddleLeftX,     Mouse.LowY,,, "A")
-^5::WinMove(Mouse.LowLeftX,        Mouse.LowY,,, "A")
-^6::WinMove(Mouse.LessThanMiddleX, Mouse.LowY,,, "A")
-^7::WinMove(Mouse.MiddleX,         Mouse.LowY,,, "A")
-^8::WinMove(Mouse.MoreThanMiddleX, Mouse.LowY,,, "A")
-^9::WinMove(Mouse.LowRightX,       Mouse.LowY,,, "A")
-^0::WinMove(Mouse.MiddleRightX,    Mouse.LowY,,, "A")
-
-a::WindowManager().SetFullHeight()
-q::WindowManager().SetHalfHeight()
-w::WindowManager().SetHalfWidth()
-e::WindowManager().SetFullWidth()
+!Space::Environment.VimMode := !Environment.VimMode
 
 #HotIf Environment.VimMode
 
