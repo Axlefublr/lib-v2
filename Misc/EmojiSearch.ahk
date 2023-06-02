@@ -2,6 +2,8 @@
 #Include <Paths>
 
 EmojiSearch(emojiName) {
+	if !emojiName := Trim(emojiName)
+		return
 	foundEmojis := []
 	emojiName := StrReplace(emojiName, " ", "-")
 	loop files Paths.Emoji "\*.*", "FR" {
