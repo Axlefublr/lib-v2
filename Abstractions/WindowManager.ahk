@@ -40,21 +40,21 @@ class WindowManager {
 
 		zeroX      := -8
 		zeroY      := 0
-		fullWidth  := A_ScreenWidth + 15
+		fullWidth  := A_ScreenWidth + 14
 		fullHeight := A_ScreenHeight + 6
-		halfX      := this.fullWidth // 2
-		halfWidth  := this.fullWidth // 2
-		halfY      := this.fullHeight // 2
-		halfHeight := this.fullHeight // 2
+		halfX      := this.fullWidth // 2 - 18
+		halfWidth  := this.fullWidth // 2 + 12
+		halfY      := this.fullHeight // 2 - 3
+		halfHeight := this.fullHeight // 2 + 3
 
 		__New(winTitle?) {
 			super.__New(winTitle?)
 		}
 
 		LeftSide()   => WinMove(this.zeroX, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
-		RightSide()  => WinMove(this.halfWidth, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
+		RightSide()  => WinMove(this.halfX, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
 		TopSide()    => WinMove(this.zeroX, this.zeroY, this.fullWidth, this.halfHeight, this.winTitle)
-		BottomSide() => WinMove(this.zeroX, this.halfHeight, this.fullWidth, this.halfHeight, this.winTitle)
+		BottomSide() => WinMove(this.zeroX, this.halfY, this.fullWidth, this.halfHeight, this.winTitle)
 
 	}
 
