@@ -2,7 +2,7 @@
 #Include <Utils\GetInput>
 #Include <Abstractions\WindowManager>
 
->!Space:: {
+#!Space:: {
 	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
 	try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
 	catch UnsetItemError {
