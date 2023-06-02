@@ -5,9 +5,6 @@
 #p::Send("{Blind}d")
 #!sc27::Send("#;")
 
-#InputLevel 6
-
-RAlt::LAlt
 *Pause::return
 
 ; Launch_Media::return     ; F1
