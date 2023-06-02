@@ -3,7 +3,8 @@
 class WindowManager {
 
 	__New(winTitle := "A") {
-		WinRestore(winTitle)
+		if WinGetMinMax(winTitle) = 1
+			WinRestore(winTitle)
 		this.winTitle := winTitle
 	}
 
@@ -18,7 +19,7 @@ class WindowManager {
 
 	seventyX     := 1350
 	seventyWidth := this.seventyX + 22
-	thirtyWidth  := this.fullWidth - this.seventyWidth - 7
+	thirtyWidth  := this.fullWidth - this.seventyWidth + 14
 
 	seventyY := 790
 	seventyHeight := this.seventyY + 7
