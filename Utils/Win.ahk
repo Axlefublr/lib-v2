@@ -53,6 +53,15 @@ class Win extends Initializable {
 
 	Close() {
 		try PostMessage("0x0010",,,, this.winTitle)
+		catch Any {
+			return false
+		}
+		return true
+	}
+
+	CloseAll() {
+		while this.Close() {
+		}
 	}
 
 	static Close(winTitle := "A") {

@@ -31,6 +31,7 @@
 		"u", () => Explorer.WinObjs.User.App(),
 		"l", () => Explorer.WinObjs.Logos.App_Folders().CloseOnceInactive(),
 		"h", () => Explorer.WinObjs.Themes.App_Folders().CloseOnceInactive(),
+		"1", () => Explorer.winObj.CloseAll(),
 
 	)
 	if key
