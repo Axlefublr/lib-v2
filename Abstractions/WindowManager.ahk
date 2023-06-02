@@ -19,6 +19,7 @@ class WindowManager {
 
 	static IsMaximized(winTitle?) => WinGetMinMax(winTitle ?? "A") > 0
 
+
 	class Presets extends WindowManager {
 
 		zeroX      := -8
@@ -34,13 +35,49 @@ class WindowManager {
 		seventyWidth := this.seventyX + 22
 		thirtyWidth := this.fullWidth - this.seventyX - 7
 
-		LeftSide()   => WinMove(this.zeroX, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
-		RightSide()  => WinMove(this.halfX, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
-		TopSide()    => WinMove(this.zeroX, this.zeroY, this.fullWidth, this.halfHeight, this.winTitle)
-		BottomSide() => WinMove(this.zeroX, this.halfY, this.fullWidth, this.halfHeight, this.winTitle)
+		LeftSide() => WinMove(
+			this.zeroX,
+			this.zeroY,
+			this.halfWidth,
+			this.fullHeight,
+			this.winTitle
+		)
+		RightSide() => WinMove(
+			this.halfX,
+			this.zeroY,
+			this.halfWidth,
+			this.fullHeight,
+			this.winTitle
+		)
+		TopSide() => WinMove(
+			this.zeroX,
+			this.zeroY,
+			this.fullWidth,
+			this.halfHeight,
+			this.winTitle
+		)
+		BottomSide() => WinMove(
+			this.zeroX,
+			this.halfY,
+			this.fullWidth,
+			this.halfHeight,
+			this.winTitle
+		)
 
-		Thiry() => WinMove(this.seventyX, this.zeroY, this.thirtyWidth, this.fullHeight, this.winTitle)
-		Seventy() => WinMove(this.zeroX, this.zeroY, this.seventyWidth, this.fullHeight, this.winTitle)
+		Thiry() => WinMove(
+			this.seventyX,
+			this.zeroY,
+			this.thirtyWidth,
+			this.fullHeight,
+			this.winTitle
+		)
+		Seventy() => WinMove(
+			this.zeroX,
+			this.zeroY,
+			this.seventyWidth,
+			this.fullHeight,
+			this.winTitle
+		)
 
 	}
 
