@@ -2,6 +2,9 @@
 #Include <Utils\GetInput>
 #Include <Abstractions\WindowManager>
 
+#sc1A::WinRestore("A")
+#sc1B::WinMaximize("A")
+
 #i:: {
 	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
 	try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
@@ -18,12 +21,10 @@
 		"k", () => WindowManager().TopSide(),
 		"p", () => WindowManager().ThirtyVert(),
 		"o", () => WindowManager().SeventyVert(),
-		"i", () => WindowManager().SeventyHor(),
-		"u", () => WindowManager().ThirtyHor(),
+		"u", () => WindowManager().SeventyHor(),
+		"i", () => WindowManager().ThirtyHor(),
 		";", () => WindowManager().UpThirtyVert(),
 		"'", () => WindowManager().DownThirtyVert(),
-		"[", () => WinRestore("A"),
-		"]", () => WinMaximize("A"),
 		".", () => Win.CloseOnceInactive(),
 		"/", () => WinSetAlwaysOnTop(-1, "A"),
 

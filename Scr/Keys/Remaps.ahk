@@ -14,8 +14,8 @@
 ; #i::return
 #o::return
 #p::Send("{Blind}i")
-#sc1A::return
-#sc1B::return
+; #sc1A::return
+; #sc1B::return
 #sc2B::return
 #!sc27::Send("#;")
 *Pause::return

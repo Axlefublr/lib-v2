@@ -90,7 +90,7 @@ class WindowManager {
 		this.seventyHeight,
 		this.winTitle
 	)
-	SeventyHor() => WinMove(
+	ThirtyHor() => WinMove(
 		this.zeroX,
 		this.seventyY,
 		this.fullWidth,
