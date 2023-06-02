@@ -21,16 +21,6 @@
 #7::Brightness.ChangeBrightnessRelative(-10)
 #8::Brightness.ChangeBrightnessRelative(10)
 
-#s::WindowManager().SetHalfWidth().SetFullHeight().AbsoluteMove(0, 0)
-#d::WindowManager().SetFullWidth().SetHalfHeight().AbsoluteMove(0, 0)
-#f::WindowManager().SetFullWidth().SetHalfHeight().AbsoluteMove(0, Mouse.MiddleY)
-#g::WindowManager().SetHalfWidth().SetFullHeight().AbsoluteMove(Mouse.MiddleX, 0)
-
-#a::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(0, Mouse.MiddleY)
-#q::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(0, 0)
-#w::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(Mouse.MiddleX, Mouse.MiddleY)
-#e::WindowManager().SetHalfWidth().SetHalfHeight().AbsoluteMove(Mouse.MiddleX, 0)
-
 #^LButton::CoordInfo()
 #+LButton::RelativeCoordInfo.BetterCallThis()
 #y::WindowInfo()
