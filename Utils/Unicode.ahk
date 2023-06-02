@@ -83,6 +83,7 @@ class Unicode {
 		"shell horizontal",         0x2500,  ; ─
 		"shell bottom arc",         0x2570,  ; ╰
 		"shell middle line",        0x2502,  ; │
+		"cat",                      0x1F408, ; 🐈
 
 	)
 

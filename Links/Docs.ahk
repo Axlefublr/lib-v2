@@ -92,4 +92,10 @@ Links_Docs := [
 
 	"fish argparse",
 	"https://fishshell.com/docs/current/cmds/argparse.html",
+
+	"fish shared keybindings",
+	"https://fishshell.com/docs/current/interactive.html#shared-bindings",
+
+	"fish bind special functions",
+	"https://fishshell.com/docs/current/cmds/bind.html#special-input-functions",
 ]

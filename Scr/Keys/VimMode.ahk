@@ -7,7 +7,7 @@
 #Include <Environment>
 #Include <Abstractions\Mouse>
 
-!Space::Environment.VimMode := !Environment.VimMode
+<!Space::Environment.VimMode := !Environment.VimMode
 
 #HotIf Environment.WindowManagerMode
 
