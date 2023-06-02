@@ -16,10 +16,8 @@
 		"l", () => WindowManager.Presets().RightSide(),
 		"j", () => WindowManager.Presets().BottomSide(),
 		"k", () => WindowManager.Presets().TopSide(),
-		"p", () => WindowManager.Presets().Thirty(),
-		"o", () => WindowManager.Presets().Seventy(),
-		"[", () => WindowManager.RestoreDown(),
-		"]", () => WindowManager.Maximize(),
+		"[", () => WinRestore("A"),
+		"]", () => WinMaximize("A"),
 		".", () => Win.CloseOnceInactive(),
 		"/", () => WinSetAlwaysOnTop(-1, "A"),
 

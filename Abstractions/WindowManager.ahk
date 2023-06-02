@@ -3,22 +3,9 @@
 class WindowManager {
 
 	__New(winTitle := "A") {
-		WindowManager.RestoreDown(winTitle)
+		WinRestore(winTitle)
 		this.winTitle := winTitle
 	}
-
-	static RestoreDown(winTitle := "A") {
-		try PostMessage("0x112", "0xF120",,, winTitle)
-		while this.IsMaximized(winTitle) {
-		}
-	}
-
-	static Maximize(winTitle := "A") {
-		try PostMessage("0x112", "0xF030",,, winTitle)
-	}
-
-	static IsMaximized(winTitle := "A") => WinGetMinMax(winTitle) != 0
-
 
 	class Presets extends WindowManager {
 

@@ -22,7 +22,7 @@ Delete::Send("{Media_Play_Pause}")
 
 F13::Delete
 !F13::CloseButActually()
-+F13::Win.Minimize()
++F13::WinMinimize("A")
 
 <!Escape::GroupDeactivate("Main")
 <+Escape::Explorer.winObj.MinMax()

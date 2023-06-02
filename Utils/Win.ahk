@@ -59,14 +59,6 @@ class Win extends Initializable {
 		Win({winTitle: winTitle}).Close()
 	}
 
-	Minimize() {
-		try PostMessage("0x112", "0xF020",,, this.winTitle,, this.excludeTitle)
-	}
-
-	static Minimize(winTitle := "A") {
-		Win({winTitle: winTitle}).Minimize()
-	}
-
 	Activate() {
 		try {
 			WinActivate(this.winTitle,, this.excludeTitle)
@@ -112,7 +104,7 @@ class Win extends Initializable {
 
 		if WinActive(this.winTitle,, this.excludeTitle) {
 			if !this.ActivateAnother()
-				this.Minimize()
+				WinMinimize(this.winTitle, this.winText, this.excludeTitle, this.excludeText)
 		}
 		else
 			this.Activate()

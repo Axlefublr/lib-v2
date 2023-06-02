@@ -12,12 +12,12 @@
 XButton2:: {
 	sections := Press.GetSections()
 	Switch {
-		Case sections.topRight:    WindowManager.Maximize()
-		Case sections.topLeft:     WindowManager.RestoreDown()
+		Case sections.topRight:    WinMaximize("A")
+		Case sections.topLeft:     WinRestore("A")
 		Case sections.bottomRight: Send("{Browser_Forward}")
 		Case sections.bottomLeft:  Send("{Browser_Back}")
 		Case sections.down:        CloseButActually()
-		Case sections.up:          Win.Minimize()
+		Case sections.up:          WinMinimize("A")
 		Case sections.right:       MediaActions.SkipNext()
 		Case sections.left:        MediaActions.SkipPrev()
 		Default:                   return
