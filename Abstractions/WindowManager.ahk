@@ -36,4 +36,26 @@ class WindowManager {
 		}
 	}
 
+	class Presets extends WindowManager {
+
+		zeroX      := -8
+		zeroY      := 0
+		fullWidth  := A_ScreenWidth + 15
+		fullHeight := A_ScreenHeight + 6
+		halfX      := this.fullWidth // 2
+		halfWidth  := this.fullWidth // 2
+		halfY      := this.fullHeight // 2
+		halfHeight := this.fullHeight // 2
+
+		__New(winTitle?) {
+			super.__New(winTitle?)
+		}
+
+		LeftSide()   => WinMove(this.zeroX, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
+		RightSide()  => WinMove(this.halfWidth, this.zeroY, this.halfWidth, this.fullHeight, this.winTitle)
+		TopSide()    => WinMove(this.zeroX, this.zeroY, this.fullWidth, this.halfHeight, this.winTitle)
+		BottomSide() => WinMove(this.zeroX, this.halfHeight, this.fullWidth, this.halfHeight, this.winTitle)
+
+	}
+
 }
