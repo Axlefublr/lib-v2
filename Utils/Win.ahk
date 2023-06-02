@@ -9,11 +9,12 @@ class Win extends Initializable {
 	winTitles       := []
 	exePath         := ""
 	startIn         := ""
-	runOpt          := "Max"
+	runOpt          := ""
 	waitTime        := 120
 	toClose         := ""
 	direction       := "left"
 	startupWintitle := ""
+	position        := ""
 
 	/**
 	* @param {Object} paramsObject Key value pairs for properties of the class you want to set. Essentially, this is an initializer
@@ -126,7 +127,7 @@ class Win extends Initializable {
 		if !this.exePath {
 			Win.Testing.NoExePath()
 		}
-		Run(this.exePath, this.startIn, this.runOpt)
+		Run(this.exePath, this.startIn, this.runOpt ? this.runOpt : "Max")
 		WinWait(this.startupWintitle ? this.startupWintitle : this.winTitle,, this.waitTime, this.excludeTitle)
 		if this.toClose {
 			this.CloseOnceExists()
@@ -190,11 +191,17 @@ class Win extends Initializable {
 		if this.startupWintitle {
 			this.winTitle := temp
 		}
+		if this.position {
+			WindowManager(this.winTitle).%this.position%()
+		}
 		return this
 	}
 
 	RunAct_Folders() {
 		this.SetExplorerWintitle()
+		if !this.runOpt {
+			this.runOpt := "Min"
+		}
 		this.RunAct()
 		return this
 	}
@@ -209,6 +216,9 @@ class Win extends Initializable {
 
 	App_Folders() {
 		this.SetExplorerWintitle()
+		if !this.runOpt {
+			this.runOpt := "Min"
+		}
 		this.App()
 		return this
 	}
