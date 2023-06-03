@@ -15,14 +15,6 @@
 		return
 	}
 
-	static GetTerminal() {
-		WindowManager().SeventyHor()
-		prevPosition := Terminal.winObj.position
-		Terminal.winObj.position := "ThirtyHor"
-		Terminal.winObj.RunAct()
-		Terminal.winObj.position := prevPosition
-	}
-
 	static SetupExplorer(dir, folders := "_Folders") {
 		Explorer.WinObjs.%dir%.App%folders%()
 	}
@@ -48,7 +40,6 @@
 		"1", () => WinRestore("A"),
 		"2", () => WinMaximize("A"),
 		"3", () => Explorer.winObj.CloseAll(),
-		"4", () => GetTerminal(),
 
 	)
 	if key
