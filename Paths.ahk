@@ -1,4 +1,4 @@
-﻿;No dependencies
+;No dependencies
 
 class Paths {
 
@@ -6,9 +6,11 @@ class Paths {
 	static LocalAppData := Paths.User "\AppData\Local"
 	static System32     := "C:\Windows\System32"
 
+	static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
+
 	static Prog  := "C:\Programming"
 	static Main  := "C:\Programming\main"
-	static Lib   := A_MyDocuments "\AutoHotkey\Lib"
+	static Lib   := Paths.StandardAhkLibLocation
 	static Music := "C:\Programming\music"
 	static Shows := "C:\Programming\shows"
 	static Info  := "C:\Programming\info"
