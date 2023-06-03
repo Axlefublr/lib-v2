@@ -1,4 +1,5 @@
 #Include <Extensions\Initializable>
+#Include <App\Explorer> ; Needed for _Folders functions. If you don't need them (and they're syntax sugar anyway), you can just remove them and you won't need this include
 
 class Win extends Initializable {
 
@@ -14,7 +15,7 @@ class Win extends Initializable {
 	toClose         := ""
 	startupWintitle := ""
 	position        := ""
-	makeAlwaysOnTop := false
+	isAlwaysOnTop   := 2 ; sentinel value, because Initializable requires a field to not be unset
 
 	/**
 	* @param {Object} paramsObject Key value pairs for properties of the class you want to set. Essentially, this is an initializer
@@ -194,8 +195,8 @@ class Win extends Initializable {
 		if this.position {
 			WindowManager(this.winTitle, this.excludeTitle).%this.position%()
 		}
-		if this.makeAlwaysOnTop {
-			WinSetAlwaysOnTop(1, this.winTitle, this.winText, this.excludeTitle, this.excludeText)
+		if this.isAlwaysOnTop != 2 {
+			WinSetAlwaysOnTop(this.isAlwaysOnTop, this.winTitle, this.winText, this.excludeTitle, this.excludeText)
 		}
 		return this
 	}
@@ -203,7 +204,13 @@ class Win extends Initializable {
 	RunAct_Folders() {
 		this.SetExplorerWintitle()
 		if !this.runOpt {
-			this.runOpt := "Min"
+			this.runOpt := Explorer.runOpt
+		}
+		if this.isAlwaysOnTop = 2 {
+			this.isAlwaysOnTop := Explorer.isAlwaysOnTop
+		}
+		if !this.position {
+			this.position := Explorer.position
 		}
 		this.RunAct()
 		return this
@@ -220,7 +227,13 @@ class Win extends Initializable {
 	App_Folders() {
 		this.SetExplorerWintitle()
 		if !this.runOpt {
-			this.runOpt := "Min"
+			this.runOpt := Explorer.runOpt
+		}
+		if this.isAlwaysOnTop = 2 {
+			this.isAlwaysOnTop := Explorer.isAlwaysOnTop
+		}
+		if !this.position {
+			this.position := Explorer.position
 		}
 		this.App()
 		return this

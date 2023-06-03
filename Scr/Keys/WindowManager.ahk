@@ -25,7 +25,7 @@
 		"i", () => WindowManager().ThirtyHor(),
 		";", () => WindowManager().UpThirtyVert(),
 		"'", () => WindowManager().DownThirtyVert(),
-		".", () => Win.CloseOnceInactive(),
+		"m", () => Win.CloseOnceInactive(),
 		"/", () => WinSetAlwaysOnTop(-1, "A"),
 
 	)

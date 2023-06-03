@@ -24,7 +24,6 @@
 	}
 
 	static SetupExplorer(dir, folders := "_Folders") {
-		WindowManager(, Explorer.winTitle).SeventyVert()
 		Explorer.WinObjs.%dir%.App%folders%()
 	}
 
@@ -48,7 +47,7 @@
 		"p", () => SetupExplorer("Prog"),
 		"1", () => WinRestore("A"),
 		"2", () => WinMaximize("A"),
-		"3", () => (WinMaximize("A"), Explorer.winObj.CloseAll()),
+		"3", () => Explorer.winObj.CloseAll(),
 		"4", () => GetTerminal(),
 
 	)
