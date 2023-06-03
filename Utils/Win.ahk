@@ -12,9 +12,9 @@ class Win extends Initializable {
 	runOpt          := ""
 	waitTime        := 120
 	toClose         := ""
-	direction       := "left"
 	startupWintitle := ""
 	position        := ""
+	makeAlwaysOnTop := false
 
 	/**
 	* @param {Object} paramsObject Key value pairs for properties of the class you want to set. Essentially, this is an initializer
@@ -192,7 +192,10 @@ class Win extends Initializable {
 			this.winTitle := temp
 		}
 		if this.position {
-			WindowManager(this.winTitle).%this.position%()
+			WindowManager(this.winTitle, this.excludeTitle).%this.position%()
+		}
+		if this.makeAlwaysOnTop {
+			WinSetAlwaysOnTop(1, this.winTitle, this.winText, this.excludeTitle, this.excludeText)
 		}
 		return this
 	}
