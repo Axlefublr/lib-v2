@@ -118,6 +118,7 @@ F7:: {
 	Counter.num := input
 	Counter.Show()
 }
+F8::Shows.SetDownloaded(Counter.num)
 
 -::return
 =::return
