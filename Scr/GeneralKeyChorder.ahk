@@ -46,7 +46,7 @@
 		"w", () => Browser.RunLink(Environment.Links["wildberries"]),
 		"d", () => DS4.winObj.App(),
 		"s", () => Steam.winObj.App(),
-		"a", () => AutoHotkey.Docs.winObj.App(),
+		"a", () => Browser.RunLink(Environment.Links["ahk v2 docs"]),
 		"r", () => Browser.RunLink(Environment.Links["reddit"]),
 		"T", () => Browser.RunLink(Environment.Links["twitch"]),
 		"h", () => Browser.RunLink(Environment.Links["phind"]),

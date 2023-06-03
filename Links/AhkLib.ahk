@@ -6,7 +6,10 @@ Links_AhkLib := [
 	"comobjects",
 	"https://www.autohotkey.com/board/topic/56987-com-object-reference-autohotkey-l/",
 
-	"v1 docs",
+	"ahk v2 docs",
+	"https://www.autohotkey.com/docs/v2/",
+
+	"ahk v1 docs",
 	"https://www.autohotkey.com/docs/Tutorial.htm",
 
 	"ahk wiki",

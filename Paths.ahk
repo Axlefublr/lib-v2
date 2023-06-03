@@ -1,4 +1,4 @@
-;No dependencies
+﻿;No dependencies
 
 class Paths {
 
@@ -30,12 +30,10 @@ class Paths {
 	static Emoji        := Paths.Pictures "\Tree\Emojis"
 	static Other        := Paths.Pictures "\Tree\Other"
 	static Logos        := Paths.Pictures "\Tree\Logos"
-    static Themes       := Paths.Pictures "\Tree\Themes"
+	static Themes       := Paths.Pictures "\Tree\Themes"
 
 	static Audio := "C:\Audio"
 	static Sounds := Paths.Audio "\Sounds"
-
-	static StandardAhkLibLocation := A_MyDocuments "\AutoHotkey\Lib"
 
 	static VsCodeExtensions := "C:\Users\" A_UserName "\.vscode-insiders\extensions"
 	static SavedScreenshots := Paths.LocalAppData "\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TempState\ScreenClip"
