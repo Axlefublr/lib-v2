@@ -25,7 +25,7 @@ XButton1 & RButton::Delete
 XButton2 & RButton::PrintScreen
 XButton2 & LButton::Enter
 
-XButton2 & MButton::Screenshot.FullScreenOut()
+XButton2 & MButton::Screenshot.CaptureScreen()
 XButton1 & MButton::HoverScreenshot().UseRecentScreenshot().Show()
 
 +!LButton::AutoClicker()
