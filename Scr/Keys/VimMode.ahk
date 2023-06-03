@@ -11,8 +11,6 @@
 
 #HotIf Environment.VimMode
 
-`::Environment.WindowManagerMode := !Environment.WindowManagerMode
-
 s::Mouse.MoveLeft(Mouse.MediumMove)
 d::Mouse.MoveUp(Mouse.MediumMove)
 f::Mouse.MoveDown(Mouse.MediumMove)

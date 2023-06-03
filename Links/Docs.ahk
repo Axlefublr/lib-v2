@@ -98,4 +98,7 @@ Links_Docs := [
 
 	"fish bind special functions",
 	"https://fishshell.com/docs/current/cmds/bind.html#special-input-functions",
+
+	"fish commandline",
+	"https://fishshell.com/docs/current/cmds/commandline.html",
 ]

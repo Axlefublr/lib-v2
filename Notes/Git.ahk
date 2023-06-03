@@ -83,4 +83,10 @@ Notes_Git := [
 		s: Split the current hunk into smaller hunks (if possible).
 		e: Edit the current hunk manually.
 	)",
+
+	"git get short hash of a commit",
+	"git rev-parse --short HEAD",
+
+	"git get link to the remote repository",
+	"git remote get-url origin",
 ]
