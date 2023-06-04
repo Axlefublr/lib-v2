@@ -37,9 +37,7 @@
 		"l", () => SetupExplorer("Logos"),
 		"h", () => SetupExplorer("Themes"),
 		"p", () => SetupExplorer("Prog"),
-		"1", () => WinRestore("A"),
-		"2", () => WinMaximize("A"),
-		"3", () => Explorer.winObj.CloseAll(),
+		"1", () => Explorer.winObj.CloseAll(),
 
 	)
 	if key
