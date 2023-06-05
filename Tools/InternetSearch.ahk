@@ -41,6 +41,7 @@ class InternetSearch extends CleanInputBox {
 		"Yandex",  "https://yandex.ru/search/?text=",
 		"Movies",  "https://watchmovieshd.ru/search?keyword=",
 		"Phind",   "https://www.phind.com/search?q=",
+		"Crates",  "https://crates.io/search?q=",
 	)
 
 	SearchEngineNicknames := Map(
@@ -50,6 +51,7 @@ class InternetSearch extends CleanInputBox {
 		"ya", this.AvailableSearchEngines["Yandex"],
 		"m",  this.AvailableSearchEngines["Movies"],
 		"p",  this.AvailableSearchEngines["Phind"],
+		"r",  this.AvailableSearchEngines["Crates"],
 	)
 
 	;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()
