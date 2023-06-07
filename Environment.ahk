@@ -1,3 +1,4 @@
+#Include <Notes\Rust>
 #Include <Notes\Vim>
 #Include <Notes\Long>
 #Include <Notes\Git>
@@ -47,6 +48,7 @@ class Environment {
 		Notes.Set(Notes_Math*)
 		Notes.Set(Notes_Git*)
 		Notes.Set(Notes_Vim*)
+		Notes.Set(Notes_Rust*)
 		return Notes
 	}
 

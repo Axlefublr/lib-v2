@@ -143,4 +143,10 @@ Links_Github := [
 
 	"gh tgpt",
 	"https://github.com/aandrew-me/tgpt",
+
+	"gh fish async prompt",
+	"https://github.com/acomagu/fish-async-prompt",
+
+	"gh rustlings",
+	"https://github.com/rust-lang/rustlings",
 ]

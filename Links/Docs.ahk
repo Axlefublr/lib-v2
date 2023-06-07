@@ -101,4 +101,13 @@ Links_Docs := [
 
 	"fish commandline",
 	"https://fishshell.com/docs/current/cmds/commandline.html",
+
+	"rust the book",
+	"https://doc.rust-lang.org/stable/book/",
+
+	"rust way too deep",
+	"https://fasterthanli.me/articles/understanding-rust-futures-by-going-way-too-deep",
+
+	"rust by example",
+	"https://doc.rust-lang.org/rust-by-example/",
 ]
