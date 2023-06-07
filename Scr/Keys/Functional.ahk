@@ -13,6 +13,7 @@
 #Include <Abstractions\Registers>
 #Include <Tools\RelativeCoordInfo>
 #Include <System\Language>
+#Include <Utils\Wait>
 
 #HotIf !WinActive("ahk_exe " A_AhkPath)
 #Space::Language.Toggle()
@@ -27,6 +28,12 @@
 #9::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
 #0::HoverScreenshot().UseRecentScreenshot().Show()
 #k::InternetSearch("Google").TriggerSearch()
+#w::Hider(false)
+#e:: {
+	CoordMode("Mouse", "Screen")
+	MouseGetPos(&x, &y)
+	Point.Color := PixelGetColor(x, y)
+}
 
 #n::Registers(GetInput("L1", "{Esc}").Input).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
 #m::Registers(GetInput("L1", "{Esc}").Input).WriteOrAppend()

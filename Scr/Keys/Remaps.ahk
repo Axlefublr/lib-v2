@@ -1,8 +1,8 @@
 #InputLevel 5
 
 #q::return
-#w::return
-#e::return
+; #w::return
+; #e::return
 #s::Send("{Blind}k")
 #f::return
 #z::return

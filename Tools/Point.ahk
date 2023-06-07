@@ -36,7 +36,7 @@ class Point {
 	guiExist := false
 
 
-	static Color := 0xDE4D37
+	static Color := 0xDE4D37 ; so this is red basically
 	static unit := A_ScreenDPI / 96
 	static spots := []
 

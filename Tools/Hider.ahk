@@ -1,5 +1,15 @@
-; No dependencies
+#Include <Paths>
 
+/**
+ * Call this function twice to create a block of a picked color.
+ * The block is just a gui of one single color, without a title bar.
+ * You can double click on it to remove it.
+ * @param {Boolean/Hex} pickedColor First of all sorry, this parameter is wack.
+ * Pass a color in hex, to set it as a new color.
+ * Pass `false` to get the color under your mouse cursor as the new color.
+ * Don't pass this parameter to start picking the edges of your block (this is what
+ * you usually want to run).
+ */
 Hider(pickedColor?) {
 	CoordMode("Mouse", "Screen")
 	CoordMode("Pixel", "Screen")
