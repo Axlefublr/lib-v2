@@ -110,4 +110,7 @@ Links_Docs := [
 
 	"rust by example",
 	"https://doc.rust-lang.org/rust-by-example/",
+
+	"fish test",
+	"https://fishshell.com/docs/current/cmds/test.html",
 ]

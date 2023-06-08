@@ -17,7 +17,7 @@ Links_Channel := [
 	"my linktree",
 	"https://linktr.ee/Axlefublr",
 
-	;;Main channel videos
+	;; Main channel videos
 
 	"how to configure fish shell tide prompt",
 	"https://youtu.be/8FIc7nXyZUI",
@@ -379,7 +379,7 @@ Links_Channel := [
 	"github profile hotkey",
 	"https://youtu.be/IfQ-sl04xu8",
 
-	;;Main channel playlists
+	;; Main channel playlists
 
 	"stream vods playlist",
 	"https://www.youtube.com/playlist?list=PLQBdjw2QsRzN1njGhf31le7-uKeJyA2pW",
@@ -472,7 +472,7 @@ Links_Channel := [
 	"micha's first video",
 	"https://www.youtube.com/watch?v=UK3ZT4XS8aw",
 
-	;;Useful tutorials not by me
+	;; Useful tutorials not by me
 
 	"how to stream",
 	"https://youtu.be/FN1ghFZleRM",

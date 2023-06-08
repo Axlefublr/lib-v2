@@ -39,6 +39,8 @@
 		"g", () => WindowManager().DownThirtyVert(),
 		"f", () => WindowManager().UpSeventyVert(),
 		"v", () => WindowManager().DownSeventyVert(),
+		"e", () => WindowManager().SeventyVertSeventyHor(),
+		"d", () => WindowManager().SeventyVertThirtyHor(),
 		"m", () => Win.CloseOnceInactive(),
 		"/", () => WinSetAlwaysOnTop(-1, "A"),
 		"r", () => GetTerminal(),
