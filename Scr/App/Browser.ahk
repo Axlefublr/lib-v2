@@ -3,6 +3,9 @@
 #Include <Utils\Press>
 #Include <Abstractions\MouseSectionDefaulter>
 
+#HotIf WinActive(Browser.Chat.winTitle)
+!w::return
+
 #HotIf WinActive(Browser.winTitle)
 
 !1::Send("^1")
