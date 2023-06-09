@@ -118,7 +118,7 @@ F7:: {
 	Counter.num := input
 	Counter.Show()
 }
-F8::Shows.SetDownloaded(Counter.num)
+F8::Shows.SetDownloaded(Counter.num), Environment.VimMode := false
 
 -::return
 =::return

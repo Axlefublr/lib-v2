@@ -47,4 +47,10 @@ Notes_Vim := [
 		vim.call same thing, but you provide the name of the function as a string
 	)",
 
+	"vim search offset",
+	":help search-offset",
+
+	"vim search regex magic",
+	":help magic",
+
 ]

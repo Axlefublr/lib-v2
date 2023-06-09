@@ -54,7 +54,7 @@ class Win extends Initializable {
 	SetExplorerWintitle() => this.winTitle := this.exePath " ahk_exe explorer.exe"
 
 	Close() {
-		try PostMessage("0x0010",,,, this.winTitle)
+		try PostMessage("0x0010",,,, this.winTitle,, this.excludeTitle)
 		catch Any {
 			return false
 		}
