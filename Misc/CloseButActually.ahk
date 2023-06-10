@@ -14,5 +14,5 @@ CloseButActually() {
 			return
 		}
 	}
-	Win.Close()
+	WindowManager.Close()
 }

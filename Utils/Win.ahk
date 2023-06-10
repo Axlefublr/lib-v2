@@ -69,10 +69,6 @@ class Win extends Initializable {
 		}
 	}
 
-	static Close(winTitle := "A") {
-		Win({winTitle: winTitle}).Close()
-	}
-
 	Activate() {
 		try {
 			WinActivate(this.winTitle,, this.excludeTitle)
@@ -156,7 +152,7 @@ class Win extends Initializable {
 		foTryCloseArray() {
 			for key, value in this.toClose {
 				if WinExist(value) {
-					Win.Close(value)
+					WindowManager.Close(value)
 					SetTimer(, 0)
 				}
 			}
@@ -166,25 +162,13 @@ class Win extends Initializable {
 		}
 		foTryClose() {
 			if WinExist(this.toClose) {
-				Win.Close(this.toClose)
+				WindowManager.Close(this.toClose)
 				SetTimer(, 0)
 			}
 			else if A_TickCount >= stopWaitingAt {
 				SetTimer(, 0)
 			}
 		}
-	}
-
-	static CloseOnceInactive(winTitle := WinGetID("A")) => Win({winTitle: winTitle}).CloseOnceInactive()
-
-	CloseOnceInactive() {
-		_Checker() {
-			if !WinActive(this.winTitle,, this.excludeTitle) {
-				this.Close()
-				SetTimer(, 0)
-			}
-		}
-		SetTimer(_Checker, 1)
 	}
 
 	RunAct() {

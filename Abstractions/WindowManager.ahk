@@ -1,6 +1,17 @@
-; No dependencies
+#Include <Utils\Wait>
 
 class WindowManager {
+
+	static Close(winTitle := "A", excludeTitle?) {
+		try PostMessage("0x0010",,,, winTitle,, excludeTitle?)
+	}
+
+	static CloseOnceInactive(winTitle := "A", excludeTitle?) {
+		Wait(
+			() => !WinActive(winTitle,, excludeTitle?),
+			() => this.Close(winTitle,, excludeTitle?)
+		)
+	}
 
 	__New(winTitle := "A", excludeTitle := "") {
 		if WinGetMinMax(winTitle,, excludeTitle) = 1
