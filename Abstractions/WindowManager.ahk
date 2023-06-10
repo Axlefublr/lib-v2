@@ -3,7 +3,7 @@
 class WindowManager {
 
 	static Close(winTitle := "A", excludeTitle?) {
-		try PostMessage("0x0010",,,, winTitle,, excludeTitle?)
+		try PostMessage("0x112", "0xF060",,, winTitle,, excludeTitle?)
 		WinWaitClose(winTitle,, 1, excludeTitle?)
 	}
 
