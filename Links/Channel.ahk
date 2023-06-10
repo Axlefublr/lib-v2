@@ -19,6 +19,9 @@ Links_Channel := [
 
 	;; Main channel videos
 
+	"fix vim search",
+	"https://youtu.be/VMOcq2zLxlg",
+
 	"how to configure fish shell tide prompt",
 	"https://youtu.be/8FIc7nXyZUI",
 

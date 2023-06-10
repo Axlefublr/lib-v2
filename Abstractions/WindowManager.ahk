@@ -8,9 +8,10 @@ class WindowManager {
 	}
 
 	static CloseOnceInactive(winTitle := "A", excludeTitle?) {
+		id := WinGetID(winTitle)
 		Wait(
-			() => !WinActive(winTitle,, excludeTitle?),
-			() => this.Close(winTitle,, excludeTitle?)
+			() => !WinActive(id,, excludeTitle?),
+			() => WindowManager.Close(id,, excludeTitle?)
 		)
 	}
 

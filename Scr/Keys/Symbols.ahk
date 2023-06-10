@@ -51,4 +51,4 @@
 		)
 		if key
 			try symbols[key].Call()
-	}
+}

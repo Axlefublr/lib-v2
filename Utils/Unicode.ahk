@@ -86,6 +86,7 @@ class Unicode {
 		"cat",                      0x1F408, ; 🐈
 		"chicken",                  0x1F414, ; 🐔
 		"parrot",                   0x1F99C, ; 🦜
+		"cricket",                  0x1F997, ; 🦗
 
 	)
 
