@@ -22,8 +22,8 @@ XButton2 & WheelDown::Press.ActOnSection("topLeft", Send.Bind("{Volume_Down}"), 
 XButton1 & LButton::Press.Hold_Sugar(Send.Bind("{BackSpace}"), SelectAll)
 XButton1 & RButton::Delete
 
-XButton2 & RButton::PrintScreen
-XButton2 & LButton::Enter
+XButton2 & LButton::Screenshot.winObj.RunAct()
+XButton2 & RButton::Enter
 
 XButton2 & MButton::Screenshot.CaptureScreen()
 XButton1 & MButton::HoverScreenshot().UseRecentScreenshot().Show()

@@ -5,6 +5,12 @@ class Screenshot {
 	static exeTitle  := "ahk_exe ScreenClippingHost.exe"
 	static winTitle  := "Screen Snipping " this.exeTitle
 	static saveTitle := "Snip & Sketch ahk_exe ApplicationFrameHost.exe"
+	static exePath   := "explorer ms-screenclip:"
+	
+	static winObj := Win({
+		winTitle: this.winTitle,
+		exePath: this.exePath
+	})
 
 	static Start()         => Send("#+s")
 	static CaptureWindow() => Send("!{Printscreen}")

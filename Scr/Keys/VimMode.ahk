@@ -88,7 +88,7 @@ sc34::MediaActions.SkipNext()
 
 sc1A:: {
 	Environment.VimMode := false
-	Screenshot.Start()
+	Screenshot.winObj.RunAct()
 	Environment.VimMode := true
 }
 +sc1A:: {

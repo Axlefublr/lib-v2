@@ -84,6 +84,8 @@ class Unicode {
 		"shell bottom arc",         0x2570,  ; ╰
 		"shell middle line",        0x2502,  ; │
 		"cat",                      0x1F408, ; 🐈
+		"chicken",                  0x1F414, ; 🐔
+		"parrot",                   0x1F99C, ; 🦜
 
 	)
 
