@@ -1,31 +1,30 @@
 #Include <Utils\Win>
 #Include <Tools\Info>
 #Include <Paths>
+#Include <Utils\Wait>
 
 class Davinci {
 
 	static exeTitle     := "ahk_exe Resolve.exe"
 	static winTitle     := "DaVinci Resolve " this.exeTitle
 	static projectTitle := "Project Manager " this.exeTitle
-	static path         := A_ProgramFiles "\Blackmagic Design\DaVinci Resolve\Resolve.exe"
+	static loadingTitle := "Resolve"
+	static exePath      := A_ProgramFiles "\Blackmagic Design\DaVinci Resolve\Resolve.exe"
 	static closeWindow  := "Message " this.exeTitle
 
 	static winObj := Win({
-		winTitle: this.winTitle,
-		exePath: this.path
-	})
-
-	static projectWinObj := Win({
-		winTitle: this.projectTitle,
-		exePath: this.path
+		winTitle:        this.winTitle,
+		exePath:         this.exePath,
+		startupWintitle: this.loadingTitle,
 	})
 
 	static Close() {
 		this.winObj.Close()
-		if !WinWait(this.closeWindow, , this.winObj.waitTime)
-			return
-		Win({ winTitle: this.closeWindow }).Activate()
-		Send("{Left 2}{Enter}")
+		static _action() {
+			Win({ winTitle: Davinci.closeWindow }).Activate()
+			Send("{Left 2}{Enter}")
+		}
+		Wait(WinExist.Bind(this.closeWindow), _action , this.winObj.extTimeout)
 	}
 
 	static Insert() {

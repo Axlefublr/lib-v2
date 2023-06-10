@@ -12,4 +12,3 @@ SetDefaultMouseSpeed(0)
 #Hotstring t o
 CoordMode("Mouse", "Screen")
 CoordMode("Pixel", "Client")
-Thread("Priority", 10)

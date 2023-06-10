@@ -7,8 +7,6 @@
 #Include <Misc\CloseButActually>
 #Include <Abstractions\WindowManager>
 
-#MaxThreadsBuffer true
-
 XButton2:: {
 	sections := Press.GetSections()
 	Switch {
@@ -23,5 +21,3 @@ XButton2:: {
 		Default:                   return
 	}
 }
-
-#MaxThreadsBuffer false
