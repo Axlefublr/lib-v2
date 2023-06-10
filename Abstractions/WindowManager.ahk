@@ -4,6 +4,7 @@ class WindowManager {
 
 	static Close(winTitle := "A", excludeTitle?) {
 		try PostMessage("0x0010",,,, winTitle,, excludeTitle?)
+		WinWaitClose(winTitle,, 1, excludeTitle?)
 	}
 
 	static CloseOnceInactive(winTitle := "A", excludeTitle?) {
