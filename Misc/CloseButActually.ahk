@@ -15,5 +15,4 @@ CloseButActually() {
 		}
 	}
 	WindowManager.Close()
-	Sleep(1000)
 }

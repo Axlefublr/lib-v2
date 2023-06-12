@@ -20,4 +20,5 @@ XButton2:: {
 		Case sections.left:        MediaActions.SkipPrev()
 		Default:                   return
 	}
+	Sleep(1000)
 }
