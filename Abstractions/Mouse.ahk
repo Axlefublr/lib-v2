@@ -29,7 +29,8 @@ class Mouse {
 	/**
 	* Hold down a mouse button if it's not held down currently.
 	* If it's already held down, release it.
-	* @param {Char} which Which mouse button to hold down or release. Only supports "L", "R", "M"
+	* @param {Char} which Which mouse button to hold down or release.
+	* Only supports "L", "R", "M".
 	*/
 	static HoldIfUp(which) {
 		if GetKeyState(which "Button")
