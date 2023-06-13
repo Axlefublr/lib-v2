@@ -7,7 +7,8 @@
 #Include <Misc\CloseButActually>
 #Include <Abstractions\WindowManager>
 
-XButton2:: {
+XButton2::return
+!XButton1:: {
 	sections := Press.GetSections()
 	Switch {
 		Case sections.topRight:    WinMaximize("A")
@@ -20,5 +21,4 @@ XButton2:: {
 		Case sections.left:        MediaActions.SkipPrev()
 		Default:                   return
 	}
-	Sleep(1000)
 }

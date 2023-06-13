@@ -7,6 +7,7 @@ Notes_Tech := [
 		advanced-new-file
 		an alternative to codesnap: snappify
 		vscode-autohotkey-debug
+		Resource Monitor
 	)",
 
 	"@things ahk", "

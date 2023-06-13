@@ -149,4 +149,7 @@ Links_Github := [
 
 	"gh rustlings",
 	"https://github.com/rust-lang/rustlings",
+
+	"gh fish pure",
+	"https://github.com/pure-fish/pure",
 ]
