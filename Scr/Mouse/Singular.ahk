@@ -13,11 +13,11 @@
 XButton2 & XButton1::Escape
 XButton1 & XButton2::Media_Play_Pause
 
-XButton2 & WheelUp::Redo()
-XButton2 & WheelDown::Undo()
+XButton2 & WheelUp::Volume_Up
+XButton2 & WheelDown::Volume_Down
 
-XButton1 & WheelUp::Volume_Up
-XButton1 & WheelDown::Volume_Down
+XButton1 & WheelUp::Redo()
+XButton1 & WheelDown::Undo()
 
 XButton1 & LButton::Press.Hold_Sugar(Send.Bind("{BackSpace}"), SelectAll)
 XButton1 & RButton::Delete
