@@ -6,7 +6,6 @@
 #Include <App\Browser>
 #Include <App\Steam>
 #Include <App\DS4>
-#Include <Environment>
 #Include <Abstractions\Registers>
 #Include <Converters\Layouts>
 
@@ -16,16 +15,6 @@
 	catch UnsetItemError {
 		Registers.CancelAction()
 		return
-	}
-
-	static _ViewNote() {
-		if !input := CleanInputBox().WaitForInput()
-			return
-		note := Environment.Notes.Choose(input)
-		if !note
-			return
-		A_Clipboard := note
-		Infos(note)
 	}
 
 	static _ShowInInfo() {
@@ -51,7 +40,6 @@
 		"j", () => EmojiSearch(CleanInputBox().WaitForInput()),
 		"c", () => Infos(A_Clipboard),
 		"k", KeyCodeGetter,
-		"o", _ViewNote,
 		"i", _ShowInInfo,
 		"v", () => Browser.RunLink(Links["vk"]),
 		"t", () => Browser.RunLink(Links["mastodon"]),
