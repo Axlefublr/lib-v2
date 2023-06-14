@@ -147,9 +147,6 @@ Links_Github := [
 	"gh fish async prompt",
 	"https://github.com/acomagu/fish-async-prompt",
 
-	"gh rustlings",
-	"https://github.com/rust-lang/rustlings",
-
 	"gh fish pure",
 	"https://github.com/pure-fish/pure",
 ]

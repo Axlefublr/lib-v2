@@ -87,6 +87,8 @@ class Unicode {
 		"chicken",                  0x1F414, ; 🐔
 		"parrot",                   0x1F99C, ; 🦜
 		"cricket",                  0x1F997, ; 🦗
+		"glowing star",             0x1F31F, ; 🌟
+		"ship",                     0x1F6A2, ; 🚢
 
 	)
 

@@ -1,3 +1,4 @@
+#Include <Links\Rust>
 #Include <Notes\Rust>
 #Include <Notes\Vim>
 #Include <Notes\Long>
@@ -63,6 +64,7 @@ class Environment {
 		Links.Set(Links_DiscordPins*)
 		Links.Set(Links_Github*)
 		Links.Set(Links_Fonts*)
+		Links.Set(Links_Rust*)
 		return Links
 	}
 
