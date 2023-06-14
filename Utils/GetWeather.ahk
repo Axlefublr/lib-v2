@@ -1,8 +1,8 @@
-#Include <Environment>
+#Include <Links>
 #Include <System\Web>
 
 GetWeather() {
-	if !weather_html := GetHtml(Environment.Links["weather"])
+	if !weather_html := GetHtml(Links["weather"])
 		return "null"
 
 	RegExMatch(weather_html, "Текущая температура (-?\d+.)", &temp_match)

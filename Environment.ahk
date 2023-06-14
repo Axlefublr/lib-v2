@@ -1,18 +1,8 @@
-#Include <Links\Rust>
 #Include <Notes\Rust>
 #Include <Notes\Vim>
 #Include <Notes\Long>
 #Include <Notes\Git>
 #Include <Notes\Math>
-#Include <Links\Github>
-#Include <Links\DiscordPins>
-#Include <Links\General>
-#Include <Links\Channel>
-#Include <Links\Memes>
-#Include <Links\Tools>
-#Include <Links\Docs>
-#Include <Links\AhkLib>
-#Include <Links\Fonts>
 #Include <Notes\Code>
 #Include <Notes\Info>
 #Include <Notes\Tech>
@@ -23,7 +13,6 @@
 class Environment {
 
 	static Notes := this._GenerateNotesMap()
-	static Links := this._GenerateLinksMap()
 
 	static _vimMode := false
 	static VimMode {
@@ -51,21 +40,6 @@ class Environment {
 		Notes.Set(Notes_Vim*)
 		Notes.Set(Notes_Rust*)
 		return Notes
-	}
-
-	static _GenerateLinksMap() {
-		Links := Map()
-		Links.Set(Links_General*)
-		Links.Set(Links_Channel*)
-		Links.Set(Links_Memes*)
-		Links.Set(Links_Tools*)
-		Links.Set(Links_Docs*)
-		Links.Set(Links_AhkLib*)
-		Links.Set(Links_DiscordPins*)
-		Links.Set(Links_Github*)
-		Links.Set(Links_Fonts*)
-		Links.Set(Links_Rust*)
-		return Links
 	}
 
 }

@@ -1,4 +1,4 @@
-#Include <Environment>
+#Include <Links>
 #Include <App\Spotify>
 #Include <App\Davinci>
 #Include <Extensions\String>
@@ -42,8 +42,6 @@
 
 		"go",      (input) => _GitLinkOpenCopy(input),
 		"gl",      (input) => ClipSend(Git.Link(input),, false),
-		"p",       (input) => _LinkPaste(input),
-		"o",       (input) => _LinkOpen(input),
 		"cp",      (input) => (A_Clipboard := input, Info('"' input '" copied')),
 		"rap",     (input) => Spotify.NewRapper(input),
 		"fav",     (input) => Spotify.FavRapper(input),
@@ -77,20 +75,6 @@
 		link := Git.Link(input)
 		Browser.RunLink(link)
 		A_Clipboard := link
-	}
-
-	static _LinkPaste(input) {
-		link := Environment.Links.Choose(input)
-		if !link
-			return
-		ClipSend(link,, false)
-	}
-
-	static _LinkOpen(input) {
-		link := Environment.Links.Choose(input)
-		if !link
-			return
-		Browser.RunLink(link)
 	}
 
 }
