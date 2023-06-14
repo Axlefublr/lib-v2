@@ -1,15 +1,13 @@
 ; No dependencies
 
-_ArrayToString(this) {
-	str := "[ "
+_ArrayToString(this, char := ", ") {
 	for index, value in this {
 		if index = this.Length {
-			str .= value " "
+			str .= value
 			break
 		}
-		str .= value ", "
+		str .= value char
 	}
-	str .= "]"
 	return str
 }
 Array.Prototype.DefineProp("ToString", { Call: _ArrayToString })
