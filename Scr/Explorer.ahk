@@ -4,7 +4,6 @@
 #Include <Abstractions\Registers>
 #Include <Environment>
 
-#MaxThreadsBuffer true
 #HotIf !Environment.VimMode
 
 <!d:: {
@@ -45,4 +44,3 @@
 }
 
 #HotIf
-#MaxThreadsBuffer false

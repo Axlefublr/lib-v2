@@ -11,13 +11,6 @@
 
 #InputLevel 6
 
-Home::Volume_Up
-End::Volume_Down
-Insert::Volume_Mute
-PgUp::MediaActions.SkipPrev()
-PgDn::MediaActions.SkipNext()
-Delete::Send("{Media_Play_Pause}")
-
 #InputLevel 5
 
 F13::Delete

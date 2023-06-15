@@ -28,14 +28,13 @@
 
 #Include <Scr\Keys\SuspendExempt>
 #Include <Scr\Keys\Symbols>
-#Include <Scr\Keys\Global>
 #Include <Scr\Keys\Remaps>
-#Include <Scr\Keys\Functional>
 #Include <Scr\Keys\Trinity>
 #Include <Scr\Keys\SndMem>
 #Include <Scr\Keys\VimMode>
 #Include <Scr\Keys\Numpad>
 #Include <Scr\Keys\WindowManager>
+#Include <Scr\Keys\Hotkeys>
 
 ;; Extra
 

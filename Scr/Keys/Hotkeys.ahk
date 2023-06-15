@@ -14,6 +14,24 @@
 #Include <Tools\RelativeCoordInfo>
 #Include <System\Language>
 #Include <Utils\Wait>
+#Include <Tools\Hider>
+#Include <Abstractions\Base>
+#Include <Abstractions\MediaActions>
+
+#InputLevel 6
+
+#Tab::Send("^!{Tab}")
+^+v::Paste()
+^+c::Copy()
+
+Home::Volume_Up
+End::Volume_Down
+Insert::Volume_Mute
+PgUp::MediaActions.SkipPrev()
+PgDn::MediaActions.SkipNext()
+Delete::Send("{Media_Play_Pause}")
+
+#InputLevel 5
 
 #HotIf !WinActive("ahk_exe " A_AhkPath)
 #Space::Language.Toggle()

@@ -1,5 +1,3 @@
-#InputLevel 5
-
 #q::return
 ; #w::return
 ; #e::return
@@ -32,5 +30,3 @@ Launch_App1::return      ; F9
 Launch_Mail::return      ; F10
 Launch_App2::return      ; F11
 Browser_Home::return     ; F12
-
-#InputLevel 5

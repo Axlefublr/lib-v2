@@ -6,23 +6,25 @@
 #Include <Abstractions\Registers>
 #Include <Utils\GetInput>
 
-_BingChilling() {
-	static counter := false
-	counter := !counter
-	if counter {
-		SoundPlayer.Storage["bing chilling 1"].Play()
-	} else {
-		SoundPlayer.Storage["bing chilling 2"].Play()
-	}
-}
-
 #sc35:: {
+
+	_BingChilling() {
+		static counter := false
+		counter := !counter
+		if counter {
+			SoundPlayer.Storage["bing chilling 1"].Play()
+		} else {
+			SoundPlayer.Storage["bing chilling 2"].Play()
+		}
+	}
+
 	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
 	try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
 	catch UnsetItemError {
 		Registers.CancelAction()
 		return
 	}
+
 	static sndMems := Map(
 
 		"q", () => 0,
