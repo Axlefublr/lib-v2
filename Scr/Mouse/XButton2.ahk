@@ -8,17 +8,11 @@
 #Include <Abstractions\WindowManager>
 
 XButton2::return
-!XButton1:: {
-	sections := Press.GetSections()
-	Switch {
-		Case sections.topRight:    WinMaximize("A")
-		Case sections.topLeft:     WinRestore("A")
-		Case sections.bottomRight: Send("{Browser_Forward}")
-		Case sections.bottomLeft:  Send("{Browser_Back}")
-		Case sections.down:        CloseButActually()
-		Case sections.up:          WinMinimize("A")
-		Case sections.right:       MediaActions.SkipNext()
-		Case sections.left:        MediaActions.SkipPrev()
-		Default:                   return
-	}
-}
+XButton2 & d::CloseButActually()
+XButton2 & e::WinMaximize("A")
+XButton2 & w::WinRestore("A")
+XButton2 & c::Send("{Browser_Forward}")
+XButton2 & x::Send("{Browser_Back}")
+XButton2 & s::WinMinimize("A")
+XButton2 & v::MediaActions.SkipNext()
+XButton2 & z::MediaActions.SkipPrev()
