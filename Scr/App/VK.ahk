@@ -1,16 +1,9 @@
 #Include <Utils\Press>
 #Include <App\VK>
-#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(VK.winTitle)
 ^Enter::VK.Enter()
 
-XButton1:: {
-	sections := Press.GetSections()
-	Switch {
-		Case sections.topRight: VK.Enter()
-		default:                MouseSectionDefaulter.Browser(sections)
-	}
-}
+XButton1 & f::VK.Enter()
 
 #HotIf

@@ -21,12 +21,12 @@ Delete::Send("{Media_Play_Pause}")
 #InputLevel 5
 
 F13::Delete
-!F13::CloseButActually()
-+F13::WinMinimize("A")
+!F13::BackSpace
 
-<!Escape::GroupDeactivate("Main")
-<+Escape::Explorer.winObj.MinMax()
+!Tab::GroupDeactivate("Main")
+!Escape::Explorer.winObj.MinMax()
+^Escape::CloseButActually()
+<+Escape::WinMinimize("A")
 >+Escape::SomeLockHint("CapsLock", 2)
-#Escape::Infos(GetWeather()), RemindDate(), Infos(DateTime.Date " " DateTime.WeekDay " " DateTime.Time)
 
 PrintScreen::Screenshot.Start()

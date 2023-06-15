@@ -8,11 +8,23 @@
 #Include <Abstractions\WindowManager>
 
 XButton2::return
-XButton2 & d::CloseButActually()
-XButton2 & e::WinMaximize("A")
-XButton2 & w::WinRestore("A")
-XButton2 & c::Send("{Browser_Forward}")
-XButton2 & x::Send("{Browser_Back}")
-XButton2 & s::WinMinimize("A")
-XButton2 & v::MediaActions.SkipNext()
-XButton2 & z::MediaActions.SkipPrev()
+#HotIf GetKeyState("XButton2", "P")
+q::Script.Reload()
+w::CloseButActually()
+e::WinRestore("A")
+r::MediaActions.SkipPrev()
++r::Send("{F5}")
+t::MediaActions.SkipNext()
+a::SelectAll()
+s::WinMinimize("A")
+d::WinMaximize("A")
+f::Browser_Back
+g::Browser_Forward
+z::Script.Test()
+x::Cut()
+c::Copy()
+v::Paste()
+3::Screenshot.CaptureWindow()
+4::Screenshot.CaptureScreen()
+5::HoverScreenshot().UseRecentScreenshot().Show()
+#HotIf

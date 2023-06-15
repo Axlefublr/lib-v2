@@ -12,12 +12,7 @@
 ^sc33::Telegram.PrevFolder()
 ^sc34::Telegram.NextFolder()
 
-XButton1:: {
-	sections := Press.GetSections()
-	switch {
-		case sections.topRight: Telegram.Voice()
-		case sections.down:     Telegram.Scroll()
-		default:                return
-	}
-}
+XButton1 & f::Telegram.Voice()
+XButton1 & s::Telegram.Scroll()
+
 #HotIf

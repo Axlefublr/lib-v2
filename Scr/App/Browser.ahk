@@ -1,7 +1,6 @@
 #Include <App\Browser>
 #Include <Abstractions\Base>
 #Include <Utils\Press>
-#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Browser.Chat.winTitle)
 !w::return
@@ -25,10 +24,5 @@
 !w::CloseTab()
 ^+sc1A::Browser.FullScreen()
 ^p::Browser.SearchTabs()
-
-XButton1:: {
-	sections := Press.GetSections()
-	MouseSectionDefaulter.Browser(sections)
-}
 
 #HotIf

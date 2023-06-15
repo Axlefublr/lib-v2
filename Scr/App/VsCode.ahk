@@ -6,7 +6,6 @@
 #Include <App\VsCode>
 #Include <Converters\DateTime>
 #Include <Environment>
-#Include <Abstractions\MouseSectionDefaulter>
 
 #HotIf WinActive(Paths.Ptf["Rappers"] " " VsCode.exeTitle)
 !e:: {
@@ -19,9 +18,6 @@
 
 Media_Stop & MButton::VsCode.Reload()
 
-XButton1:: {
-	sections := Press.GetSections()
-	MouseSectionDefaulter.VsCode(sections)
-}
+XButton1 & w::VsCode.CloseTab()
 
 #HotIf

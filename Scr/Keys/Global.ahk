@@ -2,7 +2,7 @@
 
 #InputLevel 6
 
-!Tab::Send("^!{Tab}")
+#Tab::Send("^!{Tab}")
 ^+v::Paste()
 ^+c::Copy()
 
