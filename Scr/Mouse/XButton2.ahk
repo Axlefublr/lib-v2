@@ -10,14 +10,14 @@
 XButton2::return
 #HotIf GetKeyState("XButton2", "P")
 q::Script.Reload()
-w::CloseButActually()
-e::WinRestore("A")
+w::WinRestore("A")
+e::WinMaximize("A")
 r::MediaActions.SkipPrev()
 +r::Send("{F5}")
 t::MediaActions.SkipNext()
 a::SelectAll()
 s::WinMinimize("A")
-d::WinMaximize("A")
+d::CloseButActually()
 f::Browser_Back
 g::Browser_Forward
 z::Script.Test()
