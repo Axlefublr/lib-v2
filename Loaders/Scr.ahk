@@ -29,7 +29,6 @@
 #Include <Scr\Keys\SuspendExempt>
 #Include <Scr\Keys\Symbols>
 #Include <Scr\Keys\Remaps>
-#Include <Scr\Keys\Trinity>
 #Include <Scr\Keys\SndMem>
 #Include <Scr\Keys\VimMode>
 #Include <Scr\Keys\Numpad>

@@ -31,8 +31,18 @@ PgUp::MediaActions.SkipPrev()
 PgDn::MediaActions.SkipNext()
 Delete::Send("{Media_Play_Pause}")
 
+F13::Delete
+!F13::BackSpace
+
 #InputLevel 5
 
+!Tab::Explorer.winObj.MinMax()
+!Escape::GroupDeactivate("Main")
+^Escape::CloseButActually()
+<+Escape::WinMinimize("A")
+>+Escape::SomeLockHint("CapsLock", 2)
+
+PrintScreen::Screenshot.Start()
 #HotIf !WinActive("ahk_exe " A_AhkPath)
 #Space::Language.Toggle()
 #HotIf

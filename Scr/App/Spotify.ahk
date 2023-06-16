@@ -29,5 +29,6 @@ XButton1 & v::Spotify.AutoNewDiscovery()
 XButton1 & s::Spotify.ToggleShuffle()
 XButton1 & w::Spotify.ToggleLike()
 XButton1 & z::Spotify.AutoFavRapper()
+XButton1 & a::Spotify.PlaylistSorter.ToggleHotkey()
 
 #HotIf
