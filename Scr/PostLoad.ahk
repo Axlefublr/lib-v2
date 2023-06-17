@@ -6,5 +6,4 @@
 
 SetNumLockState(true)
 Info(A_AhkPath.Replace(AutoHotkey.path "\"))
-Info(GetWeather())
 RemindDate()

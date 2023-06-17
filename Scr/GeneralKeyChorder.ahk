@@ -44,6 +44,7 @@
 		"v", () => Browser.RunLink(Links["vk"]),
 		"t", () => Browser.RunLink(Links["mastodon"]),
 		"e", () => Browser.RunLink(Links["gogoanime"]),
+		"u", () => Infos(GetWeather()),
 
 	)
 	if key
