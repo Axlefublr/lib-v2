@@ -7,9 +7,11 @@
  * @param {FuncObj} condition Evaluated every ~16ms. Once it's true, `action` is called.
  * @param {FuncObj} action Called once `condition` is true
  * @param {Integer} timeout Time in milliseconds, after which the settimer is deleted automatically, without calling `action`.
+ * @param {Integer} oftenity I'm sorry I had to name it in this goofy way because it's very funny.
+ * This parameter decides how often the check of `condition` happens, in ms.
  * If you pass 0 or a negative number, there's no timeout.
  */
-Wait(condition, action, timeout := 0) {
+Wait(condition, action, timeout := 0, oftenity := 1) {
 
 	startTime := A_TickCount
 
@@ -24,5 +26,5 @@ Wait(condition, action, timeout := 0) {
 		SetTimer(, 0)
 	}
 
-	SetTimer(Check, 1)
+	SetTimer(Check, oftenity)
 }
