@@ -81,9 +81,9 @@ class Paths {
 		"Shows",    Paths.Shows "\Shows.jsonc",
 		"Consumed", Paths.Shows "\Consumed.md",
 
-		"Diary",     Paths.Info "\Diary.md",
-		"Events",    Paths.Info "\Events.jsonc",
-		"Birthdays", Paths.Info "\Birthdays.jsonc",
+		"Diary",     Paths.Info "\diary.md",
+		"Events",    Paths.Info "\events.jsonc",
+		"Birthdays", Paths.Info "\birthdays.jsonc",
 
 		"femboy",       Paths.Memes "\femboy.png",
 		"writing fire", Paths.Memes "\writing fire.jpg",

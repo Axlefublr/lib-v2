@@ -16,14 +16,14 @@ WriteFile(whichFile, text := "") {
 * @param whichFile *String* The path to the file
 * @param text *String* The text to write
 */
-AppendFile(whichFile, text) => FileAppend(text, whichFile, "UTF-8-RAW `n")
+AppendFile(whichFile, text) => FileAppend(text, whichFile, "UTF-8-RAW")
 
 /**
 * Syntax sugar. Reads a file and returns the text in it
 * @param whichFile *String* The path to the file to read
 * @returns {String}
 */
-ReadFile(whichFile) => FileRead(whichFile, "UTF-8-RAW `n")
+ReadFile(whichFile) => FileRead(whichFile, "UTF-8-RAW")
 
 /**
 * Switch the contents of two files.
