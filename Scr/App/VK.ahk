@@ -4,6 +4,6 @@
 #HotIf WinActive(VK.winTitle)
 ^Enter::VK.Enter()
 
-XButton1 & f::VK.Enter()
+XButton1 & r::VK.Enter()
 
 #HotIf
