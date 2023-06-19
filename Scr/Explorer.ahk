@@ -36,6 +36,7 @@
 		"l", () => SetupExplorer("Logos"),
 		"h", () => SetupExplorer("Themes"),
 		"p", () => SetupExplorer("Prog"),
+		"n", () => SetupExplorer("Downloaded"),
 		"1", () => Explorer.winObj.CloseAll(),
 
 	)

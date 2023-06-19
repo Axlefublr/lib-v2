@@ -49,6 +49,7 @@ class Explorer {
 		static Themes       := Win({exePath: Paths.Themes})
 		static Prog         := Win({exePath: Paths.Prog})
 		static Emoji        := Win({exePath: Paths.Emoji})
+		static Downloaded   := Win({exePath: Paths.Downloaded})
 
 	}
 }
