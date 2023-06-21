@@ -449,8 +449,8 @@ class Spotify {
 		static _CorrectMousePosition() {
 			CoordMode("Mouse", "Screen")
 			MouseMove(0, -this.MoveInPixels,, "R")
-			if (MouseGetPos(, &y), y) < 141
-				MouseMove(607, 782)
+			if (MouseGetPos(, &y), y) < 208
+				MouseMove(1027, 782)
 		}
 	}
 
