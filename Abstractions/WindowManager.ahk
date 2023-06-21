@@ -12,7 +12,7 @@ class WindowManager {
 		Wait(
 			() => !WinActive(id,, excludeTitle?),
 			() => WindowManager.Close(id,, excludeTitle?),
-			, 50
+			, 100
 		)
 	}
 
