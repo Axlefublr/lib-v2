@@ -32,9 +32,4 @@ XButton2 & RButton::Enter
 		Point().Create()
 }
 
-XButton1 & a::PrevTab()
-XButton1 & t::RestoreTab()
-XButton1 & w::CloseTab()
-XButton1 & f::NextTab()
-
 #MaxThreadsBuffer false

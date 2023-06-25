@@ -42,6 +42,7 @@ class InternetSearch extends CleanInputBox {
 		"Movies",  "https://watchmovieshd.ru/search?keyword=",
 		"Phind",   "https://www.phind.com/search?q=",
 		"Crates",  "https://crates.io/search?q=",
+		"Rust Docs", "https://doc.rust-lang.org/stable/std/path/struct.PathBuf.html?search=",
 	)
 
 	SearchEngineNicknames := Map(
@@ -51,7 +52,8 @@ class InternetSearch extends CleanInputBox {
 		"ya", this.AvailableSearchEngines["Yandex"],
 		"m",  this.AvailableSearchEngines["Movies"],
 		"p",  this.AvailableSearchEngines["Phind"],
-		"r",  this.AvailableSearchEngines["Crates"],
+		"c",  this.AvailableSearchEngines["Crates"],
+		"r",  this.AvailableSearchEngines["Rust Docs"]
 	)
 
 	;Rename suggestion by @Micha-ohne-el, used to be ConvertToLink()

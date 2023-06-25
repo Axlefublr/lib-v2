@@ -11,8 +11,4 @@
 
 ^sc33::Telegram.PrevFolder()
 ^sc34::Telegram.NextFolder()
-
-XButton1 & f::Telegram.Voice()
-XButton1 & s::Telegram.Scroll()
-
 #HotIf

@@ -15,9 +15,4 @@
 }
 
 #HotIf WinActive(VsCode.winTitle)
-
-Media_Stop & MButton::VsCode.Reload()
-
-XButton1 & w::VsCode.CloseTab()
-
 #HotIf

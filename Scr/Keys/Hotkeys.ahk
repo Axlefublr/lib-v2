@@ -17,19 +17,36 @@
 #Include <Tools\Hider>
 #Include <Abstractions\Base>
 #Include <Abstractions\MediaActions>
+#Include <Misc\CloseButActually>
 
 #InputLevel 6
 
 #Tab::Send("^!{Tab}")
-^+v::Paste()
-^+c::Copy()
+<+<!q::return
+<+<!w::WinRestore("A")
+<+<!e::WinMaximize("A")
+<+<!r::return
+<+<!t::return
+<+<!a::SelectAll()
+<+<!s::MediaActions.SkipPrev()
+<+<!d::MediaActions.SkipNext()
+<+<!f::Send("{Browser_Back}")
+<+<!g::Send("{Browser_Forward}")
+<+<!z::Send("{F5}")
+<+<!x::Cut()
+<+<!v::Paste()
+<+<!c::Copy()
+
+<#w::Screenshot.CaptureWindow()
+<#e::Screenshot.CaptureScreen()
+<#f::HoverScreenshot().UseRecentScreenshot().Show()
 
 Home::Volume_Up
 End::Volume_Down
 Insert::Volume_Mute
 PgUp::MediaActions.SkipPrev()
 PgDn::MediaActions.SkipNext()
-Delete::Send("{Media_Play_Pause}")
+Delete::Media_Play_Pause
 
 F13::Delete
 !F13::BackSpace
@@ -38,7 +55,7 @@ F13::Delete
 
 !Tab::Explorer.winObj.MinMax()
 !Escape::GroupDeactivate("Main")
-^Escape::CloseButActually()
+<^Escape::CloseButActually()
 <+Escape::WinMinimize("A")
 >+Escape::SomeLockHint("CapsLock", 2)
 

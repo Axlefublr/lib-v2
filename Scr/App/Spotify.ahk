@@ -20,15 +20,4 @@ F12::return
 !e::Spotify.LikedPlaylist()
 
 MButton::Spotify.AddToQueue()
-
-XButton1 & d::Spotify.TrashTrack()
-XButton1 & r::Spotify.Discovery()
-XButton1 & e::Spotify.AddCurrentToBest()
-XButton1 & q::Spotify.RemoveFromCurrentPlaylist()
-XButton1 & v::Spotify.AutoNewDiscovery()
-XButton1 & s::Spotify.ToggleShuffle()
-XButton1 & w::Spotify.ToggleLike()
-XButton1 & z::Spotify.AutoFavRapper()
-XButton1 & a::Spotify.PlaylistSorter.ToggleHotkey()
-
 #HotIf

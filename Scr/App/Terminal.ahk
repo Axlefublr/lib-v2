@@ -5,6 +5,4 @@
 ^BackSpace::Terminal.DeleteWord()
 
 #HotIf WinActive(Terminal.winTitle)
-XButton1 & w::VsCode.CloseTab()
-
 #HotIf
