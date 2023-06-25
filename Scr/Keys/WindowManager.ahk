@@ -1,10 +1,6 @@
 #Include <Abstractions\Registers>
 #Include <Utils\GetInput>
 #Include <Abstractions\WindowManager>
-#Include <App\Terminal> ; GetTerminal split
-
-#sc1A::WinRestore("A")
-#sc1B::WinMaximize("A")
 
 #i:: {
 	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
@@ -12,17 +8,6 @@
 	catch UnsetItemError {
 		Registers.CancelAction()
 		return
-	}
-
-	static GetTerminal() {
-		WindowManager().SeventyHor()
-		prevPosition := Terminal.winObj.position
-		prevTopness := Terminal.winObj.isAlwaysOnTop
-		Terminal.winObj.position := "ThirtyHor"
-		Terminal.winObj.isAlwaysOnTop := true
-		Terminal.winObj.RunAct()
-		Terminal.winObj.position := prevPosition
-		Terminal.winObj.isAlwaysOnTop := prevTopness
 	}
 
 	static presets := Map(
@@ -43,7 +28,6 @@
 		"d", () => WindowManager().SeventyVertThirtyHor(),
 		"m", () => WindowManager.CloseOnceInactive(),
 		"/", () => WinSetAlwaysOnTop(-1, "A"),
-		"r", () => GetTerminal(),
 
 	)
 

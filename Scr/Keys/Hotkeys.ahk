@@ -41,12 +41,12 @@
 <#e::Screenshot.CaptureScreen()
 <#f::HoverScreenshot().UseRecentScreenshot().Show()
 
-Home::Volume_Up
-End::Volume_Down
-Insert::Volume_Mute
-PgUp::MediaActions.SkipPrev()
-PgDn::MediaActions.SkipNext()
-Delete::Media_Play_Pause
+>#Home::Send("{Volume_Up}")
+>#End::Send("{Volume_Down}")
+>#Insert::Send("{Volume_Mute}")
+>#Delete::Send("{Media_Play_Pause}")
+>#PgUp::MediaActions.SkipPrev()
+>#PgDn::MediaActions.SkipNext()
 
 F13::Delete
 !F13::BackSpace
