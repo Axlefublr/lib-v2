@@ -10,12 +10,13 @@
 #Include <Abstractions\Script>
 #Include <Converters\DateTime>
 #Include <Tools\CleanInputBox>
-#Include <Misc\Meditate>
 #Include <Misc\CountLibraries>
 #Include <App\Gimp>
 #Include <App\Shows>
 #Include <Misc\Calculator>
 #Include <App\Explorer>
+#Include <App\DS4>
+#Include <App\Steam>
 
 #j:: {
 	if !input := CleanInputBox().WaitForInput() {
@@ -30,8 +31,10 @@
 		"show",   () => Shows.Run("episode"),
 		"down",   () => Shows.Run("downloaded"),
 
-		"gimp", () => Gimp.winObj.RunAct(),
+		"gimp",    () => Gimp.winObj.RunAct(),
 		"davinci", () => Davinci.winObj.RunAct(),
+		"ds4",     () => DS4.winObj.RunAct(),
+		"steam",   () => Steam.winObj.RunAct(),
 
 		"ext",   () => Explorer.WinObjs.VsCodeExtensions.RunAct_Folders(),
 		"saved", () => Explorer.WinObjs.SavedScreenshots.RunAct_Folders(),
