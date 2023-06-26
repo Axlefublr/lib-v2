@@ -19,9 +19,33 @@
 #Include <Abstractions\MediaActions>
 #Include <Misc\CloseButActually>
 
-#InputLevel 6
+;; Left alt
+#HotIf WinExist(Browser.Chat.winTitle)
+<!t::Browser.Chat.winObj.MinMax()
+#HotIf
+<!s::Spotify.winObj.App()
+<!a::VsCode.winObj.App()
+<!c::Browser.winObj.App()
+<!q::Discord.winObj.App()
+<!t::Telegram.winObj.App()
+<!r::Terminal.winObj.App()
+<!z::VPN.winObj.App()
+<!x::Send("{WheelUp}")
+<!v::Send("{WheelDown}")
+!F14::OBS.winObj.App()
 
-#Tab::Send("^!{Tab}")
+;; Right alt
+>!i::Screenshot.CaptureWindow()
+>!o::Screenshot.CaptureScreen()
+>!sc1A::Screenshot.winObj.RunAct()
+>!sc35::Counter.Decrement().Show()
+>!sc27::Counter.Send().Increment()
+>!sc28::Shows.SetDownloaded(Counter.num)
+>!u::Undo()
+>!p::Redo()
+>!sc33::MouseMove(A_ScreenWidth // 20 * 19, A_ScreenHeight // 2)
+
+;; Left windows left alt
 <+<!q::return
 <+<!w::WinRestore("A")
 <+<!e::WinMaximize("A")
@@ -37,10 +61,12 @@
 <+<!v::Paste()
 <+<!c::Copy()
 
+;; Left windows
 <#w::Screenshot.CaptureWindow()
 <#e::Screenshot.CaptureScreen()
 <#f::HoverScreenshot().UseRecentScreenshot().Show()
 
+;; Right windows
 >#Home::Send("{Volume_Up}")
 >#End::Send("{Volume_Down}")
 >#Insert::Send("{Volume_Mute}")
@@ -48,38 +74,45 @@
 >#PgUp::MediaActions.SkipPrev()
 >#PgDn::MediaActions.SkipNext()
 
+;; Any windows
+#Left::Send("{WheelLeft}")
+#Right::Send("{WheelRight}")
+#Up::Send("{WheelUp}")
+#Down::Send("{WheelDown}")
+#7::Brightness.ChangeBrightnessRelative(-10)
+#8::Brightness.ChangeBrightnessRelative(10)
+#s::Send("{Blind}k")
+#p::Send("{Blind}i")
+#HotIf !WinActive("ahk_exe " A_AhkPath)
+#Space::Language.Toggle()
+#HotIf
+#y::WindowInfo()
+#9::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
+#k::InternetSearch("Google").TriggerSearch()
+#x::Hider(false)
+#c:: {
+	CoordMode("Mouse", "Screen")
+	MouseGetPos(&x, &y)
+	Point.Color := PixelGetColor(x, y)
+}
+
+;; Remaps
+!Space::return
 F13::Delete
 !F13::BackSpace
++F13::Enter
+#!sc27::Send("#;")
+PrintScreen::Screenshot.Start()
 
-#InputLevel 5
-
+;; Manipulation
+#Tab::Send("^!{Tab}")
 !Tab::Explorer.winObj.MinMax()
 !Escape::GroupDeactivate("Main")
 <^Escape::CloseButActually()
 <+Escape::WinMinimize("A")
 >+Escape::SomeLockHint("CapsLock", 2)
 
-PrintScreen::Screenshot.Start()
-#HotIf !WinActive("ahk_exe " A_AhkPath)
-#Space::Language.Toggle()
-#HotIf
-
-#7::Brightness.ChangeBrightnessRelative(-10)
-#8::Brightness.ChangeBrightnessRelative(10)
-
-#^LButton::CoordInfo()
-#+LButton::RelativeCoordInfo.BetterCallThis()
-#y::WindowInfo()
-#9::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
-#0::HoverScreenshot().UseRecentScreenshot().Show()
-#k::InternetSearch("Google").TriggerSearch()
-#w::Hider(false)
-#e:: {
-	CoordMode("Mouse", "Screen")
-	MouseGetPos(&x, &y)
-	Point.Color := PixelGetColor(x, y)
-}
-
+;; Registers
 #n::Registers(GetInput("L1", "{Esc}").Input).WriteOrAppend(CleanInputBox().WaitForInput().Replace("``n", "`n"))
 #m::Registers(GetInput("L1", "{Esc}").Input).WriteOrAppend()
 #!m::Registers(GetInput("L1", "{Esc}").Input).Paste()
