@@ -1,6 +1,4 @@
-#Include <Utils\Image>
 #Include <App\Browser>
-#Include <Misc\HandleUIAError>
 
 class Youtube {
 
@@ -10,7 +8,4 @@ class Youtube {
 	static SkipNext() => Send("+n")
 
 	static SkipPrev() => Send("+p")
-
-	static ToggleMiniscreen() => Send("i")
-
 }

@@ -1,8 +1,4 @@
-#Include <Abstractions\Mouse>
-#Include <Abstractions\Text>
-#Include <Paths>
 #Include <Utils\Win>
-#Include <Utils\ClipSend>
 
 class Telegram {
 
@@ -20,14 +16,4 @@ class Telegram {
 		this.winObj.Close()
 		ProcessClose(this.processExe)
 	}
-
-	static NextChannel() => Send("!{Down}")
-	static PrevChannel() => Send("!{Up}")
-
-	static NextFolder() => Send("^+{Down}")
-	static PrevFolder() => Send("^+{Up}")
-
-	static Voice() => Mouse.ClickThenGoBack_Event("1452 1052")
-
-	static Scroll() => ControlClick("X1434 Y964")
 }

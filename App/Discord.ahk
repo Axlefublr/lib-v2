@@ -1,6 +1,5 @@
 #Include <Utils\Win>
 #Include <Paths>
-#Include <Utils\Image>
 
 class Discord {
 
@@ -14,18 +13,4 @@ class Discord {
 		exePath:   this.path,
 		excludeTitle: this.excludeTitle
 	})
-
-	static ToggleMentions() => ControlClick("x1788 y962")
-
-	static PrevChannel() => Send("!{Up}")
-
-	static NextChannel() => Send("!{Down}")
-
-	static PrevUnreadChannel() => Send("+!{Up}")
-
-	static NextUnreadChannel() => Send("+!{Down}")
-
-	static PrevServer() => Send("^!{Up}")
-
-	static NextServer() => Send("^!{Down}")
 }

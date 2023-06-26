@@ -1,6 +1,5 @@
 #Include <App\Browser>
 #Include <Abstractions\Base>
-#Include <Utils\Press>
 
 #HotIf WinActive(Browser.Chat.winTitle)
 !w::return

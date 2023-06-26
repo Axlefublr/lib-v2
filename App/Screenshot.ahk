@@ -6,7 +6,7 @@ class Screenshot {
 	static winTitle  := "Screen Snipping " this.exeTitle
 	static saveTitle := "Snip & Sketch ahk_exe ApplicationFrameHost.exe"
 	static exePath   := "explorer ms-screenclip:"
-	
+
 	static winObj := Win({
 		winTitle: this.winTitle,
 		exePath: this.exePath

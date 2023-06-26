@@ -1,4 +1,3 @@
-#Include <Utils\Press>
 #Include <Paths>
 #Include <Abstractions\Text>
 #Include <Abstractions\Base>
@@ -13,6 +12,4 @@
 	AppendFile(Paths.Ptf["Unfinished"], text)
 	NextTab()
 }
-
-#HotIf WinActive(VsCode.winTitle)
 #HotIf

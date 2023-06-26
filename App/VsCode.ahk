@@ -14,9 +14,4 @@ class VsCode {
 		winTitle: this.winTitle,
 		exePath:  this.path,
 	})
-
-	static CloseAllTabs()  => Send("+!w")
-	static Reload()        => Send("+!y+!y")
-	static CloseTab()      => Send("!w")
-
 }
