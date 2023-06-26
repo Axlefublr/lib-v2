@@ -32,6 +32,8 @@
 <!z::VPN.winObj.App()
 !F14::OBS.winObj.App()
 <!Space::Send("{WheelDown}")
+<!x::Copy()
+<!v::Paste()
 
 ;; Right alt
 >!i::Screenshot.CaptureWindow()
@@ -58,8 +60,6 @@
 <+<!g::Send("{Browser_Forward}")
 <+<!z::Send("{F5}")
 <+<!x::Cut()
-<+<!v::Paste()
-<+<!c::Copy()
 
 ;; Left windows
 <#w::Screenshot.CaptureWindow()
