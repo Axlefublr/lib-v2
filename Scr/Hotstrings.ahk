@@ -1,8 +1,6 @@
 #Include <Utils\Hotstringer>
 #Include <Tools\CleanInputBox>
 #Include <Converters\DateTime>
-#Include <Utils\LangDict>
-#Include <Utils\CharGenerator>
 #Include <Environment>
 #Include <Utils\ClipSend>
 
@@ -16,9 +14,6 @@
 		"dt",     () => DateTime.Date " " DateTime.Time,
 		"dw",     () => DateTime.Date " " DateTime.WeekDay,
 		"dwt",    () => DateTime.Date " " DateTime.WeekDay " " DateTime.Time,
-		"uclanr", () => GetRandomWord("english") " ",
-		"ilandh", () => GetRandomWord("russian") " ",
-		"chrs",   () => CharGenerator(2).GenerateCharacters(15),
 
 	)
 	static StaticHotstrings := Map(
