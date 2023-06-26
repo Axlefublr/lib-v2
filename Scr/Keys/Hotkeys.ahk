@@ -30,9 +30,8 @@
 <!t::Telegram.winObj.App()
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
-<!x::Send("{WheelUp}")
-<!v::Send("{WheelDown}")
 !F14::OBS.winObj.App()
+<!Space::Send("{WheelDown}")
 
 ;; Right alt
 >!i::Screenshot.CaptureWindow()
@@ -44,8 +43,9 @@
 >!u::Undo()
 >!p::Redo()
 >!sc33::MouseMove(A_ScreenWidth // 20 * 19, A_ScreenHeight // 2)
+>!Space::Send("{WheelUp}")
 
-;; Left windows left alt
+;; Left shift left alt
 <+<!q::return
 <+<!w::WinRestore("A")
 <+<!e::WinMaximize("A")
