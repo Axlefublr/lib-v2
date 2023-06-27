@@ -4,8 +4,6 @@
 #Include <Abstractions\Registers>
 #Include <Environment>
 
-#HotIf !Environment.VimMode
-
 <!d:: {
 	sValidKeys := Registers.ValidRegisters "[]\{}|-=_+;:'`",<.>/?"
 	try key := Registers.ValidateKey(GetInput("L1", "{Esc}").Input, sValidKeys)
@@ -43,5 +41,3 @@
 	if key
 		try keyActions[key].Call()
 }
-
-#HotIf

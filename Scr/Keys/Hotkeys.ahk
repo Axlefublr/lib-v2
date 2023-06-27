@@ -31,39 +31,40 @@
 <!r::Terminal.winObj.App()
 <!z::VPN.winObj.App()
 !F14::OBS.winObj.App()
-<!Space::Send("{WheelDown}")
-<!x::Copy()
-<!v::Paste()
+<!x::Screenshot.Start()
 
-;; Right alt
->!i::Screenshot.CaptureWindow()
->!o::Screenshot.CaptureScreen()
->!sc1A::Screenshot.winObj.RunAct()
->!sc35::Counter.Decrement().Show()
->!sc27::Counter.Send().Increment()
->!sc28::Shows.SetDownloaded(Counter.num)
->!u::Undo()
->!p::Redo()
->!sc33::MouseMove(A_ScreenWidth // 20 * 19, A_ScreenHeight // 2)
->!Space::Send("{WheelUp}")
+;; Left shift
+<+q::return
+<+w::WinRestore("A")
+<+e::WinMaximize("A")
+<+r::Undo()
+<+t::Redo()
+<+a::SelectAll()
+<+s::Send("{WheelUp}")
+<+d::Send("{WheelDown}")
+<+f::Send("{Browser_Back}")
+<+g::Send("{Browser_Forward}")
+<+z::Send("{F5}")
+<+x::Cut()
+<+c::Copy()
+<+v::Paste()
 
 ;; Left shift left alt
-<+<!q::return
-<+<!w::WinRestore("A")
-<+<!e::WinMaximize("A")
-<+<!r::return
-<+<!t::return
-<+<!a::SelectAll()
-<+<!s::MediaActions.SkipPrev()
-<+<!d::MediaActions.SkipNext()
-<+<!f::Send("{Browser_Back}")
-<+<!g::Send("{Browser_Forward}")
-<+<!z::Send("{F5}")
-<+<!x::Cut()
+<+<!w::Counter.Show()
+<+<!e::Counter.Reset().Show()
+<+<!r::Shows.SetDownloaded(Counter.num)
+<+<!s::Counter.Decrement().Show()
+<+<!d::Counter.Increment().Show()
+<+<!f::Counter.Send().Increment()
+<+<!g::Counter.Send()
+
+;; Right alt
+>!k::MouseMove(A_ScreenWidth // 20 * 19, A_ScreenHeight // 2)
+>!j::Click()
 
 ;; Left windows
-<#w::Screenshot.CaptureWindow()
-<#e::Screenshot.CaptureScreen()
+<#x::Screenshot.CaptureWindow()
+<#c::Screenshot.CaptureScreen()
 <#f::HoverScreenshot().UseRecentScreenshot().Show()
 
 ;; Right windows
@@ -89,8 +90,8 @@
 #y::WindowInfo()
 #9::try HoverScreenshot().SelectPath(Paths.Pictures).Show()
 #k::InternetSearch("Google").TriggerSearch()
-#x::Hider(false)
-#c:: {
+#w::Hider(false)
+#e:: {
 	CoordMode("Mouse", "Screen")
 	MouseGetPos(&x, &y)
 	Point.Color := PixelGetColor(x, y)
@@ -100,12 +101,12 @@
 !Space::return
 F13::Delete
 !F13::BackSpace
-+F13::Enter
 #!sc27::Send("#;")
 PrintScreen::Screenshot.Start()
 
 ;; Manipulation
 #Tab::Send("^!{Tab}")
+<+Tab::Enter
 !Tab::Explorer.winObj.MinMax()
 !Escape::GroupDeactivate("Main")
 <^Escape::CloseButActually()
