@@ -21,6 +21,7 @@
 #Include <Scr\Keys\WindowManager>
 #Include <Scr\Keys\Hotkeys>
 #Include <Scr\Keys\Mouse>
+#Include <Scr\Keys\AppActions>
 
 ;; Extra
 
