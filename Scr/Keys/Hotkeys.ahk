@@ -32,6 +32,8 @@
 <!z::VPN.winObj.App()
 !F14::OBS.winObj.App()
 <!x::Screenshot.Start()
+<!f::Send("{WheelDown}")
+<!v::Send("{WheelUp}")
 
 ;; Left shift
 <+q::return
@@ -40,8 +42,8 @@
 <+r::Undo()
 <+t::Redo()
 <+a::SelectAll()
-<+s::Send("{WheelUp}")
-<+d::Send("{WheelDown}")
+<+s::return
+<+d::return
 <+f::Send("{Browser_Back}")
 <+g::Send("{Browser_Forward}")
 <+z::Send("{F5}")

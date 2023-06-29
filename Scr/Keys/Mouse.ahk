@@ -3,6 +3,9 @@
 #Include <Tools\CoordInfo>
 #Include <Tools\RelativeCoordInfo>
 
+XButton1::return
+XButton2::return
+
 #MaxThreadsBuffer true
 XButton2 & WheelUp::Volume_Up
 XButton2 & WheelDown::Volume_Down
