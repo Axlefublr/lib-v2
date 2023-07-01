@@ -111,7 +111,7 @@ PrintScreen::Screenshot.Start()
 <+Tab::Enter
 !Tab::Explorer.winObj.MinMax()
 !Escape::GroupDeactivate("Main")
-<^Escape::CloseButActually()
+^Escape::CloseButActually()
 <+Escape::WinMinimize("A")
 >+Escape::SomeLockHint("CapsLock", 2)
 
