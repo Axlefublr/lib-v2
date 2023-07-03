@@ -11,7 +11,7 @@ F5::Spotify.AutoNewDiscovery()
 F6::Spotify.CopyArtistTrack()
 F7::Spotify.CopyLink()
 F8::Spotify.AutoFavRapper()
-F9::return
+F9::Spotify.Discovery()
 F10::return
 F11::Spotify.CopyArtist()
 F12::return
