@@ -52,9 +52,9 @@
 <+v::Paste()
 
 ;; Left shift left alt
-<+<!w::Counter.Show()
-<+<!e::Counter.Reset().Show()
-<+<!r::Shows.SetDownloaded(Counter.num)
+<+<!x::Counter.Show()
+<+<!c::Counter.Reset().Show()
+<+<!q::Shows.SetDownloaded(Counter.num)
 <+<!s::Counter.Decrement().Show()
 <+<!d::Counter.Increment().Show()
 <+<!f::Counter.Send().Increment()
