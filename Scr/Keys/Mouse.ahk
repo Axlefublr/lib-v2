@@ -7,8 +7,8 @@ XButton1::return
 XButton2::return
 
 #MaxThreadsBuffer true
-XButton2 & WheelUp::Volume_Up
-XButton2 & WheelDown::Volume_Down
+XButton1 & WheelUp::Volume_Up
+XButton1 & WheelDown::Volume_Down
 #MaxThreadsBuffer false
 
 XButton1 & XButton2::Media_Play_Pause
