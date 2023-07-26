@@ -42,6 +42,7 @@
 
 		"C",     "C# en-us",
 		"vimap", "vim.keymap.set()",
+		"gh",    "https://github.com/",
 
 	)
 	Hotstringer.DynamicHotstrings := DynamicHotstrings

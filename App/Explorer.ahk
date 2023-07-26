@@ -7,7 +7,7 @@ class Explorer {
 	static exeTitle      := "ahk_exe " this.process
 	static winTitle      := "ahk_class CabinetWClass " this.exeTitle
 	static position      := "ThirtyVert"
-	static isAlwaysOnTop := true
+	static isAlwaysOnTop := false
 	static runOpt        := "Min"
 
 	static winObj := Win({

@@ -1,5 +1,6 @@
 #Include <Extensions\Initializable>
 #Include <App\Explorer> ; Needed for _Folders functions. If you don't need them (and they're syntax sugar anyway), you can just remove them and you won't need this include
+#Include <Abstractions\WindowManager>
 
 class Win extends Initializable {
 
