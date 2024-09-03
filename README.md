@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Not maintained. Assume things will not work, and be surprised if they do.
+
 This repo contains the libraries I use
 
 Most of them are mine, but some will be libraries of other people
